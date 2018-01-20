@@ -1,0 +1,2732 @@
+[
+    {
+        "id": "2bf417e7.69cd68",
+        "type": "tab",
+        "label": "Burglary Protection System",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "8636f92c.3e9108",
+        "type": "link out",
+        "z": "2bf417e7.69cd68",
+        "name": "Alarm OUT",
+        "links": [
+            "311713df.49eab4",
+            "202afc67.a243bc",
+            "696f24b9.8ca8bc"
+        ],
+        "x": 295,
+        "y": 2000,
+        "wires": []
+    },
+    {
+        "id": "33105671.bb25ea",
+        "type": "switch",
+        "z": "2bf417e7.69cd68",
+        "name": "State?",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "Armed&MemoryAlarm",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "Armed",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "Alarm",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "DisArmed",
+                "vt": "str"
+            },
+            {
+                "t": "null"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "false",
+        "outputs": 6,
+        "x": 530,
+        "y": 3300,
+        "wires": [
+            [
+                "118afd50.aab153"
+            ],
+            [
+                "d305d0c9.15162"
+            ],
+            [
+                "8f791ef.e5410e"
+            ],
+            [
+                "8432bec4.7b3d2"
+            ],
+            [
+                "8432bec4.7b3d2"
+            ],
+            [
+                "8432bec4.7b3d2"
+            ]
+        ]
+    },
+    {
+        "id": "d305d0c9.15162",
+        "type": "change",
+        "z": "2bf417e7.69cd68",
+        "name": "transfer to Armed",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "initarmed",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 730,
+        "y": 3280,
+        "wires": [
+            [
+                "f454590.107f4a8"
+            ]
+        ]
+    },
+    {
+        "id": "8432bec4.7b3d2",
+        "type": "change",
+        "z": "2bf417e7.69cd68",
+        "name": "transfer to DisArmed",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "initoff",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 740,
+        "y": 3360,
+        "wires": [
+            [
+                "f454590.107f4a8"
+            ]
+        ]
+    },
+    {
+        "id": "7dbafc74.fde7e4",
+        "type": "file in",
+        "z": "2bf417e7.69cd68",
+        "name": "Read from file",
+        "filename": "alarm-state.json",
+        "format": "lines",
+        "chunk": false,
+        "sendError": true,
+        "x": 220,
+        "y": 3280,
+        "wires": [
+            [
+                "f2e27303.574b"
+            ]
+        ]
+    },
+    {
+        "id": "57c556b7.8ddbd8",
+        "type": "file",
+        "z": "2bf417e7.69cd68",
+        "name": "Save to file",
+        "filename": "alarm-state.json",
+        "appendNewline": true,
+        "createDir": false,
+        "overwriteFile": "true",
+        "x": 210,
+        "y": 3318,
+        "wires": []
+    },
+    {
+        "id": "5e47dcfe.a83dc4",
+        "type": "switch",
+        "z": "2bf417e7.69cd68",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "Armed",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "EntryDelay",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "ExitDelay",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "Alarm",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "DisArmed",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "memoryalarm",
+                "vt": "str"
+            }
+        ],
+        "checkall": "false",
+        "outputs": 6,
+        "x": 210,
+        "y": 1993,
+        "wires": [
+            [
+                "4bcc88f1.175488"
+            ],
+            [
+                "30685740.1b4338"
+            ],
+            [
+                "3cd3e648.dc243a"
+            ],
+            [
+                "50d3e471.e07efc",
+                "8636f92c.3e9108"
+            ],
+            [
+                "c334ff57.bb9de"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "c9e68e77.7b746",
+        "type": "googlehome-notify",
+        "z": "2bf417e7.69cd68",
+        "server": "41f9008f.75bde",
+        "name": "Bureau",
+        "x": 857,
+        "y": 1999,
+        "wires": []
+    },
+    {
+        "id": "4bcc88f1.175488",
+        "type": "change",
+        "z": "2bf417e7.69cd68",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "L'alarme est armée et votre maison est sous-surveillance.",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 455,
+        "y": 1916,
+        "wires": [
+            [
+                "f3d0d8fd.2bdb58"
+            ]
+        ]
+    },
+    {
+        "id": "30685740.1b4338",
+        "type": "change",
+        "z": "2bf417e7.69cd68",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "Délai d'entrée activé. Vous avez 20 Secondes pour désarmer l'alarme.",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 453,
+        "y": 1954,
+        "wires": [
+            [
+                "f3d0d8fd.2bdb58"
+            ]
+        ]
+    },
+    {
+        "id": "3cd3e648.dc243a",
+        "type": "change",
+        "z": "2bf417e7.69cd68",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "Délai de sortie activé. Vous avez 20 Secondes pour quitter votre maison.",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 452,
+        "y": 1993,
+        "wires": [
+            [
+                "f3d0d8fd.2bdb58"
+            ]
+        ]
+    },
+    {
+        "id": "50d3e471.e07efc",
+        "type": "change",
+        "z": "2bf417e7.69cd68",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "Alarme en cours. Une société de sécurité vient d'etre prevenue, et vous êtes cernés par nos caméras de surveillance.",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 454,
+        "y": 2034,
+        "wires": [
+            [
+                "f3d0d8fd.2bdb58"
+            ]
+        ]
+    },
+    {
+        "id": "c334ff57.bb9de",
+        "type": "change",
+        "z": "2bf417e7.69cd68",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "L'alarme est désarmée et votre maison est tors-surveillance.",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 455,
+        "y": 2075,
+        "wires": [
+            [
+                "f3d0d8fd.2bdb58"
+            ]
+        ]
+    },
+    {
+        "id": "f3d0d8fd.2bdb58",
+        "type": "rbe",
+        "z": "2bf417e7.69cd68",
+        "name": "",
+        "func": "rbei",
+        "gap": "",
+        "start": "",
+        "inout": "out",
+        "x": 668,
+        "y": 1999,
+        "wires": [
+            [
+                "c9e68e77.7b746"
+            ]
+        ]
+    },
+    {
+        "id": "428fea26.8a3b54",
+        "type": "link out",
+        "z": "2bf417e7.69cd68",
+        "name": "KNX OUTPUT",
+        "links": [
+            "4fa15262.42da6c",
+            "82c01291.62f95"
+        ],
+        "x": 1095,
+        "y": 803,
+        "wires": []
+    },
+    {
+        "id": "8455ee98.2e024",
+        "type": "realknx-in",
+        "z": "2bf417e7.69cd68",
+        "name": "",
+        "controller": "c7208987.910908",
+        "itemname": "Général - AL_ARMED",
+        "passthru": false,
+        "booleanoutput": true,
+        "outputatstartup": false,
+        "x": 168,
+        "y": 521,
+        "wires": [
+            [
+                "5ee395ae.75b04c",
+                "331afafa.fd9ad6"
+            ]
+        ]
+    },
+    {
+        "id": "5ee395ae.75b04c",
+        "type": "change",
+        "z": "2bf417e7.69cd68",
+        "name": "",
+        "rules": [
+            {
+                "t": "change",
+                "p": "payload",
+                "pt": "msg",
+                "from": "true",
+                "fromt": "bool",
+                "to": "turnon",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 737,
+        "y": 482,
+        "wires": [
+            [
+                "428fea26.8a3b54",
+                "9f96a4b3.91bda8"
+            ]
+        ]
+    },
+    {
+        "id": "7662e1f.157ea2",
+        "type": "realknx-in",
+        "z": "2bf417e7.69cd68",
+        "name": "",
+        "controller": "c7208987.910908",
+        "itemname": "Salon - Porte",
+        "passthru": false,
+        "booleanoutput": true,
+        "outputatstartup": true,
+        "x": 133,
+        "y": 772,
+        "wires": [
+            [
+                "ab3273b8.bc0c5"
+            ]
+        ]
+    },
+    {
+        "id": "a703d9fc.7a7f38",
+        "type": "change",
+        "z": "2bf417e7.69cd68",
+        "name": "",
+        "rules": [
+            {
+                "t": "change",
+                "p": "payload",
+                "pt": "msg",
+                "from": "true",
+                "fromt": "bool",
+                "to": "entrydelaystart",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 740,
+        "y": 844,
+        "wires": [
+            [
+                "428fea26.8a3b54",
+                "cf062b96.fa49f8"
+            ]
+        ]
+    },
+    {
+        "id": "cf062b96.fa49f8",
+        "type": "trigger",
+        "z": "2bf417e7.69cd68",
+        "op1": "",
+        "op2": "entrydelayend",
+        "op1type": "nul",
+        "op2type": "str",
+        "duration": "20",
+        "extend": false,
+        "units": "s",
+        "reset": "",
+        "name": "EntryDelay: 20 sec",
+        "x": 730,
+        "y": 879,
+        "wires": [
+            [
+                "428fea26.8a3b54"
+            ]
+        ]
+    },
+    {
+        "id": "cdffcf24.4d60f",
+        "type": "comment",
+        "z": "2bf417e7.69cd68",
+        "name": "Armed With a AUX-KNX or State Alarm ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------",
+        "info": "",
+        "x": 700,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "7486fed4.73287",
+        "type": "comment",
+        "z": "2bf417e7.69cd68",
+        "name": "Detector with 20sec for exit-entry (Door) ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------",
+        "info": "",
+        "x": 700,
+        "y": 720,
+        "wires": []
+    },
+    {
+        "id": "32c2c894.c870e8",
+        "type": "realknx-in",
+        "z": "2bf417e7.69cd68",
+        "name": "",
+        "controller": "c7208987.910908",
+        "itemname": "Home cinema - Detector",
+        "passthru": false,
+        "booleanoutput": true,
+        "outputatstartup": true,
+        "x": 173,
+        "y": 1012,
+        "wires": [
+            [
+                "27afaf06.add47"
+            ]
+        ]
+    },
+    {
+        "id": "13879e02.d61a02",
+        "type": "change",
+        "z": "2bf417e7.69cd68",
+        "name": "",
+        "rules": [
+            {
+                "t": "change",
+                "p": "payload",
+                "pt": "msg",
+                "from": "true",
+                "fromt": "bool",
+                "to": "pir",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 742,
+        "y": 1098,
+        "wires": [
+            [
+                "428fea26.8a3b54"
+            ]
+        ]
+    },
+    {
+        "id": "78a40e27.7e891",
+        "type": "comment",
+        "z": "2bf417e7.69cd68",
+        "name": "Detector for immediate Alarm ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------",
+        "info": "",
+        "x": 710,
+        "y": 960,
+        "wires": []
+    },
+    {
+        "id": "f2e016db.a4b968",
+        "type": "trigger",
+        "z": "2bf417e7.69cd68",
+        "op1": "",
+        "op2": "memoryalarm",
+        "op1type": "nul",
+        "op2type": "str",
+        "duration": "20",
+        "extend": false,
+        "units": "s",
+        "reset": "",
+        "name": "SirenDelay: 20 Sec",
+        "x": 230,
+        "y": 1320,
+        "wires": [
+            [
+                "a992c241.34238"
+            ]
+        ]
+    },
+    {
+        "id": "605bf647.330c88",
+        "type": "switch",
+        "z": "2bf417e7.69cd68",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "ExitDelay",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "EntryDelay",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "Armed",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "DisArmed",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "Armed&MemoryAlarm",
+                "vt": "str"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "false",
+        "outputs": 6,
+        "x": 210,
+        "y": 1740,
+        "wires": [
+            [
+                "efb42b2f.665118"
+            ],
+            [
+                "efb42b2f.665118"
+            ],
+            [
+                "b65a505b.2df92"
+            ],
+            [
+                "b65a505b.2df92"
+            ],
+            [
+                "b65a505b.2df92"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "b65a505b.2df92",
+        "type": "change",
+        "z": "2bf417e7.69cd68",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "false",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 455,
+        "y": 1751,
+        "wires": [
+            [
+                "8c960e26.5503b"
+            ]
+        ]
+    },
+    {
+        "id": "efb42b2f.665118",
+        "type": "change",
+        "z": "2bf417e7.69cd68",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "true",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 455,
+        "y": 1712,
+        "wires": [
+            [
+                "8c960e26.5503b"
+            ]
+        ]
+    },
+    {
+        "id": "9f96a4b3.91bda8",
+        "type": "trigger",
+        "z": "2bf417e7.69cd68",
+        "op1": "",
+        "op2": "arm",
+        "op1type": "nul",
+        "op2type": "str",
+        "duration": "20",
+        "extend": false,
+        "units": "s",
+        "reset": "",
+        "name": "ExitDelay: 20 sec",
+        "x": 724,
+        "y": 516,
+        "wires": [
+            [
+                "428fea26.8a3b54"
+            ]
+        ]
+    },
+    {
+        "id": "331afafa.fd9ad6",
+        "type": "change",
+        "z": "2bf417e7.69cd68",
+        "name": "",
+        "rules": [
+            {
+                "t": "change",
+                "p": "payload",
+                "pt": "msg",
+                "from": "false",
+                "fromt": "bool",
+                "to": "turnoff",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 734,
+        "y": 584,
+        "wires": [
+            [
+                "428fea26.8a3b54"
+            ]
+        ]
+    },
+    {
+        "id": "7b4d6fda.80e3a",
+        "type": "inject",
+        "z": "2bf417e7.69cd68",
+        "name": "TurnOnKey",
+        "topic": "",
+        "payload": "turnon",
+        "payloadType": "str",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 694,
+        "y": 550,
+        "wires": [
+            [
+                "9f96a4b3.91bda8",
+                "428fea26.8a3b54"
+            ]
+        ]
+    },
+    {
+        "id": "c0be1cca.b8a5a",
+        "type": "inject",
+        "z": "2bf417e7.69cd68",
+        "name": "TurnOffKey",
+        "topic": "",
+        "payload": "turnoff",
+        "payloadType": "str",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 693,
+        "y": 621,
+        "wires": [
+            [
+                "428fea26.8a3b54"
+            ]
+        ]
+    },
+    {
+        "id": "1237836b.2cdebd",
+        "type": "inject",
+        "z": "2bf417e7.69cd68",
+        "name": "Exit-Entry door contact",
+        "topic": "",
+        "payload": "entrydelaystart",
+        "payloadType": "str",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 740,
+        "y": 915,
+        "wires": [
+            [
+                "428fea26.8a3b54",
+                "cf062b96.fa49f8"
+            ]
+        ]
+    },
+    {
+        "id": "1a6c4c25.0c43e4",
+        "type": "inject",
+        "z": "2bf417e7.69cd68",
+        "name": "Motion detector",
+        "topic": "",
+        "payload": "pir",
+        "payloadType": "str",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 720,
+        "y": 1134,
+        "wires": [
+            [
+                "428fea26.8a3b54"
+            ]
+        ]
+    },
+    {
+        "id": "696f24b9.8ca8bc",
+        "type": "link in",
+        "z": "2bf417e7.69cd68",
+        "name": "SirenDelay IN",
+        "links": [
+            "8636f92c.3e9108",
+            "8cbdbaf4.3fcf"
+        ],
+        "x": 75,
+        "y": 1320,
+        "wires": [
+            [
+                "f2e016db.a4b968"
+            ]
+        ]
+    },
+    {
+        "id": "f6da14cb.9f73f8",
+        "type": "switch",
+        "z": "2bf417e7.69cd68",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "Alarm",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "DisArmed",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "Armed&MemoryAlarm",
+                "vt": "str"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "false",
+        "outputs": 4,
+        "x": 210,
+        "y": 2240,
+        "wires": [
+            [
+                "13fc4cc6.a12653"
+            ],
+            [
+                "ee69f5d2.7c45e8"
+            ],
+            [
+                "ee69f5d2.7c45e8"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "13fc4cc6.a12653",
+        "type": "change",
+        "z": "2bf417e7.69cd68",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "true",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 460,
+        "y": 2221,
+        "wires": [
+            [
+                "b6e6bc5e.ae7b9"
+            ]
+        ]
+    },
+    {
+        "id": "ee69f5d2.7c45e8",
+        "type": "change",
+        "z": "2bf417e7.69cd68",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "false",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 460,
+        "y": 2261,
+        "wires": [
+            [
+                "b6e6bc5e.ae7b9"
+            ]
+        ]
+    },
+    {
+        "id": "dcf56dff.16b12",
+        "type": "realknx-out",
+        "z": "2bf417e7.69cd68",
+        "name": "",
+        "controller": "c7208987.910908",
+        "itemname": "Cuisine - Plafonnier",
+        "topic": "",
+        "payload": "",
+        "booleaninput": true,
+        "x": 892,
+        "y": 2245,
+        "wires": []
+    },
+    {
+        "id": "118afd50.aab153",
+        "type": "change",
+        "z": "2bf417e7.69cd68",
+        "name": "transfer to Armed&MemoryAlarm",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "initmemoryalarm",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 780,
+        "y": 3240,
+        "wires": [
+            [
+                "f454590.107f4a8"
+            ]
+        ]
+    },
+    {
+        "id": "f454590.107f4a8",
+        "type": "link out",
+        "z": "2bf417e7.69cd68",
+        "name": "STATE OUTPUT",
+        "links": [
+            "4fa15262.42da6c",
+            "82c01291.62f95"
+        ],
+        "x": 975,
+        "y": 3300,
+        "wires": []
+    },
+    {
+        "id": "8f791ef.e5410e",
+        "type": "change",
+        "z": "2bf417e7.69cd68",
+        "name": "transfer to Alarm",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "initalarm",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 730,
+        "y": 3320,
+        "wires": [
+            [
+                "f454590.107f4a8"
+            ]
+        ]
+    },
+    {
+        "id": "ada04268.79418",
+        "type": "comment",
+        "z": "2bf417e7.69cd68",
+        "name": "LED or BUZZER for Delay ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------",
+        "info": "",
+        "x": 660,
+        "y": 1620,
+        "wires": []
+    },
+    {
+        "id": "18587ed7.c2db51",
+        "type": "comment",
+        "z": "2bf417e7.69cd68",
+        "name": "Voice Information ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------",
+        "info": "",
+        "x": 670,
+        "y": 1860,
+        "wires": []
+    },
+    {
+        "id": "6f5fd00a.a2aae",
+        "type": "comment",
+        "z": "2bf417e7.69cd68",
+        "name": "Siren for Alarm -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------",
+        "info": "",
+        "x": 680,
+        "y": 2160,
+        "wires": []
+    },
+    {
+        "id": "3f5a8e3.62b8672",
+        "type": "comment",
+        "z": "2bf417e7.69cd68",
+        "name": "Save & Get the State to/from file------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------",
+        "info": "",
+        "x": 670,
+        "y": 3180,
+        "wires": []
+    },
+    {
+        "id": "ab3273b8.bc0c5",
+        "type": "BooleanLogic",
+        "z": "2bf417e7.69cd68",
+        "name": "",
+        "operation": "OR",
+        "inputCount": "2",
+        "topic": "result0",
+        "x": 409,
+        "y": 773,
+        "wires": [
+            [
+                "500d2e38.1c2b1"
+            ]
+        ]
+    },
+    {
+        "id": "27afaf06.add47",
+        "type": "BooleanLogic",
+        "z": "2bf417e7.69cd68",
+        "name": "",
+        "operation": "OR",
+        "inputCount": "2",
+        "topic": "result1",
+        "x": 410,
+        "y": 1011,
+        "wires": [
+            [
+                "6b5fec0e.5e90a4"
+            ]
+        ]
+    },
+    {
+        "id": "1bc2913c.1fe5af",
+        "type": "realknx-in",
+        "z": "2bf417e7.69cd68",
+        "name": "",
+        "controller": "c7208987.910908",
+        "itemname": "Salle à manger - Detecteur",
+        "passthru": false,
+        "booleanoutput": true,
+        "outputatstartup": true,
+        "x": 172,
+        "y": 1063,
+        "wires": [
+            [
+                "27afaf06.add47"
+            ]
+        ]
+    },
+    {
+        "id": "cb7900ab.b30a7",
+        "type": "realknx-in",
+        "z": "2bf417e7.69cd68",
+        "name": "",
+        "controller": "c7208987.910908",
+        "itemname": "Living Room - Gate",
+        "passthru": false,
+        "booleanoutput": true,
+        "outputatstartup": true,
+        "x": 152,
+        "y": 823,
+        "wires": [
+            [
+                "ab3273b8.bc0c5"
+            ]
+        ]
+    },
+    {
+        "id": "b5eaf204.74118",
+        "type": "realknx-in",
+        "z": "2bf417e7.69cd68",
+        "name": "",
+        "controller": "c7208987.910908",
+        "itemname": "Général - Armé",
+        "passthru": false,
+        "booleanoutput": true,
+        "outputatstartup": false,
+        "x": 148,
+        "y": 581,
+        "wires": [
+            [
+                "5ee395ae.75b04c",
+                "331afafa.fd9ad6"
+            ]
+        ]
+    },
+    {
+        "id": "c7fb1946.b51aa8",
+        "type": "pushbullet",
+        "z": "2bf417e7.69cd68",
+        "config": "e92c1a49.9d1778",
+        "pushtype": "note",
+        "title": "L'alarme est armé",
+        "chan": "",
+        "name": "",
+        "x": 890,
+        "y": 2440,
+        "wires": []
+    },
+    {
+        "id": "5bbdaa55.e1aaf4",
+        "type": "switch",
+        "z": "2bf417e7.69cd68",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "Armed",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "DisArmed",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "Alarm",
+                "vt": "str"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "false",
+        "outputs": 4,
+        "x": 434,
+        "y": 2486,
+        "wires": [
+            [
+                "c7fb1946.b51aa8"
+            ],
+            [
+                "1ea6c8f4.a42227"
+            ],
+            [
+                "3104939d.6bd84c"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "1ea6c8f4.a42227",
+        "type": "pushbullet",
+        "z": "2bf417e7.69cd68",
+        "config": "e92c1a49.9d1778",
+        "pushtype": "note",
+        "title": "L'alarme est désarmé",
+        "chan": "",
+        "name": "",
+        "x": 900,
+        "y": 2480,
+        "wires": []
+    },
+    {
+        "id": "3104939d.6bd84c",
+        "type": "pushbullet",
+        "z": "2bf417e7.69cd68",
+        "config": "e92c1a49.9d1778",
+        "pushtype": "note",
+        "title": "Intrusion! Alarme en cours",
+        "chan": "",
+        "name": "",
+        "x": 920,
+        "y": 2520,
+        "wires": []
+    },
+    {
+        "id": "bc315669.e34a38",
+        "type": "switch",
+        "z": "2bf417e7.69cd68",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "true"
+            },
+            {
+                "t": "false"
+            }
+        ],
+        "checkall": "false",
+        "outputs": 2,
+        "x": 690,
+        "y": 807,
+        "wires": [
+            [
+                "a703d9fc.7a7f38"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "5a14b764.e82618",
+        "type": "switch",
+        "z": "2bf417e7.69cd68",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "true"
+            },
+            {
+                "t": "false"
+            }
+        ],
+        "checkall": "false",
+        "outputs": 2,
+        "x": 690,
+        "y": 1055,
+        "wires": [
+            [
+                "13879e02.d61a02"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "fa492fbe.571c4",
+        "type": "comment",
+        "z": "2bf417e7.69cd68",
+        "name": "PushNotification with PushBullet ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------",
+        "info": "",
+        "x": 670,
+        "y": 2380,
+        "wires": []
+    },
+    {
+        "id": "30b6b4c.c4eb94c",
+        "type": "better-sonos-control",
+        "z": "2bf417e7.69cd68",
+        "confignode": "187f8fde.84259",
+        "name": "Play",
+        "mode": "play",
+        "track": "",
+        "volume": "unmute",
+        "volume_value": "",
+        "x": 1030,
+        "y": 2772,
+        "wires": []
+    },
+    {
+        "id": "2aaf05c7.1763fa",
+        "type": "better-sonos-control",
+        "z": "2bf417e7.69cd68",
+        "confignode": "187f8fde.84259",
+        "name": "Set volume to X %",
+        "mode": "",
+        "track": "",
+        "volume": "volume",
+        "volume_value": "30",
+        "x": 1070,
+        "y": 2728,
+        "wires": []
+    },
+    {
+        "id": "e6486777.ddb128",
+        "type": "better-sonos-control",
+        "z": "2bf417e7.69cd68",
+        "confignode": "187f8fde.84259",
+        "name": "Stop",
+        "mode": "stop",
+        "track": "",
+        "volume": "empty",
+        "volume_value": "",
+        "x": 1031,
+        "y": 2820,
+        "wires": []
+    },
+    {
+        "id": "577dc644.7ddf78",
+        "type": "better-sonos-queue",
+        "z": "2bf417e7.69cd68",
+        "confignode": "187f8fde.84259",
+        "songuri": "https://proknx.com/download/dog.mp3",
+        "position": "next",
+        "positioninqueue": "",
+        "name": "",
+        "x": 1070,
+        "y": 2684,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "1a42ea50.cb4226",
+        "type": "delay",
+        "z": "2bf417e7.69cd68",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "1",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "x": 860,
+        "y": 2685,
+        "wires": [
+            [
+                "577dc644.7ddf78"
+            ]
+        ]
+    },
+    {
+        "id": "ced15dec.58431",
+        "type": "delay",
+        "z": "2bf417e7.69cd68",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "2",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "x": 860,
+        "y": 2729,
+        "wires": [
+            [
+                "2aaf05c7.1763fa"
+            ]
+        ]
+    },
+    {
+        "id": "6920d78b.748f18",
+        "type": "delay",
+        "z": "2bf417e7.69cd68",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "3",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "x": 860,
+        "y": 2772,
+        "wires": [
+            [
+                "30b6b4c.c4eb94c"
+            ]
+        ]
+    },
+    {
+        "id": "1ddc2714.c89d49",
+        "type": "switch",
+        "z": "2bf417e7.69cd68",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "Alarm",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "Armed&MemoryAlarm",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "DisArmed",
+                "vt": "str"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "false",
+        "outputs": 4,
+        "x": 431,
+        "y": 2772,
+        "wires": [
+            [
+                "af866e19.638ab"
+            ],
+            [
+                "f99d6878.a72c18"
+            ],
+            [
+                "f99d6878.a72c18"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "af866e19.638ab",
+        "type": "change",
+        "z": "2bf417e7.69cd68",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "true",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 620,
+        "y": 2747,
+        "wires": [
+            [
+                "1a42ea50.cb4226",
+                "ced15dec.58431",
+                "6920d78b.748f18"
+            ]
+        ]
+    },
+    {
+        "id": "f99d6878.a72c18",
+        "type": "change",
+        "z": "2bf417e7.69cd68",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "false",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 620,
+        "y": 2782,
+        "wires": [
+            [
+                "e6486777.ddb128"
+            ]
+        ]
+    },
+    {
+        "id": "efacd204.0f171",
+        "type": "comment",
+        "z": "2bf417e7.69cd68",
+        "name": "Dog on speaker when alarm -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------",
+        "info": "",
+        "x": 690,
+        "y": 2640,
+        "wires": []
+    },
+    {
+        "id": "eaaa37cf.b15e28",
+        "type": "delay",
+        "z": "2bf417e7.69cd68",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "3",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "x": 740,
+        "y": 3000,
+        "wires": [
+            [
+                "c57f5423.b01358"
+            ]
+        ]
+    },
+    {
+        "id": "c57f5423.b01358",
+        "type": "trigger",
+        "z": "2bf417e7.69cd68",
+        "op1": "255",
+        "op2": "0",
+        "op1type": "num",
+        "op2type": "num",
+        "duration": "3",
+        "extend": false,
+        "units": "s",
+        "reset": "",
+        "name": "",
+        "x": 740,
+        "y": 2960,
+        "wires": [
+            [
+                "eaaa37cf.b15e28",
+                "4a2e59bc.4af828"
+            ]
+        ]
+    },
+    {
+        "id": "6c11c525.487efc",
+        "type": "switch",
+        "z": "2bf417e7.69cd68",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "Alarm",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "DisArmed",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "Armed&MemoryAlarm",
+                "vt": "str"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "false",
+        "outputs": 4,
+        "x": 370,
+        "y": 2980,
+        "wires": [
+            [
+                "32ee8e99.a3fca2"
+            ],
+            [
+                "539b2f99.705cd",
+                "8850e01f.6e885"
+            ],
+            [
+                "539b2f99.705cd",
+                "8850e01f.6e885"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "32ee8e99.a3fca2",
+        "type": "change",
+        "z": "2bf417e7.69cd68",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "true",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 560,
+        "y": 2960,
+        "wires": [
+            [
+                "c57f5423.b01358"
+            ]
+        ]
+    },
+    {
+        "id": "539b2f99.705cd",
+        "type": "change",
+        "z": "2bf417e7.69cd68",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "reset",
+                "pt": "msg",
+                "to": "true",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 560,
+        "y": 3000,
+        "wires": [
+            [
+                "c57f5423.b01358",
+                "eaaa37cf.b15e28"
+            ]
+        ]
+    },
+    {
+        "id": "4ed82163.d8219",
+        "type": "comment",
+        "z": "2bf417e7.69cd68",
+        "name": "Flashing light when alarm -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------",
+        "info": "",
+        "x": 660,
+        "y": 2900,
+        "wires": []
+    },
+    {
+        "id": "8850e01f.6e885",
+        "type": "change",
+        "z": "2bf417e7.69cd68",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "false",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 560,
+        "y": 3039,
+        "wires": [
+            [
+                "308a37ea.a38708"
+            ]
+        ]
+    },
+    {
+        "id": "308a37ea.a38708",
+        "type": "delay",
+        "z": "2bf417e7.69cd68",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "10",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "x": 740,
+        "y": 3040,
+        "wires": [
+            [
+                "4a2e59bc.4af828"
+            ]
+        ]
+    },
+    {
+        "id": "4a2e59bc.4af828",
+        "type": "switch",
+        "z": "2bf417e7.69cd68",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "true",
+        "outputs": 1,
+        "x": 905,
+        "y": 3005,
+        "wires": [
+            [
+                "f1acac2f.881d8"
+            ]
+        ]
+    },
+    {
+        "id": "f1acac2f.881d8",
+        "type": "realknx-out",
+        "z": "2bf417e7.69cd68",
+        "name": "",
+        "controller": "c7208987.910908",
+        "itemname": "Salon - Plafonnier",
+        "topic": "",
+        "payload": "",
+        "booleaninput": true,
+        "x": 1066,
+        "y": 3005,
+        "wires": []
+    },
+    {
+        "id": "9d68e1d4.42a29",
+        "type": "BooleanLogic",
+        "z": "2bf417e7.69cd68",
+        "name": "",
+        "operation": "AND",
+        "inputCount": 2,
+        "topic": "Detectorimmediatly",
+        "x": 699,
+        "y": 1010,
+        "wires": [
+            [
+                "5a14b764.e82618"
+            ]
+        ]
+    },
+    {
+        "id": "83e49755.111e78",
+        "type": "switch",
+        "z": "2bf417e7.69cd68",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "Armed",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "Armed&MemoryAlarm",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "DisArmed",
+                "vt": "str"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "false",
+        "outputs": 4,
+        "x": 210,
+        "y": 1540,
+        "wires": [
+            [
+                "7fae5ea9.c35a8"
+            ],
+            [
+                "7fae5ea9.c35a8"
+            ],
+            [
+                "3aaa88b4.d6c728"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "67f55c2.a0193a4",
+        "type": "comment",
+        "z": "2bf417e7.69cd68",
+        "name": "LED or BUZZER for Delay--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------",
+        "info": "",
+        "x": 710,
+        "y": 1470,
+        "wires": []
+    },
+    {
+        "id": "3aaa88b4.d6c728",
+        "type": "change",
+        "z": "2bf417e7.69cd68",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "false",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 460,
+        "y": 1552,
+        "wires": [
+            [
+                "cc663e02.9cc66"
+            ]
+        ]
+    },
+    {
+        "id": "7fae5ea9.c35a8",
+        "type": "change",
+        "z": "2bf417e7.69cd68",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "true",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 458,
+        "y": 1516,
+        "wires": [
+            [
+                "977fc3e9.a01a4"
+            ]
+        ]
+    },
+    {
+        "id": "c5b7b8fe.d013a8",
+        "type": "link out",
+        "z": "2bf417e7.69cd68",
+        "name": "Armed/DisArmed IN",
+        "links": [
+            "f38436cb.662a78",
+            "52fffab9.edbc74"
+        ],
+        "x": 902,
+        "y": 1531,
+        "wires": []
+    },
+    {
+        "id": "f38436cb.662a78",
+        "type": "link in",
+        "z": "2bf417e7.69cd68",
+        "name": "Armed/DisArmed OUT",
+        "links": [
+            "c5b7b8fe.d013a8"
+        ],
+        "x": 563,
+        "y": 1057,
+        "wires": [
+            [
+                "9d68e1d4.42a29"
+            ]
+        ]
+    },
+    {
+        "id": "dfe11794.ab8bc8",
+        "type": "BooleanLogic",
+        "z": "2bf417e7.69cd68",
+        "name": "",
+        "operation": "AND",
+        "inputCount": 2,
+        "topic": "Detector20sec",
+        "x": 699,
+        "y": 772,
+        "wires": [
+            [
+                "bc315669.e34a38"
+            ]
+        ]
+    },
+    {
+        "id": "52fffab9.edbc74",
+        "type": "link in",
+        "z": "2bf417e7.69cd68",
+        "name": "Armed/DisArmed OUT",
+        "links": [
+            "c5b7b8fe.d013a8"
+        ],
+        "x": 563,
+        "y": 819,
+        "wires": [
+            [
+                "dfe11794.ab8bc8"
+            ]
+        ]
+    },
+    {
+        "id": "f2e27303.574b",
+        "type": "delay",
+        "z": "2bf417e7.69cd68",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "2",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "x": 389,
+        "y": 3300,
+        "wires": [
+            [
+                "33105671.bb25ea"
+            ]
+        ]
+    },
+    {
+        "id": "977fc3e9.a01a4",
+        "type": "delay",
+        "z": "2bf417e7.69cd68",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "2",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "x": 623,
+        "y": 1516,
+        "wires": [
+            [
+                "a2d204da.e95ee8"
+            ]
+        ]
+    },
+    {
+        "id": "cc663e02.9cc66",
+        "type": "delay",
+        "z": "2bf417e7.69cd68",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "2",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "x": 623,
+        "y": 1552,
+        "wires": [
+            [
+                "a2d204da.e95ee8"
+            ]
+        ]
+    },
+    {
+        "id": "a2d204da.e95ee8",
+        "type": "change",
+        "z": "2bf417e7.69cd68",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "armedornot",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 786,
+        "y": 1531,
+        "wires": [
+            [
+                "c5b7b8fe.d013a8"
+            ]
+        ]
+    },
+    {
+        "id": "e7d453dd.0672b",
+        "type": "inject",
+        "z": "2bf417e7.69cd68",
+        "name": "",
+        "topic": "",
+        "payload": "false",
+        "payloadType": "bool",
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "x": 733,
+        "y": 3080,
+        "wires": [
+            [
+                "4a2e59bc.4af828"
+            ]
+        ]
+    },
+    {
+        "id": "6b5fec0e.5e90a4",
+        "type": "rbe",
+        "z": "2bf417e7.69cd68",
+        "name": "",
+        "func": "rbe",
+        "gap": "",
+        "start": "",
+        "inout": "out",
+        "x": 550,
+        "y": 1011,
+        "wires": [
+            [
+                "9d68e1d4.42a29"
+            ]
+        ]
+    },
+    {
+        "id": "b6e6bc5e.ae7b9",
+        "type": "rbe",
+        "z": "2bf417e7.69cd68",
+        "name": "",
+        "func": "rbei",
+        "gap": "",
+        "start": "",
+        "inout": "out",
+        "x": 672,
+        "y": 2248,
+        "wires": [
+            [
+                "dcf56dff.16b12"
+            ]
+        ]
+    },
+    {
+        "id": "74fec7d1.229248",
+        "type": "rbe",
+        "z": "2bf417e7.69cd68",
+        "name": "",
+        "func": "rbei",
+        "gap": "",
+        "start": "",
+        "inout": "out",
+        "x": 214,
+        "y": 2486,
+        "wires": [
+            [
+                "5bbdaa55.e1aaf4"
+            ]
+        ]
+    },
+    {
+        "id": "82faaab7.350c48",
+        "type": "rbe",
+        "z": "2bf417e7.69cd68",
+        "name": "",
+        "func": "rbei",
+        "gap": "",
+        "start": "",
+        "inout": "out",
+        "x": 211,
+        "y": 2772,
+        "wires": [
+            [
+                "1ddc2714.c89d49"
+            ]
+        ]
+    },
+    {
+        "id": "a27aa8e2.2735b8",
+        "type": "rbe",
+        "z": "2bf417e7.69cd68",
+        "name": "",
+        "func": "rbei",
+        "gap": "",
+        "start": "",
+        "inout": "out",
+        "x": 211,
+        "y": 2980,
+        "wires": [
+            [
+                "6c11c525.487efc"
+            ]
+        ]
+    },
+    {
+        "id": "57cbac8c.21f0b4",
+        "type": "inject",
+        "z": "2bf417e7.69cd68",
+        "name": "",
+        "topic": "",
+        "payload": "false",
+        "payloadType": "bool",
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "x": 672,
+        "y": 2288,
+        "wires": [
+            [
+                "dcf56dff.16b12"
+            ]
+        ]
+    },
+    {
+        "id": "52338c42.6ed574",
+        "type": "realknx-out",
+        "z": "2bf417e7.69cd68",
+        "name": "",
+        "controller": "c7208987.910908",
+        "itemname": "Général - AL_LED",
+        "topic": "",
+        "payload": "",
+        "booleaninput": true,
+        "x": 891,
+        "y": 1729,
+        "wires": []
+    },
+    {
+        "id": "8c960e26.5503b",
+        "type": "rbe",
+        "z": "2bf417e7.69cd68",
+        "name": "",
+        "func": "rbei",
+        "gap": "",
+        "start": "",
+        "inout": "out",
+        "x": 671,
+        "y": 1729,
+        "wires": [
+            [
+                "52338c42.6ed574"
+            ]
+        ]
+    },
+    {
+        "id": "4533d225.0edf4c",
+        "type": "inject",
+        "z": "2bf417e7.69cd68",
+        "name": "",
+        "topic": "",
+        "payload": "false",
+        "payloadType": "bool",
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "x": 671,
+        "y": 1769,
+        "wires": [
+            [
+                "52338c42.6ed574"
+            ]
+        ]
+    },
+    {
+        "id": "500d2e38.1c2b1",
+        "type": "rbe",
+        "z": "2bf417e7.69cd68",
+        "name": "",
+        "func": "rbe",
+        "gap": "",
+        "start": "",
+        "inout": "out",
+        "x": 550,
+        "y": 772,
+        "wires": [
+            [
+                "dfe11794.ab8bc8"
+            ]
+        ]
+    },
+    {
+        "id": "a992c241.34238",
+        "type": "link out",
+        "z": "2bf417e7.69cd68",
+        "name": "KNX OUTPUT",
+        "links": [
+            "4fa15262.42da6c",
+            "82c01291.62f95"
+        ],
+        "x": 375,
+        "y": 1320,
+        "wires": []
+    },
+    {
+        "id": "3efa500c.5662f",
+        "type": "comment",
+        "z": "2bf417e7.69cd68",
+        "name": "Delay for Alarm: At the End of this delay --> Armed&MemoryAlarm",
+        "info": "",
+        "x": 300,
+        "y": 1260,
+        "wires": []
+    },
+    {
+        "id": "d9766c79.d4588",
+        "type": "comment",
+        "z": "2bf417e7.69cd68",
+        "name": "------------------------------------------------------------------------------------------------------------------------> OUTPUT <-----------------------------------------------------------------------------------------------------------------------",
+        "info": "",
+        "x": 690,
+        "y": 1410,
+        "wires": []
+    },
+    {
+        "id": "bd780243.7e74f",
+        "type": "comment",
+        "z": "2bf417e7.69cd68",
+        "name": "------------------------------------------------------------------------------------------------------------------------> INPUT <------------------------------------------------------------------------------------------------------------------------",
+        "info": "",
+        "x": 680,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "a6bf8b80.5380e8",
+        "type": "comment",
+        "z": "2bf417e7.69cd68",
+        "name": "------------------------------------------------------------------------------------------------------------------------> PARAMETERS <-------------------------------------------------------------------------------------------------------------------",
+        "info": "",
+        "x": 710,
+        "y": 1200,
+        "wires": []
+    },
+    {
+        "id": "4fd64eab.e76a4",
+        "type": "link in",
+        "z": "2bf417e7.69cd68",
+        "name": "Input (statemachine) fort OUTPUT",
+        "links": [
+            "442908d5.12b238",
+            "9c6c9714.0d21b8"
+        ],
+        "x": 81,
+        "y": 1540,
+        "wires": [
+            [
+                "83e49755.111e78"
+            ]
+        ]
+    },
+    {
+        "id": "cb47b2c1.d7bc3",
+        "type": "link in",
+        "z": "2bf417e7.69cd68",
+        "name": "Input (statemachine) fort OUTPUT",
+        "links": [
+            "442908d5.12b238",
+            "9c6c9714.0d21b8"
+        ],
+        "x": 78,
+        "y": 1740,
+        "wires": [
+            [
+                "605bf647.330c88"
+            ]
+        ]
+    },
+    {
+        "id": "5f2c6eb.ffaa69",
+        "type": "link in",
+        "z": "2bf417e7.69cd68",
+        "name": "Input (statemachine) fort OUTPUT",
+        "links": [
+            "442908d5.12b238",
+            "9c6c9714.0d21b8"
+        ],
+        "x": 76,
+        "y": 1992,
+        "wires": [
+            [
+                "5e47dcfe.a83dc4"
+            ]
+        ]
+    },
+    {
+        "id": "83410f4f.e4b38",
+        "type": "link in",
+        "z": "2bf417e7.69cd68",
+        "name": "Input (statemachine) fort OUTPUT",
+        "links": [
+            "442908d5.12b238",
+            "9c6c9714.0d21b8"
+        ],
+        "x": 79,
+        "y": 2238,
+        "wires": [
+            [
+                "f6da14cb.9f73f8"
+            ]
+        ]
+    },
+    {
+        "id": "6e2b9229.f6ab1c",
+        "type": "link in",
+        "z": "2bf417e7.69cd68",
+        "name": "Input (statemachine) fort OUTPUT",
+        "links": [
+            "442908d5.12b238",
+            "9c6c9714.0d21b8"
+        ],
+        "x": 81,
+        "y": 2485,
+        "wires": [
+            [
+                "74fec7d1.229248"
+            ]
+        ]
+    },
+    {
+        "id": "b2ca6294.0aa53",
+        "type": "link in",
+        "z": "2bf417e7.69cd68",
+        "name": "Input (statemachine) fort OUTPUT",
+        "links": [
+            "442908d5.12b238",
+            "9c6c9714.0d21b8"
+        ],
+        "x": 78,
+        "y": 2772,
+        "wires": [
+            [
+                "82faaab7.350c48"
+            ]
+        ]
+    },
+    {
+        "id": "4833cdfc.f19e94",
+        "type": "link in",
+        "z": "2bf417e7.69cd68",
+        "name": "Input (statemachine) fort OUTPUT",
+        "links": [
+            "442908d5.12b238",
+            "9c6c9714.0d21b8"
+        ],
+        "x": 78,
+        "y": 2980,
+        "wires": [
+            [
+                "a27aa8e2.2735b8"
+            ]
+        ]
+    },
+    {
+        "id": "b863fabf.304b48",
+        "type": "link in",
+        "z": "2bf417e7.69cd68",
+        "name": "Input (statemachine) fort OUTPUT",
+        "links": [
+            "442908d5.12b238",
+            "9c6c9714.0d21b8"
+        ],
+        "x": 78,
+        "y": 3318,
+        "wires": [
+            [
+                "57c556b7.8ddbd8"
+            ]
+        ]
+    },
+    {
+        "id": "750cdc14.17def4",
+        "type": "link in",
+        "z": "2bf417e7.69cd68",
+        "name": "Input (statemachine) fort OUTPUT",
+        "links": [
+            "d8387b29.ff7048",
+            "ccf8cdde.75d57"
+        ],
+        "x": 78,
+        "y": 3280,
+        "wires": [
+            [
+                "7dbafc74.fde7e4"
+            ]
+        ]
+    },
+    {
+        "id": "82c01291.62f95",
+        "type": "link in",
+        "z": "2bf417e7.69cd68",
+        "name": "State Machine INPUT",
+        "links": [
+            "a992c241.34238",
+            "428fea26.8a3b54",
+            "f454590.107f4a8"
+        ],
+        "x": 543,
+        "y": 221,
+        "wires": [
+            [
+                "a9c954f2.1d2478"
+            ]
+        ]
+    },
+    {
+        "id": "a9c954f2.1d2478",
+        "type": "state-machine",
+        "z": "2bf417e7.69cd68",
+        "name": "State Machine",
+        "triggerProperty": "payload",
+        "triggerPropertyType": "msg",
+        "stateProperty": "payload",
+        "statePropertyType": "msg",
+        "states": [
+            "init",
+            "DisArmed",
+            "ExitDelay",
+            "Armed",
+            "Alarm",
+            "EntryDelay",
+            "Armed&MemoryAlarm"
+        ],
+        "transitions": [
+            {
+                "name": "turnon",
+                "from": "DisArmed",
+                "to": "ExitDelay"
+            },
+            {
+                "name": "turnoff",
+                "from": "ExitDelay",
+                "to": "DisArmed"
+            },
+            {
+                "name": "turnoff",
+                "from": "EntryDelay",
+                "to": "DisArmed"
+            },
+            {
+                "name": "turnoff",
+                "from": "Armed",
+                "to": "DisArmed"
+            },
+            {
+                "name": "turnoff",
+                "from": "Armed&MemoryAlarm",
+                "to": "DisArmed"
+            },
+            {
+                "name": "arm",
+                "from": "ExitDelay",
+                "to": "Armed"
+            },
+            {
+                "name": "entrydelaystart",
+                "from": "Armed",
+                "to": "EntryDelay"
+            },
+            {
+                "name": "entrydelaystart",
+                "from": "Armed&MemoryAlarm",
+                "to": "EntryDelay"
+            },
+            {
+                "name": "entrydelayend",
+                "from": "EntryDelay",
+                "to": "Alarm"
+            },
+            {
+                "name": "pir",
+                "from": "Armed",
+                "to": "Alarm"
+            },
+            {
+                "name": "pir",
+                "from": "ExitDelay",
+                "to": "Alarm"
+            },
+            {
+                "name": "pir",
+                "from": "Armed&MemoryAlarm",
+                "to": "Alarm"
+            },
+            {
+                "name": "turnoff",
+                "from": "Alarm",
+                "to": "DisArmed"
+            },
+            {
+                "name": "initoff",
+                "from": "init",
+                "to": "DisArmed"
+            },
+            {
+                "name": "initarmed",
+                "from": "init",
+                "to": "Armed"
+            },
+            {
+                "name": "initalarm",
+                "from": "init",
+                "to": "Alarm"
+            },
+            {
+                "name": "initmemoryalarm",
+                "from": "init",
+                "to": "Armed&MemoryAlarm"
+            },
+            {
+                "name": "memoryalarm",
+                "from": "Alarm",
+                "to": "Armed&MemoryAlarm"
+            }
+        ],
+        "x": 654,
+        "y": 221,
+        "wires": [
+            [
+                "bef30f6f.e3ef2"
+            ]
+        ]
+    },
+    {
+        "id": "bef30f6f.e3ef2",
+        "type": "switch",
+        "z": "2bf417e7.69cd68",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "init",
+                "vt": "str"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "false",
+        "outputs": 2,
+        "x": 798,
+        "y": 221,
+        "wires": [
+            [
+                "ccf8cdde.75d57"
+            ],
+            [
+                "9c6c9714.0d21b8"
+            ]
+        ]
+    },
+    {
+        "id": "9c6c9714.0d21b8",
+        "type": "link out",
+        "z": "2bf417e7.69cd68",
+        "name": "State Machine OUTPUT ",
+        "links": [
+            "4fd64eab.e76a4",
+            "cb47b2c1.d7bc3",
+            "5f2c6eb.ffaa69",
+            "83410f4f.e4b38",
+            "6e2b9229.f6ab1c",
+            "b2ca6294.0aa53",
+            "4833cdfc.f19e94",
+            "b863fabf.304b48"
+        ],
+        "x": 892,
+        "y": 239,
+        "wires": []
+    },
+    {
+        "id": "ccf8cdde.75d57",
+        "type": "link out",
+        "z": "2bf417e7.69cd68",
+        "name": "State Machine OUTPUT \"init\"",
+        "links": [
+            "750cdc14.17def4"
+        ],
+        "x": 892,
+        "y": 202,
+        "wires": []
+    },
+    {
+        "id": "b68d9b02.b220d8",
+        "type": "comment",
+        "z": "2bf417e7.69cd68",
+        "name": "CORE: DO NOT CHANGE",
+        "info": "",
+        "x": 710,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "2f8fdce1.6f3614",
+        "type": "comment",
+        "z": "2bf417e7.69cd68",
+        "name": "NOTE! The Burglary Protection system doesn't replace an alarm system but is a complement. ProKNX cannot be held responsible in case of malfunction.",
+        "info": "",
+        "x": 650,
+        "y": 90,
+        "wires": []
+    },
+    {
+        "id": "41f9008f.75bde",
+        "type": "googlehome-config-node",
+        "z": "",
+        "ipaddress": "192.168.9.119",
+        "language": "en"
+    },
+    {
+        "id": "c7208987.910908",
+        "type": "realknx-controller",
+        "z": "",
+        "name": "realknx-ctrl",
+        "host": "localhost",
+        "port": "3000"
+    },
+    {
+        "id": "e92c1a49.9d1778",
+        "type": "pushbullet-config",
+        "z": "",
+        "name": "To Gmail"
+    },
+    {
+        "id": "187f8fde.84259",
+        "type": "better-sonos-config",
+        "z": "",
+        "name": "Sonos Salon",
+        "serialnum": "00-0E-58-8A-FC-F0:4",
+        "ipaddress": ""
+    }
+]
