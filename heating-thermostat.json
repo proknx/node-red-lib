@@ -1,0 +1,228 @@
+[
+    {
+        "id": "e328c833.f1c8a8",
+        "type": "tab",
+        "label": "Thermostat"
+    },
+    {
+        "id": "63f6aee0.2a456",
+        "type": "ramp-thermostat",
+        "z": "e328c833.f1c8a8",
+        "name": "Heating",
+        "profile": "2550b4f0.1c828c",
+        "hysteresisplus": "1",
+        "hysteresisminus": "1",
+        "x": 920,
+        "y": 366,
+        "wires": [
+            [
+                "921c7316.4e304"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "6a0ec2eb.26e8fc",
+        "type": "realknx-in",
+        "z": "e328c833.f1c8a8",
+        "name": "Current",
+        "controller": "",
+        "itemname": "",
+        "passthru": true,
+        "booleanoutput": false,
+        "outputatstartup": true,
+        "x": 92,
+        "y": 309,
+        "wires": [
+            [
+                "cec7bd0b.beac3"
+            ]
+        ]
+    },
+    {
+        "id": "8e40ca3e.1964d8",
+        "type": "realknx-in",
+        "z": "e328c833.f1c8a8",
+        "name": "Setpoint",
+        "controller": "",
+        "itemname": "",
+        "passthru": true,
+        "booleanoutput": false,
+        "outputatstartup": true,
+        "x": 100,
+        "y": 440,
+        "wires": [
+            [
+                "2fda9b30.cd9954"
+            ]
+        ]
+    },
+    {
+        "id": "2fda9b30.cd9954",
+        "type": "change",
+        "z": "e328c833.f1c8a8",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "setTarget",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 660,
+        "y": 441,
+        "wires": [
+            [
+                "63f6aee0.2a456"
+            ]
+        ]
+    },
+    {
+        "id": "5f2288f8.48cc78",
+        "type": "change",
+        "z": "e328c833.f1c8a8",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "setCurrent",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 662,
+        "y": 309,
+        "wires": [
+            [
+                "63f6aee0.2a456"
+            ]
+        ]
+    },
+    {
+        "id": "cec7bd0b.beac3",
+        "type": "delay",
+        "z": "e328c833.f1c8a8",
+        "name": "",
+        "pauseType": "rate",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "20",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "x": 395,
+        "y": 309,
+        "wires": [
+            [
+                "5f2288f8.48cc78"
+            ]
+        ]
+    },
+    {
+        "id": "379660d4.928e7",
+        "type": "comment",
+        "z": "e328c833.f1c8a8",
+        "name": "KNX - Setpoint temperature",
+        "info": "",
+        "x": 160,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "b1e56a2d.31f068",
+        "type": "comment",
+        "z": "e328c833.f1c8a8",
+        "name": "KNX - Current (ambiante) temperature",
+        "info": "",
+        "x": 190,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "ddee1f4e.1b314",
+        "type": "comment",
+        "z": "e328c833.f1c8a8",
+        "name": "Select Hysteresis ",
+        "info": "",
+        "x": 920,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "921c7316.4e304",
+        "type": "realknx-out",
+        "z": "e328c833.f1c8a8",
+        "name": "Output",
+        "controller": "",
+        "itemname": "Chambre - Cala",
+        "topic": "",
+        "payload": "",
+        "booleaninput": true,
+        "x": 1193,
+        "y": 350,
+        "wires": []
+    },
+    {
+        "id": "98e8dc24.8e7b4",
+        "type": "comment",
+        "z": "e328c833.f1c8a8",
+        "name": "Output for Heating (ON/OFF)",
+        "info": "",
+        "x": 1260,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "59d49d7f.6eeeb4",
+        "type": "comment",
+        "z": "e328c833.f1c8a8",
+        "name": "----------------- HEATING THERMOSTAT ----------------",
+        "info": "",
+        "x": 720,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "2550b4f0.1c828c",
+        "type": "profile",
+        "z": "",
+        "name": "realKNX",
+        "time1": "00:00",
+        "temp1": "21",
+        "time2": "24:00",
+        "temp2": "21",
+        "time3": "",
+        "temp3": "",
+        "time4": "",
+        "temp4": "",
+        "time5": "",
+        "temp5": "",
+        "time6": "",
+        "temp6": "",
+        "time7": "",
+        "temp7": "",
+        "time8": "",
+        "temp8": "",
+        "time9": "",
+        "temp9": "",
+        "time10": "",
+        "temp10": ""
+    }
+]
