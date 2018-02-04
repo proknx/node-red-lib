@@ -1,0 +1,3255 @@
+[
+    {
+        "id": "821926a6.f2d198",
+        "type": "tab",
+        "label": "Heating Boilerplate",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "a7c634c2.295888",
+        "type": "comment",
+        "z": "821926a6.f2d198",
+        "name": "Information and credits",
+        "info": "The implementation is strongly inspired by this article \nhttps://community.openhab.org/t/heating-boilerplate-a-universal-temperature-control-solution-with-modes/34843",
+        "x": 180,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "84ab9d6a.738e5",
+        "type": "inject",
+        "z": "821926a6.f2d198",
+        "name": "Crank heating up after work (17:00)",
+        "topic": "After work",
+        "payload": "true",
+        "payloadType": "str",
+        "repeat": "",
+        "crontab": "00 17 * * 1,2,3,4,5",
+        "once": false,
+        "x": 270,
+        "y": 2180,
+        "wires": [
+            [
+                "f53bb1d6.2e76a",
+                "11db34cc.ffdc7b",
+                "2f377563.f055aa",
+                "74827e37.53ebe"
+            ]
+        ]
+    },
+    {
+        "id": "f53bb1d6.2e76a",
+        "type": "change",
+        "z": "821926a6.f2d198",
+        "name": "LR_Heating_PresetTempNormal=21",
+        "rules": [
+            {
+                "t": "set",
+                "p": "heatingSettings.LR_Heating_PresetTempNormal",
+                "pt": "flow",
+                "to": "21",
+                "tot": "num"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 650,
+        "y": 2140,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "11db34cc.ffdc7b",
+        "type": "change",
+        "z": "821926a6.f2d198",
+        "name": "BE_Heating_PresetTempNormal=17",
+        "rules": [
+            {
+                "t": "set",
+                "p": "heatingSettings.BE_Heating_PresetTempNormal",
+                "pt": "flow",
+                "to": "17",
+                "tot": "num"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 650,
+        "y": 2180,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "2f377563.f055aa",
+        "type": "change",
+        "z": "821926a6.f2d198",
+        "name": "BA_Heating_PresetTempNormal=20",
+        "rules": [
+            {
+                "t": "set",
+                "p": "heatingSettings.BA_Heating_PresetTempNormal",
+                "pt": "flow",
+                "to": "20",
+                "tot": "num"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 650,
+        "y": 2220,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "d6e65777.885278",
+        "type": "inject",
+        "z": "821926a6.f2d198",
+        "name": "Increase temperatures in the evening (20:30)",
+        "topic": "Evening",
+        "payload": "true",
+        "payloadType": "str",
+        "repeat": "",
+        "crontab": "30 20 * * *",
+        "once": false,
+        "x": 300,
+        "y": 2400,
+        "wires": [
+            [
+                "8774e6bb.eadfb8",
+                "baf5970.021de68",
+                "6629ad98.723244",
+                "8d0b953e.2110d8"
+            ]
+        ]
+    },
+    {
+        "id": "8774e6bb.eadfb8",
+        "type": "change",
+        "z": "821926a6.f2d198",
+        "name": "LR_Heating_PresetTempNormal=22",
+        "rules": [
+            {
+                "t": "set",
+                "p": "heatingSettings.LR_Heating_PresetTempNormal",
+                "pt": "flow",
+                "to": "22",
+                "tot": "num"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 650,
+        "y": 2360,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "baf5970.021de68",
+        "type": "change",
+        "z": "821926a6.f2d198",
+        "name": "BE_Heating_PresetTempNormal=19",
+        "rules": [
+            {
+                "t": "set",
+                "p": "heatingSettings.BE_Heating_PresetTempNormal",
+                "pt": "flow",
+                "to": "19",
+                "tot": "num"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 650,
+        "y": 2400,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "6629ad98.723244",
+        "type": "change",
+        "z": "821926a6.f2d198",
+        "name": "BA_Heating_PresetTempNormal=20",
+        "rules": [
+            {
+                "t": "set",
+                "p": "heatingSettings.BA_Heating_PresetTempNormal",
+                "pt": "flow",
+                "to": "20",
+                "tot": "num"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 650,
+        "y": 2440,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "5fe5c560.a3354c",
+        "type": "comment",
+        "z": "821926a6.f2d198",
+        "name": "Crank heating up after work (17:00)",
+        "info": "",
+        "x": 240,
+        "y": 2120,
+        "wires": []
+    },
+    {
+        "id": "e22d849.46cfc78",
+        "type": "comment",
+        "z": "821926a6.f2d198",
+        "name": "Increase temperatures in the evening (20:30)",
+        "info": "",
+        "x": 270,
+        "y": 2340,
+        "wires": []
+    },
+    {
+        "id": "de388361.9713a",
+        "type": "inject",
+        "z": "821926a6.f2d198",
+        "name": "Lower heating temperatures at bedtime (23:30)",
+        "topic": "Bedtime",
+        "payload": "true",
+        "payloadType": "str",
+        "repeat": "",
+        "crontab": "30 23 * * *",
+        "once": false,
+        "x": 300,
+        "y": 2620,
+        "wires": [
+            [
+                "6f2f3b47.7fc734",
+                "1e08b721.6ee0c9",
+                "e8684c94.3b685",
+                "fe8454e8.d7b448"
+            ]
+        ]
+    },
+    {
+        "id": "6f2f3b47.7fc734",
+        "type": "change",
+        "z": "821926a6.f2d198",
+        "name": "LR_Heating_PresetTempNormal=17",
+        "rules": [
+            {
+                "t": "set",
+                "p": "heatingSettings.LR_Heating_PresetTempNormal",
+                "pt": "flow",
+                "to": "17",
+                "tot": "num"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 650,
+        "y": 2580,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "1e08b721.6ee0c9",
+        "type": "change",
+        "z": "821926a6.f2d198",
+        "name": "BE_Heating_PresetTempNormal=17",
+        "rules": [
+            {
+                "t": "set",
+                "p": "heatingSettings.BE_Heating_PresetTempNormal",
+                "pt": "flow",
+                "to": "17",
+                "tot": "num"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 650,
+        "y": 2620,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "e8684c94.3b685",
+        "type": "change",
+        "z": "821926a6.f2d198",
+        "name": "BA_Heating_PresetTempNormal=17",
+        "rules": [
+            {
+                "t": "set",
+                "p": "heatingSettings.BA_Heating_PresetTempNormal",
+                "pt": "flow",
+                "to": "17",
+                "tot": "num"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 650,
+        "y": 2660,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "56132e50.97d58",
+        "type": "comment",
+        "z": "821926a6.f2d198",
+        "name": "Lower heating temperatures at bedtime (23:30)",
+        "info": "",
+        "x": 280,
+        "y": 2560,
+        "wires": []
+    },
+    {
+        "id": "88b0213e.a3195",
+        "type": "realknx-out",
+        "z": "821926a6.f2d198",
+        "name": "Livingroom thermostat",
+        "controller": "f6c45285.6e933",
+        "itemname": "Home cinema - Cinema-current-temperature",
+        "topic": "",
+        "payload": "",
+        "booleaninput": true,
+        "x": 1220,
+        "y": 920,
+        "wires": []
+    },
+    {
+        "id": "12d61dc4.641212",
+        "type": "realknx-out",
+        "z": "821926a6.f2d198",
+        "name": "Bedroom thermostat",
+        "controller": "c7208987.910908",
+        "itemname": "",
+        "topic": "",
+        "payload": "",
+        "booleaninput": true,
+        "x": 1220,
+        "y": 1200,
+        "wires": []
+    },
+    {
+        "id": "7e0b741b.39173c",
+        "type": "realknx-out",
+        "z": "821926a6.f2d198",
+        "name": "Bathroom thermostat",
+        "controller": "f6c45285.6e933",
+        "itemname": "",
+        "topic": "",
+        "payload": "",
+        "booleaninput": true,
+        "x": 1220,
+        "y": 1480,
+        "wires": []
+    },
+    {
+        "id": "55b6a824.464de8",
+        "type": "comment",
+        "z": "821926a6.f2d198",
+        "name": "REMEMBER to wire thermostats below ?",
+        "info": "",
+        "x": 1240,
+        "y": 860,
+        "wires": []
+    },
+    {
+        "id": "bb2a45d0.439b38",
+        "type": "inject",
+        "z": "821926a6.f2d198",
+        "name": "Weekend: Comfortable temp daytime",
+        "topic": "Weekend",
+        "payload": "true",
+        "payloadType": "str",
+        "repeat": "",
+        "crontab": "00 09 * * 6,0",
+        "once": false,
+        "x": 270,
+        "y": 2840,
+        "wires": [
+            [
+                "77a72be0.c93ef4",
+                "91271a7d.f3f898",
+                "5dbede6.234402",
+                "b8f6c398.a6ecf"
+            ]
+        ]
+    },
+    {
+        "id": "77a72be0.c93ef4",
+        "type": "change",
+        "z": "821926a6.f2d198",
+        "name": "LR_Heating_PresetTempNormal=21",
+        "rules": [
+            {
+                "t": "set",
+                "p": "heatingSettings.LR_Heating_PresetTempNormal",
+                "pt": "flow",
+                "to": "21",
+                "tot": "num"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 650,
+        "y": 2800,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "91271a7d.f3f898",
+        "type": "change",
+        "z": "821926a6.f2d198",
+        "name": "BE_Heating_PresetTempNormal=17",
+        "rules": [
+            {
+                "t": "set",
+                "p": "heatingSettings.BE_Heating_PresetTempNormal",
+                "pt": "flow",
+                "to": "17",
+                "tot": "num"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 650,
+        "y": 2840,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "5dbede6.234402",
+        "type": "change",
+        "z": "821926a6.f2d198",
+        "name": "BA_Heating_PresetTempNormal=21",
+        "rules": [
+            {
+                "t": "set",
+                "p": "heatingSettings.BA_Heating_PresetTempNormal",
+                "pt": "flow",
+                "to": "21",
+                "tot": "num"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 650,
+        "y": 2880,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "d13b4b31.c7be38",
+        "type": "comment",
+        "z": "821926a6.f2d198",
+        "name": "Weekend: Comfortable temp daytime",
+        "info": "",
+        "x": 250,
+        "y": 2780,
+        "wires": []
+    },
+    {
+        "id": "dd68559e.1eb9e8",
+        "type": "inject",
+        "z": "821926a6.f2d198",
+        "name": "Cosy bathroom ON",
+        "topic": "Cosy bathroom ON",
+        "payload": "true",
+        "payloadType": "str",
+        "repeat": "",
+        "crontab": "00 08 * * 1,2,3,4,5",
+        "once": false,
+        "x": 220,
+        "y": 3020,
+        "wires": [
+            [
+                "e3aeffa.ed296",
+                "92c9e5c.7a0ca18"
+            ]
+        ]
+    },
+    {
+        "id": "e3aeffa.ed296",
+        "type": "change",
+        "z": "821926a6.f2d198",
+        "name": "BA_Heating_PresetTempNormal=23",
+        "rules": [
+            {
+                "t": "set",
+                "p": "heatingSettings.BA_Heating_PresetTempNormal",
+                "pt": "flow",
+                "to": "23",
+                "tot": "num"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 650,
+        "y": 3020,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "c522731d.a5984",
+        "type": "comment",
+        "z": "821926a6.f2d198",
+        "name": "Cosy bathroom weekdays",
+        "info": "",
+        "x": 210,
+        "y": 2960,
+        "wires": []
+    },
+    {
+        "id": "5e586fb3.34288",
+        "type": "inject",
+        "z": "821926a6.f2d198",
+        "name": "Cosy bathroom OFF",
+        "topic": "Cosy bathroom OFF",
+        "payload": "true",
+        "payloadType": "str",
+        "repeat": "",
+        "crontab": "00 09 * * 1,2,3,4,5",
+        "once": false,
+        "x": 220,
+        "y": 3060,
+        "wires": [
+            [
+                "32933152.37b59e",
+                "92c9e5c.7a0ca18"
+            ]
+        ]
+    },
+    {
+        "id": "32933152.37b59e",
+        "type": "change",
+        "z": "821926a6.f2d198",
+        "name": "BA_Heating_PresetTempNormal=17",
+        "rules": [
+            {
+                "t": "set",
+                "p": "heatingSettings.BA_Heating_PresetTempNormal",
+                "pt": "flow",
+                "to": "17",
+                "tot": "num"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 650,
+        "y": 3060,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "8f1639ac.727138",
+        "type": "comment",
+        "z": "821926a6.f2d198",
+        "name": "-------------------- SET THE THERMOSTATS -----------------------",
+        "info": "",
+        "x": 300,
+        "y": 680,
+        "wires": []
+    },
+    {
+        "id": "2d43cc27.68b394",
+        "type": "comment",
+        "z": "821926a6.f2d198",
+        "name": "-------------------- NORMAL MODE SETTINGS -----------------------",
+        "info": "",
+        "x": 314,
+        "y": 1867,
+        "wires": []
+    },
+    {
+        "id": "fbc934c5.5e7098",
+        "type": "inject",
+        "z": "821926a6.f2d198",
+        "name": "End PARTY and SICKDAY at 02:00",
+        "topic": "PARTY _SICKDAY_OFF",
+        "payload": "true",
+        "payloadType": "str",
+        "repeat": "",
+        "crontab": "00 02 * * *",
+        "once": false,
+        "x": 270,
+        "y": 3260,
+        "wires": [
+            [
+                "e161886c.674e98"
+            ]
+        ]
+    },
+    {
+        "id": "9d0560a3.921c2",
+        "type": "comment",
+        "z": "821926a6.f2d198",
+        "name": "Automatic reset of some Heating modes",
+        "info": "",
+        "x": 250,
+        "y": 3200,
+        "wires": []
+    },
+    {
+        "id": "459a5c48.888264",
+        "type": "change",
+        "z": "821926a6.f2d198",
+        "name": "payload=Heating_Mode=NORMAL",
+        "rules": [
+            {
+                "t": "set",
+                "p": "heatingSettings.Heating_Mode",
+                "pt": "flow",
+                "to": "NORMAL",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "heatingSettings.Heating_Mode",
+                "tot": "flow"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 980,
+        "y": 3280,
+        "wires": [
+            [
+                "bb2d414d.7259e"
+            ]
+        ]
+    },
+    {
+        "id": "e161886c.674e98",
+        "type": "switch",
+        "z": "821926a6.f2d198",
+        "name": "if Heating_Mode == SICKDAY or PARTY",
+        "property": "heatingSettings.Heating_Mode",
+        "propertyType": "flow",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "SICKDAY",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "PARTY",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "outputs": 2,
+        "x": 620,
+        "y": 3260,
+        "wires": [
+            [
+                "459a5c48.888264"
+            ],
+            [
+                "459a5c48.888264"
+            ]
+        ]
+    },
+    {
+        "id": "ad2ef849.41d428",
+        "type": "inject",
+        "z": "821926a6.f2d198",
+        "name": "End WEEKEND_TRIP mode at 13:00 Monday",
+        "topic": "WEEKEND_TRIP_OFF",
+        "payload": "true",
+        "payloadType": "str",
+        "repeat": "",
+        "crontab": "00 13 * * 1",
+        "once": false,
+        "x": 300,
+        "y": 3320,
+        "wires": [
+            [
+                "90bf27b1.b6c788"
+            ]
+        ]
+    },
+    {
+        "id": "90bf27b1.b6c788",
+        "type": "switch",
+        "z": "821926a6.f2d198",
+        "name": "if Heating_Mode == WEEKEND_TRIP",
+        "property": "heatingSettings.Heating_Mode",
+        "propertyType": "flow",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "WEEKEND_TRIP",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "outputs": 1,
+        "x": 670,
+        "y": 3320,
+        "wires": [
+            [
+                "459a5c48.888264"
+            ]
+        ]
+    },
+    {
+        "id": "ea58fa19.bfe308",
+        "type": "ui_dropdown",
+        "z": "821926a6.f2d198",
+        "name": "Heating mode selector",
+        "label": "Heating mode",
+        "place": "Select heating mode",
+        "group": "2ace511c.cf0c5e",
+        "order": 0,
+        "width": "0",
+        "height": "0",
+        "passthru": false,
+        "options": [
+            {
+                "label": "NORMAL",
+                "value": "NORMAL",
+                "type": "str"
+            },
+            {
+                "label": "PARTY",
+                "value": "PARTY",
+                "type": "str"
+            },
+            {
+                "label": "SICKDAY",
+                "value": "SICKDAY",
+                "type": "str"
+            },
+            {
+                "label": "WEEKEND_TRIP",
+                "value": "WEEKEND_TRIP",
+                "type": "str"
+            },
+            {
+                "label": "AWAY",
+                "value": "AWAY",
+                "type": "str"
+            },
+            {
+                "label": "OFF_SUMMER",
+                "value": "OFF_SUMMER",
+                "type": "str"
+            }
+        ],
+        "payload": "",
+        "topic": "",
+        "x": 240,
+        "y": 560,
+        "wires": [
+            [
+                "cfc3b7db.bb3a58"
+            ]
+        ]
+    },
+    {
+        "id": "c3345ce4.ada85",
+        "type": "debug",
+        "z": "821926a6.f2d198",
+        "name": "Heating mode",
+        "active": false,
+        "console": "false",
+        "complete": "payload",
+        "x": 700,
+        "y": 560,
+        "wires": []
+    },
+    {
+        "id": "d5d673f8.447c3",
+        "type": "link in",
+        "z": "821926a6.f2d198",
+        "name": "Heating_Mode-UI-i",
+        "links": [
+            "95c312e.07e0ff",
+            "bb2d414d.7259e"
+        ],
+        "x": 95,
+        "y": 560,
+        "wires": [
+            [
+                "ea58fa19.bfe308"
+            ]
+        ]
+    },
+    {
+        "id": "bb2d414d.7259e",
+        "type": "link out",
+        "z": "821926a6.f2d198",
+        "name": "Heating_Mode",
+        "links": [
+            "7587692a.417988",
+            "7ee26e0d.78786",
+            "d5d673f8.447c3"
+        ],
+        "x": 1155,
+        "y": 3280,
+        "wires": []
+    },
+    {
+        "id": "cfc3b7db.bb3a58",
+        "type": "change",
+        "z": "821926a6.f2d198",
+        "name": "Save Heating_Mode",
+        "rules": [
+            {
+                "t": "set",
+                "p": "heatingSettings.Heating_Mode",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "heatingSettings.dirty",
+                "pt": "flow",
+                "to": "true",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 480,
+        "y": 560,
+        "wires": [
+            [
+                "c3345ce4.ada85",
+                "fefb3d53.e01c4"
+            ]
+        ]
+    },
+    {
+        "id": "4c60de51.9bc54",
+        "type": "switch",
+        "z": "821926a6.f2d198",
+        "name": "Heating_Mode == NORMAL ?",
+        "property": "heatingSettings.Heating_Mode",
+        "propertyType": "flow",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "NORMAL",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "outputs": 1,
+        "x": 290,
+        "y": 800,
+        "wires": [
+            [
+                "8a555152.5ee36",
+                "e57b6e30.100ea",
+                "c3fb28b2.9997f8"
+            ]
+        ]
+    },
+    {
+        "id": "7ee26e0d.78786",
+        "type": "link in",
+        "z": "821926a6.f2d198",
+        "name": "Heating_Mode_change-normal-i",
+        "links": [
+            "3fd65a41.927576",
+            "95c312e.07e0ff",
+            "bb2d414d.7259e",
+            "fefb3d53.e01c4",
+            "74827e37.53ebe",
+            "8d0b953e.2110d8",
+            "fe8454e8.d7b448",
+            "b8f6c398.a6ecf",
+            "92c9e5c.7a0ca18",
+            "bf287b7.5649e88",
+            "a48a9df4.6530e"
+        ],
+        "x": 95,
+        "y": 800,
+        "wires": [
+            [
+                "4c60de51.9bc54"
+            ]
+        ]
+    },
+    {
+        "id": "8a555152.5ee36",
+        "type": "change",
+        "z": "821926a6.f2d198",
+        "name": "payload=LR_Heating_PresetTempNormal ",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "heatingSettings.LR_Heating_PresetTempNormal",
+                "tot": "flow"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 660,
+        "y": 760,
+        "wires": [
+            [
+                "1f45020b.6992ce"
+            ]
+        ]
+    },
+    {
+        "id": "e57b6e30.100ea",
+        "type": "change",
+        "z": "821926a6.f2d198",
+        "name": "payload=BE_Heating_PresetTempNormal ",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "heatingSettings.BE_Heating_PresetTempNormal",
+                "tot": "flow"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 660,
+        "y": 800,
+        "wires": [
+            [
+                "183df74.9df0609"
+            ]
+        ]
+    },
+    {
+        "id": "c3fb28b2.9997f8",
+        "type": "change",
+        "z": "821926a6.f2d198",
+        "name": "payload=BA_Heating_PresetTempNormal ",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "heatingSettings.BA_Heating_PresetTempNormal",
+                "tot": "flow"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 660,
+        "y": 840,
+        "wires": [
+            [
+                "3cef4b3b.37ac04"
+            ]
+        ]
+    },
+    {
+        "id": "aa6465b8.682168",
+        "type": "comment",
+        "z": "821926a6.f2d198",
+        "name": "Set thermostats NORMAL Mode",
+        "info": "",
+        "x": 210,
+        "y": 740,
+        "wires": []
+    },
+    {
+        "id": "fa2030e9.47b08",
+        "type": "comment",
+        "z": "821926a6.f2d198",
+        "name": "New value from UI",
+        "info": "",
+        "x": 470,
+        "y": 520,
+        "wires": []
+    },
+    {
+        "id": "a1ae889b.bebf48",
+        "type": "link in",
+        "z": "821926a6.f2d198",
+        "name": "Heating_Mode_change-i",
+        "links": [
+            "fefb3d53.e01c4",
+            "95c312e.07e0ff"
+        ],
+        "x": 95,
+        "y": 980,
+        "wires": [
+            [
+                "6c3243db.b4cfdc"
+            ]
+        ]
+    },
+    {
+        "id": "fefb3d53.e01c4",
+        "type": "link out",
+        "z": "821926a6.f2d198",
+        "name": "Heating_Mode_change-o",
+        "links": [
+            "7ee26e0d.78786",
+            "a1ae889b.bebf48",
+            "d8d86a8b.d62a48",
+            "dc085e61.39c2d",
+            "f4dd83e1.a4778",
+            "f619ed46.f0498"
+        ],
+        "x": 635,
+        "y": 600,
+        "wires": []
+    },
+    {
+        "id": "6c3243db.b4cfdc",
+        "type": "switch",
+        "z": "821926a6.f2d198",
+        "name": "Heating_Mode == PARTY ?",
+        "property": "heatingSettings.Heating_Mode",
+        "propertyType": "flow",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "PARTY",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "outputs": 1,
+        "x": 280,
+        "y": 980,
+        "wires": [
+            [
+                "2d8aa483.ab092c",
+                "d2feac26.ede7e",
+                "78610da8.7d54d4"
+            ]
+        ]
+    },
+    {
+        "id": "2d8aa483.ab092c",
+        "type": "change",
+        "z": "821926a6.f2d198",
+        "name": "payload=LR_Heating_TargetTemp=21",
+        "rules": [
+            {
+                "t": "set",
+                "p": "heatingSettings.LR_Heating_TargetTemp",
+                "pt": "flow",
+                "to": "21",
+                "tot": "num"
+            },
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "heatingSettings.LR_Heating_TargetTemp",
+                "tot": "flow"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 650,
+        "y": 940,
+        "wires": [
+            [
+                "aee64d97.eaf2d"
+            ]
+        ]
+    },
+    {
+        "id": "d2feac26.ede7e",
+        "type": "change",
+        "z": "821926a6.f2d198",
+        "name": "payload=BE_Heating_TargetTemp=15",
+        "rules": [
+            {
+                "t": "set",
+                "p": "heatingSettings.BE_Heating_TargetTemp",
+                "pt": "flow",
+                "to": "15",
+                "tot": "num"
+            },
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "heatingSettings.BE_Heating_TargetTemp",
+                "tot": "flow"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 650,
+        "y": 980,
+        "wires": [
+            [
+                "e0a0ecd0.67b7a"
+            ]
+        ]
+    },
+    {
+        "id": "78610da8.7d54d4",
+        "type": "change",
+        "z": "821926a6.f2d198",
+        "name": "payload=BA_Heating_TargetTemp=21",
+        "rules": [
+            {
+                "t": "set",
+                "p": "heatingSettings.BA_Heating_TargetTemp",
+                "pt": "flow",
+                "to": "21",
+                "tot": "num"
+            },
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "heatingSettings.BA_Heating_TargetTemp",
+                "tot": "flow"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 650,
+        "y": 1020,
+        "wires": [
+            [
+                "f29b9c77.89c8d"
+            ]
+        ]
+    },
+    {
+        "id": "60fdeb84.0df484",
+        "type": "comment",
+        "z": "821926a6.f2d198",
+        "name": "Set thermostats PARTY Mode",
+        "info": "",
+        "x": 200,
+        "y": 920,
+        "wires": []
+    },
+    {
+        "id": "1f45020b.6992ce",
+        "type": "link out",
+        "z": "821926a6.f2d198",
+        "name": "Living room",
+        "links": [
+            "a93e4c1a.f0d8d"
+        ],
+        "x": 875,
+        "y": 760,
+        "wires": []
+    },
+    {
+        "id": "183df74.9df0609",
+        "type": "link out",
+        "z": "821926a6.f2d198",
+        "name": "Bedroom",
+        "links": [
+            "40febbf3.029f74"
+        ],
+        "x": 875,
+        "y": 800,
+        "wires": []
+    },
+    {
+        "id": "3cef4b3b.37ac04",
+        "type": "link out",
+        "z": "821926a6.f2d198",
+        "name": "Bathroom",
+        "links": [
+            "48d07ba2.3eae54",
+            "5e105e79.37ff9"
+        ],
+        "x": 875,
+        "y": 840,
+        "wires": []
+    },
+    {
+        "id": "62e17f5e.feaac",
+        "type": "ui_gauge",
+        "z": "821926a6.f2d198",
+        "name": "Bathroom",
+        "group": "2ace511c.cf0c5e",
+        "order": 0,
+        "width": "4",
+        "height": "4",
+        "gtype": "gage",
+        "title": "Bathroom",
+        "label": " °C",
+        "format": "{{value}}",
+        "min": "15",
+        "max": "30",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "x": 1380,
+        "y": 1520,
+        "wires": []
+    },
+    {
+        "id": "a93e4c1a.f0d8d",
+        "type": "link in",
+        "z": "821926a6.f2d198",
+        "name": "Living room",
+        "links": [
+            "1f45020b.6992ce",
+            "87ae923f.57b0d",
+            "aee64d97.eaf2d",
+            "bca90b33.196128",
+            "dcbaf9ef.274a08",
+            "ebb254de.fd8ec8"
+        ],
+        "x": 1075,
+        "y": 980,
+        "wires": [
+            [
+                "14209ee4.ad3401"
+            ]
+        ]
+    },
+    {
+        "id": "40febbf3.029f74",
+        "type": "link in",
+        "z": "821926a6.f2d198",
+        "name": "Bedroom",
+        "links": [
+            "183df74.9df0609",
+            "e0a0ecd0.67b7a",
+            "71adb7bb.93d168",
+            "32e30827.04b1e8",
+            "4f2bb592.94809c",
+            "1918b1c8.c239ce",
+            "34d548d0.bfe8e8",
+            "b5b29842.94d888",
+            "6005961e.b79c28",
+            "7daa1d22.ee7ba4"
+        ],
+        "x": 1075,
+        "y": 1260,
+        "wires": [
+            [
+                "bdc475e9.6c3558"
+            ]
+        ]
+    },
+    {
+        "id": "48d07ba2.3eae54",
+        "type": "link in",
+        "z": "821926a6.f2d198",
+        "name": "Bathroom",
+        "links": [
+            "3cef4b3b.37ac04",
+            "f29b9c77.89c8d",
+            "8311c85d.639478",
+            "a31a67d1.17a568",
+            "9e032351.97d97",
+            "fddd92e6.11b66",
+            "904b8d2a.3f169",
+            "40b8ddb7.8aa254",
+            "8a3b128b.2c09",
+            "426010e.f7aa9f"
+        ],
+        "x": 1075,
+        "y": 1540,
+        "wires": [
+            [
+                "689b7f8.1f0a68"
+            ]
+        ]
+    },
+    {
+        "id": "aee64d97.eaf2d",
+        "type": "link out",
+        "z": "821926a6.f2d198",
+        "name": "Living room",
+        "links": [
+            "a93e4c1a.f0d8d"
+        ],
+        "x": 875,
+        "y": 940,
+        "wires": []
+    },
+    {
+        "id": "e0a0ecd0.67b7a",
+        "type": "link out",
+        "z": "821926a6.f2d198",
+        "name": "Bedroom",
+        "links": [
+            "40febbf3.029f74"
+        ],
+        "x": 875,
+        "y": 980,
+        "wires": []
+    },
+    {
+        "id": "f29b9c77.89c8d",
+        "type": "link out",
+        "z": "821926a6.f2d198",
+        "name": "Bathroom",
+        "links": [
+            "48d07ba2.3eae54",
+            "5e105e79.37ff9"
+        ],
+        "x": 875,
+        "y": 1020,
+        "wires": []
+    },
+    {
+        "id": "dc085e61.39c2d",
+        "type": "link in",
+        "z": "821926a6.f2d198",
+        "name": "Heating_Mode_change-i",
+        "links": [
+            "fefb3d53.e01c4",
+            "95c312e.07e0ff"
+        ],
+        "x": 95,
+        "y": 1160,
+        "wires": [
+            [
+                "de865528.b4ba78"
+            ]
+        ]
+    },
+    {
+        "id": "de865528.b4ba78",
+        "type": "switch",
+        "z": "821926a6.f2d198",
+        "name": "Heating_Mode == SICKDAY ?",
+        "property": "heatingSettings.Heating_Mode",
+        "propertyType": "flow",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "SICKDAY",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "outputs": 1,
+        "x": 290,
+        "y": 1160,
+        "wires": [
+            [
+                "14408f4d.3189d1",
+                "c9135b70.e50488",
+                "47b03d1e.f410d4"
+            ]
+        ]
+    },
+    {
+        "id": "14408f4d.3189d1",
+        "type": "change",
+        "z": "821926a6.f2d198",
+        "name": "payload=LR_Heating_TargetTemp=23",
+        "rules": [
+            {
+                "t": "set",
+                "p": "heatingSettings.LR_Heating_TargetTemp",
+                "pt": "flow",
+                "to": "23",
+                "tot": "num"
+            },
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "heatingSettings.LR_Heating_TargetTemp",
+                "tot": "flow"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 650,
+        "y": 1120,
+        "wires": [
+            [
+                "bca90b33.196128"
+            ]
+        ]
+    },
+    {
+        "id": "c9135b70.e50488",
+        "type": "change",
+        "z": "821926a6.f2d198",
+        "name": "payload=BE_Heating_TargetTemp=19",
+        "rules": [
+            {
+                "t": "set",
+                "p": "heatingSettings.BE_Heating_TargetTemp",
+                "pt": "flow",
+                "to": "19",
+                "tot": "num"
+            },
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "heatingSettings.BE_Heating_TargetTemp",
+                "tot": "flow"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 650,
+        "y": 1160,
+        "wires": [
+            [
+                "71adb7bb.93d168"
+            ]
+        ]
+    },
+    {
+        "id": "47b03d1e.f410d4",
+        "type": "change",
+        "z": "821926a6.f2d198",
+        "name": "payload=BA_Heating_TargetTemp=23",
+        "rules": [
+            {
+                "t": "set",
+                "p": "heatingSettings.BA_Heating_TargetTemp",
+                "pt": "flow",
+                "to": "23",
+                "tot": "num"
+            },
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "heatingSettings.BA_Heating_TargetTemp",
+                "tot": "flow"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 650,
+        "y": 1200,
+        "wires": [
+            [
+                "8311c85d.639478"
+            ]
+        ]
+    },
+    {
+        "id": "6b9ff414.96fc3c",
+        "type": "comment",
+        "z": "821926a6.f2d198",
+        "name": "Set thermostats SICKDAY Mode",
+        "info": "",
+        "x": 210,
+        "y": 1100,
+        "wires": []
+    },
+    {
+        "id": "bca90b33.196128",
+        "type": "link out",
+        "z": "821926a6.f2d198",
+        "name": "Living room",
+        "links": [
+            "a93e4c1a.f0d8d"
+        ],
+        "x": 875,
+        "y": 1120,
+        "wires": []
+    },
+    {
+        "id": "71adb7bb.93d168",
+        "type": "link out",
+        "z": "821926a6.f2d198",
+        "name": "Bedroom",
+        "links": [
+            "40febbf3.029f74"
+        ],
+        "x": 875,
+        "y": 1160,
+        "wires": []
+    },
+    {
+        "id": "8311c85d.639478",
+        "type": "link out",
+        "z": "821926a6.f2d198",
+        "name": "Bathroom",
+        "links": [
+            "48d07ba2.3eae54",
+            "5e105e79.37ff9"
+        ],
+        "x": 875,
+        "y": 1200,
+        "wires": []
+    },
+    {
+        "id": "d8d86a8b.d62a48",
+        "type": "link in",
+        "z": "821926a6.f2d198",
+        "name": "Heating_Mode_change-i",
+        "links": [
+            "fefb3d53.e01c4",
+            "95c312e.07e0ff"
+        ],
+        "x": 95,
+        "y": 1340,
+        "wires": [
+            [
+                "61dccc5f.9f0164"
+            ]
+        ]
+    },
+    {
+        "id": "61dccc5f.9f0164",
+        "type": "switch",
+        "z": "821926a6.f2d198",
+        "name": "Heating_Mode == WEEKEND_TRIP ?",
+        "property": "heatingSettings.Heating_Mode",
+        "propertyType": "flow",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "WEEKEND_TRIP",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "outputs": 1,
+        "x": 310,
+        "y": 1340,
+        "wires": [
+            [
+                "c9362a79.f672c8",
+                "8f620786.870208",
+                "d20ee5a1.f76428"
+            ]
+        ]
+    },
+    {
+        "id": "c9362a79.f672c8",
+        "type": "change",
+        "z": "821926a6.f2d198",
+        "name": "payload=LR_Heating_TargetTemp=15",
+        "rules": [
+            {
+                "t": "set",
+                "p": "heatingSettings.LR_Heating_TargetTemp",
+                "pt": "flow",
+                "to": "15",
+                "tot": "num"
+            },
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "heatingSettings.LR_Heating_TargetTemp",
+                "tot": "flow"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 650,
+        "y": 1300,
+        "wires": [
+            [
+                "dcbaf9ef.274a08"
+            ]
+        ]
+    },
+    {
+        "id": "8f620786.870208",
+        "type": "change",
+        "z": "821926a6.f2d198",
+        "name": "payload=Set BE_Heating_TargetTemp=15",
+        "rules": [
+            {
+                "t": "set",
+                "p": "heatingSettings.BE_Heating_TargetTemp",
+                "pt": "flow",
+                "to": "15",
+                "tot": "num"
+            },
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "heatingSettings.BE_Heating_TargetTemp",
+                "tot": "flow"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 660,
+        "y": 1340,
+        "wires": [
+            [
+                "4f2bb592.94809c"
+            ]
+        ]
+    },
+    {
+        "id": "d20ee5a1.f76428",
+        "type": "change",
+        "z": "821926a6.f2d198",
+        "name": "payload=BA_Heating_TargetTemp=15",
+        "rules": [
+            {
+                "t": "set",
+                "p": "heatingSettings.BA_Heating_TargetTemp",
+                "pt": "flow",
+                "to": "15",
+                "tot": "num"
+            },
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "heatingSettings.BA_Heating_TargetTemp",
+                "tot": "flow"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 650,
+        "y": 1380,
+        "wires": [
+            [
+                "9e032351.97d97"
+            ]
+        ]
+    },
+    {
+        "id": "b69076a3.fa7ac8",
+        "type": "comment",
+        "z": "821926a6.f2d198",
+        "name": "Set thermostats WEEKEND_TRIP Mode",
+        "info": "",
+        "x": 240,
+        "y": 1280,
+        "wires": []
+    },
+    {
+        "id": "dcbaf9ef.274a08",
+        "type": "link out",
+        "z": "821926a6.f2d198",
+        "name": "Living room",
+        "links": [
+            "a93e4c1a.f0d8d"
+        ],
+        "x": 875,
+        "y": 1300,
+        "wires": []
+    },
+    {
+        "id": "4f2bb592.94809c",
+        "type": "link out",
+        "z": "821926a6.f2d198",
+        "name": "Bedroom",
+        "links": [
+            "40febbf3.029f74"
+        ],
+        "x": 875,
+        "y": 1340,
+        "wires": []
+    },
+    {
+        "id": "9e032351.97d97",
+        "type": "link out",
+        "z": "821926a6.f2d198",
+        "name": "Bathroom",
+        "links": [
+            "48d07ba2.3eae54",
+            "5e105e79.37ff9"
+        ],
+        "x": 875,
+        "y": 1380,
+        "wires": []
+    },
+    {
+        "id": "f619ed46.f0498",
+        "type": "link in",
+        "z": "821926a6.f2d198",
+        "name": "Heating_Mode_change-i",
+        "links": [
+            "fefb3d53.e01c4",
+            "95c312e.07e0ff"
+        ],
+        "x": 95,
+        "y": 1520,
+        "wires": [
+            [
+                "faf61a40.55c848"
+            ]
+        ]
+    },
+    {
+        "id": "faf61a40.55c848",
+        "type": "switch",
+        "z": "821926a6.f2d198",
+        "name": "Heating_Mode == AWAY ?",
+        "property": "heatingSettings.Heating_Mode",
+        "propertyType": "flow",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "AWAY",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "outputs": 1,
+        "x": 280,
+        "y": 1520,
+        "wires": [
+            [
+                "faa5206.0aab9e",
+                "ac49f718.c39d38",
+                "eaa57b9c.2778d8"
+            ]
+        ]
+    },
+    {
+        "id": "faa5206.0aab9e",
+        "type": "change",
+        "z": "821926a6.f2d198",
+        "name": "payload=LR_Heating_TargetTemp=13",
+        "rules": [
+            {
+                "t": "set",
+                "p": "heatingSettings.LR_Heating_TargetTemp",
+                "pt": "flow",
+                "to": "13",
+                "tot": "num"
+            },
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "heatingSettings.LR_Heating_TargetTemp",
+                "tot": "flow"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 650,
+        "y": 1480,
+        "wires": [
+            [
+                "87ae923f.57b0d"
+            ]
+        ]
+    },
+    {
+        "id": "ac49f718.c39d38",
+        "type": "change",
+        "z": "821926a6.f2d198",
+        "name": "payload=BE_Heating_TargetTemp=13",
+        "rules": [
+            {
+                "t": "set",
+                "p": "heatingSettings.BE_Heating_TargetTemp",
+                "pt": "flow",
+                "to": "13",
+                "tot": "num"
+            },
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "heatingSettings.BE_Heating_TargetTemp",
+                "tot": "flow"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 650,
+        "y": 1520,
+        "wires": [
+            [
+                "1918b1c8.c239ce"
+            ]
+        ]
+    },
+    {
+        "id": "eaa57b9c.2778d8",
+        "type": "change",
+        "z": "821926a6.f2d198",
+        "name": "payload=BA_Heating_TargetTemp=13",
+        "rules": [
+            {
+                "t": "set",
+                "p": "heatingSettings.BA_Heating_TargetTemp",
+                "pt": "flow",
+                "to": "13",
+                "tot": "num"
+            },
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "heatingSettings.BA_Heating_TargetTemp",
+                "tot": "flow"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 650,
+        "y": 1560,
+        "wires": [
+            [
+                "fddd92e6.11b66"
+            ]
+        ]
+    },
+    {
+        "id": "8d9fe498.765d58",
+        "type": "comment",
+        "z": "821926a6.f2d198",
+        "name": "Set thermostats AWAY Mode",
+        "info": "",
+        "x": 200,
+        "y": 1460,
+        "wires": []
+    },
+    {
+        "id": "87ae923f.57b0d",
+        "type": "link out",
+        "z": "821926a6.f2d198",
+        "name": "Living room",
+        "links": [
+            "a93e4c1a.f0d8d"
+        ],
+        "x": 875,
+        "y": 1480,
+        "wires": []
+    },
+    {
+        "id": "1918b1c8.c239ce",
+        "type": "link out",
+        "z": "821926a6.f2d198",
+        "name": "Bedroom",
+        "links": [
+            "40febbf3.029f74"
+        ],
+        "x": 875,
+        "y": 1520,
+        "wires": []
+    },
+    {
+        "id": "fddd92e6.11b66",
+        "type": "link out",
+        "z": "821926a6.f2d198",
+        "name": "Bathroom",
+        "links": [
+            "48d07ba2.3eae54",
+            "5e105e79.37ff9"
+        ],
+        "x": 875,
+        "y": 1560,
+        "wires": []
+    },
+    {
+        "id": "f4dd83e1.a4778",
+        "type": "link in",
+        "z": "821926a6.f2d198",
+        "name": "Heating_Mode_change-i",
+        "links": [
+            "fefb3d53.e01c4",
+            "95c312e.07e0ff"
+        ],
+        "x": 95,
+        "y": 1700,
+        "wires": [
+            [
+                "69c0251d.d0281c"
+            ]
+        ]
+    },
+    {
+        "id": "69c0251d.d0281c",
+        "type": "switch",
+        "z": "821926a6.f2d198",
+        "name": "Heating_Mode == OFF_SUMMER ?",
+        "property": "heatingSettings.Heating_Mode",
+        "propertyType": "flow",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "OFF_SUMMER",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "outputs": 1,
+        "x": 310,
+        "y": 1700,
+        "wires": [
+            [
+                "41828a9e.7f5564",
+                "a4421957.f1b848",
+                "42d02bb9.331eb4"
+            ]
+        ]
+    },
+    {
+        "id": "41828a9e.7f5564",
+        "type": "change",
+        "z": "821926a6.f2d198",
+        "name": "payload=LR_Heating_TargetTemp=0",
+        "rules": [
+            {
+                "t": "set",
+                "p": "heatingSettings.LR_Heating_TargetTemp",
+                "pt": "flow",
+                "to": "0",
+                "tot": "num"
+            },
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "heatingSettings.LR_Heating_TargetTemp",
+                "tot": "flow"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 650,
+        "y": 1660,
+        "wires": [
+            [
+                "ebb254de.fd8ec8"
+            ]
+        ]
+    },
+    {
+        "id": "a4421957.f1b848",
+        "type": "change",
+        "z": "821926a6.f2d198",
+        "name": "payload=BE_Heating_TargetTemp=0",
+        "rules": [
+            {
+                "t": "set",
+                "p": "heatingSettings.BE_Heating_TargetTemp",
+                "pt": "flow",
+                "to": "0",
+                "tot": "num"
+            },
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "heatingSettings.BE_Heating_TargetTemp",
+                "tot": "flow"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 650,
+        "y": 1700,
+        "wires": [
+            [
+                "34d548d0.bfe8e8"
+            ]
+        ]
+    },
+    {
+        "id": "42d02bb9.331eb4",
+        "type": "change",
+        "z": "821926a6.f2d198",
+        "name": "payload=BA_Heating_TargetTemp=0",
+        "rules": [
+            {
+                "t": "set",
+                "p": "heatingSettings.BA_Heating_TargetTemp",
+                "pt": "flow",
+                "to": "0",
+                "tot": "num"
+            },
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "heatingSettings.BA_Heating_TargetTemp",
+                "tot": "flow"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 650,
+        "y": 1740,
+        "wires": [
+            [
+                "904b8d2a.3f169"
+            ]
+        ]
+    },
+    {
+        "id": "5d9e6b7f.a773b4",
+        "type": "comment",
+        "z": "821926a6.f2d198",
+        "name": "Set thermostats OFF_SUMMER Mode",
+        "info": "",
+        "x": 230,
+        "y": 1640,
+        "wires": []
+    },
+    {
+        "id": "ebb254de.fd8ec8",
+        "type": "link out",
+        "z": "821926a6.f2d198",
+        "name": "Living room",
+        "links": [
+            "a93e4c1a.f0d8d"
+        ],
+        "x": 875,
+        "y": 1660,
+        "wires": []
+    },
+    {
+        "id": "34d548d0.bfe8e8",
+        "type": "link out",
+        "z": "821926a6.f2d198",
+        "name": "Bedroom",
+        "links": [
+            "40febbf3.029f74"
+        ],
+        "x": 875,
+        "y": 1700,
+        "wires": []
+    },
+    {
+        "id": "904b8d2a.3f169",
+        "type": "link out",
+        "z": "821926a6.f2d198",
+        "name": "Bathroom",
+        "links": [
+            "48d07ba2.3eae54",
+            "5e105e79.37ff9"
+        ],
+        "x": 875,
+        "y": 1740,
+        "wires": []
+    },
+    {
+        "id": "84d335ec.08a788",
+        "type": "ui_chart",
+        "z": "821926a6.f2d198",
+        "name": "",
+        "group": "2ace511c.cf0c5e",
+        "order": 0,
+        "width": "0",
+        "height": "0",
+        "label": "Bathroom",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "no data",
+        "dot": true,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": "2",
+        "removeOlderPoints": "",
+        "removeOlderUnit": "86400",
+        "cutout": 0,
+        "useOneColor": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "useOldStyle": false,
+        "x": 1460,
+        "y": 1560,
+        "wires": [
+            [],
+            []
+        ]
+    },
+    {
+        "id": "c926a3d4.a8ca7",
+        "type": "comment",
+        "z": "821926a6.f2d198",
+        "name": "New value to UI",
+        "info": "",
+        "x": 160,
+        "y": 520,
+        "wires": []
+    },
+    {
+        "id": "74827e37.53ebe",
+        "type": "link out",
+        "z": "821926a6.f2d198",
+        "name": "UpdateHeater-o",
+        "links": [
+            "7ee26e0d.78786"
+        ],
+        "x": 515,
+        "y": 2260,
+        "wires": []
+    },
+    {
+        "id": "8d0b953e.2110d8",
+        "type": "link out",
+        "z": "821926a6.f2d198",
+        "name": "Heating_UpdateHeater",
+        "links": [
+            "7ee26e0d.78786"
+        ],
+        "x": 515,
+        "y": 2480,
+        "wires": []
+    },
+    {
+        "id": "fe8454e8.d7b448",
+        "type": "link out",
+        "z": "821926a6.f2d198",
+        "name": "Heating_UpdateHeater",
+        "links": [
+            "7ee26e0d.78786"
+        ],
+        "x": 515,
+        "y": 2700,
+        "wires": []
+    },
+    {
+        "id": "b8f6c398.a6ecf",
+        "type": "link out",
+        "z": "821926a6.f2d198",
+        "name": "UpdateHeater-o",
+        "links": [
+            "7ee26e0d.78786"
+        ],
+        "x": 515,
+        "y": 2920,
+        "wires": []
+    },
+    {
+        "id": "95c312e.07e0ff",
+        "type": "link out",
+        "z": "821926a6.f2d198",
+        "name": "Heating_Mode-Load-o",
+        "links": [
+            "7ee26e0d.78786",
+            "a1ae889b.bebf48",
+            "d5d673f8.447c3",
+            "d8d86a8b.d62a48",
+            "dc085e61.39c2d",
+            "f4dd83e1.a4778",
+            "f619ed46.f0498"
+        ],
+        "x": 835,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "24de12f0.08956e",
+        "type": "file in",
+        "z": "821926a6.f2d198",
+        "name": "ReadFromFile",
+        "filename": "heatingsettings.json",
+        "format": "utf8",
+        "chunk": false,
+        "sendError": false,
+        "x": 300,
+        "y": 160,
+        "wires": [
+            [
+                "e047df20.26344"
+            ]
+        ]
+    },
+    {
+        "id": "73a9401e.5d3b2",
+        "type": "file",
+        "z": "821926a6.f2d198",
+        "name": "SaveToFile",
+        "filename": "heatingsettings.json",
+        "appendNewline": true,
+        "createDir": true,
+        "overwriteFile": "true",
+        "x": 510,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "e047df20.26344",
+        "type": "function",
+        "z": "821926a6.f2d198",
+        "name": "File -> Varaible",
+        "func": "node.warn(\"Load from file, save to variable\");\ntry {\n    var json = JSON.parse(msg.payload);\n    flow.set(\"heatingSettings\", json);\n    msg.payload = json;\n    return msg;\n} catch (e) {\n    node.error(\"Failed to parse, error: \" + e + \" payload\" + msg.payload);\n}\n\n",
+        "outputs": "1",
+        "noerr": 0,
+        "x": 480,
+        "y": 160,
+        "wires": [
+            [
+                "4addd725.908a88"
+            ]
+        ],
+        "outputLabels": [
+            "payload with variables"
+        ]
+    },
+    {
+        "id": "43ff75cf.6f7d1c",
+        "type": "inject",
+        "z": "821926a6.f2d198",
+        "name": "",
+        "topic": "",
+        "payload": "init",
+        "payloadType": "str",
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "x": 150,
+        "y": 160,
+        "wires": [
+            [
+                "24de12f0.08956e"
+            ]
+        ]
+    },
+    {
+        "id": "e8398eee.34a86",
+        "type": "catch",
+        "z": "821926a6.f2d198",
+        "name": "ReadFileFailed (init)",
+        "scope": [
+            "24de12f0.08956e"
+        ],
+        "x": 170,
+        "y": 260,
+        "wires": [
+            [
+                "4034accc.da76f4"
+            ]
+        ]
+    },
+    {
+        "id": "ac3fc7ca.f6cbe8",
+        "type": "function",
+        "z": "821926a6.f2d198",
+        "name": "Varaible -> File",
+        "func": "if (msg.payload == \"dirtyTest\") { \n    //node.warn(\"1 sec poll: updates to write to file?\");\n    try {\n        if (flow.get(\"heatingSettings.dirty\") === true) {\n            node.warn(\"dirty flag is set, save\");\n            flow.set(\"heatingSettings.dirty\", false);\n            msg.payload = JSON.stringify(flow.get(\"heatingSettings\"));\n            return msg;\n        }\n    } catch (e) {\n        node.warn(\"Dirty test failed: \" + e + \". This typically happens\");\n    }\n}",
+        "outputs": "1",
+        "noerr": 0,
+        "x": 320,
+        "y": 360,
+        "wires": [
+            [
+                "efbd67ad.e8ca18"
+            ]
+        ],
+        "outputLabels": [
+            "payload with variables"
+        ]
+    },
+    {
+        "id": "4034accc.da76f4",
+        "type": "function",
+        "z": "821926a6.f2d198",
+        "name": "Init Varaible",
+        "func": "function initVariables(){\n    var HeatingSettings = {\n        dirty: false,\n        Heating_Mode: \"NORMAL\",\n        LR_Heating_TargetTemp: 18,\n        BE_Heating_TargetTemp: 18,\n        BA_Heating_TargetTemp: 18,\n        LR_Heating_PresetTempNormal: 18,\n        BE_Heating_PresetTempNormal: 18,\n        BA_Heating_PresetTempNormal: 18\n    };\n    flow.set(\"heatingSettings\", HeatingSettings);\n    return JSON.stringify(HeatingSettings);\n}\n\nif (msg.payload === \"init\") { \n    node.warn(\"init variables\");\n    msg.payload = initVariables();\n    return msg\n}",
+        "outputs": "1",
+        "noerr": 0,
+        "x": 350,
+        "y": 260,
+        "wires": [
+            [
+                "73a9401e.5d3b2"
+            ]
+        ],
+        "outputLabels": [
+            "payload with variables"
+        ]
+    },
+    {
+        "id": "c00a469b.b39eb8",
+        "type": "file",
+        "z": "821926a6.f2d198",
+        "name": "DeleteFile",
+        "filename": "heatingsettings.json",
+        "appendNewline": true,
+        "createDir": true,
+        "overwriteFile": "delete",
+        "x": 860,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "8822e5e5.04cea8",
+        "type": "inject",
+        "z": "821926a6.f2d198",
+        "name": "Delete",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 730,
+        "y": 160,
+        "wires": [
+            [
+                "c00a469b.b39eb8"
+            ]
+        ]
+    },
+    {
+        "id": "64d2cea3.12296",
+        "type": "comment",
+        "z": "821926a6.f2d198",
+        "name": "Test functions for file",
+        "info": "if you changed the variable, you need to\ndelete the file to reinitialize value.",
+        "x": 750,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "f55d1c4f.df65e",
+        "type": "debug",
+        "z": "821926a6.f2d198",
+        "name": "",
+        "active": true,
+        "console": "false",
+        "complete": "false",
+        "x": 1070,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "f7766378.12436",
+        "type": "inject",
+        "z": "821926a6.f2d198",
+        "name": "Show",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 730,
+        "y": 200,
+        "wires": [
+            [
+                "2d6a51d5.b1a44e"
+            ]
+        ]
+    },
+    {
+        "id": "2d6a51d5.b1a44e",
+        "type": "change",
+        "z": "821926a6.f2d198",
+        "name": "Show Flow variable",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "heatingSettings",
+                "tot": "flow"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 890,
+        "y": 200,
+        "wires": [
+            [
+                "f55d1c4f.df65e"
+            ]
+        ]
+    },
+    {
+        "id": "dea61676.2556d8",
+        "type": "inject",
+        "z": "821926a6.f2d198",
+        "name": "Set",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 730,
+        "y": 240,
+        "wires": [
+            [
+                "c0668c9.081427"
+            ]
+        ]
+    },
+    {
+        "id": "c0668c9.081427",
+        "type": "change",
+        "z": "821926a6.f2d198",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "heatingSettings.dirty",
+                "pt": "flow",
+                "to": "true",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 920,
+        "y": 240,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "a5af3bd9.a0c778",
+        "type": "inject",
+        "z": "821926a6.f2d198",
+        "name": "dirtyTest",
+        "topic": "",
+        "payload": "dirtyTest",
+        "payloadType": "str",
+        "repeat": "1",
+        "crontab": "",
+        "once": false,
+        "x": 160,
+        "y": 360,
+        "wires": [
+            [
+                "ac3fc7ca.f6cbe8"
+            ]
+        ]
+    },
+    {
+        "id": "efbd67ad.e8ca18",
+        "type": "file",
+        "z": "821926a6.f2d198",
+        "name": "SaveToFile",
+        "filename": "heatingsettings.json",
+        "appendNewline": true,
+        "createDir": true,
+        "overwriteFile": "true",
+        "x": 490,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "239397bb.bf3638",
+        "type": "change",
+        "z": "821926a6.f2d198",
+        "name": "LR_Heating_TargetTemp=20",
+        "rules": [
+            {
+                "t": "set",
+                "p": "heatingSettings.LR_Heating_TargetTemp",
+                "pt": "flow",
+                "to": "20",
+                "tot": "num"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 920,
+        "y": 280,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "9bc375c9.576cb8",
+        "type": "inject",
+        "z": "821926a6.f2d198",
+        "name": "Dirty",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 730,
+        "y": 280,
+        "wires": [
+            [
+                "239397bb.bf3638"
+            ]
+        ]
+    },
+    {
+        "id": "3861d879.bb5de8",
+        "type": "comment",
+        "z": "821926a6.f2d198",
+        "name": "Load variable from file",
+        "info": "",
+        "x": 180,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "a0af9609.2589d8",
+        "type": "comment",
+        "z": "821926a6.f2d198",
+        "name": "If Load failed, initialize variable and save",
+        "info": "",
+        "x": 240,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "c0f170cd.31534",
+        "type": "comment",
+        "z": "821926a6.f2d198",
+        "name": "Save to file when dirty flag is set",
+        "info": "",
+        "x": 210,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "4addd725.908a88",
+        "type": "link out",
+        "z": "821926a6.f2d198",
+        "name": "VariableInit-o",
+        "links": [
+            "b100053d.785c68"
+        ],
+        "x": 595,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "b100053d.785c68",
+        "type": "link in",
+        "z": "821926a6.f2d198",
+        "name": "VariableInit-i",
+        "links": [
+            "4addd725.908a88"
+        ],
+        "x": 635,
+        "y": 400,
+        "wires": [
+            [
+                "610da35b.bc893c"
+            ]
+        ]
+    },
+    {
+        "id": "610da35b.bc893c",
+        "type": "function",
+        "z": "821926a6.f2d198",
+        "name": "Split var",
+        "func": "return [\n    { payload: msg.payload.Heating_Mode },\n    { payload: msg.payload.LR_Heating_TargetTemp },\n    { payload: msg.payload.BE_Heating_TargetTemp },\n    { payload: msg.payload.BA_Heating_TargetTemp },\n    { payload: msg.payload.LR_Heating_PresetTempNormal },\n    { payload: msg.payload.BE_Heating_PresetTempNormal },\n    { payload: msg.payload.BA_Heating_PresetTempNormal },\n    ];",
+        "outputs": "7",
+        "noerr": 0,
+        "x": 740,
+        "y": 400,
+        "wires": [
+            [
+                "95c312e.07e0ff"
+            ],
+            [],
+            [],
+            [],
+            [],
+            [],
+            []
+        ],
+        "outputLabels": [
+            "Heating_Mode",
+            "LR_Heating_TargetTemp",
+            "BE_Heating_TargetTemp",
+            "BA_Heating_TargetTemp",
+            "LR_Heating_PresetTempNormal",
+            "BE_Heating_PresetTempNormal",
+            "BA_Heating_PresetTempNormal"
+        ]
+    },
+    {
+        "id": "92c9e5c.7a0ca18",
+        "type": "link out",
+        "z": "821926a6.f2d198",
+        "name": "UpdateHeater-o",
+        "links": [
+            "7ee26e0d.78786"
+        ],
+        "x": 526.017333984375,
+        "y": 3108.010498046875,
+        "wires": []
+    },
+    {
+        "id": "d6c6b050.dde33",
+        "type": "change",
+        "z": "821926a6.f2d198",
+        "name": "LR_Heating_PresetTempNormal=18",
+        "rules": [
+            {
+                "t": "set",
+                "p": "heatingSettings.LR_Heating_PresetTempNormal",
+                "pt": "flow",
+                "to": "18",
+                "tot": "num"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 770,
+        "y": 1940,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "428c320f.bbce4c",
+        "type": "change",
+        "z": "821926a6.f2d198",
+        "name": "BE_Heating_PresetTempNormal=18",
+        "rules": [
+            {
+                "t": "set",
+                "p": "heatingSettings.BE_Heating_PresetTempNormal",
+                "pt": "flow",
+                "to": "18",
+                "tot": "num"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 770,
+        "y": 1980,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "3558bd70.d2b142",
+        "type": "change",
+        "z": "821926a6.f2d198",
+        "name": "BA_Heating_PresetTempNormal=18",
+        "rules": [
+            {
+                "t": "set",
+                "p": "heatingSettings.BA_Heating_PresetTempNormal",
+                "pt": "flow",
+                "to": "18",
+                "tot": "num"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 770,
+        "y": 2020,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "7f5a41e.51207c",
+        "type": "comment",
+        "z": "821926a6.f2d198",
+        "name": "Normal mode preset",
+        "info": "",
+        "x": 190,
+        "y": 1920,
+        "wires": []
+    },
+    {
+        "id": "7587692a.417988",
+        "type": "link in",
+        "z": "821926a6.f2d198",
+        "name": "RestoreNormalPresetTemp-i",
+        "links": [
+            "bb2d414d.7259e",
+            "68607114.30395"
+        ],
+        "x": 555,
+        "y": 1980,
+        "wires": [
+            [
+                "d6c6b050.dde33",
+                "428c320f.bbce4c",
+                "3558bd70.d2b142"
+            ]
+        ]
+    },
+    {
+        "id": "2ba8a3c.18fa85c",
+        "type": "inject",
+        "z": "821926a6.f2d198",
+        "name": "Set normal temp in the mornings",
+        "topic": "Weekday",
+        "payload": "true",
+        "payloadType": "str",
+        "repeat": "",
+        "crontab": "00 07 * * *",
+        "once": false,
+        "x": 260,
+        "y": 1960,
+        "wires": [
+            [
+                "68607114.30395",
+                "a48a9df4.6530e"
+            ]
+        ]
+    },
+    {
+        "id": "68607114.30395",
+        "type": "link out",
+        "z": "821926a6.f2d198",
+        "name": "RestoreNormalPresetTemp-o",
+        "links": [
+            "7587692a.417988"
+        ],
+        "x": 495,
+        "y": 1980,
+        "wires": []
+    },
+    {
+        "id": "a48a9df4.6530e",
+        "type": "link out",
+        "z": "821926a6.f2d198",
+        "name": "UpdateHeater-o",
+        "links": [
+            "7ee26e0d.78786"
+        ],
+        "x": 495,
+        "y": 2020,
+        "wires": []
+    },
+    {
+        "id": "b10d9ab7.ec14d8",
+        "type": "persist in",
+        "z": "821926a6.f2d198",
+        "name": "persist",
+        "storageNode": "f22a3f06.7918a",
+        "x": 1310,
+        "y": 1580,
+        "wires": []
+    },
+    {
+        "id": "689b7f8.1f0a68",
+        "type": "change",
+        "z": "821926a6.f2d198",
+        "name": "no topic",
+        "rules": [
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1180,
+        "y": 1540,
+        "wires": [
+            [
+                "b10d9ab7.ec14d8",
+                "62e17f5e.feaac",
+                "84d335ec.08a788"
+            ]
+        ]
+    },
+    {
+        "id": "428bf4a0.99aaac",
+        "type": "persist out",
+        "z": "821926a6.f2d198",
+        "name": "replay",
+        "storageNode": "f22a3f06.7918a",
+        "x": 1310,
+        "y": 1620,
+        "wires": [
+            [
+                "84d335ec.08a788"
+            ]
+        ]
+    },
+    {
+        "id": "e3ae126e.58039",
+        "type": "inject",
+        "z": "821926a6.f2d198",
+        "name": "init",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "x": 1170,
+        "y": 1620,
+        "wires": [
+            [
+                "428bf4a0.99aaac"
+            ]
+        ]
+    },
+    {
+        "id": "b56afd90.a21b7",
+        "type": "ui_gauge",
+        "z": "821926a6.f2d198",
+        "name": "Bedroom",
+        "group": "2ace511c.cf0c5e",
+        "order": 0,
+        "width": "4",
+        "height": "4",
+        "gtype": "gage",
+        "title": "Bedroom",
+        "label": " °C",
+        "format": "{{value}}",
+        "min": "15",
+        "max": "30",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "x": 1380,
+        "y": 1240,
+        "wires": []
+    },
+    {
+        "id": "4550946a.3808bc",
+        "type": "ui_chart",
+        "z": "821926a6.f2d198",
+        "name": "Bedroom",
+        "group": "2ace511c.cf0c5e",
+        "order": 0,
+        "width": "0",
+        "height": "0",
+        "label": "Bedroom",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "no data",
+        "dot": true,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": "2",
+        "removeOlderPoints": "",
+        "removeOlderUnit": "86400",
+        "cutout": 0,
+        "useOneColor": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "useOldStyle": false,
+        "x": 1460,
+        "y": 1280,
+        "wires": [
+            [],
+            []
+        ]
+    },
+    {
+        "id": "e7f2ca76.0877d8",
+        "type": "persist in",
+        "z": "821926a6.f2d198",
+        "name": "persist",
+        "storageNode": "f22a3f06.7918a",
+        "x": 1310,
+        "y": 1300,
+        "wires": []
+    },
+    {
+        "id": "bdc475e9.6c3558",
+        "type": "change",
+        "z": "821926a6.f2d198",
+        "name": "no topic",
+        "rules": [
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1180,
+        "y": 1260,
+        "wires": [
+            [
+                "e7f2ca76.0877d8",
+                "b56afd90.a21b7",
+                "4550946a.3808bc"
+            ]
+        ]
+    },
+    {
+        "id": "cbe6e7e8.678d48",
+        "type": "persist out",
+        "z": "821926a6.f2d198",
+        "name": "replay",
+        "storageNode": "f22a3f06.7918a",
+        "x": 1310,
+        "y": 1340,
+        "wires": [
+            [
+                "4550946a.3808bc"
+            ]
+        ]
+    },
+    {
+        "id": "4e22064.c8420f8",
+        "type": "inject",
+        "z": "821926a6.f2d198",
+        "name": "init",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "x": 1170,
+        "y": 1340,
+        "wires": [
+            [
+                "cbe6e7e8.678d48"
+            ]
+        ]
+    },
+    {
+        "id": "e1953e0a.6925d",
+        "type": "ui_gauge",
+        "z": "821926a6.f2d198",
+        "name": "Living room",
+        "group": "2ace511c.cf0c5e",
+        "order": 0,
+        "width": "4",
+        "height": "4",
+        "gtype": "gage",
+        "title": "Living room",
+        "label": " °C",
+        "format": "{{value}}",
+        "min": "15",
+        "max": "30",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "x": 1390,
+        "y": 960,
+        "wires": []
+    },
+    {
+        "id": "16b91bf1.bf3154",
+        "type": "ui_chart",
+        "z": "821926a6.f2d198",
+        "name": "Living room",
+        "group": "2ace511c.cf0c5e",
+        "order": 0,
+        "width": "0",
+        "height": "0",
+        "label": "Living room",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "no data",
+        "dot": true,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": "2",
+        "removeOlderPoints": "",
+        "removeOlderUnit": "86400",
+        "cutout": 0,
+        "useOneColor": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "useOldStyle": false,
+        "x": 1470,
+        "y": 1000,
+        "wires": [
+            [],
+            []
+        ]
+    },
+    {
+        "id": "daa084f9.d8fbb8",
+        "type": "persist in",
+        "z": "821926a6.f2d198",
+        "name": "persist",
+        "storageNode": "f22a3f06.7918a",
+        "x": 1310,
+        "y": 1020,
+        "wires": []
+    },
+    {
+        "id": "14209ee4.ad3401",
+        "type": "change",
+        "z": "821926a6.f2d198",
+        "name": "no topic",
+        "rules": [
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1180,
+        "y": 980,
+        "wires": [
+            [
+                "daa084f9.d8fbb8",
+                "e1953e0a.6925d",
+                "16b91bf1.bf3154"
+            ]
+        ]
+    },
+    {
+        "id": "3281b5ea.19d87a",
+        "type": "persist out",
+        "z": "821926a6.f2d198",
+        "name": "replay",
+        "storageNode": "f22a3f06.7918a",
+        "x": 1310,
+        "y": 1060,
+        "wires": [
+            [
+                "16b91bf1.bf3154"
+            ]
+        ]
+    },
+    {
+        "id": "a7becc3.469263",
+        "type": "inject",
+        "z": "821926a6.f2d198",
+        "name": "init",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "x": 1170,
+        "y": 1060,
+        "wires": [
+            [
+                "3281b5ea.19d87a"
+            ]
+        ]
+    },
+    {
+        "id": "f6c45285.6e933",
+        "type": "realknx-controller",
+        "z": "",
+        "name": "realknx-ctrl",
+        "host": "localhost",
+        "port": "3000"
+    },
+    {
+        "id": "c7208987.910908",
+        "type": "realknx-controller",
+        "z": "",
+        "name": "realknx-ctrl",
+        "host": "localhost",
+        "port": "3000"
+    },
+    {
+        "id": "2ace511c.cf0c5e",
+        "type": "ui_group",
+        "z": "",
+        "name": "Set Temperatures",
+        "tab": "2fd241fa.62c3de",
+        "order": 1,
+        "disp": true,
+        "width": "12"
+    },
+    {
+        "id": "f22a3f06.7918a",
+        "type": "persist-store",
+        "z": "",
+        "filename": "heatingcharts.json",
+        "interval": "60"
+    },
+    {
+        "id": "2fd241fa.62c3de",
+        "type": "ui_tab",
+        "z": "",
+        "name": "Heating Boilerplate",
+        "icon": "dashboard",
+        "order": 1
+    }
+]
