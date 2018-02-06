@@ -1,0 +1,457 @@
+[
+    {
+        "id": "73dea592.e699fc",
+        "type": "tab",
+        "label": "Movie Lights",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "d65e7a09.559988",
+        "type": "switch",
+        "z": "73dea592.e699fc",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "on",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "off",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "outputs": 2,
+        "x": 340,
+        "y": 340,
+        "wires": [
+            [
+                "8f269eae.c7bc9",
+                "3a9a01e2.7ed61e"
+            ],
+            [
+                "3a9a01e2.7ed61e",
+                "523c31bc.8a457"
+            ]
+        ]
+    },
+    {
+        "id": "2eca521.743f8ae",
+        "type": "realknx-out",
+        "z": "73dea592.e699fc",
+        "name": "",
+        "controller": "b1d2fbe.d184108",
+        "itemname": "Home cinema - Floor",
+        "topic": "",
+        "payload": "",
+        "booleaninput": true,
+        "x": 890,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "6530796c.f881b8",
+        "type": "realknx-out",
+        "z": "73dea592.e699fc",
+        "name": "",
+        "controller": "b1d2fbe.d184108",
+        "itemname": "Home cinema - Wall",
+        "topic": "",
+        "payload": "",
+        "booleaninput": true,
+        "x": 650,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "16d98e64.d2f4c2",
+        "type": "interval",
+        "z": "73dea592.e699fc",
+        "name": "interval",
+        "interval": "1",
+        "onstart": false,
+        "msg": "ping",
+        "showstatus": false,
+        "unit": "seconds",
+        "statusformat": "YYYY-MM-D HH:mm:ss",
+        "x": 160,
+        "y": 160,
+        "wires": [
+            [
+                "6e720775.2a3058"
+            ]
+        ]
+    },
+    {
+        "id": "6e720775.2a3058",
+        "type": "function",
+        "z": "73dea592.e699fc",
+        "name": "increment brightness",
+        "func": "if(flow.get('sceneState'||'stop') === 'stop')\n return;\n \nvar curValue = Number(flow.get('brightness')||0);\nvar increment = Number(flow.get('increment')||1);\nif(increment<0 && 255-curValue<180)\n increment*=2;\nif(increment>0 && 255-curValue>70)\n increment*=2;\nvar newValue = curValue + increment; \n\nif(newValue >= 255){\n newValue = 255;\n flow.set('sceneState', 'stop' );\n}\nif(newValue <= 0){\n newValue = 0;\n flow.set('sceneState', 'stop' );\n} \n\nflow.set('brightness', newValue );\nmsg.payload = newValue;\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 370,
+        "y": 160,
+        "wires": [
+            [
+                "6e56a74b.68ea18",
+                "6530796c.f881b8",
+                "2eca521.743f8ae",
+                "96760917.f265a8"
+            ]
+        ]
+    },
+    {
+        "id": "55c801f7.02255",
+        "type": "inject",
+        "z": "73dea592.e699fc",
+        "name": "Manual ON",
+        "topic": "",
+        "payload": "on",
+        "payloadType": "str",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 200,
+        "y": 400,
+        "wires": [
+            [
+                "8f269eae.c7bc9",
+                "3a9a01e2.7ed61e"
+            ]
+        ]
+    },
+    {
+        "id": "40c2fcab.d5d914",
+        "type": "inject",
+        "z": "73dea592.e699fc",
+        "name": "Manual OFF",
+        "topic": "",
+        "payload": "off",
+        "payloadType": "str",
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "x": 200,
+        "y": 440,
+        "wires": [
+            [
+                "3a9a01e2.7ed61e",
+                "523c31bc.8a457"
+            ]
+        ]
+    },
+    {
+        "id": "8f269eae.c7bc9",
+        "type": "change",
+        "z": "73dea592.e699fc",
+        "name": "set increment to -10",
+        "rules": [
+            {
+                "t": "set",
+                "p": "increment",
+                "pt": "flow",
+                "to": "-10",
+                "tot": "num"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 690,
+        "y": 360,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "3a9a01e2.7ed61e",
+        "type": "change",
+        "z": "73dea592.e699fc",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "sceneState",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 700,
+        "y": 440,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "523c31bc.8a457",
+        "type": "change",
+        "z": "73dea592.e699fc",
+        "name": "set increment to +10",
+        "rules": [
+            {
+                "t": "set",
+                "p": "increment",
+                "pt": "flow",
+                "to": "10",
+                "tot": "num"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 690,
+        "y": 400,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "1f7f1ded.72cfc2",
+        "type": "inject",
+        "z": "73dea592.e699fc",
+        "name": "stop",
+        "topic": "",
+        "payload": "stop",
+        "payloadType": "str",
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "x": 180,
+        "y": 480,
+        "wires": [
+            [
+                "3a9a01e2.7ed61e"
+            ]
+        ]
+    },
+    {
+        "id": "1f50069f.5dfe79",
+        "type": "change",
+        "z": "73dea592.e699fc",
+        "name": "init brightness",
+        "rules": [
+            {
+                "t": "set",
+                "p": "brightness",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 730,
+        "y": 280,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "5763caa0.1e1924",
+        "type": "realknx-get",
+        "z": "73dea592.e699fc",
+        "name": "",
+        "controller": "b1d2fbe.d184108",
+        "itemname": "Home cinema - Wall",
+        "booleanoutput": false,
+        "x": 510,
+        "y": 260,
+        "wires": [
+            [
+                "1f50069f.5dfe79",
+                "96760917.f265a8"
+            ]
+        ]
+    },
+    {
+        "id": "f273be54.d2b0e",
+        "type": "inject",
+        "z": "73dea592.e699fc",
+        "name": "start-up",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "x": 190,
+        "y": 260,
+        "wires": [
+            [
+                "b6b89390.37635"
+            ]
+        ]
+    },
+    {
+        "id": "b6b89390.37635",
+        "type": "delay",
+        "z": "73dea592.e699fc",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "7",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "x": 330,
+        "y": 260,
+        "wires": [
+            [
+                "5763caa0.1e1924"
+            ]
+        ]
+    },
+    {
+        "id": "6e56a74b.68ea18",
+        "type": "realknx-out",
+        "z": "73dea592.e699fc",
+        "name": "",
+        "controller": "b1d2fbe.d184108",
+        "itemname": "Home cinema - Ceiling",
+        "topic": "",
+        "payload": "",
+        "booleaninput": true,
+        "x": 670,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "f3f32176.3b06e",
+        "type": "ui_button",
+        "z": "73dea592.e699fc",
+        "name": "",
+        "group": "bfdf5e87.67cb8",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Set movie lights ON",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "on",
+        "payloadType": "str",
+        "topic": "",
+        "x": 210,
+        "y": 520,
+        "wires": [
+            [
+                "8f269eae.c7bc9",
+                "3a9a01e2.7ed61e"
+            ]
+        ]
+    },
+    {
+        "id": "c6295380.e6d5d",
+        "type": "ui_button",
+        "z": "73dea592.e699fc",
+        "name": "",
+        "group": "bfdf5e87.67cb8",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Turn on lights after movie",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "off",
+        "payloadType": "str",
+        "topic": "",
+        "x": 220,
+        "y": 560,
+        "wires": [
+            [
+                "3a9a01e2.7ed61e",
+                "523c31bc.8a457"
+            ]
+        ]
+    },
+    {
+        "id": "96760917.f265a8",
+        "type": "ui_text",
+        "z": "73dea592.e699fc",
+        "group": "bfdf5e87.67cb8",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "light:",
+        "format": "{{msg.payload}}",
+        "layout": "row-left",
+        "x": 700,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "afeaffca.6b9d3",
+        "type": "comment",
+        "z": "73dea592.e699fc",
+        "name": "Movie lights scene, controlled from Echo/Alexa and dashboard",
+        "info": "This flow demonstrates how to ramp up and down the lights. \nThe scene can be activated either via Alexa (local mode) or from the Automation UI.\n",
+        "x": 340,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "7f08afaf.4288c",
+        "type": "alexa-local",
+        "z": "73dea592.e699fc",
+        "devicename": "Movie light",
+        "inputtrigger": false,
+        "x": 180,
+        "y": 340,
+        "wires": [
+            [
+                "d65e7a09.559988"
+            ]
+        ]
+    },
+    {
+        "id": "b1d2fbe.d184108",
+        "type": "realknx-controller",
+        "z": "",
+        "name": "realknx-ctrl",
+        "host": "localhost",
+        "port": "3000"
+    },
+    {
+        "id": "bfdf5e87.67cb8",
+        "type": "ui_group",
+        "z": "",
+        "name": "Movie",
+        "tab": "fbf23963.1523b8",
+        "disp": true,
+        "width": "6"
+    },
+    {
+        "id": "fbf23963.1523b8",
+        "type": "ui_tab",
+        "z": "",
+        "name": "Movie",
+        "icon": "dashboard"
+    }
+]
