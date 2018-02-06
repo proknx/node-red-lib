@@ -1,0 +1,100 @@
+[
+    {
+        "id": "568124f3.9b5b4c",
+        "type": "tab",
+        "label": "PID controller with PWM",
+        "disabled": false,
+        "info": "**Proportional Integral Derivative (PID) contoller with Pulse Width Modulation (PWM)**\n\nA **Proportional Integral Derivative** controller (**PID** controller or three term controller) is a control loop feedback mechanism widely used in industrial control systems and a variety of other applications requiring continuously modulated control. A PID controller continuously calculates an error value e(t) as the difference between a desired setpoint (SP) and a measured process variable (PV) and applies a correction based on proportional, integral, and derivative terms (denoted P, I, and D respectively) which give the controller its name.\n\n**Pulse Width Modulation (PWM)** is an on / off action that differs from an on / off differential by changing the length of the “on” time based on how much the actual temperature differs from the desired.\n\n"
+    },
+    {
+        "id": "3b2f276d.f78af8",
+        "type": "PID",
+        "z": "568124f3.9b5b4c",
+        "name": "",
+        "setpoint": "28",
+        "pb": 1,
+        "ti": "600",
+        "td": "100",
+        "integral_default": 0.5,
+        "smooth_factor": 3,
+        "max_interval": 600,
+        "enable": 1,
+        "disabled_op": 0,
+        "x": 270,
+        "y": 140,
+        "wires": [
+            [
+                "f11a669f.1b4a68"
+            ]
+        ]
+    },
+    {
+        "id": "f11a669f.1b4a68",
+        "type": "timeprop",
+        "z": "568124f3.9b5b4c",
+        "name": "PWM",
+        "cycleTime": 600,
+        "deadTime": 0,
+        "triggerPeriod": 10,
+        "invert": false,
+        "x": 410,
+        "y": 140,
+        "wires": [
+            [
+                "3e2f4ba3.477c64"
+            ]
+        ]
+    },
+    {
+        "id": "ff792971.0d01d8",
+        "type": "realknx-in",
+        "z": "568124f3.9b5b4c",
+        "name": "Current temp",
+        "controller": "",
+        "itemname": "",
+        "passthru": false,
+        "booleanoutput": false,
+        "outputatstartup": false,
+        "x": 110,
+        "y": 140,
+        "wires": [
+            [
+                "3b2f276d.f78af8"
+            ]
+        ]
+    },
+    {
+        "id": "3e2f4ba3.477c64",
+        "type": "realknx-out",
+        "z": "568124f3.9b5b4c",
+        "name": "Heater",
+        "controller": "",
+        "itemname": "",
+        "topic": "",
+        "payload": "",
+        "booleaninput": true,
+        "x": 550,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "9a0e8e53.4c2ad",
+        "type": "comment",
+        "z": "568124f3.9b5b4c",
+        "name": "PID controller with PWM for control of real world processes (heating a hot tub e.g.).",
+        "info": "**Proportional Integral Derivative (PID) contoller with Pulse Width Modulation (PWM)**\n\nA **Proportional Integral Derivative** controller (**PID** controller or three term controller) is a control loop feedback mechanism widely used in industrial control systems and a variety of other applications requiring continuously modulated control. A PID controller continuously calculates an error value e(t) as the difference between a desired setpoint (SP) and a measured process variable (PV) and applies a correction based on proportional, integral, and derivative terms (denoted P, I, and D respectively) which give the controller its name.\n\n**Pulse Width Modulation (PWM)** is an on / off action that differs from an on / off differential by changing the length of the “on” time based on how much the actual temperature differs from the desired.\n\n",
+        "x": 330,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "5c973c07.c32e74",
+        "type": "comment",
+        "z": "568124f3.9b5b4c",
+        "name": "This flow is untested, if you test and find it useful, please give send feedback to: dev.proknx@gmail.com",
+        "info": "",
+        "x": 390,
+        "y": 60,
+        "wires": []
+    }
+]
