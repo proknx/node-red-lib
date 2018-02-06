@@ -1,0 +1,721 @@
+[
+    {
+        "id": "79ac010f.2cef9",
+        "type": "tab",
+        "label": "Fire Alert",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "b9baafdc.8b72f",
+        "type": "realknx-in",
+        "z": "79ac010f.2cef9",
+        "name": "Fire Alarm ON",
+        "controller": "4a2e567c.a44be8",
+        "itemname": "ENERTEX - FEU ON",
+        "passthru": false,
+        "booleanoutput": false,
+        "outputatstartup": false,
+        "x": 130,
+        "y": 140,
+        "wires": [
+            [
+                "557465c.010f19c",
+                "5364c18e.4df1c",
+                "ef35d33a.e4318",
+                "281d1fb3.8075c"
+            ]
+        ]
+    },
+    {
+        "id": "ed5832ba.05f42",
+        "type": "realknx-out",
+        "z": "79ac010f.2cef9",
+        "name": "",
+        "controller": "4a2e567c.a44be8",
+        "itemname": "Bedroom - Ceiling",
+        "topic": "",
+        "payload": "",
+        "booleaninput": true,
+        "x": 1190,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "73adceaa.0709e",
+        "type": "realknx-out",
+        "z": "79ac010f.2cef9",
+        "name": "",
+        "controller": "4a2e567c.a44be8",
+        "itemname": "Living Room - Ceiling",
+        "topic": "",
+        "payload": "",
+        "booleaninput": true,
+        "x": 1200,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "387be79d.a6b958",
+        "type": "realknx-out",
+        "z": "79ac010f.2cef9",
+        "name": "",
+        "controller": "4a2e567c.a44be8",
+        "itemname": "Kitchen - Ceiling",
+        "topic": "",
+        "payload": "",
+        "booleaninput": true,
+        "x": 1180,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "8bede382.1720a",
+        "type": "delay",
+        "z": "79ac010f.2cef9",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "2",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "x": 680,
+        "y": 200,
+        "wires": [
+            [
+                "557465c.010f19c"
+            ]
+        ]
+    },
+    {
+        "id": "557465c.010f19c",
+        "type": "trigger",
+        "z": "79ac010f.2cef9",
+        "op1": "255",
+        "op2": "0",
+        "op1type": "num",
+        "op2type": "num",
+        "duration": "2",
+        "extend": false,
+        "units": "s",
+        "reset": "",
+        "name": "",
+        "x": 680,
+        "y": 140,
+        "wires": [
+            [
+                "8bede382.1720a",
+                "a8722878.3f71f8",
+                "d500607d.526c6"
+            ]
+        ]
+    },
+    {
+        "id": "70b58dc.6f5a274",
+        "type": "change",
+        "z": "79ac010f.2cef9",
+        "name": "reset repeat timer",
+        "rules": [
+            {
+                "t": "set",
+                "p": "reset",
+                "pt": "msg",
+                "to": "true",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 330,
+        "y": 440,
+        "wires": [
+            [
+                "8bede382.1720a",
+                "bb91cd7a.f5112",
+                "5364c18e.4df1c",
+                "557465c.010f19c",
+                "ef35d33a.e4318",
+                "6770c52b.d7b87c",
+                "a9b526d8.6d3f28"
+            ]
+        ]
+    },
+    {
+        "id": "5dd62928.53a258",
+        "type": "inject",
+        "z": "79ac010f.2cef9",
+        "name": "Stop",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 130,
+        "y": 460,
+        "wires": [
+            [
+                "70b58dc.6f5a274"
+            ]
+        ]
+    },
+    {
+        "id": "c9783514.269c38",
+        "type": "inject",
+        "z": "79ac010f.2cef9",
+        "name": "Start",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 130,
+        "y": 200,
+        "wires": [
+            [
+                "557465c.010f19c",
+                "5364c18e.4df1c",
+                "ef35d33a.e4318"
+            ]
+        ]
+    },
+    {
+        "id": "a8722878.3f71f8",
+        "type": "debug",
+        "z": "79ac010f.2cef9",
+        "name": "",
+        "active": false,
+        "console": "false",
+        "complete": "false",
+        "x": 870,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "d543bdf0.79397",
+        "type": "googlehome-notify",
+        "z": "79ac010f.2cef9",
+        "server": "95a2e6a5.054338",
+        "name": "GH-bedroom",
+        "x": 1170,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "5364c18e.4df1c",
+        "type": "trigger",
+        "z": "79ac010f.2cef9",
+        "op1": "FIRE DETECTED, EVACUATE",
+        "op2": "FIRE DETECTED, EVACUATE",
+        "op1type": "str",
+        "op2type": "str",
+        "duration": "7",
+        "extend": false,
+        "units": "s",
+        "reset": "",
+        "name": "",
+        "x": 680,
+        "y": 300,
+        "wires": [
+            [
+                "bb91cd7a.f5112",
+                "a8722878.3f71f8",
+                "f7944a9.73e85b8"
+            ]
+        ]
+    },
+    {
+        "id": "bb91cd7a.f5112",
+        "type": "delay",
+        "z": "79ac010f.2cef9",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "7",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "x": 680,
+        "y": 360,
+        "wires": [
+            [
+                "5364c18e.4df1c"
+            ]
+        ]
+    },
+    {
+        "id": "abb5246f.12e008",
+        "type": "status",
+        "z": "79ac010f.2cef9",
+        "name": "",
+        "scope": [
+            "d543bdf0.79397"
+        ],
+        "x": 120,
+        "y": 660,
+        "wires": [
+            [
+                "c11089a4.6ac088",
+                "68bdc24f.ee34fc"
+            ]
+        ]
+    },
+    {
+        "id": "c11089a4.6ac088",
+        "type": "debug",
+        "z": "79ac010f.2cef9",
+        "name": "STATUS MSG",
+        "active": true,
+        "console": "false",
+        "complete": "true",
+        "x": 360,
+        "y": 660,
+        "wires": []
+    },
+    {
+        "id": "7c7f5835.c8b7b8",
+        "type": "comment",
+        "z": "79ac010f.2cef9",
+        "name": "Error handling, restart NR if GH error CAUTION don't change",
+        "info": "",
+        "x": 280,
+        "y": 620,
+        "wires": []
+    },
+    {
+        "id": "64e4fcc9.674ad4",
+        "type": "http request",
+        "z": "79ac010f.2cef9",
+        "name": "",
+        "method": "POST",
+        "ret": "txt",
+        "url": "http://localhost:3000/restartnoderedrequest",
+        "tls": "",
+        "x": 470,
+        "y": 740,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "3a1f80d8.9128f",
+        "type": "inject",
+        "z": "79ac010f.2cef9",
+        "name": "restart Node-RED",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 170,
+        "y": 740,
+        "wires": [
+            [
+                "64e4fcc9.674ad4"
+            ]
+        ]
+    },
+    {
+        "id": "d69e9df7.7df36",
+        "type": "delay",
+        "z": "79ac010f.2cef9",
+        "name": "",
+        "pauseType": "rate",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "30",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": true,
+        "x": 360,
+        "y": 700,
+        "wires": [
+            [
+                "64e4fcc9.674ad4"
+            ]
+        ]
+    },
+    {
+        "id": "68bdc24f.ee34fc",
+        "type": "switch",
+        "z": "79ac010f.2cef9",
+        "name": "",
+        "property": "status.text",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "cont",
+                "v": "ECONNRESET",
+                "vt": "str"
+            },
+            {
+                "t": "cont",
+                "v": "socket hang up",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "outputs": 2,
+        "x": 190,
+        "y": 700,
+        "wires": [
+            [
+                "d69e9df7.7df36"
+            ],
+            [
+                "d69e9df7.7df36"
+            ]
+        ]
+    },
+    {
+        "id": "8365f5e8.735ae8",
+        "type": "realknx-in",
+        "z": "79ac010f.2cef9",
+        "name": "Fire Alarm OFF",
+        "controller": "4a2e567c.a44be8",
+        "itemname": "ENERTEX - FEU OFF",
+        "passthru": false,
+        "booleanoutput": false,
+        "outputatstartup": false,
+        "x": 140,
+        "y": 400,
+        "wires": [
+            [
+                "70b58dc.6f5a274",
+                "b63c9893.3a5ae8"
+            ]
+        ]
+    },
+    {
+        "id": "711a7356.fd3eec",
+        "type": "link in",
+        "z": "79ac010f.2cef9",
+        "name": "lights-i",
+        "links": [
+            "d500607d.526c6"
+        ],
+        "x": 995,
+        "y": 200,
+        "wires": [
+            [
+                "ed5832ba.05f42",
+                "73adceaa.0709e",
+                "387be79d.a6b958"
+            ]
+        ]
+    },
+    {
+        "id": "d500607d.526c6",
+        "type": "link out",
+        "z": "79ac010f.2cef9",
+        "name": "lights-o",
+        "links": [
+            "711a7356.fd3eec"
+        ],
+        "x": 875,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "b8962bea.c976c8",
+        "type": "link in",
+        "z": "79ac010f.2cef9",
+        "name": "GH-i",
+        "links": [
+            "f7944a9.73e85b8"
+        ],
+        "x": 995,
+        "y": 420,
+        "wires": [
+            [
+                "d543bdf0.79397"
+            ]
+        ]
+    },
+    {
+        "id": "f7944a9.73e85b8",
+        "type": "link out",
+        "z": "79ac010f.2cef9",
+        "name": "GH-o",
+        "links": [
+            "b8962bea.c976c8"
+        ],
+        "x": 875,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "ab8ec2d7.a2aef",
+        "type": "comment",
+        "z": "79ac010f.2cef9",
+        "name": "Google Home speakers",
+        "info": "",
+        "x": 1200,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "50c5ab65.782ed4",
+        "type": "comment",
+        "z": "79ac010f.2cef9",
+        "name": "Lights to flash",
+        "info": "",
+        "x": 1170,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "8ec36cb3.68fae",
+        "type": "better-sonos-queue",
+        "z": "79ac010f.2cef9",
+        "confignode": "99e99896.4dcbd8",
+        "songuri": "https://proknx.com/download/fire.mp3",
+        "position": "next",
+        "positioninqueue": "",
+        "name": "",
+        "x": 1190,
+        "y": 560,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "af0a2d1b.edde6",
+        "type": "better-sonos-control",
+        "z": "79ac010f.2cef9",
+        "confignode": "99e99896.4dcbd8",
+        "name": "Play",
+        "mode": "play",
+        "track": "",
+        "volume": "unmute",
+        "volume_value": "",
+        "x": 1150,
+        "y": 680,
+        "wires": []
+    },
+    {
+        "id": "fecab7f2.b5ddb8",
+        "type": "comment",
+        "z": "79ac010f.2cef9",
+        "name": "SONOS speakers",
+        "info": "",
+        "x": 1190,
+        "y": 520,
+        "wires": []
+    },
+    {
+        "id": "ef35d33a.e4318",
+        "type": "trigger",
+        "z": "79ac010f.2cef9",
+        "op1": "sonos fire",
+        "op2": "sonos fire",
+        "op1type": "str",
+        "op2type": "str",
+        "duration": "34",
+        "extend": false,
+        "units": "s",
+        "reset": "",
+        "name": "",
+        "x": 690,
+        "y": 460,
+        "wires": [
+            [
+                "6770c52b.d7b87c",
+                "1dadac49.e21a64"
+            ]
+        ]
+    },
+    {
+        "id": "6770c52b.d7b87c",
+        "type": "delay",
+        "z": "79ac010f.2cef9",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "34",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "x": 680,
+        "y": 520,
+        "wires": [
+            [
+                "ef35d33a.e4318"
+            ]
+        ]
+    },
+    {
+        "id": "1dadac49.e21a64",
+        "type": "link out",
+        "z": "79ac010f.2cef9",
+        "name": "SONOS-ON-o",
+        "links": [
+            "893c85f.7655778"
+        ],
+        "x": 875,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "893c85f.7655778",
+        "type": "link in",
+        "z": "79ac010f.2cef9",
+        "name": "SONOS-ON-i",
+        "links": [
+            "1dadac49.e21a64"
+        ],
+        "x": 995,
+        "y": 560,
+        "wires": [
+            [
+                "8ec36cb3.68fae",
+                "af0a2d1b.edde6",
+                "b521fa0e.7677f8"
+            ]
+        ]
+    },
+    {
+        "id": "b521fa0e.7677f8",
+        "type": "better-sonos-control",
+        "z": "79ac010f.2cef9",
+        "confignode": "99e99896.4dcbd8",
+        "name": "Set volume to X % ",
+        "mode": "",
+        "track": "",
+        "volume": "volume",
+        "volume_value": "10",
+        "x": 1190,
+        "y": 620,
+        "wires": []
+    },
+    {
+        "id": "5311bb92.1f2004",
+        "type": "better-sonos-control",
+        "z": "79ac010f.2cef9",
+        "confignode": "99e99896.4dcbd8",
+        "name": "Stop",
+        "mode": "stop",
+        "track": "",
+        "volume": "empty",
+        "volume_value": "",
+        "x": 1150,
+        "y": 740,
+        "wires": []
+    },
+    {
+        "id": "72570cb3.69d484",
+        "type": "comment",
+        "z": "79ac010f.2cef9",
+        "name": "The fire.mp3 is 33 sec",
+        "info": "Give a short break before restarting it.",
+        "x": 720,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "a9b526d8.6d3f28",
+        "type": "link out",
+        "z": "79ac010f.2cef9",
+        "name": "SONOS-OFF-o",
+        "links": [
+            "bce4d11b.287a6"
+        ],
+        "x": 470.07984924316406,
+        "y": 539.0555801391602,
+        "wires": []
+    },
+    {
+        "id": "bce4d11b.287a6",
+        "type": "link in",
+        "z": "79ac010f.2cef9",
+        "name": "SONOS-OFF-i",
+        "links": [
+            "a9b526d8.6d3f28"
+        ],
+        "x": 994.0730133056641,
+        "y": 739.8542251586914,
+        "wires": [
+            [
+                "5311bb92.1f2004"
+            ]
+        ]
+    },
+    {
+        "id": "281d1fb3.8075c",
+        "type": "debug",
+        "z": "79ac010f.2cef9",
+        "name": "FIRE ON",
+        "active": false,
+        "console": "false",
+        "complete": "payload",
+        "x": 320,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "b63c9893.3a5ae8",
+        "type": "debug",
+        "z": "79ac010f.2cef9",
+        "name": "FIRE OFF",
+        "active": false,
+        "console": "false",
+        "complete": "payload",
+        "x": 300,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "76976d1d.ae4b94",
+        "type": "comment",
+        "z": "79ac010f.2cef9",
+        "name": "CHANGE!",
+        "info": "Change the text sent to Google Hme speaker(s).\nDo not shorten the 7sec timeout, each message should be \nfinished before starting a new.",
+        "x": 680,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "4a2e567c.a44be8",
+        "type": "realknx-controller",
+        "z": "",
+        "name": "realknx",
+        "host": "localhost",
+        "port": "3000"
+    },
+    {
+        "id": "95a2e6a5.054338",
+        "type": "googlehome-config-node",
+        "z": "",
+        "ipaddress": "192.168.9.119",
+        "language": "en"
+    },
+    {
+        "id": "99e99896.4dcbd8",
+        "type": "better-sonos-config",
+        "z": "",
+        "name": "Playbar",
+        "serialnum": "",
+        "ipaddress": "192.168.9.145"
+    }
+]
