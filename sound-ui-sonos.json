@@ -1,0 +1,360 @@
+[
+    {
+        "id": "28d83707.f97db8",
+        "type": "tab",
+        "label": "SONOS",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "529994ac.65f5cc",
+        "type": "better-sonos-control",
+        "z": "28d83707.f97db8",
+        "confignode": "16f00d95.618452",
+        "name": "Up",
+        "mode": "",
+        "track": "",
+        "volume": "vol_up",
+        "volume_value": "",
+        "x": 250,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "bd671ec1.00dbc",
+        "type": "better-sonos-status",
+        "z": "28d83707.f97db8",
+        "confignode": "16f00d95.618452",
+        "name": "Status",
+        "x": 330,
+        "y": 440,
+        "wires": [
+            [
+                "36d8404f.a16a3",
+                "f7c462fe.43c73",
+                "59dd55e3.0c62fc",
+                "5b42e7fc.384ed8"
+            ]
+        ]
+    },
+    {
+        "id": "19a8f7a4.18ba18",
+        "type": "ui_button",
+        "z": "28d83707.f97db8",
+        "name": "Up",
+        "group": "bf4ace7d.541ea",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Volume Up",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "",
+        "x": 110,
+        "y": 80,
+        "wires": [
+            [
+                "529994ac.65f5cc",
+                "a91ed9cd.781fb8"
+            ]
+        ]
+    },
+    {
+        "id": "5765bbf2.9db4e4",
+        "type": "better-sonos-control",
+        "z": "28d83707.f97db8",
+        "confignode": "16f00d95.618452",
+        "name": "Down",
+        "mode": "",
+        "track": "",
+        "volume": "vol_down",
+        "volume_value": "",
+        "x": 250,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "1ca0c7b6.4dc0a8",
+        "type": "ui_button",
+        "z": "28d83707.f97db8",
+        "name": "Down",
+        "group": "bf4ace7d.541ea",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Volume Down",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "",
+        "x": 110,
+        "y": 140,
+        "wires": [
+            [
+                "5765bbf2.9db4e4",
+                "a91ed9cd.781fb8"
+            ]
+        ]
+    },
+    {
+        "id": "e727404e.71663",
+        "type": "better-sonos-control",
+        "z": "28d83707.f97db8",
+        "confignode": "16f00d95.618452",
+        "name": "Play",
+        "mode": "play",
+        "track": "",
+        "volume": "empty",
+        "volume_value": "",
+        "x": 250,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "cc077c0e.139d",
+        "type": "ui_button",
+        "z": "28d83707.f97db8",
+        "name": "",
+        "group": "bf4ace7d.541ea",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Play",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "",
+        "x": 110,
+        "y": 200,
+        "wires": [
+            [
+                "e727404e.71663",
+                "a91ed9cd.781fb8"
+            ]
+        ]
+    },
+    {
+        "id": "c5c1204b.d0bc4",
+        "type": "better-sonos-control",
+        "z": "28d83707.f97db8",
+        "confignode": "16f00d95.618452",
+        "name": "Pause",
+        "mode": "pause",
+        "track": "",
+        "volume": "empty",
+        "volume_value": "",
+        "x": 250,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "32a078b7.b0bf88",
+        "type": "ui_button",
+        "z": "28d83707.f97db8",
+        "name": "",
+        "group": "bf4ace7d.541ea",
+        "order": 5,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Pause",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "",
+        "x": 110,
+        "y": 260,
+        "wires": [
+            [
+                "c5c1204b.d0bc4",
+                "a91ed9cd.781fb8"
+            ]
+        ]
+    },
+    {
+        "id": "eefb9704.769498",
+        "type": "better-sonos-control",
+        "z": "28d83707.f97db8",
+        "confignode": "16f00d95.618452",
+        "name": "Stop",
+        "mode": "stop",
+        "track": "",
+        "volume": "empty",
+        "volume_value": "",
+        "x": 250,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "748e5c52.0f30d4",
+        "type": "ui_button",
+        "z": "28d83707.f97db8",
+        "name": "",
+        "group": "bf4ace7d.541ea",
+        "order": 6,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Stop",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "",
+        "x": 110,
+        "y": 320,
+        "wires": [
+            [
+                "eefb9704.769498",
+                "a91ed9cd.781fb8"
+            ]
+        ]
+    },
+    {
+        "id": "36d8404f.a16a3",
+        "type": "ui_text",
+        "z": "28d83707.f97db8",
+        "group": "bf4ace7d.541ea",
+        "order": 1,
+        "width": "3",
+        "height": "1",
+        "name": "",
+        "label": "Artist:",
+        "format": "{{msg.track.artist}}",
+        "layout": "col-center",
+        "x": 490,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "a91ed9cd.781fb8",
+        "type": "delay",
+        "z": "28d83707.f97db8",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "500",
+        "timeoutUnits": "milliseconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "x": 130,
+        "y": 440,
+        "wires": [
+            [
+                "d91115d0.c86d48"
+            ]
+        ]
+    },
+    {
+        "id": "f7c462fe.43c73",
+        "type": "ui_text",
+        "z": "28d83707.f97db8",
+        "group": "bf4ace7d.541ea",
+        "order": 1,
+        "width": "3",
+        "height": "1",
+        "name": "",
+        "label": "Title:",
+        "format": "{{msg.track.title}}",
+        "layout": "col-center",
+        "x": 490,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "59dd55e3.0c62fc",
+        "type": "ui_text",
+        "z": "28d83707.f97db8",
+        "group": "bf4ace7d.541ea",
+        "order": 1,
+        "width": "3",
+        "height": "1",
+        "name": "",
+        "label": "Vol:",
+        "format": "{{msg.volume}}",
+        "layout": "col-center",
+        "x": 490,
+        "y": 480,
+        "wires": []
+    },
+    {
+        "id": "5b42e7fc.384ed8",
+        "type": "ui_text",
+        "z": "28d83707.f97db8",
+        "group": "bf4ace7d.541ea",
+        "order": 1,
+        "width": "3",
+        "height": "1",
+        "name": "",
+        "label": "State:",
+        "format": "{{msg.state}}",
+        "layout": "col-center",
+        "x": 490,
+        "y": 520,
+        "wires": []
+    },
+    {
+        "id": "d91115d0.c86d48",
+        "type": "trigger",
+        "z": "28d83707.f97db8",
+        "op1": "1",
+        "op2": "1",
+        "op1type": "str",
+        "op2type": "str",
+        "duration": "3",
+        "extend": true,
+        "units": "s",
+        "reset": "",
+        "name": "",
+        "x": 240,
+        "y": 380,
+        "wires": [
+            [
+                "bd671ec1.00dbc"
+            ]
+        ]
+    },
+    {
+        "id": "16f00d95.618452",
+        "type": "better-sonos-config",
+        "z": "",
+        "name": "Living room",
+        "serialnum": "5C-AA-FD-07-45-3C:F",
+        "ipaddress": ""
+    },
+    {
+        "id": "bf4ace7d.541ea",
+        "type": "ui_group",
+        "z": "",
+        "name": "SONOS",
+        "tab": "b9b743d3.ba0e9",
+        "order": 1,
+        "disp": true,
+        "width": "6"
+    },
+    {
+        "id": "b9b743d3.ba0e9",
+        "type": "ui_tab",
+        "z": "",
+        "name": "realKNX",
+        "icon": "dashboard",
+        "order": 1
+    }
+]
