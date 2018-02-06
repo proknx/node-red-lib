@@ -1,0 +1,830 @@
+[
+    {
+        "id": "c42148f3.4585a8",
+        "type": "tab",
+        "label": "Fell good lights Hue",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "ab68378e.979238",
+        "type": "inject",
+        "z": "c42148f3.4585a8",
+        "name": "Relax Preset",
+        "topic": "",
+        "payload": " { \"on\": true, \"bri\": 100, \"kelvin\": 2237 } ",
+        "payloadType": "json",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 209.99999237060547,
+        "y": 785.499997138977,
+        "wires": [
+            [
+                "595333e1.da7f7c"
+            ]
+        ]
+    },
+    {
+        "id": "b6cc4903.2b5188",
+        "type": "inject",
+        "z": "c42148f3.4585a8",
+        "name": "off",
+        "topic": "",
+        "payload": " { \"on\": false} ",
+        "payloadType": "json",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 206.99999618530273,
+        "y": 736.5000228881836,
+        "wires": [
+            [
+                "fef9d4e8.95ada8"
+            ]
+        ]
+    },
+    {
+        "id": "7b71e39f.e7d36c",
+        "type": "inject",
+        "z": "c42148f3.4585a8",
+        "name": "on",
+        "topic": "",
+        "payload": " { \"on\": true, \"bri\":52} ",
+        "payloadType": "json",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 210.99999618530273,
+        "y": 685.5000219345093,
+        "wires": [
+            [
+                "fef9d4e8.95ada8"
+            ]
+        ]
+    },
+    {
+        "id": "1bbb6b2c.c11b85",
+        "type": "inject",
+        "z": "c42148f3.4585a8",
+        "name": "Concentrate Preset",
+        "topic": "",
+        "payload": " { \"on\": true, \"bri\": 100, \"kelvin\": 4292 } ",
+        "payloadType": "json",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 221.99999237060547,
+        "y": 898.499997138977,
+        "wires": [
+            [
+                "fb3d5270.acb49"
+            ]
+        ]
+    },
+    {
+        "id": "fedddebe.97a82",
+        "type": "inject",
+        "z": "c42148f3.4585a8",
+        "name": "Energise Preset",
+        "topic": "",
+        "payload": " { \"on\": true, \"bri\": 100, \"kelvin\": 6500 } ",
+        "payloadType": "json",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 206.99999237060547,
+        "y": 953.499997138977,
+        "wires": [
+            [
+                "4967764c.87e2c8"
+            ]
+        ]
+    },
+    {
+        "id": "ab879276.03382",
+        "type": "inject",
+        "z": "c42148f3.4585a8",
+        "name": "Read Preset",
+        "topic": "",
+        "payload": " { \"on\": true, \"bri\": 100, \"kelvin\": 2890 } ",
+        "payloadType": "json",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 201.99999237060547,
+        "y": 836.499997138977,
+        "wires": [
+            [
+                "8e088f17.0413f"
+            ]
+        ]
+    },
+    {
+        "id": "8488f750.940428",
+        "type": "function",
+        "z": "c42148f3.4585a8",
+        "name": "Timer Switch",
+        "func": "var now = msg.now ;\nvar noon=msg.solarNoon;\nvar sunriseTime = 30;\nvar sunsetTime = 15;\nvar min2End;\n\nif (now < noon){\n msg.status= JSON.stringify('morning');\n msg.afternoonSwitch = false;\n}else if (now>noon){\n msg.status=JSON.stringify('afternoon');\n msg.afternoonSwitch = true;\n}else{\n msg.status=JSON.stringify('noon');\n msg.afternoonSwitch = true;\n}\n\nmsg.minStart = now-msg.start;\nmsg.min2End = msg.end-now;\n\nif (msg.minStart <sunriseTime){\n msg.SunrisePreset=true;\n}else{\n msg.SunrisePreset=false;\n}\nif (msg.min2End <sunsetTime){\n msg.SunsetPreset=true;\n}else{\n msg.SunsetPreset=false;\n}\n\nif (msg.payload === 1){\n\n msg.turnoff = false;\n msg.offOnce = false; \n}else if(msg.payload === 0){\n if (msg.now>msg.end){\n if((msg.end+1)>msg.now){\n msg.turnoff = true; \n }else{\n msg.turnoff = 0;\n }\n }else {\n msg.turnoff = 0;\n }\n}\n\n\n\nreturn [msg];",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 573.0000610351562,
+        "y": 216.50003051757812,
+        "wires": [
+            [
+                "bbf8cb95.c9db08"
+            ]
+        ]
+    },
+    {
+        "id": "a0fa388d.72a768",
+        "type": "inject",
+        "z": "c42148f3.4585a8",
+        "name": "NightLight Preset",
+        "topic": "",
+        "payload": " { \"on\": true, \"bri\": 0, \"kelvin\": 2237 } ",
+        "payloadType": "json",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 249.99999237060547,
+        "y": 1016.999997138977,
+        "wires": [
+            [
+                "fef9d4e8.95ada8"
+            ]
+        ]
+    },
+    {
+        "id": "a03bd771.587688",
+        "type": "switch",
+        "z": "c42148f3.4585a8",
+        "name": "Sunset?",
+        "property": "SunsetPreset",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "true"
+            },
+            {
+                "t": "false"
+            }
+        ],
+        "checkall": "true",
+        "outputs": 2,
+        "x": 1090.0001487731934,
+        "y": 92,
+        "wires": [
+            [
+                "50fe31d9.38f3c"
+            ],
+            [
+                "b49cdeae.d2bf6"
+            ]
+        ]
+    },
+    {
+        "id": "4c4e1fe1.83d",
+        "type": "function",
+        "z": "c42148f3.4585a8",
+        "name": "SunDown(30mins)",
+        "func": "var increment=msg.min2End;\nvar startKelv=2890;\nvar endKelvin=2237;\nvar state = true;\nvar decKelvin, decBri, ValueKelv,ValueBri;\ndecKelvin = (startKelv - endKelvin)/30;\nValueKelv=startKelv - (decKelvin*(30-increment));\nValueKelv=Math.round(ValueKelv);\ndecBri = 70/30;\nValueBri = (decBri*increment);\nValueBri=Math.round(ValueBri);\n\nif (increment < 0){\n state = false;\n}\n\nmsg.payload={\n\t\t\"on\":state,\n\t\t\"bri\":ValueBri,\n\t\t\"kelvin\": ValueKelv\n\t}\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 432.00003814697266,
+        "y": 509.99999141693115,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "451b8107.00e6d",
+        "type": "switch",
+        "z": "c42148f3.4585a8",
+        "name": "Afternoon?",
+        "property": "afternoonSwitch",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "true"
+            },
+            {
+                "t": "false"
+            }
+        ],
+        "checkall": "true",
+        "outputs": 2,
+        "x": 919.0001831054688,
+        "y": 140.00000429153442,
+        "wires": [
+            [
+                "a03bd771.587688"
+            ],
+            [
+                "50ccb024.d0d73"
+            ]
+        ]
+    },
+    {
+        "id": "50ccb024.d0d73",
+        "type": "switch",
+        "z": "c42148f3.4585a8",
+        "name": "Sunrise?",
+        "property": "SunrisePreset",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "false"
+            },
+            {
+                "t": "true"
+            }
+        ],
+        "checkall": "true",
+        "outputs": 2,
+        "x": 1093.0001487731934,
+        "y": 252.0000295639038,
+        "wires": [
+            [
+                "4bb06bad.a11db4"
+            ],
+            [
+                "9059c599.6f78c8"
+            ]
+        ]
+    },
+    {
+        "id": "b49cdeae.d2bf6",
+        "type": "function",
+        "z": "c42148f3.4585a8",
+        "name": "Afternoon",
+        "func": "var now = msg.now ;\nvar noon= msg.solarNoon;\nvar StartKelv = noon + 180;\nvar StartBriDec = msg.end - 120;\nmsg.startColor = StartKelv;\n\nvar startKelv = 4292;\nvar endKelvin = 2890;\nvar incBri, decKelvin, ValueKelv,ValueBri;\n\nif (now>StartKelv){\n decKelvin = (startKelv-endKelvin)/90;\n ValueKelv=startKelv - decKelvin*(now-StartKelv);\n ValueKelv=Math.round(ValueKelv);\n if (ValueKelv < endKelvin){\n ValueKelv = endKelvin;\n } \n}\n\nif (now>StartBriDec){\n decBri = 30/90;\n ValueBri = 100 - decBri*(now - StartBriDec);\n ValueBri=Math.round(ValueBri);\n if (ValueBri > 100){\n ValueBri = 100;\n } \n if (ValueBri < 70){\n ValueBri = 70;\n } \n}\n\n\nmsg.payload={\n\t\t\"on\":true,\n\t\t\"bri\":ValueBri,\n\t\t\"kelvin\": ValueKelv\n\t}\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1238.00004196167,
+        "y": 124.00001430511475,
+        "wires": [
+            [
+                "5770d068.9c49c"
+            ]
+        ]
+    },
+    {
+        "id": "4bb06bad.a11db4",
+        "type": "function",
+        "z": "c42148f3.4585a8",
+        "name": "Morning",
+        "func": "var now = msg.now ;\nvar noon= msg.solarNoon;\nvar increment= msg.minStart - 30;\nvar startKelv = 6500;\nvar endKelvin=4292;\nvar incBri, decKelvin, ValueKelv,ValueBri;\n\ndecKelvin = (startKelv - endKelvin)/120;\nValueKelv=startKelv - decKelvin*increment;\nValueKelv=Math.round(ValueKelv);\nif (ValueKelv < endKelvin){\n ValueKelv = endKelvin;\n}\n\nincBri = 30/120;\nValueBri = 70+incBri*increment;\nValueBri=Math.round(ValueBri);\nif (ValueBri > 100){\n ValueBri = 100;\n}\n\nmsg.payload={\n\t\t\"on\":true,\n\t\t\"bri\":ValueBri,\n\t\t\"kelvin\": ValueKelv\n\t}\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1251.0001983642578,
+        "y": 206.50001621246338,
+        "wires": [
+            [
+                "93104945.6f9fc8"
+            ]
+        ]
+    },
+    {
+        "id": "5ba6677d.0839b8",
+        "type": "function",
+        "z": "c42148f3.4585a8",
+        "name": "OFF",
+        "func": "msg.payload={\n\t\t\"on\":false\n\t}\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 967.3003387451172,
+        "y": 330.1000099182129,
+        "wires": [
+            [
+                "457ab4c2.97653c"
+            ]
+        ]
+    },
+    {
+        "id": "fef9d4e8.95ada8",
+        "type": "node-hue-in",
+        "z": "c42148f3.4585a8",
+        "server": "d8c9d1d6.8fca8",
+        "lightID": "light1",
+        "name": "Light",
+        "x": 667.7221946716309,
+        "y": 828.5555572509766,
+        "wires": []
+    },
+    {
+        "id": "457ab4c2.97653c",
+        "type": "node-hue-in",
+        "z": "c42148f3.4585a8",
+        "server": "d8c9d1d6.8fca8",
+        "lightID": "light1",
+        "name": "Light",
+        "x": 1640.7775077819824,
+        "y": 159.1111125946045,
+        "wires": []
+    },
+    {
+        "id": "a8f5b738.d0be98",
+        "type": "function",
+        "z": "c42148f3.4585a8",
+        "name": "SunRise(15mins)",
+        "func": "var increment=msg.minStart;\nvar endKelvin=6500;\nvar incBri, ValueKelv,ValueBri;\n\nValueKelv=endKelvin;\n\nincBri = 70/15;\nValueBri = (incBri*increment);\nValueBri=Math.round(ValueBri);\n\nmsg.payload={\n\t\t\"on\":true,\n\t\t\"bri\":ValueBri,\n\t\t\"kelvin\": ValueKelv\n\t}\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 232.44445037841797,
+        "y": 463.1110954284668,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "50fe31d9.38f3c",
+        "type": "function",
+        "z": "c42148f3.4585a8",
+        "name": "SunDown(15mins)",
+        "func": "var increment=msg.min2End;\nvar startKelv=2890;\nvar endKelvin=2237;\nvar state = true;\nvar decKelvin, decBri, ValueKelv,ValueBri;\ndecKelvin = (startKelv - endKelvin)/15;\nValueKelv=startKelv - (decKelvin*(15-increment));\nValueKelv=Math.round(ValueKelv);\ndecBri = 70/15;\nValueBri = (decBri*increment);\nValueBri=Math.round(ValueBri);\n\nif (increment < 0){\n state = false;\n}\n\nmsg.payload={\n\t\t\"on\":state,\n\t\t\"bri\":ValueBri,\n\t\t\"kelvin\": ValueKelv\n\t}\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1270.4444885253906,
+        "y": 43,
+        "wires": [
+            [
+                "23397134.a7760e"
+            ]
+        ]
+    },
+    {
+        "id": "595333e1.da7f7c",
+        "type": "function",
+        "z": "c42148f3.4585a8",
+        "name": "Kelvin --> RGB",
+        "func": " var red, green, blue, tmp_red, tmp_green, tmp_blue;\n var colour_temperature = msg.payload.kelvin; \n \n if (colour_temperature < 1000){\n colour_temperature = 1000;\n }\n else if(colour_temperature > 40000){\n colour_temperature = 40000;\n }\n\n var tmp_internal = colour_temperature / 100.0;\n\n // red\n if (tmp_internal <= 66){\n red = 255;\n }else{\n tmp_red = 329.698727446 * Math.pow(tmp_internal - 60, -0.1332047592)\n if (tmp_red < 0){\n red = 0;\n }\n else if (tmp_red > 255){\n red = 255;\n }\n else{\n red = tmp_red;\n }\n }\n // green\n if (tmp_internal <= 66){\n tmp_green = 99.4708025861 * Math.log(tmp_internal) - 161.1195681661;\n if (tmp_green < 0){\n green = 0;\n }\n else if (tmp_green > 255){\n green = 255;\n }\n else{\n green = tmp_green;\n }\n }else{\n tmp_green = 288.1221695283 * Math.pow(tmp_internal - 60, -0.0755148492);\n if (tmp_green < 0){\n green = 0;\n }\n else if (tmp_green > 255){\n green = 255;\n }\n else{\n green = tmp_green;\n }\n }\n // blue\n if (tmp_internal >= 66){\n blue = 255;\n }\n else if (tmp_internal <= 19){\n blue = 0;\n }\n else{\n tmp_blue = 138.5177312231 * Math.log(tmp_internal - 10) - 305.0447927307; \n if (tmp_blue < 0){\n blue = 0;\n }else if (tmp_blue > 255){\n blue = 255;\n }\n else{\n blue = tmp_blue;\n }\n }\n \nmsg.payload.rgb = [Math.round(red), Math.round(green), Math.round(blue)];\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 421,
+        "y": 784.7777919769287,
+        "wires": [
+            [
+                "fef9d4e8.95ada8"
+            ]
+        ]
+    },
+    {
+        "id": "8e088f17.0413f",
+        "type": "function",
+        "z": "c42148f3.4585a8",
+        "name": "Kelvin --> RGB",
+        "func": " var red, green, blue, tmp_red, tmp_green, tmp_blue;\n var colour_temperature = msg.payload.kelvin; \n \n if (colour_temperature < 1000){\n colour_temperature = 1000;\n }\n else if(colour_temperature > 40000){\n colour_temperature = 40000;\n }\n\n var tmp_internal = colour_temperature / 100.0;\n\n // red\n if (tmp_internal <= 66){\n red = 255;\n }else{\n tmp_red = 329.698727446 * Math.pow(tmp_internal - 60, -0.1332047592)\n if (tmp_red < 0){\n red = 0;\n }\n else if (tmp_red > 255){\n red = 255;\n }\n else{\n red = tmp_red;\n }\n }\n // green\n if (tmp_internal <= 66){\n tmp_green = 99.4708025861 * Math.log(tmp_internal) - 161.1195681661;\n if (tmp_green < 0){\n green = 0;\n }\n else if (tmp_green > 255){\n green = 255;\n }\n else{\n green = tmp_green;\n }\n }else{\n tmp_green = 288.1221695283 * Math.pow(tmp_internal - 60, -0.0755148492);\n if (tmp_green < 0){\n green = 0;\n }\n else if (tmp_green > 255){\n green = 255;\n }\n else{\n green = tmp_green;\n }\n }\n // blue\n if (tmp_internal >= 66){\n blue = 255;\n }\n else if (tmp_internal <= 19){\n blue = 0;\n }\n else{\n tmp_blue = 138.5177312231 * Math.log(tmp_internal - 10) - 305.0447927307; \n if (tmp_blue < 0){\n blue = 0;\n }else if (tmp_blue > 255){\n blue = 255;\n }\n else{\n blue = tmp_blue;\n }\n }\n \nmsg.payload.rgb = [Math.round(red), Math.round(green), Math.round(blue)];\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 419.99999237060547,
+        "y": 836.9999980926514,
+        "wires": [
+            [
+                "fef9d4e8.95ada8"
+            ]
+        ]
+    },
+    {
+        "id": "fb3d5270.acb49",
+        "type": "function",
+        "z": "c42148f3.4585a8",
+        "name": "Kelvin --> RGB",
+        "func": " var red, green, blue, tmp_red, tmp_green, tmp_blue;\n var colour_temperature = msg.payload.kelvin; \n \n if (colour_temperature < 1000){\n colour_temperature = 1000;\n }\n else if(colour_temperature > 40000){\n colour_temperature = 40000;\n }\n\n var tmp_internal = colour_temperature / 100.0;\n\n // red\n if (tmp_internal <= 66){\n red = 255;\n }else{\n tmp_red = 329.698727446 * Math.pow(tmp_internal - 60, -0.1332047592)\n if (tmp_red < 0){\n red = 0;\n }\n else if (tmp_red > 255){\n red = 255;\n }\n else{\n red = tmp_red;\n }\n }\n // green\n if (tmp_internal <= 66){\n tmp_green = 99.4708025861 * Math.log(tmp_internal) - 161.1195681661;\n if (tmp_green < 0){\n green = 0;\n }\n else if (tmp_green > 255){\n green = 255;\n }\n else{\n green = tmp_green;\n }\n }else{\n tmp_green = 288.1221695283 * Math.pow(tmp_internal - 60, -0.0755148492);\n if (tmp_green < 0){\n green = 0;\n }\n else if (tmp_green > 255){\n green = 255;\n }\n else{\n green = tmp_green;\n }\n }\n // blue\n if (tmp_internal >= 66){\n blue = 255;\n }\n else if (tmp_internal <= 19){\n blue = 0;\n }\n else{\n tmp_blue = 138.5177312231 * Math.log(tmp_internal - 10) - 305.0447927307; \n if (tmp_blue < 0){\n blue = 0;\n }else if (tmp_blue > 255){\n blue = 255;\n }\n else{\n blue = tmp_blue;\n }\n }\n \nmsg.payload.rgb = [Math.round(red), Math.round(green), Math.round(blue)];\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 421.99999237060547,
+        "y": 879.9999980926514,
+        "wires": [
+            [
+                "fef9d4e8.95ada8"
+            ]
+        ]
+    },
+    {
+        "id": "4967764c.87e2c8",
+        "type": "function",
+        "z": "c42148f3.4585a8",
+        "name": "Kelvin --> RGB",
+        "func": " var red, green, blue, tmp_red, tmp_green, tmp_blue;\n var colour_temperature = msg.payload.kelvin; \n \n if (colour_temperature < 1000){\n colour_temperature = 1000;\n }\n else if(colour_temperature > 40000){\n colour_temperature = 40000;\n }\n\n var tmp_internal = colour_temperature / 100.0;\n\n // red\n if (tmp_internal <= 66){\n red = 255;\n }else{\n tmp_red = 329.698727446 * Math.pow(tmp_internal - 60, -0.1332047592)\n if (tmp_red < 0){\n red = 0;\n }\n else if (tmp_red > 255){\n red = 255;\n }\n else{\n red = tmp_red;\n }\n }\n // green\n if (tmp_internal <= 66){\n tmp_green = 99.4708025861 * Math.log(tmp_internal) - 161.1195681661;\n if (tmp_green < 0){\n green = 0;\n }\n else if (tmp_green > 255){\n green = 255;\n }\n else{\n green = tmp_green;\n }\n }else{\n tmp_green = 288.1221695283 * Math.pow(tmp_internal - 60, -0.0755148492);\n if (tmp_green < 0){\n green = 0;\n }\n else if (tmp_green > 255){\n green = 255;\n }\n else{\n green = tmp_green;\n }\n }\n // blue\n if (tmp_internal >= 66){\n blue = 255;\n }\n else if (tmp_internal <= 19){\n blue = 0;\n }\n else{\n tmp_blue = 138.5177312231 * Math.log(tmp_internal - 10) - 305.0447927307; \n if (tmp_blue < 0){\n blue = 0;\n }else if (tmp_blue > 255){\n blue = 255;\n }\n else{\n blue = tmp_blue;\n }\n }\n \nmsg.payload.rgb = [Math.round(red), Math.round(green), Math.round(blue)];\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 421.99999237060547,
+        "y": 933.2222270965576,
+        "wires": [
+            [
+                "fef9d4e8.95ada8"
+            ]
+        ]
+    },
+    {
+        "id": "23397134.a7760e",
+        "type": "function",
+        "z": "c42148f3.4585a8",
+        "name": "Kelvin --> RGB",
+        "func": " var red, green, blue, tmp_red, tmp_green, tmp_blue;\n var colour_temperature = msg.payload.kelvin; \n \n if (colour_temperature < 1000){\n colour_temperature = 1000;\n }\n else if(colour_temperature > 40000){\n colour_temperature = 40000;\n }\n\n var tmp_internal = colour_temperature / 100.0;\n\n // red\n if (tmp_internal <= 66){\n red = 255;\n }else{\n tmp_red = 329.698727446 * Math.pow(tmp_internal - 60, -0.1332047592)\n if (tmp_red < 0){\n red = 0;\n }\n else if (tmp_red > 255){\n red = 255;\n }\n else{\n red = tmp_red;\n }\n }\n // green\n if (tmp_internal <= 66){\n tmp_green = 99.4708025861 * Math.log(tmp_internal) - 161.1195681661;\n if (tmp_green < 0){\n green = 0;\n }\n else if (tmp_green > 255){\n green = 255;\n }\n else{\n green = tmp_green;\n }\n }else{\n tmp_green = 288.1221695283 * Math.pow(tmp_internal - 60, -0.0755148492);\n if (tmp_green < 0){\n green = 0;\n }\n else if (tmp_green > 255){\n green = 255;\n }\n else{\n green = tmp_green;\n }\n }\n // blue\n if (tmp_internal >= 66){\n blue = 255;\n }\n else if (tmp_internal <= 19){\n blue = 0;\n }\n else{\n tmp_blue = 138.5177312231 * Math.log(tmp_internal - 10) - 305.0447927307; \n if (tmp_blue < 0){\n blue = 0;\n }else if (tmp_blue > 255){\n blue = 255;\n }\n else{\n blue = tmp_blue;\n }\n }\n \nmsg.payload.rgb = [Math.round(red), Math.round(green), Math.round(blue)];\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1469.0001029968262,
+        "y": 44.22222900390625,
+        "wires": [
+            [
+                "457ab4c2.97653c"
+            ]
+        ]
+    },
+    {
+        "id": "a40e0077.8fc1",
+        "type": "function",
+        "z": "c42148f3.4585a8",
+        "name": "Kelvin --> RGB",
+        "func": " var red, green, blue, tmp_red, tmp_green, tmp_blue;\n var colour_temperature = msg.payload.kelvin; \n \n if (colour_temperature < 1000){\n colour_temperature = 1000;\n }\n else if(colour_temperature > 40000){\n colour_temperature = 40000;\n }\n\n var tmp_internal = colour_temperature / 100.0;\n\n // red\n if (tmp_internal <= 66){\n red = 255;\n }else{\n tmp_red = 329.698727446 * Math.pow(tmp_internal - 60, -0.1332047592)\n if (tmp_red < 0){\n red = 0;\n }\n else if (tmp_red > 255){\n red = 255;\n }\n else{\n red = tmp_red;\n }\n }\n // green\n if (tmp_internal <= 66){\n tmp_green = 99.4708025861 * Math.log(tmp_internal) - 161.1195681661;\n if (tmp_green < 0){\n green = 0;\n }\n else if (tmp_green > 255){\n green = 255;\n }\n else{\n green = tmp_green;\n }\n }else{\n tmp_green = 288.1221695283 * Math.pow(tmp_internal - 60, -0.0755148492);\n if (tmp_green < 0){\n green = 0;\n }\n else if (tmp_green > 255){\n green = 255;\n }\n else{\n green = tmp_green;\n }\n }\n // blue\n if (tmp_internal >= 66){\n blue = 255;\n }\n else if (tmp_internal <= 19){\n blue = 0;\n }\n else{\n tmp_blue = 138.5177312231 * Math.log(tmp_internal - 10) - 305.0447927307; \n if (tmp_blue < 0){\n blue = 0;\n }else if (tmp_blue > 255){\n blue = 255;\n }\n else{\n blue = tmp_blue;\n }\n }\n \nmsg.payload.rgb = [Math.round(red), Math.round(green), Math.round(blue)];\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 220.00000762939453,
+        "y": 561.0000114440918,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "5770d068.9c49c",
+        "type": "function",
+        "z": "c42148f3.4585a8",
+        "name": "Kelvin --> RGB",
+        "func": " var red, green, blue, tmp_red, tmp_green, tmp_blue;\n var colour_temperature = msg.payload.kelvin; \n \n if (colour_temperature < 1000){\n colour_temperature = 1000;\n }\n else if(colour_temperature > 40000){\n colour_temperature = 40000;\n }\n\n var tmp_internal = colour_temperature / 100.0;\n\n // red\n if (tmp_internal <= 66){\n red = 255;\n }else{\n tmp_red = 329.698727446 * Math.pow(tmp_internal - 60, -0.1332047592)\n if (tmp_red < 0){\n red = 0;\n }\n else if (tmp_red > 255){\n red = 255;\n }\n else{\n red = tmp_red;\n }\n }\n // green\n if (tmp_internal <= 66){\n tmp_green = 99.4708025861 * Math.log(tmp_internal) - 161.1195681661;\n if (tmp_green < 0){\n green = 0;\n }\n else if (tmp_green > 255){\n green = 255;\n }\n else{\n green = tmp_green;\n }\n }else{\n tmp_green = 288.1221695283 * Math.pow(tmp_internal - 60, -0.0755148492);\n if (tmp_green < 0){\n green = 0;\n }\n else if (tmp_green > 255){\n green = 255;\n }\n else{\n green = tmp_green;\n }\n }\n // blue\n if (tmp_internal >= 66){\n blue = 255;\n }\n else if (tmp_internal <= 19){\n blue = 0;\n }\n else{\n tmp_blue = 138.5177312231 * Math.log(tmp_internal - 10) - 305.0447927307; \n if (tmp_blue < 0){\n blue = 0;\n }else if (tmp_blue > 255){\n blue = 255;\n }\n else{\n blue = tmp_blue;\n }\n }\n \nmsg.payload.rgb = [Math.round(red), Math.round(green), Math.round(blue)];\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1419.0001029968262,
+        "y": 123,
+        "wires": [
+            [
+                "457ab4c2.97653c"
+            ]
+        ]
+    },
+    {
+        "id": "93104945.6f9fc8",
+        "type": "function",
+        "z": "c42148f3.4585a8",
+        "name": "Kelvin --> RGB",
+        "func": " var red, green, blue, tmp_red, tmp_green, tmp_blue;\n var colour_temperature = msg.payload.kelvin; \n \n if (colour_temperature < 1000){\n colour_temperature = 1000;\n }\n else if(colour_temperature > 40000){\n colour_temperature = 40000;\n }\n\n var tmp_internal = colour_temperature / 100.0;\n\n // red\n if (tmp_internal <= 66){\n red = 255;\n }else{\n tmp_red = 329.698727446 * Math.pow(tmp_internal - 60, -0.1332047592)\n if (tmp_red < 0){\n red = 0;\n }\n else if (tmp_red > 255){\n red = 255;\n }\n else{\n red = tmp_red;\n }\n }\n // green\n if (tmp_internal <= 66){\n tmp_green = 99.4708025861 * Math.log(tmp_internal) - 161.1195681661;\n if (tmp_green < 0){\n green = 0;\n }\n else if (tmp_green > 255){\n green = 255;\n }\n else{\n green = tmp_green;\n }\n }else{\n tmp_green = 288.1221695283 * Math.pow(tmp_internal - 60, -0.0755148492);\n if (tmp_green < 0){\n green = 0;\n }\n else if (tmp_green > 255){\n green = 255;\n }\n else{\n green = tmp_green;\n }\n }\n // blue\n if (tmp_internal >= 66){\n blue = 255;\n }\n else if (tmp_internal <= 19){\n blue = 0;\n }\n else{\n tmp_blue = 138.5177312231 * Math.log(tmp_internal - 10) - 305.0447927307; \n if (tmp_blue < 0){\n blue = 0;\n }else if (tmp_blue > 255){\n blue = 255;\n }\n else{\n blue = tmp_blue;\n }\n }\n \nmsg.payload.rgb = [Math.round(red), Math.round(green), Math.round(blue)];\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1438.0000953674316,
+        "y": 206.0000171661377,
+        "wires": [
+            [
+                "457ab4c2.97653c"
+            ]
+        ]
+    },
+    {
+        "id": "795c05c9.3d190c",
+        "type": "function",
+        "z": "c42148f3.4585a8",
+        "name": "Kelvin --> RGB",
+        "func": " var red, green, blue, tmp_red, tmp_green, tmp_blue;\n var colour_temperature = msg.payload.kelvin; \n \n if (colour_temperature < 1000){\n colour_temperature = 1000;\n }\n else if(colour_temperature > 40000){\n colour_temperature = 40000;\n }\n\n var tmp_internal = colour_temperature / 100.0;\n\n // red\n if (tmp_internal <= 66){\n red = 255;\n }else{\n tmp_red = 329.698727446 * Math.pow(tmp_internal - 60, -0.1332047592)\n if (tmp_red < 0){\n red = 0;\n }\n else if (tmp_red > 255){\n red = 255;\n }\n else{\n red = tmp_red;\n }\n }\n // green\n if (tmp_internal <= 66){\n tmp_green = 99.4708025861 * Math.log(tmp_internal) - 161.1195681661;\n if (tmp_green < 0){\n green = 0;\n }\n else if (tmp_green > 255){\n green = 255;\n }\n else{\n green = tmp_green;\n }\n }else{\n tmp_green = 288.1221695283 * Math.pow(tmp_internal - 60, -0.0755148492);\n if (tmp_green < 0){\n green = 0;\n }\n else if (tmp_green > 255){\n green = 255;\n }\n else{\n green = tmp_green;\n }\n }\n // blue\n if (tmp_internal >= 66){\n blue = 255;\n }\n else if (tmp_internal <= 19){\n blue = 0;\n }\n else{\n tmp_blue = 138.5177312231 * Math.log(tmp_internal - 10) - 305.0447927307; \n if (tmp_blue < 0){\n blue = 0;\n }else if (tmp_blue > 255){\n blue = 255;\n }\n else{\n blue = tmp_blue;\n }\n }\n \nmsg.payload.rgb = [Math.round(red), Math.round(green), Math.round(blue)];\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1463.0000953674316,
+        "y": 281.00000953674316,
+        "wires": [
+            [
+                "457ab4c2.97653c"
+            ]
+        ]
+    },
+    {
+        "id": "2efc5e92.a78182",
+        "type": "comment",
+        "z": "c42148f3.4585a8",
+        "name": "Philips Hue white ambiance test module",
+        "info": "",
+        "x": 296.1666488647461,
+        "y": 641.7777519226074,
+        "wires": []
+    },
+    {
+        "id": "981d7ac4.c0bfa8",
+        "type": "comment",
+        "z": "c42148f3.4585a8",
+        "name": "Functions",
+        "info": "",
+        "x": 254.10000228881836,
+        "y": 425.0000114440918,
+        "wires": []
+    },
+    {
+        "id": "5ee594b4.09e9ec",
+        "type": "function",
+        "z": "c42148f3.4585a8",
+        "name": "SunRise(30mins)",
+        "func": "var increment=msg.minStart;\nvar endKelvin=6500;\nvar incBri, ValueKelv,ValueBri;\n\nValueKelv=endKelvin;\n\nincBri = 70/30;\nValueBri = (incBri*increment);\nValueBri=Math.round(ValueBri);\n\nmsg.payload={\n\t\t\"on\":true,\n\t\t\"bri\":ValueBri,\n\t\t\"kelvin\": ValueKelv\n\t}\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 227.80003356933594,
+        "y": 511.59998893737793,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "a4ae23c8.b19ed",
+        "type": "function",
+        "z": "c42148f3.4585a8",
+        "name": "SunDown(15mins)",
+        "func": "var increment=msg.min2End;\nvar startKelv=2890;\nvar endKelvin=2237;\nvar state = true;\nvar decKelvin, decBri, ValueKelv,ValueBri;\ndecKelvin = (startKelv - endKelvin)/15;\nValueKelv=startKelv - (decKelvin*(15-increment));\nValueKelv=Math.round(ValueKelv);\ndecBri = 70/15;\nValueBri = (decBri*increment);\nValueBri=Math.round(ValueBri);\n\nif (increment < 0){\n state = false;\n}\n\nmsg.payload={\n\t\t\"on\":state,\n\t\t\"bri\":ValueBri,\n\t\t\"kelvin\": ValueKelv\n\t}\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 433.99999237060547,
+        "y": 462.3999614715576,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "6c46c444.85e28c",
+        "type": "comment",
+        "z": "c42148f3.4585a8",
+        "name": " change sunrise/sunset time period in Timer Switch ",
+        "info": "# change sunrise and sunset time to match selected function",
+        "x": 618.1001510620117,
+        "y": 147.40003967285156,
+        "wires": []
+    },
+    {
+        "id": "499e3912.634248",
+        "type": "comment",
+        "z": "c42148f3.4585a8",
+        "name": "Select start and end time",
+        "info": "",
+        "x": 398.09998321533203,
+        "y": 282.39999198913574,
+        "wires": []
+    },
+    {
+        "id": "9059c599.6f78c8",
+        "type": "function",
+        "z": "c42148f3.4585a8",
+        "name": "SunRise(30mins)",
+        "func": "var increment=msg.minStart;\nvar endKelvin=6500;\nvar incBri, ValueKelv,ValueBri;\n\nValueKelv=endKelvin;\n\nincBri = 70/30;\nValueBri = (incBri*increment);\nValueBri=Math.round(ValueBri);\n\nmsg.payload={\n\t\t\"on\":true,\n\t\t\"bri\":ValueBri,\n\t\t\"kelvin\": ValueKelv\n\t}\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1270.200138092041,
+        "y": 281.50000858306885,
+        "wires": [
+            [
+                "795c05c9.3d190c"
+            ]
+        ]
+    },
+    {
+        "id": "3256adab.a89c72",
+        "type": "ui_switch",
+        "z": "c42148f3.4585a8",
+        "name": "",
+        "label": "ON/OFF",
+        "group": "2492afd1.b86df",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "x": 174.10006713867188,
+        "y": 164.80000495910645,
+        "wires": [
+            [
+                "7273a221.9f9a4c"
+            ]
+        ]
+    },
+    {
+        "id": "7273a221.9f9a4c",
+        "type": "function",
+        "z": "c42148f3.4585a8",
+        "name": "Timer Override",
+        "func": "\nif (msg.payload === false){\n msg.payload = 'off';\n}else if(msg.payload === true){\n msg.payload = 'auto';\n}\n\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 224.0000228881836,
+        "y": 219.1999797821045,
+        "wires": [
+            [
+                "2f29f0cf.ae5ce"
+            ]
+        ]
+    },
+    {
+        "id": "41ba1e05.cc87d",
+        "type": "comment",
+        "z": "c42148f3.4585a8",
+        "name": "Switch in Automation UI",
+        "info": "",
+        "x": 194.99999618530273,
+        "y": 78.59998798370361,
+        "wires": []
+    },
+    {
+        "id": "f86ad9b9.a425f8",
+        "type": "comment",
+        "z": "c42148f3.4585a8",
+        "name": "Download palette: bigtimer and node-red-contib-node-hue",
+        "info": "",
+        "x": 914.7999801635742,
+        "y": 435.1999797821045,
+        "wires": []
+    },
+    {
+        "id": "370f4b04.e79ed4",
+        "type": "comment",
+        "z": "c42148f3.4585a8",
+        "name": "Configure Timer and Light nodes",
+        "info": "",
+        "x": 841.7999801635742,
+        "y": 481.2000102996826,
+        "wires": []
+    },
+    {
+        "id": "fe7b587a.01e9d8",
+        "type": "node-hue-out",
+        "z": "c42148f3.4585a8",
+        "server": "d8c9d1d6.8fca8",
+        "lightID": "light1",
+        "name": "Light",
+        "x": 420.72224044799805,
+        "y": 680.8888902664185,
+        "wires": [
+            [
+                "4e8026ed.f06028"
+            ]
+        ]
+    },
+    {
+        "id": "4e8026ed.f06028",
+        "type": "debug",
+        "z": "c42148f3.4585a8",
+        "name": "",
+        "active": true,
+        "console": "false",
+        "complete": "false",
+        "x": 621.799919128418,
+        "y": 755.7000102996826,
+        "wires": []
+    },
+    {
+        "id": "dd880d1d.eaf57",
+        "type": "interval",
+        "z": "c42148f3.4585a8",
+        "name": "interval",
+        "interval": 10,
+        "onstart": false,
+        "msg": "ping",
+        "showstatus": false,
+        "unit": "minutes",
+        "statusformat": "YYYY-MM-D HH:mm:ss",
+        "x": 163.0999984741211,
+        "y": 113.99999809265137,
+        "wires": [
+            [
+                "3256adab.a89c72"
+            ]
+        ]
+    },
+    {
+        "id": "bbf8cb95.c9db08",
+        "type": "switch",
+        "z": "c42148f3.4585a8",
+        "name": "ON/OFF",
+        "property": "turnoff",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "false"
+            },
+            {
+                "t": "true"
+            }
+        ],
+        "checkall": "true",
+        "outputs": 2,
+        "x": 774.0000152587891,
+        "y": 214.0000057220459,
+        "wires": [
+            [
+                "451b8107.00e6d"
+            ],
+            [
+                "5ba6677d.0839b8"
+            ]
+        ]
+    },
+    {
+        "id": "2f29f0cf.ae5ce",
+        "type": "bigtimer",
+        "z": "c42148f3.4585a8",
+        "outtopic": "",
+        "outpayload1": "On",
+        "outpayload2": "Off",
+        "name": "Timer",
+        "lat": "43.623042",
+        "lon": "7.046945",
+        "starttime": "570",
+        "endtime": "1020",
+        "startoff": 0,
+        "endoff": 0,
+        "offs": 0,
+        "outtext1": "",
+        "outtext2": "",
+        "timeout": 1440,
+        "sun": true,
+        "mon": true,
+        "tue": true,
+        "wed": true,
+        "thu": true,
+        "fri": true,
+        "sat": true,
+        "jan": true,
+        "feb": true,
+        "mar": true,
+        "apr": true,
+        "may": true,
+        "jun": true,
+        "jul": true,
+        "aug": true,
+        "sep": true,
+        "oct": true,
+        "nov": true,
+        "dec": true,
+        "day1": 0,
+        "month1": 0,
+        "day2": 0,
+        "month2": 0,
+        "day3": 0,
+        "month3": 0,
+        "day4": 0,
+        "month4": 0,
+        "day5": 0,
+        "month5": 0,
+        "d1": "0",
+        "w1": "0",
+        "d2": "0",
+        "w2": "0",
+        "d3": "0",
+        "w3": "0",
+        "d4": "0",
+        "w4": "0",
+        "d5": "0",
+        "w5": "0",
+        "suspend": false,
+        "random": false,
+        "repeat": true,
+        "atstart": true,
+        "odd": false,
+        "even": false,
+        "x": 380,
+        "y": 220,
+        "wires": [
+            [],
+            [
+                "8488f750.940428"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "d8c9d1d6.8fca8",
+        "type": "node-hue-bridge",
+        "z": "c42148f3.4585a8",
+        "name": "Hue Bridge",
+        "address": "",
+        "key": "EwrP0gGuhhpunWz1kbO7oJ1F9ayFx2xXZgxmPUWp",
+        "interval": "10000"
+    },
+    {
+        "id": "2492afd1.b86df",
+        "type": "ui_group",
+        "z": "",
+        "name": "Daylight Simulator",
+        "tab": "3cacb05c.e8aa4",
+        "disp": true,
+        "width": "6"
+    },
+    {
+        "id": "3cacb05c.e8aa4",
+        "type": "ui_tab",
+        "z": "",
+        "name": "Philips Hue Lights",
+        "icon": "dashboard"
+    }
+]
