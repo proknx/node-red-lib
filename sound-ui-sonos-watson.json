@@ -1,0 +1,329 @@
+[
+    {
+        "id": "64fe4b2b.e4e614",
+        "type": "tab",
+        "label": "Voice alert SONOS Watson",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "d784a782.a13108",
+        "type": "watson-text-to-speech",
+        "z": "64fe4b2b.e4e614",
+        "name": "",
+        "lang": "en-GB",
+        "langhidden": "en-GB",
+        "langcustom": "NoCustomisationSetting",
+        "langcustomhidden": "",
+        "voice": "en-GB_KateVoice",
+        "voicehidden": "",
+        "format": "audio/mp3",
+        "password": "lzbGsogIPipB",
+        "payload-response": true,
+        "default-endpoint": true,
+        "service-endpoint": "https://stream.watsonplatform.net/text-to-speech/api",
+        "x": 590,
+        "y": 300,
+        "wires": [
+            [
+                "2939511a.e5cafe",
+                "44d999e4.aad3d8"
+            ]
+        ]
+    },
+    {
+        "id": "f84de131.3e322",
+        "type": "better-sonos-queue",
+        "z": "64fe4b2b.e4e614",
+        "confignode": "d786a0e7.62166",
+        "songuri": "http://192.168.9.249:1880/tts/tts.mp3",
+        "position": "next",
+        "positioninqueue": "",
+        "name": "SONOS queue",
+        "x": 770,
+        "y": 350,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "3679ccd.2adf134",
+        "type": "better-sonos-control",
+        "z": "64fe4b2b.e4e614",
+        "confignode": "d786a0e7.62166",
+        "name": "Play",
+        "mode": "play",
+        "track": "",
+        "volume": "unmute",
+        "volume_value": "",
+        "x": 740,
+        "y": 450,
+        "wires": []
+    },
+    {
+        "id": "558bfb61.fcca94",
+        "type": "better-sonos-control",
+        "z": "64fe4b2b.e4e614",
+        "confignode": "d786a0e7.62166",
+        "name": "Set volume",
+        "mode": "",
+        "track": "",
+        "volume": "volume",
+        "volume_value": "10",
+        "x": 760,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "a0c3725.a93a49",
+        "type": "http in",
+        "z": "64fe4b2b.e4e614",
+        "name": "HTTP end-point",
+        "url": "/tts/tts.mp3",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 160,
+        "y": 180,
+        "wires": [
+            [
+                "6cf494df.3d625c"
+            ]
+        ]
+    },
+    {
+        "id": "479d9495.fe0fec",
+        "type": "http response",
+        "z": "64fe4b2b.e4e614",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 670,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "2939511a.e5cafe",
+        "type": "file",
+        "z": "64fe4b2b.e4e614",
+        "name": "Save to file",
+        "filename": "/volume1/@appstore/realknx/public/tts.mp3",
+        "appendNewline": false,
+        "createDir": false,
+        "overwriteFile": "true",
+        "x": 780,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "6cf494df.3d625c",
+        "type": "file in",
+        "z": "64fe4b2b.e4e614",
+        "name": "read mp3 file",
+        "filename": "/volume1/@appstore/realknx/public/tts.mp3",
+        "format": "",
+        "chunk": false,
+        "sendError": false,
+        "x": 330,
+        "y": 180,
+        "wires": [
+            [
+                "d4b3372.b324ec8"
+            ]
+        ]
+    },
+    {
+        "id": "d4b3372.b324ec8",
+        "type": "change",
+        "z": "64fe4b2b.e4e614",
+        "name": "prepare response",
+        "rules": [
+            {
+                "t": "set",
+                "p": "headers['Content-Disposition']",
+                "pt": "msg",
+                "to": "attachment; filename=tts.mp3",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 510,
+        "y": 180,
+        "wires": [
+            [
+                "479d9495.fe0fec"
+            ]
+        ]
+    },
+    {
+        "id": "e746d571.cf11d8",
+        "type": "switch",
+        "z": "64fe4b2b.e4e614",
+        "name": "only notif",
+        "property": "pushtype",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "note",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "outputs": 1,
+        "x": 420,
+        "y": 300,
+        "wires": [
+            [
+                "d784a782.a13108"
+            ]
+        ]
+    },
+    {
+        "id": "e7815be5.6e9028",
+        "type": "switch",
+        "z": "64fe4b2b.e4e614",
+        "name": "",
+        "property": "topic",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "null"
+            }
+        ],
+        "checkall": "true",
+        "outputs": 1,
+        "x": 280,
+        "y": 300,
+        "wires": [
+            [
+                "e746d571.cf11d8"
+            ]
+        ]
+    },
+    {
+        "id": "1594fff3.0eff8",
+        "type": "pushbullet in",
+        "z": "64fe4b2b.e4e614",
+        "config": "f6433f74.38788",
+        "name": "Notification",
+        "x": 150,
+        "y": 300,
+        "wires": [
+            [
+                "e7815be5.6e9028"
+            ]
+        ]
+    },
+    {
+        "id": "3bd105a1.57c93a",
+        "type": "comment",
+        "z": "64fe4b2b.e4e614",
+        "name": "Receive text to from Pushbullet and send it to the SONOS speakers",
+        "info": "",
+        "x": 325.9234924316406,
+        "y": 257.4201145172119,
+        "wires": []
+    },
+    {
+        "id": "19a0a02a.d80c2",
+        "type": "inject",
+        "z": "64fe4b2b.e4e614",
+        "name": "Short test msg",
+        "topic": "",
+        "payload": "Injects a message into a flow either manually or at regular intervals. The message payload can be a variety of types, including strings, JavaScript objects or the current time.",
+        "payloadType": "str",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 380,
+        "y": 350,
+        "wires": [
+            [
+                "d784a782.a13108"
+            ]
+        ]
+    },
+    {
+        "id": "59bb2904.3936a8",
+        "type": "inject",
+        "z": "64fe4b2b.e4e614",
+        "name": "Long test msg",
+        "topic": "",
+        "payload": "The Inject node can initiate a flow with a specific payload value. The default payload is a timestamp of the current time in millisecs since January 1st, 1970.  The node also supports injecting strings, numbers, booleans, JavaScript objects, or flow/global context values.  By default, the node is triggered manually by clicking on its button within the editor. It can also be set to inject at regular intervals or according to a schedule.  It can also be configured to inject once each time the flows are started.  Note: The \"Interval between times\" and \"at a specific time\" options use the standard cron system. This means that 20 minutes will be at the next hour, 20 minutes past and 40 minutes past - not in 20 minutes time. If you want every 20 minutes from now - use the \"interval\" option.  Note: To include a newline in a string you must use a Function node to create the payload.",
+        "payloadType": "str",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 380,
+        "y": 390,
+        "wires": [
+            [
+                "d784a782.a13108"
+            ]
+        ]
+    },
+    {
+        "id": "67ac8796.e906e8",
+        "type": "comment",
+        "z": "64fe4b2b.e4e614",
+        "name": "HTTP server for the tts.mp3",
+        "info": "",
+        "x": 200,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "44d999e4.aad3d8",
+        "type": "delay",
+        "z": "64fe4b2b.e4e614",
+        "name": "2 sec",
+        "pauseType": "delay",
+        "timeout": "2",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "x": 600,
+        "y": 400,
+        "wires": [
+            [
+                "558bfb61.fcca94",
+                "f84de131.3e322",
+                "3679ccd.2adf134"
+            ]
+        ]
+    },
+    {
+        "id": "99f05350.1987f",
+        "type": "comment",
+        "z": "64fe4b2b.e4e614",
+        "name": "Voice Announcement with SONOS",
+        "info": "This example use IBM Watson 'text-to-speech' service to convert a arbitrary \ntext to an audio file. The audio file is stored on the realKNX file system.\nThe SONOS downloads the audio file from the realKNX via HTTP.\nThe input is either a hard-coded strings (Long/Short test msg) or a message from PushBullet.\n\nTo use IBM WatsonText-To-Speech, do this:\n\n1. Install 'node-red-node-watson' from the palette. Select top right Menu | Manage palette | Install\n2. Signup to [IBM Watson/Bluemix](https://console.bluemix.net/)\n3. Goto IBM Bluemix Application Services and activate the 'Text to Speech' service\n5. Open Service credentials and copy Username and password to the Text-To-Speech node\n6. Select language and voice.\n\n",
+        "x": 220,
+        "y": 90,
+        "wires": []
+    },
+    {
+        "id": "d786a0e7.62166",
+        "type": "better-sonos-config",
+        "z": "",
+        "name": "Bedroom",
+        "serialnum": "",
+        "ipaddress": "192.168.9.34"
+    },
+    {
+        "id": "f6433f74.38788",
+        "type": "pushbullet-config",
+        "z": "",
+        "name": ""
+    }
+]
