@@ -1,0 +1,376 @@
+[
+    {
+        "id": "5a6bd215.67834c",
+        "type": "tab",
+        "label": "Voice alert SONOS GoogleTTS",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "97e6501c.55b3d",
+        "type": "better-sonos-queue",
+        "z": "5a6bd215.67834c",
+        "confignode": "90c287b7.77d458",
+        "songuri": "http://192.168.1.37:1880/tts/tts.mp3",
+        "position": "next",
+        "positioninqueue": "",
+        "name": "SONOS queue",
+        "x": 760,
+        "y": 360,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "56e8c95e.8452c8",
+        "type": "better-sonos-control",
+        "z": "5a6bd215.67834c",
+        "confignode": "90c287b7.77d458",
+        "name": "Play",
+        "mode": "play",
+        "track": "",
+        "volume": "unmute",
+        "volume_value": "",
+        "x": 730,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "f274626c.64637",
+        "type": "better-sonos-control",
+        "z": "5a6bd215.67834c",
+        "confignode": "90c287b7.77d458",
+        "name": "Set volume",
+        "mode": "",
+        "track": "",
+        "volume": "volume",
+        "volume_value": "15",
+        "x": 750,
+        "y": 410,
+        "wires": []
+    },
+    {
+        "id": "95f791e8.9662e",
+        "type": "http in",
+        "z": "5a6bd215.67834c",
+        "name": "HTTP end-point",
+        "url": "/tts/tts.mp3",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 160,
+        "y": 180,
+        "wires": [
+            [
+                "21cd20bd.62c48"
+            ]
+        ]
+    },
+    {
+        "id": "26e924cf.4d10bc",
+        "type": "http response",
+        "z": "5a6bd215.67834c",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 670,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "eb0236af.be0e78",
+        "type": "file",
+        "z": "5a6bd215.67834c",
+        "name": "Save to file",
+        "filename": "/volume1/@appstore/realknx/public/tts.mp3",
+        "appendNewline": false,
+        "createDir": false,
+        "overwriteFile": "true",
+        "x": 550,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "21cd20bd.62c48",
+        "type": "file in",
+        "z": "5a6bd215.67834c",
+        "name": "read mp3 file",
+        "filename": "/volume1/@appstore/realknx/public/tts.mp3",
+        "format": "",
+        "chunk": false,
+        "sendError": false,
+        "x": 330,
+        "y": 180,
+        "wires": [
+            [
+                "420aabf8.549754"
+            ]
+        ]
+    },
+    {
+        "id": "420aabf8.549754",
+        "type": "change",
+        "z": "5a6bd215.67834c",
+        "name": "prepare response",
+        "rules": [
+            {
+                "t": "set",
+                "p": "headers['Content-Disposition']",
+                "pt": "msg",
+                "to": "attachment; filename=tts.mp3",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 510,
+        "y": 180,
+        "wires": [
+            [
+                "26e924cf.4d10bc"
+            ]
+        ]
+    },
+    {
+        "id": "d802b99f.332888",
+        "type": "inject",
+        "z": "5a6bd215.67834c",
+        "name": "SSML msg.topic",
+        "topic": "<speak>   Here are <say-as interpret-as='characters'>SSML</say-as> samples.   I can pause <break time='2s'/>.   I can play a sound   <audio src='https://actions.google.com/sounds/v1/animals/animal_bark_and_growl.ogg'>didn't get your MP3 audio file</audio>.   I can speak in cardinals. Your number is <say-as interpret-as='cardinal'>10</say-as>.   Or I can speak in ordinals. You are <say-as interpret-as='ordinal'>10</say-as> in line.   Or I can even speak in digits. The digits for ten are <say-as interpret-as='characters'>10</say-as>.   I can also substitute phrases, like the <sub alias='World Wide Web Consortium'>W3C</sub>.   Finally, I can speak a paragraph with two sentences.   <p><s>This is sentence one.</s><s>This is sentence two.</s></p> </speak>",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 180,
+        "y": 300,
+        "wires": [
+            [
+                "b66827cf.45e5a8"
+            ]
+        ]
+    },
+    {
+        "id": "45c55da5.be4ea4",
+        "type": "comment",
+        "z": "5a6bd215.67834c",
+        "name": "HTTP server for the tts.mp3",
+        "info": "",
+        "x": 200,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "a425c258.511ec",
+        "type": "comment",
+        "z": "5a6bd215.67834c",
+        "name": "Voice Announcement with SONOS using Google TTS and SSML or plain text",
+        "info": "This example use IBM Watson 'text-to-speech' service to convert a arbitrary \ntext to an audio file. The audio file is stored on the realKNX file system.\nThe SONOS downloads the audio file from the realKNX via HTTP.\nThe input is either a hard-coded strings (Long/Short test msg) or a message from PushBullet.\n\nSpeech Synthesis Markup Language \nSpeech Synthesis Markup Language [SSML](https://www.w3.org/TR/speech-synthesis/)\n\n",
+        "x": 350,
+        "y": 90,
+        "wires": []
+    },
+    {
+        "id": "b66827cf.45e5a8",
+        "type": "http request",
+        "z": "5a6bd215.67834c",
+        "name": "Google synth",
+        "method": "GET",
+        "ret": "bin",
+        "url": "https://www.google.com/speech-api/v1/synthesize?lang=en-US&ssml={{{topic}}}",
+        "tls": "",
+        "x": 370,
+        "y": 300,
+        "wires": [
+            [
+                "eb0236af.be0e78",
+                "be5ee770.3a5348"
+            ]
+        ]
+    },
+    {
+        "id": "6c8671d5.9a3f5",
+        "type": "change",
+        "z": "5a6bd215.67834c",
+        "name": "trigger",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "anything",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 580,
+        "y": 410,
+        "wires": [
+            [
+                "97e6501c.55b3d",
+                "f274626c.64637",
+                "56e8c95e.8452c8"
+            ]
+        ]
+    },
+    {
+        "id": "61647954.9bf7e8",
+        "type": "inject",
+        "z": "5a6bd215.67834c",
+        "name": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 160,
+        "y": 460,
+        "wires": [
+            [
+                "6c8671d5.9a3f5"
+            ]
+        ]
+    },
+    {
+        "id": "be5ee770.3a5348",
+        "type": "delay",
+        "z": "5a6bd215.67834c",
+        "name": "2 sec",
+        "pauseType": "delay",
+        "timeout": "2",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "x": 390,
+        "y": 360,
+        "wires": [
+            [
+                "6c8671d5.9a3f5"
+            ]
+        ]
+    },
+    {
+        "id": "7dd0c0.89c44f4",
+        "type": "comment",
+        "z": "5a6bd215.67834c",
+        "name": "Build a new audio file Google API & SSML (open to see SSML)",
+        "info": "https://developers.google.com/actions/reference/ssml\n\n<speak>\nHere are <say-as interpret-as=\"characters\">SSML</say-as> samples.\nI can pause <break time=\"2s\"/>.\nI can play a sound\n<audio src=\"https://actions.google.com/sounds/v1/animals/animal_bark_and_growl.ogg\">didn't get your MP3 audio file</audio>.\nI can speak in cardinals. Your number is <say-as interpret-as=\"cardinal\">10</say-as>.\nOr I can speak in ordinals. You are <say-as interpret-as=\"ordinal\">10</say-as> in line.\nOr I can even speak in digits. The digits for ten are <say-as interpret-as=\"characters\">10</say-as>.\nI can also substitute phrases, like the <sub alias=\"World Wide Web Consortium\">W3C</sub>.\nFinally, I can speak a paragraph with two sentences.\n<p><s>This is sentence one.</s><s>This is sentence two.</s></p>\n</speak>",
+        "x": 310,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "c2c8ad08.0c49",
+        "type": "comment",
+        "z": "5a6bd215.67834c",
+        "name": "Play audio again",
+        "info": "",
+        "x": 160,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "18b47557.28b51b",
+        "type": "inject",
+        "z": "5a6bd215.67834c",
+        "name": "Plain text msg.topic",
+        "topic": "Lorem+Ipsum+is+simply+dummy+text+of+the+printing+and+typesetting+industry.+Lorem+Ipsum+has+been+the+industry's+standard+dummy+text+ever+since+the+1500s,+when+an+unknown+printer+took+a+galley+of+type+and+scrambled+it+to+make+a+type+specimen+book.+It+has+survived+not+only+five+centuries,+but+also+the+leap+into+electronic+typesetting,+remaining+essentially+unchanged.+It+was+popularised+in+the+1960s+with+the+release+of+Letraset+sheets+containing+Lorem+Ipsum+passages,+and+more+recently+with+desktop+publishing+software+like+Aldus+PageMaker+including+versions+of+Lorem+Ipsum.",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 190,
+        "y": 560,
+        "wires": [
+            [
+                "2d10d5a.3b2f42a"
+            ]
+        ]
+    },
+    {
+        "id": "2d10d5a.3b2f42a",
+        "type": "http request",
+        "z": "5a6bd215.67834c",
+        "name": "Google synth",
+        "method": "GET",
+        "ret": "bin",
+        "url": "http://www.google.com/speech-api/v1/synthesize?lang=en-us&text={{{topic}}}",
+        "tls": "",
+        "x": 370,
+        "y": 560,
+        "wires": [
+            [
+                "e655bb6.2d8cd48",
+                "80360cde.64e23"
+            ]
+        ]
+    },
+    {
+        "id": "e655bb6.2d8cd48",
+        "type": "file",
+        "z": "5a6bd215.67834c",
+        "name": "Save to file",
+        "filename": "/volume1/@appstore/realknx/public/tts.mp3",
+        "appendNewline": false,
+        "createDir": false,
+        "overwriteFile": "true",
+        "x": 550,
+        "y": 560,
+        "wires": []
+    },
+    {
+        "id": "80360cde.64e23",
+        "type": "delay",
+        "z": "5a6bd215.67834c",
+        "name": "2 sec",
+        "pauseType": "delay",
+        "timeout": "2",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "x": 390,
+        "y": 500,
+        "wires": [
+            [
+                "6c8671d5.9a3f5"
+            ]
+        ]
+    },
+    {
+        "id": "439c0062.40aa9",
+        "type": "comment",
+        "z": "5a6bd215.67834c",
+        "name": "Simple text - no formatting",
+        "info": "This text is sent to the text service (replace ' ' with '+') \nLorem+Ipsum+is+simply+dummy+text+of+the+printing+and+typesetting+industry.+Lorem+Ipsum+has+been+the+industry's+standard+dummy+text+ever+since+the+1500s,+when+an+unknown+printer+took+a+galley+of+type+and+scrambled+it+to+make+a+type+specimen+book.+It+has+survived+not+only+five+centuries,+but+also+the+leap+into+electronic+typesetting,+remaining+essentially+unchanged.+It+was+popularised+in+the+1960s+with+the+release+of+Letraset+sheets+containing+Lorem+Ipsum+passages,+and+more+recently+with+desktop+publishing+software+like+Aldus+PageMaker+including+versions+of+Lorem+Ipsum.",
+        "x": 190,
+        "y": 520,
+        "wires": []
+    },
+    {
+        "id": "90c287b7.77d458",
+        "type": "better-sonos-config",
+        "z": "",
+        "name": "living",
+        "serialnum": "",
+        "ipaddress": "192.168.1.16"
+    }
+]
