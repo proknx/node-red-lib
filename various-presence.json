@@ -1,0 +1,136 @@
+[
+    {
+        "id": "4434bb32.3a45b4",
+        "type": "tab",
+        "label": "“I’m Home”",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "572068e7.edb4f8",
+        "type": "http in",
+        "z": "4434bb32.3a45b4",
+        "name": "I'm home",
+        "url": "/imhome",
+        "method": "post",
+        "swaggerDoc": "",
+        "x": 130,
+        "y": 90,
+        "wires": [
+            [
+                "441d1c89.f42524",
+                "ccb28815.56e5f8"
+            ]
+        ]
+    },
+    {
+        "id": "441d1c89.f42524",
+        "type": "switch",
+        "z": "4434bb32.3a45b4",
+        "name": "user",
+        "property": "payload.user",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "jens",
+                "vt": "str"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "true",
+        "outputs": 2,
+        "x": 278,
+        "y": 86,
+        "wires": [
+            [
+                "b9142599.e43928"
+            ],
+            [
+                "71395809.33e368"
+            ]
+        ]
+    },
+    {
+        "id": "b9142599.e43928",
+        "type": "change",
+        "z": "4434bb32.3a45b4",
+        "name": "Hello, Jens",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "Hello Jens",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 440,
+        "y": 85,
+        "wires": [
+            [
+                "d8f71e54.5dbb"
+            ]
+        ]
+    },
+    {
+        "id": "71395809.33e368",
+        "type": "change",
+        "z": "4434bb32.3a45b4",
+        "name": "Hello to someone else",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "Hello to someone",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 470,
+        "y": 133,
+        "wires": [
+            [
+                "d8f71e54.5dbb"
+            ]
+        ]
+    },
+    {
+        "id": "ccb28815.56e5f8",
+        "type": "http response",
+        "z": "4434bb32.3a45b4",
+        "name": "",
+        "x": 259,
+        "y": 131,
+        "wires": []
+    },
+    {
+        "id": "d8f71e54.5dbb",
+        "type": "googlehome-notify",
+        "z": "4434bb32.3a45b4",
+        "server": "327e6563.851cea",
+        "name": "My Google Home",
+        "x": 718,
+        "y": 94,
+        "wires": []
+    },
+    {
+        "id": "327e6563.851cea",
+        "type": "googlehome-config-node",
+        "z": "",
+        "ipaddress": "",
+        "language": "en"
+    }
+]
