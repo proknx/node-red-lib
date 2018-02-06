@@ -1,0 +1,221 @@
+[
+    {
+        "id": "35690dfa.4926e2",
+        "type": "tab",
+        "label": "Voice Alarm Activation ",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "f8852acc.809b38",
+        "type": "inject",
+        "z": "35690dfa.4926e2",
+        "name": "",
+        "topic": "activate",
+        "payload": "true",
+        "payloadType": "bool",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 170,
+        "y": 110,
+        "wires": [
+            [
+                "8347c453.696bd8"
+            ]
+        ]
+    },
+    {
+        "id": "2792656c.659e2a",
+        "type": "inject",
+        "z": "35690dfa.4926e2",
+        "name": "",
+        "topic": "confirm",
+        "payload": "true",
+        "payloadType": "bool",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 175,
+        "y": 286,
+        "wires": [
+            [
+                "bf29c9e.d3d9a38"
+            ]
+        ]
+    },
+    {
+        "id": "8347c453.696bd8",
+        "type": "function",
+        "z": "35690dfa.4926e2",
+        "name": "preActivation",
+        "func": "var preActivationTime = 10000; // the alarm activation must be done within this time\n\n// clear any outstanding future reset\nvar resetFunc = flow.get('resetFunc') || null;\nif(resetFunc !== null)\n clearTimeout(resetFunc); \n\n// on start-up we get \"startup\"\nif(msg.payload === 'startup' || msg.payload === false){\n node.status({fill:\"red\",shape:\"ring\",text:\"alarmPreActivation : false\"});\n flow.set('alarmPreActivation',false); \n return;\n}\nnode.status({fill:\"green\",shape:\"dot\",text:\"alarmPreActivation : true\"});\n \n// set a new future reset and save it\nvar resetFunc = setTimeout(function() {\n node.status({fill:\"red\",shape:\"ring\",text:\"alarmPreActivation : false\"});\n flow.set('alarmPreActivation',false); \n}, preActivationTime);\nflow.set('resetFunc', resetFunc);\n\n// set the variable which indicates that the pre-activation is active\nflow.set('alarmPreActivation',true);\n\nmsg.topic = 'preActivation'; // boolean logic requires topic to be set with unique value/gate\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 465,
+        "y": 128,
+        "wires": [
+            [
+                "5c9c8bef.0b3384"
+            ]
+        ]
+    },
+    {
+        "id": "bf29c9e.d3d9a38",
+        "type": "function",
+        "z": "35690dfa.4926e2",
+        "name": "confirmActivation",
+        "func": "// handle startup state and return without message\nif(msg.payload === 'startup' || msg.payload === ''){\n node.status({fill:\"red\",shape:\"ring\",text:\"alarmConfirmation : false\"});\n msg.payload = false; \n return;\n}\n\nvar alarmPreActivation = flow.get('alarmPreActivation') || false;\nmsg.topic = 'confirmActivation'; // boolean logic requires topic to be set with unique value/gate\nif(alarmPreActivation === true){\n msg.payload = true;\n node.status({fill:\"green\",shape:\"dot\",text:\"alarmConfirmation : true\"});\n}\nelse {\n msg.payload = false;\n node.status({fill:\"red\",shape:\"ring\",text:\"alarmConfirmation : false\"});\n}\n\n// restore to start postion\nflow.set('alarmPreActivation',false);\nflow.set('resetFunc', null);\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 509,
+        "y": 221,
+        "wires": [
+            [
+                "5c9c8bef.0b3384"
+            ]
+        ]
+    },
+    {
+        "id": "72709c5b.720cc4",
+        "type": "inject",
+        "z": "35690dfa.4926e2",
+        "name": "Start-up",
+        "topic": "",
+        "payload": "startup",
+        "payloadType": "str",
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "x": 215,
+        "y": 194.00000762939453,
+        "wires": [
+            [
+                "bf29c9e.d3d9a38",
+                "8347c453.696bd8"
+            ]
+        ]
+    },
+    {
+        "id": "a36be19a.45786",
+        "type": "comment",
+        "z": "35690dfa.4926e2",
+        "name": "Alarm activation with voice: Siri, Alexa or Google Home",
+        "info": "Voice Alarm activation in 2 steps: \n - first pre-activation then.. \n - within 10s a confirmation command\n\nConfigure the two realKNX-in nodes to your pre-activation and confirmation input nodes.",
+        "x": 271,
+        "y": 75,
+        "wires": []
+    },
+    {
+        "id": "d10f533c.754ab",
+        "type": "realknx-in",
+        "z": "35690dfa.4926e2",
+        "name": "(voice) pre-acitivate alarm",
+        "controller": "b1d2fbe.d184108",
+        "itemname": "Bedroom - Ceiling",
+        "passthru": true,
+        "booleanoutput": true,
+        "outputatstartup": false,
+        "x": 181,
+        "y": 150,
+        "wires": [
+            [
+                "8347c453.696bd8"
+            ]
+        ]
+    },
+    {
+        "id": "844d278b.027408",
+        "type": "realknx-in",
+        "z": "35690dfa.4926e2",
+        "name": "(voice) confirm alarm activation",
+        "controller": "b1d2fbe.d184108",
+        "itemname": "Bedroom - Speaker",
+        "passthru": true,
+        "booleanoutput": true,
+        "outputatstartup": false,
+        "x": 206,
+        "y": 233,
+        "wires": [
+            [
+                "bf29c9e.d3d9a38"
+            ]
+        ]
+    },
+    {
+        "id": "dbdb0d93.b1032",
+        "type": "BDebug",
+        "z": "35690dfa.4926e2",
+        "name": "Activate Alarm",
+        "x": 988.0000152587891,
+        "y": 216.00000762939453,
+        "wires": []
+    },
+    {
+        "id": "5c9c8bef.0b3384",
+        "type": "BooleanLogic",
+        "z": "35690dfa.4926e2",
+        "name": "",
+        "operation": "AND",
+        "inputCount": 2,
+        "topic": "result",
+        "x": 686,
+        "y": 161,
+        "wires": [
+            [
+                "6be8dc3c.240024"
+            ]
+        ]
+    },
+    {
+        "id": "e18594c2.9f8588",
+        "type": "trigger",
+        "z": "35690dfa.4926e2",
+        "op1": "true",
+        "op2": "false",
+        "op1type": "bool",
+        "op2type": "bool",
+        "duration": "5",
+        "extend": false,
+        "units": "s",
+        "reset": "",
+        "name": "",
+        "x": 878.0000152587891,
+        "y": 155.00000762939453,
+        "wires": [
+            [
+                "dbdb0d93.b1032"
+            ]
+        ]
+    },
+    {
+        "id": "6be8dc3c.240024",
+        "type": "switch",
+        "z": "35690dfa.4926e2",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "true"
+            }
+        ],
+        "checkall": "true",
+        "outputs": 1,
+        "x": 785.0000152587891,
+        "y": 218.00000762939453,
+        "wires": [
+            [
+                "e18594c2.9f8588"
+            ]
+        ]
+    },
+    {
+        "id": "b1d2fbe.d184108",
+        "type": "realknx-controller",
+        "z": "",
+        "name": "realknx-ctrl",
+        "host": "localhost",
+        "port": "3000"
+    }
+]
