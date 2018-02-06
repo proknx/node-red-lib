@@ -1,0 +1,123 @@
+[
+    {
+        "id": "c7dcfb07.753c88",
+        "type": "tab",
+        "label": "KNX Date & Time",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "928c6507.20a338",
+        "type": "inject",
+        "z": "c7dcfb07.753c88",
+        "name": "Date",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "36000",
+        "crontab": "",
+        "once": true,
+        "x": 190,
+        "y": 120,
+        "wires": [
+            [
+                "f86bd435.34bc48"
+            ]
+        ]
+    },
+    {
+        "id": "f86bd435.34bc48",
+        "type": "function",
+        "z": "c7dcfb07.753c88",
+        "name": "Date",
+        "func": "return { payload:{\"value\": new Date() } };",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 370,
+        "y": 120,
+        "wires": [
+            [
+                "96894994.baec08"
+            ]
+        ]
+    },
+    {
+        "id": "96894994.baec08",
+        "type": "knx-device",
+        "z": "c7dcfb07.753c88",
+        "controller": "",
+        "mode": "manual",
+        "groupaddresses": "",
+        "name": "Date",
+        "groupaddress": "",
+        "statusga": "",
+        "dpt": "DPT1",
+        "x": 550,
+        "y": 120,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "d97a037f.ef826",
+        "type": "comment",
+        "z": "c7dcfb07.753c88",
+        "name": "Set KNX Date & Time periodically",
+        "info": "",
+        "x": 250,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "abdf6b3b.b2bc98",
+        "type": "inject",
+        "z": "c7dcfb07.753c88",
+        "name": "Hour",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "36000",
+        "crontab": "",
+        "once": true,
+        "x": 190,
+        "y": 160,
+        "wires": [
+            [
+                "2293ceaf.177e52"
+            ]
+        ]
+    },
+    {
+        "id": "2293ceaf.177e52",
+        "type": "function",
+        "z": "c7dcfb07.753c88",
+        "name": "Hour",
+        "func": "return { payload:{\"value\": new Date() } };",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 370,
+        "y": 160,
+        "wires": [
+            [
+                "a5cb16a1.086f68"
+            ]
+        ]
+    },
+    {
+        "id": "a5cb16a1.086f68",
+        "type": "knx-device",
+        "z": "c7dcfb07.753c88",
+        "controller": "",
+        "mode": "manual",
+        "groupaddresses": "",
+        "name": "Hour",
+        "groupaddress": "",
+        "statusga": "",
+        "dpt": "DPT1",
+        "x": 550,
+        "y": 160,
+        "wires": [
+            []
+        ]
+    }
+]
