@@ -1,0 +1,154 @@
+[
+    {
+        "id": "95795f2b.90baf",
+        "type": "tab",
+        "label": "MQTT – external network",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "d36e4068.60f2f",
+        "type": "comment",
+        "z": "95795f2b.90baf",
+        "name": "Exchange data with MQTT - devices in different networks, use extern MQTT broker",
+        "info": "",
+        "x": 370,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "94c610e1.d4629",
+        "type": "mqtt out",
+        "z": "95795f2b.90baf",
+        "name": "",
+        "topic": "realknx/test",
+        "qos": "0",
+        "retain": "false",
+        "broker": "ca285deb.1eb6e",
+        "x": 450,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "1ff35d38.8b3ab3",
+        "type": "inject",
+        "z": "95795f2b.90baf",
+        "name": "{\"analyze\":false, \"value\":10}",
+        "topic": "",
+        "payload": "{\"analyze\":false,\"value\":10}",
+        "payloadType": "json",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 220,
+        "y": 200,
+        "wires": [
+            [
+                "94c610e1.d4629"
+            ]
+        ]
+    },
+    {
+        "id": "79e0f399.5f007c",
+        "type": "inject",
+        "z": "95795f2b.90baf",
+        "name": "{\"analyze\":true, \"value\":6}",
+        "topic": "",
+        "payload": "{\"analyze\":true,\"value\":6}",
+        "payloadType": "json",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 210,
+        "y": 240,
+        "wires": [
+            [
+                "94c610e1.d4629"
+            ]
+        ]
+    },
+    {
+        "id": "813aa9be.8b9638",
+        "type": "comment",
+        "z": "95795f2b.90baf",
+        "name": "Device 1, send a message",
+        "info": "",
+        "x": 190,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "4eff897c.d4f6f8",
+        "type": "mqtt in",
+        "z": "95795f2b.90baf",
+        "name": "",
+        "topic": "realknx/test",
+        "qos": "0",
+        "broker": "67098dfb.fa26c4",
+        "x": 150,
+        "y": 340,
+        "wires": [
+            [
+                "ba50952e.a243b8"
+            ]
+        ]
+    },
+    {
+        "id": "8ac4fd84.9e216",
+        "type": "comment",
+        "z": "95795f2b.90baf",
+        "name": "Device 2, receive a message",
+        "info": "",
+        "x": 200,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "ba50952e.a243b8",
+        "type": "debug",
+        "z": "95795f2b.90baf",
+        "name": "",
+        "active": true,
+        "console": "false",
+        "complete": "payload",
+        "x": 410,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "ca285deb.1eb6e",
+        "type": "mqtt-broker",
+        "z": "",
+        "broker": "broker.mqtt-dashboard.com",
+        "port": "1883",
+        "clientid": "",
+        "usetls": false,
+        "compatmode": false,
+        "keepalive": "60",
+        "cleansession": true,
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": ""
+    },
+    {
+        "id": "67098dfb.fa26c4",
+        "type": "mqtt-broker",
+        "z": "",
+        "broker": "broker.mqtt-dashboard.com",
+        "port": "1883",
+        "clientid": "",
+        "usetls": false,
+        "compatmode": true,
+        "keepalive": "60",
+        "cleansession": true,
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": ""
+    }
+]
