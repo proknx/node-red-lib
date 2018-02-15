@@ -1,34 +1,34 @@
 [
     {
-        "id": "1c2088c.95ad877",
+        "id": "a908366f.6e6348",
         "type": "tab",
         "label": "Automation UI",
         "disabled": false,
         "info": ""
     },
     {
-        "id": "481c017d.f2371",
+        "id": "83f0f520.8ad388",
         "type": "realknx-get",
-        "z": "1c2088c.95ad877",
+        "z": "a908366f.6e6348",
         "name": "Get temp.",
-        "controller": "b1d2fbe.d184108",
+        "controller": "1052ca19.1e70b6",
         "itemname": "Home cinema - Thermostat-current-temperature",
         "booleanoutput": false,
         "x": 300,
         "y": 90,
         "wires": [
             [
-                "c1bf9a69.c87918",
-                "291b9420.e9a1ec"
+                "c3bb4bd0.377658",
+                "17fefc42.cb6034"
             ]
         ]
     },
     {
-        "id": "dabcf806.14b228",
+        "id": "e2334cc5.7cd73",
         "type": "ui_button",
-        "z": "1c2088c.95ad877",
+        "z": "a908366f.6e6348",
         "name": "",
-        "group": "d2796fc2.b8c3e",
+        "group": "ffa241b1.d4aa1",
         "order": 1,
         "width": "2",
         "height": "1",
@@ -44,15 +44,15 @@
         "y": 90,
         "wires": [
             [
-                "481c017d.f2371"
+                "83f0f520.8ad388"
             ]
         ]
     },
     {
-        "id": "c1bf9a69.c87918",
+        "id": "c3bb4bd0.377658",
         "type": "ui_text",
-        "z": "1c2088c.95ad877",
-        "group": "d2796fc2.b8c3e",
+        "z": "a908366f.6e6348",
+        "group": "ffa241b1.d4aa1",
         "order": 2,
         "width": "7",
         "height": "1",
@@ -65,11 +65,11 @@
         "wires": []
     },
     {
-        "id": "7ba8fae8.e49554",
+        "id": "a1351977.e79a58",
         "type": "ui_button",
-        "z": "1c2088c.95ad877",
+        "z": "a908366f.6e6348",
         "name": "",
-        "group": "d2796fc2.b8c3e",
+        "group": "ffa241b1.d4aa1",
         "order": 3,
         "width": "2",
         "height": "1",
@@ -85,15 +85,15 @@
         "y": 153.00000381469727,
         "wires": [
             [
-                "c1bf9a69.c87918",
-                "291b9420.e9a1ec"
+                "c3bb4bd0.377658",
+                "17fefc42.cb6034"
             ]
         ]
     },
     {
-        "id": "cae0fea4.c9431",
+        "id": "5bf55701.75fcc8",
         "type": "comment",
-        "z": "1c2088c.95ad877",
+        "z": "a908366f.6e6348",
         "name": "Demo of a realKNX-get item printed to the dashboard text",
         "info": "* Open the realKNX-get 'Get temp.' node and select a temperature item from your system.\n* (Optional) Open the 'Get Temp.' button node and rename the Dashboard button.\n* (Optional) Activate the Debug node by clicking the pale green tab.",
         "x": 293.9658432006836,
@@ -101,11 +101,11 @@
         "wires": []
     },
     {
-        "id": "182f248.520f3dc",
+        "id": "d640455b.d7b988",
         "type": "ui_audio",
-        "z": "1c2088c.95ad877",
+        "z": "a908366f.6e6348",
         "name": "",
-        "group": "d2796fc2.b8c3e",
+        "group": "ffa241b1.d4aa1",
         "voice": "0",
         "always": true,
         "x": 1031.9660110473633,
@@ -113,9 +113,9 @@
         "wires": []
     },
     {
-        "id": "291b9420.e9a1ec",
+        "id": "17fefc42.cb6034",
         "type": "function",
-        "z": "1c2088c.95ad877",
+        "z": "a908366f.6e6348",
         "name": "float to string",
         "func": "function round(value, exp) {\n if (typeof exp === 'undefined' || +exp === 0)\n return Math.round(value);\n\n value = +value;\n exp = +exp;\n\n if (isNaN(value) || !(typeof exp === 'number' && exp % 1 === 0))\n return NaN;\n\n // Shift\n value = value.toString().split('e');\n value = Math.round(+(value[0] + 'e' + (value[1] ? (+value[1] + exp) : exp)));\n\n // Shift back\n value = value.toString().split('e');\n return +(value[0] + 'e' + (value[1] ? (+value[1] - exp) : -exp));\n}\n\nvar newMsg = { payload: String(round(msg.payload,2)) };\nreturn newMsg;\n",
         "outputs": 1,
@@ -124,16 +124,16 @@
         "y": 89.39770746231079,
         "wires": [
             [
-                "2beb40f8.5fe85"
+                "a9eaa7ec.1fc1a8"
             ]
         ]
     },
     {
-        "id": "69dc4478.a08e4c",
+        "id": "f92a9b69.3174a8",
         "type": "realknx-out",
-        "z": "1c2088c.95ad877",
+        "z": "a908366f.6e6348",
         "name": "Set dimmer",
-        "controller": "b1d2fbe.d184108",
+        "controller": "1052ca19.1e70b6",
         "itemname": "Home cinema - Ceiling",
         "topic": "",
         "payload": "",
@@ -143,9 +143,9 @@
         "wires": []
     },
     {
-        "id": "23b2d7c1.ac2388",
+        "id": "fd56d5a4.3470c8",
         "type": "range",
-        "z": "1c2088c.95ad877",
+        "z": "a908366f.6e6348",
         "minin": "0",
         "maxin": "100",
         "minout": "0",
@@ -157,15 +157,15 @@
         "y": 264.17867946624756,
         "wires": [
             [
-                "69dc4478.a08e4c"
+                "f92a9b69.3174a8"
             ]
         ]
     },
     {
-        "id": "e6e74826.58c178",
+        "id": "452f4d7d.8df2a4",
         "type": "ui_text",
-        "z": "1c2088c.95ad877",
-        "group": "5735c315.51fa7c",
+        "z": "a908366f.6e6348",
+        "group": "aa75fc7d.60a3e",
         "order": 2,
         "width": "1",
         "height": "1",
@@ -178,9 +178,9 @@
         "wires": []
     },
     {
-        "id": "91112a8f.28da08",
+        "id": "5c69ffeb.6a9fb",
         "type": "comment",
-        "z": "1c2088c.95ad877",
+        "z": "a908366f.6e6348",
         "name": "Text-To-Speech with IBM Watson",
         "info": "To use IBM WatsonText-To-Speech (and many other services), do this:\n\n1. Install 'node-red-node-watson' from the palette. Select top right Menu | Manage palette | Install\n2. Drop a 'text to speech' node here below. Connect the output of the 'Int to String' (below) and the 'float to string' node (left) to the input of the 'text to speech'.\n2. Signup to [IBM Watson/Bluemix](https://console.bluemix.net/)\n3. Goto IBM Bluemix Application Services and activate the 'Text to Speech' service\n5. Open Service credentials and copy Username and password to the Text-To-Speech node\n6. Select language and voice.\n7. Click Get Temp button or slider, the value should now be red out.\n",
         "x": 915.7924880981445,
@@ -188,9 +188,9 @@
         "wires": []
     },
     {
-        "id": "168a2571.1d680b",
+        "id": "d540657e.6c9ed8",
         "type": "function",
-        "z": "1c2088c.95ad877",
+        "z": "a908366f.6e6348",
         "name": "Int to String",
         "func": "return { payload: String(msg.payload) };",
         "outputs": 1,
@@ -199,14 +199,14 @@
         "y": 224.40900421142578,
         "wires": [
             [
-                "2beb40f8.5fe85"
+                "a9eaa7ec.1fc1a8"
             ]
         ]
     },
     {
-        "id": "2beb40f8.5fe85",
+        "id": "a9eaa7ec.1fc1a8",
         "type": "ui_toast",
-        "z": "1c2088c.95ad877",
+        "z": "a908366f.6e6348",
         "position": "bottom right",
         "displayTime": "3",
         "highlight": "",
@@ -220,9 +220,9 @@
         "wires": []
     },
     {
-        "id": "355b6c43.d4afe4",
+        "id": "39794cc1.3a05a4",
         "type": "delay",
-        "z": "1c2088c.95ad877",
+        "z": "a908366f.6e6348",
         "name": "Filter",
         "pauseType": "queue",
         "timeout": "5",
@@ -238,15 +238,15 @@
         "y": 265.1930570602417,
         "wires": [
             [
-                "23b2d7c1.ac2388",
-                "168a2571.1d680b"
+                "fd56d5a4.3470c8",
+                "d540657e.6c9ed8"
             ]
         ]
     },
     {
-        "id": "d74def4d.e229",
+        "id": "bd261b93.661688",
         "type": "range",
-        "z": "1c2088c.95ad877",
+        "z": "a908366f.6e6348",
         "minin": "0",
         "maxin": "255",
         "minout": "0",
@@ -258,15 +258,15 @@
         "y": 274.17884063720703,
         "wires": [
             [
-                "e6e74826.58c178",
-                "101db0f4.cd4aaf"
+                "452f4d7d.8df2a4",
+                "ba665c8c.46578"
             ]
         ]
     },
     {
-        "id": "6b908f4a.fd245",
+        "id": "3de17382.c9408c",
         "type": "comment",
-        "z": "1c2088c.95ad877",
+        "z": "a908366f.6e6348",
         "name": "Demo of a realKNX-in & out mapped to a slider",
         "info": "The realKNX-in node updates a text value and a slider in the dashboard.\n\n* The output of the slider is filtered to limit the number of messages.\n* (Optional)The output of the slider is forwarded to the Text-to-Speech and notification.\n* The range of the dimmer in this example is 0-255.\n* The input and output of the slider is scaled to 0-100 in the UI.\n\n**Note** that the slider shouldn't pass-through values to the output. \n",
         "x": 262.7840347290039,
@@ -274,12 +274,12 @@
         "wires": []
     },
     {
-        "id": "101db0f4.cd4aaf",
+        "id": "ba665c8c.46578",
         "type": "ui_slider",
-        "z": "1c2088c.95ad877",
+        "z": "a908366f.6e6348",
         "name": "",
         "label": "Dimmer",
-        "group": "5735c315.51fa7c",
+        "group": "aa75fc7d.60a3e",
         "order": 1,
         "width": "11",
         "height": "1",
@@ -292,16 +292,16 @@
         "y": 264.4827346801758,
         "wires": [
             [
-                "355b6c43.d4afe4"
+                "39794cc1.3a05a4"
             ]
         ]
     },
     {
-        "id": "ff75df42.afad1",
+        "id": "d7acd64c.5529a8",
         "type": "realknx-in",
-        "z": "1c2088c.95ad877",
+        "z": "a908366f.6e6348",
         "name": "Dimmer",
-        "controller": "b1d2fbe.d184108",
+        "controller": "1052ca19.1e70b6",
         "itemname": "Home cinema - Ceiling",
         "passthru": true,
         "booleanoutput": false,
@@ -310,31 +310,31 @@
         "y": 274.00000762939453,
         "wires": [
             [
-                "d74def4d.e229"
+                "bd261b93.661688"
             ]
         ]
     },
     {
-        "id": "6ca684ff.67f0cc",
+        "id": "d6a74b83.5b5fa8",
         "type": "realknx-monitor",
-        "z": "1c2088c.95ad877",
+        "z": "a908366f.6e6348",
         "name": "controller",
-        "controller": "b1d2fbe.d184108",
-        "x": 153,
-        "y": 504,
+        "controller": "1052ca19.1e70b6",
+        "x": 100,
+        "y": 540,
         "wires": [
             [],
             [
-                "48261169.d4f67"
+                "31065a46.640016"
             ],
             []
         ]
     },
     {
-        "id": "b3f84572.44c8b8",
+        "id": "bd2daf8b.94dd7",
         "type": "ui_text",
-        "z": "1c2088c.95ad877",
-        "group": "92db7011.3d83d",
+        "z": "a908366f.6e6348",
+        "group": "45a8554d.16200c",
         "order": 1,
         "width": "0",
         "height": "0",
@@ -342,16 +342,16 @@
         "label": "power consumption kW (update)",
         "format": "{{msg.payload}}",
         "layout": "row-center",
-        "x": 540.9999618530273,
-        "y": 432.4999990463257,
+        "x": 470,
+        "y": 460,
         "wires": []
     },
     {
-        "id": "705ca04d.fa132",
+        "id": "d47fd422.316ad8",
         "type": "ui_chart",
-        "z": "1c2088c.95ad877",
+        "z": "a908366f.6e6348",
         "name": "Power consumption chart",
-        "group": "92db7011.3d83d",
+        "group": "45a8554d.16200c",
         "order": 2,
         "width": "0",
         "height": "0",
@@ -380,19 +380,19 @@
             "#9467bd",
             "#c5b0d5"
         ],
-        "x": 520.9999465942383,
-        "y": 469.5,
+        "x": 450,
+        "y": 500,
         "wires": [
             [],
             []
         ]
     },
     {
-        "id": "f46b6f56.e12ae",
+        "id": "d845e077.1045a",
         "type": "ui_chart",
-        "z": "1c2088c.95ad877",
+        "z": "a908366f.6e6348",
         "name": "Temperature chart",
-        "group": "d2796fc2.b8c3e",
+        "group": "ffa241b1.d4aa1",
         "order": 4,
         "width": "0",
         "height": "0",
@@ -421,49 +421,49 @@
             "#9467bd",
             "#c5b0d5"
         ],
-        "x": 822.0000076293945,
-        "y": 695.4997596740723,
+        "x": 710,
+        "y": 700,
         "wires": [
             [],
             []
         ]
     },
     {
-        "id": "33428061.ad892",
+        "id": "4762d771.ece9b8",
         "type": "comment",
-        "z": "1c2088c.95ad877",
+        "z": "a908366f.6e6348",
         "name": "Demo of a realKNX-in item plotted in a chart",
         "info": "This demontrates how to plot two temperature values (actual and set value) in a graph.\n\n* Open the realKNX-in **Temp actual** and **Temp set** nodes and select an item from your system.\n* Open the 'Temperature chart' to configure the Dashboard Chart node.\n* Activate the Debug node by clicking the pale green tab.\n\nComments: \n* The 'Clear chart data' node will remove all data from the chart.",
-        "x": 267.9630661010742,
-        "y": 637.662070274353,
+        "x": 210,
+        "y": 640,
         "wires": []
     },
     {
-        "id": "442afcb1.e12184",
+        "id": "60073802.51b7f8",
         "type": "comment",
-        "z": "1c2088c.95ad877",
+        "z": "a908366f.6e6348",
         "name": "Demo of a realKNX-in item plotted in a chart",
         "info": "* Open the realKNX-in node 'Updates of power' and select an item from your system.\n* Open the 'Power consumption chart' to configure the chart item.\n* Activate the Debug node by clicking the pale green tabs.",
-        "x": 260.9658889770508,
-        "y": 396.576847076416,
+        "x": 210,
+        "y": 400,
         "wires": []
     },
     {
-        "id": "48261169.d4f67",
+        "id": "31065a46.640016",
         "type": "debug",
-        "z": "1c2088c.95ad877",
+        "z": "a908366f.6e6348",
         "name": "Debug connection errors",
-        "active": true,
+        "active": false,
         "console": "false",
         "complete": "payload",
-        "x": 520.9999694824219,
-        "y": 509.4999523162842,
+        "x": 450,
+        "y": 540,
         "wires": []
     },
     {
-        "id": "f2c82fe9.4bfa1",
+        "id": "782f76c4.bafa98",
         "type": "change",
-        "z": "1c2088c.95ad877",
+        "z": "a908366f.6e6348",
         "name": "",
         "rules": [
             {
@@ -479,18 +479,18 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 457.7813186645508,
-        "y": 681.5227088928223,
+        "x": 350,
+        "y": 680,
         "wires": [
             [
-                "f46b6f56.e12ae"
+                "d845e077.1045a"
             ]
         ]
     },
     {
-        "id": "fa021723.713da8",
+        "id": "e9d926d5.d75be8",
         "type": "change",
-        "z": "1c2088c.95ad877",
+        "z": "a908366f.6e6348",
         "name": "",
         "rules": [
             {
@@ -506,18 +506,18 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 456.78418731689453,
-        "y": 733.3325233459473,
+        "x": 330,
+        "y": 740,
         "wires": [
             [
-                "f46b6f56.e12ae"
+                "d845e077.1045a"
             ]
         ]
     },
     {
-        "id": "d36b7413.8c6168",
+        "id": "1df2c7a1.2f43e8",
         "type": "inject",
-        "z": "1c2088c.95ad877",
+        "z": "a908366f.6e6348",
         "name": "Clear chart data",
         "topic": "",
         "payload": "[]",
@@ -525,87 +525,87 @@
         "repeat": "",
         "crontab": "",
         "once": false,
-        "x": 566.7869644165039,
-        "y": 638.1165809631348,
+        "x": 500,
+        "y": 640,
         "wires": [
             [
-                "f46b6f56.e12ae"
+                "d845e077.1045a"
             ]
         ]
     },
     {
-        "id": "a0273272.eb93",
+        "id": "591f4046.5d0fc",
         "type": "realknx-in",
-        "z": "1c2088c.95ad877",
+        "z": "a908366f.6e6348",
         "name": "Temp actual",
-        "controller": "b1d2fbe.d184108",
+        "controller": "1052ca19.1e70b6",
         "itemname": "Home cinema - Thermostat-current-temperature",
         "passthru": true,
         "booleanoutput": false,
         "outputatstartup": true,
-        "x": 173.00006866455078,
-        "y": 681.5002479553223,
+        "x": 110,
+        "y": 680,
         "wires": [
             [
-                "f2c82fe9.4bfa1"
+                "782f76c4.bafa98"
             ]
         ]
     },
     {
-        "id": "12ec7278.36d81e",
+        "id": "aebf3ab0.150138",
         "type": "realknx-in",
-        "z": "1c2088c.95ad877",
+        "z": "a908366f.6e6348",
         "name": "Temp set",
-        "controller": "b1d2fbe.d184108",
+        "controller": "1052ca19.1e70b6",
         "itemname": "Home cinema - Thermostat",
         "passthru": true,
         "booleanoutput": false,
         "outputatstartup": true,
-        "x": 163.00006866455078,
-        "y": 735.5002479553223,
+        "x": 100,
+        "y": 740,
         "wires": [
             [
-                "fa021723.713da8"
+                "e9d926d5.d75be8"
             ]
         ]
     },
     {
-        "id": "d086fb3e.2f6ac8",
+        "id": "91ba0182.fd98b",
         "type": "realknx-in",
-        "z": "1c2088c.95ad877",
+        "z": "a908366f.6e6348",
         "name": "Updates of power",
-        "controller": "b1d2fbe.d184108",
+        "controller": "1052ca19.1e70b6",
         "itemname": "Général - Consommation",
         "passthru": true,
         "booleanoutput": false,
         "outputatstartup": true,
-        "x": 174.00006866455078,
-        "y": 436.50024795532227,
+        "x": 120,
+        "y": 480,
         "wires": [
             [
-                "b3f84572.44c8b8",
-                "705ca04d.fa132"
+                "bd2daf8b.94dd7",
+                "d47fd422.316ad8"
             ]
         ]
     },
     {
-        "id": "afc7c25f.d334c",
+        "id": "41c09b41.234ab4",
         "type": "debug",
-        "z": "1c2088c.95ad877",
+        "z": "a908366f.6e6348",
         "name": "Debug",
         "active": false,
         "console": "false",
         "complete": "payload",
-        "x": 612,
-        "y": 1005,
+        "x": 510,
+        "y": 1000,
         "wires": []
     },
     {
-        "id": "2941a2b5.98f14e",
+        "id": "d6b997c2.73f958",
         "type": "ui_button",
-        "z": "1c2088c.95ad877",
+        "z": "a908366f.6e6348",
         "name": "",
-        "group": "c7b0c32a.e3bb2",
+        "group": "4cd8c3f3.7508ac",
         "order": 2,
         "width": 0,
         "height": 0,
@@ -617,20 +617,20 @@
         "payload": "1",
         "payloadType": "num",
         "topic": "mytopic",
-        "x": 163.0000114440918,
-        "y": 964.0001001358032,
+        "x": 120,
+        "y": 960,
         "wires": [
             [
-                "d1d260a3.3351e"
+                "ec8947c6.39d018"
             ]
         ]
     },
     {
-        "id": "5589a1c3.92db3",
+        "id": "a029781f.2ed118",
         "type": "ui_gauge",
-        "z": "1c2088c.95ad877",
+        "z": "a908366f.6e6348",
         "name": "",
-        "group": "c7b0c32a.e3bb2",
+        "group": "4cd8c3f3.7508ac",
         "order": 1,
         "width": 0,
         "height": 0,
@@ -647,15 +647,15 @@
         ],
         "seg1": "",
         "seg2": "",
-        "x": 613.0000114440918,
-        "y": 964.0001001358032,
+        "x": 510,
+        "y": 960,
         "wires": []
     },
     {
-        "id": "a41512e8.0aa94",
+        "id": "890758c.a0907a8",
         "type": "ui_text",
-        "z": "1c2088c.95ad877",
-        "group": "317e45f8.ad2c0a",
+        "z": "a908366f.6e6348",
+        "group": "91c27927.3b71e8",
         "order": 3,
         "width": "0",
         "height": "0",
@@ -663,15 +663,15 @@
         "label": "Temperature:",
         "format": "{{msg.payload.tempc}} &degC",
         "layout": "row-left",
-        "x": 749.9999923706055,
-        "y": 827.0002088546753,
+        "x": 690,
+        "y": 820,
         "wires": []
     },
     {
-        "id": "44946ff4.332fb",
+        "id": "d2271b58.69b9e8",
         "type": "ui_text",
-        "z": "1c2088c.95ad877",
-        "group": "317e45f8.ad2c0a",
+        "z": "a908366f.6e6348",
+        "group": "91c27927.3b71e8",
         "order": 1,
         "width": "0",
         "height": "0",
@@ -679,15 +679,15 @@
         "label": "Location:",
         "format": "{{msg.payload.location}}",
         "layout": "row-left",
-        "x": 443.00001525878906,
-        "y": 825.0001363754272,
+        "x": 380,
+        "y": 820,
         "wires": []
     },
     {
-        "id": "1f554d03.7b26d3",
+        "id": "e34b85cc.284e38",
         "type": "ui_text",
-        "z": "1c2088c.95ad877",
-        "group": "317e45f8.ad2c0a",
+        "z": "a908366f.6e6348",
+        "group": "91c27927.3b71e8",
         "order": 2,
         "width": "0",
         "height": "0",
@@ -695,48 +695,48 @@
         "label": "Weather:",
         "format": "{{msg.payload.detail }}",
         "layout": "row-left",
-        "x": 594.0000228881836,
-        "y": 824.0001630783081,
+        "x": 540,
+        "y": 820,
         "wires": []
     },
     {
-        "id": "d1d260a3.3351e",
+        "id": "ec8947c6.39d018",
         "type": "function",
-        "z": "1c2088c.95ad877",
+        "z": "a908366f.6e6348",
         "name": "increase",
-        "func": "function getRandomInt(min, max) {\n return Math.floor(Math.random() * (max - min + 1)) + min;\n}\n\nif (!context.global.count) {\n context.global.count = 0;\n}\ncontext.global.count += getRandomInt(2,7);\ncontext.global.count = context.global.count>=100?100:context.global.count;\nmsg.payload = context.global.count;\nreturn msg;\n",
+        "func": "function getRandomInt(min, max) {\n   return Math.floor(Math.random() * (max - min + 1)) + min;\n}\n\nvar count = flow.get(\"count\") || 0;\ncount += getRandomInt(2,7);\ncount = count>=100 ? 100 : count;\nflow.set(\"count\", count);\nmsg.payload = count;\nreturn msg;\n",
         "outputs": 1,
         "noerr": 0,
-        "x": 343.0000114440918,
-        "y": 964.0001001358032,
+        "x": 280,
+        "y": 960,
         "wires": [
             [
-                "5589a1c3.92db3",
-                "afc7c25f.d334c"
+                "a029781f.2ed118",
+                "41c09b41.234ab4"
             ]
         ]
     },
     {
-        "id": "fa5fb2a9.445a3",
+        "id": "3b4f8bd9.286b14",
         "type": "function",
-        "z": "1c2088c.95ad877",
+        "z": "a908366f.6e6348",
         "name": "decrease",
-        "func": "function getRandomInt(min, max) {\n return Math.floor(Math.random() * (max - min + 1)) + min;\n}\nif (context.global.count > 0) {\n context.global.count -= getRandomInt(1,5);\n context.global.count = context.global.count<=0?0:context.global.count;\n}\nmsg.payload = context.global.count;\nreturn msg;\n",
+        "func": "function getRandomInt(min, max) {\n   return Math.floor(Math.random() * (max - min + 1)) + min;\n}\n\nvar count = flow.get(\"count\") || 0;\nif (count > 0) {\n   count -= getRandomInt(1,5);\n   count = count<=0 ? 0 : count;\n}\nflow.set(\"count\", count);\nmsg.payload = count;\nreturn msg;\n",
         "outputs": 1,
         "noerr": 0,
-        "x": 342,
-        "y": 1005,
+        "x": 280,
+        "y": 1000,
         "wires": [
             [
-                "5589a1c3.92db3",
-                "afc7c25f.d334c"
+                "a029781f.2ed118",
+                "41c09b41.234ab4"
             ]
         ]
     },
     {
-        "id": "8463f333.fefd9",
+        "id": "23e6f761.f26058",
         "type": "interval",
-        "z": "1c2088c.95ad877",
+        "z": "a908366f.6e6348",
         "name": "interval",
         "interval": "1",
         "onstart": false,
@@ -744,39 +744,39 @@
         "showstatus": false,
         "unit": "seconds",
         "statusformat": "YYYY-MM-D HH:mm:ss",
-        "x": 132,
-        "y": 1005,
+        "x": 90,
+        "y": 1000,
         "wires": [
             [
-                "fa5fb2a9.445a3"
+                "3b4f8bd9.286b14"
             ]
         ]
     },
     {
-        "id": "65964e6b.6fc93",
+        "id": "71aba47e.65ad9c",
         "type": "comment",
-        "z": "1c2088c.95ad877",
+        "z": "a908366f.6e6348",
         "name": "Demo of logical function",
         "info": "This demonstrates how function nodes can be used for creating powerful logic.",
-        "x": 180.96305465698242,
-        "y": 929.7131471633911,
+        "x": 140,
+        "y": 920,
         "wires": []
     },
     {
-        "id": "6a6ba90e.cb5b88",
+        "id": "58d5a95.c6b8e58",
         "type": "comment",
-        "z": "1c2088c.95ad877",
+        "z": "a908366f.6e6348",
         "name": "Demo of openweathermap",
         "info": "Sign-up for a API-key at https://openweathermap.org/api\nand add the 'openweathermap' node.",
-        "x": 193.96307373046875,
-        "y": 830.7103414535522,
+        "x": 150,
+        "y": 820,
         "wires": []
     },
     {
-        "id": "4308c784.4328b8",
+        "id": "81d8e5d3.af8da8",
         "type": "ui_text",
-        "z": "1c2088c.95ad877",
-        "group": "317e45f8.ad2c0a",
+        "z": "a908366f.6e6348",
+        "group": "91c27927.3b71e8",
         "order": 0,
         "width": 0,
         "height": 0,
@@ -784,15 +784,15 @@
         "label": "Humidity",
         "format": "{{msg.payload.humidity}} %",
         "layout": "row-left",
-        "x": 445.79261779785156,
-        "y": 878.5711030960083,
+        "x": 380,
+        "y": 880,
         "wires": []
     },
     {
-        "id": "6de1c7d9.61b198",
+        "id": "b152d596.f7ed78",
         "type": "ui_text",
-        "z": "1c2088c.95ad877",
-        "group": "317e45f8.ad2c0a",
+        "z": "a908366f.6e6348",
+        "group": "91c27927.3b71e8",
         "order": 0,
         "width": 0,
         "height": 0,
@@ -800,15 +800,15 @@
         "label": "windspeed ",
         "format": "{{msg.payload.windspeed}} m/s",
         "layout": "row-left",
-        "x": 602.7812652587891,
-        "y": 878.5711030960083,
+        "x": 530,
+        "y": 880,
         "wires": []
     },
     {
-        "id": "8ad10d4a.d520d",
+        "id": "ea7d1e82.9c374",
         "type": "ui_text",
-        "z": "1c2088c.95ad877",
-        "group": "317e45f8.ad2c0a",
+        "z": "a908366f.6e6348",
+        "group": "91c27927.3b71e8",
         "order": 0,
         "width": 0,
         "height": 0,
@@ -816,35 +816,35 @@
         "label": "winddirection ",
         "format": "{{msg.payload.winddirection }} &deg",
         "layout": "row-left",
-        "x": 754.7840728759766,
-        "y": 878.5711030960083,
+        "x": 690,
+        "y": 880,
         "wires": []
     },
     {
-        "id": "beee542d.f6b868",
+        "id": "822a6271.4e6b5",
         "type": "openweathermap in",
-        "z": "1c2088c.95ad877",
+        "z": "a908366f.6e6348",
         "name": "",
         "lon": "",
         "lat": "",
         "city": "Valbonne",
         "country": "France",
         "language": "en",
-        "x": 163.00001525878906,
-        "y": 865.0001363754272,
+        "x": 120,
+        "y": 860,
         "wires": [
             [
-                "44946ff4.332fb",
-                "1f554d03.7b26d3",
-                "a41512e8.0aa94",
-                "4308c784.4328b8",
-                "6de1c7d9.61b198",
-                "8ad10d4a.d520d"
+                "d2271b58.69b9e8",
+                "e34b85cc.284e38",
+                "890758c.a0907a8",
+                "81d8e5d3.af8da8",
+                "b152d596.f7ed78",
+                "ea7d1e82.9c374"
             ]
         ]
     },
     {
-        "id": "b1d2fbe.d184108",
+        "id": "1052ca19.1e70b6",
         "type": "realknx-controller",
         "z": "",
         "name": "realknx-ctrl",
@@ -852,57 +852,57 @@
         "port": "3000"
     },
     {
-        "id": "d2796fc2.b8c3e",
+        "id": "ffa241b1.d4aa1",
         "type": "ui_group",
         "z": "",
         "name": "Temperature",
-        "tab": "600190b.f163c7",
+        "tab": "81f8737d.c5fda",
         "order": 3,
         "disp": true,
         "width": "12"
     },
     {
-        "id": "5735c315.51fa7c",
+        "id": "aa75fc7d.60a3e",
         "type": "ui_group",
         "z": "",
         "name": "Slider",
-        "tab": "600190b.f163c7",
+        "tab": "81f8737d.c5fda",
         "order": 1,
         "disp": true,
         "width": "12"
     },
     {
-        "id": "92db7011.3d83d",
+        "id": "45a8554d.16200c",
         "type": "ui_group",
         "z": "",
         "name": "Power",
-        "tab": "600190b.f163c7",
+        "tab": "81f8737d.c5fda",
         "order": 2,
         "disp": true,
         "width": "12"
     },
     {
-        "id": "c7b0c32a.e3bb2",
+        "id": "4cd8c3f3.7508ac",
         "type": "ui_group",
         "z": "",
         "name": "Button & gauge",
-        "tab": "1933e77c.6ae579",
+        "tab": "8a0dd6b7.61b088",
         "order": 2,
         "disp": true,
         "width": "12"
     },
     {
-        "id": "317e45f8.ad2c0a",
+        "id": "91c27927.3b71e8",
         "type": "ui_group",
         "z": "",
         "name": "Weather stuff",
-        "tab": "d7305a90.182b28",
+        "tab": "9ef6670b.057008",
         "order": 1,
         "disp": true,
         "width": "12"
     },
     {
-        "id": "600190b.f163c7",
+        "id": "81f8737d.c5fda",
         "type": "ui_tab",
         "z": "",
         "name": "realKNX",
@@ -910,7 +910,7 @@
         "order": 1
     },
     {
-        "id": "1933e77c.6ae579",
+        "id": "8a0dd6b7.61b088",
         "type": "ui_tab",
         "z": "",
         "name": "Functions",
@@ -918,7 +918,7 @@
         "order": 3
     },
     {
-        "id": "d7305a90.182b28",
+        "id": "9ef6670b.057008",
         "type": "ui_tab",
         "z": "",
         "name": "Weather",
