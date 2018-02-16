@@ -1,0 +1,1102 @@
+[
+    {
+        "id": "265e9f5.21bc3e",
+        "type": "tab",
+        "label": "Gate System",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "4f7ce8a6.54df7",
+        "type": "switch",
+        "z": "265e9f5.21bc3e",
+        "name": "State?",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "open",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "closed",
+                "vt": "str"
+            },
+            {
+                "t": "null"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "false",
+        "outputs": 4,
+        "x": 790,
+        "y": 1360,
+        "wires": [
+            [
+                "fc283668.68ffd8"
+            ],
+            [
+                "4af21e1a.0ef26"
+            ],
+            [
+                "3f1fe10f.e6ba56"
+            ],
+            [
+                "3f1fe10f.e6ba56"
+            ]
+        ]
+    },
+    {
+        "id": "4af21e1a.0ef26",
+        "type": "change",
+        "z": "265e9f5.21bc3e",
+        "name": "transfer to Closed",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "initclosed",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 990,
+        "y": 1360,
+        "wires": [
+            [
+                "16fc369c.56ed91"
+            ]
+        ]
+    },
+    {
+        "id": "3f1fe10f.e6ba56",
+        "type": "change",
+        "z": "265e9f5.21bc3e",
+        "name": "transfer to Closed",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "initclosed",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 990,
+        "y": 1400,
+        "wires": [
+            [
+                "16fc369c.56ed91"
+            ]
+        ]
+    },
+    {
+        "id": "7fdf356b.0db00c",
+        "type": "file in",
+        "z": "265e9f5.21bc3e",
+        "name": "Read from file",
+        "filename": "gate-state.json",
+        "format": "lines",
+        "chunk": false,
+        "sendError": true,
+        "x": 480,
+        "y": 1340,
+        "wires": [
+            [
+                "10e8e9cb.f90d3e"
+            ]
+        ]
+    },
+    {
+        "id": "43cbe136.720518",
+        "type": "file",
+        "z": "265e9f5.21bc3e",
+        "name": "Save to file",
+        "filename": "gate-state.json",
+        "appendNewline": true,
+        "createDir": false,
+        "overwriteFile": "true",
+        "x": 470,
+        "y": 1378,
+        "wires": []
+    },
+    {
+        "id": "f3bac451.608bd",
+        "type": "link out",
+        "z": "265e9f5.21bc3e",
+        "name": "KNX OUTPUT",
+        "links": [
+            "4fa15262.42da6c",
+            "246b114b.34cbf6"
+        ],
+        "x": 955,
+        "y": 620,
+        "wires": []
+    },
+    {
+        "id": "5920b106.c36b4",
+        "type": "realknx-in",
+        "z": "265e9f5.21bc3e",
+        "name": "Open/Closed (AUX-TOGGLE)",
+        "controller": "",
+        "itemname": "",
+        "passthru": false,
+        "booleanoutput": true,
+        "outputatstartup": false,
+        "x": 480,
+        "y": 460,
+        "wires": [
+            [
+                "400eb40e.930fd4"
+            ]
+        ]
+    },
+    {
+        "id": "b707ef26.e15e88",
+        "type": "comment",
+        "z": "265e9f5.21bc3e",
+        "name": "Open/Close With a AUX-KNX-TOGGLE---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------",
+        "info": "KNX proserv\n--> AUX-TOGLLE",
+        "x": 730,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "dec767e4.cb65c8",
+        "type": "comment",
+        "z": "265e9f5.21bc3e",
+        "name": "State of the gate (STATE-1bit) ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------",
+        "info": "",
+        "x": 690,
+        "y": 540,
+        "wires": []
+    },
+    {
+        "id": "fc283668.68ffd8",
+        "type": "change",
+        "z": "265e9f5.21bc3e",
+        "name": "transfer to Open",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "initopen",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 980,
+        "y": 1320,
+        "wires": [
+            [
+                "16fc369c.56ed91"
+            ]
+        ]
+    },
+    {
+        "id": "16fc369c.56ed91",
+        "type": "link out",
+        "z": "265e9f5.21bc3e",
+        "name": "STATE OUTPUT",
+        "links": [
+            "4fa15262.42da6c",
+            "246b114b.34cbf6"
+        ],
+        "x": 1195,
+        "y": 1360,
+        "wires": []
+    },
+    {
+        "id": "5dc29e43.c36478",
+        "type": "comment",
+        "z": "265e9f5.21bc3e",
+        "name": "Save & Get the State to/from file------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------",
+        "info": "",
+        "x": 720,
+        "y": 1280,
+        "wires": []
+    },
+    {
+        "id": "10e8e9cb.f90d3e",
+        "type": "delay",
+        "z": "265e9f5.21bc3e",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "2",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "x": 649,
+        "y": 1360,
+        "wires": [
+            [
+                "4f7ce8a6.54df7"
+            ]
+        ]
+    },
+    {
+        "id": "5f71c276.e77d7c",
+        "type": "comment",
+        "z": "265e9f5.21bc3e",
+        "name": "------------------------------------------------------------------------------------------------------------------------> INPUT <------------------------------------------------------------------------------------------------------------------------",
+        "info": "",
+        "x": 720,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "a7c1136e.6b5b58",
+        "type": "link in",
+        "z": "265e9f5.21bc3e",
+        "name": "Input (statemachine) fort OUTPUT",
+        "links": [
+            "442908d5.12b238",
+            "a4d4c975.a401f8",
+            "33d22efa.a74ae2"
+        ],
+        "x": 338,
+        "y": 1378,
+        "wires": [
+            [
+                "43cbe136.720518"
+            ]
+        ]
+    },
+    {
+        "id": "855f5b78.7c4ed",
+        "type": "link in",
+        "z": "265e9f5.21bc3e",
+        "name": "Input (statemachine) fort OUTPUT",
+        "links": [
+            "d8387b29.ff7048",
+            "8124e6c1.d57c18",
+            "aeeda35d.4d68f"
+        ],
+        "x": 338,
+        "y": 1340,
+        "wires": [
+            [
+                "7fdf356b.0db00c"
+            ]
+        ]
+    },
+    {
+        "id": "246b114b.34cbf6",
+        "type": "link in",
+        "z": "265e9f5.21bc3e",
+        "name": "State Machine INPUT",
+        "links": [
+            "6bb93dbc.c13f14",
+            "f3bac451.608bd",
+            "16fc369c.56ed91",
+            "88e3cd25.c50c08",
+            "532b87e1.b8cbc8",
+            "10f86cb1.146e4b",
+            "3284937f.24519c",
+            "1798b28a.257c9d"
+        ],
+        "x": 455,
+        "y": 220,
+        "wires": [
+            [
+                "120a8d3.4fe8273"
+            ]
+        ]
+    },
+    {
+        "id": "23996400.73ec44",
+        "type": "switch",
+        "z": "265e9f5.21bc3e",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "init",
+                "vt": "str"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "false",
+        "outputs": 2,
+        "x": 702,
+        "y": 219,
+        "wires": [
+            [
+                "8124e6c1.d57c18"
+            ],
+            [
+                "a4d4c975.a401f8"
+            ]
+        ]
+    },
+    {
+        "id": "a4d4c975.a401f8",
+        "type": "link out",
+        "z": "265e9f5.21bc3e",
+        "name": "State Machine OUTPUT ",
+        "links": [
+            "dbebeaa5.c7f03",
+            "70539d0c.580974",
+            "67fc7c1b.8fd4b4",
+            "71a35d89.feb3c4",
+            "489db7ad.98b008",
+            "1053d103.f4c557",
+            "614f7f0d.cfda2",
+            "a7c1136e.6b5b58",
+            "198eac8.e372654",
+            "96824d65.848718",
+            "466b6b35.93d064",
+            "df1fe6f7.6112c8",
+            "54a73e7a.97dc78",
+            "53c781fa.62cb78",
+            "bddfd6a2.98626",
+            "6c48ddae.e34e9c",
+            "398d4a52.e1263e",
+            "25cf5e1f.d2cc42"
+        ],
+        "x": 804,
+        "y": 238,
+        "wires": []
+    },
+    {
+        "id": "8124e6c1.d57c18",
+        "type": "link out",
+        "z": "265e9f5.21bc3e",
+        "name": "State Machine OUTPUT \"init\"",
+        "links": [
+            "855f5b78.7c4ed",
+            "4185f0f2.3204f8"
+        ],
+        "x": 804,
+        "y": 201,
+        "wires": []
+    },
+    {
+        "id": "21828741.62666",
+        "type": "comment",
+        "z": "265e9f5.21bc3e",
+        "name": "CORE: DO NOT CHANGE",
+        "info": "",
+        "x": 630,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "120a8d3.4fe8273",
+        "type": "state-machine",
+        "z": "265e9f5.21bc3e",
+        "name": "Gate",
+        "triggerProperty": "payload",
+        "triggerPropertyType": "msg",
+        "stateProperty": "payload",
+        "statePropertyType": "msg",
+        "states": [
+            "init",
+            "closed",
+            "mouvement",
+            "open"
+        ],
+        "transitions": [
+            {
+                "name": "opening",
+                "from": "closed",
+                "to": "mouvement"
+            },
+            {
+                "name": "closing",
+                "from": "open",
+                "to": "mouvement"
+            },
+            {
+                "name": "open",
+                "from": "closed",
+                "to": "open"
+            },
+            {
+                "name": "open",
+                "from": "mouvement",
+                "to": "open"
+            },
+            {
+                "name": "closed",
+                "from": "open",
+                "to": "closed"
+            },
+            {
+                "name": "closed",
+                "from": "mouvement",
+                "to": "closed"
+            },
+            {
+                "name": "initopen",
+                "from": "init",
+                "to": "open"
+            },
+            {
+                "name": "initclosed",
+                "from": "init",
+                "to": "closed"
+            }
+        ],
+        "x": 562,
+        "y": 219,
+        "wires": [
+            [
+                "23996400.73ec44"
+            ]
+        ]
+    },
+    {
+        "id": "400eb40e.930fd4",
+        "type": "change",
+        "z": "265e9f5.21bc3e",
+        "name": "",
+        "rules": [
+            {
+                "t": "change",
+                "p": "payload",
+                "pt": "msg",
+                "from": "true",
+                "fromt": "bool",
+                "to": "opening",
+                "tot": "str"
+            },
+            {
+                "t": "change",
+                "p": "payload",
+                "pt": "msg",
+                "from": "false",
+                "fromt": "bool",
+                "to": "closing",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 760,
+        "y": 460,
+        "wires": [
+            [
+                "532b87e1.b8cbc8"
+            ]
+        ]
+    },
+    {
+        "id": "eaad9437.a5b568",
+        "type": "change",
+        "z": "265e9f5.21bc3e",
+        "name": "",
+        "rules": [
+            {
+                "t": "change",
+                "p": "payload",
+                "pt": "msg",
+                "from": "true",
+                "fromt": "bool",
+                "to": "open",
+                "tot": "str"
+            },
+            {
+                "t": "change",
+                "p": "payload",
+                "pt": "msg",
+                "from": "false",
+                "fromt": "bool",
+                "to": "closed",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 760,
+        "y": 620,
+        "wires": [
+            [
+                "f3bac451.608bd"
+            ]
+        ]
+    },
+    {
+        "id": "61258456.232f54",
+        "type": "realknx-in",
+        "z": "265e9f5.21bc3e",
+        "name": "State (State-1bit)",
+        "controller": "",
+        "itemname": "",
+        "passthru": false,
+        "booleanoutput": true,
+        "outputatstartup": false,
+        "x": 440,
+        "y": 620,
+        "wires": [
+            [
+                "eaad9437.a5b568"
+            ]
+        ]
+    },
+    {
+        "id": "532b87e1.b8cbc8",
+        "type": "link out",
+        "z": "265e9f5.21bc3e",
+        "name": "KNX OUTPUT",
+        "links": [
+            "4fa15262.42da6c",
+            "246b114b.34cbf6"
+        ],
+        "x": 955,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "9ba2f59a.505c28",
+        "type": "comment",
+        "z": "265e9f5.21bc3e",
+        "name": "Pulse for Open/Close (AUX-Pulse) ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------",
+        "info": "",
+        "x": 720,
+        "y": 920,
+        "wires": []
+    },
+    {
+        "id": "578625cd.4799cc",
+        "type": "comment",
+        "z": "265e9f5.21bc3e",
+        "name": "------------------------------------------------------------------------------------------------------------------------> OUTPUT <------------------------------------------------------------------------------------------------------------------------",
+        "info": "",
+        "x": 720,
+        "y": 880,
+        "wires": []
+    },
+    {
+        "id": "398d4a52.e1263e",
+        "type": "link in",
+        "z": "265e9f5.21bc3e",
+        "name": "Input (statemachine) fort OUTPUT",
+        "links": [
+            "442908d5.12b238",
+            "a4d4c975.a401f8",
+            "33d22efa.a74ae2"
+        ],
+        "x": 335,
+        "y": 1000,
+        "wires": [
+            [
+                "87e7ce13.0d9948"
+            ]
+        ]
+    },
+    {
+        "id": "87e7ce13.0d9948",
+        "type": "switch",
+        "z": "265e9f5.21bc3e",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "mouvement",
+                "vt": "str"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "true",
+        "outputs": 2,
+        "x": 450,
+        "y": 1000,
+        "wires": [
+            [
+                "9aa59af6.ec28a8"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "9aa59af6.ec28a8",
+        "type": "trigger",
+        "z": "265e9f5.21bc3e",
+        "op1": "true",
+        "op2": "false",
+        "op1type": "bool",
+        "op2type": "bool",
+        "duration": "2",
+        "extend": false,
+        "units": "s",
+        "reset": "",
+        "name": "",
+        "x": 680,
+        "y": 1000,
+        "wires": [
+            [
+                "ba596f17.c4d308"
+            ]
+        ]
+    },
+    {
+        "id": "982020d.ba02d6",
+        "type": "BDebug",
+        "z": "265e9f5.21bc3e",
+        "name": "Debug",
+        "x": 1210,
+        "y": 1200,
+        "wires": []
+    },
+    {
+        "id": "ba596f17.c4d308",
+        "type": "realknx-out",
+        "z": "265e9f5.21bc3e",
+        "name": "Open/Closed (AUX-PULSE)",
+        "controller": "",
+        "itemname": "",
+        "topic": "",
+        "payload": "",
+        "booleaninput": true,
+        "x": 950,
+        "y": 1000,
+        "wires": []
+    },
+    {
+        "id": "a8fb00b0.a95898",
+        "type": "comment",
+        "z": "265e9f5.21bc3e",
+        "name": "Flashing Light when Mouvement ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------",
+        "info": "",
+        "x": 710,
+        "y": 1080,
+        "wires": []
+    },
+    {
+        "id": "25cf5e1f.d2cc42",
+        "type": "link in",
+        "z": "265e9f5.21bc3e",
+        "name": "Input (statemachine) fort OUTPUT",
+        "links": [
+            "442908d5.12b238",
+            "a4d4c975.a401f8",
+            "33d22efa.a74ae2"
+        ],
+        "x": 335,
+        "y": 1140,
+        "wires": [
+            [
+                "95697437.d8628"
+            ]
+        ]
+    },
+    {
+        "id": "eee6c422.50ab8",
+        "type": "delay",
+        "z": "265e9f5.21bc3e",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "2",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "x": 860,
+        "y": 1160,
+        "wires": [
+            [
+                "a2506269.f28068"
+            ]
+        ]
+    },
+    {
+        "id": "a2506269.f28068",
+        "type": "trigger",
+        "z": "265e9f5.21bc3e",
+        "op1": "255",
+        "op2": "0",
+        "op1type": "num",
+        "op2type": "num",
+        "duration": "2",
+        "extend": false,
+        "units": "s",
+        "reset": "",
+        "name": "",
+        "x": 860,
+        "y": 1120,
+        "wires": [
+            [
+                "eee6c422.50ab8",
+                "d502e48.a893b18"
+            ]
+        ]
+    },
+    {
+        "id": "95697437.d8628",
+        "type": "switch",
+        "z": "265e9f5.21bc3e",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "mouvement",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "open",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "closed",
+                "vt": "str"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "false",
+        "outputs": 4,
+        "x": 450,
+        "y": 1140,
+        "wires": [
+            [
+                "3850af33.05801"
+            ],
+            [
+                "ae81857b.5caeb8",
+                "34b7d1df.36fd86"
+            ],
+            [
+                "ae81857b.5caeb8",
+                "34b7d1df.36fd86"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "3850af33.05801",
+        "type": "change",
+        "z": "265e9f5.21bc3e",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "true",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 680,
+        "y": 1120,
+        "wires": [
+            [
+                "a2506269.f28068"
+            ]
+        ]
+    },
+    {
+        "id": "ae81857b.5caeb8",
+        "type": "change",
+        "z": "265e9f5.21bc3e",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "reset",
+                "pt": "msg",
+                "to": "true",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 680,
+        "y": 1160,
+        "wires": [
+            [
+                "a2506269.f28068",
+                "eee6c422.50ab8"
+            ]
+        ]
+    },
+    {
+        "id": "5236ba51.ef437c",
+        "type": "delay",
+        "z": "265e9f5.21bc3e",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "3",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "x": 860,
+        "y": 1200,
+        "wires": [
+            [
+                "d502e48.a893b18"
+            ]
+        ]
+    },
+    {
+        "id": "d502e48.a893b18",
+        "type": "switch",
+        "z": "265e9f5.21bc3e",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "true",
+        "outputs": 1,
+        "x": 1050,
+        "y": 1160,
+        "wires": [
+            [
+                "2b370ed.ddca672",
+                "982020d.ba02d6"
+            ]
+        ]
+    },
+    {
+        "id": "2b370ed.ddca672",
+        "type": "realknx-out",
+        "z": "265e9f5.21bc3e",
+        "name": "Flashing Light",
+        "controller": "",
+        "itemname": "",
+        "topic": "",
+        "payload": "",
+        "booleaninput": true,
+        "x": 1240,
+        "y": 1120,
+        "wires": []
+    },
+    {
+        "id": "50cbf6b0.a4cf58",
+        "type": "inject",
+        "z": "265e9f5.21bc3e",
+        "name": "",
+        "topic": "",
+        "payload": "false",
+        "payloadType": "bool",
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "x": 853,
+        "y": 1240,
+        "wires": [
+            [
+                "d502e48.a893b18"
+            ]
+        ]
+    },
+    {
+        "id": "c6b0cfe7.c2ba6",
+        "type": "inject",
+        "z": "265e9f5.21bc3e",
+        "name": "",
+        "topic": "",
+        "payload": "true",
+        "payloadType": "bool",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 550,
+        "y": 420,
+        "wires": [
+            [
+                "400eb40e.930fd4"
+            ]
+        ]
+    },
+    {
+        "id": "4e539c75.31cd64",
+        "type": "inject",
+        "z": "265e9f5.21bc3e",
+        "name": "",
+        "topic": "",
+        "payload": "false",
+        "payloadType": "bool",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 550,
+        "y": 500,
+        "wires": [
+            [
+                "400eb40e.930fd4"
+            ]
+        ]
+    },
+    {
+        "id": "b9ba1a64.a110e",
+        "type": "inject",
+        "z": "265e9f5.21bc3e",
+        "name": "",
+        "topic": "",
+        "payload": "true",
+        "payloadType": "bool",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 550,
+        "y": 580,
+        "wires": [
+            [
+                "eaad9437.a5b568"
+            ]
+        ]
+    },
+    {
+        "id": "a469f463.6cc248",
+        "type": "inject",
+        "z": "265e9f5.21bc3e",
+        "name": "",
+        "topic": "",
+        "payload": "false",
+        "payloadType": "bool",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 550,
+        "y": 660,
+        "wires": [
+            [
+                "eaad9437.a5b568"
+            ]
+        ]
+    },
+    {
+        "id": "666dd69.f0049a8",
+        "type": "comment",
+        "z": "265e9f5.21bc3e",
+        "name": "DESCRIPTION (open this before)",
+        "info": "When using a voice command for gate, \nit is recommended to use dicrete words \n(like open/close) istead of the pulse command...\n\nThis flow has two inputs:\n- Open/Close (AUX) is the discrete command\n- State (State-1bit) is the state of the gate\n\nThe output pulse (Pulse for Open/Close) can be \nused to start the movement of the gate control. \n",
+        "x": 630,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "34b7d1df.36fd86",
+        "type": "change",
+        "z": "265e9f5.21bc3e",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "false",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 680,
+        "y": 1200,
+        "wires": [
+            [
+                "5236ba51.ef437c"
+            ]
+        ]
+    },
+    {
+        "id": "fc35fcd5.667288",
+        "type": "comment",
+        "z": "265e9f5.21bc3e",
+        "name": "State for the KNX to the AUX TOGGLE if the gate is open from the remote ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------",
+        "info": "",
+        "x": 830,
+        "y": 720,
+        "wires": []
+    },
+    {
+        "id": "d79f1da9.187d",
+        "type": "realknx-in",
+        "z": "265e9f5.21bc3e",
+        "name": "State (State-1bit)",
+        "controller": "",
+        "itemname": "",
+        "passthru": false,
+        "booleanoutput": true,
+        "outputatstartup": false,
+        "x": 440,
+        "y": 800,
+        "wires": [
+            [
+                "45c265b6.750b7c"
+            ]
+        ]
+    },
+    {
+        "id": "45c265b6.750b7c",
+        "type": "realknx-out",
+        "z": "265e9f5.21bc3e",
+        "name": "Open/Closed (AUX-TOGGLE)",
+        "controller": "",
+        "itemname": "",
+        "topic": "",
+        "payload": "",
+        "booleaninput": true,
+        "x": 810,
+        "y": 800,
+        "wires": []
+    }
+]
