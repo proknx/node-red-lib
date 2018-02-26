@@ -1,0 +1,352 @@
+[
+    {
+        "id": "857e34be.d67858",
+        "type": "tab",
+        "label": "Alarm // State machine core",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "a8d9018e.176e9",
+        "type": "comment",
+        "z": "857e34be.d67858",
+        "name": " Burglar Alarm using State machine",
+        "info": "",
+        "x": 240,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "4f87b9bd.00a318",
+        "type": "state-machine",
+        "z": "857e34be.d67858",
+        "name": "State Machine",
+        "triggerProperty": "payload",
+        "triggerPropertyType": "msg",
+        "stateProperty": "payload",
+        "statePropertyType": "msg",
+        "states": [
+            "AlarmOff",
+            "PreArmed",
+            "Armed",
+            "Alarm",
+            "PreOff"
+        ],
+        "transitions": [
+            {
+                "name": "turnon",
+                "from": "AlarmOff",
+                "to": "PreArmed"
+            },
+            {
+                "name": "turnoff",
+                "from": "PreArmed",
+                "to": "AlarmOff"
+            },
+            {
+                "name": "arm",
+                "from": "PreArmed",
+                "to": "Armed"
+            },
+            {
+                "name": "turnoff",
+                "from": "Armed",
+                "to": "AlarmOff"
+            },
+            {
+                "name": "exitentry",
+                "from": "Armed",
+                "to": "PreOff"
+            },
+            {
+                "name": "turnoff",
+                "from": "PreOff",
+                "to": "AlarmOff"
+            },
+            {
+                "name": "pretimeout",
+                "from": "PreOff",
+                "to": "Alarm"
+            },
+            {
+                "name": "pir",
+                "from": "Armed",
+                "to": "Alarm"
+            },
+            {
+                "name": "turnoff",
+                "from": "Alarm",
+                "to": "AlarmOff"
+            },
+            {
+                "name": "maxalarm",
+                "from": "Alarm",
+                "to": "Armed"
+            }
+        ],
+        "x": 460,
+        "y": 460,
+        "wires": [
+            [
+                "d083c7c4.333a08"
+            ]
+        ]
+    },
+    {
+        "id": "db8a28e0.5aa748",
+        "type": "inject",
+        "z": "857e34be.d67858",
+        "name": "TurnOnKey",
+        "topic": "",
+        "payload": "turnon",
+        "payloadType": "str",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 170,
+        "y": 340,
+        "wires": [
+            [
+                "4f87b9bd.00a318",
+                "c67aaa08.b749b8"
+            ]
+        ]
+    },
+    {
+        "id": "25cdacee.2bee54",
+        "type": "inject",
+        "z": "857e34be.d67858",
+        "name": "TurnOffKey",
+        "topic": "",
+        "payload": "turnoff",
+        "payloadType": "str",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 170,
+        "y": 400,
+        "wires": [
+            [
+                "4f87b9bd.00a318"
+            ]
+        ]
+    },
+    {
+        "id": "d0e2fc7f.d17a7",
+        "type": "inject",
+        "z": "857e34be.d67858",
+        "name": "Exit-Entry Button",
+        "topic": "",
+        "payload": "exitentry",
+        "payloadType": "str",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 180,
+        "y": 460,
+        "wires": [
+            [
+                "4f87b9bd.00a318",
+                "13e1a0af.dbd86f"
+            ]
+        ]
+    },
+    {
+        "id": "c67aaa08.b749b8",
+        "type": "trigger",
+        "z": "857e34be.d67858",
+        "op1": "",
+        "op2": "arm",
+        "op1type": "nul",
+        "op2type": "str",
+        "duration": "20",
+        "extend": false,
+        "units": "s",
+        "reset": "",
+        "name": " 20 sec to leave then ARM",
+        "x": 350,
+        "y": 240,
+        "wires": [
+            [
+                "4f87b9bd.00a318"
+            ]
+        ]
+    },
+    {
+        "id": "b65641dd.52575",
+        "type": "inject",
+        "z": "857e34be.d67858",
+        "name": "PreTimout",
+        "topic": "",
+        "payload": "pretimeout",
+        "payloadType": "str",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 160,
+        "y": 520,
+        "wires": [
+            [
+                "4f87b9bd.00a318"
+            ]
+        ]
+    },
+    {
+        "id": "1fbf7783.cd6948",
+        "type": "inject",
+        "z": "857e34be.d67858",
+        "name": "PIR",
+        "topic": "",
+        "payload": "pir",
+        "payloadType": "str",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 150,
+        "y": 580,
+        "wires": [
+            [
+                "4f87b9bd.00a318",
+                "ab98944a.9520c8"
+            ]
+        ]
+    },
+    {
+        "id": "d083c7c4.333a08",
+        "type": "switch",
+        "z": "857e34be.d67858",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "PreArmed",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "Alarm",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "PreOff",
+                "vt": "str"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "false",
+        "outputs": 4,
+        "x": 610,
+        "y": 460,
+        "wires": [
+            [
+                "6e01864d.facd38"
+            ],
+            [
+                "defda38b.9d3b8",
+                "ab98944a.9520c8"
+            ],
+            [
+                "6e01864d.facd38"
+            ],
+            [
+                "7777c7ee.52b1b8",
+                "6a705763.3b4148"
+            ]
+        ]
+    },
+    {
+        "id": "6e01864d.facd38",
+        "type": "debug",
+        "z": "857e34be.d67858",
+        "name": "Buzzer ON",
+        "active": false,
+        "console": "false",
+        "complete": "payload",
+        "x": 810,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "defda38b.9d3b8",
+        "type": "debug",
+        "z": "857e34be.d67858",
+        "name": "Siren & LED ON",
+        "active": false,
+        "console": "false",
+        "complete": "payload",
+        "x": 840,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "ab98944a.9520c8",
+        "type": "trigger",
+        "z": "857e34be.d67858",
+        "op1": "",
+        "op2": "maxalarm",
+        "op1type": "nul",
+        "op2type": "str",
+        "duration": "20",
+        "extend": false,
+        "units": "s",
+        "reset": "",
+        "name": "max Alarm time then ARMED",
+        "x": 500,
+        "y": 640,
+        "wires": [
+            [
+                "4f87b9bd.00a318"
+            ]
+        ]
+    },
+    {
+        "id": "13e1a0af.dbd86f",
+        "type": "trigger",
+        "z": "857e34be.d67858",
+        "op1": "",
+        "op2": "pretimeout",
+        "op1type": "nul",
+        "op2type": "str",
+        "duration": "20",
+        "extend": false,
+        "units": "s",
+        "reset": "",
+        "name": " 20 seconds to enter and TURN OFF",
+        "x": 370,
+        "y": 180,
+        "wires": [
+            [
+                "4f87b9bd.00a318"
+            ]
+        ]
+    },
+    {
+        "id": "7777c7ee.52b1b8",
+        "type": "debug",
+        "z": "857e34be.d67858",
+        "name": "Siren OFF",
+        "active": false,
+        "console": "false",
+        "complete": "payload",
+        "x": 810,
+        "y": 540,
+        "wires": []
+    },
+    {
+        "id": "6a705763.3b4148",
+        "type": "debug",
+        "z": "857e34be.d67858",
+        "name": "Buzzer OFF",
+        "active": false,
+        "console": "false",
+        "complete": "payload",
+        "x": 850,
+        "y": 360,
+        "wires": []
+    }
+]
