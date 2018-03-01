@@ -1,0 +1,251 @@
+[
+    {
+        "id": "c796e15b.0d6bf",
+        "type": "tab",
+        "label": "Telegram Chat Bot",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "cda0888.43e2078",
+        "type": "telegram command",
+        "z": "c796e15b.0d6bf",
+        "name": "/help",
+        "command": "/help",
+        "bot": "db4a86da.2773f8",
+        "x": 130,
+        "y": 240,
+        "wires": [
+            [
+                "a7947c11.39f82"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "a7947c11.39f82",
+        "type": "function",
+        "z": "c796e15b.0d6bf",
+        "name": "create help respone",
+        "func": "var help = \"/help - shows help (this)\\r\\n\";\nhelp += \"/run - show available commands \\r\\n\";\n\nmsg.payload.content = help;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 420,
+        "y": 220,
+        "wires": [
+            [
+                "e887eadc.dbabc8"
+            ]
+        ]
+    },
+    {
+        "id": "e887eadc.dbabc8",
+        "type": "telegram sender",
+        "z": "c796e15b.0d6bf",
+        "name": "",
+        "bot": "db4a86da.2773f8",
+        "x": 770,
+        "y": 220,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "aca66710.b81148",
+        "type": "telegram command",
+        "z": "c796e15b.0d6bf",
+        "name": "/run",
+        "command": "/run",
+        "bot": "db4a86da.2773f8",
+        "x": 130,
+        "y": 380,
+        "wires": [
+            [
+                "25448546.fada6a"
+            ],
+            [
+                "b205287c.8a9288",
+                "49019d71.7d2544"
+            ]
+        ]
+    },
+    {
+        "id": "25448546.fada6a",
+        "type": "function",
+        "z": "c796e15b.0d6bf",
+        "name": "confirmation message",
+        "func": "context.global.keyboard = { pending : true };\ncontext.global.cmd = { pending : true };\n\nvar opts = {\n  reply_to_message_id: msg.payload.messageId,\n  reply_markup: JSON.stringify({\n    keyboard: [['Turn ON Bedroom','Turn OFF Bedroom'],['Turn ON Kitchen','Turn OFF Kitchen']],\n      'resize_keyboard' : true, \n      'one_time_keyboard' : true\n  })\n};\n\nmsg.payload.content = 'Choose command';\nmsg.payload.options = opts;\n\nreturn [ msg ];\n",
+        "outputs": "1",
+        "noerr": 0,
+        "x": 423.5,
+        "y": 269,
+        "wires": [
+            [
+                "e887eadc.dbabc8"
+            ]
+        ]
+    },
+    {
+        "id": "b205287c.8a9288",
+        "type": "function",
+        "z": "c796e15b.0d6bf",
+        "name": "create response",
+        "func": "if(context.global.keyboard.pending)\n{\n    context.global.keyboard.pending = false;\n    msg.payload = msg.payload.content;\n    return msg;\n    /*\n    if(msg.payload.content === 'ON: Bedroom')\n    {\n        msg.payload.content = 'Turn ON Bedroom';\n        return msg;   \n    }\n    else if(msg.payload.content === 'OFF: Bedroom')\n    {\n        msg.payload.content = 'Turn OFF Bedroom';\n        return msg;   \n    }\n    else if(msg.payload.content === 'ON: Kitchen')\n    {\n        msg.payload.content = 'Turn ON Kitchen';\n        return msg;   \n    }\n    else if(msg.payload.content === 'OFF: Kitchen')\n    {\n        msg.payload.content = 'Turn OFF Kitchen';\n        return msg;   \n    }*/\n}\n",
+        "outputs": "1",
+        "noerr": 0,
+        "x": 400,
+        "y": 320,
+        "wires": [
+            [
+                "e887eadc.dbabc8"
+            ]
+        ]
+    },
+    {
+        "id": "49019d71.7d2544",
+        "type": "function",
+        "z": "c796e15b.0d6bf",
+        "name": "set cmd",
+        "func": "if(context.global.cmd.pending)\n{\n    context.global.cmd.pending = false;\n    if(msg.payload.content === 'Turn ON Bedroom')\n    {\n        msg.payload = true;\n        return [msg, null, null, null];   \n    }\n    else if(msg.payload.content === 'Turn OFF Bedroom')\n    {\n        msg.payload = false;\n        return [null, msg, null, null];   \n    }\n    else if(msg.payload.content === 'Turn ON Kitchen')\n    {\n        msg.payload = true;\n        return [null, null, msg, null];   \n    }\n    else if(msg.payload.content === 'Turn OFF Kitchen')\n    {\n        msg.payload = false;\n        return [null, null, null, msg];   \n    }\n}\n",
+        "outputs": "4",
+        "noerr": 0,
+        "x": 380,
+        "y": 420,
+        "wires": [
+            [
+                "b6b10402.c62c78"
+            ],
+            [
+                "8ad1c7ff.e4d818"
+            ],
+            [
+                "88af5ffe.33f18"
+            ],
+            [
+                "814d1702.0921d8"
+            ]
+        ],
+        "outputLabels": [
+            "Turn ON Bedroom",
+            "Turn OFF Bedroom",
+            "Turn ON Kitchen",
+            "Turn OFF Kitchen"
+        ]
+    },
+    {
+        "id": "b6b10402.c62c78",
+        "type": "realknx-out",
+        "z": "c796e15b.0d6bf",
+        "name": "Turn ON Bedroom",
+        "controller": "",
+        "itemname": "",
+        "topic": "",
+        "payload": "",
+        "booleaninput": true,
+        "x": 610,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "8ad1c7ff.e4d818",
+        "type": "realknx-out",
+        "z": "c796e15b.0d6bf",
+        "name": "Turn OFF Bedroom",
+        "controller": "",
+        "itemname": "",
+        "topic": "",
+        "payload": "",
+        "booleaninput": true,
+        "x": 610,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "88af5ffe.33f18",
+        "type": "realknx-out",
+        "z": "c796e15b.0d6bf",
+        "name": "Turn ON Kitchen",
+        "controller": "",
+        "itemname": "",
+        "topic": "",
+        "payload": "",
+        "booleaninput": true,
+        "x": 610,
+        "y": 480,
+        "wires": []
+    },
+    {
+        "id": "814d1702.0921d8",
+        "type": "realknx-out",
+        "z": "c796e15b.0d6bf",
+        "name": "Turn OFF Kitchen",
+        "controller": "",
+        "itemname": "",
+        "topic": "",
+        "payload": "",
+        "booleaninput": true,
+        "x": 610,
+        "y": 540,
+        "wires": []
+    },
+    {
+        "id": "2481b3c8.41ac7c",
+        "type": "telegram receiver",
+        "z": "c796e15b.0d6bf",
+        "name": "",
+        "bot": "db4a86da.2773f8",
+        "saveDataDir": "",
+        "x": 170,
+        "y": 640,
+        "wires": [
+            [
+                "e6796e75.d4dd"
+            ],
+            [
+                "a93db0f3.5fc09"
+            ]
+        ]
+    },
+    {
+        "id": "e6796e75.d4dd",
+        "type": "debug",
+        "z": "c796e15b.0d6bf",
+        "name": "",
+        "active": true,
+        "console": "false",
+        "complete": "true",
+        "x": 350,
+        "y": 600,
+        "wires": []
+    },
+    {
+        "id": "a93db0f3.5fc09",
+        "type": "debug",
+        "z": "c796e15b.0d6bf",
+        "name": "",
+        "active": true,
+        "console": "false",
+        "complete": "true",
+        "x": 350,
+        "y": 660,
+        "wires": []
+    },
+    {
+        "id": "6d0f2658.1b25a8",
+        "type": "comment",
+        "z": "c796e15b.0d6bf",
+        "name": "Debug for Chat ID",
+        "info": "",
+        "x": 170,
+        "y": 600,
+        "wires": []
+    },
+    {
+        "id": "db4a86da.2773f8",
+        "type": "telegram bot",
+        "z": "",
+        "botname": "realknx",
+        "usernames": "",
+        "chatids": ""
+    }
+]
