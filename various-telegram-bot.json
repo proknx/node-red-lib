@@ -1,31 +1,31 @@
 [
     {
-        "id": "c796e15b.0d6bf",
+        "id": "25f90c0d.65d254",
         "type": "tab",
         "label": "Telegram Chat Bot",
         "disabled": false,
         "info": ""
     },
     {
-        "id": "cda0888.43e2078",
+        "id": "715e63a4.b3a57c",
         "type": "telegram command",
-        "z": "c796e15b.0d6bf",
+        "z": "25f90c0d.65d254",
         "name": "/help",
         "command": "/help",
-        "bot": "db4a86da.2773f8",
+        "bot": "da15078.aa18ff8",
         "x": 130,
         "y": 240,
         "wires": [
             [
-                "a7947c11.39f82"
+                "d62a88e1.359eb8"
             ],
             []
         ]
     },
     {
-        "id": "a7947c11.39f82",
+        "id": "d62a88e1.359eb8",
         "type": "function",
-        "z": "c796e15b.0d6bf",
+        "z": "25f90c0d.65d254",
         "name": "create help respone",
         "func": "var help = \"/help - shows help (this)\\r\\n\";\nhelp += \"/run - show available commands \\r\\n\";\n\nmsg.payload.content = help;\nreturn msg;",
         "outputs": 1,
@@ -34,16 +34,16 @@
         "y": 220,
         "wires": [
             [
-                "e887eadc.dbabc8"
+                "1f670b7d.001245"
             ]
         ]
     },
     {
-        "id": "e887eadc.dbabc8",
+        "id": "1f670b7d.001245",
         "type": "telegram sender",
-        "z": "c796e15b.0d6bf",
+        "z": "25f90c0d.65d254",
         "name": "",
-        "bot": "db4a86da.2773f8",
+        "bot": "da15078.aa18ff8",
         "x": 770,
         "y": 220,
         "wires": [
@@ -51,28 +51,28 @@
         ]
     },
     {
-        "id": "aca66710.b81148",
+        "id": "ad02e9be.0f0748",
         "type": "telegram command",
-        "z": "c796e15b.0d6bf",
+        "z": "25f90c0d.65d254",
         "name": "/run",
         "command": "/run",
-        "bot": "db4a86da.2773f8",
+        "bot": "da15078.aa18ff8",
         "x": 130,
         "y": 380,
         "wires": [
             [
-                "25448546.fada6a"
+                "cd187b86.03a648"
             ],
             [
-                "b205287c.8a9288",
-                "49019d71.7d2544"
+                "e98879a2.4ec298",
+                "f58d7e96.d2737"
             ]
         ]
     },
     {
-        "id": "25448546.fada6a",
+        "id": "cd187b86.03a648",
         "type": "function",
-        "z": "c796e15b.0d6bf",
+        "z": "25f90c0d.65d254",
         "name": "confirmation message",
         "func": "context.global.keyboard = { pending : true };\ncontext.global.cmd = { pending : true };\n\nvar opts = {\n  reply_to_message_id: msg.payload.messageId,\n  reply_markup: JSON.stringify({\n    keyboard: [['Turn ON Bedroom','Turn OFF Bedroom'],['Turn ON Kitchen','Turn OFF Kitchen']],\n      'resize_keyboard' : true, \n      'one_time_keyboard' : true\n  })\n};\n\nmsg.payload.content = 'Choose command';\nmsg.payload.options = opts;\n\nreturn [ msg ];\n",
         "outputs": "1",
@@ -81,14 +81,14 @@
         "y": 269,
         "wires": [
             [
-                "e887eadc.dbabc8"
+                "1f670b7d.001245"
             ]
         ]
     },
     {
-        "id": "b205287c.8a9288",
+        "id": "e98879a2.4ec298",
         "type": "function",
-        "z": "c796e15b.0d6bf",
+        "z": "25f90c0d.65d254",
         "name": "create response",
         "func": "if(context.global.keyboard.pending)\n{\n    context.global.keyboard.pending = false;\n    msg.payload = msg.payload.content;\n    return msg;\n    /*\n    if(msg.payload.content === 'ON: Bedroom')\n    {\n        msg.payload.content = 'Turn ON Bedroom';\n        return msg;   \n    }\n    else if(msg.payload.content === 'OFF: Bedroom')\n    {\n        msg.payload.content = 'Turn OFF Bedroom';\n        return msg;   \n    }\n    else if(msg.payload.content === 'ON: Kitchen')\n    {\n        msg.payload.content = 'Turn ON Kitchen';\n        return msg;   \n    }\n    else if(msg.payload.content === 'OFF: Kitchen')\n    {\n        msg.payload.content = 'Turn OFF Kitchen';\n        return msg;   \n    }*/\n}\n",
         "outputs": "1",
@@ -97,32 +97,32 @@
         "y": 320,
         "wires": [
             [
-                "e887eadc.dbabc8"
+                "1f670b7d.001245"
             ]
         ]
     },
     {
-        "id": "49019d71.7d2544",
+        "id": "f58d7e96.d2737",
         "type": "function",
-        "z": "c796e15b.0d6bf",
+        "z": "25f90c0d.65d254",
         "name": "set cmd",
-        "func": "if(context.global.cmd.pending)\n{\n    context.global.cmd.pending = false;\n    if(msg.payload.content === 'Turn ON Bedroom')\n    {\n        msg.payload = true;\n        return [msg, null, null, null];   \n    }\n    else if(msg.payload.content === 'Turn OFF Bedroom')\n    {\n        msg.payload = false;\n        return [null, msg, null, null];   \n    }\n    else if(msg.payload.content === 'Turn ON Kitchen')\n    {\n        msg.payload = true;\n        return [null, null, msg, null];   \n    }\n    else if(msg.payload.content === 'Turn OFF Kitchen')\n    {\n        msg.payload = false;\n        return [null, null, null, msg];   \n    }\n}\n",
+        "func": "if(context.global.cmd.pending)\n{\n    context.global.cmd.pending = false;\n    if(msg.payload.content === 'Turn ON Bedroom')\n    {\n        msg.payload = 'ON';\n        return [msg, null, null, null];   \n    }\n    else if(msg.payload.content === 'Turn OFF Bedroom')\n    {\n        msg.payload = 'OFF';\n        return [null, msg, null, null];   \n    }\n    else if(msg.payload.content === 'Turn ON Kitchen')\n    {\n        msg.payload = 'ON';\n        return [null, null, msg, null];   \n    }\n    else if(msg.payload.content === 'Turn OFF Kitchen')\n    {\n        msg.payload = 'OFF';\n        return [null, null, null, msg];   \n    }\n}\n",
         "outputs": "4",
         "noerr": 0,
         "x": 380,
         "y": 420,
         "wires": [
             [
-                "b6b10402.c62c78"
+                "468f6d80.14d7c4"
             ],
             [
-                "8ad1c7ff.e4d818"
+                "468f6d80.14d7c4"
             ],
             [
-                "88af5ffe.33f18"
+                "7441378a.cf9c68"
             ],
             [
-                "814d1702.0921d8"
+                "7441378a.cf9c68"
             ]
         ],
         "outputLabels": [
@@ -133,85 +133,57 @@
         ]
     },
     {
-        "id": "b6b10402.c62c78",
+        "id": "468f6d80.14d7c4",
         "type": "realknx-out",
-        "z": "c796e15b.0d6bf",
-        "name": "Turn ON Bedroom",
-        "controller": "",
-        "itemname": "",
+        "z": "25f90c0d.65d254",
+        "name": "Bedroom",
+        "controller": "b1d2fbe.d184108",
+        "itemname": "Bedroom - Ceiling",
         "topic": "",
         "payload": "",
         "booleaninput": true,
-        "x": 610,
-        "y": 360,
+        "x": 610.9999847412109,
+        "y": 405.9999747276306,
         "wires": []
     },
     {
-        "id": "8ad1c7ff.e4d818",
+        "id": "7441378a.cf9c68",
         "type": "realknx-out",
-        "z": "c796e15b.0d6bf",
-        "name": "Turn OFF Bedroom",
-        "controller": "",
-        "itemname": "",
+        "z": "25f90c0d.65d254",
+        "name": "Kitchen",
+        "controller": "b1d2fbe.d184108",
+        "itemname": "Living Room - Ceiling",
         "topic": "",
         "payload": "",
         "booleaninput": true,
-        "x": 610,
-        "y": 420,
+        "x": 613.9999847412109,
+        "y": 463.9999361038208,
         "wires": []
     },
     {
-        "id": "88af5ffe.33f18",
-        "type": "realknx-out",
-        "z": "c796e15b.0d6bf",
-        "name": "Turn ON Kitchen",
-        "controller": "",
-        "itemname": "",
-        "topic": "",
-        "payload": "",
-        "booleaninput": true,
-        "x": 610,
-        "y": 480,
-        "wires": []
-    },
-    {
-        "id": "814d1702.0921d8",
-        "type": "realknx-out",
-        "z": "c796e15b.0d6bf",
-        "name": "Turn OFF Kitchen",
-        "controller": "",
-        "itemname": "",
-        "topic": "",
-        "payload": "",
-        "booleaninput": true,
-        "x": 610,
-        "y": 540,
-        "wires": []
-    },
-    {
-        "id": "2481b3c8.41ac7c",
+        "id": "c4878259.e32c6",
         "type": "telegram receiver",
-        "z": "c796e15b.0d6bf",
+        "z": "25f90c0d.65d254",
         "name": "",
-        "bot": "db4a86da.2773f8",
+        "bot": "da15078.aa18ff8",
         "saveDataDir": "",
         "x": 170,
         "y": 640,
         "wires": [
             [
-                "e6796e75.d4dd"
+                "a5b1e6e5.626808"
             ],
             [
-                "a93db0f3.5fc09"
+                "edd031d8.d9722"
             ]
         ]
     },
     {
-        "id": "e6796e75.d4dd",
+        "id": "a5b1e6e5.626808",
         "type": "debug",
-        "z": "c796e15b.0d6bf",
+        "z": "25f90c0d.65d254",
         "name": "",
-        "active": true,
+        "active": false,
         "console": "false",
         "complete": "true",
         "x": 350,
@@ -219,11 +191,11 @@
         "wires": []
     },
     {
-        "id": "a93db0f3.5fc09",
+        "id": "edd031d8.d9722",
         "type": "debug",
-        "z": "c796e15b.0d6bf",
+        "z": "25f90c0d.65d254",
         "name": "",
-        "active": true,
+        "active": false,
         "console": "false",
         "complete": "true",
         "x": 350,
@@ -231,9 +203,9 @@
         "wires": []
     },
     {
-        "id": "6d0f2658.1b25a8",
+        "id": "1623288.98637d8",
         "type": "comment",
-        "z": "c796e15b.0d6bf",
+        "z": "25f90c0d.65d254",
         "name": "Debug for Chat ID",
         "info": "",
         "x": 170,
@@ -241,11 +213,19 @@
         "wires": []
     },
     {
-        "id": "db4a86da.2773f8",
+        "id": "da15078.aa18ff8",
         "type": "telegram bot",
         "z": "",
-        "botname": "realknx",
+        "botname": "realknx1",
         "usernames": "",
         "chatids": ""
+    },
+    {
+        "id": "b1d2fbe.d184108",
+        "type": "realknx-controller",
+        "z": "",
+        "name": "realknx-ctrl",
+        "host": "localhost",
+        "port": "3000"
     }
 ]
