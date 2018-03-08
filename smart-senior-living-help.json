@@ -1,41 +1,40 @@
 [
     {
-        "id": "723356de.710278",
+        "id": "8ecc0115.f3018",
         "type": "tab",
         "label": "Help me!",
         "disabled": false,
         "info": ""
     },
     {
-        "id": "e839e24e.7f60f",
+        "id": "8166bfde.ea365",
         "type": "realknx-in",
-        "z": "723356de.710278",
+        "z": "8ecc0115.f3018",
         "name": "",
-        "controller": "81d99e.c3bc966",
-        "itemname": "Général - Help",
+        "controller": "",
+        "itemname": "Activities - Assistance",
         "passthru": true,
-        "booleanoutput": false,
-        "outputatstartup": true,
-        "x": 140,
-        "y": 160,
+        "booleanoutput": true,
+        "outputatstartup": false,
+        "x": 220,
+        "y": 400,
         "wires": [
             [
-                "e7ee874d.82e788",
-                "4850fd09.4d9f54"
+                "cad1e69.350fe18"
             ]
         ]
     },
     {
-        "id": "5bd8a2e5.543e4c",
+        "id": "ce0811c4.fd971",
         "type": "change",
-        "z": "723356de.710278",
-        "name": "CHANGE THIS!",
+        "z": "8ecc0115.f3018",
+        "name": "... has been sent",
         "rules": [
             {
                 "t": "set",
                 "p": "payload",
                 "pt": "msg",
-                "to": "Help is activated, wait for confirmation",
+                "to": "Your Help message has been sent!",
                 "tot": "str"
             }
         ],
@@ -44,87 +43,18 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 940,
-        "y": 140,
+        "x": 880.0000228881836,
+        "y": 799.9999866485596,
         "wires": [
             [
-                "4bff933d.b91b1c",
-                "e068881e.6c04f8"
+                "a8bf0530.9377c8"
             ]
         ]
     },
     {
-        "id": "cf1a8ad5.a79458",
-        "type": "pushbullet",
-        "z": "723356de.710278",
-        "config": "d1ca01c8.d3643",
-        "pushtype": "note",
-        "title": "Help request",
-        "chan": "",
-        "name": "",
-        "x": 930,
-        "y": 240,
-        "wires": []
-    },
-    {
-        "id": "23920a5f.392c26",
+        "id": "ad72f239.9c255",
         "type": "change",
-        "z": "723356de.710278",
-        "name": "isActivated=false",
-        "rules": [
-            {
-                "t": "set",
-                "p": "isActivated",
-                "pt": "flow",
-                "to": "false",
-                "tot": "str"
-            },
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "isActivated",
-                "tot": "flow"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 750,
-        "y": 440,
-        "wires": [
-            [
-                "e0fc49f1.020e98"
-            ]
-        ]
-    },
-    {
-        "id": "e7ee874d.82e788",
-        "type": "trigger",
-        "z": "723356de.710278",
-        "op1": "",
-        "op2": "true",
-        "op1type": "nul",
-        "op2type": "bool",
-        "duration": "60",
-        "extend": false,
-        "units": "s",
-        "reset": "",
-        "name": "",
-        "x": 530,
-        "y": 440,
-        "wires": [
-            [
-                "23920a5f.392c26"
-            ]
-        ]
-    },
-    {
-        "id": "ae86f410.9afdb8",
-        "type": "change",
-        "z": "723356de.710278",
+        "z": "8ecc0115.f3018",
         "name": "isActivated=true",
         "rules": [
             {
@@ -147,20 +77,18 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 740,
-        "y": 140,
+        "x": 620,
+        "y": 800,
         "wires": [
             [
-                "5bd8a2e5.543e4c",
-                "b4a10692.f541f8",
-                "10ac461a.d1d5da"
+                "ce0811c4.fd971"
             ]
         ]
     },
     {
-        "id": "4850fd09.4d9f54",
+        "id": "9a77fe6f.18efe",
         "type": "switch",
-        "z": "723356de.710278",
+        "z": "8ecc0115.f3018",
         "name": "isActivated?",
         "property": "isActivated",
         "propertyType": "flow",
@@ -178,29 +106,30 @@
         ],
         "checkall": "true",
         "outputs": 2,
-        "x": 530,
-        "y": 200,
+        "x": 390.99998474121094,
+        "y": 1038.9999961853027,
         "wires": [
             [
-                "ae86f410.9afdb8",
-                "9e252f56.6356e"
+                "ad72f239.9c255",
+                "bef14059.8bef7",
+                "26ca350.22369cc"
             ],
             [
-                "7aa441c8.63cfb"
+                "80a558ec.b0a738"
             ]
         ]
     },
     {
-        "id": "7aa441c8.63cfb",
+        "id": "80a558ec.b0a738",
         "type": "change",
-        "z": "723356de.710278",
-        "name": "CHANGE THIS!",
+        "z": "8ecc0115.f3018",
+        "name": "Wait please ...",
         "rules": [
             {
                 "t": "set",
                 "p": "payload",
                 "pt": "msg",
-                "to": "please wait ",
+                "to": "Please wait, you will receive an answer shortly",
                 "tot": "str"
             }
         ],
@@ -209,65 +138,25 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 740,
-        "y": 340,
+        "x": 620,
+        "y": 1060,
         "wires": [
             [
-                "eb82ec37.4a151"
+                "f710fb88.34d268"
             ]
         ]
     },
     {
-        "id": "eaca5c.2e0515a8",
-        "type": "inject",
-        "z": "723356de.710278",
-        "name": "init",
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "repeat": "",
-        "crontab": "",
-        "once": true,
-        "x": 510,
-        "y": 520,
-        "wires": [
-            [
-                "23920a5f.392c26",
-                "24028ff2.8991b"
-            ]
-        ]
-    },
-    {
-        "id": "b2049a88.f2b028",
-        "type": "inject",
-        "z": "723356de.710278",
-        "name": "test Help",
-        "topic": "",
-        "payload": "9",
-        "payloadType": "num",
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "x": 140,
-        "y": 220,
-        "wires": [
-            [
-                "4850fd09.4d9f54",
-                "e7ee874d.82e788"
-            ]
-        ]
-    },
-    {
-        "id": "9e252f56.6356e",
+        "id": "bef14059.8bef7",
         "type": "change",
-        "z": "723356de.710278",
-        "name": "CHANGE THIS!",
+        "z": "8ecc0115.f3018",
+        "name": "send Push",
         "rules": [
             {
                 "t": "set",
                 "p": "payload",
                 "pt": "msg",
-                "to": "Help is requested, please confirm!",
+                "to": "Help is requested from the exhibition",
                 "tot": "str"
             }
         ],
@@ -276,49 +165,34 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 740,
-        "y": 240,
+        "x": 610,
+        "y": 920,
         "wires": [
             [
-                "cf1a8ad5.a79458"
+                "379784ba.62446c"
             ]
         ]
     },
     {
-        "id": "e665e2bc.212f",
-        "type": "pushbullet in",
-        "z": "723356de.710278",
-        "config": "d1ca01c8.d3643",
-        "name": "Help response",
-        "x": 130,
-        "y": 700,
-        "wires": [
-            [
-                "7e738817.c5a0c8"
-            ]
-        ]
-    },
-    {
-        "id": "4ddc396.29aaac8",
+        "id": "fd7b8b86.cbbd28",
         "type": "status",
-        "z": "723356de.710278",
+        "z": "8ecc0115.f3018",
         "name": "",
         "scope": [
-            "43019363.4bc17c"
+            "ce9e0af3.70caa8"
         ],
-        "x": 120,
-        "y": 860,
+        "x": 482,
+        "y": 2377,
         "wires": [
             [
-                "cf8017d0.f85448",
-                "8d137535.bc78f8"
+                "a336cd47.46dc2"
             ]
         ]
     },
     {
-        "id": "9289cb27.d81558",
+        "id": "4e91d9e9.3b86c8",
         "type": "split",
-        "z": "723356de.710278",
+        "z": "8ecc0115.f3018",
         "name": "",
         "splt": "100",
         "spltType": "len",
@@ -326,37 +200,18 @@
         "arraySpltType": "len",
         "stream": false,
         "addname": "",
-        "x": 430,
-        "y": 700,
+        "x": 525.0000152587891,
+        "y": 1524.0000438690186,
         "wires": [
             [
-                "cb7f48cb.51d3f8"
+                "1798eb31.a5f5c5"
             ]
         ]
     },
     {
-        "id": "f6acf2b5.9d991",
-        "type": "inject",
-        "z": "723356de.710278",
-        "name": "Test msg: I will be there in 5 minutes!",
-        "topic": "",
-        "payload": "I will be there in 5 minutes!",
-        "payloadType": "str",
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "x": 660,
-        "y": 660,
-        "wires": [
-            [
-                "4f280f54.e4873"
-            ]
-        ]
-    },
-    {
-        "id": "cb7f48cb.51d3f8",
+        "id": "1798eb31.a5f5c5",
         "type": "switch",
-        "z": "723356de.710278",
+        "z": "8ecc0115.f3018",
         "name": "Limit length",
         "property": "parts.index",
         "propertyType": "msg",
@@ -369,114 +224,63 @@
         ],
         "checkall": "true",
         "outputs": 1,
-        "x": 570,
-        "y": 700,
+        "x": 665.0000152587891,
+        "y": 1524.0000438690186,
         "wires": [
             [
-                "e50ef2b9.68f13"
+                "38f56c46.f5bc24"
             ]
         ]
     },
     {
-        "id": "cf8017d0.f85448",
-        "type": "debug",
-        "z": "723356de.710278",
-        "name": "STATUS MSG",
-        "active": true,
-        "console": "false",
-        "complete": "true",
-        "x": 360,
-        "y": 860,
-        "wires": []
-    },
-    {
-        "id": "6be7b0ac.e6dc8",
-        "type": "inject",
-        "z": "723356de.710278",
-        "name": "Test msg: I'm delayed, the traffic is bad. ",
-        "topic": "",
-        "payload": "I'm delayed, the traffic is bad. ",
-        "payloadType": "str",
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "x": 650,
-        "y": 740,
-        "wires": [
-            [
-                "4f280f54.e4873"
-            ]
-        ]
-    },
-    {
-        "id": "47d64f9e.f753d",
+        "id": "5d3490ec.1eadf",
         "type": "comment",
-        "z": "723356de.710278",
-        "name": "Help req Voice from the USER",
-        "info": "",
-        "x": 180,
-        "y": 120,
-        "wires": []
-    },
-    {
-        "id": "67aba11b.4a664",
-        "type": "comment",
-        "z": "723356de.710278",
+        "z": "8ecc0115.f3018",
         "name": "reset the isActivated (more..)",
         "info": "reset the isActivated flag:\n1. after 60 sec\n2. 2. when a reply from helper\n\nThe isActivated prevents multiple calls for help\n",
-        "x": 780,
-        "y": 400,
+        "x": 660,
+        "y": 1300,
         "wires": []
     },
     {
-        "id": "a4cff50c.534868",
+        "id": "b6f97ca2.583d4",
         "type": "comment",
-        "z": "723356de.710278",
+        "z": "8ecc0115.f3018",
         "name": "already activated: Speak \"Please wait\" msg",
         "info": "",
-        "x": 820,
-        "y": 300,
+        "x": 710,
+        "y": 1020,
         "wires": []
     },
     {
-        "id": "cf924152.bad03",
+        "id": "1acfc58.1e5593b",
         "type": "comment",
-        "z": "723356de.710278",
+        "z": "8ecc0115.f3018",
         "name": "Push message from the HELPER(s)",
         "info": "",
-        "x": 200,
-        "y": 660,
+        "x": 275.00001525878906,
+        "y": 1484.0000438690186,
         "wires": []
     },
     {
-        "id": "93f324a4.982178",
-        "type": "comment",
-        "z": "723356de.710278",
-        "name": "Error handling, restart NR if GH error CAUTION don't change",
-        "info": "",
-        "x": 280,
-        "y": 820,
-        "wires": []
-    },
-    {
-        "id": "2e7eaece.d06792",
+        "id": "a17d3f57.4a845",
         "type": "http request",
-        "z": "723356de.710278",
+        "z": "8ecc0115.f3018",
         "name": "",
         "method": "POST",
         "ret": "txt",
         "url": "http://localhost:3000/restartnoderedrequest",
         "tls": "",
-        "x": 470,
-        "y": 940,
+        "x": 996,
+        "y": 2384,
         "wires": [
             []
         ]
     },
     {
-        "id": "20386cf0.c1c384",
+        "id": "ba9359d1.2a6198",
         "type": "inject",
-        "z": "723356de.710278",
+        "z": "8ecc0115.f3018",
         "name": "restart Node-RED",
         "topic": "",
         "payload": "",
@@ -484,30 +288,18 @@
         "repeat": "",
         "crontab": "",
         "once": false,
-        "x": 170,
-        "y": 940,
+        "x": 697,
+        "y": 2330,
         "wires": [
             [
-                "2e7eaece.d06792"
+                "a17d3f57.4a845"
             ]
         ]
     },
     {
-        "id": "e068881e.6c04f8",
-        "type": "debug",
-        "z": "723356de.710278",
-        "name": "",
-        "active": true,
-        "console": "false",
-        "complete": "false",
-        "x": 1150,
-        "y": 140,
-        "wires": []
-    },
-    {
-        "id": "e50ef2b9.68f13",
+        "id": "38f56c46.f5bc24",
         "type": "switch",
-        "z": "723356de.710278",
+        "z": "8ecc0115.f3018",
         "name": "only notif",
         "property": "pushtype",
         "propertyType": "msg",
@@ -520,18 +312,18 @@
         ],
         "checkall": "true",
         "outputs": 1,
-        "x": 720,
-        "y": 700,
+        "x": 815.0000152587891,
+        "y": 1524.0000438690186,
         "wires": [
             [
-                "4f280f54.e4873"
+                "c0b4ab64.c938b8"
             ]
         ]
     },
     {
-        "id": "d2cdd8a1.b7f398",
+        "id": "e55af0d7.61dec",
         "type": "delay",
-        "z": "723356de.710278",
+        "z": "8ecc0115.f3018",
         "name": "",
         "pauseType": "rate",
         "timeout": "5",
@@ -543,125 +335,73 @@
         "randomLast": "5",
         "randomUnits": "seconds",
         "drop": true,
-        "x": 360,
-        "y": 900,
+        "x": 800,
+        "y": 2380,
         "wires": [
             [
-                "2e7eaece.d06792"
+                "a17d3f57.4a845"
             ]
         ]
     },
     {
-        "id": "ec98d5ff.569ba8",
-        "type": "realknx-in",
-        "z": "723356de.710278",
-        "name": "",
-        "controller": "81d99e.c3bc966",
-        "itemname": "Général - forsafety",
-        "passthru": false,
-        "booleanoutput": false,
-        "outputatstartup": false,
-        "x": 150,
-        "y": 420,
-        "wires": [
-            [
-                "da2e08db.e0d6a8",
-                "e7ee874d.82e788"
-            ]
-        ]
-    },
-    {
-        "id": "528e318f.998b4",
-        "type": "comment",
-        "z": "723356de.710278",
-        "name": "Help req Button from USER",
-        "info": "",
-        "x": 180,
-        "y": 380,
-        "wires": []
-    },
-    {
-        "id": "c543d13b.7f0a2",
-        "type": "simple-queue",
-        "z": "723356de.710278",
-        "name": "queue1",
-        "x": 1200,
-        "y": 440,
-        "wires": [
-            [
-                "43019363.4bc17c"
-            ]
-        ]
-    },
-    {
-        "id": "43019363.4bc17c",
-        "type": "googlehome-notify",
-        "z": "723356de.710278",
-        "server": "f7139648.032d88",
-        "name": "GH",
-        "x": 1350,
-        "y": 440,
-        "wires": []
-    },
-    {
-        "id": "eb82ec37.4a151",
+        "id": "f710fb88.34d268",
         "type": "link out",
-        "z": "723356de.710278",
+        "z": "8ecc0115.f3018",
         "name": "GH-lnk-o",
         "links": [
-            "36abb9d4.e42f16"
-        ],
-        "x": 855,
-        "y": 340,
-        "wires": []
-    },
-    {
-        "id": "4bff933d.b91b1c",
-        "type": "link out",
-        "z": "723356de.710278",
-        "name": "GH-lnk-o",
-        "links": [
-            "36abb9d4.e42f16"
-        ],
-        "x": 1135,
-        "y": 100,
-        "wires": []
-    },
-    {
-        "id": "4f280f54.e4873",
-        "type": "link out",
-        "z": "723356de.710278",
-        "name": "GH-lnk-o",
-        "links": [
-            "36abb9d4.e42f16"
+            "f20e794b.8c9c88"
         ],
         "x": 835,
-        "y": 700,
+        "y": 1060,
         "wires": []
     },
     {
-        "id": "36abb9d4.e42f16",
+        "id": "a8bf0530.9377c8",
+        "type": "link out",
+        "z": "8ecc0115.f3018",
+        "name": "GH-lnk-o",
+        "links": [
+            "f20e794b.8c9c88"
+        ],
+        "x": 1046.0000190734863,
+        "y": 799.9999866485596,
+        "wires": []
+    },
+    {
+        "id": "c0b4ab64.c938b8",
+        "type": "link out",
+        "z": "8ecc0115.f3018",
+        "name": "GH-lnk-o",
+        "links": [
+            "f20e794b.8c9c88"
+        ],
+        "x": 930.0000152587891,
+        "y": 1524.0000438690186,
+        "wires": []
+    },
+    {
+        "id": "f20e794b.8c9c88",
         "type": "link in",
-        "z": "723356de.710278",
+        "z": "8ecc0115.f3018",
         "name": "GH-lnk-i",
         "links": [
-            "4bff933d.b91b1c",
-            "4f280f54.e4873",
-            "eb82ec37.4a151"
+            "a8bf0530.9377c8",
+            "c0b4ab64.c938b8",
+            "f710fb88.34d268"
         ],
-        "x": 1035,
-        "y": 440,
+        "x": 495,
+        "y": 2100,
         "wires": [
             [
-                "c543d13b.7f0a2",
-                "e390618b.e0aa6"
+                "acb831bd.2e86d",
+                "b3687ace.36efb8"
             ]
         ]
     },
     {
-        "id": "5bd32ee0.7387",
+        "id": "3b7347f2.296df8",
         "type": "change",
-        "z": "723356de.710278",
+        "z": "8ecc0115.f3018",
         "name": "",
         "rules": [
             {
@@ -677,18 +417,18 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1200,
-        "y": 500,
+        "x": 720,
+        "y": 2144,
         "wires": [
             [
-                "c543d13b.7f0a2"
+                "acb831bd.2e86d"
             ]
         ]
     },
     {
-        "id": "e390618b.e0aa6",
+        "id": "b3687ace.36efb8",
         "type": "delay",
-        "z": "723356de.710278",
+        "z": "8ecc0115.f3018",
         "name": "",
         "pauseType": "rate",
         "timeout": "5",
@@ -700,28 +440,28 @@
         "randomLast": "5",
         "randomUnits": "seconds",
         "drop": false,
-        "x": 1200,
-        "y": 560,
+        "x": 720,
+        "y": 2184,
         "wires": [
             [
-                "5bd32ee0.7387"
+                "3b7347f2.296df8"
             ]
         ]
     },
     {
-        "id": "51ebca72.2bfdc4",
+        "id": "9eea15b0.b53758",
         "type": "comment",
-        "z": "723356de.710278",
+        "z": "8ecc0115.f3018",
         "name": "Queue msg to GH to avoid loosing msg",
         "info": "",
-        "x": 1170,
-        "y": 400,
+        "x": 695,
+        "y": 2055,
         "wires": []
     },
     {
-        "id": "7e738817.c5a0c8",
+        "id": "a28bb89b.e61f58",
         "type": "switch",
-        "z": "723356de.710278",
+        "z": "8ecc0115.f3018",
         "name": "",
         "property": "topic",
         "propertyType": "msg",
@@ -732,20 +472,19 @@
         ],
         "checkall": "true",
         "outputs": 1,
-        "x": 290,
-        "y": 700,
+        "x": 385.00001525878906,
+        "y": 1524.0000438690186,
         "wires": [
             [
-                "9289cb27.d81558",
-                "23920a5f.392c26",
-                "24028ff2.8991b"
+                "4e91d9e9.3b86c8",
+                "60e82d73.f71934"
             ]
         ]
     },
     {
-        "id": "8d137535.bc78f8",
+        "id": "a336cd47.46dc2",
         "type": "switch",
-        "z": "723356de.710278",
+        "z": "8ecc0115.f3018",
         "name": "",
         "property": "status.text",
         "propertyType": "msg",
@@ -763,178 +502,297 @@
         ],
         "checkall": "true",
         "outputs": 2,
-        "x": 190,
-        "y": 900,
+        "x": 630,
+        "y": 2380,
         "wires": [
             [
-                "d2cdd8a1.b7f398"
+                "e55af0d7.61dec"
             ],
             [
-                "d2cdd8a1.b7f398"
+                "e55af0d7.61dec"
             ]
         ]
     },
     {
-        "id": "778b0b2d.6b28a4",
+        "id": "a628c0f.ee08d4",
         "type": "comment",
-        "z": "723356de.710278",
+        "z": "8ecc0115.f3018",
         "name": "----------------- IMPORTANT NOTE - PLEASE READ ----------------",
         "info": "This is an example of Assisted living technology (ALT). \nALT is used as part of a range of services that help people maintain independence.\n\nUse case: The USER has fallen and cannot reach the telephone to call for help.\n\n1. The USER needs help and say \"Ok Google, help!\"\n   or \n3. The USER needs help presses the help button.\n\n1. The GH speaker replies \"Help is activated, wait for confirmation\".\n\n1. The HELPER(S) receives the help request (Pushbullet Notif). One HELPER replies to the USER e.g. \"John will arrive in 5 minutes\". This message is read out by the GH speaker to the USER.\n\nThe HELPER(S) can push a message to be spoken at any time, e.g. \"I'm a little bit dealyed, will be with you in 2 minutes.\"\nAll this messages will be to the USER.\n\nCustomisation: \n1. Create a Help KNX scene and a Help button\n1. change the text in the three nodes \"CHANGE THIS!\"\n2. Configure the Google Home speaker(s)\n3. Configure the Push Bullet API key\n4. Add Shortcuts in Google Assistant (e.g. \"Help me\", \"I have fallen\" ) they should also activate \"Help\" scene\n\n** NOTE! In case of this software fails, ProKNX cannot be held responsible for any damage.**\n",
-        "x": 290,
-        "y": 60,
+        "x": 740,
+        "y": 100,
         "wires": []
     },
     {
-        "id": "da2e08db.e0d6a8",
+        "id": "7d5ea1f4.38222",
+        "type": "comment",
+        "z": "8ecc0115.f3018",
+        "name": "Speak confirmation message",
+        "info": "",
+        "x": 660,
+        "y": 760,
+        "wires": []
+    },
+    {
+        "id": "570b0659.71f0c8",
+        "type": "comment",
+        "z": "8ecc0115.f3018",
+        "name": "Send help request to HELPER(s)",
+        "info": "",
+        "x": 673,
+        "y": 883,
+        "wires": []
+    },
+    {
+        "id": "379784ba.62446c",
+        "type": "pushbullet",
+        "z": "8ecc0115.f3018",
+        "config": "",
+        "pushtype": "note",
+        "title": "Help is requested from the ISE",
+        "chan": "",
+        "name": "",
+        "x": 950,
+        "y": 940,
+        "wires": []
+    },
+    {
+        "id": "da3637f2.e4bb98",
+        "type": "pushbullet in",
+        "z": "8ecc0115.f3018",
+        "config": "",
+        "name": "Help response",
+        "x": 225.00001525878906,
+        "y": 1524.0000438690186,
+        "wires": [
+            [
+                "a28bb89b.e61f58"
+            ]
+        ]
+    },
+    {
+        "id": "f2fcaf98.ed7f2",
         "type": "switch",
-        "z": "723356de.710278",
-        "name": "ON?",
+        "z": "8ecc0115.f3018",
+        "name": "",
         "property": "payload",
         "propertyType": "msg",
         "rules": [
             {
+                "t": "true"
+            }
+        ],
+        "checkall": "false",
+        "outputs": 1,
+        "x": 224.99998474121094,
+        "y": 1039.9999961853027,
+        "wires": [
+            [
+                "9a77fe6f.18efe"
+            ]
+        ]
+    },
+    {
+        "id": "60e82d73.f71934",
+        "type": "change",
+        "z": "8ecc0115.f3018",
+        "name": "isActivated=false",
+        "rules": [
+            {
+                "t": "set",
+                "p": "isActivated",
+                "pt": "flow",
+                "to": "false",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "false",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 630,
+        "y": 1420,
+        "wires": [
+            [
+                "f66b5672.67d3d8",
+                "9f506d95.94c67"
+            ]
+        ]
+    },
+    {
+        "id": "26ca350.22369cc",
+        "type": "change",
+        "z": "8ecc0115.f3018",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "true",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 620,
+        "y": 660,
+        "wires": [
+            [
+                "db69f5c6.8c5648"
+            ]
+        ]
+    },
+    {
+        "id": "dfc88169.f4c73",
+        "type": "inject",
+        "z": "8ecc0115.f3018",
+        "name": "",
+        "topic": "",
+        "payload": "false",
+        "payloadType": "bool",
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "x": 650,
+        "y": 700,
+        "wires": [
+            [
+                "db69f5c6.8c5648"
+            ]
+        ]
+    },
+    {
+        "id": "67a3cee1.4db57",
+        "type": "switch",
+        "z": "8ecc0115.f3018",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "false"
+            }
+        ],
+        "checkall": "false",
+        "outputs": 1,
+        "x": 222.99998474121094,
+        "y": 1086.9999961853027,
+        "wires": [
+            [
+                "64d779b9.2eb6b8"
+            ]
+        ]
+    },
+    {
+        "id": "64d779b9.2eb6b8",
+        "type": "switch",
+        "z": "8ecc0115.f3018",
+        "name": "isActivated?",
+        "property": "isActivated",
+        "propertyType": "flow",
+        "rules": [
+            {
                 "t": "eq",
-                "v": "1",
-                "vt": "num"
+                "v": "true",
+                "vt": "str"
             }
         ],
         "checkall": "true",
         "outputs": 1,
-        "x": 470,
-        "y": 280,
+        "x": 388.99998474121094,
+        "y": 1085.9999961853027,
         "wires": [
             [
-                "4850fd09.4d9f54"
+                "71ac802f.6e972",
+                "60e82d73.f71934"
             ]
         ]
     },
     {
-        "id": "b4a10692.f541f8",
-        "type": "link out",
-        "z": "723356de.710278",
-        "name": "Activated-dbg-o",
-        "links": [
-            "5058ba3.b631a44"
-        ],
-        "x": 995,
-        "y": 100,
-        "wires": []
-    },
-    {
-        "id": "e0fc49f1.020e98",
-        "type": "link out",
-        "z": "723356de.710278",
-        "name": "Activated-dbg-o",
-        "links": [
-            "5058ba3.b631a44"
-        ],
-        "x": 875,
-        "y": 440,
-        "wires": []
-    },
-    {
-        "id": "974d84b7.6d7378",
-        "type": "BDebug",
-        "z": "723356de.710278",
-        "name": "isActivated",
-        "x": 1330,
-        "y": 700,
-        "wires": []
-    },
-    {
-        "id": "5058ba3.b631a44",
-        "type": "link in",
-        "z": "723356de.710278",
-        "name": "Activated-dbg-i",
-        "links": [
-            "b4a10692.f541f8",
-            "e0fc49f1.020e98"
-        ],
-        "x": 1035,
-        "y": 700,
+        "id": "625c8cc1.320ff4",
+        "type": "inject",
+        "z": "8ecc0115.f3018",
+        "name": "",
+        "topic": "",
+        "payload": "true",
+        "payloadType": "bool",
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "x": 590,
+        "y": 1340,
         "wires": [
             [
-                "33315f23.0ec45"
+                "11ab4415.aeb3dc"
             ]
         ]
     },
     {
-        "id": "8d687bc1.3c5a18",
-        "type": "comment",
-        "z": "723356de.710278",
-        "name": "Help has been activated the last 60 sec?",
-        "info": "",
-        "x": 1180,
-        "y": 660,
-        "wires": []
-    },
-    {
-        "id": "64ae102.e6029f",
-        "type": "comment",
-        "z": "723356de.710278",
-        "name": "Speak confirmation message",
-        "info": "",
-        "x": 780,
-        "y": 100,
-        "wires": []
-    },
-    {
-        "id": "adeb5bf2.0236b8",
-        "type": "comment",
-        "z": "723356de.710278",
-        "name": "Send help request to HELPER(s)",
-        "info": "",
-        "x": 790,
-        "y": 200,
-        "wires": []
-    },
-    {
-        "id": "61995986.135fa8",
-        "type": "BDebug",
-        "z": "723356de.710278",
-        "name": "waitingConfirm",
-        "x": 1340,
-        "y": 820,
-        "wires": []
-    },
-    {
-        "id": "6785aa83.506c64",
-        "type": "link in",
-        "z": "723356de.710278",
-        "name": "waitingConfirm-dbg-i",
-        "links": [
-            "2166cb83.57e304",
-            "10ac461a.d1d5da"
-        ],
-        "x": 1035,
-        "y": 820,
+        "id": "89edd0ec.803c9",
+        "type": "inject",
+        "z": "8ecc0115.f3018",
+        "name": "",
+        "topic": "",
+        "payload": "true",
+        "payloadType": "bool",
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "x": 830,
+        "y": 1380,
         "wires": [
             [
-                "efed4dfe.07de8"
+                "f66b5672.67d3d8",
+                "9f506d95.94c67"
             ]
         ]
     },
     {
-        "id": "7fb7b570.f4fafc",
-        "type": "comment",
-        "z": "723356de.710278",
-        "name": "Waiting for Help request confirmation?",
-        "info": "",
-        "x": 1170,
-        "y": 780,
-        "wires": []
+        "id": "11ab4415.aeb3dc",
+        "type": "delay",
+        "z": "8ecc0115.f3018",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "7",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "x": 600,
+        "y": 1380,
+        "wires": [
+            [
+                "60e82d73.f71934"
+            ]
+        ]
     },
     {
-        "id": "24028ff2.8991b",
+        "id": "71ac802f.6e972",
         "type": "change",
-        "z": "723356de.710278",
-        "name": "waitingConfirm=false",
+        "z": "8ecc0115.f3018",
+        "name": "send Push",
         "rules": [
             {
                 "t": "set",
-                "p": "waitingConfirm",
-                "pt": "flow",
-                "to": "false",
+                "p": "payload",
+                "pt": "msg",
+                "to": "Finally help is not necessary",
                 "tot": "str"
             }
         ],
@@ -943,162 +801,316 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 760,
-        "y": 560,
+        "x": 610,
+        "y": 1200,
         "wires": [
             [
-                "2166cb83.57e304"
+                "eed5b564.0282c8"
             ]
         ]
     },
     {
-        "id": "2b8b6bd.bd38694",
+        "id": "8bf6a61f.3e1b38",
         "type": "comment",
-        "z": "723356de.710278",
-        "name": "reset the isActivated (more..)",
-        "info": "reset the isActivated flag:\n1. after 60 sec\n2. 2. when a reply from helper\n\nThe isActivated prevents multiple calls for help\n",
-        "x": 780,
+        "z": "8ecc0115.f3018",
+        "name": "Send help request to HELPER(s)",
+        "info": "",
+        "x": 670,
+        "y": 1160,
+        "wires": []
+    },
+    {
+        "id": "eed5b564.0282c8",
+        "type": "pushbullet",
+        "z": "8ecc0115.f3018",
+        "config": "",
+        "pushtype": "note",
+        "title": "Help is unactivated",
+        "chan": "",
+        "name": "",
+        "x": 830,
+        "y": 1200,
+        "wires": []
+    },
+    {
+        "id": "46a24bbc.f26994",
+        "type": "comment",
+        "z": "8ecc0115.f3018",
+        "name": "Speak confirmation message",
+        "info": "",
+        "x": 660,
+        "y": 620,
+        "wires": []
+    },
+    {
+        "id": "1a4e5375.cd740d",
+        "type": "link in",
+        "z": "8ecc0115.f3018",
+        "name": "Help Button OUT",
+        "links": [
+            "cad1e69.350fe18"
+        ],
+        "x": 75,
+        "y": 1060,
+        "wires": [
+            [
+                "f2fcaf98.ed7f2",
+                "67a3cee1.4db57"
+            ]
+        ]
+    },
+    {
+        "id": "cad1e69.350fe18",
+        "type": "link out",
+        "z": "8ecc0115.f3018",
+        "name": "Help Button IN",
+        "links": [
+            "1a4e5375.cd740d"
+        ],
+        "x": 383,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "db69f5c6.8c5648",
+        "type": "link out",
+        "z": "8ecc0115.f3018",
+        "name": "State HELP IN",
+        "links": [
+            "d7c0a232.bba64"
+        ],
+        "x": 835,
+        "y": 660,
+        "wires": []
+    },
+    {
+        "id": "9c284fcd.5d8c8",
+        "type": "realknx-out",
+        "z": "8ecc0115.f3018",
+        "name": "",
+        "controller": "",
+        "itemname": "Activities - Call activated",
+        "topic": "",
+        "payload": "",
+        "booleaninput": true,
+        "x": 744.0000152587891,
+        "y": 401.00000953674316,
+        "wires": []
+    },
+    {
+        "id": "d7c0a232.bba64",
+        "type": "link in",
+        "z": "8ecc0115.f3018",
+        "name": "State HELP OUT",
+        "links": [
+            "db69f5c6.8c5648",
+            "f66b5672.67d3d8"
+        ],
+        "x": 556.0000152587891,
+        "y": 401.00000953674316,
+        "wires": [
+            [
+                "9c284fcd.5d8c8"
+            ]
+        ]
+    },
+    {
+        "id": "f66b5672.67d3d8",
+        "type": "link out",
+        "z": "8ecc0115.f3018",
+        "name": "State HELP IN",
+        "links": [
+            "d7c0a232.bba64"
+        ],
+        "x": 795,
+        "y": 1420,
+        "wires": []
+    },
+    {
+        "id": "caa2749a.efb578",
+        "type": "realknx-out",
+        "z": "8ecc0115.f3018",
+        "name": "",
+        "controller": "",
+        "itemname": "Activities - Assistance",
+        "topic": "",
+        "payload": "",
+        "booleaninput": true,
+        "x": 320,
+        "y": 450,
+        "wires": []
+    },
+    {
+        "id": "148bf682.c338d9",
+        "type": "link in",
+        "z": "8ecc0115.f3018",
+        "name": "HELP Button OUT",
+        "links": [
+            "9f506d95.94c67"
+        ],
+        "x": 135,
+        "y": 450,
+        "wires": [
+            [
+                "caa2749a.efb578"
+            ]
+        ]
+    },
+    {
+        "id": "9f506d95.94c67",
+        "type": "link out",
+        "z": "8ecc0115.f3018",
+        "name": "HELP Button IN",
+        "links": [
+            "148bf682.c338d9"
+        ],
+        "x": 795,
+        "y": 1340,
+        "wires": []
+    },
+    {
+        "id": "6e817cc1.4e72e4",
+        "type": "comment",
+        "z": "8ecc0115.f3018",
+        "name": "HELP BUTTON - KNX (AUX_Toggle)",
+        "info": "",
+        "x": 260,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "d77cf814.5480d8",
+        "type": "comment",
+        "z": "8ecc0115.f3018",
+        "name": "State HELP - KNX (State_1bit)",
+        "info": "",
+        "x": 654.0000152587891,
+        "y": 341.00000953674316,
+        "wires": []
+    },
+    {
+        "id": "902611be.0c0e5",
+        "type": "comment",
+        "z": "8ecc0115.f3018",
+        "name": "Core --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------",
+        "info": "",
+        "x": 1030,
         "y": 520,
         "wires": []
     },
     {
-        "id": "2166cb83.57e304",
-        "type": "link out",
-        "z": "723356de.710278",
-        "name": "waitingConfirm-dbg-o",
-        "links": [
-            "6785aa83.506c64"
-        ],
-        "x": 895,
-        "y": 560,
-        "wires": []
-    },
-    {
-        "id": "10ac461a.d1d5da",
-        "type": "link out",
-        "z": "723356de.710278",
-        "name": "waitingConfirm-dbg-o",
-        "links": [
-            "6785aa83.506c64"
-        ],
-        "x": 1035,
-        "y": 100,
-        "wires": []
-    },
-    {
-        "id": "efed4dfe.07de8",
-        "type": "function",
-        "z": "723356de.710278",
-        "name": "to BOOL",
-        "func": "var waiting = flow.get('waitingConfirm')||'false';\nmsg.topic = 'waitingConfirm';\n\nif(waiting === 'false'){\n  msg.payload = false;      \n  return [ msg, null ];\n}else{\n  msg.payload = true;\n  return [ null, msg ];\n}\n",
-        "outputs": "2",
-        "noerr": 0,
-        "x": 1140,
-        "y": 820,
-        "wires": [
-            [
-                "61995986.135fa8"
-            ],
-            [
-                "61995986.135fa8",
-                "62d6cb2e.d20534"
-            ]
-        ],
-        "outputLabels": [
-            "false",
-            "true"
-        ]
-    },
-    {
-        "id": "33315f23.0ec45",
-        "type": "function",
-        "z": "723356de.710278",
-        "name": "to BOOL",
-        "func": "var waiting = flow.get('isActivated')||'false';\n\nif(waiting === 'false'){\n  msg.payload = false;  \n}else{\n  msg.payload = true;\n}\nmsg.topic = 'isActivated';\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 1140,
-        "y": 700,
-        "wires": [
-            [
-                "974d84b7.6d7378"
-            ]
-        ]
-    },
-    {
-        "id": "8b001a65.50bfc8",
-        "type": "link out",
-        "z": "723356de.710278",
-        "name": "autoRepeat-o",
-        "links": [
-            "cefee8eb.a41428"
-        ],
-        "x": 1355,
-        "y": 900,
-        "wires": []
-    },
-    {
-        "id": "cefee8eb.a41428",
-        "type": "link in",
-        "z": "723356de.710278",
-        "name": "autoRepeat-o",
-        "links": [
-            "8b001a65.50bfc8"
-        ],
-        "x": 155,
-        "y": 320,
-        "wires": [
-            [
-                "4850fd09.4d9f54",
-                "e7ee874d.82e788"
-            ]
-        ]
-    },
-    {
-        "id": "b751b6e6.b4e358",
+        "id": "5e0e50c4.194d8",
         "type": "comment",
-        "z": "723356de.710278",
-        "name": "Help repeat (no answer)",
+        "z": "8ecc0115.f3018",
+        "name": "Change with your KNX Functions & your Google Home --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------",
         "info": "",
-        "x": 160,
-        "y": 280,
+        "x": 1030,
+        "y": 260,
         "wires": []
     },
     {
-        "id": "62d6cb2e.d20534",
+        "id": "34847ace.6d4776",
+        "type": "comment",
+        "z": "8ecc0115.f3018",
+        "name": "Core for Google Home --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------",
+        "info": "",
+        "x": 1030,
+        "y": 1960,
+        "wires": []
+    },
+    {
+        "id": "ea6c1013.8f69a",
+        "type": "comment",
+        "z": "8ecc0115.f3018",
+        "name": "Error handling, restart NR if GH error CAUTION don't change --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------",
+        "info": "",
+        "x": 1030,
+        "y": 2280,
+        "wires": []
+    },
+    {
+        "id": "3d497152.12996e",
+        "type": "comment",
+        "z": "8ecc0115.f3018",
+        "name": "Find your Google Home",
+        "info": "",
+        "x": 1089.9999542236328,
+        "y": 339.00000953674316,
+        "wires": []
+    },
+    {
+        "id": "dce864f8.3ff3c8",
+        "type": "link out",
+        "z": "8ecc0115.f3018",
+        "name": "Google Home IN",
+        "links": [
+            "22d93d65.258922"
+        ],
+        "x": 955,
+        "y": 2100,
+        "wires": []
+    },
+    {
+        "id": "50a04f28.4a5eb",
+        "type": "googlehome-notify",
+        "z": "8ecc0115.f3018",
+        "server": "d36db7ea.23da28",
+        "name": "GH",
+        "x": 1139.9999542236328,
+        "y": 399.00000953674316,
+        "wires": []
+    },
+    {
+        "id": "22d93d65.258922",
+        "type": "link in",
+        "z": "8ecc0115.f3018",
+        "name": "Google Home OUT",
+        "links": [
+            "dce864f8.3ff3c8"
+        ],
+        "x": 1004.9999542236328,
+        "y": 399.00000953674316,
+        "wires": [
+            [
+                "50a04f28.4a5eb"
+            ]
+        ]
+    },
+    {
+        "id": "eb300fc6.f8bd6",
         "type": "trigger",
-        "z": "723356de.710278",
+        "z": "8ecc0115.f3018",
         "op1": "",
-        "op2": "repeat",
+        "op2": "true",
         "op1type": "nul",
-        "op2type": "str",
+        "op2type": "bool",
         "duration": "5",
         "extend": false,
         "units": "min",
         "reset": "",
         "name": "",
-        "x": 1130,
-        "y": 900,
+        "x": 610,
+        "y": 1720,
         "wires": [
             [
-                "938c9d30.52424"
+                "ee2402be.add23"
             ]
         ]
     },
     {
-        "id": "9bc82aa0.b3d0b8",
+        "id": "738f800d.ae246",
         "type": "comment",
-        "z": "723356de.710278",
+        "z": "8ecc0115.f3018",
         "name": "Repeat if HELPER did not respond",
         "info": "",
-        "x": 1240,
-        "y": 940,
+        "x": 680,
+        "y": 1640,
         "wires": []
     },
     {
-        "id": "938c9d30.52424",
+        "id": "ee2402be.add23",
         "type": "delay",
-        "z": "723356de.710278",
+        "z": "8ecc0115.f3018",
         "name": "delay",
         "pauseType": "delay",
         "timeout": "1",
@@ -1110,30 +1122,174 @@
         "randomLast": "5",
         "randomUnits": "seconds",
         "drop": false,
-        "x": 1270,
-        "y": 900,
+        "x": 590,
+        "y": 1760,
         "wires": [
             [
-                "8b001a65.50bfc8"
+                "eb300fc6.f8bd6",
+                "4751bc90.034c04"
             ]
         ]
     },
     {
-        "id": "81d99e.c3bc966",
-        "type": "realknx-controller",
-        "z": "",
-        "name": "realknx",
-        "host": "localhost",
-        "port": "3000"
+        "id": "4751bc90.034c04",
+        "type": "switch",
+        "z": "8ecc0115.f3018",
+        "name": "isActivated?",
+        "property": "isActivated",
+        "propertyType": "flow",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "false",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "true",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "outputs": 2,
+        "x": 810,
+        "y": 1760,
+        "wires": [
+            [],
+            [
+                "9a941688.612ea8"
+            ]
+        ]
     },
     {
-        "id": "d1ca01c8.d3643",
-        "type": "pushbullet-config",
-        "z": "",
-        "name": ""
+        "id": "9a941688.612ea8",
+        "type": "change",
+        "z": "8ecc0115.f3018",
+        "name": "send Push",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "Please confirm Help call on PushBullet",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 815.2000045776367,
+        "y": 1720.8000144958496,
+        "wires": [
+            [
+                "5b3f723f.0e208c"
+            ]
+        ]
     },
     {
-        "id": "f7139648.032d88",
+        "id": "ce83e0f7.ae6b1",
+        "type": "inject",
+        "z": "8ecc0115.f3018",
+        "name": "",
+        "topic": "",
+        "payload": "true",
+        "payloadType": "bool",
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "x": 590,
+        "y": 1680,
+        "wires": [
+            [
+                "eb300fc6.f8bd6"
+            ]
+        ]
+    },
+    {
+        "id": "5b3f723f.0e208c",
+        "type": "link out",
+        "z": "8ecc0115.f3018",
+        "name": "REPEAT IN",
+        "links": [
+            "a4d46e69.5577b"
+        ],
+        "x": 955,
+        "y": 1720,
+        "wires": []
+    },
+    {
+        "id": "a4d46e69.5577b",
+        "type": "link in",
+        "z": "8ecc0115.f3018",
+        "name": "REPEATE OUT",
+        "links": [
+            "5b3f723f.0e208c"
+        ],
+        "x": 665,
+        "y": 960,
+        "wires": [
+            [
+                "379784ba.62446c"
+            ]
+        ]
+    },
+    {
+        "id": "acb831bd.2e86d",
+        "type": "simple-queue",
+        "z": "8ecc0115.f3018",
+        "name": "queue1",
+        "x": 720,
+        "y": 2100,
+        "wires": [
+            [
+                "dce864f8.3ff3c8"
+            ]
+        ]
+    },
+    {
+        "id": "ee916cc2.dbb48",
+        "type": "comment",
+        "z": "8ecc0115.f3018",
+        "name": "CHANGE MESSAGE",
+        "info": "",
+        "x": 881,
+        "y": 758,
+        "wires": []
+    },
+    {
+        "id": "c9b1310c.4fe6b",
+        "type": "comment",
+        "z": "8ecc0115.f3018",
+        "name": "CHANGE MESSAGE",
+        "info": "",
+        "x": 898,
+        "y": 882,
+        "wires": []
+    },
+    {
+        "id": "c18a9539.de2fe8",
+        "type": "comment",
+        "z": "8ecc0115.f3018",
+        "name": "CHANGE MESSAGE",
+        "info": "",
+        "x": 976,
+        "y": 1021,
+        "wires": []
+    },
+    {
+        "id": "b45ef596.ef8c68",
+        "type": "comment",
+        "z": "8ecc0115.f3018",
+        "name": "CHANGE MESSAGE",
+        "info": "",
+        "x": 896,
+        "y": 1159,
+        "wires": []
+    },
+    {
+        "id": "d36db7ea.23da28",
         "type": "googlehome-config-node",
         "z": "",
         "ipaddress": "",
