@@ -1,0 +1,444 @@
+[
+    {
+        "id": "d5c2ee66.4840a",
+        "type": "tab",
+        "label": "Voice alert SONOS & Polly",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "2737f4ca.47646c",
+        "type": "http in",
+        "z": "d5c2ee66.4840a",
+        "name": "HTTP in",
+        "url": "/tts/tts.mp3",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 80,
+        "y": 240,
+        "wires": [
+            [
+                "38eaded4.ce3732"
+            ]
+        ]
+    },
+    {
+        "id": "c0c3f84c.413bf8",
+        "type": "file in",
+        "z": "d5c2ee66.4840a",
+        "name": "Read sound file",
+        "filename": "",
+        "format": "",
+        "chunk": false,
+        "sendError": false,
+        "x": 490,
+        "y": 240,
+        "wires": [
+            [
+                "1b7b9a74.b93626"
+            ]
+        ]
+    },
+    {
+        "id": "1b7b9a74.b93626",
+        "type": "change",
+        "z": "d5c2ee66.4840a",
+        "name": "prepare response",
+        "rules": [
+            {
+                "t": "set",
+                "p": "headers['Content-Disposition']",
+                "pt": "msg",
+                "to": "attachment; filename=tts.mp3",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 700,
+        "y": 240,
+        "wires": [
+            [
+                "7723fedd.b4928"
+            ]
+        ]
+    },
+    {
+        "id": "25dfb026.b6299",
+        "type": "inject",
+        "z": "d5c2ee66.4840a",
+        "name": "Auto Start",
+        "topic": "",
+        "payload": "true",
+        "payloadType": "bool",
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "x": 100,
+        "y": 360,
+        "wires": [
+            [
+                "e35abe59.a712f"
+            ]
+        ]
+    },
+    {
+        "id": "eaf93fc3.b0fc8",
+        "type": "comment",
+        "z": "d5c2ee66.4840a",
+        "name": "HTTP server for the tts.mp3 requested by Sonos Node",
+        "info": "",
+        "x": 210,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "c31ba80a.3dc4c8",
+        "type": "polly",
+        "z": "d5c2ee66.4840a",
+        "name": "",
+        "voice": "0",
+        "ssml": false,
+        "dir": "/tmp",
+        "config": "ae2f0920.38b9b8",
+        "x": 350,
+        "y": 520,
+        "wires": [
+            [
+                "6d0e9230.a6662c"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "38eaded4.ce3732",
+        "type": "function",
+        "z": "d5c2ee66.4840a",
+        "name": "Read Querystring",
+        "func": "// Set the file name to queue by taking it from the querystring \"f\"\nmsg.filename=msg.payload.f;\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 280,
+        "y": 240,
+        "wires": [
+            [
+                "c0c3f84c.413bf8"
+            ]
+        ]
+    },
+    {
+        "id": "3ff3b36c.56007c",
+        "type": "better-sonos-status",
+        "z": "d5c2ee66.4840a",
+        "confignode": "aa830ebc.9d9f6",
+        "name": "",
+        "x": 490,
+        "y": 360,
+        "wires": [
+            [
+                "22b3442f.b316ec"
+            ]
+        ]
+    },
+    {
+        "id": "c5e9b57f.181138",
+        "type": "inject",
+        "z": "d5c2ee66.4840a",
+        "name": "Manual stop",
+        "topic": "",
+        "payload": "false",
+        "payloadType": "bool",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 100,
+        "y": 420,
+        "wires": [
+            [
+                "e35abe59.a712f"
+            ]
+        ]
+    },
+    {
+        "id": "6d0e9230.a6662c",
+        "type": "function",
+        "z": "d5c2ee66.4840a",
+        "name": "Querystring",
+        "func": "// Set the IP of your realKNX server here:\nmsg.payload = { \n    songuri:\"http://192.168.1.37:1880/tts/tts.mp3?f=\" + encodeURI(msg.file)\n};\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 540,
+        "y": 500,
+        "wires": [
+            [
+                "29d59cfc.2cf314",
+                "ce2dcfe2.44c8b"
+            ]
+        ]
+    },
+    {
+        "id": "29d59cfc.2cf314",
+        "type": "better-sonos-queue",
+        "z": "d5c2ee66.4840a",
+        "confignode": "aa830ebc.9d9f6",
+        "songuri": "",
+        "position": "next",
+        "positioninqueue": "0",
+        "name": "SONOS queue",
+        "x": 810,
+        "y": 500,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "ce2dcfe2.44c8b",
+        "type": "better-sonos-control",
+        "z": "d5c2ee66.4840a",
+        "confignode": "aa830ebc.9d9f6",
+        "name": "Volume",
+        "mode": "play",
+        "track": "",
+        "volume": "volume",
+        "volume_value": "50",
+        "x": 790,
+        "y": 540,
+        "wires": []
+    },
+    {
+        "id": "e35abe59.a712f",
+        "type": "trigger",
+        "z": "d5c2ee66.4840a",
+        "op1": "true",
+        "op2": "0",
+        "op1type": "bool",
+        "op2type": "str",
+        "duration": "-1",
+        "extend": false,
+        "units": "s",
+        "reset": "false",
+        "name": "",
+        "x": 290,
+        "y": 360,
+        "wires": [
+            [
+                "3ff3b36c.56007c"
+            ]
+        ]
+    },
+    {
+        "id": "ec58ff4f.84576",
+        "type": "function",
+        "z": "d5c2ee66.4840a",
+        "name": "Buffer",
+        "func": "// This function handles TTS msg queues \n// If it receives a true payload, it sends the next item in the buffer\n// otherwise it stores the msg in the buffer\n\n// Read array of incoming messages\nvar aMessageQueue = flow.get('aMessageQueue')||[]; // Default empty array\n\nif (msg.payload===true) {\n    if (aMessageQueue.length>0) {\n        // Send next item in the array\n        var sMsg=aMessageQueue[0];\n        // Remove the TTS message from the queue\n        aMessageQueue.splice(0,1);\n        // Send the message\n        node.send({payload:sMsg});\n    }\n}else\n{\n    // Add message to the queue\n    aMessageQueue.push(msg.payload);\n}\nflow.set('aMessageQueue',aMessageQueue)\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 200,
+        "y": 520,
+        "wires": [
+            [
+                "c31ba80a.3dc4c8"
+            ]
+        ],
+        "outputLabels": [
+            "TTS text out"
+        ]
+    },
+    {
+        "id": "22b3442f.b316ec",
+        "type": "switch",
+        "z": "d5c2ee66.4840a",
+        "name": "",
+        "property": "state",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "neq",
+                "v": "playing",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "outputs": 1,
+        "x": 640,
+        "y": 360,
+        "wires": [
+            [
+                "9f7179b1.5eead8"
+            ]
+        ]
+    },
+    {
+        "id": "9f7179b1.5eead8",
+        "type": "change",
+        "z": "d5c2ee66.4840a",
+        "name": "Send true",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "true",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 810,
+        "y": 360,
+        "wires": [
+            [
+                "ec58ff4f.84576"
+            ]
+        ]
+    },
+    {
+        "id": "b4e65612.d7e8f8",
+        "type": "link in",
+        "z": "d5c2ee66.4840a",
+        "name": "TTS IN",
+        "links": [
+            "1807bc05.c79604"
+        ],
+        "x": 45,
+        "y": 520,
+        "wires": [
+            [
+                "ec58ff4f.84576"
+            ]
+        ]
+    },
+    {
+        "id": "1807bc05.c79604",
+        "type": "link out",
+        "z": "d5c2ee66.4840a",
+        "name": "TTS Out",
+        "links": [
+            "b4e65612.d7e8f8"
+        ],
+        "x": 495,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "3f146647.91090a",
+        "type": "inject",
+        "z": "d5c2ee66.4840a",
+        "name": "Put some queue",
+        "topic": "",
+        "payload": "true",
+        "payloadType": "bool",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 120,
+        "y": 120,
+        "wires": [
+            [
+                "2d88e3f6.504fbc"
+            ]
+        ]
+    },
+    {
+        "id": "2d88e3f6.504fbc",
+        "type": "function",
+        "z": "d5c2ee66.4840a",
+        "name": "Test strings",
+        "func": "node.send({payload:\"Hello world!\"});\nnode.send({payload:\"This is the second message\"});\nnode.send({payload:\"Finally, here's the third and last message\"});",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 330,
+        "y": 120,
+        "wires": [
+            [
+                "1807bc05.c79604"
+            ]
+        ],
+        "outputLabels": [
+            "TTS text out"
+        ]
+    },
+    {
+        "id": "d588502b.76d07",
+        "type": "comment",
+        "z": "d5c2ee66.4840a",
+        "name": "Test: Inject some strings",
+        "info": "",
+        "x": 120,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "113abccf.b81f53",
+        "type": "comment",
+        "z": "d5c2ee66.4840a",
+        "name": "Instructions (read me)",
+        "info": "This flow was created by TheMax74 and published here\nhttps://knx-user-forum.de/forum/supportforen/proserv/1213552-text-to-speech-with-amazon-polly-and-sonos\n\n1. Setup the Polly node\n2. Set the realKNX IP\n3. Set the SONOS IP\n4. Test",
+        "x": 120,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "6f24b459.0e983c",
+        "type": "comment",
+        "z": "d5c2ee66.4840a",
+        "name": "3. Set IP of SONOS",
+        "info": "",
+        "x": 820,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "e12664f1.9990b8",
+        "type": "comment",
+        "z": "d5c2ee66.4840a",
+        "name": "1. Setup Polly (readme!)",
+        "info": "1. Create an account at Amazon Polly https://aws.amazon.com/polly/\n2. In 'My Security Cerdentials', open Acces Keys and Create a new Access key\n3. Select language (optional)\n4. Modify the the test strings (optional)",
+        "x": 340,
+        "y": 560,
+        "wires": []
+    },
+    {
+        "id": "c6e6435e.d8be5",
+        "type": "comment",
+        "z": "d5c2ee66.4840a",
+        "name": "2. Set realKNX IP",
+        "info": "",
+        "x": 550,
+        "y": 540,
+        "wires": []
+    },
+    {
+        "id": "7723fedd.b4928",
+        "type": "http response",
+        "z": "d5c2ee66.4840a",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 890,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "ae2f0920.38b9b8",
+        "type": "polly-config",
+        "z": "",
+        "name": "Polly"
+    },
+    {
+        "id": "aa830ebc.9d9f6",
+        "type": "better-sonos-config",
+        "z": "",
+        "name": "living",
+        "serialnum": "",
+        "ipaddress": "192.168.1.15"
+    }
+]
