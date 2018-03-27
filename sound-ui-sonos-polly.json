@@ -168,7 +168,7 @@
         "type": "function",
         "z": "d5c2ee66.4840a",
         "name": "Querystring",
-        "func": "// Set the IP of your realKNX server here:\nmsg.payload = { \n    songuri:\"http://192.168.1.37:1880/tts/tts.mp3?f=\" + encodeURI(msg.file)\n};\nreturn msg;",
+        "func": "// Set the IP of your realKNX server here:\nmsg.payload = { \n    songuri:\"http://192.168.1.x:1880/tts/tts.mp3?f=\" + encodeURI(msg.file)\n};\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "x": 540,
@@ -204,7 +204,7 @@
         "mode": "play",
         "track": "",
         "volume": "volume",
-        "volume_value": "50",
+        "volume_value": "30",
         "x": 790,
         "y": 540,
         "wires": []
@@ -437,8 +437,8 @@
         "id": "aa830ebc.9d9f6",
         "type": "better-sonos-config",
         "z": "",
-        "name": "living",
+        "name": "",
         "serialnum": "",
-        "ipaddress": "192.168.1.15"
+        "ipaddress": ""
     }
 ]
