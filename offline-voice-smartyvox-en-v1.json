@@ -1,0 +1,2806 @@
+[
+    {
+        "id": "224a1e19.da55d2",
+        "type": "tab",
+        "label": "Smarty-Vox En v1",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "61661622.5ae5d8",
+        "type": "comment",
+        "z": "224a1e19.da55d2",
+        "name": "Consume data from SR210 Voice (read me!)",
+        "info": "A.      Computer\nB.      OK, Google\nC.      Angela\n\n\n1.   Computer, I'm home      \n2.   Computer, I'm leaving\n3.   Computer, Goodnight            \n4.   Computer, Good morning         \n5.   Computer, Help             \n6.   Computer, I'm fine             \n7.   Computer, open shutters        \n8.   Computer, close shutters       \n9.   Computer, turn on Living room     \n10.  Computer, switch off Living room  \n11.  Computer, turn on Bedroom         \n12.  Computer, switch off Bedroom            \n13.  Computer, turn on Kitchen         \n14.  Computer, switch off Kitchen      \n15.  Computer, open Living room         \n16.  Computer, close Living room       \n17.  Computer, open Bedroom            \n18.  Computer, close Bedroom           \n19.  Computer, open Kitchen            \n20.  Computer, close Kitchen           ",
+        "x": 330,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "fcd5ee31.bb7b4",
+        "type": "mqtt out",
+        "z": "224a1e19.da55d2",
+        "name": "",
+        "topic": "/zwave/vr",
+        "qos": "0",
+        "retain": "false",
+        "broker": "75868a72.5191a4",
+        "x": 480,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "8a999a44.d5d6d8",
+        "type": "inject",
+        "z": "224a1e19.da55d2",
+        "name": "{\"msg\":\"helloworld\"}",
+        "topic": "",
+        "payload": "{\"msg\":\"helloworld\"}",
+        "payloadType": "json",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 270,
+        "y": 160,
+        "wires": [
+            [
+                "fcd5ee31.bb7b4"
+            ]
+        ]
+    },
+    {
+        "id": "a5cceb54.bd3208",
+        "type": "comment",
+        "z": "224a1e19.da55d2",
+        "name": "Send hello message ",
+        "info": "",
+        "x": 250,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "fd750123.26d78",
+        "type": "mqtt in",
+        "z": "224a1e19.da55d2",
+        "name": "",
+        "topic": "/zwave/vr",
+        "qos": "0",
+        "broker": "75868a72.5191a4",
+        "x": 180,
+        "y": 980,
+        "wires": [
+            [
+                "6a691c52.fb810c",
+                "ef894839.208c5",
+                "c124e7cc.5e0c9",
+                "eee91ab5.1bb4a8",
+                "f6817bb5.87271",
+                "1ecd1b99.53a1ac"
+            ]
+        ]
+    },
+    {
+        "id": "b1eabaf7.fbfb4",
+        "type": "comment",
+        "z": "224a1e19.da55d2",
+        "name": "voice commands from SR210",
+        "info": "",
+        "x": 200,
+        "y": 940,
+        "wires": []
+    },
+    {
+        "id": "6a691c52.fb810c",
+        "type": "switch",
+        "z": "224a1e19.da55d2",
+        "name": "Light",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "9",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "10",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "11",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "12",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "13",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "14",
+                "vt": "num"
+            }
+        ],
+        "checkall": "true",
+        "outputs": 6,
+        "x": 530,
+        "y": 580,
+        "wires": [
+            [
+                "d54d7796.2de278"
+            ],
+            [
+                "3dc3223c.562ebe"
+            ],
+            [
+                "2589724.c600e0e"
+            ],
+            [
+                "5e39191a.ed744"
+            ],
+            [
+                "a49ab5df.86c678"
+            ],
+            [
+                "11302987.56791e"
+            ]
+        ],
+        "inputLabels": [
+            "Input"
+        ],
+        "outputLabels": [
+            "Turn on Livingroom",
+            "Switch off Livingroom",
+            "Turn on bedroom",
+            "Switch off bedroom",
+            "Turn on kitchen",
+            "Switch off kitchen"
+        ]
+    },
+    {
+        "id": "33bdcdae.3b883a",
+        "type": "inject",
+        "z": "224a1e19.da55d2",
+        "name": "Start-up",
+        "topic": "",
+        "payload": "false",
+        "payloadType": "bool",
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "x": 1960,
+        "y": 560,
+        "wires": [
+            [
+                "73f74985.7d9b5",
+                "62f137de.655648",
+                "d9334cf7.8d3378"
+            ]
+        ]
+    },
+    {
+        "id": "62f137de.655648",
+        "type": "realknx-out",
+        "z": "224a1e19.da55d2",
+        "name": "",
+        "controller": "72dbb210.664a3c",
+        "itemname": "Bedroom - Ceiling",
+        "topic": "",
+        "payload": "",
+        "booleaninput": true,
+        "x": 1750,
+        "y": 560,
+        "wires": []
+    },
+    {
+        "id": "67cfa006.467678",
+        "type": "link out",
+        "z": "224a1e19.da55d2",
+        "name": "Bedroom-lnk",
+        "links": [
+            "e661dff2.65d088",
+            "92ee37c2.86cb88"
+        ],
+        "x": 1135,
+        "y": 560,
+        "wires": []
+    },
+    {
+        "id": "e661dff2.65d088",
+        "type": "link in",
+        "z": "224a1e19.da55d2",
+        "name": "Bedroom-lnk",
+        "links": [
+            "67cfa006.467678",
+            "affbca56.176a4"
+        ],
+        "x": 1375,
+        "y": 560,
+        "wires": [
+            [
+                "62f137de.655648"
+            ]
+        ]
+    },
+    {
+        "id": "2589724.c600e0e",
+        "type": "change",
+        "z": "224a1e19.da55d2",
+        "name": "ON",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "255",
+                "tot": "num"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1050,
+        "y": 560,
+        "wires": [
+            [
+                "67cfa006.467678"
+            ]
+        ]
+    },
+    {
+        "id": "5e39191a.ed744",
+        "type": "change",
+        "z": "224a1e19.da55d2",
+        "name": "OFF",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "0",
+                "tot": "num"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 930,
+        "y": 560,
+        "wires": [
+            [
+                "67cfa006.467678"
+            ]
+        ]
+    },
+    {
+        "id": "c51ccc08.318018",
+        "type": "link out",
+        "z": "224a1e19.da55d2",
+        "name": "Livingroom-lnk",
+        "links": [
+            "93ba2195.d94d3"
+        ],
+        "x": 1135,
+        "y": 480,
+        "wires": []
+    },
+    {
+        "id": "d54d7796.2de278",
+        "type": "change",
+        "z": "224a1e19.da55d2",
+        "name": "ON",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "255",
+                "tot": "num"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1050,
+        "y": 480,
+        "wires": [
+            [
+                "c51ccc08.318018"
+            ]
+        ]
+    },
+    {
+        "id": "3dc3223c.562ebe",
+        "type": "change",
+        "z": "224a1e19.da55d2",
+        "name": "OFF",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "0",
+                "tot": "num"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 930,
+        "y": 480,
+        "wires": [
+            [
+                "c51ccc08.318018"
+            ]
+        ]
+    },
+    {
+        "id": "73f74985.7d9b5",
+        "type": "realknx-out",
+        "z": "224a1e19.da55d2",
+        "name": "",
+        "controller": "72dbb210.664a3c",
+        "itemname": "Living Room - Ceiling",
+        "topic": "",
+        "payload": "",
+        "booleaninput": true,
+        "x": 1760,
+        "y": 500,
+        "wires": []
+    },
+    {
+        "id": "93ba2195.d94d3",
+        "type": "link in",
+        "z": "224a1e19.da55d2",
+        "name": "Livingroom-lnk",
+        "links": [
+            "c51ccc08.318018",
+            "6775e234.10f894"
+        ],
+        "x": 1375,
+        "y": 500,
+        "wires": [
+            [
+                "73f74985.7d9b5"
+            ]
+        ]
+    },
+    {
+        "id": "d9334cf7.8d3378",
+        "type": "realknx-out",
+        "z": "224a1e19.da55d2",
+        "name": "",
+        "controller": "72dbb210.664a3c",
+        "itemname": "Kitchen - Ceiling",
+        "topic": "",
+        "payload": "",
+        "booleaninput": true,
+        "x": 1740,
+        "y": 620,
+        "wires": []
+    },
+    {
+        "id": "7029065.910e8f8",
+        "type": "link in",
+        "z": "224a1e19.da55d2",
+        "name": "Kitchen-lnk",
+        "links": [
+            "a1f29a1f.63a26"
+        ],
+        "x": 1375,
+        "y": 620,
+        "wires": [
+            [
+                "d9334cf7.8d3378"
+            ]
+        ]
+    },
+    {
+        "id": "a1f29a1f.63a26",
+        "type": "link out",
+        "z": "224a1e19.da55d2",
+        "name": "Kitchen-lnk",
+        "links": [
+            "7029065.910e8f8",
+            "873bea0a.8e3208"
+        ],
+        "x": 1135,
+        "y": 640,
+        "wires": []
+    },
+    {
+        "id": "a49ab5df.86c678",
+        "type": "change",
+        "z": "224a1e19.da55d2",
+        "name": "ON",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "255",
+                "tot": "num"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1050,
+        "y": 640,
+        "wires": [
+            [
+                "a1f29a1f.63a26"
+            ]
+        ]
+    },
+    {
+        "id": "11302987.56791e",
+        "type": "change",
+        "z": "224a1e19.da55d2",
+        "name": "OFF",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "0",
+                "tot": "num"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 930,
+        "y": 640,
+        "wires": [
+            [
+                "a1f29a1f.63a26"
+            ]
+        ]
+    },
+    {
+        "id": "232254fc.fdd61c",
+        "type": "change",
+        "z": "224a1e19.da55d2",
+        "name": "Close",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "255",
+                "tot": "num"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1050,
+        "y": 340,
+        "wires": [
+            [
+                "e4ab0dd7.c862a"
+            ]
+        ]
+    },
+    {
+        "id": "1818e09f.a8a1e7",
+        "type": "change",
+        "z": "224a1e19.da55d2",
+        "name": "Open",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "0",
+                "tot": "num"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 930,
+        "y": 340,
+        "wires": [
+            [
+                "e4ab0dd7.c862a"
+            ]
+        ]
+    },
+    {
+        "id": "e4ab0dd7.c862a",
+        "type": "link out",
+        "z": "224a1e19.da55d2",
+        "name": "Kitchen Shutter-lnk",
+        "links": [
+            "46e61e19.e1f828",
+            "b7c3516f.4ca688"
+        ],
+        "x": 1135,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "92b33509.f70e48",
+        "type": "change",
+        "z": "224a1e19.da55d2",
+        "name": "Close",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "255",
+                "tot": "num"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1050,
+        "y": 820,
+        "wires": [
+            [
+                "a2f220b7.4d9fd8"
+            ]
+        ]
+    },
+    {
+        "id": "7a531ff8.d994",
+        "type": "change",
+        "z": "224a1e19.da55d2",
+        "name": "Open",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "0",
+                "tot": "num"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 930,
+        "y": 820,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "cc8262b2.7d23b8",
+        "type": "change",
+        "z": "224a1e19.da55d2",
+        "name": "Close",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "255",
+                "tot": "num"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1050,
+        "y": 900,
+        "wires": [
+            [
+                "bf4c0773.dd175"
+            ]
+        ]
+    },
+    {
+        "id": "fb4e33b8.7195f8",
+        "type": "change",
+        "z": "224a1e19.da55d2",
+        "name": "Open",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "0",
+                "tot": "num"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 930,
+        "y": 900,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "34f19b14.22ed8c",
+        "type": "change",
+        "z": "224a1e19.da55d2",
+        "name": "Close",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "255",
+                "tot": "num"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1050,
+        "y": 980,
+        "wires": [
+            [
+                "84b0ea2f.c4c108"
+            ]
+        ]
+    },
+    {
+        "id": "b81f7e75.ea6b3",
+        "type": "change",
+        "z": "224a1e19.da55d2",
+        "name": "Open",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "0",
+                "tot": "num"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 930,
+        "y": 980,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "fcfdf9e9.2bfb6",
+        "type": "comment",
+        "z": "224a1e19.da55d2",
+        "name": "Open / Close Shutter",
+        "info": "",
+        "x": 980,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "c8f7a5b5.8fc108",
+        "type": "comment",
+        "z": "224a1e19.da55d2",
+        "name": "On / Off Living Room",
+        "info": "",
+        "x": 980,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "b7c2c6c4.2a87b8",
+        "type": "comment",
+        "z": "224a1e19.da55d2",
+        "name": "On / Off BedRoom",
+        "info": "",
+        "x": 970,
+        "y": 520,
+        "wires": []
+    },
+    {
+        "id": "5a2f8a2.7646874",
+        "type": "comment",
+        "z": "224a1e19.da55d2",
+        "name": "On / Off Kitchen",
+        "info": "",
+        "x": 960,
+        "y": 600,
+        "wires": []
+    },
+    {
+        "id": "ef894839.208c5",
+        "type": "switch",
+        "z": "224a1e19.da55d2",
+        "name": "Shutter",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "15",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "16",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "17",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "18",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "19",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "20",
+                "vt": "num"
+            }
+        ],
+        "checkall": "true",
+        "outputs": 6,
+        "x": 540,
+        "y": 900,
+        "wires": [
+            [
+                "7a531ff8.d994"
+            ],
+            [
+                "92b33509.f70e48"
+            ],
+            [
+                "fb4e33b8.7195f8"
+            ],
+            [
+                "cc8262b2.7d23b8"
+            ],
+            [
+                "b81f7e75.ea6b3"
+            ],
+            [
+                "34f19b14.22ed8c"
+            ]
+        ],
+        "inputLabels": [
+            "Input"
+        ],
+        "outputLabels": [
+            "open livingroom",
+            "close livingroom",
+            "open bedroom",
+            "close bedroom",
+            "open kitchen",
+            "close kitchen"
+        ]
+    },
+    {
+        "id": "37a1d49e.0843a4",
+        "type": "comment",
+        "z": "224a1e19.da55d2",
+        "name": "Open / Close Living Room",
+        "info": "",
+        "x": 990,
+        "y": 780,
+        "wires": []
+    },
+    {
+        "id": "1b389b82.517f94",
+        "type": "comment",
+        "z": "224a1e19.da55d2",
+        "name": "Open / Close Bedroom",
+        "info": "",
+        "x": 980,
+        "y": 860,
+        "wires": []
+    },
+    {
+        "id": "5d84ca82.99418c",
+        "type": "comment",
+        "z": "224a1e19.da55d2",
+        "name": "Open / Close Kitchen",
+        "info": "",
+        "x": 980,
+        "y": 940,
+        "wires": []
+    },
+    {
+        "id": "82a5a643.434818",
+        "type": "inject",
+        "z": "224a1e19.da55d2",
+        "name": "",
+        "topic": "Good night",
+        "payload": "3",
+        "payloadType": "num",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 270,
+        "y": 3320,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "a3532651.6a3ba8",
+        "type": "inject",
+        "z": "224a1e19.da55d2",
+        "name": "",
+        "topic": "Good Morning",
+        "payload": "4",
+        "payloadType": "num",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 280,
+        "y": 3360,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "fd2d7916.bcbd88",
+        "type": "inject",
+        "z": "224a1e19.da55d2",
+        "name": "",
+        "topic": "",
+        "payload": "5",
+        "payloadType": "num",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 232,
+        "y": 1398,
+        "wires": [
+            [
+                "eee91ab5.1bb4a8"
+            ]
+        ]
+    },
+    {
+        "id": "8d290cd3.d07598",
+        "type": "inject",
+        "z": "224a1e19.da55d2",
+        "name": "",
+        "topic": "",
+        "payload": "6",
+        "payloadType": "num",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 232,
+        "y": 1438,
+        "wires": [
+            [
+                "eee91ab5.1bb4a8"
+            ]
+        ]
+    },
+    {
+        "id": "41686cc3.60ca6c",
+        "type": "inject",
+        "z": "224a1e19.da55d2",
+        "name": "",
+        "topic": "open shutter",
+        "payload": "7",
+        "payloadType": "num",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 280,
+        "y": 3480,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "21813099.ed4a6",
+        "type": "inject",
+        "z": "224a1e19.da55d2",
+        "name": "",
+        "topic": "",
+        "payload": "2",
+        "payloadType": "num",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 250,
+        "y": 3280,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "84ba9ebf.3ad8d",
+        "type": "inject",
+        "z": "224a1e19.da55d2",
+        "name": "",
+        "topic": "",
+        "payload": "1",
+        "payloadType": "num",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 250,
+        "y": 3240,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "458e086a.d5d8d",
+        "type": "inject",
+        "z": "224a1e19.da55d2",
+        "name": "",
+        "topic": "close shutter",
+        "payload": "8",
+        "payloadType": "num",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 280,
+        "y": 3520,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "ee3d1407.362118",
+        "type": "inject",
+        "z": "224a1e19.da55d2",
+        "name": "",
+        "topic": "On living",
+        "payload": "9",
+        "payloadType": "num",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 260,
+        "y": 3560,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "c18fc680.0a10a8",
+        "type": "inject",
+        "z": "224a1e19.da55d2",
+        "name": "",
+        "topic": "Off living",
+        "payload": "10",
+        "payloadType": "num",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 270,
+        "y": 3600,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "6da03561.ea82cc",
+        "type": "inject",
+        "z": "224a1e19.da55d2",
+        "name": "",
+        "topic": "",
+        "payload": "11",
+        "payloadType": "num",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 250,
+        "y": 3640,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "2a747e37.b6bd62",
+        "type": "inject",
+        "z": "224a1e19.da55d2",
+        "name": "",
+        "topic": "",
+        "payload": "12",
+        "payloadType": "num",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 250,
+        "y": 3680,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "d2adf11d.5d6ec",
+        "type": "inject",
+        "z": "224a1e19.da55d2",
+        "name": "",
+        "topic": "",
+        "payload": "13",
+        "payloadType": "num",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 250,
+        "y": 3720,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "8b7739f7.7e5ab",
+        "type": "inject",
+        "z": "224a1e19.da55d2",
+        "name": "",
+        "topic": "",
+        "payload": "14",
+        "payloadType": "num",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 250,
+        "y": 3760,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "e7787317.f9a48",
+        "type": "inject",
+        "z": "224a1e19.da55d2",
+        "name": "",
+        "topic": "",
+        "payload": "15",
+        "payloadType": "num",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 250,
+        "y": 3800,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "57e0b755.89943",
+        "type": "inject",
+        "z": "224a1e19.da55d2",
+        "name": "",
+        "topic": "",
+        "payload": "16",
+        "payloadType": "num",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 250,
+        "y": 3840,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "b7c3516f.4ca688",
+        "type": "link in",
+        "z": "224a1e19.da55d2",
+        "name": "Kitchen shutter-lnk",
+        "links": [
+            "e4ab0dd7.c862a"
+        ],
+        "x": 1375,
+        "y": 340,
+        "wires": [
+            [
+                "dafd89df.673128"
+            ]
+        ]
+    },
+    {
+        "id": "dafd89df.673128",
+        "type": "realknx-out",
+        "z": "224a1e19.da55d2",
+        "name": "Living room",
+        "controller": "72dbb210.664a3c",
+        "itemname": "Home cinema - Shutter",
+        "topic": "",
+        "payload": "",
+        "booleaninput": true,
+        "x": 1710,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "7ab14bb0.27be3c",
+        "type": "inject",
+        "z": "224a1e19.da55d2",
+        "name": "Start-up",
+        "topic": "",
+        "payload": "false",
+        "payloadType": "bool",
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "x": 1980,
+        "y": 340,
+        "wires": [
+            [
+                "dafd89df.673128"
+            ]
+        ]
+    },
+    {
+        "id": "c124e7cc.5e0c9",
+        "type": "switch",
+        "z": "224a1e19.da55d2",
+        "name": "General Shutter",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "7",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "8",
+                "vt": "num"
+            }
+        ],
+        "checkall": "true",
+        "outputs": 2,
+        "x": 540,
+        "y": 340,
+        "wires": [
+            [
+                "1818e09f.a8a1e7"
+            ],
+            [
+                "232254fc.fdd61c"
+            ]
+        ],
+        "inputLabels": [
+            "Input"
+        ],
+        "outputLabels": [
+            "Open shutters",
+            "Close shutters"
+        ]
+    },
+    {
+        "id": "eee91ab5.1bb4a8",
+        "type": "switch",
+        "z": "224a1e19.da55d2",
+        "name": "Scenes for Light",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "1",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "2",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "3",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "4",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "5",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "6",
+                "vt": "num"
+            }
+        ],
+        "checkall": "true",
+        "outputs": 6,
+        "x": 560,
+        "y": 1420,
+        "wires": [
+            [
+                "348281ae.b1154e"
+            ],
+            [
+                "4428c6fc.be8ec"
+            ],
+            [
+                "7a10c31f.bf7ccc",
+                "c358092.c9b42f8"
+            ],
+            [
+                "77ec0383.8387ac",
+                "b959ceb9.28639"
+            ],
+            [
+                "788970d2.8b2618"
+            ],
+            [
+                "9417cc1c.ec9b98"
+            ]
+        ],
+        "inputLabels": [
+            "Input"
+        ],
+        "outputLabels": [
+            "I'm Home",
+            "I'm leaving",
+            "Good night",
+            "Good Morning",
+            "Help",
+            "I'm fine"
+        ]
+    },
+    {
+        "id": "4428c6fc.be8ec",
+        "type": "change",
+        "z": "224a1e19.da55d2",
+        "name": "OFF",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "0",
+                "tot": "num"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 930,
+        "y": 1280,
+        "wires": [
+            [
+                "bb621ffd.55f3d8"
+            ]
+        ]
+    },
+    {
+        "id": "348281ae.b1154e",
+        "type": "change",
+        "z": "224a1e19.da55d2",
+        "name": "ON",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "255",
+                "tot": "num"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 930,
+        "y": 1200,
+        "wires": [
+            [
+                "3966738b.bd63cc",
+                "726cbb97.70f2fc"
+            ]
+        ]
+    },
+    {
+        "id": "71ebe1c9.e332",
+        "type": "link out",
+        "z": "224a1e19.da55d2",
+        "name": "Good Night OFF-lnk",
+        "links": [
+            "a2f52cbc.ef2e4"
+        ],
+        "x": 1135,
+        "y": 1400,
+        "wires": []
+    },
+    {
+        "id": "7a10c31f.bf7ccc",
+        "type": "change",
+        "z": "224a1e19.da55d2",
+        "name": "OFF",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "0",
+                "tot": "num"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 930,
+        "y": 1400,
+        "wires": [
+            [
+                "71ebe1c9.e332"
+            ]
+        ]
+    },
+    {
+        "id": "1dbcb5cc.982cda",
+        "type": "comment",
+        "z": "224a1e19.da55d2",
+        "name": "I'm Home",
+        "info": "",
+        "x": 940,
+        "y": 1160,
+        "wires": []
+    },
+    {
+        "id": "91c11b84.20784",
+        "type": "comment",
+        "z": "224a1e19.da55d2",
+        "name": "I'm leaving",
+        "info": "",
+        "x": 940,
+        "y": 1240,
+        "wires": []
+    },
+    {
+        "id": "6ff12f85.1afd4",
+        "type": "comment",
+        "z": "224a1e19.da55d2",
+        "name": "Good Night",
+        "info": "",
+        "x": 950,
+        "y": 1320,
+        "wires": []
+    },
+    {
+        "id": "80eef030.002fb8",
+        "type": "comment",
+        "z": "224a1e19.da55d2",
+        "name": "Good Morning",
+        "info": "",
+        "x": 950,
+        "y": 1440,
+        "wires": []
+    },
+    {
+        "id": "5025b17a.9cdde8",
+        "type": "comment",
+        "z": "224a1e19.da55d2",
+        "name": "Help",
+        "info": "",
+        "x": 930,
+        "y": 1560,
+        "wires": []
+    },
+    {
+        "id": "77f16d49.bc4c14",
+        "type": "comment",
+        "z": "224a1e19.da55d2",
+        "name": "I'm fine!",
+        "info": "",
+        "x": 930,
+        "y": 1640,
+        "wires": []
+    },
+    {
+        "id": "77ec0383.8387ac",
+        "type": "change",
+        "z": "224a1e19.da55d2",
+        "name": "ON",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "255",
+                "tot": "num"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 930,
+        "y": 1480,
+        "wires": [
+            [
+                "bcb746cd.2315a8"
+            ]
+        ]
+    },
+    {
+        "id": "788970d2.8b2618",
+        "type": "change",
+        "z": "224a1e19.da55d2",
+        "name": "ACTIVE w TRUE",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "true",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 970,
+        "y": 1600,
+        "wires": [
+            [
+                "1cac1d34.2a9353"
+            ]
+        ]
+    },
+    {
+        "id": "9417cc1c.ec9b98",
+        "type": "change",
+        "z": "224a1e19.da55d2",
+        "name": "DEACTIVATE w FALSE",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "false",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 990,
+        "y": 1680,
+        "wires": [
+            [
+                "521e76ba.abe2c8"
+            ]
+        ]
+    },
+    {
+        "id": "32ff4139.b59606",
+        "type": "realknx-out",
+        "z": "224a1e19.da55d2",
+        "name": "",
+        "controller": "72dbb210.664a3c",
+        "itemname": "Kitchen - Shutter",
+        "topic": "",
+        "payload": "",
+        "booleaninput": true,
+        "x": 1750,
+        "y": 960,
+        "wires": []
+    },
+    {
+        "id": "8e03d383.cecf4",
+        "type": "realknx-out",
+        "z": "224a1e19.da55d2",
+        "name": "",
+        "controller": "72dbb210.664a3c",
+        "itemname": "Home cinema - Shutter",
+        "topic": "",
+        "payload": "",
+        "booleaninput": true,
+        "x": 1770,
+        "y": 840,
+        "wires": []
+    },
+    {
+        "id": "55a10849.14984",
+        "type": "realknx-out",
+        "z": "224a1e19.da55d2",
+        "name": "",
+        "controller": "72dbb210.664a3c",
+        "itemname": "Bedroom - Shutter",
+        "topic": "",
+        "payload": "",
+        "booleaninput": true,
+        "x": 1750,
+        "y": 900,
+        "wires": []
+    },
+    {
+        "id": "98463e23.7f5418",
+        "type": "inject",
+        "z": "224a1e19.da55d2",
+        "name": "Start-up",
+        "topic": "",
+        "payload": "false",
+        "payloadType": "bool",
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "x": 1980,
+        "y": 900,
+        "wires": [
+            [
+                "8e03d383.cecf4",
+                "55a10849.14984",
+                "32ff4139.b59606"
+            ]
+        ]
+    },
+    {
+        "id": "69103c9a.1a67d4",
+        "type": "link in",
+        "z": "224a1e19.da55d2",
+        "name": "open close kitchen-lnk",
+        "links": [
+            "84b0ea2f.c4c108"
+        ],
+        "x": 1375,
+        "y": 960,
+        "wires": [
+            [
+                "32ff4139.b59606"
+            ]
+        ]
+    },
+    {
+        "id": "a2f220b7.4d9fd8",
+        "type": "link out",
+        "z": "224a1e19.da55d2",
+        "name": "Open close living room-lnk",
+        "links": [
+            "bdc9876.ab88578",
+            "a2203b7.370c2c8"
+        ],
+        "x": 1135,
+        "y": 820,
+        "wires": []
+    },
+    {
+        "id": "bf4c0773.dd175",
+        "type": "link out",
+        "z": "224a1e19.da55d2",
+        "name": "open close bedroom-lnk",
+        "links": [
+            "efffcab0.6d35",
+            "6e8a2f61.1b25",
+            "4bd957f7.59059"
+        ],
+        "x": 1135,
+        "y": 900,
+        "wires": []
+    },
+    {
+        "id": "84b0ea2f.c4c108",
+        "type": "link out",
+        "z": "224a1e19.da55d2",
+        "name": "open close kitchen-lnk",
+        "links": [
+            "69103c9a.1a67d4",
+            "3e86d831.0a1c5",
+            "d6f1e6cf.db5a08"
+        ],
+        "x": 1135,
+        "y": 980,
+        "wires": []
+    },
+    {
+        "id": "bdc9876.ab88578",
+        "type": "link in",
+        "z": "224a1e19.da55d2",
+        "name": "open close living room-lnk",
+        "links": [
+            "a2f220b7.4d9fd8"
+        ],
+        "x": 1375,
+        "y": 840,
+        "wires": [
+            [
+                "8e03d383.cecf4"
+            ]
+        ]
+    },
+    {
+        "id": "efffcab0.6d35",
+        "type": "link in",
+        "z": "224a1e19.da55d2",
+        "name": "open close bedroom-lnk",
+        "links": [
+            "bf4c0773.dd175"
+        ],
+        "x": 1375,
+        "y": 900,
+        "wires": [
+            [
+                "55a10849.14984"
+            ]
+        ]
+    },
+    {
+        "id": "3966738b.bd63cc",
+        "type": "link out",
+        "z": "224a1e19.da55d2",
+        "name": "I'm Home-lnk",
+        "links": [
+            "2bf3f0ba.d45318"
+        ],
+        "x": 1135,
+        "y": 1200,
+        "wires": []
+    },
+    {
+        "id": "bb621ffd.55f3d8",
+        "type": "link out",
+        "z": "224a1e19.da55d2",
+        "name": "I'm Leaving-lnk",
+        "links": [
+            "767068a8.8b7fa"
+        ],
+        "x": 1135,
+        "y": 1280,
+        "wires": []
+    },
+    {
+        "id": "bcb746cd.2315a8",
+        "type": "link out",
+        "z": "224a1e19.da55d2",
+        "name": "Good morning ON-lnk",
+        "links": [
+            "4638a0.774a176"
+        ],
+        "x": 1135,
+        "y": 1480,
+        "wires": []
+    },
+    {
+        "id": "1cac1d34.2a9353",
+        "type": "link out",
+        "z": "224a1e19.da55d2",
+        "name": "Help-lnk",
+        "links": [
+            "2ab41b4f.5471d4"
+        ],
+        "x": 1135,
+        "y": 1600,
+        "wires": []
+    },
+    {
+        "id": "521e76ba.abe2c8",
+        "type": "link out",
+        "z": "224a1e19.da55d2",
+        "name": "I'm fine-lnk",
+        "links": [
+            "7703850f.c18124"
+        ],
+        "x": 1135,
+        "y": 1680,
+        "wires": []
+    },
+    {
+        "id": "9c23bb9a.54c0a",
+        "type": "inject",
+        "z": "224a1e19.da55d2",
+        "name": "Start-up",
+        "topic": "",
+        "payload": "false",
+        "payloadType": "bool",
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "x": 2100,
+        "y": 1400,
+        "wires": [
+            [
+                "c0878f5a.f1adf",
+                "726cbb97.70f2fc",
+                "33d5cda.8828232",
+                "259a17e9.0a9e",
+                "7d7b5163.1f3fc",
+                "454bb11e.f35858",
+                "97d162b6.8cc0d"
+            ]
+        ]
+    },
+    {
+        "id": "c0878f5a.f1adf",
+        "type": "realknx-out",
+        "z": "224a1e19.da55d2",
+        "name": "",
+        "controller": "72dbb210.664a3c",
+        "itemname": "Kitchen - Ceiling",
+        "topic": "",
+        "payload": "",
+        "booleaninput": true,
+        "x": 1820,
+        "y": 1260,
+        "wires": []
+    },
+    {
+        "id": "a2f52cbc.ef2e4",
+        "type": "link in",
+        "z": "224a1e19.da55d2",
+        "name": "Good night OFF",
+        "links": [
+            "71ebe1c9.e332"
+        ],
+        "x": 1375,
+        "y": 1420,
+        "wires": [
+            [
+                "454bb11e.f35858",
+                "7d7b5163.1f3fc",
+                "259a17e9.0a9e",
+                "33d5cda.8828232",
+                "726cbb97.70f2fc",
+                "c0878f5a.f1adf"
+            ]
+        ]
+    },
+    {
+        "id": "4638a0.774a176",
+        "type": "link in",
+        "z": "224a1e19.da55d2",
+        "name": "Good morning ON",
+        "links": [
+            "bcb746cd.2315a8"
+        ],
+        "x": 1375,
+        "y": 1520,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "b959ceb9.28639",
+        "type": "change",
+        "z": "224a1e19.da55d2",
+        "name": "OFF",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "0",
+                "tot": "num"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 930,
+        "y": 1520,
+        "wires": [
+            [
+                "8c9de33.075c8a"
+            ]
+        ]
+    },
+    {
+        "id": "8c9de33.075c8a",
+        "type": "link out",
+        "z": "224a1e19.da55d2",
+        "name": "Good morning OFF-lnk",
+        "links": [
+            "e4d9b27.fa554d"
+        ],
+        "x": 1135,
+        "y": 1520,
+        "wires": []
+    },
+    {
+        "id": "e4d9b27.fa554d",
+        "type": "link in",
+        "z": "224a1e19.da55d2",
+        "name": "Good morning OFF",
+        "links": [
+            "8c9de33.075c8a"
+        ],
+        "x": 1375,
+        "y": 1560,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "c358092.c9b42f8",
+        "type": "change",
+        "z": "224a1e19.da55d2",
+        "name": "ON",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "255",
+                "tot": "num"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 930,
+        "y": 1360,
+        "wires": [
+            [
+                "82688a4b.c49058"
+            ]
+        ]
+    },
+    {
+        "id": "82688a4b.c49058",
+        "type": "link out",
+        "z": "224a1e19.da55d2",
+        "name": "Good Night ON-lnk",
+        "links": [
+            "bd79f864.3f8c48"
+        ],
+        "x": 1135,
+        "y": 1360,
+        "wires": []
+    },
+    {
+        "id": "bd79f864.3f8c48",
+        "type": "link in",
+        "z": "224a1e19.da55d2",
+        "name": "Good night ON",
+        "links": [
+            "82688a4b.c49058"
+        ],
+        "x": 1375,
+        "y": 1380,
+        "wires": [
+            [
+                "97d162b6.8cc0d"
+            ]
+        ]
+    },
+    {
+        "id": "e53a03b5.655de8",
+        "type": "comment",
+        "z": "224a1e19.da55d2",
+        "name": "Good Night",
+        "info": "",
+        "x": 1370,
+        "y": 1340,
+        "wires": []
+    },
+    {
+        "id": "765eaa26.db68d4",
+        "type": "comment",
+        "z": "224a1e19.da55d2",
+        "name": "Good Morning",
+        "info": "",
+        "x": 1380,
+        "y": 1480,
+        "wires": []
+    },
+    {
+        "id": "570abc9f.f8a69c",
+        "type": "comment",
+        "z": "224a1e19.da55d2",
+        "name": "I'm Home",
+        "info": "",
+        "x": 1380,
+        "y": 1160,
+        "wires": []
+    },
+    {
+        "id": "2bf3f0ba.d45318",
+        "type": "link in",
+        "z": "224a1e19.da55d2",
+        "name": "I'm Home",
+        "links": [
+            "3966738b.bd63cc"
+        ],
+        "x": 1375,
+        "y": 1200,
+        "wires": [
+            [
+                "726cbb97.70f2fc"
+            ]
+        ]
+    },
+    {
+        "id": "45be78db.23f28",
+        "type": "comment",
+        "z": "224a1e19.da55d2",
+        "name": "I'm leaving",
+        "info": "",
+        "x": 1380,
+        "y": 1240,
+        "wires": []
+    },
+    {
+        "id": "767068a8.8b7fa",
+        "type": "link in",
+        "z": "224a1e19.da55d2",
+        "name": "I'm leaving",
+        "links": [
+            "bb621ffd.55f3d8"
+        ],
+        "x": 1375,
+        "y": 1280,
+        "wires": [
+            [
+                "c0878f5a.f1adf",
+                "726cbb97.70f2fc",
+                "33d5cda.8828232",
+                "259a17e9.0a9e",
+                "7d7b5163.1f3fc",
+                "454bb11e.f35858",
+                "97d162b6.8cc0d"
+            ]
+        ]
+    },
+    {
+        "id": "f6817bb5.87271",
+        "type": "switch",
+        "z": "224a1e19.da55d2",
+        "name": "Scenes for Shutters",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "1",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "2",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "3",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "4",
+                "vt": "num"
+            }
+        ],
+        "checkall": "true",
+        "outputs": 4,
+        "x": 570,
+        "y": 2140,
+        "wires": [
+            [
+                "ddc4978f.95bdd8",
+                "8728d610.b8c8b8"
+            ],
+            [
+                "debd3a28.509b5",
+                "5464c703.671548"
+            ],
+            [
+                "6c965e8e.e1f07",
+                "92112b01.6363c8"
+            ],
+            [
+                "fcf761af.a92c1",
+                "8dc19cc3.af91b"
+            ]
+        ],
+        "inputLabels": [
+            "Input"
+        ],
+        "outputLabels": [
+            "I'm Home",
+            "I'm leaving",
+            "Good night",
+            "Good Morning"
+        ]
+    },
+    {
+        "id": "ddc4978f.95bdd8",
+        "type": "change",
+        "z": "224a1e19.da55d2",
+        "name": "OPEN",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "0",
+                "tot": "num"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 910,
+        "y": 1960,
+        "wires": [
+            [
+                "7e425124.66f14"
+            ]
+        ]
+    },
+    {
+        "id": "fc5385a4.dcbc18",
+        "type": "link out",
+        "z": "224a1e19.da55d2",
+        "name": "Good Night-CLOSE",
+        "links": [
+            "b7356606.ec945"
+        ],
+        "x": 1115,
+        "y": 2240,
+        "wires": []
+    },
+    {
+        "id": "202cb61a.e59c2a",
+        "type": "comment",
+        "z": "224a1e19.da55d2",
+        "name": "I'm Home",
+        "info": "",
+        "x": 920,
+        "y": 1920,
+        "wires": []
+    },
+    {
+        "id": "17d65780.17d151",
+        "type": "comment",
+        "z": "224a1e19.da55d2",
+        "name": "I'm leaving",
+        "info": "",
+        "x": 920,
+        "y": 2040,
+        "wires": []
+    },
+    {
+        "id": "29def427.6177fc",
+        "type": "comment",
+        "z": "224a1e19.da55d2",
+        "name": "Good Night",
+        "info": "",
+        "x": 930,
+        "y": 2160,
+        "wires": []
+    },
+    {
+        "id": "4f9bbbf9.fe487c",
+        "type": "comment",
+        "z": "224a1e19.da55d2",
+        "name": "Good Morning",
+        "info": "",
+        "x": 940,
+        "y": 2280,
+        "wires": []
+    },
+    {
+        "id": "7e425124.66f14",
+        "type": "link out",
+        "z": "224a1e19.da55d2",
+        "name": "I'm Home-OPEN",
+        "links": [
+            "e26b285c.1f7028"
+        ],
+        "x": 1115,
+        "y": 1960,
+        "wires": []
+    },
+    {
+        "id": "2a6d5dca.388b5a",
+        "type": "link out",
+        "z": "224a1e19.da55d2",
+        "name": "I'm Leaving-OPEN",
+        "links": [
+            "68721438.2c88fc"
+        ],
+        "x": 1115,
+        "y": 2080,
+        "wires": []
+    },
+    {
+        "id": "31830cd9.0b70bc",
+        "type": "link out",
+        "z": "224a1e19.da55d2",
+        "name": "Good morning-OPEN",
+        "links": [
+            "cc3e6ae7.6fac28"
+        ],
+        "x": 1115,
+        "y": 2320,
+        "wires": []
+    },
+    {
+        "id": "235f1649.b64b82",
+        "type": "link out",
+        "z": "224a1e19.da55d2",
+        "name": "Good morning-CLOSE",
+        "links": [
+            "eef394d9.6ef2a"
+        ],
+        "x": 1115,
+        "y": 2360,
+        "wires": []
+    },
+    {
+        "id": "a8b68aa4.d9e66",
+        "type": "link out",
+        "z": "224a1e19.da55d2",
+        "name": "Good Night-OPEN",
+        "links": [
+            "aa72c5fe.36e988"
+        ],
+        "x": 1115,
+        "y": 2200,
+        "wires": []
+    },
+    {
+        "id": "8728d610.b8c8b8",
+        "type": "change",
+        "z": "224a1e19.da55d2",
+        "name": "CLOSE",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "255",
+                "tot": "num"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 920,
+        "y": 2000,
+        "wires": [
+            [
+                "7b37a79f.5dc878"
+            ]
+        ]
+    },
+    {
+        "id": "7b37a79f.5dc878",
+        "type": "link out",
+        "z": "224a1e19.da55d2",
+        "name": "I'm Home-CLOSE",
+        "links": [
+            "dfad771b.1712b8"
+        ],
+        "x": 1115,
+        "y": 2000,
+        "wires": []
+    },
+    {
+        "id": "debd3a28.509b5",
+        "type": "change",
+        "z": "224a1e19.da55d2",
+        "name": "OPEN",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "0",
+                "tot": "num"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 910,
+        "y": 2080,
+        "wires": [
+            [
+                "2a6d5dca.388b5a"
+            ]
+        ]
+    },
+    {
+        "id": "5464c703.671548",
+        "type": "change",
+        "z": "224a1e19.da55d2",
+        "name": "CLOSE",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "255",
+                "tot": "num"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 920,
+        "y": 2120,
+        "wires": [
+            [
+                "9583a5ce.c9bce8"
+            ]
+        ]
+    },
+    {
+        "id": "6c965e8e.e1f07",
+        "type": "change",
+        "z": "224a1e19.da55d2",
+        "name": "OPEN",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "0",
+                "tot": "num"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 910,
+        "y": 2200,
+        "wires": [
+            [
+                "a8b68aa4.d9e66"
+            ]
+        ]
+    },
+    {
+        "id": "92112b01.6363c8",
+        "type": "change",
+        "z": "224a1e19.da55d2",
+        "name": "CLOSE",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "255",
+                "tot": "num"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 920,
+        "y": 2240,
+        "wires": [
+            [
+                "fc5385a4.dcbc18"
+            ]
+        ]
+    },
+    {
+        "id": "fcf761af.a92c1",
+        "type": "change",
+        "z": "224a1e19.da55d2",
+        "name": "OPEN",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "0",
+                "tot": "num"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 910,
+        "y": 2320,
+        "wires": [
+            [
+                "31830cd9.0b70bc"
+            ]
+        ]
+    },
+    {
+        "id": "8dc19cc3.af91b",
+        "type": "change",
+        "z": "224a1e19.da55d2",
+        "name": "CLOSE",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "255",
+                "tot": "num"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 920,
+        "y": 2360,
+        "wires": [
+            [
+                "235f1649.b64b82"
+            ]
+        ]
+    },
+    {
+        "id": "9583a5ce.c9bce8",
+        "type": "link out",
+        "z": "224a1e19.da55d2",
+        "name": "I'm Leaving-CLOSE",
+        "links": [
+            "85b8c347.27d408"
+        ],
+        "x": 1115,
+        "y": 2120,
+        "wires": []
+    },
+    {
+        "id": "1567c154.1bb9d7",
+        "type": "realknx-out",
+        "z": "224a1e19.da55d2",
+        "name": "",
+        "controller": "72dbb210.664a3c",
+        "itemname": "Home cinema - Shutter",
+        "topic": "",
+        "payload": "",
+        "booleaninput": true,
+        "x": 1750,
+        "y": 2140,
+        "wires": []
+    },
+    {
+        "id": "27074d6.c8f45b2",
+        "type": "inject",
+        "z": "224a1e19.da55d2",
+        "name": "Start-up",
+        "topic": "",
+        "payload": "true",
+        "payloadType": "bool",
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "x": 2000,
+        "y": 2140,
+        "wires": [
+            [
+                "1567c154.1bb9d7"
+            ]
+        ]
+    },
+    {
+        "id": "e26b285c.1f7028",
+        "type": "link in",
+        "z": "224a1e19.da55d2",
+        "name": "I'm home-OPEN",
+        "links": [
+            "7e425124.66f14"
+        ],
+        "x": 1375,
+        "y": 1960,
+        "wires": [
+            [
+                "1567c154.1bb9d7"
+            ]
+        ]
+    },
+    {
+        "id": "dfad771b.1712b8",
+        "type": "link in",
+        "z": "224a1e19.da55d2",
+        "name": "I'm home-CLOSE",
+        "links": [
+            "7b37a79f.5dc878"
+        ],
+        "x": 1375,
+        "y": 2000,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "ea8cf40e.08b1d",
+        "type": "comment",
+        "z": "224a1e19.da55d2",
+        "name": "I'm Home",
+        "info": "",
+        "x": 1380,
+        "y": 1920,
+        "wires": []
+    },
+    {
+        "id": "37062289.acce76",
+        "type": "comment",
+        "z": "224a1e19.da55d2",
+        "name": "I'm leaving",
+        "info": "",
+        "x": 1380,
+        "y": 2040,
+        "wires": []
+    },
+    {
+        "id": "68721438.2c88fc",
+        "type": "link in",
+        "z": "224a1e19.da55d2",
+        "name": "I'm leaving-OPEN",
+        "links": [
+            "2a6d5dca.388b5a"
+        ],
+        "x": 1375,
+        "y": 2080,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "85b8c347.27d408",
+        "type": "link in",
+        "z": "224a1e19.da55d2",
+        "name": "I'm leaving-CLOSE",
+        "links": [
+            "9583a5ce.c9bce8"
+        ],
+        "x": 1375,
+        "y": 2120,
+        "wires": [
+            [
+                "1567c154.1bb9d7"
+            ]
+        ]
+    },
+    {
+        "id": "416064ce.e8968c",
+        "type": "comment",
+        "z": "224a1e19.da55d2",
+        "name": "Good Night",
+        "info": "",
+        "x": 1370,
+        "y": 2160,
+        "wires": []
+    },
+    {
+        "id": "aa72c5fe.36e988",
+        "type": "link in",
+        "z": "224a1e19.da55d2",
+        "name": "Good Night-OPEN",
+        "links": [
+            "a8b68aa4.d9e66"
+        ],
+        "x": 1375,
+        "y": 2200,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "b7356606.ec945",
+        "type": "link in",
+        "z": "224a1e19.da55d2",
+        "name": "Good Night-CLOSE",
+        "links": [
+            "fc5385a4.dcbc18"
+        ],
+        "x": 1375,
+        "y": 2240,
+        "wires": [
+            [
+                "1567c154.1bb9d7"
+            ]
+        ]
+    },
+    {
+        "id": "96fbbfd8.8b35a",
+        "type": "comment",
+        "z": "224a1e19.da55d2",
+        "name": "Good Morning",
+        "info": "",
+        "x": 1380,
+        "y": 2280,
+        "wires": []
+    },
+    {
+        "id": "cc3e6ae7.6fac28",
+        "type": "link in",
+        "z": "224a1e19.da55d2",
+        "name": "Good Morning-OPEN",
+        "links": [
+            "31830cd9.0b70bc"
+        ],
+        "x": 1375,
+        "y": 2320,
+        "wires": [
+            [
+                "1567c154.1bb9d7"
+            ]
+        ]
+    },
+    {
+        "id": "eef394d9.6ef2a",
+        "type": "link in",
+        "z": "224a1e19.da55d2",
+        "name": "Good morning-CLOSE",
+        "links": [
+            "235f1649.b64b82"
+        ],
+        "x": 1375,
+        "y": 2360,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "60f0bf1f.aecbe",
+        "type": "comment",
+        "z": "224a1e19.da55d2",
+        "name": "Help",
+        "info": "",
+        "x": 1370,
+        "y": 1600,
+        "wires": []
+    },
+    {
+        "id": "2e221bef.fae1e4",
+        "type": "comment",
+        "z": "224a1e19.da55d2",
+        "name": "I'm fine!",
+        "info": "",
+        "x": 1370,
+        "y": 1680,
+        "wires": []
+    },
+    {
+        "id": "2ab41b4f.5471d4",
+        "type": "link in",
+        "z": "224a1e19.da55d2",
+        "name": "Help",
+        "links": [
+            "1cac1d34.2a9353"
+        ],
+        "x": 1375,
+        "y": 1640,
+        "wires": [
+            [
+                "1c2d3d39.07d73b"
+            ]
+        ]
+    },
+    {
+        "id": "7703850f.c18124",
+        "type": "link in",
+        "z": "224a1e19.da55d2",
+        "name": "I'm fine",
+        "links": [
+            "521e76ba.abe2c8"
+        ],
+        "x": 1375,
+        "y": 1720,
+        "wires": [
+            [
+                "1c2d3d39.07d73b"
+            ]
+        ]
+    },
+    {
+        "id": "1ecd1b99.53a1ac",
+        "type": "debug",
+        "z": "224a1e19.da55d2",
+        "name": "",
+        "active": true,
+        "console": "false",
+        "complete": "payload",
+        "x": 170,
+        "y": 1040,
+        "wires": []
+    },
+    {
+        "id": "1c2d3d39.07d73b",
+        "type": "link out",
+        "z": "224a1e19.da55d2",
+        "name": "Help sent to SMarty Vox",
+        "links": [
+            "1f67d0cc.26dbcf"
+        ],
+        "x": 1538,
+        "y": 1687,
+        "wires": []
+    },
+    {
+        "id": "726cbb97.70f2fc",
+        "type": "realknx-out",
+        "z": "224a1e19.da55d2",
+        "name": "",
+        "controller": "72dbb210.664a3c",
+        "itemname": "Living Room - Ceiling",
+        "topic": "",
+        "payload": "",
+        "booleaninput": true,
+        "x": 1840,
+        "y": 1320,
+        "wires": []
+    },
+    {
+        "id": "33d5cda.8828232",
+        "type": "realknx-out",
+        "z": "224a1e19.da55d2",
+        "name": "",
+        "controller": "72dbb210.664a3c",
+        "itemname": "Home cinema - Table",
+        "topic": "",
+        "payload": "",
+        "booleaninput": true,
+        "x": 1840,
+        "y": 1380,
+        "wires": []
+    },
+    {
+        "id": "259a17e9.0a9e",
+        "type": "realknx-out",
+        "z": "224a1e19.da55d2",
+        "name": "",
+        "controller": "72dbb210.664a3c",
+        "itemname": "Home cinema - Ceiling",
+        "topic": "",
+        "payload": "",
+        "booleaninput": true,
+        "x": 1840,
+        "y": 1440,
+        "wires": []
+    },
+    {
+        "id": "7d7b5163.1f3fc",
+        "type": "realknx-out",
+        "z": "224a1e19.da55d2",
+        "name": "",
+        "controller": "72dbb210.664a3c",
+        "itemname": "Home cinema - Floor",
+        "topic": "",
+        "payload": "",
+        "booleaninput": true,
+        "x": 1840,
+        "y": 1500,
+        "wires": []
+    },
+    {
+        "id": "454bb11e.f35858",
+        "type": "realknx-out",
+        "z": "224a1e19.da55d2",
+        "name": "",
+        "controller": "b7fe77e3.28e52",
+        "itemname": "Home cinema - Wall",
+        "topic": "",
+        "payload": "",
+        "booleaninput": true,
+        "x": 1840,
+        "y": 1560,
+        "wires": []
+    },
+    {
+        "id": "97d162b6.8cc0d",
+        "type": "realknx-out",
+        "z": "224a1e19.da55d2",
+        "name": "",
+        "controller": "b7fe77e3.28e52",
+        "itemname": "Bedroom - Ceiling",
+        "topic": "",
+        "payload": "",
+        "booleaninput": true,
+        "x": 1830,
+        "y": 1620,
+        "wires": []
+    },
+    {
+        "id": "cb5a8628.fe60e8",
+        "type": "comment",
+        "z": "224a1e19.da55d2",
+        "name": "Test triggers",
+        "info": "",
+        "x": 230,
+        "y": 1360,
+        "wires": []
+    },
+    {
+        "id": "75868a72.5191a4",
+        "type": "mqtt-broker",
+        "z": "",
+        "broker": "",
+        "port": "1883",
+        "clientid": "",
+        "usetls": false,
+        "compatmode": true,
+        "keepalive": "60",
+        "cleansession": true,
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": ""
+    },
+    {
+        "id": "72dbb210.664a3c",
+        "type": "realknx-controller",
+        "z": "",
+        "name": "realknx-ctrl-lb",
+        "host": "localhost",
+        "port": "3000"
+    },
+    {
+        "id": "b7fe77e3.28e52",
+        "type": "realknx-controller",
+        "z": "",
+        "name": "realknx-ctrl",
+        "host": "localhost",
+        "port": "3000"
+    }
+]
