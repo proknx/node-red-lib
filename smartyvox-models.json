@@ -1,0 +1,10 @@
+[
+{
+"name": "English v1",
+"url": "https://github.com/proknx/node-red-lib/blob/master/offline-voice-smartyvox-en-v1.json"
+},
+{
+"name": "German v1",
+"url": "https://github.com/proknx/node-red-lib/blob/master/offline-voice-smartyvox-de-v1.json"
+}
+]
