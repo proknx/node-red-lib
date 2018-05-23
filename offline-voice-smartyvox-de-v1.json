@@ -1,0 +1,3549 @@
+[
+    {
+        "id": "224bd643.c885ca",
+        "type": "tab",
+        "label": "Smarty-Vox 'DE' (v1.0)",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "395c565b.2dd86a",
+        "type": "comment",
+        "z": "224bd643.c885ca",
+        "name": "Possible Voice Commands (read me!)",
+        "info": "A.      Angela,\nB.      Ok Pippi,\n\n\n1.   Ich bin daheim.    \n2.   Ich verlasse das Haus.\n3.   Schalte Wohnzimmer.            \n4.   Schalte Küche.       \n5.   Schalte Esszimmer.            \n6.   Schalte Diele.            \n7.   Schalte Schlafzimmer.      \n8.   Schalte Kinderzimmer.     \n9.   Schalte Garten.    \n10.  Schalte Einfahrt.\n11.  Schalte Licht aus.     \n12.  Schalte Musik.          \n13.  Schließe Rollladen.      \n14.  Öffne Rollladen.   \n15.  Aktiviere gemütlich.        \n16.  Aktiviere Abendessen.      \n17.  Aktiviere Empfang.          \n18.  Hilfe.          \n19.  Not Defined\n20.  Not Defined",
+        "x": 1350,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "f1e8454c.a91618",
+        "type": "mqtt in",
+        "z": "224bd643.c885ca",
+        "name": "",
+        "topic": "/zwave/vr",
+        "qos": "0",
+        "broker": "6f3c3546.3640bc",
+        "x": 220,
+        "y": 1680,
+        "wires": [
+            [
+                "ab7bb643.845d48"
+            ]
+        ]
+    },
+    {
+        "id": "db9eac3c.6306a",
+        "type": "comment",
+        "z": "224bd643.c885ca",
+        "name": "Voice commands from Gateway (ZNG100)",
+        "info": "",
+        "x": 320,
+        "y": 1600,
+        "wires": []
+    },
+    {
+        "id": "e7fa3dfb.903df",
+        "type": "switch",
+        "z": "224bd643.c885ca",
+        "name": "Light",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "3",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "4",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "5",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "6",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "7",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "8",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "9",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "10",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "outputs": 8,
+        "x": 690,
+        "y": 820,
+        "wires": [
+            [
+                "db812552.7178a8"
+            ],
+            [
+                "b7f907a7.8f7048"
+            ],
+            [
+                "910abd3f.6311c"
+            ],
+            [
+                "ebc00ab1.bb2f68"
+            ],
+            [
+                "16da97dc.7b4d38"
+            ],
+            [
+                "a0111034.f16a2"
+            ],
+            [
+                "be0b282d.36ae08"
+            ],
+            [
+                "14917bbc.6dfe84"
+            ]
+        ],
+        "inputLabels": [
+            "Input"
+        ],
+        "outputLabels": [
+            "Turn on Livingroom",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            ""
+        ]
+    },
+    {
+        "id": "1dc37ddc.21c702",
+        "type": "link out",
+        "z": "224bd643.c885ca",
+        "name": "Wohnzimmer 2",
+        "links": [
+            "e91481cf.a4bdd"
+        ],
+        "x": 1215,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "ffe0a55.72bf558",
+        "type": "realknx-out",
+        "z": "224bd643.c885ca",
+        "name": "3. Schalte Wonhzimmer.",
+        "controller": "b4d19699.4cb748",
+        "itemname": "",
+        "topic": "",
+        "payload": "",
+        "booleaninput": true,
+        "x": 1610,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "e91481cf.a4bdd",
+        "type": "link in",
+        "z": "224bd643.c885ca",
+        "name": "Wohnzimmer 2",
+        "links": [
+            "1dc37ddc.21c702"
+        ],
+        "x": 1454,
+        "y": 280,
+        "wires": [
+            [
+                "ffe0a55.72bf558"
+            ]
+        ]
+    },
+    {
+        "id": "bd1e3c88.4748b",
+        "type": "change",
+        "z": "224bd643.c885ca",
+        "name": "Close",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "255",
+                "tot": "num"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 930,
+        "y": 1840,
+        "wires": [
+            [
+                "17da220b.da161e"
+            ]
+        ]
+    },
+    {
+        "id": "18c56a71.45c2d6",
+        "type": "change",
+        "z": "224bd643.c885ca",
+        "name": "Open",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "0",
+                "tot": "num"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 930,
+        "y": 1880,
+        "wires": [
+            [
+                "81c3c030.93837"
+            ]
+        ]
+    },
+    {
+        "id": "c7ced2af.56821",
+        "type": "comment",
+        "z": "224bd643.c885ca",
+        "name": "Wohnzimmer",
+        "info": "",
+        "x": 1050,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "99f9531c.d45a5",
+        "type": "switch",
+        "z": "224bd643.c885ca",
+        "name": "Rollladen",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "13",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "14",
+                "vt": "num"
+            }
+        ],
+        "checkall": "true",
+        "outputs": 2,
+        "x": 700,
+        "y": 1860,
+        "wires": [
+            [
+                "bd1e3c88.4748b"
+            ],
+            [
+                "18c56a71.45c2d6"
+            ]
+        ],
+        "inputLabels": [
+            "Input"
+        ],
+        "outputLabels": [
+            "close kitchen",
+            "open livingroom"
+        ]
+    },
+    {
+        "id": "d79d9a11.a48358",
+        "type": "comment",
+        "z": "224bd643.c885ca",
+        "name": "Rollladen",
+        "info": "",
+        "x": 1040,
+        "y": 1800,
+        "wires": []
+    },
+    {
+        "id": "99921aba.491aa8",
+        "type": "switch",
+        "z": "224bd643.c885ca",
+        "name": "Scenes",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "1",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "2",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "15",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "16",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "17",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "18",
+                "vt": "num"
+            }
+        ],
+        "checkall": "true",
+        "outputs": 6,
+        "x": 700,
+        "y": 2460,
+        "wires": [
+            [
+                "77b02f76.dd00a",
+                "5092ad2a.cca8b4",
+                "725dc0fe.d5149"
+            ],
+            [
+                "98aa44bc.97c2f8",
+                "afb305d9.b6ad58",
+                "ee80ad9d.e1a8e"
+            ],
+            [
+                "491916be.29ef68",
+                "123a803a.6bf67",
+                "ef5218e5.db9148"
+            ],
+            [
+                "da2b1689.516848",
+                "323a30b3.68c7c",
+                "96769a90.f3a3f8"
+            ],
+            [
+                "963c5296.1403d",
+                "18345ab6.6c7245",
+                "e0b3aebe.12b34"
+            ],
+            [
+                "24621189.7d210e",
+                "8c055eae.d6ddf",
+                "a661e615.015df8"
+            ]
+        ],
+        "inputLabels": [
+            "Input"
+        ],
+        "outputLabels": [
+            "I'm Home",
+            "I'm leaving",
+            "Good night",
+            "Good Morning",
+            "Help",
+            "I'm fine"
+        ]
+    },
+    {
+        "id": "98aa44bc.97c2f8",
+        "type": "change",
+        "z": "224bd643.c885ca",
+        "name": "OFF",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "0",
+                "tot": "num"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 930,
+        "y": 2220,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "77b02f76.dd00a",
+        "type": "change",
+        "z": "224bd643.c885ca",
+        "name": "ON",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "255",
+                "tot": "num"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 930,
+        "y": 2020,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "5c9966fd.5ef918",
+        "type": "link out",
+        "z": "224bd643.c885ca",
+        "name": "Aktiviere gemütlich.",
+        "links": [
+            "a99a38b2.ba2588"
+        ],
+        "x": 1215,
+        "y": 2380,
+        "wires": []
+    },
+    {
+        "id": "491916be.29ef68",
+        "type": "change",
+        "z": "224bd643.c885ca",
+        "name": "OFF",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "0",
+                "tot": "num"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 930,
+        "y": 2380,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "1e2bf569.10ff6b",
+        "type": "comment",
+        "z": "224bd643.c885ca",
+        "name": "Aktiviere gemütlich.",
+        "info": "",
+        "x": 1070,
+        "y": 2300,
+        "wires": []
+    },
+    {
+        "id": "7218ab4b.b806b4",
+        "type": "comment",
+        "z": "224bd643.c885ca",
+        "name": "Aktiviere Abendessen.",
+        "info": "",
+        "x": 1080,
+        "y": 2460,
+        "wires": []
+    },
+    {
+        "id": "74980d43.ea7d94",
+        "type": "comment",
+        "z": "224bd643.c885ca",
+        "name": "Aktiviere Empfang.",
+        "info": "",
+        "x": 1070,
+        "y": 2620,
+        "wires": []
+    },
+    {
+        "id": "8b6c6b13.f52788",
+        "type": "comment",
+        "z": "224bd643.c885ca",
+        "name": "Hilfe.",
+        "info": "",
+        "x": 1030,
+        "y": 2780,
+        "wires": []
+    },
+    {
+        "id": "da2b1689.516848",
+        "type": "change",
+        "z": "224bd643.c885ca",
+        "name": "ON",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "255",
+                "tot": "num"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 930,
+        "y": 2500,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "f1a9f958.4632f8",
+        "type": "link in",
+        "z": "224bd643.c885ca",
+        "name": "open close",
+        "links": [
+            "17da220b.da161e"
+        ],
+        "x": 1455,
+        "y": 1840,
+        "wires": [
+            [
+                "c3acd534.67fa78"
+            ]
+        ]
+    },
+    {
+        "id": "17da220b.da161e",
+        "type": "link out",
+        "z": "224bd643.c885ca",
+        "name": "Open close",
+        "links": [
+            "f1a9f958.4632f8"
+        ],
+        "x": 1215,
+        "y": 1840,
+        "wires": []
+    },
+    {
+        "id": "a5edab00.aa03e8",
+        "type": "link out",
+        "z": "224bd643.c885ca",
+        "name": "Ich bin daheim.",
+        "links": [
+            "d4516a63.27a308"
+        ],
+        "x": 1215,
+        "y": 2020,
+        "wires": []
+    },
+    {
+        "id": "16954110.7d340f",
+        "type": "link out",
+        "z": "224bd643.c885ca",
+        "name": "Ich verlasse das Haus.",
+        "links": [
+            "ec6f3fad.c24dc"
+        ],
+        "x": 1215,
+        "y": 2220,
+        "wires": []
+    },
+    {
+        "id": "1a8318d6.6008a7",
+        "type": "link out",
+        "z": "224bd643.c885ca",
+        "name": "Aktiviere Abendessen.",
+        "links": [
+            "75beb72c.88dc58"
+        ],
+        "x": 1215,
+        "y": 2500,
+        "wires": []
+    },
+    {
+        "id": "bb4876f5.616f18",
+        "type": "link out",
+        "z": "224bd643.c885ca",
+        "name": "Aktiviere Empfang.",
+        "links": [
+            "819180e1.0bf7d"
+        ],
+        "x": 1215,
+        "y": 2660,
+        "wires": []
+    },
+    {
+        "id": "edee2a95.1256d8",
+        "type": "link out",
+        "z": "224bd643.c885ca",
+        "name": "Hilfe.",
+        "links": [
+            "a8c26140.f18a9"
+        ],
+        "x": 1215,
+        "y": 2820,
+        "wires": []
+    },
+    {
+        "id": "a99a38b2.ba2588",
+        "type": "link in",
+        "z": "224bd643.c885ca",
+        "name": "Aktiviere gemütlich.",
+        "links": [
+            "5c9966fd.5ef918"
+        ],
+        "x": 1455,
+        "y": 2380,
+        "wires": [
+            [
+                "d0725b8e.44bc28"
+            ]
+        ]
+    },
+    {
+        "id": "75beb72c.88dc58",
+        "type": "link in",
+        "z": "224bd643.c885ca",
+        "name": "Aktiviere Abendessen.",
+        "links": [
+            "1a8318d6.6008a7"
+        ],
+        "x": 1455,
+        "y": 2500,
+        "wires": [
+            [
+                "10a6ddb1.9f3162"
+            ]
+        ]
+    },
+    {
+        "id": "323a30b3.68c7c",
+        "type": "change",
+        "z": "224bd643.c885ca",
+        "name": "OFF",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "0",
+                "tot": "num"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 930,
+        "y": 2540,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "ab8683dd.4499c",
+        "type": "link out",
+        "z": "224bd643.c885ca",
+        "name": "Aktiviere Abendessen.",
+        "links": [
+            "b3aca47b.18d858"
+        ],
+        "x": 1215,
+        "y": 2540,
+        "wires": []
+    },
+    {
+        "id": "b3aca47b.18d858",
+        "type": "link in",
+        "z": "224bd643.c885ca",
+        "name": "Aktiviere Abendessen.",
+        "links": [
+            "ab8683dd.4499c"
+        ],
+        "x": 1455,
+        "y": 2540,
+        "wires": [
+            [
+                "c4b52ee5.ba143"
+            ]
+        ]
+    },
+    {
+        "id": "123a803a.6bf67",
+        "type": "change",
+        "z": "224bd643.c885ca",
+        "name": "ON",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "255",
+                "tot": "num"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 930,
+        "y": 2340,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "2db8eea9.e51432",
+        "type": "link out",
+        "z": "224bd643.c885ca",
+        "name": "Aktiviere gemütlich.",
+        "links": [
+            "f7299ef.06f666"
+        ],
+        "x": 1215,
+        "y": 2340,
+        "wires": []
+    },
+    {
+        "id": "f7299ef.06f666",
+        "type": "link in",
+        "z": "224bd643.c885ca",
+        "name": "Aktiviere gemütlich.",
+        "links": [
+            "2db8eea9.e51432"
+        ],
+        "x": 1455,
+        "y": 2340,
+        "wires": [
+            [
+                "e0d1a737.add1c8"
+            ]
+        ]
+    },
+    {
+        "id": "d4516a63.27a308",
+        "type": "link in",
+        "z": "224bd643.c885ca",
+        "name": "Ich bin daheim.",
+        "links": [
+            "a5edab00.aa03e8"
+        ],
+        "x": 1455,
+        "y": 2020,
+        "wires": [
+            [
+                "391b4e70.20be22"
+            ]
+        ]
+    },
+    {
+        "id": "ec6f3fad.c24dc",
+        "type": "link in",
+        "z": "224bd643.c885ca",
+        "name": "Ich verlasse das Haus.",
+        "links": [
+            "16954110.7d340f"
+        ],
+        "x": 1455,
+        "y": 2220,
+        "wires": [
+            [
+                "c471bf90.66ed7"
+            ]
+        ]
+    },
+    {
+        "id": "fb85cdc7.5d90c",
+        "type": "comment",
+        "z": "224bd643.c885ca",
+        "name": "Ich bin daheim",
+        "info": "",
+        "x": 1060,
+        "y": 1980,
+        "wires": []
+    },
+    {
+        "id": "c1418ee8.46641",
+        "type": "comment",
+        "z": "224bd643.c885ca",
+        "name": "Ich verlasse das Haus.",
+        "info": "",
+        "x": 1080,
+        "y": 2140,
+        "wires": []
+    },
+    {
+        "id": "a8c26140.f18a9",
+        "type": "link in",
+        "z": "224bd643.c885ca",
+        "name": "Hilfe.",
+        "links": [
+            "edee2a95.1256d8"
+        ],
+        "x": 1455,
+        "y": 2820,
+        "wires": [
+            [
+                "bba1e354.3bf6a"
+            ]
+        ]
+    },
+    {
+        "id": "81c3c030.93837",
+        "type": "link out",
+        "z": "224bd643.c885ca",
+        "name": "Open close",
+        "links": [
+            "17bdad86.3fe552"
+        ],
+        "x": 1215,
+        "y": 1880,
+        "wires": []
+    },
+    {
+        "id": "17bdad86.3fe552",
+        "type": "link in",
+        "z": "224bd643.c885ca",
+        "name": "open close",
+        "links": [
+            "81c3c030.93837"
+        ],
+        "x": 1455,
+        "y": 1880,
+        "wires": [
+            [
+                "d285635f.40c7c"
+            ]
+        ]
+    },
+    {
+        "id": "8f9f30a1.92b9e",
+        "type": "change",
+        "z": "224bd643.c885ca",
+        "name": "invert",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "$not(msg.payload)\t",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1110,
+        "y": 280,
+        "wires": [
+            [
+                "1dc37ddc.21c702"
+            ]
+        ]
+    },
+    {
+        "id": "db812552.7178a8",
+        "type": "change",
+        "z": "224bd643.c885ca",
+        "name": "current state",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "wohnzimmer.state",
+                "tot": "flow"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 950,
+        "y": 280,
+        "wires": [
+            [
+                "8f9f30a1.92b9e"
+            ]
+        ]
+    },
+    {
+        "id": "fd97116a.a4d32",
+        "type": "change",
+        "z": "224bd643.c885ca",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "wohnzimmer.state",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1040,
+        "y": 320,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "af6642a1.16688",
+        "type": "link in",
+        "z": "224bd643.c885ca",
+        "name": "Wohnzimmer 1",
+        "links": [
+            "16a8c63b.96596a"
+        ],
+        "x": 895,
+        "y": 320,
+        "wires": [
+            [
+                "fd97116a.a4d32"
+            ]
+        ]
+    },
+    {
+        "id": "16a8c63b.96596a",
+        "type": "link out",
+        "z": "224bd643.c885ca",
+        "name": "Wohnzimmer 1",
+        "links": [
+            "af6642a1.16688"
+        ],
+        "x": 2015,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "c536d4be.6e7378",
+        "type": "realknx-in",
+        "z": "224bd643.c885ca",
+        "name": "3. Schalte Wonhzimmer.",
+        "controller": "b4d19699.4cb748",
+        "itemname": "",
+        "passthru": true,
+        "booleanoutput": true,
+        "outputatstartup": true,
+        "x": 1850,
+        "y": 280,
+        "wires": [
+            [
+                "16a8c63b.96596a"
+            ]
+        ]
+    },
+    {
+        "id": "3bd54ca5.caf0a4",
+        "type": "realknx-out",
+        "z": "224bd643.c885ca",
+        "name": "4. Schalte Küche.",
+        "controller": "b4d19699.4cb748",
+        "itemname": "",
+        "topic": "",
+        "payload": "",
+        "booleaninput": true,
+        "x": 1590,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "ff1a94f9.53d928",
+        "type": "link in",
+        "z": "224bd643.c885ca",
+        "name": "Kuche 2",
+        "links": [
+            "7a306229.35c5fc"
+        ],
+        "x": 1454,
+        "y": 440,
+        "wires": [
+            [
+                "3bd54ca5.caf0a4"
+            ]
+        ]
+    },
+    {
+        "id": "ca91e7f8.fe82d8",
+        "type": "link out",
+        "z": "224bd643.c885ca",
+        "name": "Kuche 1",
+        "links": [
+            "dd35a5fc.4ce798"
+        ],
+        "x": 2015,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "ab239f40.6a42f",
+        "type": "realknx-in",
+        "z": "224bd643.c885ca",
+        "name": "4. Schalte Küche.",
+        "controller": "b4d19699.4cb748",
+        "itemname": "",
+        "passthru": true,
+        "booleanoutput": true,
+        "outputatstartup": true,
+        "x": 1820,
+        "y": 440,
+        "wires": [
+            [
+                "ca91e7f8.fe82d8"
+            ]
+        ]
+    },
+    {
+        "id": "7a306229.35c5fc",
+        "type": "link out",
+        "z": "224bd643.c885ca",
+        "name": "Kuche 2",
+        "links": [
+            "ff1a94f9.53d928"
+        ],
+        "x": 1215,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "7d784296.9ddc8c",
+        "type": "comment",
+        "z": "224bd643.c885ca",
+        "name": "Küche",
+        "info": "",
+        "x": 1030,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "5efcbd36.8bb094",
+        "type": "change",
+        "z": "224bd643.c885ca",
+        "name": "invert",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "$not(msg.payload)\t",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1110,
+        "y": 440,
+        "wires": [
+            [
+                "7a306229.35c5fc"
+            ]
+        ]
+    },
+    {
+        "id": "b7f907a7.8f7048",
+        "type": "change",
+        "z": "224bd643.c885ca",
+        "name": "current state",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "kuche.state",
+                "tot": "flow"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 950,
+        "y": 440,
+        "wires": [
+            [
+                "5efcbd36.8bb094"
+            ]
+        ]
+    },
+    {
+        "id": "8fa29f99.47bf8",
+        "type": "change",
+        "z": "224bd643.c885ca",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "kuche.state",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1060,
+        "y": 480,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "dd35a5fc.4ce798",
+        "type": "link in",
+        "z": "224bd643.c885ca",
+        "name": "Kuche 1",
+        "links": [
+            "ca91e7f8.fe82d8"
+        ],
+        "x": 895,
+        "y": 480,
+        "wires": [
+            [
+                "8fa29f99.47bf8"
+            ]
+        ]
+    },
+    {
+        "id": "315fb44d.07a44c",
+        "type": "link out",
+        "z": "224bd643.c885ca",
+        "name": "Esszimmer 2",
+        "links": [
+            "8c74fdda.d591f"
+        ],
+        "x": 1215,
+        "y": 600,
+        "wires": []
+    },
+    {
+        "id": "8877ba60.30d3b8",
+        "type": "realknx-out",
+        "z": "224bd643.c885ca",
+        "name": "5. Schalte Esszimmer.",
+        "controller": "b4d19699.4cb748",
+        "itemname": "",
+        "topic": "",
+        "payload": "",
+        "booleaninput": true,
+        "x": 1600,
+        "y": 600,
+        "wires": []
+    },
+    {
+        "id": "8c74fdda.d591f",
+        "type": "link in",
+        "z": "224bd643.c885ca",
+        "name": "Esszimmer 2",
+        "links": [
+            "315fb44d.07a44c"
+        ],
+        "x": 1454,
+        "y": 600,
+        "wires": [
+            [
+                "8877ba60.30d3b8"
+            ]
+        ]
+    },
+    {
+        "id": "9296d719.430c78",
+        "type": "comment",
+        "z": "224bd643.c885ca",
+        "name": "Esszimmer",
+        "info": "",
+        "x": 1040,
+        "y": 560,
+        "wires": []
+    },
+    {
+        "id": "bd3c1693.f2b558",
+        "type": "change",
+        "z": "224bd643.c885ca",
+        "name": "invert",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "$not(msg.payload)\t",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1110,
+        "y": 600,
+        "wires": [
+            [
+                "315fb44d.07a44c"
+            ]
+        ]
+    },
+    {
+        "id": "910abd3f.6311c",
+        "type": "change",
+        "z": "224bd643.c885ca",
+        "name": "current state",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "esszimmer.state",
+                "tot": "flow"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 950,
+        "y": 600,
+        "wires": [
+            [
+                "bd3c1693.f2b558"
+            ]
+        ]
+    },
+    {
+        "id": "d196d5f1.ff56d8",
+        "type": "change",
+        "z": "224bd643.c885ca",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "esszimmer.state",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1050,
+        "y": 640,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "31823bde.739024",
+        "type": "link in",
+        "z": "224bd643.c885ca",
+        "name": "Esszimmer 1",
+        "links": [
+            "f6b8fd9f.b8376"
+        ],
+        "x": 895,
+        "y": 640,
+        "wires": [
+            [
+                "d196d5f1.ff56d8"
+            ]
+        ]
+    },
+    {
+        "id": "f6b8fd9f.b8376",
+        "type": "link out",
+        "z": "224bd643.c885ca",
+        "name": "Esszimmer 1",
+        "links": [
+            "31823bde.739024"
+        ],
+        "x": 2015,
+        "y": 600,
+        "wires": []
+    },
+    {
+        "id": "c2daf1f4.724d7",
+        "type": "realknx-in",
+        "z": "224bd643.c885ca",
+        "name": "5. Schalte Esszimmer.",
+        "controller": "b4d19699.4cb748",
+        "itemname": "",
+        "passthru": true,
+        "booleanoutput": true,
+        "outputatstartup": true,
+        "x": 1840,
+        "y": 600,
+        "wires": [
+            [
+                "f6b8fd9f.b8376"
+            ]
+        ]
+    },
+    {
+        "id": "bb5e7814.4c5ce8",
+        "type": "realknx-out",
+        "z": "224bd643.c885ca",
+        "name": "6. Schalte Diele.",
+        "controller": "b4d19699.4cb748",
+        "itemname": "",
+        "topic": "",
+        "payload": "",
+        "booleaninput": true,
+        "x": 1580,
+        "y": 760,
+        "wires": []
+    },
+    {
+        "id": "73170105.b8ea5",
+        "type": "link in",
+        "z": "224bd643.c885ca",
+        "name": "Diele 2",
+        "links": [
+            "f4fa8db9.f818"
+        ],
+        "x": 1454,
+        "y": 760,
+        "wires": [
+            [
+                "bb5e7814.4c5ce8"
+            ]
+        ]
+    },
+    {
+        "id": "d0ddb6b.85f7748",
+        "type": "link out",
+        "z": "224bd643.c885ca",
+        "name": "Diele 1",
+        "links": [
+            "ec9962a.b4fb2a"
+        ],
+        "x": 2015,
+        "y": 760,
+        "wires": []
+    },
+    {
+        "id": "218652ab.a5a1ce",
+        "type": "realknx-in",
+        "z": "224bd643.c885ca",
+        "name": "6. Schalte Diele.",
+        "controller": "b4d19699.4cb748",
+        "itemname": "",
+        "passthru": true,
+        "booleanoutput": true,
+        "outputatstartup": true,
+        "x": 1820,
+        "y": 760,
+        "wires": [
+            [
+                "d0ddb6b.85f7748"
+            ]
+        ]
+    },
+    {
+        "id": "f4fa8db9.f818",
+        "type": "link out",
+        "z": "224bd643.c885ca",
+        "name": "Diele 2",
+        "links": [
+            "73170105.b8ea5"
+        ],
+        "x": 1215,
+        "y": 760,
+        "wires": []
+    },
+    {
+        "id": "ed873411.88cd18",
+        "type": "comment",
+        "z": "224bd643.c885ca",
+        "name": "Diele",
+        "info": "",
+        "x": 1030,
+        "y": 720,
+        "wires": []
+    },
+    {
+        "id": "7f6e6f06.eb608",
+        "type": "change",
+        "z": "224bd643.c885ca",
+        "name": "invert",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "$not(msg.payload)\t",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1110,
+        "y": 760,
+        "wires": [
+            [
+                "f4fa8db9.f818"
+            ]
+        ]
+    },
+    {
+        "id": "ebc00ab1.bb2f68",
+        "type": "change",
+        "z": "224bd643.c885ca",
+        "name": "current state",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "diele.state",
+                "tot": "flow"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 950,
+        "y": 760,
+        "wires": [
+            [
+                "7f6e6f06.eb608"
+            ]
+        ]
+    },
+    {
+        "id": "3e4cee3.4de3012",
+        "type": "change",
+        "z": "224bd643.c885ca",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "diele.state",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1070,
+        "y": 800,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "ec9962a.b4fb2a",
+        "type": "link in",
+        "z": "224bd643.c885ca",
+        "name": "Diele 1",
+        "links": [
+            "d0ddb6b.85f7748"
+        ],
+        "x": 895,
+        "y": 800,
+        "wires": [
+            [
+                "3e4cee3.4de3012"
+            ]
+        ]
+    },
+    {
+        "id": "4a6d1583.2e3acc",
+        "type": "link out",
+        "z": "224bd643.c885ca",
+        "name": "Schlafzimmer 2",
+        "links": [
+            "774e4fdb.2f7b4"
+        ],
+        "x": 1215,
+        "y": 920,
+        "wires": []
+    },
+    {
+        "id": "63663ac4.4ac024",
+        "type": "realknx-out",
+        "z": "224bd643.c885ca",
+        "name": "7. Schalte Schlafzimmer.",
+        "controller": "b4d19699.4cb748",
+        "itemname": "",
+        "topic": "",
+        "payload": "",
+        "booleaninput": true,
+        "x": 1610,
+        "y": 920,
+        "wires": []
+    },
+    {
+        "id": "774e4fdb.2f7b4",
+        "type": "link in",
+        "z": "224bd643.c885ca",
+        "name": "Schlafzimmer 2",
+        "links": [
+            "4a6d1583.2e3acc"
+        ],
+        "x": 1454,
+        "y": 920,
+        "wires": [
+            [
+                "63663ac4.4ac024"
+            ]
+        ]
+    },
+    {
+        "id": "cd046e9b.ef6b5",
+        "type": "comment",
+        "z": "224bd643.c885ca",
+        "name": "Schlafzimmer",
+        "info": "",
+        "x": 1050,
+        "y": 880,
+        "wires": []
+    },
+    {
+        "id": "f07cd732.cf3658",
+        "type": "change",
+        "z": "224bd643.c885ca",
+        "name": "invert",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "$not(msg.payload)\t",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1110,
+        "y": 920,
+        "wires": [
+            [
+                "4a6d1583.2e3acc"
+            ]
+        ]
+    },
+    {
+        "id": "16da97dc.7b4d38",
+        "type": "change",
+        "z": "224bd643.c885ca",
+        "name": "current state",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "schlafzimmer.state",
+                "tot": "flow"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 950,
+        "y": 920,
+        "wires": [
+            [
+                "f07cd732.cf3658"
+            ]
+        ]
+    },
+    {
+        "id": "94d3e6de.afcef8",
+        "type": "change",
+        "z": "224bd643.c885ca",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "schlafzimmer.state",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1040,
+        "y": 960,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "838f0a14.805788",
+        "type": "link in",
+        "z": "224bd643.c885ca",
+        "name": "Schlafzimmer 1",
+        "links": [
+            "91b08cc7.88429"
+        ],
+        "x": 895,
+        "y": 960,
+        "wires": [
+            [
+                "94d3e6de.afcef8"
+            ]
+        ]
+    },
+    {
+        "id": "91b08cc7.88429",
+        "type": "link out",
+        "z": "224bd643.c885ca",
+        "name": "Schlafzimmer 1",
+        "links": [
+            "838f0a14.805788"
+        ],
+        "x": 2015,
+        "y": 920,
+        "wires": []
+    },
+    {
+        "id": "6d178b47.84ce04",
+        "type": "realknx-in",
+        "z": "224bd643.c885ca",
+        "name": "7. Schalte Schlafzimmer.",
+        "controller": "b4d19699.4cb748",
+        "itemname": "",
+        "passthru": true,
+        "booleanoutput": true,
+        "outputatstartup": true,
+        "x": 1850,
+        "y": 920,
+        "wires": [
+            [
+                "91b08cc7.88429"
+            ]
+        ]
+    },
+    {
+        "id": "f64ca03d.f5ccd",
+        "type": "realknx-out",
+        "z": "224bd643.c885ca",
+        "name": "8. Schalte Kinderzimmer.",
+        "controller": "b4d19699.4cb748",
+        "itemname": "",
+        "topic": "",
+        "payload": "",
+        "booleaninput": true,
+        "x": 1610,
+        "y": 1080,
+        "wires": []
+    },
+    {
+        "id": "51e95647.6331b8",
+        "type": "link in",
+        "z": "224bd643.c885ca",
+        "name": "Kinderzimmer 2",
+        "links": [
+            "acbf8849.69f0c8"
+        ],
+        "x": 1454,
+        "y": 1080,
+        "wires": [
+            [
+                "f64ca03d.f5ccd"
+            ]
+        ]
+    },
+    {
+        "id": "99f56882.152f98",
+        "type": "link out",
+        "z": "224bd643.c885ca",
+        "name": "Kinderzimmer 1",
+        "links": [
+            "acdfd59c.446ff8"
+        ],
+        "x": 2015,
+        "y": 1080,
+        "wires": []
+    },
+    {
+        "id": "6af8c5ba.a4b7fc",
+        "type": "realknx-in",
+        "z": "224bd643.c885ca",
+        "name": "8. Schalte Kinderzimmer.",
+        "controller": "b4d19699.4cb748",
+        "itemname": "",
+        "passthru": true,
+        "booleanoutput": true,
+        "outputatstartup": true,
+        "x": 1850,
+        "y": 1080,
+        "wires": [
+            [
+                "99f56882.152f98"
+            ]
+        ]
+    },
+    {
+        "id": "acbf8849.69f0c8",
+        "type": "link out",
+        "z": "224bd643.c885ca",
+        "name": "Kinderzimmer 2",
+        "links": [
+            "51e95647.6331b8"
+        ],
+        "x": 1215,
+        "y": 1080,
+        "wires": []
+    },
+    {
+        "id": "ddc99ec5.0117f",
+        "type": "comment",
+        "z": "224bd643.c885ca",
+        "name": "Kinderzimmer",
+        "info": "",
+        "x": 1050,
+        "y": 1040,
+        "wires": []
+    },
+    {
+        "id": "6a439898.8a6bb8",
+        "type": "change",
+        "z": "224bd643.c885ca",
+        "name": "invert",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "$not(msg.payload)\t",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1110,
+        "y": 1080,
+        "wires": [
+            [
+                "acbf8849.69f0c8"
+            ]
+        ]
+    },
+    {
+        "id": "a0111034.f16a2",
+        "type": "change",
+        "z": "224bd643.c885ca",
+        "name": "current state",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "kinderzimmer.state",
+                "tot": "flow"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 950,
+        "y": 1080,
+        "wires": [
+            [
+                "6a439898.8a6bb8"
+            ]
+        ]
+    },
+    {
+        "id": "f93a1882.52e478",
+        "type": "change",
+        "z": "224bd643.c885ca",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "kinderzimmer.state",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1040,
+        "y": 1120,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "acdfd59c.446ff8",
+        "type": "link in",
+        "z": "224bd643.c885ca",
+        "name": "Kinderzimmer 1",
+        "links": [
+            "99f56882.152f98"
+        ],
+        "x": 895,
+        "y": 1120,
+        "wires": [
+            [
+                "f93a1882.52e478"
+            ]
+        ]
+    },
+    {
+        "id": "e61fc8a8.690458",
+        "type": "link out",
+        "z": "224bd643.c885ca",
+        "name": "Garten 2",
+        "links": [
+            "dd85ab5c.6a2098"
+        ],
+        "x": 1215,
+        "y": 1240,
+        "wires": []
+    },
+    {
+        "id": "187365f7.44e1fa",
+        "type": "realknx-out",
+        "z": "224bd643.c885ca",
+        "name": "9. Schalte Garten.",
+        "controller": "b4d19699.4cb748",
+        "itemname": "",
+        "topic": "",
+        "payload": "",
+        "booleaninput": true,
+        "x": 1590,
+        "y": 1240,
+        "wires": []
+    },
+    {
+        "id": "dd85ab5c.6a2098",
+        "type": "link in",
+        "z": "224bd643.c885ca",
+        "name": "Garten 2",
+        "links": [
+            "e61fc8a8.690458"
+        ],
+        "x": 1454,
+        "y": 1240,
+        "wires": [
+            [
+                "187365f7.44e1fa"
+            ]
+        ]
+    },
+    {
+        "id": "137d8e9f.0f4251",
+        "type": "comment",
+        "z": "224bd643.c885ca",
+        "name": "Garten",
+        "info": "",
+        "x": 1030,
+        "y": 1200,
+        "wires": []
+    },
+    {
+        "id": "d8235935.094408",
+        "type": "change",
+        "z": "224bd643.c885ca",
+        "name": "invert",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "$not(msg.payload)\t",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1110,
+        "y": 1240,
+        "wires": [
+            [
+                "e61fc8a8.690458"
+            ]
+        ]
+    },
+    {
+        "id": "be0b282d.36ae08",
+        "type": "change",
+        "z": "224bd643.c885ca",
+        "name": "current state",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "garten.state",
+                "tot": "flow"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 950,
+        "y": 1240,
+        "wires": [
+            [
+                "d8235935.094408"
+            ]
+        ]
+    },
+    {
+        "id": "2b709e75.146ed2",
+        "type": "change",
+        "z": "224bd643.c885ca",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "garten.state",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1060,
+        "y": 1280,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "cb621e49.31e79",
+        "type": "link in",
+        "z": "224bd643.c885ca",
+        "name": "Garten 1",
+        "links": [
+            "a468bdf9.b2d2d"
+        ],
+        "x": 895,
+        "y": 1280,
+        "wires": [
+            [
+                "2b709e75.146ed2"
+            ]
+        ]
+    },
+    {
+        "id": "a468bdf9.b2d2d",
+        "type": "link out",
+        "z": "224bd643.c885ca",
+        "name": "Garten 1",
+        "links": [
+            "cb621e49.31e79"
+        ],
+        "x": 2015,
+        "y": 1240,
+        "wires": []
+    },
+    {
+        "id": "2644f65f.ae5b8a",
+        "type": "realknx-in",
+        "z": "224bd643.c885ca",
+        "name": "9. Schalte Garten.",
+        "controller": "b4d19699.4cb748",
+        "itemname": "",
+        "passthru": true,
+        "booleanoutput": true,
+        "outputatstartup": true,
+        "x": 1830,
+        "y": 1240,
+        "wires": [
+            [
+                "a468bdf9.b2d2d"
+            ]
+        ]
+    },
+    {
+        "id": "c8b62683.d6a018",
+        "type": "realknx-out",
+        "z": "224bd643.c885ca",
+        "name": "10. Schalte Einfahrt.",
+        "controller": "b4d19699.4cb748",
+        "itemname": "",
+        "topic": "",
+        "payload": "",
+        "booleaninput": true,
+        "x": 1600,
+        "y": 1400,
+        "wires": []
+    },
+    {
+        "id": "39be334.126f6cc",
+        "type": "link in",
+        "z": "224bd643.c885ca",
+        "name": "Einfahrt 2",
+        "links": [
+            "878d1459.8aa4f8"
+        ],
+        "x": 1454,
+        "y": 1400,
+        "wires": [
+            [
+                "c8b62683.d6a018"
+            ]
+        ]
+    },
+    {
+        "id": "8f666746.492e28",
+        "type": "link out",
+        "z": "224bd643.c885ca",
+        "name": " Einfahrt 1",
+        "links": [
+            "1fe818a9.35d2d7"
+        ],
+        "x": 2015,
+        "y": 1400,
+        "wires": []
+    },
+    {
+        "id": "c06f6b59.4a00f8",
+        "type": "realknx-in",
+        "z": "224bd643.c885ca",
+        "name": "10. Schalte Einfahrt.",
+        "controller": "b4d19699.4cb748",
+        "itemname": "",
+        "passthru": true,
+        "booleanoutput": true,
+        "outputatstartup": true,
+        "x": 1850,
+        "y": 1400,
+        "wires": [
+            [
+                "8f666746.492e28"
+            ]
+        ]
+    },
+    {
+        "id": "878d1459.8aa4f8",
+        "type": "link out",
+        "z": "224bd643.c885ca",
+        "name": "Einfahrt 2",
+        "links": [
+            "39be334.126f6cc"
+        ],
+        "x": 1215,
+        "y": 1400,
+        "wires": []
+    },
+    {
+        "id": "e05027c2.a794a8",
+        "type": "comment",
+        "z": "224bd643.c885ca",
+        "name": "Einfahrt",
+        "info": "",
+        "x": 1030,
+        "y": 1360,
+        "wires": []
+    },
+    {
+        "id": "b7f23edc.7732",
+        "type": "change",
+        "z": "224bd643.c885ca",
+        "name": "invert",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "$not(msg.payload)\t",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1110,
+        "y": 1400,
+        "wires": [
+            [
+                "878d1459.8aa4f8"
+            ]
+        ]
+    },
+    {
+        "id": "14917bbc.6dfe84",
+        "type": "change",
+        "z": "224bd643.c885ca",
+        "name": "current state",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "einfahrt.state",
+                "tot": "flow"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 950,
+        "y": 1400,
+        "wires": [
+            [
+                "b7f23edc.7732"
+            ]
+        ]
+    },
+    {
+        "id": "9a90c37e.3c72",
+        "type": "change",
+        "z": "224bd643.c885ca",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "einfahrt.state",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1060,
+        "y": 1440,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "1fe818a9.35d2d7",
+        "type": "link in",
+        "z": "224bd643.c885ca",
+        "name": "Einfahrt 1",
+        "links": [
+            "8f666746.492e28"
+        ],
+        "x": 895,
+        "y": 1440,
+        "wires": [
+            [
+                "9a90c37e.3c72"
+            ]
+        ]
+    },
+    {
+        "id": "4e8f1769.2ac208",
+        "type": "realknx-out",
+        "z": "224bd643.c885ca",
+        "name": "11. Schalte Licht aus.",
+        "controller": "b4d19699.4cb748",
+        "itemname": "",
+        "topic": "",
+        "payload": "",
+        "booleaninput": true,
+        "x": 1600,
+        "y": 1560,
+        "wires": []
+    },
+    {
+        "id": "61358d57.aea404",
+        "type": "link in",
+        "z": "224bd643.c885ca",
+        "name": "Licht Aus 1",
+        "links": [
+            "345cd991.35a956"
+        ],
+        "x": 1454,
+        "y": 1560,
+        "wires": [
+            [
+                "4e8f1769.2ac208"
+            ]
+        ]
+    },
+    {
+        "id": "c6e14685.da0bc8",
+        "type": "comment",
+        "z": "224bd643.c885ca",
+        "name": "Licht Aus",
+        "info": "",
+        "x": 1040,
+        "y": 1520,
+        "wires": []
+    },
+    {
+        "id": "1426c753.159459",
+        "type": "change",
+        "z": "224bd643.c885ca",
+        "name": "OFF",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "0",
+                "tot": "num"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 930,
+        "y": 1560,
+        "wires": [
+            [
+                "345cd991.35a956"
+            ]
+        ]
+    },
+    {
+        "id": "345cd991.35a956",
+        "type": "link out",
+        "z": "224bd643.c885ca",
+        "name": "Licht Aus 1",
+        "links": [
+            "61358d57.aea404"
+        ],
+        "x": 1215,
+        "y": 1560,
+        "wires": []
+    },
+    {
+        "id": "ae1898e6.f84ee8",
+        "type": "realknx-out",
+        "z": "224bd643.c885ca",
+        "name": "12. Schalte Musik.",
+        "controller": "b4d19699.4cb748",
+        "itemname": "",
+        "topic": "",
+        "payload": "",
+        "booleaninput": true,
+        "x": 1590,
+        "y": 1680,
+        "wires": []
+    },
+    {
+        "id": "4af05d99.759b34",
+        "type": "link in",
+        "z": "224bd643.c885ca",
+        "name": "Musik 2",
+        "links": [
+            "7eea2198.2a846"
+        ],
+        "x": 1454,
+        "y": 1680,
+        "wires": [
+            [
+                "ae1898e6.f84ee8"
+            ]
+        ]
+    },
+    {
+        "id": "92f1c9ec.4ea3a8",
+        "type": "link out",
+        "z": "224bd643.c885ca",
+        "name": "Musik 1",
+        "links": [
+            "5558476b.9adfb8"
+        ],
+        "x": 2015,
+        "y": 1680,
+        "wires": []
+    },
+    {
+        "id": "4abc2605.343078",
+        "type": "realknx-in",
+        "z": "224bd643.c885ca",
+        "name": "12. Schalte Musik.",
+        "controller": "b4d19699.4cb748",
+        "itemname": "",
+        "passthru": true,
+        "booleanoutput": true,
+        "outputatstartup": true,
+        "x": 1830,
+        "y": 1680,
+        "wires": [
+            [
+                "92f1c9ec.4ea3a8"
+            ]
+        ]
+    },
+    {
+        "id": "7eea2198.2a846",
+        "type": "link out",
+        "z": "224bd643.c885ca",
+        "name": "Musik 2",
+        "links": [
+            "4af05d99.759b34"
+        ],
+        "x": 1215,
+        "y": 1680,
+        "wires": []
+    },
+    {
+        "id": "4ab1a65.69d2e58",
+        "type": "comment",
+        "z": "224bd643.c885ca",
+        "name": "Musik",
+        "info": "",
+        "x": 1030,
+        "y": 1640,
+        "wires": []
+    },
+    {
+        "id": "8cd977cc.77ef88",
+        "type": "change",
+        "z": "224bd643.c885ca",
+        "name": "invert",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "$not(msg.payload)\t",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1110,
+        "y": 1680,
+        "wires": [
+            [
+                "7eea2198.2a846"
+            ]
+        ]
+    },
+    {
+        "id": "e51bb4c2.83ba18",
+        "type": "change",
+        "z": "224bd643.c885ca",
+        "name": "current state",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "musik.state",
+                "tot": "flow"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 950,
+        "y": 1680,
+        "wires": [
+            [
+                "8cd977cc.77ef88"
+            ]
+        ]
+    },
+    {
+        "id": "900b0d79.b717e",
+        "type": "change",
+        "z": "224bd643.c885ca",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "musik.state",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1060,
+        "y": 1720,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "5558476b.9adfb8",
+        "type": "link in",
+        "z": "224bd643.c885ca",
+        "name": "Musik 1",
+        "links": [
+            "92f1c9ec.4ea3a8"
+        ],
+        "x": 895,
+        "y": 1720,
+        "wires": [
+            [
+                "900b0d79.b717e"
+            ]
+        ]
+    },
+    {
+        "id": "6b49d056.2ac9d",
+        "type": "switch",
+        "z": "224bd643.c885ca",
+        "name": "General",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "11",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "outputs": 1,
+        "x": 700,
+        "y": 1560,
+        "wires": [
+            [
+                "1426c753.159459"
+            ]
+        ],
+        "inputLabels": [
+            "Input"
+        ]
+    },
+    {
+        "id": "9f8a20ea.04f49",
+        "type": "switch",
+        "z": "224bd643.c885ca",
+        "name": "Multimedia",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "12",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "outputs": 1,
+        "x": 710,
+        "y": 1680,
+        "wires": [
+            [
+                "e51bb4c2.83ba18"
+            ]
+        ],
+        "inputLabels": [
+            "Input"
+        ]
+    },
+    {
+        "id": "819180e1.0bf7d",
+        "type": "link in",
+        "z": "224bd643.c885ca",
+        "name": "Aktiviere Empfang.",
+        "links": [
+            "bb4876f5.616f18"
+        ],
+        "x": 1455,
+        "y": 2660,
+        "wires": [
+            [
+                "7b3f5c98.b6f064"
+            ]
+        ]
+    },
+    {
+        "id": "5092ad2a.cca8b4",
+        "type": "change",
+        "z": "224bd643.c885ca",
+        "name": "OFF",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "0",
+                "tot": "num"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 930,
+        "y": 2060,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "2365a5a4.f2617a",
+        "type": "link out",
+        "z": "224bd643.c885ca",
+        "name": "Ich bin daheim.",
+        "links": [
+            "e621ba58.186b28",
+            "cde09678.c19c58"
+        ],
+        "x": 1215,
+        "y": 2060,
+        "wires": []
+    },
+    {
+        "id": "e621ba58.186b28",
+        "type": "link in",
+        "z": "224bd643.c885ca",
+        "name": "Ich bin daheim.",
+        "links": [
+            "2365a5a4.f2617a"
+        ],
+        "x": 1455,
+        "y": 2060,
+        "wires": [
+            [
+                "a2116ebc.01148"
+            ]
+        ]
+    },
+    {
+        "id": "afb305d9.b6ad58",
+        "type": "change",
+        "z": "224bd643.c885ca",
+        "name": "ON",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "255",
+                "tot": "num"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 930,
+        "y": 2180,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "bde9081.3c345f8",
+        "type": "link out",
+        "z": "224bd643.c885ca",
+        "name": "Ich verlasse das Haus.",
+        "links": [
+            "56e4b1fd.a506"
+        ],
+        "x": 1215,
+        "y": 2180,
+        "wires": []
+    },
+    {
+        "id": "56e4b1fd.a506",
+        "type": "link in",
+        "z": "224bd643.c885ca",
+        "name": "Ich verlasse das Haus.",
+        "links": [
+            "bde9081.3c345f8"
+        ],
+        "x": 1455,
+        "y": 2180,
+        "wires": [
+            [
+                "f7df2c5b.a5bdf"
+            ]
+        ]
+    },
+    {
+        "id": "963c5296.1403d",
+        "type": "change",
+        "z": "224bd643.c885ca",
+        "name": "ON",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "255",
+                "tot": "num"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 930,
+        "y": 2660,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "18345ab6.6c7245",
+        "type": "change",
+        "z": "224bd643.c885ca",
+        "name": "OFF",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "0",
+                "tot": "num"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 930,
+        "y": 2700,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "a026b14.834035",
+        "type": "link out",
+        "z": "224bd643.c885ca",
+        "name": "Aktiviere Empfang.",
+        "links": [
+            "efec2608.fbda88"
+        ],
+        "x": 1215,
+        "y": 2700,
+        "wires": []
+    },
+    {
+        "id": "efec2608.fbda88",
+        "type": "link in",
+        "z": "224bd643.c885ca",
+        "name": "Aktiviere Empfang.",
+        "links": [
+            "a026b14.834035"
+        ],
+        "x": 1455,
+        "y": 2700,
+        "wires": [
+            [
+                "86f0770c.c289f8"
+            ]
+        ]
+    },
+    {
+        "id": "24621189.7d210e",
+        "type": "change",
+        "z": "224bd643.c885ca",
+        "name": "ON",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "255",
+                "tot": "num"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 930,
+        "y": 2820,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "8c055eae.d6ddf",
+        "type": "change",
+        "z": "224bd643.c885ca",
+        "name": "OFF",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "0",
+                "tot": "num"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 930,
+        "y": 2860,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "e7691af5.9fe668",
+        "type": "link out",
+        "z": "224bd643.c885ca",
+        "name": "Hilfe.",
+        "links": [
+            "c152248c.4161a8"
+        ],
+        "x": 1215,
+        "y": 2860,
+        "wires": []
+    },
+    {
+        "id": "c152248c.4161a8",
+        "type": "link in",
+        "z": "224bd643.c885ca",
+        "name": "Hilfe.",
+        "links": [
+            "e7691af5.9fe668"
+        ],
+        "x": 1455,
+        "y": 2860,
+        "wires": [
+            [
+                "616b84ae.bf585c"
+            ]
+        ]
+    },
+    {
+        "id": "c3acd534.67fa78",
+        "type": "realknx-out",
+        "z": "224bd643.c885ca",
+        "name": "13. Schließe Rollladen.",
+        "controller": "b4d19699.4cb748",
+        "itemname": "",
+        "topic": "",
+        "payload": "",
+        "booleaninput": true,
+        "x": 1600,
+        "y": 1840,
+        "wires": []
+    },
+    {
+        "id": "d285635f.40c7c",
+        "type": "realknx-out",
+        "z": "224bd643.c885ca",
+        "name": "14. Öffne Rollladen.",
+        "controller": "b4d19699.4cb748",
+        "itemname": "",
+        "topic": "",
+        "payload": "",
+        "booleaninput": true,
+        "x": 1590,
+        "y": 1880,
+        "wires": []
+    },
+    {
+        "id": "391b4e70.20be22",
+        "type": "realknx-out",
+        "z": "224bd643.c885ca",
+        "name": "ON",
+        "controller": "b4d19699.4cb748",
+        "itemname": "",
+        "topic": "",
+        "payload": "",
+        "booleaninput": true,
+        "x": 1550,
+        "y": 2020,
+        "wires": []
+    },
+    {
+        "id": "a2116ebc.01148",
+        "type": "realknx-out",
+        "z": "224bd643.c885ca",
+        "name": "OFF",
+        "controller": "b4d19699.4cb748",
+        "itemname": "",
+        "topic": "",
+        "payload": "",
+        "booleaninput": true,
+        "x": 1550,
+        "y": 2060,
+        "wires": []
+    },
+    {
+        "id": "f37d2177.b1be1",
+        "type": "link out",
+        "z": "224bd643.c885ca",
+        "name": "Ich bin daheim.",
+        "links": [
+            "cde09678.c19c58"
+        ],
+        "x": 1215,
+        "y": 2100,
+        "wires": []
+    },
+    {
+        "id": "be13895.f71d978",
+        "type": "realknx-out",
+        "z": "224bd643.c885ca",
+        "name": "1. Ich bin daheim",
+        "controller": "b4d19699.4cb748",
+        "itemname": "",
+        "topic": "",
+        "payload": "",
+        "booleaninput": true,
+        "x": 1590,
+        "y": 2100,
+        "wires": []
+    },
+    {
+        "id": "cde09678.c19c58",
+        "type": "link in",
+        "z": "224bd643.c885ca",
+        "name": "Ich bin daheim.",
+        "links": [
+            "2365a5a4.f2617a",
+            "f37d2177.b1be1"
+        ],
+        "x": 1455,
+        "y": 2100,
+        "wires": [
+            [
+                "be13895.f71d978"
+            ]
+        ]
+    },
+    {
+        "id": "ccde262d.c44a88",
+        "type": "link out",
+        "z": "224bd643.c885ca",
+        "name": "Ich verlasse das Haus.",
+        "links": [
+            "ee2e25d4.f8dc58"
+        ],
+        "x": 1215,
+        "y": 2260,
+        "wires": []
+    },
+    {
+        "id": "ee2e25d4.f8dc58",
+        "type": "link in",
+        "z": "224bd643.c885ca",
+        "name": "Ich verlasse das Haus.",
+        "links": [
+            "ccde262d.c44a88"
+        ],
+        "x": 1455,
+        "y": 2260,
+        "wires": [
+            [
+                "c318d9e5.89a648"
+            ]
+        ]
+    },
+    {
+        "id": "f100b01b.eb5fb",
+        "type": "link out",
+        "z": "224bd643.c885ca",
+        "name": "Aktiviere gemütlich.",
+        "links": [
+            "387ee02.0269b2"
+        ],
+        "x": 1215,
+        "y": 2420,
+        "wires": []
+    },
+    {
+        "id": "387ee02.0269b2",
+        "type": "link in",
+        "z": "224bd643.c885ca",
+        "name": "Aktiviere gemütlich.",
+        "links": [
+            "f100b01b.eb5fb"
+        ],
+        "x": 1455,
+        "y": 2420,
+        "wires": [
+            [
+                "bac4439f.9a5d3"
+            ]
+        ]
+    },
+    {
+        "id": "a3ce70de.3a762",
+        "type": "link out",
+        "z": "224bd643.c885ca",
+        "name": "Aktiviere Abendessen.",
+        "links": [
+            "95a72e21.45ca2"
+        ],
+        "x": 1215,
+        "y": 2580,
+        "wires": []
+    },
+    {
+        "id": "95a72e21.45ca2",
+        "type": "link in",
+        "z": "224bd643.c885ca",
+        "name": "Aktiviere Abendessen.",
+        "links": [
+            "a3ce70de.3a762"
+        ],
+        "x": 1455,
+        "y": 2580,
+        "wires": [
+            [
+                "7947c197.a0403"
+            ]
+        ]
+    },
+    {
+        "id": "725dc0fe.d5149",
+        "type": "switch",
+        "z": "224bd643.c885ca",
+        "name": "KNX-Scenes",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "true",
+        "outputs": 1,
+        "x": 950,
+        "y": 2100,
+        "wires": [
+            [
+                "f37d2177.b1be1"
+            ]
+        ],
+        "inputLabels": [
+            "Input"
+        ],
+        "outputLabels": [
+            "I'm Home"
+        ]
+    },
+    {
+        "id": "ee80ad9d.e1a8e",
+        "type": "switch",
+        "z": "224bd643.c885ca",
+        "name": "KNX-Scenes",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "true",
+        "outputs": 1,
+        "x": 950,
+        "y": 2260,
+        "wires": [
+            [
+                "ccde262d.c44a88"
+            ]
+        ],
+        "inputLabels": [
+            "Input"
+        ],
+        "outputLabels": [
+            "I'm Home"
+        ]
+    },
+    {
+        "id": "ef5218e5.db9148",
+        "type": "switch",
+        "z": "224bd643.c885ca",
+        "name": "KNX-Scenes",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "true",
+        "outputs": 1,
+        "x": 950,
+        "y": 2420,
+        "wires": [
+            [
+                "f100b01b.eb5fb"
+            ]
+        ],
+        "inputLabels": [
+            "Input"
+        ],
+        "outputLabels": [
+            "I'm Home"
+        ]
+    },
+    {
+        "id": "96769a90.f3a3f8",
+        "type": "switch",
+        "z": "224bd643.c885ca",
+        "name": "KNX-Scenes",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "true",
+        "outputs": 1,
+        "x": 950,
+        "y": 2580,
+        "wires": [
+            [
+                "a3ce70de.3a762"
+            ]
+        ],
+        "inputLabels": [
+            "Input"
+        ],
+        "outputLabels": [
+            "I'm Home"
+        ]
+    },
+    {
+        "id": "e0b3aebe.12b34",
+        "type": "switch",
+        "z": "224bd643.c885ca",
+        "name": "KNX-Scenes",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "true",
+        "outputs": 1,
+        "x": 950,
+        "y": 2740,
+        "wires": [
+            [
+                "25ec79b7.7b73e6"
+            ]
+        ],
+        "inputLabels": [
+            "Input"
+        ],
+        "outputLabels": [
+            "I'm Home"
+        ]
+    },
+    {
+        "id": "25ec79b7.7b73e6",
+        "type": "link out",
+        "z": "224bd643.c885ca",
+        "name": "Aktiviere Empfang.",
+        "links": [
+            "549ba820.1fe898"
+        ],
+        "x": 1215,
+        "y": 2740,
+        "wires": []
+    },
+    {
+        "id": "549ba820.1fe898",
+        "type": "link in",
+        "z": "224bd643.c885ca",
+        "name": "Aktiviere Empfang.",
+        "links": [
+            "25ec79b7.7b73e6"
+        ],
+        "x": 1455,
+        "y": 2740,
+        "wires": [
+            [
+                "e709df5.ef7352"
+            ]
+        ]
+    },
+    {
+        "id": "f7df2c5b.a5bdf",
+        "type": "realknx-out",
+        "z": "224bd643.c885ca",
+        "name": "ON",
+        "controller": "b4d19699.4cb748",
+        "itemname": "",
+        "topic": "",
+        "payload": "",
+        "booleaninput": true,
+        "x": 1550,
+        "y": 2180,
+        "wires": []
+    },
+    {
+        "id": "c471bf90.66ed7",
+        "type": "realknx-out",
+        "z": "224bd643.c885ca",
+        "name": "OFF",
+        "controller": "b4d19699.4cb748",
+        "itemname": "",
+        "topic": "",
+        "payload": "",
+        "booleaninput": true,
+        "x": 1550,
+        "y": 2220,
+        "wires": []
+    },
+    {
+        "id": "c318d9e5.89a648",
+        "type": "realknx-out",
+        "z": "224bd643.c885ca",
+        "name": "2. Ich verlasse das Haus.",
+        "controller": "b4d19699.4cb748",
+        "itemname": "",
+        "topic": "",
+        "payload": "",
+        "booleaninput": true,
+        "x": 1610,
+        "y": 2260,
+        "wires": []
+    },
+    {
+        "id": "e0d1a737.add1c8",
+        "type": "realknx-out",
+        "z": "224bd643.c885ca",
+        "name": "ON",
+        "controller": "b4d19699.4cb748",
+        "itemname": "",
+        "topic": "",
+        "payload": "",
+        "booleaninput": true,
+        "x": 1550,
+        "y": 2340,
+        "wires": []
+    },
+    {
+        "id": "d0725b8e.44bc28",
+        "type": "realknx-out",
+        "z": "224bd643.c885ca",
+        "name": "OFF",
+        "controller": "b4d19699.4cb748",
+        "itemname": "",
+        "topic": "",
+        "payload": "",
+        "booleaninput": true,
+        "x": 1550,
+        "y": 2380,
+        "wires": []
+    },
+    {
+        "id": "bac4439f.9a5d3",
+        "type": "realknx-out",
+        "z": "224bd643.c885ca",
+        "name": "15. Aktiviere gemütlich.",
+        "controller": "b4d19699.4cb748",
+        "itemname": "",
+        "topic": "",
+        "payload": "",
+        "booleaninput": true,
+        "x": 1610,
+        "y": 2420,
+        "wires": []
+    },
+    {
+        "id": "10a6ddb1.9f3162",
+        "type": "realknx-out",
+        "z": "224bd643.c885ca",
+        "name": "ON",
+        "controller": "b4d19699.4cb748",
+        "itemname": "",
+        "topic": "",
+        "payload": "",
+        "booleaninput": true,
+        "x": 1550,
+        "y": 2500,
+        "wires": []
+    },
+    {
+        "id": "c4b52ee5.ba143",
+        "type": "realknx-out",
+        "z": "224bd643.c885ca",
+        "name": "OFF",
+        "controller": "b4d19699.4cb748",
+        "itemname": "",
+        "topic": "",
+        "payload": "",
+        "booleaninput": true,
+        "x": 1550,
+        "y": 2540,
+        "wires": []
+    },
+    {
+        "id": "7947c197.a0403",
+        "type": "realknx-out",
+        "z": "224bd643.c885ca",
+        "name": "16. Aktiviere Abendessen.",
+        "controller": "b4d19699.4cb748",
+        "itemname": "",
+        "topic": "",
+        "payload": "",
+        "booleaninput": true,
+        "x": 1610,
+        "y": 2580,
+        "wires": []
+    },
+    {
+        "id": "7b3f5c98.b6f064",
+        "type": "realknx-out",
+        "z": "224bd643.c885ca",
+        "name": "ON",
+        "controller": "b4d19699.4cb748",
+        "itemname": "",
+        "topic": "",
+        "payload": "",
+        "booleaninput": true,
+        "x": 1550,
+        "y": 2660,
+        "wires": []
+    },
+    {
+        "id": "86f0770c.c289f8",
+        "type": "realknx-out",
+        "z": "224bd643.c885ca",
+        "name": "OFF",
+        "controller": "b4d19699.4cb748",
+        "itemname": "",
+        "topic": "",
+        "payload": "",
+        "booleaninput": true,
+        "x": 1550,
+        "y": 2700,
+        "wires": []
+    },
+    {
+        "id": "e709df5.ef7352",
+        "type": "realknx-out",
+        "z": "224bd643.c885ca",
+        "name": "17. Aktiviere Empfang.",
+        "controller": "b4d19699.4cb748",
+        "itemname": "",
+        "topic": "",
+        "payload": "",
+        "booleaninput": true,
+        "x": 1600,
+        "y": 2740,
+        "wires": []
+    },
+    {
+        "id": "bba1e354.3bf6a",
+        "type": "realknx-out",
+        "z": "224bd643.c885ca",
+        "name": "ON",
+        "controller": "b4d19699.4cb748",
+        "itemname": "",
+        "topic": "",
+        "payload": "",
+        "booleaninput": true,
+        "x": 1550,
+        "y": 2820,
+        "wires": []
+    },
+    {
+        "id": "616b84ae.bf585c",
+        "type": "realknx-out",
+        "z": "224bd643.c885ca",
+        "name": "OFF",
+        "controller": "b4d19699.4cb748",
+        "itemname": "",
+        "topic": "",
+        "payload": "",
+        "booleaninput": true,
+        "x": 1550,
+        "y": 2860,
+        "wires": []
+    },
+    {
+        "id": "fadda068.5a1f3",
+        "type": "realknx-out",
+        "z": "224bd643.c885ca",
+        "name": "18. Hilfe",
+        "controller": "b4d19699.4cb748",
+        "itemname": "",
+        "topic": "",
+        "payload": "",
+        "booleaninput": true,
+        "x": 1560,
+        "y": 2900,
+        "wires": []
+    },
+    {
+        "id": "a661e615.015df8",
+        "type": "switch",
+        "z": "224bd643.c885ca",
+        "name": "KNX-Scenes",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "true",
+        "outputs": 1,
+        "x": 950,
+        "y": 2900,
+        "wires": [
+            [
+                "5b94031f.374c8c"
+            ]
+        ],
+        "inputLabels": [
+            "Input"
+        ],
+        "outputLabels": [
+            "I'm Home"
+        ]
+    },
+    {
+        "id": "5b94031f.374c8c",
+        "type": "link out",
+        "z": "224bd643.c885ca",
+        "name": "Hilfe.",
+        "links": [
+            "ab0e8fa3.ba96f"
+        ],
+        "x": 1215,
+        "y": 2900,
+        "wires": []
+    },
+    {
+        "id": "ab0e8fa3.ba96f",
+        "type": "link in",
+        "z": "224bd643.c885ca",
+        "name": "Hilfe.",
+        "links": [
+            "5b94031f.374c8c"
+        ],
+        "x": 1455,
+        "y": 2900,
+        "wires": [
+            [
+                "fadda068.5a1f3"
+            ]
+        ]
+    },
+    {
+        "id": "ad06a5b7.83ae18",
+        "type": "switch",
+        "z": "224bd643.c885ca",
+        "name": "Not Defined",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "19",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "20",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "outputs": 2,
+        "x": 710,
+        "y": 3060,
+        "wires": [
+            [],
+            []
+        ],
+        "inputLabels": [
+            "Input"
+        ]
+    },
+    {
+        "id": "53aa419a.c97a6",
+        "type": "comment",
+        "z": "224bd643.c885ca",
+        "name": "!!!!! Insert the IP adress of the Z-Wave Gateway in the /zwave/vr Node !!!!!",
+        "info": "",
+        "x": 320,
+        "y": 1640,
+        "wires": []
+    },
+    {
+        "id": "df8b408b.4f89a",
+        "type": "comment",
+        "z": "224bd643.c885ca",
+        "name": "!!!!! Insert the IP adress of the Z-Wave Gateway in the /zwave/vr Node !!!!!",
+        "info": "",
+        "x": 320,
+        "y": 1740,
+        "wires": []
+    },
+    {
+        "id": "ab7bb643.845d48",
+        "type": "trigger",
+        "z": "224bd643.c885ca",
+        "op1": "",
+        "op2": "",
+        "op1type": "pay",
+        "op2type": "nul",
+        "duration": "2",
+        "extend": false,
+        "units": "s",
+        "reset": "",
+        "name": "",
+        "x": 380,
+        "y": 1680,
+        "wires": [
+            [
+                "5b22771d.03c848"
+            ]
+        ]
+    },
+    {
+        "id": "5b22771d.03c848",
+        "type": "switch",
+        "z": "224bd643.c885ca",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "true",
+        "outputs": 1,
+        "x": 530,
+        "y": 1680,
+        "wires": [
+            [
+                "9f8a20ea.04f49",
+                "6b49d056.2ac9d",
+                "99f9531c.d45a5",
+                "e7fa3dfb.903df",
+                "99921aba.491aa8",
+                "ad06a5b7.83ae18"
+            ]
+        ]
+    },
+    {
+        "id": "6f3c3546.3640bc",
+        "type": "mqtt-broker",
+        "z": "",
+        "broker": "192.168.x.x",
+        "port": "1883",
+        "clientid": "",
+        "usetls": false,
+        "compatmode": true,
+        "keepalive": "60",
+        "cleansession": true,
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": ""
+    },
+    {
+        "id": "b4d19699.4cb748",
+        "type": "realknx-controller",
+        "z": "",
+        "name": "realknx-ctrl",
+        "host": "localhost",
+        "port": "3000"
+    }
+]
