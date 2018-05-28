@@ -1,11 +1,15 @@
 [{
       "name" : "English v1",
+      "count" : 18,
+      "keywords": [ "daheim", "verlasse", "Wohnzimmer", "Küche", "Esszimmer", "Diele", "Schlafzimmer", "Kinderzimmer", "Garten", "Einfahrt", "Licht", "Musik", "Rollladen", "Rollladen", "gemütlich", "Abendessen", "Empfang", "Hilfe" ],
+      "commands": [ "Ich bin daheim","Ich verlasse das Haus","Schalte Wohnzimmer","Schalte Küche","Schalte Esszimmer","Schalte Diele","SchalteSchlafzimmer","Schalte Kinderzimmer","Schalte Garten","Schalte Einfahrt","Schalte Licht aus","Schalte Musik","Schließe Rollladen","Öffne Rollladen","Aktiviere gemütlich","Aktiviere Abendessen","Aktiviere Empfang","Hilfe" ],      
       "info" : "to be defined",
       "url" : "https://raw.githubusercontent.com/proknx/node-red-lib/master/offline-voice-smartyvox-en-v1.json"
    }, {
       "name" : "German v1",
       "count" : 18,
       "keywords": [ "daheim", "verlasse", "Wohnzimmer", "Küche", "Esszimmer", "Diele", "Schlafzimmer", "Kinderzimmer", "Garten", "Einfahrt", "Licht", "Musik", "Rollladen", "Rollladen", "gemütlich", "Abendessen", "Empfang", "Hilfe" ],
+      "commands": [ "Ich bin daheim","Ich verlasse das Haus","Schalte Wohnzimmer","Schalte Küche","Schalte Esszimmer","Schalte Diele","SchalteSchlafzimmer","Schalte Kinderzimmer","Schalte Garten","Schalte Einfahrt","Schalte Licht aus","Schalte Musik","Schließe Rollladen","Öffne Rollladen","Aktiviere gemütlich","Aktiviere Abendessen","Aktiviere Empfang","Hilfe" ],
       "info" : "A. Angela, B. Ok Pippi, 1. Ich bin daheim 2. Ich verlasse das Haus 3. Schalte Wohnzimmer 4. Schalte Küche 5. Schalte Esszimmer 6. Schalte Diele 7. SchalteSchlafzimmer 8. Schalte Kinderzimmer 9. Schalte Garten 10. Schalte Einfahrt 11. Schalte Licht aus 12. Schalte Musik 13. Schließe Rollladen 14. Öffne Rollladen 15. Aktiviere gemütlich 16. Aktiviere Abendessen 17. Aktiviere Empfang 18. Hilfe 19. Not Defined 20. Not Defined",
       "url" : "https://raw.githubusercontent.com/proknx/node-red-lib/master/offline-voice-smartyvox-de-v1.json"
    }
