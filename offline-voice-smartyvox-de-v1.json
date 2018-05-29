@@ -1,15 +1,13 @@
 [
     {
-        "id": "224bd643.c885ca",
+        "id": "7ced60a4.6357c",
         "type": "tab",
-        "label": "Smarty-Vox 'DE' (v1.0)",
-        "disabled": false,
-        "info": ""
+        "label": "Auto Smarty-Vox 'DE' (v1.0)"
     },
     {
         "id": "395c565b.2dd86a",
         "type": "comment",
-        "z": "224bd643.c885ca",
+        "z": "7ced60a4.6357c",
         "name": "Possible Voice Commands (read me!)",
         "info": "A.      Angela,\nB.      Ok Pippi,\n\n\n1.   Ich bin daheim.    \n2.   Ich verlasse das Haus.\n3.   Schalte Wohnzimmer.            \n4.   Schalte Küche.       \n5.   Schalte Esszimmer.            \n6.   Schalte Diele.            \n7.   Schalte Schlafzimmer.      \n8.   Schalte Kinderzimmer.     \n9.   Schalte Garten.    \n10.  Schalte Einfahrt.\n11.  Schalte Licht aus.     \n12.  Schalte Musik.          \n13.  Schließe Rollladen.      \n14.  Öffne Rollladen.   \n15.  Aktiviere gemütlich.        \n16.  Aktiviere Abendessen.      \n17.  Aktiviere Empfang.          \n18.  Hilfe.          \n19.  Not Defined\n20.  Not Defined",
         "x": 1350,
@@ -19,7 +17,7 @@
     {
         "id": "f1e8454c.a91618",
         "type": "mqtt in",
-        "z": "224bd643.c885ca",
+        "z": "7ced60a4.6357c",
         "name": "",
         "topic": "/zwave/vr",
         "qos": "0",
@@ -35,7 +33,7 @@
     {
         "id": "db9eac3c.6306a",
         "type": "comment",
-        "z": "224bd643.c885ca",
+        "z": "7ced60a4.6357c",
         "name": "Voice commands from Gateway (ZNG100)",
         "info": "",
         "x": 320,
@@ -45,7 +43,7 @@
     {
         "id": "e7fa3dfb.903df",
         "type": "switch",
-        "z": "224bd643.c885ca",
+        "z": "7ced60a4.6357c",
         "name": "Light",
         "property": "payload",
         "propertyType": "msg",
@@ -138,7 +136,7 @@
     {
         "id": "1dc37ddc.21c702",
         "type": "link out",
-        "z": "224bd643.c885ca",
+        "z": "7ced60a4.6357c",
         "name": "Wohnzimmer 2",
         "links": [
             "e91481cf.a4bdd"
@@ -150,13 +148,14 @@
     {
         "id": "ffe0a55.72bf558",
         "type": "realknx-out",
-        "z": "224bd643.c885ca",
-        "name": "3. Schalte Wonhzimmer.",
+        "z": "7ced60a4.6357c",
+        "name": "3. Schalte Wohnzimmer.",
         "controller": "b4d19699.4cb748",
-        "itemname": "",
+        "itemname": "Bedroom - Ceiling",
         "topic": "",
         "payload": "",
         "booleaninput": true,
+        "skipfirst": true,
         "x": 1610,
         "y": 280,
         "wires": []
@@ -164,7 +163,7 @@
     {
         "id": "e91481cf.a4bdd",
         "type": "link in",
-        "z": "224bd643.c885ca",
+        "z": "7ced60a4.6357c",
         "name": "Wohnzimmer 2",
         "links": [
             "1dc37ddc.21c702"
@@ -180,7 +179,7 @@
     {
         "id": "bd1e3c88.4748b",
         "type": "change",
-        "z": "224bd643.c885ca",
+        "z": "7ced60a4.6357c",
         "name": "Close",
         "rules": [
             {
@@ -207,7 +206,7 @@
     {
         "id": "18c56a71.45c2d6",
         "type": "change",
-        "z": "224bd643.c885ca",
+        "z": "7ced60a4.6357c",
         "name": "Open",
         "rules": [
             {
@@ -234,7 +233,7 @@
     {
         "id": "c7ced2af.56821",
         "type": "comment",
-        "z": "224bd643.c885ca",
+        "z": "7ced60a4.6357c",
         "name": "Wohnzimmer",
         "info": "",
         "x": 1050,
@@ -244,7 +243,7 @@
     {
         "id": "99f9531c.d45a5",
         "type": "switch",
-        "z": "224bd643.c885ca",
+        "z": "7ced60a4.6357c",
         "name": "Rollladen",
         "property": "payload",
         "propertyType": "msg",
@@ -283,7 +282,7 @@
     {
         "id": "d79d9a11.a48358",
         "type": "comment",
-        "z": "224bd643.c885ca",
+        "z": "7ced60a4.6357c",
         "name": "Rollladen",
         "info": "",
         "x": 1040,
@@ -293,7 +292,7 @@
     {
         "id": "99921aba.491aa8",
         "type": "switch",
-        "z": "224bd643.c885ca",
+        "z": "7ced60a4.6357c",
         "name": "Scenes",
         "property": "payload",
         "propertyType": "msg",
@@ -380,7 +379,7 @@
     {
         "id": "98aa44bc.97c2f8",
         "type": "change",
-        "z": "224bd643.c885ca",
+        "z": "7ced60a4.6357c",
         "name": "OFF",
         "rules": [
             {
@@ -405,7 +404,7 @@
     {
         "id": "77b02f76.dd00a",
         "type": "change",
-        "z": "224bd643.c885ca",
+        "z": "7ced60a4.6357c",
         "name": "ON",
         "rules": [
             {
@@ -430,7 +429,7 @@
     {
         "id": "5c9966fd.5ef918",
         "type": "link out",
-        "z": "224bd643.c885ca",
+        "z": "7ced60a4.6357c",
         "name": "Aktiviere gemütlich.",
         "links": [
             "a99a38b2.ba2588"
@@ -442,7 +441,7 @@
     {
         "id": "491916be.29ef68",
         "type": "change",
-        "z": "224bd643.c885ca",
+        "z": "7ced60a4.6357c",
         "name": "OFF",
         "rules": [
             {
@@ -467,7 +466,7 @@
     {
         "id": "1e2bf569.10ff6b",
         "type": "comment",
-        "z": "224bd643.c885ca",
+        "z": "7ced60a4.6357c",
         "name": "Aktiviere gemütlich.",
         "info": "",
         "x": 1070,
@@ -477,7 +476,7 @@
     {
         "id": "7218ab4b.b806b4",
         "type": "comment",
-        "z": "224bd643.c885ca",
+        "z": "7ced60a4.6357c",
         "name": "Aktiviere Abendessen.",
         "info": "",
         "x": 1080,
@@ -487,7 +486,7 @@
     {
         "id": "74980d43.ea7d94",
         "type": "comment",
-        "z": "224bd643.c885ca",
+        "z": "7ced60a4.6357c",
         "name": "Aktiviere Empfang.",
         "info": "",
         "x": 1070,
@@ -497,7 +496,7 @@
     {
         "id": "8b6c6b13.f52788",
         "type": "comment",
-        "z": "224bd643.c885ca",
+        "z": "7ced60a4.6357c",
         "name": "Hilfe.",
         "info": "",
         "x": 1030,
@@ -507,7 +506,7 @@
     {
         "id": "da2b1689.516848",
         "type": "change",
-        "z": "224bd643.c885ca",
+        "z": "7ced60a4.6357c",
         "name": "ON",
         "rules": [
             {
@@ -532,7 +531,7 @@
     {
         "id": "f1a9f958.4632f8",
         "type": "link in",
-        "z": "224bd643.c885ca",
+        "z": "7ced60a4.6357c",
         "name": "open close",
         "links": [
             "17da220b.da161e"
@@ -548,7 +547,7 @@
     {
         "id": "17da220b.da161e",
         "type": "link out",
-        "z": "224bd643.c885ca",
+        "z": "7ced60a4.6357c",
         "name": "Open close",
         "links": [
             "f1a9f958.4632f8"
@@ -560,7 +559,7 @@
     {
         "id": "a5edab00.aa03e8",
         "type": "link out",
-        "z": "224bd643.c885ca",
+        "z": "7ced60a4.6357c",
         "name": "Ich bin daheim.",
         "links": [
             "d4516a63.27a308"
@@ -572,7 +571,7 @@
     {
         "id": "16954110.7d340f",
         "type": "link out",
-        "z": "224bd643.c885ca",
+        "z": "7ced60a4.6357c",
         "name": "Ich verlasse das Haus.",
         "links": [
             "ec6f3fad.c24dc"
@@ -584,7 +583,7 @@
     {
         "id": "1a8318d6.6008a7",
         "type": "link out",
-        "z": "224bd643.c885ca",
+        "z": "7ced60a4.6357c",
         "name": "Aktiviere Abendessen.",
         "links": [
             "75beb72c.88dc58"
@@ -596,7 +595,7 @@
     {
         "id": "bb4876f5.616f18",
         "type": "link out",
-        "z": "224bd643.c885ca",
+        "z": "7ced60a4.6357c",
         "name": "Aktiviere Empfang.",
         "links": [
             "819180e1.0bf7d"
@@ -608,7 +607,7 @@
     {
         "id": "edee2a95.1256d8",
         "type": "link out",
-        "z": "224bd643.c885ca",
+        "z": "7ced60a4.6357c",
         "name": "Hilfe.",
         "links": [
             "a8c26140.f18a9"
@@ -620,7 +619,7 @@
     {
         "id": "a99a38b2.ba2588",
         "type": "link in",
-        "z": "224bd643.c885ca",
+        "z": "7ced60a4.6357c",
         "name": "Aktiviere gemütlich.",
         "links": [
             "5c9966fd.5ef918"
@@ -636,7 +635,7 @@
     {
         "id": "75beb72c.88dc58",
         "type": "link in",
-        "z": "224bd643.c885ca",
+        "z": "7ced60a4.6357c",
         "name": "Aktiviere Abendessen.",
         "links": [
             "1a8318d6.6008a7"
@@ -652,7 +651,7 @@
     {
         "id": "323a30b3.68c7c",
         "type": "change",
-        "z": "224bd643.c885ca",
+        "z": "7ced60a4.6357c",
         "name": "OFF",
         "rules": [
             {
@@ -677,7 +676,7 @@
     {
         "id": "ab8683dd.4499c",
         "type": "link out",
-        "z": "224bd643.c885ca",
+        "z": "7ced60a4.6357c",
         "name": "Aktiviere Abendessen.",
         "links": [
             "b3aca47b.18d858"
@@ -689,7 +688,7 @@
     {
         "id": "b3aca47b.18d858",
         "type": "link in",
-        "z": "224bd643.c885ca",
+        "z": "7ced60a4.6357c",
         "name": "Aktiviere Abendessen.",
         "links": [
             "ab8683dd.4499c"
@@ -705,7 +704,7 @@
     {
         "id": "123a803a.6bf67",
         "type": "change",
-        "z": "224bd643.c885ca",
+        "z": "7ced60a4.6357c",
         "name": "ON",
         "rules": [
             {
@@ -730,7 +729,7 @@
     {
         "id": "2db8eea9.e51432",
         "type": "link out",
-        "z": "224bd643.c885ca",
+        "z": "7ced60a4.6357c",
         "name": "Aktiviere gemütlich.",
         "links": [
             "f7299ef.06f666"
@@ -742,7 +741,7 @@
     {
         "id": "f7299ef.06f666",
         "type": "link in",
-        "z": "224bd643.c885ca",
+        "z": "7ced60a4.6357c",
         "name": "Aktiviere gemütlich.",
         "links": [
             "2db8eea9.e51432"
@@ -758,7 +757,7 @@
     {
         "id": "d4516a63.27a308",
         "type": "link in",
-        "z": "224bd643.c885ca",
+        "z": "7ced60a4.6357c",
         "name": "Ich bin daheim.",
         "links": [
             "a5edab00.aa03e8"
@@ -774,7 +773,7 @@
     {
         "id": "ec6f3fad.c24dc",
         "type": "link in",
-        "z": "224bd643.c885ca",
+        "z": "7ced60a4.6357c",
         "name": "Ich verlasse das Haus.",
         "links": [
             "16954110.7d340f"
@@ -790,7 +789,7 @@
     {
         "id": "fb85cdc7.5d90c",
         "type": "comment",
-        "z": "224bd643.c885ca",
+        "z": "7ced60a4.6357c",
         "name": "Ich bin daheim",
         "info": "",
         "x": 1060,
@@ -800,7 +799,7 @@
     {
         "id": "c1418ee8.46641",
         "type": "comment",
-        "z": "224bd643.c885ca",
+        "z": "7ced60a4.6357c",
         "name": "Ich verlasse das Haus.",
         "info": "",
         "x": 1080,
@@ -810,7 +809,7 @@
     {
         "id": "a8c26140.f18a9",
         "type": "link in",
-        "z": "224bd643.c885ca",
+        "z": "7ced60a4.6357c",
         "name": "Hilfe.",
         "links": [
             "edee2a95.1256d8"
@@ -826,7 +825,7 @@
     {
         "id": "81c3c030.93837",
         "type": "link out",
-        "z": "224bd643.c885ca",
+        "z": "7ced60a4.6357c",
         "name": "Open close",
         "links": [
             "17bdad86.3fe552"
@@ -838,7 +837,7 @@
     {
         "id": "17bdad86.3fe552",
         "type": "link in",
-        "z": "224bd643.c885ca",
+        "z": "7ced60a4.6357c",
         "name": "open close",
         "links": [
             "81c3c030.93837"
@@ -854,7 +853,7 @@
     {
         "id": "8f9f30a1.92b9e",
         "type": "change",
-        "z": "224bd643.c885ca",
+        "z": "7ced60a4.6357c",
         "name": "invert",
         "rules": [
             {
@@ -881,7 +880,7 @@
     {
         "id": "db812552.7178a8",
         "type": "change",
-        "z": "224bd643.c885ca",
+        "z": "7ced60a4.6357c",
         "name": "current state",
         "rules": [
             {
@@ -908,7 +907,7 @@
     {
         "id": "fd97116a.a4d32",
         "type": "change",
-        "z": "224bd643.c885ca",
+        "z": "7ced60a4.6357c",
         "name": "",
         "rules": [
             {
@@ -933,7 +932,7 @@
     {
         "id": "af6642a1.16688",
         "type": "link in",
-        "z": "224bd643.c885ca",
+        "z": "7ced60a4.6357c",
         "name": "Wohnzimmer 1",
         "links": [
             "16a8c63b.96596a"
@@ -949,7 +948,7 @@
     {
         "id": "16a8c63b.96596a",
         "type": "link out",
-        "z": "224bd643.c885ca",
+        "z": "7ced60a4.6357c",
         "name": "Wohnzimmer 1",
         "links": [
             "af6642a1.16688"
@@ -961,8 +960,8 @@
     {
         "id": "c536d4be.6e7378",
         "type": "realknx-in",
-        "z": "224bd643.c885ca",
-        "name": "3. Schalte Wonhzimmer.",
+        "z": "7ced60a4.6357c",
+        "name": "3. Schalte Wohnzimmer.",
         "controller": "b4d19699.4cb748",
         "itemname": "",
         "passthru": true,
@@ -979,7 +978,7 @@
     {
         "id": "3bd54ca5.caf0a4",
         "type": "realknx-out",
-        "z": "224bd643.c885ca",
+        "z": "7ced60a4.6357c",
         "name": "4. Schalte Küche.",
         "controller": "b4d19699.4cb748",
         "itemname": "",
@@ -993,7 +992,7 @@
     {
         "id": "ff1a94f9.53d928",
         "type": "link in",
-        "z": "224bd643.c885ca",
+        "z": "7ced60a4.6357c",
         "name": "Kuche 2",
         "links": [
             "7a306229.35c5fc"
@@ -1009,7 +1008,7 @@
     {
         "id": "ca91e7f8.fe82d8",
         "type": "link out",
-        "z": "224bd643.c885ca",
+        "z": "7ced60a4.6357c",
         "name": "Kuche 1",
         "links": [
             "dd35a5fc.4ce798"
@@ -1021,7 +1020,7 @@
     {
         "id": "ab239f40.6a42f",
         "type": "realknx-in",
-        "z": "224bd643.c885ca",
+        "z": "7ced60a4.6357c",
         "name": "4. Schalte Küche.",
         "controller": "b4d19699.4cb748",
         "itemname": "",
@@ -1039,7 +1038,7 @@
     {
         "id": "7a306229.35c5fc",
         "type": "link out",
-        "z": "224bd643.c885ca",
+        "z": "7ced60a4.6357c",
         "name": "Kuche 2",
         "links": [
             "ff1a94f9.53d928"
@@ -1051,7 +1050,7 @@
     {
         "id": "7d784296.9ddc8c",
         "type": "comment",
-        "z": "224bd643.c885ca",
+        "z": "7ced60a4.6357c",
         "name": "Küche",
         "info": "",
         "x": 1030,
@@ -1061,7 +1060,7 @@
     {
         "id": "5efcbd36.8bb094",
         "type": "change",
-        "z": "224bd643.c885ca",
+        "z": "7ced60a4.6357c",
         "name": "invert",
         "rules": [
             {
@@ -1088,7 +1087,7 @@
     {
         "id": "b7f907a7.8f7048",
         "type": "change",
-        "z": "224bd643.c885ca",
+        "z": "7ced60a4.6357c",
         "name": "current state",
         "rules": [
             {
@@ -1115,7 +1114,7 @@
     {
         "id": "8fa29f99.47bf8",
         "type": "change",
-        "z": "224bd643.c885ca",
+        "z": "7ced60a4.6357c",
         "name": "",
         "rules": [
             {
@@ -1140,7 +1139,7 @@
     {
         "id": "dd35a5fc.4ce798",
         "type": "link in",
-        "z": "224bd643.c885ca",
+        "z": "7ced60a4.6357c",
         "name": "Kuche 1",
         "links": [
             "ca91e7f8.fe82d8"
@@ -1156,7 +1155,7 @@
     {
         "id": "315fb44d.07a44c",
         "type": "link out",
-        "z": "224bd643.c885ca",
+        "z": "7ced60a4.6357c",
         "name": "Esszimmer 2",
         "links": [
             "8c74fdda.d591f"
@@ -1168,7 +1167,7 @@
     {
         "id": "8877ba60.30d3b8",
         "type": "realknx-out",
-        "z": "224bd643.c885ca",
+        "z": "7ced60a4.6357c",
         "name": "5. Schalte Esszimmer.",
         "controller": "b4d19699.4cb748",
         "itemname": "",
@@ -1182,7 +1181,7 @@
     {
         "id": "8c74fdda.d591f",
         "type": "link in",
-        "z": "224bd643.c885ca",
+        "z": "7ced60a4.6357c",
         "name": "Esszimmer 2",
         "links": [
             "315fb44d.07a44c"
@@ -1198,7 +1197,7 @@
     {
         "id": "9296d719.430c78",
         "type": "comment",
-        "z": "224bd643.c885ca",
+        "z": "7ced60a4.6357c",
         "name": "Esszimmer",
         "info": "",
         "x": 1040,
@@ -1208,7 +1207,7 @@
     {
         "id": "bd3c1693.f2b558",
         "type": "change",
-        "z": "224bd643.c885ca",
+        "z": "7ced60a4.6357c",
         "name": "invert",
         "rules": [
             {
@@ -1235,7 +1234,7 @@
     {
         "id": "910abd3f.6311c",
         "type": "change",
-        "z": "224bd643.c885ca",
+        "z": "7ced60a4.6357c",
         "name": "current state",
         "rules": [
             {
@@ -1262,7 +1261,7 @@
     {
         "id": "d196d5f1.ff56d8",
         "type": "change",
-        "z": "224bd643.c885ca",
+        "z": "7ced60a4.6357c",
         "name": "",
         "rules": [
             {
@@ -1287,7 +1286,7 @@
     {
         "id": "31823bde.739024",
         "type": "link in",
-        "z": "224bd643.c885ca",
+        "z": "7ced60a4.6357c",
         "name": "Esszimmer 1",
         "links": [
             "f6b8fd9f.b8376"
@@ -1303,7 +1302,7 @@
     {
         "id": "f6b8fd9f.b8376",
         "type": "link out",
-        "z": "224bd643.c885ca",
+        "z": "7ced60a4.6357c",
         "name": "Esszimmer 1",
         "links": [
             "31823bde.739024"
@@ -1315,7 +1314,7 @@
     {
         "id": "c2daf1f4.724d7",
         "type": "realknx-in",
-        "z": "224bd643.c885ca",
+        "z": "7ced60a4.6357c",
         "name": "5. Schalte Esszimmer.",
         "controller": "b4d19699.4cb748",
         "itemname": "",
@@ -1333,7 +1332,7 @@
     {
         "id": "bb5e7814.4c5ce8",
         "type": "realknx-out",
-        "z": "224bd643.c885ca",
+        "z": "7ced60a4.6357c",
         "name": "6. Schalte Diele.",
         "controller": "b4d19699.4cb748",
         "itemname": "",
@@ -1347,7 +1346,7 @@
     {
         "id": "73170105.b8ea5",
         "type": "link in",
-        "z": "224bd643.c885ca",
+        "z": "7ced60a4.6357c",
         "name": "Diele 2",
         "links": [
             "f4fa8db9.f818"
@@ -1363,7 +1362,7 @@
     {
         "id": "d0ddb6b.85f7748",
         "type": "link out",
-        "z": "224bd643.c885ca",
+        "z": "7ced60a4.6357c",
         "name": "Diele 1",
         "links": [
             "ec9962a.b4fb2a"
@@ -1375,7 +1374,7 @@
     {
         "id": "218652ab.a5a1ce",
         "type": "realknx-in",
-        "z": "224bd643.c885ca",
+        "z": "7ced60a4.6357c",
         "name": "6. Schalte Diele.",
         "controller": "b4d19699.4cb748",
         "itemname": "",
@@ -1393,7 +1392,7 @@
     {
         "id": "f4fa8db9.f818",
         "type": "link out",
-        "z": "224bd643.c885ca",
+        "z": "7ced60a4.6357c",
         "name": "Diele 2",
         "links": [
             "73170105.b8ea5"
@@ -1405,7 +1404,7 @@
     {
         "id": "ed873411.88cd18",
         "type": "comment",
-        "z": "224bd643.c885ca",
+        "z": "7ced60a4.6357c",
         "name": "Diele",
         "info": "",
         "x": 1030,
@@ -1415,7 +1414,7 @@
     {
         "id": "7f6e6f06.eb608",
         "type": "change",
-        "z": "224bd643.c885ca",
+        "z": "7ced60a4.6357c",
         "name": "invert",
         "rules": [
             {
@@ -1442,7 +1441,7 @@
     {
         "id": "ebc00ab1.bb2f68",
         "type": "change",
-        "z": "224bd643.c885ca",
+        "z": "7ced60a4.6357c",
         "name": "current state",
         "rules": [
             {
@@ -1469,7 +1468,7 @@
     {
         "id": "3e4cee3.4de3012",
         "type": "change",
-        "z": "224bd643.c885ca",
+        "z": "7ced60a4.6357c",
         "name": "",
         "rules": [
             {
@@ -1494,7 +1493,7 @@
     {
         "id": "ec9962a.b4fb2a",
         "type": "link in",
-        "z": "224bd643.c885ca",
+        "z": "7ced60a4.6357c",
         "name": "Diele 1",
         "links": [
             "d0ddb6b.85f7748"
@@ -1510,7 +1509,7 @@
     {
         "id": "4a6d1583.2e3acc",
         "type": "link out",
-        "z": "224bd643.c885ca",
+        "z": "7ced60a4.6357c",
         "name": "Schlafzimmer 2",
         "links": [
             "774e4fdb.2f7b4"
@@ -1522,7 +1521,7 @@
     {
         "id": "63663ac4.4ac024",
         "type": "realknx-out",
-        "z": "224bd643.c885ca",
+        "z": "7ced60a4.6357c",
         "name": "7. Schalte Schlafzimmer.",
         "controller": "b4d19699.4cb748",
         "itemname": "",
@@ -1536,7 +1535,7 @@
     {
         "id": "774e4fdb.2f7b4",
         "type": "link in",
-        "z": "224bd643.c885ca",
+        "z": "7ced60a4.6357c",
         "name": "Schlafzimmer 2",
         "links": [
             "4a6d1583.2e3acc"
@@ -1552,7 +1551,7 @@
     {
         "id": "cd046e9b.ef6b5",
         "type": "comment",
-        "z": "224bd643.c885ca",
+        "z": "7ced60a4.6357c",
         "name": "Schlafzimmer",
         "info": "",
         "x": 1050,
@@ -1562,7 +1561,7 @@
     {
         "id": "f07cd732.cf3658",
         "type": "change",
-        "z": "224bd643.c885ca",
+        "z": "7ced60a4.6357c",
         "name": "invert",
         "rules": [
             {
@@ -1589,7 +1588,7 @@
     {
         "id": "16da97dc.7b4d38",
         "type": "change",
-        "z": "224bd643.c885ca",
+        "z": "7ced60a4.6357c",
         "name": "current state",
         "rules": [
             {
@@ -1616,7 +1615,7 @@
     {
         "id": "94d3e6de.afcef8",
         "type": "change",
-        "z": "224bd643.c885ca",
+        "z": "7ced60a4.6357c",
         "name": "",
         "rules": [
             {
@@ -1641,7 +1640,7 @@
     {
         "id": "838f0a14.805788",
         "type": "link in",
-        "z": "224bd643.c885ca",
+        "z": "7ced60a4.6357c",
         "name": "Schlafzimmer 1",
         "links": [
             "91b08cc7.88429"
@@ -1657,7 +1656,7 @@
     {
         "id": "91b08cc7.88429",
         "type": "link out",
-        "z": "224bd643.c885ca",
+        "z": "7ced60a4.6357c",
         "name": "Schlafzimmer 1",
         "links": [
             "838f0a14.805788"
@@ -1669,7 +1668,7 @@
     {
         "id": "6d178b47.84ce04",
         "type": "realknx-in",
-        "z": "224bd643.c885ca",
+        "z": "7ced60a4.6357c",
         "name": "7. Schalte Schlafzimmer.",
         "controller": "b4d19699.4cb748",
         "itemname": "",
@@ -1687,7 +1686,7 @@
     {
         "id": "f64ca03d.f5ccd",
         "type": "realknx-out",
-        "z": "224bd643.c885ca",
+        "z": "7ced60a4.6357c",
         "name": "8. Schalte Kinderzimmer.",
         "controller": "b4d19699.4cb748",
         "itemname": "",
@@ -1701,7 +1700,7 @@
     {
         "id": "51e95647.6331b8",
         "type": "link in",
-        "z": "224bd643.c885ca",
+        "z": "7ced60a4.6357c",
         "name": "Kinderzimmer 2",
         "links": [
             "acbf8849.69f0c8"
@@ -1717,7 +1716,7 @@
     {
         "id": "99f56882.152f98",
         "type": "link out",
-        "z": "224bd643.c885ca",
+        "z": "7ced60a4.6357c",
         "name": "Kinderzimmer 1",
         "links": [
             "acdfd59c.446ff8"
@@ -1729,7 +1728,7 @@
     {
         "id": "6af8c5ba.a4b7fc",
         "type": "realknx-in",
-        "z": "224bd643.c885ca",
+        "z": "7ced60a4.6357c",
         "name": "8. Schalte Kinderzimmer.",
         "controller": "b4d19699.4cb748",
         "itemname": "",
@@ -1747,7 +1746,7 @@
     {
         "id": "acbf8849.69f0c8",
         "type": "link out",
-        "z": "224bd643.c885ca",
+        "z": "7ced60a4.6357c",
         "name": "Kinderzimmer 2",
         "links": [
             "51e95647.6331b8"
@@ -1759,7 +1758,7 @@
     {
         "id": "ddc99ec5.0117f",
         "type": "comment",
-        "z": "224bd643.c885ca",
+        "z": "7ced60a4.6357c",
         "name": "Kinderzimmer",
         "info": "",
         "x": 1050,
@@ -1769,7 +1768,7 @@
     {
         "id": "6a439898.8a6bb8",
         "type": "change",
-        "z": "224bd643.c885ca",
+        "z": "7ced60a4.6357c",
         "name": "invert",
         "rules": [
             {
@@ -1796,7 +1795,7 @@
     {
         "id": "a0111034.f16a2",
         "type": "change",
-        "z": "224bd643.c885ca",
+        "z": "7ced60a4.6357c",
         "name": "current state",
         "rules": [
             {
@@ -1823,7 +1822,7 @@
     {
         "id": "f93a1882.52e478",
         "type": "change",
-        "z": "224bd643.c885ca",
+        "z": "7ced60a4.6357c",
         "name": "",
         "rules": [
             {
@@ -1848,7 +1847,7 @@
     {
         "id": "acdfd59c.446ff8",
         "type": "link in",
-        "z": "224bd643.c885ca",
+        "z": "7ced60a4.6357c",
         "name": "Kinderzimmer 1",
         "links": [
             "99f56882.152f98"
@@ -1864,7 +1863,7 @@
     {
         "id": "e61fc8a8.690458",
         "type": "link out",
-        "z": "224bd643.c885ca",
+        "z": "7ced60a4.6357c",
         "name": "Garten 2",
         "links": [
             "dd85ab5c.6a2098"
@@ -1876,7 +1875,7 @@
     {
         "id": "187365f7.44e1fa",
         "type": "realknx-out",
-        "z": "224bd643.c885ca",
+        "z": "7ced60a4.6357c",
         "name": "9. Schalte Garten.",
         "controller": "b4d19699.4cb748",
         "itemname": "",
@@ -1890,7 +1889,7 @@
     {
         "id": "dd85ab5c.6a2098",
         "type": "link in",
-        "z": "224bd643.c885ca",
+        "z": "7ced60a4.6357c",
         "name": "Garten 2",
         "links": [
             "e61fc8a8.690458"
@@ -1906,7 +1905,7 @@
     {
         "id": "137d8e9f.0f4251",
         "type": "comment",
-        "z": "224bd643.c885ca",
+        "z": "7ced60a4.6357c",
         "name": "Garten",
         "info": "",
         "x": 1030,
@@ -1916,7 +1915,7 @@
     {
         "id": "d8235935.094408",
         "type": "change",
-        "z": "224bd643.c885ca",
+        "z": "7ced60a4.6357c",
         "name": "invert",
         "rules": [
             {
@@ -1943,7 +1942,7 @@
     {
         "id": "be0b282d.36ae08",
         "type": "change",
-        "z": "224bd643.c885ca",
+        "z": "7ced60a4.6357c",
         "name": "current state",
         "rules": [
             {
@@ -1970,7 +1969,7 @@
     {
         "id": "2b709e75.146ed2",
         "type": "change",
-        "z": "224bd643.c885ca",
+        "z": "7ced60a4.6357c",
         "name": "",
         "rules": [
             {
@@ -1995,7 +1994,7 @@
     {
         "id": "cb621e49.31e79",
         "type": "link in",
-        "z": "224bd643.c885ca",
+        "z": "7ced60a4.6357c",
         "name": "Garten 1",
         "links": [
             "a468bdf9.b2d2d"
@@ -2011,7 +2010,7 @@
     {
         "id": "a468bdf9.b2d2d",
         "type": "link out",
-        "z": "224bd643.c885ca",
+        "z": "7ced60a4.6357c",
         "name": "Garten 1",
         "links": [
             "cb621e49.31e79"
@@ -2023,7 +2022,7 @@
     {
         "id": "2644f65f.ae5b8a",
         "type": "realknx-in",
-        "z": "224bd643.c885ca",
+        "z": "7ced60a4.6357c",
         "name": "9. Schalte Garten.",
         "controller": "b4d19699.4cb748",
         "itemname": "",
@@ -2041,7 +2040,7 @@
     {
         "id": "c8b62683.d6a018",
         "type": "realknx-out",
-        "z": "224bd643.c885ca",
+        "z": "7ced60a4.6357c",
         "name": "10. Schalte Einfahrt.",
         "controller": "b4d19699.4cb748",
         "itemname": "",
@@ -2055,7 +2054,7 @@
     {
         "id": "39be334.126f6cc",
         "type": "link in",
-        "z": "224bd643.c885ca",
+        "z": "7ced60a4.6357c",
         "name": "Einfahrt 2",
         "links": [
             "878d1459.8aa4f8"
@@ -2071,7 +2070,7 @@
     {
         "id": "8f666746.492e28",
         "type": "link out",
-        "z": "224bd643.c885ca",
+        "z": "7ced60a4.6357c",
         "name": " Einfahrt 1",
         "links": [
             "1fe818a9.35d2d7"
@@ -2083,7 +2082,7 @@
     {
         "id": "c06f6b59.4a00f8",
         "type": "realknx-in",
-        "z": "224bd643.c885ca",
+        "z": "7ced60a4.6357c",
         "name": "10. Schalte Einfahrt.",
         "controller": "b4d19699.4cb748",
         "itemname": "",
@@ -2101,7 +2100,7 @@
     {
         "id": "878d1459.8aa4f8",
         "type": "link out",
-        "z": "224bd643.c885ca",
+        "z": "7ced60a4.6357c",
         "name": "Einfahrt 2",
         "links": [
             "39be334.126f6cc"
@@ -2113,7 +2112,7 @@
     {
         "id": "e05027c2.a794a8",
         "type": "comment",
-        "z": "224bd643.c885ca",
+        "z": "7ced60a4.6357c",
         "name": "Einfahrt",
         "info": "",
         "x": 1030,
@@ -2123,7 +2122,7 @@
     {
         "id": "b7f23edc.7732",
         "type": "change",
-        "z": "224bd643.c885ca",
+        "z": "7ced60a4.6357c",
         "name": "invert",
         "rules": [
             {
@@ -2150,7 +2149,7 @@
     {
         "id": "14917bbc.6dfe84",
         "type": "change",
-        "z": "224bd643.c885ca",
+        "z": "7ced60a4.6357c",
         "name": "current state",
         "rules": [
             {
@@ -2177,7 +2176,7 @@
     {
         "id": "9a90c37e.3c72",
         "type": "change",
-        "z": "224bd643.c885ca",
+        "z": "7ced60a4.6357c",
         "name": "",
         "rules": [
             {
@@ -2202,7 +2201,7 @@
     {
         "id": "1fe818a9.35d2d7",
         "type": "link in",
-        "z": "224bd643.c885ca",
+        "z": "7ced60a4.6357c",
         "name": "Einfahrt 1",
         "links": [
             "8f666746.492e28"
@@ -2218,7 +2217,7 @@
     {
         "id": "4e8f1769.2ac208",
         "type": "realknx-out",
-        "z": "224bd643.c885ca",
+        "z": "7ced60a4.6357c",
         "name": "11. Schalte Licht aus.",
         "controller": "b4d19699.4cb748",
         "itemname": "",
@@ -2232,7 +2231,7 @@
     {
         "id": "61358d57.aea404",
         "type": "link in",
-        "z": "224bd643.c885ca",
+        "z": "7ced60a4.6357c",
         "name": "Licht Aus 1",
         "links": [
             "345cd991.35a956"
@@ -2248,7 +2247,7 @@
     {
         "id": "c6e14685.da0bc8",
         "type": "comment",
-        "z": "224bd643.c885ca",
+        "z": "7ced60a4.6357c",
         "name": "Licht Aus",
         "info": "",
         "x": 1040,
@@ -2258,7 +2257,7 @@
     {
         "id": "1426c753.159459",
         "type": "change",
-        "z": "224bd643.c885ca",
+        "z": "7ced60a4.6357c",
         "name": "OFF",
         "rules": [
             {
@@ -2285,7 +2284,7 @@
     {
         "id": "345cd991.35a956",
         "type": "link out",
-        "z": "224bd643.c885ca",
+        "z": "7ced60a4.6357c",
         "name": "Licht Aus 1",
         "links": [
             "61358d57.aea404"
@@ -2297,7 +2296,7 @@
     {
         "id": "ae1898e6.f84ee8",
         "type": "realknx-out",
-        "z": "224bd643.c885ca",
+        "z": "7ced60a4.6357c",
         "name": "12. Schalte Musik.",
         "controller": "b4d19699.4cb748",
         "itemname": "",
@@ -2311,7 +2310,7 @@
     {
         "id": "4af05d99.759b34",
         "type": "link in",
-        "z": "224bd643.c885ca",
+        "z": "7ced60a4.6357c",
         "name": "Musik 2",
         "links": [
             "7eea2198.2a846"
@@ -2327,7 +2326,7 @@
     {
         "id": "92f1c9ec.4ea3a8",
         "type": "link out",
-        "z": "224bd643.c885ca",
+        "z": "7ced60a4.6357c",
         "name": "Musik 1",
         "links": [
             "5558476b.9adfb8"
@@ -2339,7 +2338,7 @@
     {
         "id": "4abc2605.343078",
         "type": "realknx-in",
-        "z": "224bd643.c885ca",
+        "z": "7ced60a4.6357c",
         "name": "12. Schalte Musik.",
         "controller": "b4d19699.4cb748",
         "itemname": "",
@@ -2357,7 +2356,7 @@
     {
         "id": "7eea2198.2a846",
         "type": "link out",
-        "z": "224bd643.c885ca",
+        "z": "7ced60a4.6357c",
         "name": "Musik 2",
         "links": [
             "4af05d99.759b34"
@@ -2369,7 +2368,7 @@
     {
         "id": "4ab1a65.69d2e58",
         "type": "comment",
-        "z": "224bd643.c885ca",
+        "z": "7ced60a4.6357c",
         "name": "Musik",
         "info": "",
         "x": 1030,
@@ -2379,7 +2378,7 @@
     {
         "id": "8cd977cc.77ef88",
         "type": "change",
-        "z": "224bd643.c885ca",
+        "z": "7ced60a4.6357c",
         "name": "invert",
         "rules": [
             {
@@ -2406,7 +2405,7 @@
     {
         "id": "e51bb4c2.83ba18",
         "type": "change",
-        "z": "224bd643.c885ca",
+        "z": "7ced60a4.6357c",
         "name": "current state",
         "rules": [
             {
@@ -2433,7 +2432,7 @@
     {
         "id": "900b0d79.b717e",
         "type": "change",
-        "z": "224bd643.c885ca",
+        "z": "7ced60a4.6357c",
         "name": "",
         "rules": [
             {
@@ -2458,7 +2457,7 @@
     {
         "id": "5558476b.9adfb8",
         "type": "link in",
-        "z": "224bd643.c885ca",
+        "z": "7ced60a4.6357c",
         "name": "Musik 1",
         "links": [
             "92f1c9ec.4ea3a8"
@@ -2474,7 +2473,7 @@
     {
         "id": "6b49d056.2ac9d",
         "type": "switch",
-        "z": "224bd643.c885ca",
+        "z": "7ced60a4.6357c",
         "name": "General",
         "property": "payload",
         "propertyType": "msg",
@@ -2501,7 +2500,7 @@
     {
         "id": "9f8a20ea.04f49",
         "type": "switch",
-        "z": "224bd643.c885ca",
+        "z": "7ced60a4.6357c",
         "name": "Multimedia",
         "property": "payload",
         "propertyType": "msg",
@@ -2528,7 +2527,7 @@
     {
         "id": "819180e1.0bf7d",
         "type": "link in",
-        "z": "224bd643.c885ca",
+        "z": "7ced60a4.6357c",
         "name": "Aktiviere Empfang.",
         "links": [
             "bb4876f5.616f18"
@@ -2544,7 +2543,7 @@
     {
         "id": "5092ad2a.cca8b4",
         "type": "change",
-        "z": "224bd643.c885ca",
+        "z": "7ced60a4.6357c",
         "name": "OFF",
         "rules": [
             {
@@ -2569,7 +2568,7 @@
     {
         "id": "2365a5a4.f2617a",
         "type": "link out",
-        "z": "224bd643.c885ca",
+        "z": "7ced60a4.6357c",
         "name": "Ich bin daheim.",
         "links": [
             "e621ba58.186b28",
@@ -2582,7 +2581,7 @@
     {
         "id": "e621ba58.186b28",
         "type": "link in",
-        "z": "224bd643.c885ca",
+        "z": "7ced60a4.6357c",
         "name": "Ich bin daheim.",
         "links": [
             "2365a5a4.f2617a"
@@ -2598,7 +2597,7 @@
     {
         "id": "afb305d9.b6ad58",
         "type": "change",
-        "z": "224bd643.c885ca",
+        "z": "7ced60a4.6357c",
         "name": "ON",
         "rules": [
             {
@@ -2623,7 +2622,7 @@
     {
         "id": "bde9081.3c345f8",
         "type": "link out",
-        "z": "224bd643.c885ca",
+        "z": "7ced60a4.6357c",
         "name": "Ich verlasse das Haus.",
         "links": [
             "56e4b1fd.a506"
@@ -2635,7 +2634,7 @@
     {
         "id": "56e4b1fd.a506",
         "type": "link in",
-        "z": "224bd643.c885ca",
+        "z": "7ced60a4.6357c",
         "name": "Ich verlasse das Haus.",
         "links": [
             "bde9081.3c345f8"
@@ -2651,7 +2650,7 @@
     {
         "id": "963c5296.1403d",
         "type": "change",
-        "z": "224bd643.c885ca",
+        "z": "7ced60a4.6357c",
         "name": "ON",
         "rules": [
             {
@@ -2676,7 +2675,7 @@
     {
         "id": "18345ab6.6c7245",
         "type": "change",
-        "z": "224bd643.c885ca",
+        "z": "7ced60a4.6357c",
         "name": "OFF",
         "rules": [
             {
@@ -2701,7 +2700,7 @@
     {
         "id": "a026b14.834035",
         "type": "link out",
-        "z": "224bd643.c885ca",
+        "z": "7ced60a4.6357c",
         "name": "Aktiviere Empfang.",
         "links": [
             "efec2608.fbda88"
@@ -2713,7 +2712,7 @@
     {
         "id": "efec2608.fbda88",
         "type": "link in",
-        "z": "224bd643.c885ca",
+        "z": "7ced60a4.6357c",
         "name": "Aktiviere Empfang.",
         "links": [
             "a026b14.834035"
@@ -2729,7 +2728,7 @@
     {
         "id": "24621189.7d210e",
         "type": "change",
-        "z": "224bd643.c885ca",
+        "z": "7ced60a4.6357c",
         "name": "ON",
         "rules": [
             {
@@ -2754,7 +2753,7 @@
     {
         "id": "8c055eae.d6ddf",
         "type": "change",
-        "z": "224bd643.c885ca",
+        "z": "7ced60a4.6357c",
         "name": "OFF",
         "rules": [
             {
@@ -2779,7 +2778,7 @@
     {
         "id": "e7691af5.9fe668",
         "type": "link out",
-        "z": "224bd643.c885ca",
+        "z": "7ced60a4.6357c",
         "name": "Hilfe.",
         "links": [
             "c152248c.4161a8"
@@ -2791,7 +2790,7 @@
     {
         "id": "c152248c.4161a8",
         "type": "link in",
-        "z": "224bd643.c885ca",
+        "z": "7ced60a4.6357c",
         "name": "Hilfe.",
         "links": [
             "e7691af5.9fe668"
@@ -2807,7 +2806,7 @@
     {
         "id": "c3acd534.67fa78",
         "type": "realknx-out",
-        "z": "224bd643.c885ca",
+        "z": "7ced60a4.6357c",
         "name": "13. Schließe Rollladen.",
         "controller": "b4d19699.4cb748",
         "itemname": "",
@@ -2821,7 +2820,7 @@
     {
         "id": "d285635f.40c7c",
         "type": "realknx-out",
-        "z": "224bd643.c885ca",
+        "z": "7ced60a4.6357c",
         "name": "14. Öffne Rollladen.",
         "controller": "b4d19699.4cb748",
         "itemname": "",
@@ -2835,7 +2834,7 @@
     {
         "id": "391b4e70.20be22",
         "type": "realknx-out",
-        "z": "224bd643.c885ca",
+        "z": "7ced60a4.6357c",
         "name": "ON",
         "controller": "b4d19699.4cb748",
         "itemname": "",
@@ -2849,7 +2848,7 @@
     {
         "id": "a2116ebc.01148",
         "type": "realknx-out",
-        "z": "224bd643.c885ca",
+        "z": "7ced60a4.6357c",
         "name": "OFF",
         "controller": "b4d19699.4cb748",
         "itemname": "",
@@ -2863,7 +2862,7 @@
     {
         "id": "f37d2177.b1be1",
         "type": "link out",
-        "z": "224bd643.c885ca",
+        "z": "7ced60a4.6357c",
         "name": "Ich bin daheim.",
         "links": [
             "cde09678.c19c58"
@@ -2875,7 +2874,7 @@
     {
         "id": "be13895.f71d978",
         "type": "realknx-out",
-        "z": "224bd643.c885ca",
+        "z": "7ced60a4.6357c",
         "name": "1. Ich bin daheim",
         "controller": "b4d19699.4cb748",
         "itemname": "",
@@ -2889,7 +2888,7 @@
     {
         "id": "cde09678.c19c58",
         "type": "link in",
-        "z": "224bd643.c885ca",
+        "z": "7ced60a4.6357c",
         "name": "Ich bin daheim.",
         "links": [
             "2365a5a4.f2617a",
@@ -2906,7 +2905,7 @@
     {
         "id": "ccde262d.c44a88",
         "type": "link out",
-        "z": "224bd643.c885ca",
+        "z": "7ced60a4.6357c",
         "name": "Ich verlasse das Haus.",
         "links": [
             "ee2e25d4.f8dc58"
@@ -2918,7 +2917,7 @@
     {
         "id": "ee2e25d4.f8dc58",
         "type": "link in",
-        "z": "224bd643.c885ca",
+        "z": "7ced60a4.6357c",
         "name": "Ich verlasse das Haus.",
         "links": [
             "ccde262d.c44a88"
@@ -2934,7 +2933,7 @@
     {
         "id": "f100b01b.eb5fb",
         "type": "link out",
-        "z": "224bd643.c885ca",
+        "z": "7ced60a4.6357c",
         "name": "Aktiviere gemütlich.",
         "links": [
             "387ee02.0269b2"
@@ -2946,7 +2945,7 @@
     {
         "id": "387ee02.0269b2",
         "type": "link in",
-        "z": "224bd643.c885ca",
+        "z": "7ced60a4.6357c",
         "name": "Aktiviere gemütlich.",
         "links": [
             "f100b01b.eb5fb"
@@ -2962,7 +2961,7 @@
     {
         "id": "a3ce70de.3a762",
         "type": "link out",
-        "z": "224bd643.c885ca",
+        "z": "7ced60a4.6357c",
         "name": "Aktiviere Abendessen.",
         "links": [
             "95a72e21.45ca2"
@@ -2974,7 +2973,7 @@
     {
         "id": "95a72e21.45ca2",
         "type": "link in",
-        "z": "224bd643.c885ca",
+        "z": "7ced60a4.6357c",
         "name": "Aktiviere Abendessen.",
         "links": [
             "a3ce70de.3a762"
@@ -2990,7 +2989,7 @@
     {
         "id": "725dc0fe.d5149",
         "type": "switch",
-        "z": "224bd643.c885ca",
+        "z": "7ced60a4.6357c",
         "name": "KNX-Scenes",
         "property": "payload",
         "propertyType": "msg",
@@ -3018,7 +3017,7 @@
     {
         "id": "ee80ad9d.e1a8e",
         "type": "switch",
-        "z": "224bd643.c885ca",
+        "z": "7ced60a4.6357c",
         "name": "KNX-Scenes",
         "property": "payload",
         "propertyType": "msg",
@@ -3046,7 +3045,7 @@
     {
         "id": "ef5218e5.db9148",
         "type": "switch",
-        "z": "224bd643.c885ca",
+        "z": "7ced60a4.6357c",
         "name": "KNX-Scenes",
         "property": "payload",
         "propertyType": "msg",
@@ -3074,7 +3073,7 @@
     {
         "id": "96769a90.f3a3f8",
         "type": "switch",
-        "z": "224bd643.c885ca",
+        "z": "7ced60a4.6357c",
         "name": "KNX-Scenes",
         "property": "payload",
         "propertyType": "msg",
@@ -3102,7 +3101,7 @@
     {
         "id": "e0b3aebe.12b34",
         "type": "switch",
-        "z": "224bd643.c885ca",
+        "z": "7ced60a4.6357c",
         "name": "KNX-Scenes",
         "property": "payload",
         "propertyType": "msg",
@@ -3130,7 +3129,7 @@
     {
         "id": "25ec79b7.7b73e6",
         "type": "link out",
-        "z": "224bd643.c885ca",
+        "z": "7ced60a4.6357c",
         "name": "Aktiviere Empfang.",
         "links": [
             "549ba820.1fe898"
@@ -3142,7 +3141,7 @@
     {
         "id": "549ba820.1fe898",
         "type": "link in",
-        "z": "224bd643.c885ca",
+        "z": "7ced60a4.6357c",
         "name": "Aktiviere Empfang.",
         "links": [
             "25ec79b7.7b73e6"
@@ -3158,7 +3157,7 @@
     {
         "id": "f7df2c5b.a5bdf",
         "type": "realknx-out",
-        "z": "224bd643.c885ca",
+        "z": "7ced60a4.6357c",
         "name": "ON",
         "controller": "b4d19699.4cb748",
         "itemname": "",
@@ -3172,7 +3171,7 @@
     {
         "id": "c471bf90.66ed7",
         "type": "realknx-out",
-        "z": "224bd643.c885ca",
+        "z": "7ced60a4.6357c",
         "name": "OFF",
         "controller": "b4d19699.4cb748",
         "itemname": "",
@@ -3186,7 +3185,7 @@
     {
         "id": "c318d9e5.89a648",
         "type": "realknx-out",
-        "z": "224bd643.c885ca",
+        "z": "7ced60a4.6357c",
         "name": "2. Ich verlasse das Haus.",
         "controller": "b4d19699.4cb748",
         "itemname": "",
@@ -3200,7 +3199,7 @@
     {
         "id": "e0d1a737.add1c8",
         "type": "realknx-out",
-        "z": "224bd643.c885ca",
+        "z": "7ced60a4.6357c",
         "name": "ON",
         "controller": "b4d19699.4cb748",
         "itemname": "",
@@ -3214,7 +3213,7 @@
     {
         "id": "d0725b8e.44bc28",
         "type": "realknx-out",
-        "z": "224bd643.c885ca",
+        "z": "7ced60a4.6357c",
         "name": "OFF",
         "controller": "b4d19699.4cb748",
         "itemname": "",
@@ -3228,7 +3227,7 @@
     {
         "id": "bac4439f.9a5d3",
         "type": "realknx-out",
-        "z": "224bd643.c885ca",
+        "z": "7ced60a4.6357c",
         "name": "15. Aktiviere gemütlich.",
         "controller": "b4d19699.4cb748",
         "itemname": "",
@@ -3242,7 +3241,7 @@
     {
         "id": "10a6ddb1.9f3162",
         "type": "realknx-out",
-        "z": "224bd643.c885ca",
+        "z": "7ced60a4.6357c",
         "name": "ON",
         "controller": "b4d19699.4cb748",
         "itemname": "",
@@ -3256,7 +3255,7 @@
     {
         "id": "c4b52ee5.ba143",
         "type": "realknx-out",
-        "z": "224bd643.c885ca",
+        "z": "7ced60a4.6357c",
         "name": "OFF",
         "controller": "b4d19699.4cb748",
         "itemname": "",
@@ -3270,7 +3269,7 @@
     {
         "id": "7947c197.a0403",
         "type": "realknx-out",
-        "z": "224bd643.c885ca",
+        "z": "7ced60a4.6357c",
         "name": "16. Aktiviere Abendessen.",
         "controller": "b4d19699.4cb748",
         "itemname": "",
@@ -3284,7 +3283,7 @@
     {
         "id": "7b3f5c98.b6f064",
         "type": "realknx-out",
-        "z": "224bd643.c885ca",
+        "z": "7ced60a4.6357c",
         "name": "ON",
         "controller": "b4d19699.4cb748",
         "itemname": "",
@@ -3298,7 +3297,7 @@
     {
         "id": "86f0770c.c289f8",
         "type": "realknx-out",
-        "z": "224bd643.c885ca",
+        "z": "7ced60a4.6357c",
         "name": "OFF",
         "controller": "b4d19699.4cb748",
         "itemname": "",
@@ -3312,7 +3311,7 @@
     {
         "id": "e709df5.ef7352",
         "type": "realknx-out",
-        "z": "224bd643.c885ca",
+        "z": "7ced60a4.6357c",
         "name": "17. Aktiviere Empfang.",
         "controller": "b4d19699.4cb748",
         "itemname": "",
@@ -3326,7 +3325,7 @@
     {
         "id": "bba1e354.3bf6a",
         "type": "realknx-out",
-        "z": "224bd643.c885ca",
+        "z": "7ced60a4.6357c",
         "name": "ON",
         "controller": "b4d19699.4cb748",
         "itemname": "",
@@ -3340,7 +3339,7 @@
     {
         "id": "616b84ae.bf585c",
         "type": "realknx-out",
-        "z": "224bd643.c885ca",
+        "z": "7ced60a4.6357c",
         "name": "OFF",
         "controller": "b4d19699.4cb748",
         "itemname": "",
@@ -3354,7 +3353,7 @@
     {
         "id": "fadda068.5a1f3",
         "type": "realknx-out",
-        "z": "224bd643.c885ca",
+        "z": "7ced60a4.6357c",
         "name": "18. Hilfe",
         "controller": "b4d19699.4cb748",
         "itemname": "",
@@ -3368,7 +3367,7 @@
     {
         "id": "a661e615.015df8",
         "type": "switch",
-        "z": "224bd643.c885ca",
+        "z": "7ced60a4.6357c",
         "name": "KNX-Scenes",
         "property": "payload",
         "propertyType": "msg",
@@ -3396,7 +3395,7 @@
     {
         "id": "5b94031f.374c8c",
         "type": "link out",
-        "z": "224bd643.c885ca",
+        "z": "7ced60a4.6357c",
         "name": "Hilfe.",
         "links": [
             "ab0e8fa3.ba96f"
@@ -3408,7 +3407,7 @@
     {
         "id": "ab0e8fa3.ba96f",
         "type": "link in",
-        "z": "224bd643.c885ca",
+        "z": "7ced60a4.6357c",
         "name": "Hilfe.",
         "links": [
             "5b94031f.374c8c"
@@ -3424,7 +3423,7 @@
     {
         "id": "ad06a5b7.83ae18",
         "type": "switch",
-        "z": "224bd643.c885ca",
+        "z": "7ced60a4.6357c",
         "name": "Not Defined",
         "property": "payload",
         "propertyType": "msg",
@@ -3455,7 +3454,7 @@
     {
         "id": "53aa419a.c97a6",
         "type": "comment",
-        "z": "224bd643.c885ca",
+        "z": "7ced60a4.6357c",
         "name": "!!!!! Insert the IP adress of the Z-Wave Gateway in the /zwave/vr Node !!!!!",
         "info": "",
         "x": 320,
@@ -3465,7 +3464,7 @@
     {
         "id": "df8b408b.4f89a",
         "type": "comment",
-        "z": "224bd643.c885ca",
+        "z": "7ced60a4.6357c",
         "name": "!!!!! Insert the IP adress of the Z-Wave Gateway in the /zwave/vr Node !!!!!",
         "info": "",
         "x": 320,
@@ -3475,7 +3474,7 @@
     {
         "id": "ab7bb643.845d48",
         "type": "trigger",
-        "z": "224bd643.c885ca",
+        "z": "7ced60a4.6357c",
         "op1": "",
         "op2": "",
         "op1type": "pay",
@@ -3496,7 +3495,7 @@
     {
         "id": "5b22771d.03c848",
         "type": "switch",
-        "z": "224bd643.c885ca",
+        "z": "7ced60a4.6357c",
         "name": "",
         "property": "payload",
         "propertyType": "msg",
@@ -3523,8 +3522,8 @@
     {
         "id": "6f3c3546.3640bc",
         "type": "mqtt-broker",
-        "z": "",
-        "broker": "192.168.x.x",
+        "z": "7ced60a4.6357c",
+        "broker": "192.168.1.24",
         "port": "1883",
         "clientid": "",
         "usetls": false,
@@ -3541,7 +3540,7 @@
     {
         "id": "b4d19699.4cb748",
         "type": "realknx-controller",
-        "z": "",
+        "z": "7ced60a4.6357c",
         "name": "realknx-ctrl",
         "host": "localhost",
         "port": "3000"
