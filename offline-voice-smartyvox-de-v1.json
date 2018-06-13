@@ -1689,7 +1689,7 @@
             ]
         ]
     },
-    {
+    { 
         "id": "685c580c.bec2e8",
         "type": "realknx-out",
         "z": "157a6b6d.c8df55",
