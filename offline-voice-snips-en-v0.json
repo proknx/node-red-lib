@@ -1,15 +1,15 @@
 [
     {
-        "id": "14a01cb.fc3cfe3",
+        "id": "67bc88ef.745748",
         "type": "tab",
         "label": "Snips EN v0.1",
         "disabled": false,
         "info": ""
     },
     {
-        "id": "3b3e928e.b335ee",
+        "id": "1dc21860.669458",
         "type": "switch",
-        "z": "14a01cb.fc3cfe3",
+        "z": "67bc88ef.745748",
         "name": "Snips intents",
         "property": "payload.intent.intentName",
         "propertyType": "msg",
@@ -36,42 +36,20 @@
         "y": 280,
         "wires": [
             [
-                "17216a44.c0aad6",
-                "a7410ae9.c1d558"
+                "41fda770.7e0728"
             ],
             [
-                "17216a44.c0aad6",
-                "ba550d87.b6442"
+                "37d74189.d404ae"
             ],
             [
-                "17216a44.c0aad6",
-                "14f80e07.7eaea2"
+                "772eb900.1cd6b8"
             ]
         ]
     },
     {
-        "id": "d5959bf6.454878",
-        "type": "inject",
-        "z": "14a01cb.fc3cfe3",
-        "name": "",
-        "topic": "hermes/intent/bfencing98:set_thermostats",
-        "payload": "{\"sessionId\":\"32ad97cd-ec9b-43c3-942f-b2146a6c9e1b\",\"customData\":null,\"siteId\":\"bedroom\",\"input\":\"turn on\",\"intent\":{\"intentName\":\"ProKNX:on_off_lights\",\"probability\":0.6749556},\"slots\":[{\"rawValue\":\"turn on\",\"value\":{\"kind\":\"Custom\",\"value\":\"on\"},\"range\":{\"start\":0,\"end\":7},\"entity\":\"cmd\",\"slotName\":\"cmd\"}]}",
-        "payloadType": "json",
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "x": 3070,
-        "y": 140,
-        "wires": [
-            [
-                "942403ed.98be8"
-            ]
-        ]
-    },
-    {
-        "id": "e79ae266.62ad3",
+        "id": "ebdf5c2d.d39dc",
         "type": "function",
-        "z": "14a01cb.fc3cfe3",
+        "z": "67bc88ef.745748",
         "name": "Array_lights",
         "func": "function findObjectByKey(array, key, value) {\n    for (var i = 0; i < array.length; i++) {\n        if (array[i][key] === value) {\n            return array[i];\n        }\n    }\n    return null;\n}\n\nvar rawCmd = findObjectByKey(msg.payload.slots, 'slotName', 'cmd');\nvar rawRoom = findObjectByKey(msg.payload.slots, 'slotName', 'room');\nvar rawDevice = findObjectByKey(msg.payload.slots, 'slotName', 'device');\nvar rawAll = findObjectByKey(msg.payload.slots, 'slotName', 'all');\nvar rawValue = findObjectByKey(msg.payload.slots, 'slotName', 'value');\nvar rawHere = findObjectByKey(msg.payload.slots, 'slotName', 'here');\n\nmsg.cmd = [];\nif (rawCmd !== null) {\n\tmsg.cmd.cmd = rawCmd.value.value;\n}\nif (rawRoom !== null) {\n\tmsg.cmd.room = rawRoom.value.value;\n} else if (rawAll === null) {\n    msg.cmd.room = msg.payload.siteId;\n}\nif (rawDevice !== null && rawDevice.value.value !== \"lights\" && rawDevice.value.value !== \"the lights\" && rawDevice.value.value !== \"light\" && rawDevice.value.value !== \"the light\") {\n\tmsg.cmd.device = rawDevice.value.value;\n}\nif (rawAll !== null) {\n\tmsg.cmd.all = rawAll.value.value;\n}\nif (rawValue !== null) {\n\tmsg.cmd.value = rawValue.value.value;\n}\nif (rawHere !== null) {\n\tmsg.cmd.room = msg.payload.siteId;\n}\nmsg.cmd.siteId = msg.payload.siteId;\n\nreturn msg;",
         "outputs": 1,
@@ -80,14 +58,14 @@
         "y": 720,
         "wires": [
             [
-                "45d74780.f82128"
+                "742ddd3c.1a0244"
             ]
         ]
     },
     {
-        "id": "8a240188.9c001",
+        "id": "3edad875.637048",
         "type": "http request",
-        "z": "14a01cb.fc3cfe3",
+        "z": "67bc88ef.745748",
         "name": "GET devices",
         "method": "GET",
         "ret": "txt",
@@ -97,28 +75,28 @@
         "y": 780,
         "wires": [
             [
-                "8deaf210.a830e"
+                "5ddaf9f9.a08248"
             ]
         ]
     },
     {
-        "id": "8deaf210.a830e",
+        "id": "5ddaf9f9.a08248",
         "type": "json",
-        "z": "14a01cb.fc3cfe3",
+        "z": "67bc88ef.745748",
         "name": "",
         "pretty": false,
         "x": 2590,
         "y": 780,
         "wires": [
             [
-                "cc9a3e6f.312ad"
+                "fc666dcd.11dae"
             ]
         ]
     },
     {
-        "id": "cc9a3e6f.312ad",
+        "id": "fc666dcd.11dae",
         "type": "function",
-        "z": "14a01cb.fc3cfe3",
+        "z": "67bc88ef.745748",
         "name": "List_lights",
         "func": "function findSwitchByKey(array, key, value) {\n    msg.payload.switch_lights = [];\n    var cpt = 0;\n    for (var i = 0; i < array.length; i++) {\n        if (array[i][key] === value) {\n            msg.payload.switch_lights[cpt] = array[i];\n            cpt ++;\n        }\n    }\n    return null;\n}\n\nfunction findDimmerByKey(array, key, value) {\n    msg.payload.dimmer_lights = [];\n    var cpt = 0;\n    for (var i = 0; i < array.length; i++) {\n        if (array[i][key] === value) {\n            msg.payload.dimmer_lights[cpt] = array[i];\n            cpt ++;\n        }\n    }\n    return null;\n}\n\nfindSwitchByKey(msg.payload, 'type', 'lights');\nfindDimmerByKey(msg.payload, 'type', 'dimmers');\n\nmsg.lights = msg.payload.switch_lights.concat(msg.payload.dimmer_lights);\n\nreturn msg;",
         "outputs": 1,
@@ -127,31 +105,31 @@
         "y": 780,
         "wires": [
             [
-                "46aaa3ed.c5977c"
+                "11fca6e6.c557c9"
             ]
         ]
     },
     {
-        "id": "46aaa3ed.c5977c",
+        "id": "11fca6e6.c557c9",
         "type": "function",
-        "z": "14a01cb.fc3cfe3",
+        "z": "67bc88ef.745748",
         "name": "Prepare_request",
-        "func": "function precisionRound(number, precision) {\n  var factor = Math.pow(10, precision);\n  return Math.round(number * factor) / factor;\n}\n\n//put an array of objets matching the type of device given in parameters in msg.room\nfunction findDeviceByKey(array, key, value) {\n    msg.items = [];\n    var cpt = 0;\n    for (var i = 0; i < array.length; i++) {\n        var x = array[i][key];\n        x = x.toLowerCase();\n        x = x.split(\"   \");\n        if (x[1] === value) {\n            msg.items[cpt] = array[i];\n            cpt ++;\n        }\n    }\n    return null;\n}\n\n//put an array of objets located in the room given in parameters in msg.room\nfunction findRoomByKey(array, key, value) {\n    msg.items = [];\n    var cpt = 0;\n    for (var i = 0; i < array.length; i++) {\n        var x = array[i][key].toLowerCase();\n        x = x.split(\"   \");\n        if (x[0] === value) {\n            msg.items[cpt] = array[i];\n            cpt ++;\n        }\n    }\n    return null;\n}\n\n//put an array of objects that the user want to control in msg.items, error if his request is to vague\nif (msg.cmd.all !== undefined && msg.cmd.device !== undefined && msg.cmd.room === undefined) {\n\tfindDeviceByKey(msg.lights, 'name', msg.cmd.device);\n} else if (msg.cmd.all !== undefined && msg.cmd.room !== undefined && msg.cmd.device === undefined) {\n\tfindRoomByKey(msg.lights, 'name', msg.cmd.room);\n}else if (msg.cmd.all !== undefined && msg.cmd.room === undefined && msg.cmd.device === undefined) {\n\tmsg.items = msg.lights;\n} else if (msg.cmd.room !== undefined && msg.cmd.device !== undefined) {\n    tmp = [];\n    findDeviceByKey(msg.lights, 'name', msg.cmd.device);\n\ttmp = msg.items;\n\tfindRoomByKey(tmp, 'name', msg.cmd.room);\n} else if (msg.cmd.all === undefined && msg.cmd.room !== undefined && msg.cmd.device === undefined) {\n\tfindRoomByKey(msg.lights, 'name', msg.cmd.room);\n} else {}\n\n//Prepare all HTTP requests for \"SET\" commands and put them in msg.url\nmsg.url = [];\nif (msg.cmd.value !== undefined) {\n   \tfor (var i = 0; i < msg.items.length; i++) {\n   \t\tif (msg.items[i].type === \"dimmers\") {\n   \t\t\tvar val = msg.cmd.value*2.55;\n   \t\t\tval = precisionRound(val, 1);\n   \t\t\tmsg.items[i].setDimUrl = msg.items[i].setDimUrl.replace(\"${intensity.byte}\", '');\n   \t\t\tmsg.url[i] = [msg.proServIP, msg.items[i].setDimUrl, val];\n   \t\t\tmsg.url[i] = \"\".concat(...msg.url[i]);\n   \t\t} \n   \t\telse if (msg.cmd.value > 0) {\n\t\t    msg.url[i] = [msg.proServIP, msg.items[i].setOnUrl];\n   \t\t    msg.url[i] = \"\".concat(...msg.url[i]);\n   \t\t}\n   \t\telse {\n\t    \tmsg.url[i] = [msg.proServIP, msg.items[i].setOffUrl];\n   \t\t    msg.url[i] = \"\".concat(...msg.url[i]);\n   \t\t}\n\t}\n}\nelse if (msg.cmd.cmd === \"on\") {\n\tfor (var i = 0; i < msg.items.length; i++) {\n\t\tmsg.url[i] = [msg.proServIP, msg.items[i].setOnUrl];\n   \t\tmsg.url[i] = \"\".concat(...msg.url[i]);\n\t}\n}\nelse if (msg.cmd.cmd === \"off\") {\n\tfor (var i = 0; i < msg.items.length; i++) {\n\t\tmsg.url[i] = [msg.proServIP, msg.items[i].setOffUrl];\n   \t\tmsg.url[i] = \"\".concat(...msg.url[i]);\n\t}\n} else if (msg.cmd.cmd !== \"on\" && msg.cmd.cmd !== \"off\" && msg.cmd.cmd !== \"increase\" && msg.cmd.cmd !== \"decrease\") {\n   msg.error = {\n        text: \"Jarvis Sorry I did not understand your command\",\n        siteId: msg.cmd.siteId\n    }; \n}\n\nif (msg.url[0] === undefined && msg.error === undefined) {\n    msg.error = {\n        text: \"Sorry I can not find this device\",\n        siteId: msg.cmd.siteId\n    };\n}\n\nreturn msg;",
+        "func": "function precisionRound(number, precision) {\n  var factor = Math.pow(10, precision);\n  return Math.round(number * factor) / factor;\n}\n\n//put an array of objets matching the type of device given in parameters in msg.room\nfunction findDeviceByKey(array, key, value) {\n    msg.items = [];\n    var cpt = 0;\n    for (var i = 0; i < array.length; i++) {\n        var x = array[i][key];\n        x = x.toLowerCase();\n        x = x.split(\"   \");\n        if (x[1] === value) {\n            msg.items[cpt] = array[i];\n            cpt ++;\n        }\n    }\n    return null;\n}\n\n//put an array of objets located in the room given in parameters in msg.room\nfunction findRoomByKey(array, key, value) {\n    msg.items = [];\n    var cpt = 0;\n    for (var i = 0; i < array.length; i++) {\n        var x = array[i][key].toLowerCase();\n        x = x.split(\"   \");\n        if (x[0] === value) {\n            msg.items[cpt] = array[i];\n            cpt ++;\n        }\n    }\n    return null;\n}\n\n//put an array of objects that the user want to control in msg.items, error if his request is to vague\nif (msg.cmd.all !== undefined && msg.cmd.device !== undefined && msg.cmd.room === undefined) {\n\tfindDeviceByKey(msg.lights, 'name', msg.cmd.device);\n} else if (msg.cmd.all !== undefined && msg.cmd.room !== undefined && msg.cmd.device === undefined) {\n\tfindRoomByKey(msg.lights, 'name', msg.cmd.room);\n}else if (msg.cmd.all !== undefined && msg.cmd.room === undefined && msg.cmd.device === undefined) {\n\tmsg.items = msg.lights;\n} else if (msg.cmd.room !== undefined && msg.cmd.device !== undefined) {\n    tmp = [];\n    findDeviceByKey(msg.lights, 'name', msg.cmd.device);\n\ttmp = msg.items;\n\tfindRoomByKey(tmp, 'name', msg.cmd.room);\n} else if (msg.cmd.all === undefined && msg.cmd.room !== undefined && msg.cmd.device === undefined) {\n\tfindRoomByKey(msg.lights, 'name', msg.cmd.room);\n} else {}\n\n//Prepare all HTTP requests for \"SET\" commands and put them in msg.url\nmsg.url = [];\nif (msg.cmd.value !== undefined) {\n   \tfor (var i = 0; i < msg.items.length; i++) {\n   \t\tif (msg.items[i].type === \"dimmers\") {\n   \t\t\tvar val = msg.cmd.value*2.55;\n   \t\t\tval = precisionRound(val, 1);\n   \t\t\tmsg.items[i].setDimUrl = msg.items[i].setDimUrl.replace(\"${intensity.byte}\", '');\n   \t\t\tmsg.url[i] = [msg.proServIP, msg.items[i].setDimUrl, val];\n   \t\t\tmsg.url[i] = \"\".concat(...msg.url[i]);\n   \t\t} \n   \t\telse if (msg.cmd.value > 0) {\n\t\t    msg.url[i] = [msg.proServIP, msg.items[i].setOnUrl];\n   \t\t    msg.url[i] = \"\".concat(...msg.url[i]);\n   \t\t}\n   \t\telse {\n\t    \tmsg.url[i] = [msg.proServIP, msg.items[i].setOffUrl];\n   \t\t    msg.url[i] = \"\".concat(...msg.url[i]);\n   \t\t}\n\t}\n}\nelse if (msg.cmd.cmd === \"on\") {\n\tfor (var i = 0; i < msg.items.length; i++) {\n\t\tmsg.url[i] = [msg.proServIP, msg.items[i].setOnUrl];\n   \t\tmsg.url[i] = \"\".concat(...msg.url[i]);\n\t}\n}\nelse if (msg.cmd.cmd === \"off\") {\n\tfor (var i = 0; i < msg.items.length; i++) {\n\t\tmsg.url[i] = [msg.proServIP, msg.items[i].setOffUrl];\n   \t\tmsg.url[i] = \"\".concat(...msg.url[i]);\n\t}\n} else if (msg.cmd.cmd !== \"on\" && msg.cmd.cmd !== \"off\" && msg.cmd.cmd !== \"increase\" && msg.cmd.cmd !== \"decrease\") {\n   msg.error = {\n        text: \"Sorry I did not understand your command\",\n        siteId: msg.cmd.siteId\n    }; \n}\n\nif (msg.url[0] === undefined && msg.error === undefined) {\n    msg.error = {\n        text: \"Sorry I can not find this device\",\n        siteId: msg.cmd.siteId\n    };\n}\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "x": 2220.00004196167,
         "y": 896.6668996810913,
         "wires": [
             [
-                "3b859f7d.0049d",
-                "bf1c5a0b.23ff38"
+                "1c0d3836.1d9f78",
+                "ab30b125.6cfea"
             ]
         ]
     },
     {
-        "id": "54dc0231.52d59c",
+        "id": "bed6792d.313e88",
         "type": "http request",
-        "z": "14a01cb.fc3cfe3",
+        "z": "67bc88ef.745748",
         "name": "Send URL",
         "method": "GET",
         "ret": "obj",
@@ -161,14 +139,14 @@
         "y": 1041.6669645309448,
         "wires": [
             [
-                "aace6ead.4ebaf"
+                "f6e71433.341d98"
             ]
         ]
     },
     {
-        "id": "c3183556.9620e8",
+        "id": "388e4af0.a67a66",
         "type": "split",
-        "z": "14a01cb.fc3cfe3",
+        "z": "67bc88ef.745748",
         "name": "",
         "splt": "\\n",
         "spltType": "str",
@@ -180,14 +158,14 @@
         "y": 896.666880607605,
         "wires": [
             [
-                "8283b319.c7e0a"
+                "b58ba496.f0e468"
             ]
         ]
     },
     {
-        "id": "3b859f7d.0049d",
+        "id": "1c0d3836.1d9f78",
         "type": "change",
-        "z": "14a01cb.fc3cfe3",
+        "z": "67bc88ef.745748",
         "name": "",
         "rules": [
             {
@@ -207,14 +185,14 @@
         "y": 896.6668787002563,
         "wires": [
             [
-                "c3183556.9620e8"
+                "388e4af0.a67a66"
             ]
         ]
     },
     {
-        "id": "8283b319.c7e0a",
+        "id": "b58ba496.f0e468",
         "type": "delay",
-        "z": "14a01cb.fc3cfe3",
+        "z": "67bc88ef.745748",
         "name": "",
         "pauseType": "delay",
         "timeout": "50",
@@ -230,30 +208,30 @@
         "y": 898.3334627151489,
         "wires": [
             [
-                "54dc0231.52d59c"
+                "bed6792d.313e88"
             ]
         ]
     },
     {
-        "id": "8e248f6d.5d04d",
+        "id": "8c330fdf.5184a",
         "type": "function",
-        "z": "14a01cb.fc3cfe3",
+        "z": "67bc88ef.745748",
         "name": "Array_shutters",
-        "func": "String.prototype.trimRight = function(charlist) {\n  if (charlist === undefined)\n    charlist = \"\\s\";\n\n  return this.replace(new RegExp(\"[\" + charlist + \"]+$\"), \"\");\n};\n\nfunction findObjectByKey(array, key, value) {\n    for (var i = 0; i < array.length; i++) {\n        if (array[i][key] === value) {\n            return array[i];\n        }\n    }\n    return null;\n}\n\nvar rawCmd = findObjectByKey(msg.payload.slots, 'slotName', 'cmd');\nvar rawRoom = findObjectByKey(msg.payload.slots, 'slotName', 'room');\nvar rawDevice = findObjectByKey(msg.payload.slots, 'slotName', 'device');\nvar rawValue = findObjectByKey(msg.payload.slots, 'slotName', 'value');\nvar rawAll = findObjectByKey(msg.payload.slots, 'slotName', 'all');\nvar rawHere = findObjectByKey(msg.payload.slots, 'slotName', 'here');\n\nmsg.cmd = [];\nif (rawCmd !== null) {\n\tmsg.cmd.cmd = rawCmd.value.value;\n}\nif (rawRoom !== null) {\n    rawRoom.value.value = rawRoom.value.value.trimRight();\n\tmsg.cmd.room = rawRoom.value.value;\n} else if (rawAll === null) {\n    msg.cmd.room = msg.payload.siteId;\n}\nif (rawDevice !== null && rawDevice.value.value !== \"shutters\" && rawDevice.value.value !== \"shutter\" && rawDevice.value.value !== \"curtains\" && rawDevice.value.value !== \"curtain\") {\n\tmsg.cmd.device = rawDevice.value.value;\n}\nif (rawAll !== null) {\n\tmsg.cmd.all = rawAll.value.value;\n}\nif (rawValue !== null) {\n\tmsg.cmd.value = rawValue.value.value;\n}\nif (rawHere !== null) {\n\tmsg.cmd.room = msg.payload.siteId;\n}\nmsg.cmd.siteId = msg.payload.siteId;\n\nreturn msg;",
+        "func": "String.prototype.trimRight = function(charlist) {\n  if (charlist === undefined)\n    charlist = \"\\s\";\n\n  return this.replace(new RegExp(\"[\" + charlist + \"]+$\"), \"\");\n};\n\nfunction findObjectByKey(array, key, value) {\n    for (var i = 0; i < array.length; i++) {\n        if (array[i][key] === value) {\n            return array[i];\n        }\n    }\n    return null;\n}\n\nvar rawCmd = findObjectByKey(msg.payload.slots, 'slotName', 'cmd');\nvar rawRoom = findObjectByKey(msg.payload.slots, 'slotName', 'room');\nvar rawDevice = findObjectByKey(msg.payload.slots, 'slotName', 'device');\nvar rawValue = findObjectByKey(msg.payload.slots, 'slotName', 'value');\nvar rawAll = findObjectByKey(msg.payload.slots, 'slotName', 'all');\nvar rawHere = findObjectByKey(msg.payload.slots, 'slotName', 'here');\n\nmsg.cmd = [];\nif (rawCmd !== null) {\n\tif (rawCmd.value.value === \"open\" || rawCmd.value.value === \"on\") {\n\t    msg.cmd.cmd = \"open\";\n\t}\n\tif (rawCmd.value.value === \"close\" || rawCmd.value.value === \"off\") {\n\t    msg.cmd.cmd = \"close\";\n\t}\n}\nif (rawRoom !== null) {\n    rawRoom.value.value = rawRoom.value.value.trimRight();\n\tmsg.cmd.room = rawRoom.value.value;\n} else if (rawAll === null) {\n    msg.cmd.room = msg.payload.siteId;\n}\nif (rawDevice !== null && rawDevice.value.value !== \"shutters\" && rawDevice.value.value !== \"shutter\" && rawDevice.value.value !== \"curtains\" && rawDevice.value.value !== \"curtain\") {\n\tmsg.cmd.device = rawDevice.value.value;\n}\nif (rawAll !== null) {\n\tmsg.cmd.all = rawAll.value.value;\n}\nif (rawValue !== null) {\n\tmsg.cmd.value = rawValue.value.value;\n}\nif (rawHere !== null) {\n\tmsg.cmd.room = msg.payload.siteId;\n}\nmsg.cmd.siteId = msg.payload.siteId;\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "x": 3080,
         "y": 720,
         "wires": [
             [
-                "3d7dd222.f34a9e"
+                "7244a7f1.dbb248"
             ]
         ]
     },
     {
-        "id": "ebeea7bb.c06618",
+        "id": "890fdae2.b2d7d8",
         "type": "http request",
-        "z": "14a01cb.fc3cfe3",
+        "z": "67bc88ef.745748",
         "name": "GET Devices",
         "method": "GET",
         "ret": "txt",
@@ -263,28 +241,28 @@
         "y": 780,
         "wires": [
             [
-                "b6c19152.c978"
+                "fe5efdfc.33d9d"
             ]
         ]
     },
     {
-        "id": "b6c19152.c978",
+        "id": "fe5efdfc.33d9d",
         "type": "json",
-        "z": "14a01cb.fc3cfe3",
+        "z": "67bc88ef.745748",
         "name": "",
         "pretty": false,
         "x": 3470,
         "y": 780,
         "wires": [
             [
-                "8e255f94.97f26"
+                "6bedd60e.433048"
             ]
         ]
     },
     {
-        "id": "8e255f94.97f26",
+        "id": "6bedd60e.433048",
         "type": "function",
-        "z": "14a01cb.fc3cfe3",
+        "z": "67bc88ef.745748",
         "name": "List_shutters",
         "func": "function findShutterByKey(array, key, value) {\n    msg.shutters = [];\n    var cpt = 0;\n    for (var i = 0; i < array.length; i++) {\n        if (array[i][key] === value) {\n            msg.shutters[cpt] = array[i];\n            cpt ++;\n        }\n    }\n    return null;\n}\n\nfindShutterByKey(msg.payload, 'type', 'blinds');\n\nreturn msg;",
         "outputs": 1,
@@ -293,31 +271,31 @@
         "y": 780,
         "wires": [
             [
-                "49351513.3cbf8c"
+                "3327a6ad.3453ea"
             ]
         ]
     },
     {
-        "id": "49351513.3cbf8c",
+        "id": "3327a6ad.3453ea",
         "type": "function",
-        "z": "14a01cb.fc3cfe3",
+        "z": "67bc88ef.745748",
         "name": "Prepare_request",
-        "func": "function precisionRound(number, precision) {\n  var factor = Math.pow(10, precision);\n  return Math.round(number * factor) / factor;\n}\n\n//put an array of objets matching the type of device given in parameters in msg.room\nfunction findDeviceByKey(array, key, value) {\n    msg.items = [];\n    var cpt = 0;\n    for (var i = 0; i < array.length; i++) {\n        var x = array[i][key];\n        x = x.toLowerCase();\n        x = x.split(\"   \");\n        if (x[1] === value) {\n            msg.items[cpt] = array[i];\n            cpt ++;\n        }\n    }\n    return null;\n}\n\n//put an array of objets located in the room given in parameters in msg.room\nfunction findRoomByKey(array, key, value) {\n    msg.items = [];\n    var cpt = 0;\n    for (var i = 0; i < array.length; i++) {\n        var x = array[i][key].toLowerCase();\n        x = x.toLowerCase();\n        x = x.split(\"   \");\n        if (x[0] === value) {\n            msg.items[cpt] = array[i];\n            cpt ++;\n        }\n    }\n    return null;\n}\n\n//put an array of objects that the user want to control in msg.items, error if his request is to vague\nif (msg.cmd.all !== undefined && msg.cmd.device !== undefined && msg.cmd.room === undefined) {\n\tfindDeviceByKey(msg.shutters, 'name', msg.cmd.device);\n} else if (msg.cmd.all !== undefined && msg.cmd.room !== undefined && msg.cmd.device === undefined) {\n\tfindRoomByKey(msg.shutters, 'name', msg.cmd.room);\n}else if (msg.cmd.all !== undefined && msg.cmd.room === undefined && msg.cmd.device === undefined) {\n\tmsg.items = msg.shutters;\n} else if (msg.cmd.room !== undefined && msg.cmd.device !== undefined) {\n    tmp = [];\n    findDeviceByKey(msg.shutters, 'name', msg.cmd.device);\n\ttmp = msg.items;\n\tfindRoomByKey(tmp, 'name', msg.cmd.room);\n} else if (msg.cmd.all === undefined && msg.cmd.room !== undefined && msg.cmd.device === undefined) {\n\tfindRoomByKey(msg.shutters, 'name', msg.cmd.room);\n} else {}\n\n//Prepare all HTTP requests for \"SET\" commands and put them in msg.url\nmsg.url = [];\nfor (var i = 0; i < msg.items.length; i++) {\n\tif (msg.cmd.cmd === \"open\" && msg.cmd.value === undefined) {\n    \tmsg.url[i] = [msg.proServIP, msg.items[i].setOnUrl];\n\t    msg.url[i] = \"\".concat(...msg.url[i]);\n\t}\n\telse if (msg.cmd.cmd === \"close\" && msg.cmd.value === undefined) {\n    \tmsg.url[i] = [msg.proServIP, msg.items[i].setOffUrl];\n\t    msg.url[i] = \"\".concat(...msg.url[i]);\n    }\n    else if (msg.cmd.value !== undefined) {\n   \t\tvar val = (100-msg.cmd.value)*2.55;\n   \t\tval = precisionRound(val, 1);\n   \t\tmsg.items[i].setDimUrl = msg.items[i].setDimUrl.replace(\"${intensity.byte}\", '');\n   \t\tmsg.url[i] = [msg.proServIP, msg.items[i].setDimUrl, val];\n   \t\tmsg.url[i] = \"\".concat(...msg.url[i]);\n    }\n    else if (msg.cmd.cmd !== \"on\" && msg.cmd.cmd !== \"off\" && msg.cmd.cmd !== \"increase\" && msg.cmd.cmd !== \"decrease\") {\n        msg.error = {\n        text: \"Jarvis Sorry I did not understand your command\",\n        siteId: msg.cmd.siteId\n        }; \n    }\n} \n\nif (msg.url[0] === undefined && msg.error === undefined) {\n    msg.error = {\n        text: \"Sorry I can not find this device\",\n        siteId: msg.cmd.siteId\n    };\n}\n\n\nreturn msg;",
+        "func": "function precisionRound(number, precision) {\n  var factor = Math.pow(10, precision);\n  return Math.round(number * factor) / factor;\n}\n\n//put an array of objets matching the type of device given in parameters in msg.room\nfunction findDeviceByKey(array, key, value) {\n    msg.items = [];\n    var cpt = 0;\n    for (var i = 0; i < array.length; i++) {\n        var x = array[i][key];\n        x = x.toLowerCase();\n        x = x.split(\"   \");\n        if (x[1] === value) {\n            msg.items[cpt] = array[i];\n            cpt ++;\n        }\n    }\n    return null;\n}\n\n//put an array of objets located in the room given in parameters in msg.room\nfunction findRoomByKey(array, key, value) {\n    msg.items = [];\n    var cpt = 0;\n    for (var i = 0; i < array.length; i++) {\n        var x = array[i][key].toLowerCase();\n        x = x.toLowerCase();\n        x = x.split(\"   \");\n        if (x[0] === value) {\n            msg.items[cpt] = array[i];\n            cpt ++;\n        }\n    }\n    return null;\n}\n\n//put an array of objects that the user want to control in msg.items, error if his request is to vague\nif (msg.cmd.all !== undefined && msg.cmd.device !== undefined && msg.cmd.room === undefined) {\n\tfindDeviceByKey(msg.shutters, 'name', msg.cmd.device);\n} else if (msg.cmd.all !== undefined && msg.cmd.room !== undefined && msg.cmd.device === undefined) {\n\tfindRoomByKey(msg.shutters, 'name', msg.cmd.room);\n}else if (msg.cmd.all !== undefined && msg.cmd.room === undefined && msg.cmd.device === undefined) {\n\tmsg.items = msg.shutters;\n} else if (msg.cmd.room !== undefined && msg.cmd.device !== undefined) {\n    tmp = [];\n    findDeviceByKey(msg.shutters, 'name', msg.cmd.device);\n\ttmp = msg.items;\n\tfindRoomByKey(tmp, 'name', msg.cmd.room);\n} else if (msg.cmd.all === undefined && msg.cmd.room !== undefined && msg.cmd.device === undefined) {\n\tfindRoomByKey(msg.shutters, 'name', msg.cmd.room);\n} else {}\n\n//Prepare all HTTP requests for \"SET\" commands and put them in msg.url\nmsg.url = [];\nfor (var i = 0; i < msg.items.length; i++) {\n\tif (msg.cmd.cmd === \"open\" && msg.cmd.value === undefined) {\n    \tmsg.url[i] = [msg.proServIP, msg.items[i].setOnUrl];\n\t    msg.url[i] = \"\".concat(...msg.url[i]);\n\t}\n\telse if (msg.cmd.cmd === \"close\" && msg.cmd.value === undefined) {\n    \tmsg.url[i] = [msg.proServIP, msg.items[i].setOffUrl];\n\t    msg.url[i] = \"\".concat(...msg.url[i]);\n    }\n    else if (msg.cmd.value !== undefined) {\n   \t\tvar val = (100-msg.cmd.value)*2.55;\n   \t\tval = precisionRound(val, 1);\n   \t\tmsg.items[i].setDimUrl = msg.items[i].setDimUrl.replace(\"${intensity.byte}\", '');\n   \t\tmsg.url[i] = [msg.proServIP, msg.items[i].setDimUrl, val];\n   \t\tmsg.url[i] = \"\".concat(...msg.url[i]);\n    }\n    else if (msg.cmd.cmd !== \"on\" && msg.cmd.cmd !== \"off\" && msg.cmd.cmd !== \"increase\" && msg.cmd.cmd !== \"decrease\") {\n        msg.error = {\n        text: \"Sorry I did not understand your command\",\n        siteId: msg.cmd.siteId\n        }; \n    }\n} \n\nif (msg.url[0] === undefined && msg.error === undefined) {\n    msg.error = {\n        text: \"Sorry I can not find this device\",\n        siteId: msg.cmd.siteId\n    };\n}\n\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "x": 3089.999897003174,
         "y": 900.8335256576538,
         "wires": [
             [
-                "48342d46.10b4d4",
-                "1df04fda.789e2"
+                "ba8abd9c.a3b4a",
+                "f1914c2f.ec81a"
             ]
         ]
     },
     {
-        "id": "dec6aaba.fda528",
+        "id": "2875f039.e052f",
         "type": "http request",
-        "z": "14a01cb.fc3cfe3",
+        "z": "67bc88ef.745748",
         "name": "Send URL",
         "method": "GET",
         "ret": "obj",
@@ -327,14 +305,14 @@
         "y": 1044.1668949127197,
         "wires": [
             [
-                "164f3221.7dc5de"
+                "830c017e.5a5fb"
             ]
         ]
     },
     {
-        "id": "913749f4.bb0d78",
+        "id": "af60e688.201088",
         "type": "split",
-        "z": "14a01cb.fc3cfe3",
+        "z": "67bc88ef.745748",
         "name": "",
         "splt": "\\n",
         "spltType": "str",
@@ -346,14 +324,14 @@
         "y": 902.5002603530884,
         "wires": [
             [
-                "716b5a71.b0d724"
+                "7d0abc20.f5da94"
             ]
         ]
     },
     {
-        "id": "48342d46.10b4d4",
+        "id": "ba8abd9c.a3b4a",
         "type": "change",
-        "z": "14a01cb.fc3cfe3",
+        "z": "67bc88ef.745748",
         "name": "",
         "rules": [
             {
@@ -373,14 +351,14 @@
         "y": 902.5001306533813,
         "wires": [
             [
-                "913749f4.bb0d78"
+                "af60e688.201088"
             ]
         ]
     },
     {
-        "id": "716b5a71.b0d724",
+        "id": "7d0abc20.f5da94",
         "type": "delay",
-        "z": "14a01cb.fc3cfe3",
+        "z": "67bc88ef.745748",
         "name": "",
         "pauseType": "delay",
         "timeout": "50",
@@ -396,75 +374,74 @@
         "y": 902.5002403259277,
         "wires": [
             [
-                "dec6aaba.fda528"
+                "2875f039.e052f"
             ]
         ]
     },
     {
-        "id": "fed50054.dbe0c",
+        "id": "86b2968.c4cfc68",
         "type": "mqtt in",
-        "z": "14a01cb.fc3cfe3",
+        "z": "67bc88ef.745748",
         "name": "",
         "topic": "hermes/intent/ProKNX:on_off_lights",
         "qos": "2",
-        "broker": "66182679.b3a438",
+        "broker": "f965f064.1e786",
         "x": 2680,
         "y": 240,
         "wires": [
             [
-                "942403ed.98be8",
-                "df538fa0.003cf"
+                "1c3556df.1930e9"
             ]
         ]
     },
     {
-        "id": "942403ed.98be8",
+        "id": "1c3556df.1930e9",
         "type": "json",
-        "z": "14a01cb.fc3cfe3",
+        "z": "67bc88ef.745748",
         "name": "",
         "pretty": true,
         "x": 2930,
         "y": 240,
         "wires": [
             [
-                "3b3e928e.b335ee"
+                "1dc21860.669458"
             ]
         ]
     },
     {
-        "id": "16b1dd01.27c333",
+        "id": "e5acf7a3.ca1b68",
         "type": "json",
-        "z": "14a01cb.fc3cfe3",
+        "z": "67bc88ef.745748",
         "name": "",
         "pretty": true,
         "x": 2930,
         "y": 280,
         "wires": [
             [
-                "3b3e928e.b335ee"
+                "1dc21860.669458"
             ]
         ]
     },
     {
-        "id": "9d256e42.45c4b",
+        "id": "7f9b9c8a.f9c484",
         "type": "mqtt in",
-        "z": "14a01cb.fc3cfe3",
+        "z": "67bc88ef.745748",
         "name": "",
         "topic": "hermes/intent/ProKNX:open_close_shutter",
         "qos": "2",
-        "broker": "66182679.b3a438",
+        "broker": "f965f064.1e786",
         "x": 2700,
         "y": 280,
         "wires": [
             [
-                "16b1dd01.27c333"
+                "e5acf7a3.ca1b68"
             ]
         ]
     },
     {
-        "id": "3c13098c.c1c4f6",
+        "id": "770cc04a.9ddbf",
         "type": "http request",
-        "z": "14a01cb.fc3cfe3",
+        "z": "67bc88ef.745748",
         "name": "GET ProServIP",
         "method": "GET",
         "ret": "txt",
@@ -474,14 +451,14 @@
         "y": 720,
         "wires": [
             [
-                "123726cc.9e87e9"
+                "46a0959f.e1012c"
             ]
         ]
     },
     {
-        "id": "123726cc.9e87e9",
+        "id": "46a0959f.e1012c",
         "type": "change",
-        "z": "14a01cb.fc3cfe3",
+        "z": "67bc88ef.745748",
         "name": "",
         "rules": [
             {
@@ -501,14 +478,14 @@
         "y": 780,
         "wires": [
             [
-                "8a240188.9c001"
+                "3edad875.637048"
             ]
         ]
     },
     {
-        "id": "88ae0142.24d27",
+        "id": "ee1a6bbf.721058",
         "type": "http request",
-        "z": "14a01cb.fc3cfe3",
+        "z": "67bc88ef.745748",
         "name": "GET ProServIP",
         "method": "GET",
         "ret": "txt",
@@ -518,14 +495,14 @@
         "y": 720,
         "wires": [
             [
-                "429daa9b.195b74"
+                "b2cdc9ea.5d5208"
             ]
         ]
     },
     {
-        "id": "429daa9b.195b74",
+        "id": "b2cdc9ea.5d5208",
         "type": "change",
-        "z": "14a01cb.fc3cfe3",
+        "z": "67bc88ef.745748",
         "name": "",
         "rules": [
             {
@@ -545,14 +522,14 @@
         "y": 780,
         "wires": [
             [
-                "ebeea7bb.c06618"
+                "890fdae2.b2d7d8"
             ]
         ]
     },
     {
-        "id": "cea6b5ec.d02088",
+        "id": "2c420daf.f0d6d2",
         "type": "function",
-        "z": "14a01cb.fc3cfe3",
+        "z": "67bc88ef.745748",
         "name": "Array_thermostats",
         "func": "function precisionRound(number, precision) {\n  var factor = Math.pow(10, precision);\n  return Math.round(number * factor) / factor;\n}\n\nfunction findObjectByKey(array, key, value) {\n    for (var i = 0; i < array.length; i++) {\n        if (array[i][key] === value) {\n            return array[i];\n        }\n    }\n    return null;\n}\n\nvar rawCmd = findObjectByKey(msg.payload.slots, 'slotName', 'cmd');\nvar rawRoom = findObjectByKey(msg.payload.slots, 'slotName', 'room');\nvar rawQuery = findObjectByKey(msg.payload.slots, 'slotName', 'query');\nvar rawValue = findObjectByKey(msg.payload.slots, 'slotName', 'value');\nvar rawAll = findObjectByKey(msg.payload.slots, 'slotName', 'all');\nvar rawHere = findObjectByKey(msg.payload.slots, 'slotName', 'here');\n\nmsg.cmd = [];\nif (rawCmd !== null) {\n\tmsg.cmd.cmd = rawCmd.value.value;\n}\nif (rawRoom !== null) {\n\tmsg.cmd.room = rawRoom.value.value;\n} else if (rawAll === null) {\n    msg.cmd.room = msg.payload.siteId;\n}\nif (rawQuery !== null) {\n\tmsg.cmd.query = rawQuery.value.value;\n}\nif (rawAll !== null) {\n\tmsg.cmd.all = rawAll.value.value;\n}\nif (rawValue !== null) {\n\tmsg.cmd.value = rawValue.value.value;\n}\nif (rawHere !== null) {\n\tmsg.cmd.room = msg.payload.siteId;\n}\nmsg.cmd.siteId = msg.payload.siteId;\n\nreturn msg;",
         "outputs": 1,
@@ -561,14 +538,14 @@
         "y": 1600,
         "wires": [
             [
-                "76fd43d6.be760c"
+                "9f30336.a6dabd"
             ]
         ]
     },
     {
-        "id": "14faeede.691401",
+        "id": "1f79431b.5669fd",
         "type": "http request",
-        "z": "14a01cb.fc3cfe3",
+        "z": "67bc88ef.745748",
         "name": "GET ProServIP",
         "method": "GET",
         "ret": "txt",
@@ -578,14 +555,14 @@
         "y": 1600,
         "wires": [
             [
-                "b72b48e2.205b48"
+                "a3e15db.23cc4a"
             ]
         ]
     },
     {
-        "id": "b72b48e2.205b48",
+        "id": "a3e15db.23cc4a",
         "type": "change",
-        "z": "14a01cb.fc3cfe3",
+        "z": "67bc88ef.745748",
         "name": "",
         "rules": [
             {
@@ -605,44 +582,44 @@
         "y": 1660,
         "wires": [
             [
-                "bbff6342.46c0a"
+                "c5de08ae.0b2808"
             ]
         ]
     },
     {
-        "id": "62a14b7d.9c9964",
+        "id": "fadab1a3.7057",
         "type": "mqtt in",
-        "z": "14a01cb.fc3cfe3",
+        "z": "67bc88ef.745748",
         "name": "",
         "topic": "hermes/intent/ProKNX:set_thermostats",
         "qos": "2",
-        "broker": "66182679.b3a438",
+        "broker": "f965f064.1e786",
         "x": 2690,
         "y": 320,
         "wires": [
             [
-                "c0d7bc1e.d2976"
+                "5a6d1f1e.86405"
             ]
         ]
     },
     {
-        "id": "c0d7bc1e.d2976",
+        "id": "5a6d1f1e.86405",
         "type": "json",
-        "z": "14a01cb.fc3cfe3",
+        "z": "67bc88ef.745748",
         "name": "",
         "pretty": true,
         "x": 2930,
         "y": 320,
         "wires": [
             [
-                "3b3e928e.b335ee"
+                "1dc21860.669458"
             ]
         ]
     },
     {
-        "id": "bbff6342.46c0a",
+        "id": "c5de08ae.0b2808",
         "type": "http request",
-        "z": "14a01cb.fc3cfe3",
+        "z": "67bc88ef.745748",
         "name": "GET Devices",
         "method": "GET",
         "ret": "txt",
@@ -652,28 +629,28 @@
         "y": 1660,
         "wires": [
             [
-                "4d638538.b5816c"
+                "fc6820e3.25f9"
             ]
         ]
     },
     {
-        "id": "4d638538.b5816c",
+        "id": "fc6820e3.25f9",
         "type": "json",
-        "z": "14a01cb.fc3cfe3",
+        "z": "67bc88ef.745748",
         "name": "",
         "pretty": false,
         "x": 2990,
         "y": 1660,
         "wires": [
             [
-                "52e7a67f.62a828"
+                "ecf37efc.82f9a"
             ]
         ]
     },
     {
-        "id": "52e7a67f.62a828",
+        "id": "ecf37efc.82f9a",
         "type": "function",
-        "z": "14a01cb.fc3cfe3",
+        "z": "67bc88ef.745748",
         "name": "List_heaters",
         "func": "function findHeatersByKey(array, key, value) {\n    msg.heaters = [];\n    var cpt = 0;\n    for (var i = 0; i < array.length; i++) {\n        if (array[i][key] === value) {\n            msg.heaters[cpt] = array[i];\n            cpt ++;\n        }\n    }\n    return null;\n}\n\nfindHeatersByKey(msg.payload, 'type', 'heating');\n\nreturn msg;",
         "outputs": 1,
@@ -682,14 +659,14 @@
         "y": 1660,
         "wires": [
             [
-                "80779ba.8bb1d68"
+                "f51466f9.6fbde8"
             ]
         ]
     },
     {
-        "id": "ffb46c28.d9e6d",
+        "id": "407ea4ee.75898c",
         "type": "function",
-        "z": "14a01cb.fc3cfe3",
+        "z": "67bc88ef.745748",
         "name": "Prepare_request",
         "func": "function precisionRound(number, precision) {\n  var factor = Math.pow(10, precision);\n  return Math.round(number * factor) / factor;\n}\n\n//put an array of objets located in the room given in parameters in msg.room\nfunction findRoomByKey(array, key, value) {\n    msg.items = [];\n    var cpt = 0;\n    for (var i = 0; i < array.length; i++) {\n        var x = array[i][key].toLowerCase();\n        x = x.split(\"   \");\n        if (x[0] === value) {\n            msg.items[cpt] = array[i];\n            cpt ++;\n        }\n    }\n    return null;\n}\n\n//put an array of objects that the user want to control in msg.items, error if his request is to vague\nif (msg.cmd.all !== undefined && msg.cmd.room !== undefined) {\n\tfindRoomByKey(msg.heaters, 'name', msg.cmd.room);\n}else if (msg.cmd.all !== undefined && msg.cmd.room === undefined) {\n\tmsg.items = msg.heaters;\n} else if (msg.cmd.all === undefined && msg.cmd.room !== undefined) {\n\tfindRoomByKey(msg.heaters, 'name', msg.cmd.room);\n} else {}\n\n//Prepare all HTTP requests for \"SET\" commands and put them in msg.url\nmsg.url = [];\nmsg.newVal= [];\nif (msg.cmd.cmd === \"set\" && msg.cmd.value !== undefined) {\n   \tfor (var i = 0; i < msg.items.length; i++) {\n   \t\tvar val = msg.cmd.value;\n   \t\tif (val < 18){\n\t            val = 18;\n        \t} else if (val > 28) {\n        \t    val = 28;\n\t        } else {\n    \t        val = val;\n\t        }\n   \t\tmsg.newVal[i] = val;\n   \t\tmsg.url[i] = [msg.proServIP, msg.items[i].setTargetUrl, val];\n   \t\tmsg.url[i] = \"\".concat(...msg.url[i]);\n   \t\t\n\t}\n}\nelse if (msg.cmd.cmd === \"colder\") {\n\tfor (var i = 0; i < msg.items.length; i++) {\n\t\tif (msg.cmd.value !== undefined) {\n\t\t    var val = msg.cmd.value;\n\t\t    var target = msg.target[i].Data[0].Value;\n\t\t    var newVal = target-val;\n\t\t    if (newVal < 18){\n\t            newVal = 18;\n        \t} else if (newVal > 28) {\n        \t    newVal = 28;\n\t        } else {\n    \t        newVal = newVal;\n\t        }\n\t\t    msg.newVal[i] = newVal;\n\t\t    msg.url[i] = [msg.proServIP, msg.items[i].setTargetUrl, newVal];\n   \t\t    msg.url[i] = \"\".concat(...msg.url[i]);\n\t\t}\n\t\telse {\n\t\t    var val = 2;\n\t\t    var target = msg.target[i].Data[0].Value;\n\t\t    var newVal = target-val;\n\t\t    if (newVal < 18){\n\t            newVal = 18;\n        \t} else if (newVal > 28) {\n        \t    newVal = 28;\n\t        } else {\n    \t        newVal = newVal;\n\t        }\n\t\t    msg.newVal[i] = newVal;\n\t\t    msg.url[i] = [msg.proServIP, msg.items[i].setTargetUrl, newVal];\n   \t\t    msg.url[i] = \"\".concat(...msg.url[i]);\n\t\t}\n\t}\n}\nelse if (msg.cmd.cmd === \"warmer\") {\n\tfor (var i = 0; i < msg.items.length; i++) {\n\t\tif (msg.cmd.value !== undefined) {\n\t\t    var val = msg.cmd.value;\n\t\t    var target = msg.target[i].Data[0].Value;\n\t\t    var newVal = target+val;\n\t\t    if (newVal < 18){\n\t            newVal = 18;\n        \t} else if (newVal > 28) {\n        \t    newVal = 28;\n\t        } else {\n    \t        newVal = newVal;\n\t        }\n\t\t    msg.newVal[i] = newVal;\n\t\t    msg.url[i] = [msg.proServIP, msg.items[i].setTargetUrl, newVal];\n   \t\t    msg.url[i] = \"\".concat(...msg.url[i]);\n\t\t}\n\t\telse {\n\t\t    var val = 2;\n\t\t    var target = msg.target[i].Data[0].Value;\n\t\t    var newVal = target+val;\n\t\t    if (newVal < 18){\n\t            newVal = 18;\n        \t} else if (newVal > 28) {\n        \t    newVal = 28;\n\t        } else {\n    \t        newVal = newVal;\n\t        }\n\t\t    msg.newVal[i] = newVal;\n\t\t    msg.url[i] = [msg.proServIP, msg.items[i].setTargetUrl, newVal];\n   \t\t    msg.url[i] = \"\".concat(...msg.url[i]);\n\t\t}\n\t}\n}\n\nreturn msg;",
         "outputs": 1,
@@ -698,15 +675,15 @@
         "y": 2145.2381086349487,
         "wires": [
             [
-                "ee021bbe.fcb3a8",
-                "2634ed8c.bbb122"
+                "db92549.a1c79a8",
+                "a34938d6.640648"
             ]
         ]
     },
     {
-        "id": "d97d05a3.b249e8",
+        "id": "42505ad.465dfa4",
         "type": "function",
-        "z": "14a01cb.fc3cfe3",
+        "z": "67bc88ef.745748",
         "name": "GET_Target",
         "func": "//put an array of objets located in the room given in parameters in msg.room\nfunction findRoomByKey(array, key, value) {\n    msg.items = [];\n    var cpt = 0;\n    for (var i = 0; i < array.length; i++) {\n        var x = array[i][key].toLowerCase();\n        x = x.split(\"   \");\n        if (x[0] === value) {\n            msg.items[cpt] = array[i];\n            cpt ++;\n        }\n    }\n    return null;\n}\n\n//put an array of objects that the user want to control in msg.items, error if his request is to vague\nif (msg.cmd.all !== undefined && msg.cmd.room !== undefined) {\n\tfindRoomByKey(msg.heaters, 'name', msg.cmd.room);\n}else if (msg.cmd.all !== undefined && msg.cmd.room === undefined) {\n\tmsg.items = msg.heaters;\n} else if (msg.cmd.all === undefined && msg.cmd.room !== undefined) {\n\tfindRoomByKey(msg.heaters, 'name', msg.cmd.room);\n} else {}\n\n//Prepare all HTTP requests for GET Current Temp and put them in msg.url\nmsg.url = [];\nfor (var i = 0; i < msg.items.length; i++) {\n\tmsg.url[i] = [msg.proServIP, msg.items[i].getTargetUrl];\n\tmsg.url[i] = \"\".concat(...msg.url[i]);\n}\n\nif (msg.items[0] === undefined) {\n    msg.error = {\n        text: \" Sorry There is no thermostat in this room\",\n        siteId: msg.cmd.siteId\n    };\n}\n\nreturn msg;",
         "outputs": 1,
@@ -715,15 +692,15 @@
         "y": 1965.2380867004395,
         "wires": [
             [
-                "c54ba1c.f46236",
-                "2634ed8c.bbb122"
+                "a31c1e45.f7202",
+                "a34938d6.640648"
             ]
         ]
     },
     {
-        "id": "1cb62e98.3b9291",
+        "id": "7ace2779.5432e8",
         "type": "http request",
-        "z": "14a01cb.fc3cfe3",
+        "z": "67bc88ef.745748",
         "name": "GET Target",
         "method": "GET",
         "ret": "txt",
@@ -733,15 +710,15 @@
         "y": 2019.523889541626,
         "wires": [
             [
-                "1eed3d9f.69f6e2",
-                "1c3cb742.9ec869"
+                "5b5edbb5.c097e4",
+                "536ff1d3.2d79a"
             ]
         ]
     },
     {
-        "id": "19c1f4d3.065c4b",
+        "id": "cbd6d958.b39508",
         "type": "delay",
-        "z": "14a01cb.fc3cfe3",
+        "z": "67bc88ef.745748",
         "name": "",
         "pauseType": "delay",
         "timeout": "50",
@@ -757,15 +734,15 @@
         "y": 1965.23814868927,
         "wires": [
             [
-                "1cb62e98.3b9291",
-                "1c3cb742.9ec869"
+                "7ace2779.5432e8",
+                "536ff1d3.2d79a"
             ]
         ]
     },
     {
-        "id": "65d5c7b3.0adeb8",
+        "id": "11f4a78b.b12c18",
         "type": "switch",
-        "z": "14a01cb.fc3cfe3",
+        "z": "67bc88ef.745748",
         "name": "Cmd ?",
         "property": "cmd.cmd",
         "propertyType": "msg",
@@ -785,17 +762,17 @@
         "y": 1853.8096809387207,
         "wires": [
             [
-                "ffb46c28.d9e6d"
+                "407ea4ee.75898c"
             ],
             [
-                "d97d05a3.b249e8"
+                "42505ad.465dfa4"
             ]
         ]
     },
     {
-        "id": "65fb8c3e.5d8244",
+        "id": "660e05cc.55efdc",
         "type": "change",
-        "z": "14a01cb.fc3cfe3",
+        "z": "67bc88ef.745748",
         "name": "",
         "rules": [
             {
@@ -815,14 +792,14 @@
         "y": 2019.523853302002,
         "wires": [
             [
-                "ffb46c28.d9e6d"
+                "407ea4ee.75898c"
             ]
         ]
     },
     {
-        "id": "7da328f8.3fd698",
+        "id": "a84cf0da.f62fd",
         "type": "split",
-        "z": "14a01cb.fc3cfe3",
+        "z": "67bc88ef.745748",
         "name": "",
         "splt": "\\n",
         "spltType": "str",
@@ -834,14 +811,14 @@
         "y": 1965.23814868927,
         "wires": [
             [
-                "19c1f4d3.065c4b"
+                "cbd6d958.b39508"
             ]
         ]
     },
     {
-        "id": "c54ba1c.f46236",
+        "id": "a31c1e45.f7202",
         "type": "change",
-        "z": "14a01cb.fc3cfe3",
+        "z": "67bc88ef.745748",
         "name": "",
         "rules": [
             {
@@ -861,14 +838,14 @@
         "y": 1965.2381315231323,
         "wires": [
             [
-                "7da328f8.3fd698"
+                "a84cf0da.f62fd"
             ]
         ]
     },
     {
-        "id": "fc1a40e4.6b863",
+        "id": "e31589cc.0428e8",
         "type": "join",
-        "z": "14a01cb.fc3cfe3",
+        "z": "67bc88ef.745748",
         "name": "",
         "mode": "auto",
         "build": "string",
@@ -884,28 +861,28 @@
         "y": 2019.5239152908325,
         "wires": [
             [
-                "65fb8c3e.5d8244"
+                "660e05cc.55efdc"
             ]
         ]
     },
     {
-        "id": "1eed3d9f.69f6e2",
+        "id": "5b5edbb5.c097e4",
         "type": "json",
-        "z": "14a01cb.fc3cfe3",
+        "z": "67bc88ef.745748",
         "name": "",
         "pretty": false,
         "x": 2376.1906814575195,
         "y": 2019.5238628387451,
         "wires": [
             [
-                "fc1a40e4.6b863"
+                "e31589cc.0428e8"
             ]
         ]
     },
     {
-        "id": "80779ba.8bb1d68",
+        "id": "f51466f9.6fbde8",
         "type": "switch",
-        "z": "14a01cb.fc3cfe3",
+        "z": "67bc88ef.745748",
         "name": "Query ?",
         "property": "cmd.query",
         "propertyType": "msg",
@@ -923,17 +900,17 @@
         "y": 1751.3096237182617,
         "wires": [
             [
-                "3d5fe75b.54a608"
+                "a4f2ed1b.62e0c"
             ],
             [
-                "65d5c7b3.0adeb8"
+                "11f4a78b.b12c18"
             ]
         ]
     },
     {
-        "id": "3d5fe75b.54a608",
+        "id": "a4f2ed1b.62e0c",
         "type": "function",
-        "z": "14a01cb.fc3cfe3",
+        "z": "67bc88ef.745748",
         "name": "GET_Target",
         "func": "//put an array of objets located in the room given in parameters in msg.room\nfunction findRoomByKey(array, key, value) {\n    msg.items = [];\n    var cpt = 0;\n    for (var i = 0; i < array.length; i++) {\n        var x = array[i][key].toLowerCase();\n        x = x.split(\"   \");\n        if (x[0] === value) {\n            msg.items[cpt] = array[i];\n            cpt ++;\n        }\n    }\n    return null;\n}\n\nmsg.error = [];\n\n//put an array of objects that the user want to control in msg.items, error if his request is to vague\nif (msg.cmd.all !== undefined && msg.cmd.room !== undefined) {\n\tfindRoomByKey(msg.heaters, 'name', msg.cmd.room);\n}else if (msg.cmd.all !== undefined && msg.cmd.room === undefined) {\n\tmsg.items = msg.heaters;\n} else if (msg.cmd.all === undefined && msg.cmd.room !== undefined) {\n\tfindRoomByKey(msg.heaters, 'name', msg.cmd.room);\n} else if (msg.cmd.all === undefined && msg.cmd.room === undefined){\n    msg.error = {\n        text: \"Sorry, can you be more specific ?\",\n        siteId: msg.cmd.siteId\n    };\n}\n\n//Prepare all HTTP requests for GET Current Temp and put them in msg.url\nmsg.url = [];\nfor (var i = 0; i < msg.items.length; i++) {\n\tmsg.url[i] = [msg.proServIP, msg.items[i].getTargetUrl];\n\tmsg.url[i] = \"\".concat(...msg.url[i]);\n}\n\nif (msg.items[0] === undefined) {\n    msg.error = {\n        text: \" Sorry I can not find this device\",\n        siteId: msg.cmd.siteId\n    };\n}\n\nreturn msg;",
         "outputs": 1,
@@ -942,15 +919,15 @@
         "y": 1871.666498184204,
         "wires": [
             [
-                "83480b5e.f2ba38",
-                "d3a6ec81.1c97d"
+                "15348d86.f583a2",
+                "4f4cc1cb.ed7d2"
             ]
         ]
     },
     {
-        "id": "f11b9580.abdd28",
+        "id": "4ee2fd42.d5d884",
         "type": "http request",
-        "z": "14a01cb.fc3cfe3",
+        "z": "67bc88ef.745748",
         "name": "GET Target",
         "method": "GET",
         "ret": "txt",
@@ -960,15 +937,15 @@
         "y": 1924.5236492156982,
         "wires": [
             [
-                "5ba72e1b.9230b",
-                "70c06a78.2661f4"
+                "ff115c65.a9a72",
+                "fca9ea52.f7afb8"
             ]
         ]
     },
     {
-        "id": "6c43864f.5a8a08",
+        "id": "d91d0b65.3791c8",
         "type": "delay",
-        "z": "14a01cb.fc3cfe3",
+        "z": "67bc88ef.745748",
         "name": "",
         "pauseType": "delay",
         "timeout": "50",
@@ -984,15 +961,15 @@
         "y": 1871.666488647461,
         "wires": [
             [
-                "f11b9580.abdd28",
-                "70c06a78.2661f4"
+                "4ee2fd42.d5d884",
+                "fca9ea52.f7afb8"
             ]
         ]
     },
     {
-        "id": "1b0e22c1.2506cd",
+        "id": "f9001d1e.ad7cd",
         "type": "change",
-        "z": "14a01cb.fc3cfe3",
+        "z": "67bc88ef.745748",
         "name": "",
         "rules": [
             {
@@ -1012,14 +989,14 @@
         "y": 1925.9522285461426,
         "wires": [
             [
-                "60ee33e0.be345c"
+                "c41f46ec.960c78"
             ]
         ]
     },
     {
-        "id": "6c3ab982.84fa98",
+        "id": "525be599.5198ec",
         "type": "split",
-        "z": "14a01cb.fc3cfe3",
+        "z": "67bc88ef.745748",
         "name": "",
         "splt": "\\n",
         "spltType": "str",
@@ -1031,14 +1008,14 @@
         "y": 1871.6665058135986,
         "wires": [
             [
-                "6c43864f.5a8a08"
+                "d91d0b65.3791c8"
             ]
         ]
     },
     {
-        "id": "83480b5e.f2ba38",
+        "id": "15348d86.f583a2",
         "type": "change",
-        "z": "14a01cb.fc3cfe3",
+        "z": "67bc88ef.745748",
         "name": "",
         "rules": [
             {
@@ -1058,14 +1035,14 @@
         "y": 1871.6665229797363,
         "wires": [
             [
-                "6c3ab982.84fa98"
+                "525be599.5198ec"
             ]
         ]
     },
     {
-        "id": "cc08988b.8e1ca8",
+        "id": "c5059a00.b54408",
         "type": "join",
-        "z": "14a01cb.fc3cfe3",
+        "z": "67bc88ef.745748",
         "name": "",
         "mode": "auto",
         "build": "string",
@@ -1081,28 +1058,28 @@
         "y": 1925.952229499817,
         "wires": [
             [
-                "1b0e22c1.2506cd"
+                "f9001d1e.ad7cd"
             ]
         ]
     },
     {
-        "id": "5ba72e1b.9230b",
+        "id": "ff115c65.a9a72",
         "type": "json",
-        "z": "14a01cb.fc3cfe3",
+        "z": "67bc88ef.745748",
         "name": "",
         "pretty": false,
         "x": 3164.048007965088,
         "y": 1924.5236568450928,
         "wires": [
             [
-                "cc08988b.8e1ca8"
+                "c5059a00.b54408"
             ]
         ]
     },
     {
-        "id": "60ee33e0.be345c",
+        "id": "c41f46ec.960c78",
         "type": "function",
-        "z": "14a01cb.fc3cfe3",
+        "z": "67bc88ef.745748",
         "name": "GET_Current",
         "func": "//put an array of objets located in the room given in parameters in msg.room\nfunction findRoomByKey(array, key, value) {\n    msg.items = [];\n    var cpt = 0;\n    for (var i = 0; i < array.length; i++) {\n        var x = array[i][key].toLowerCase();\n        x = x.split(\"   \");\n        if (x[0] === value) {\n            msg.items[cpt] = array[i];\n            cpt ++;\n        }\n    }\n    return null;\n}\n\n//put an array of objects that the user want to control in msg.items, error if his request is to vague\nif (msg.cmd.all !== undefined && msg.cmd.room !== undefined) {\n\tfindRoomByKey(msg.heaters, 'name', msg.cmd.room);\n}else if (msg.cmd.all !== undefined && msg.cmd.room === undefined) {\n\tmsg.items = msg.heaters;\n} else if (msg.cmd.all === undefined && msg.cmd.room !== undefined) {\n\tfindRoomByKey(msg.heaters, 'name', msg.cmd.room);\n} else {}\n\n//Prepare all HTTP requests for GET Current Temp and put them in msg.url\nmsg.url = [];\nfor (var i = 0; i < msg.items.length; i++) {\n\tmsg.url[i] = [msg.proServIP, msg.items[i].getCurrentUrl];\n\tmsg.url[i] = \"\".concat(...msg.url[i]);\n}\n\nreturn msg;",
         "outputs": 1,
@@ -1111,14 +1088,14 @@
         "y": 2053.809331893921,
         "wires": [
             [
-                "d7c0092e.fa5fa8"
+                "b8aca002.caf8f"
             ]
         ]
     },
     {
-        "id": "5b99a2d0.309c3c",
+        "id": "d19fa008.61261",
         "type": "http request",
-        "z": "14a01cb.fc3cfe3",
+        "z": "67bc88ef.745748",
         "name": "GET Current",
         "method": "GET",
         "ret": "txt",
@@ -1128,14 +1105,14 @@
         "y": 2106.6665019989014,
         "wires": [
             [
-                "feb9f2cb.12fd"
+                "758f6baf.e22194"
             ]
         ]
     },
     {
-        "id": "f022fda3.adbab",
+        "id": "97ab071d.8bb698",
         "type": "delay",
-        "z": "14a01cb.fc3cfe3",
+        "z": "67bc88ef.745748",
         "name": "",
         "pauseType": "delay",
         "timeout": "50",
@@ -1151,14 +1128,14 @@
         "y": 2053.809383392334,
         "wires": [
             [
-                "5b99a2d0.309c3c"
+                "d19fa008.61261"
             ]
         ]
     },
     {
-        "id": "491de94f.be28d8",
+        "id": "ef1b9550.3ba558",
         "type": "change",
-        "z": "14a01cb.fc3cfe3",
+        "z": "67bc88ef.745748",
         "name": "",
         "rules": [
             {
@@ -1178,14 +1155,14 @@
         "y": 2106.6665439605713,
         "wires": [
             [
-                "30298a8a.e75a26"
+                "9e9563cf.666e8"
             ]
         ]
     },
     {
-        "id": "8c212874.d72718",
+        "id": "fd19637b.41585",
         "type": "split",
-        "z": "14a01cb.fc3cfe3",
+        "z": "67bc88ef.745748",
         "name": "",
         "splt": "\\n",
         "spltType": "str",
@@ -1197,14 +1174,14 @@
         "y": 2053.809331893921,
         "wires": [
             [
-                "f022fda3.adbab"
+                "97ab071d.8bb698"
             ]
         ]
     },
     {
-        "id": "d7c0092e.fa5fa8",
+        "id": "b8aca002.caf8f",
         "type": "change",
-        "z": "14a01cb.fc3cfe3",
+        "z": "67bc88ef.745748",
         "name": "",
         "rules": [
             {
@@ -1224,14 +1201,14 @@
         "y": 2053.809383392334,
         "wires": [
             [
-                "8c212874.d72718"
+                "fd19637b.41585"
             ]
         ]
     },
     {
-        "id": "bf6feb30.e142b8",
+        "id": "564398c9.3f4198",
         "type": "join",
-        "z": "14a01cb.fc3cfe3",
+        "z": "67bc88ef.745748",
         "name": "",
         "mode": "auto",
         "build": "string",
@@ -1247,28 +1224,28 @@
         "y": 2106.666492462158,
         "wires": [
             [
-                "491de94f.be28d8"
+                "ef1b9550.3ba558"
             ]
         ]
     },
     {
-        "id": "feb9f2cb.12fd",
+        "id": "758f6baf.e22194",
         "type": "json",
-        "z": "14a01cb.fc3cfe3",
+        "z": "67bc88ef.745748",
         "name": "",
         "pretty": false,
         "x": 3168.333839416504,
         "y": 2106.666491508484,
         "wires": [
             [
-                "bf6feb30.e142b8"
+                "564398c9.3f4198"
             ]
         ]
     },
     {
-        "id": "b108075.138a0f8",
+        "id": "ab4e1acb.9cf468",
         "type": "http request",
-        "z": "14a01cb.fc3cfe3",
+        "z": "67bc88ef.745748",
         "name": "Send URL",
         "method": "GET",
         "ret": "txt",
@@ -1278,14 +1255,14 @@
         "y": 2309.6426906585693,
         "wires": [
             [
-                "6e72e41e.46988c"
+                "ecef9971.84eb28"
             ]
         ]
     },
     {
-        "id": "15fdc79e.9a30b8",
+        "id": "579a9e49.0a1d7",
         "type": "split",
-        "z": "14a01cb.fc3cfe3",
+        "z": "67bc88ef.745748",
         "name": "",
         "splt": "\\n",
         "spltType": "str",
@@ -1297,14 +1274,14 @@
         "y": 2145.238265991211,
         "wires": [
             [
-                "56023f09.51f33"
+                "9ef73c0f.32cad"
             ]
         ]
     },
     {
-        "id": "ee021bbe.fcb3a8",
+        "id": "db92549.a1c79a8",
         "type": "change",
-        "z": "14a01cb.fc3cfe3",
+        "z": "67bc88ef.745748",
         "name": "",
         "rules": [
             {
@@ -1324,14 +1301,14 @@
         "y": 2145.2381954193115,
         "wires": [
             [
-                "15fdc79e.9a30b8"
+                "579a9e49.0a1d7"
             ]
         ]
     },
     {
-        "id": "56023f09.51f33",
+        "id": "9ef73c0f.32cad",
         "type": "delay",
-        "z": "14a01cb.fc3cfe3",
+        "z": "67bc88ef.745748",
         "name": "",
         "pauseType": "delay",
         "timeout": "50",
@@ -1347,59 +1324,27 @@
         "y": 2145.238247871399,
         "wires": [
             [
-                "b108075.138a0f8"
+                "ab4e1acb.9cf468"
             ]
         ]
     },
     {
-        "id": "46bc70c2.9ad69",
-        "type": "inject",
-        "z": "14a01cb.fc3cfe3",
-        "name": "",
-        "topic": "",
-        "payload": "{\"text\":\"This is my first boot, give me the name of the room where I am installed in order to finish my setup\",\"siteId\":\"bedroom\",\"id\":\"1234\",\"lang\":\"en\"}",
-        "payloadType": "json",
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "x": 650,
-        "y": 1080,
-        "wires": [
-            [
-                "9054e9c1.c3da38"
-            ]
-        ]
-    },
-    {
-        "id": "9054e9c1.c3da38",
+        "id": "bc6e51c7.9fd2f",
         "type": "mqtt out",
-        "z": "14a01cb.fc3cfe3",
+        "z": "67bc88ef.745748",
         "name": "",
         "topic": "hermes/tts/say",
         "qos": "",
         "retain": "",
-        "broker": "66182679.b3a438",
-        "x": 1040,
-        "y": 1080,
+        "broker": "f965f064.1e786",
+        "x": 2743.71431350708,
+        "y": 1159.0001649856567,
         "wires": []
     },
     {
-        "id": "90141575.6291c8",
-        "type": "mqtt out",
-        "z": "14a01cb.fc3cfe3",
-        "name": "",
-        "topic": "hermes/tts/say",
-        "qos": "",
-        "retain": "",
-        "broker": "66182679.b3a438",
-        "x": 2740,
-        "y": 1220,
-        "wires": []
-    },
-    {
-        "id": "aace6ead.4ebaf",
+        "id": "f6e71433.341d98",
         "type": "function",
-        "z": "14a01cb.fc3cfe3",
+        "z": "67bc88ef.745748",
         "name": "Feedback",
         "func": "if (msg.payload.Result === true) {\n    msg.payload = {\n        text: \"Okay\",\n        siteId: msg.cmd.siteId\n    };\n}\nelse if (msg.payload.Result === \"false\") {\n    msg.payload = {\n        text: \" Sorry the server did not understand your request\",\n        siteId: msg.cmd.siteId\n    };\n}\nelse {\n    msg.payload = {\n        text: \"Sorry The server is not responding\",\n        siteId: msg.cmd.siteId\n    };\n}\nreturn msg;",
         "outputs": 1,
@@ -1408,14 +1353,14 @@
         "y": 1203.333683013916,
         "wires": [
             [
-                "37f21541.69a68a"
+                "b4b82472.a8d528"
             ]
         ]
     },
     {
-        "id": "bf1c5a0b.23ff38",
+        "id": "ab30b125.6cfea",
         "type": "switch",
-        "z": "14a01cb.fc3cfe3",
+        "z": "67bc88ef.745748",
         "name": "Error ?",
         "property": "error",
         "propertyType": "msg",
@@ -1430,14 +1375,14 @@
         "y": 1160,
         "wires": [
             [
-                "fdcdcb2a.6ff258"
+                "1107c053.0be71"
             ]
         ]
     },
     {
-        "id": "fdcdcb2a.6ff258",
+        "id": "1107c053.0be71",
         "type": "change",
-        "z": "14a01cb.fc3cfe3",
+        "z": "67bc88ef.745748",
         "name": "",
         "rules": [
             {
@@ -1457,14 +1402,14 @@
         "y": 1160,
         "wires": [
             [
-                "f738be93.af8ed"
+                "aca4e2b1.1daaf"
             ]
         ]
     },
     {
-        "id": "f738be93.af8ed",
+        "id": "aca4e2b1.1daaf",
         "type": "delay",
-        "z": "14a01cb.fc3cfe3",
+        "z": "67bc88ef.745748",
         "name": "",
         "pauseType": "rate",
         "timeout": "5",
@@ -1480,14 +1425,14 @@
         "y": 1160,
         "wires": [
             [
-                "90141575.6291c8"
+                "bc6e51c7.9fd2f"
             ]
         ]
     },
     {
-        "id": "1df04fda.789e2",
+        "id": "f1914c2f.ec81a",
         "type": "switch",
-        "z": "14a01cb.fc3cfe3",
+        "z": "67bc88ef.745748",
         "name": "Error ?",
         "property": "error",
         "propertyType": "msg",
@@ -1502,14 +1447,14 @@
         "y": 1146.6666822433472,
         "wires": [
             [
-                "2b3e26f7.86f16a"
+                "abd6c7a8.8dbdf8"
             ]
         ]
     },
     {
-        "id": "164f3221.7dc5de",
+        "id": "830c017e.5a5fb",
         "type": "function",
-        "z": "14a01cb.fc3cfe3",
+        "z": "67bc88ef.745748",
         "name": "Feedback",
         "func": "if (msg.payload.Result === true) {\n    msg.payload = {\n        text: \"Okay\",\n        siteId: msg.cmd.siteId\n    };\n}\nelse if (msg.payload.Result === \"false\") {\n    msg.payload = {\n        text: \" Sorry the server did not understand your request\",\n        siteId: msg.cmd.siteId\n    };\n}\nelse {\n    msg.payload = {\n        text: \"Sorry The server is not responding\",\n        siteId: msg.cmd.siteId\n    };\n}\nreturn msg;",
         "outputs": 1,
@@ -1518,54 +1463,14 @@
         "y": 1207.5002346038818,
         "wires": [
             [
-                "b742cf19.c3515"
+                "8ec9779f.882c58"
             ]
         ]
     },
     {
-        "id": "17216a44.c0aad6",
-        "type": "debug",
-        "z": "14a01cb.fc3cfe3",
-        "name": "",
-        "active": false,
-        "console": "false",
-        "complete": "true",
-        "x": 3090,
-        "y": 380,
-        "wires": []
-    },
-    {
-        "id": "55be05ed.0faf9c",
-        "type": "mqtt in",
-        "z": "14a01cb.fc3cfe3",
-        "name": "",
-        "topic": "hermes/audioServer/bedroom/playBytes/",
-        "qos": "2",
-        "broker": "66182679.b3a438",
-        "x": 740,
-        "y": 1020,
-        "wires": [
-            [
-                "c5c6a3e1.2f94d"
-            ]
-        ]
-    },
-    {
-        "id": "c5c6a3e1.2f94d",
-        "type": "debug",
-        "z": "14a01cb.fc3cfe3",
-        "name": "",
-        "active": true,
-        "console": "false",
-        "complete": "payload",
-        "x": 1030,
-        "y": 1020,
-        "wires": []
-    },
-    {
-        "id": "aaf5e2bc.3df34",
+        "id": "7a8ec9a2.068728",
         "type": "comment",
-        "z": "14a01cb.fc3cfe3",
+        "z": "67bc88ef.745748",
         "name": "================================SPOKEN FEEDBACK===================================",
         "info": "",
         "x": 2468.4999351501465,
@@ -1573,9 +1478,9 @@
         "wires": []
     },
     {
-        "id": "4a5bf2cf.470bdc",
+        "id": "fa322f85.d18f1",
         "type": "comment",
-        "z": "14a01cb.fc3cfe3",
+        "z": "67bc88ef.745748",
         "name": "===================================LIGHTS CONTROL=================================",
         "info": "",
         "x": 2470,
@@ -1583,9 +1488,9 @@
         "wires": []
     },
     {
-        "id": "c75de0d1.d3d01",
+        "id": "dd43453b.0f0838",
         "type": "comment",
-        "z": "14a01cb.fc3cfe3",
+        "z": "67bc88ef.745748",
         "name": "==============================REQUEST CONSTRUCTION==============================",
         "info": "",
         "x": 2470.1666221618652,
@@ -1593,9 +1498,9 @@
         "wires": []
     },
     {
-        "id": "93a2c8da.64b408",
+        "id": "b14631dc.8ab8e",
         "type": "comment",
-        "z": "14a01cb.fc3cfe3",
+        "z": "67bc88ef.745748",
         "name": "=================================SHUTTERS CONTROL==================================",
         "info": "",
         "x": 3340,
@@ -1603,9 +1508,9 @@
         "wires": []
     },
     {
-        "id": "bef6c3d1.e7477",
+        "id": "beb21567.1fd018",
         "type": "comment",
-        "z": "14a01cb.fc3cfe3",
+        "z": "67bc88ef.745748",
         "name": "================================SPOKEN FEEDBACK===================================",
         "info": "",
         "x": 3338.3331718444824,
@@ -1613,9 +1518,9 @@
         "wires": []
     },
     {
-        "id": "3d1f72d9.31ff9e",
+        "id": "53534079.ba66d",
         "type": "comment",
-        "z": "14a01cb.fc3cfe3",
+        "z": "67bc88ef.745748",
         "name": "================================REQUEST CONSTRUCTION===============================",
         "info": "",
         "x": 3345.0001640319824,
@@ -1623,9 +1528,9 @@
         "wires": []
     },
     {
-        "id": "bd8e0e6a.6d641",
+        "id": "a501b061.e2ae2",
         "type": "comment",
-        "z": "14a01cb.fc3cfe3",
+        "z": "67bc88ef.745748",
         "name": "=============================THERMOSTATS CONTROL================================",
         "info": "",
         "x": 2874.8807487487793,
@@ -1633,9 +1538,9 @@
         "wires": []
     },
     {
-        "id": "a4b7f7bf.4bace8",
+        "id": "4502a1f2.5de3",
         "type": "comment",
-        "z": "14a01cb.fc3cfe3",
+        "z": "67bc88ef.745748",
         "name": "================================DEVICES DETECTION=================================",
         "info": "",
         "x": 2470,
@@ -1643,9 +1548,9 @@
         "wires": []
     },
     {
-        "id": "81fa2c52.9ef33",
+        "id": "9e025804.a14238",
         "type": "comment",
-        "z": "14a01cb.fc3cfe3",
+        "z": "67bc88ef.745748",
         "name": "===============================REQUEST EXECUTION=================================",
         "info": "",
         "x": 2469.9999046325684,
@@ -1653,9 +1558,9 @@
         "wires": []
     },
     {
-        "id": "c8ca1ae.67390e8",
+        "id": "1200cf94.0f89d",
         "type": "comment",
-        "z": "14a01cb.fc3cfe3",
+        "z": "67bc88ef.745748",
         "name": "===============================REQUEST EXECUTION=================================",
         "info": "",
         "x": 3336.6665000915527,
@@ -1663,9 +1568,9 @@
         "wires": []
     },
     {
-        "id": "12f68f7.c0b4571",
+        "id": "c3783d27.da18e",
         "type": "comment",
-        "z": "14a01cb.fc3cfe3",
+        "z": "67bc88ef.745748",
         "name": "==================================DEVICES DETECTION=================================",
         "info": "",
         "x": 3340,
@@ -1673,9 +1578,9 @@
         "wires": []
     },
     {
-        "id": "2069bfb8.7a81f",
+        "id": "a2efc224.f987",
         "type": "comment",
-        "z": "14a01cb.fc3cfe3",
+        "z": "67bc88ef.745748",
         "name": "===============================DEVICES DETECTION==================================",
         "info": "",
         "x": 2878.547431945801,
@@ -1683,9 +1588,9 @@
         "wires": []
     },
     {
-        "id": "1390c79e.bb25f8",
+        "id": "cb283bac.bc0438",
         "type": "comment",
-        "z": "14a01cb.fc3cfe3",
+        "z": "67bc88ef.745748",
         "name": "===============================QUERY OR COMMAND==================================",
         "info": "",
         "x": 2876.928535461426,
@@ -1693,9 +1598,9 @@
         "wires": []
     },
     {
-        "id": "4597130f.3fa46c",
+        "id": "49f33ac3.0b9694",
         "type": "comment",
-        "z": "14a01cb.fc3cfe3",
+        "z": "67bc88ef.745748",
         "name": "====================SET TARGET TEMP OR ADAPT OLD TARGET TEMP======================",
         "info": "",
         "x": 2486.928291320801,
@@ -1703,9 +1608,9 @@
         "wires": []
     },
     {
-        "id": "a4fff726.7c1bc8",
+        "id": "e347d543.1bcfb8",
         "type": "comment",
-        "z": "14a01cb.fc3cfe3",
+        "z": "67bc88ef.745748",
         "name": "==================================GET TARGET TEMP=================================",
         "info": "",
         "x": 2486.928352355957,
@@ -1713,9 +1618,9 @@
         "wires": []
     },
     {
-        "id": "31367b69.993c74",
+        "id": "6195b072.89c75",
         "type": "comment",
-        "z": "14a01cb.fc3cfe3",
+        "z": "67bc88ef.745748",
         "name": "==============================REQUEST CONSTRUCTION==============================",
         "info": "",
         "x": 2486.928352355957,
@@ -1723,9 +1628,9 @@
         "wires": []
     },
     {
-        "id": "9a38121f.f6fda",
+        "id": "b9865799.1989f8",
         "type": "comment",
-        "z": "14a01cb.fc3cfe3",
+        "z": "67bc88ef.745748",
         "name": "===============================REQUEST EXECUTION=================================",
         "info": "",
         "x": 2490.0710830688477,
@@ -1733,9 +1638,9 @@
         "wires": []
     },
     {
-        "id": "5c3b2b95.2c6d44",
+        "id": "f04a31f5.e5e72",
         "type": "comment",
-        "z": "14a01cb.fc3cfe3",
+        "z": "67bc88ef.745748",
         "name": "==================================GET TARGET TEMP=================================",
         "info": "",
         "x": 3286.356819152832,
@@ -1743,9 +1648,9 @@
         "wires": []
     },
     {
-        "id": "83763472.908618",
+        "id": "19f5ca6e.9eb2b6",
         "type": "comment",
-        "z": "14a01cb.fc3cfe3",
+        "z": "67bc88ef.745748",
         "name": "================================GET CURRENT TEMP=================================",
         "info": "",
         "x": 3287.499641418457,
@@ -1753,9 +1658,9 @@
         "wires": []
     },
     {
-        "id": "9531b71f.fb0a28",
+        "id": "c57b0f45.61662",
         "type": "comment",
-        "z": "14a01cb.fc3cfe3",
+        "z": "67bc88ef.745748",
         "name": "=================================SNIPS INTENTS INPUT==================================",
         "info": "",
         "x": 2896.666717529297,
@@ -1763,9 +1668,9 @@
         "wires": []
     },
     {
-        "id": "d3a6ec81.1c97d",
+        "id": "4f4cc1cb.ed7d2",
         "type": "switch",
-        "z": "14a01cb.fc3cfe3",
+        "z": "67bc88ef.745748",
         "name": "Error ?",
         "property": "error.text",
         "propertyType": "msg",
@@ -1783,17 +1688,17 @@
         "y": 2289.6426906585693,
         "wires": [
             [
-                "99260cb0.b448b"
+                "f950d964.194188"
             ],
             [
-                "a88f999f.2c90f8"
+                "9e26f7af.a84988"
             ]
         ]
     },
     {
-        "id": "99260cb0.b448b",
+        "id": "f950d964.194188",
         "type": "change",
-        "z": "14a01cb.fc3cfe3",
+        "z": "67bc88ef.745748",
         "name": "",
         "rules": [
             {
@@ -1813,27 +1718,27 @@
         "y": 2289.6426906585693,
         "wires": [
             [
-                "dca039f0.5c7618"
+                "5c496317.1c372c"
             ]
         ]
     },
     {
-        "id": "707f9e62.fd4da",
+        "id": "a7065beb.cfab08",
         "type": "mqtt out",
-        "z": "14a01cb.fc3cfe3",
+        "z": "67bc88ef.745748",
         "name": "",
         "topic": "hermes/tts/say",
         "qos": "",
         "retain": "",
-        "broker": "66182679.b3a438",
-        "x": 3283.213996887207,
-        "y": 2449.6426906585693,
+        "broker": "f965f064.1e786",
+        "x": 3541.5473403930664,
+        "y": 2399.3092155456543,
         "wires": []
     },
     {
-        "id": "dca039f0.5c7618",
+        "id": "5c496317.1c372c",
         "type": "delay",
-        "z": "14a01cb.fc3cfe3",
+        "z": "67bc88ef.745748",
         "name": "",
         "pauseType": "rate",
         "timeout": "5",
@@ -1849,30 +1754,30 @@
         "y": 2289.6426906585693,
         "wires": [
             [
-                "707f9e62.fd4da"
+                "a7065beb.cfab08"
             ]
         ]
     },
     {
-        "id": "30298a8a.e75a26",
+        "id": "9e9563cf.666e8",
         "type": "function",
-        "z": "14a01cb.fc3cfe3",
+        "z": "67bc88ef.745748",
         "name": "Feedback",
-        "func": "function precisionRound(number, precision) {\n  var factor = Math.pow(10, precision);\n  return Math.round(number * factor) / factor;\n}\n\nmsg.answer = [];\nmsg.text = [];\nmsg.error = [];\n\nif (msg.current !== undefined && msg.target !== undefined){\n    if (msg.current[0].Result === true && msg.target[0].Result === true) {\n        for (var i = 0; i < msg.items.length; i++) {\n            var target = msg.target[i].Data[0].Value;\n            var current = precisionRound(msg.current[i].Data[0].Value, 0);\n            var room = msg.items[i].zone;\n            var text1 = \"Heating is set to \";\n            var text2 = \" degrees in the \";\n            var text3 = \", with a current temperature of \";\n            msg.text[i] = [text1, target, text2, room, text3, current];\n       \t\tvar endText = \"\".concat(...msg.text[i]);\n            msg.answer[i] = {\n                text: endText,\n                siteId: msg.cmd.siteId\n            };\n        }\n    }\n    else if (msg.current[0].Result === \"false\") {\n        msg.error = {\n            text: \"Jarvis Sorry the server did not understand your request\",\n            siteId: msg.cmd.siteId\n        };\n    }\n}\nelse {\n    msg.error = {\n        text: \"Sorry The server is not responding\",\n        siteId: msg.cmd.siteId\n    };\n}\n\nreturn msg;",
+        "func": "function precisionRound(number, precision) {\n  var factor = Math.pow(10, precision);\n  return Math.round(number * factor) / factor;\n}\n\nmsg.answer = [];\nmsg.text = [];\nmsg.error = [];\n\nif (msg.current !== undefined && msg.target !== undefined){\n    if (msg.current[0].Result === true && msg.target[0].Result === true) {\n        for (var i = 0; i < msg.items.length; i++) {\n            var target = msg.target[i].Data[0].Value;\n            var current = precisionRound(msg.current[i].Data[0].Value, 0);\n            var room = msg.items[i].zone;\n            var text1 = \"Heating is set to \";\n            var text2 = \" degrees in the \";\n            var text3 = \", with a current temperature of \";\n            msg.text[i] = [text1, target, text2, room, text3, current];\n       \t\tvar endText = \"\".concat(...msg.text[i]);\n            msg.answer[i] = {\n                text: endText,\n                siteId: msg.cmd.siteId\n            };\n        }\n    }\n    else if (msg.current[0].Result === \"false\") {\n        msg.error = {\n            text: \"Sorry the server did not understand your request\",\n            siteId: msg.cmd.siteId\n        };\n    }\n}\nelse {\n    msg.error = {\n        text: \"Sorry The server is not responding\",\n        siteId: msg.cmd.siteId\n    };\n}\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "x": 3183.213996887207,
         "y": 2229.6426906585693,
         "wires": [
             [
-                "880e3c0b.8892d"
+                "6c33d5b3.9751bc"
             ]
         ]
     },
     {
-        "id": "c279f6e3.1db878",
+        "id": "ce6d9973.fc89f8",
         "type": "comment",
-        "z": "14a01cb.fc3cfe3",
+        "z": "67bc88ef.745748",
         "name": "================================SPOKEN FEEDBACK===================================",
         "info": "",
         "x": 3285.30912399292,
@@ -1880,9 +1785,9 @@
         "wires": []
     },
     {
-        "id": "1ea536df.ad78b9",
+        "id": "97177cf3.accf",
         "type": "split",
-        "z": "14a01cb.fc3cfe3",
+        "z": "67bc88ef.745748",
         "name": "",
         "splt": "\\n",
         "spltType": "str",
@@ -1890,18 +1795,18 @@
         "arraySpltType": "len",
         "stream": false,
         "addname": "",
-        "x": 3218.5477294921875,
-        "y": 2382.9764194488525,
+        "x": 3218.547782897949,
+        "y": 2347.9764156341553,
         "wires": [
             [
-                "489a1db7.5b5d74"
+                "f2ef0a9c.1dc2b8"
             ]
         ]
     },
     {
-        "id": "489a1db7.5b5d74",
+        "id": "f2ef0a9c.1dc2b8",
         "type": "delay",
-        "z": "14a01cb.fc3cfe3",
+        "z": "67bc88ef.745748",
         "name": "",
         "pauseType": "delay",
         "timeout": "50",
@@ -1913,18 +1818,18 @@
         "randomLast": "5",
         "randomUnits": "seconds",
         "drop": false,
-        "x": 3363.547592163086,
-        "y": 2382.9761753082275,
+        "x": 3363.5476455688477,
+        "y": 2347.9761714935303,
         "wires": [
             [
-                "c18438af.6ba128"
+                "cba3cb1b.b537b8"
             ]
         ]
     },
     {
-        "id": "c18438af.6ba128",
+        "id": "cba3cb1b.b537b8",
         "type": "delay",
-        "z": "14a01cb.fc3cfe3",
+        "z": "67bc88ef.745748",
         "name": "",
         "pauseType": "rate",
         "timeout": "5",
@@ -1936,18 +1841,18 @@
         "randomLast": "5",
         "randomUnits": "seconds",
         "drop": false,
-        "x": 3543.2143325805664,
-        "y": 2382.976119041443,
+        "x": 3543.214385986328,
+        "y": 2347.9761152267456,
         "wires": [
             [
-                "707f9e62.fd4da"
+                "a7065beb.cfab08"
             ]
         ]
     },
     {
-        "id": "a88f999f.2c90f8",
+        "id": "9e26f7af.a84988",
         "type": "change",
-        "z": "14a01cb.fc3cfe3",
+        "z": "67bc88ef.745748",
         "name": "",
         "rules": [
             {
@@ -1963,18 +1868,18 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 3051.2142791748047,
-        "y": 2382.9759645462036,
+        "x": 3051.2143325805664,
+        "y": 2347.9759607315063,
         "wires": [
             [
-                "1ea536df.ad78b9"
+                "97177cf3.accf"
             ]
         ]
     },
     {
-        "id": "2634ed8c.bbb122",
+        "id": "a34938d6.640648",
         "type": "switch",
-        "z": "14a01cb.fc3cfe3",
+        "z": "67bc88ef.745748",
         "name": "Error ?",
         "property": "error",
         "propertyType": "msg",
@@ -1989,14 +1894,14 @@
         "y": 2423.3092880249023,
         "wires": [
             [
-                "f270793f.0cd4a8"
+                "2be29c57.dc3714"
             ]
         ]
     },
     {
-        "id": "f270793f.0cd4a8",
+        "id": "2be29c57.dc3714",
         "type": "change",
-        "z": "14a01cb.fc3cfe3",
+        "z": "67bc88ef.745748",
         "name": "",
         "rules": [
             {
@@ -2016,14 +1921,14 @@
         "y": 2423.309326171875,
         "wires": [
             [
-                "79916ec4.6843d"
+                "e97e7dc0.caa78"
             ]
         ]
     },
     {
-        "id": "80815cee.5b444",
+        "id": "a5300c3c.6266b",
         "type": "function",
-        "z": "14a01cb.fc3cfe3",
+        "z": "67bc88ef.745748",
         "name": "Feedback",
         "func": "msg.text = [];\n\nfor (var i = 0; i < msg.payload.length; i++) {\n    if (msg.payload[i].Result === true) {\n        var room = msg.items[i].zone;\n        var target = msg.newVal[i];\n        var text1 = \"Okay, setting the heating to \";\n        var text2 = \" degrees in the \";\n        msg.text[i] = [text1, target, text2, room];\n        var endText = \"\".concat(...msg.text[i]);\n        msg.payload = {\n            text: endText,\n            siteId: msg.cmd.siteId\n        };\n    }\n    else if (msg.payload.Result === \"false\") {\n        msg.payload = {\n            text: \" Sorry the server did not understand your request\",\n            siteId: msg.cmd.siteId\n        };\n    }\n    else {\n        msg.payload = {\n            text: \"Sorry The server is not responding\",\n            siteId: msg.cmd.siteId\n        };\n    }\n}\n\nreturn msg;",
         "outputs": 1,
@@ -2032,27 +1937,27 @@
         "y": 2469.6426906585693,
         "wires": [
             [
-                "79916ec4.6843d"
+                "e97e7dc0.caa78"
             ]
         ]
     },
     {
-        "id": "982cbfe5.9e80a",
+        "id": "6fde55f1.081d4c",
         "type": "mqtt out",
-        "z": "14a01cb.fc3cfe3",
+        "z": "67bc88ef.745748",
         "name": "",
         "topic": "hermes/tts/say",
         "qos": "",
         "retain": "",
-        "broker": "66182679.b3a438",
+        "broker": "f965f064.1e786",
         "x": 2776.5469512939453,
         "y": 2469.975908279419,
         "wires": []
     },
     {
-        "id": "79916ec4.6843d",
+        "id": "e97e7dc0.caa78",
         "type": "delay",
-        "z": "14a01cb.fc3cfe3",
+        "z": "67bc88ef.745748",
         "name": "",
         "pauseType": "rate",
         "timeout": "5",
@@ -2068,14 +1973,14 @@
         "y": 2469.975923538208,
         "wires": [
             [
-                "982cbfe5.9e80a"
+                "6fde55f1.081d4c"
             ]
         ]
     },
     {
-        "id": "e267b40c.fe2528",
+        "id": "b19acb65.6b5178",
         "type": "comment",
-        "z": "14a01cb.fc3cfe3",
+        "z": "67bc88ef.745748",
         "name": "================================SPOKEN FEEDBACK==================================",
         "info": "",
         "x": 2493.213996887207,
@@ -2083,9 +1988,9 @@
         "wires": []
     },
     {
-        "id": "70c06a78.2661f4",
+        "id": "fca9ea52.f7afb8",
         "type": "trigger",
-        "z": "14a01cb.fc3cfe3",
+        "z": "67bc88ef.745748",
         "op1": "",
         "op2": "",
         "op1type": "nul",
@@ -2099,14 +2004,14 @@
         "y": 2229.6426906585693,
         "wires": [
             [
-                "30298a8a.e75a26"
+                "9e9563cf.666e8"
             ]
         ]
     },
     {
-        "id": "880e3c0b.8892d",
+        "id": "6c33d5b3.9751bc",
         "type": "delay",
-        "z": "14a01cb.fc3cfe3",
+        "z": "67bc88ef.745748",
         "name": "",
         "pauseType": "rate",
         "timeout": "5",
@@ -2122,14 +2027,14 @@
         "y": 2229.6426906585693,
         "wires": [
             [
-                "d3a6ec81.1c97d"
+                "4f4cc1cb.ed7d2"
             ]
         ]
     },
     {
-        "id": "37f21541.69a68a",
+        "id": "b4b82472.a8d528",
         "type": "switch",
-        "z": "14a01cb.fc3cfe3",
+        "z": "67bc88ef.745748",
         "name": "All ?",
         "property": "cmd.device",
         "propertyType": "msg",
@@ -2150,33 +2055,33 @@
         "y": 1206.6666822433472,
         "wires": [
             [
-                "f738be93.af8ed"
+                "aca4e2b1.1daaf"
             ],
             [
-                "e7aaee73.7bfa"
+                "ca94bbe6.2d93c8"
             ],
             [
-                "90141575.6291c8"
+                "bc6e51c7.9fd2f"
             ]
         ]
     },
     {
-        "id": "e3ea40a3.a917",
+        "id": "10251e71.1d0512",
         "type": "mqtt out",
-        "z": "14a01cb.fc3cfe3",
+        "z": "67bc88ef.745748",
         "name": "",
         "topic": "hermes/tts/say",
         "qos": "",
         "retain": "",
-        "broker": "66182679.b3a438",
-        "x": 3438.3332481384277,
-        "y": 1226.6666822433472,
+        "broker": "f965f064.1e786",
+        "x": 3618.333351135254,
+        "y": 1155.6666202545166,
         "wires": []
     },
     {
-        "id": "2b3e26f7.86f16a",
+        "id": "abd6c7a8.8dbdf8",
         "type": "change",
-        "z": "14a01cb.fc3cfe3",
+        "z": "67bc88ef.745748",
         "name": "",
         "rules": [
             {
@@ -2196,14 +2101,14 @@
         "y": 1158.8890075683594,
         "wires": [
             [
-                "5bf021dd.6f5e7"
+                "9161b9e3.6a82f8"
             ]
         ]
     },
     {
-        "id": "5bf021dd.6f5e7",
+        "id": "9161b9e3.6a82f8",
         "type": "delay",
-        "z": "14a01cb.fc3cfe3",
+        "z": "67bc88ef.745748",
         "name": "",
         "pauseType": "rate",
         "timeout": "5",
@@ -2215,18 +2120,18 @@
         "randomLast": "5",
         "randomUnits": "seconds",
         "drop": true,
-        "x": 3438.3332481384277,
-        "y": 1166.6666822433472,
+        "x": 3404.333351135254,
+        "y": 1157.666618347168,
         "wires": [
             [
-                "e3ea40a3.a917"
+                "10251e71.1d0512"
             ]
         ]
     },
     {
-        "id": "b742cf19.c3515",
+        "id": "8ec9779f.882c58",
         "type": "switch",
-        "z": "14a01cb.fc3cfe3",
+        "z": "67bc88ef.745748",
         "name": "All ?",
         "property": "cmd.all",
         "propertyType": "msg",
@@ -2244,31 +2149,31 @@
         "y": 1206.6666822433472,
         "wires": [
             [
-                "5bf021dd.6f5e7"
+                "9161b9e3.6a82f8"
             ],
             [
-                "e3ea40a3.a917"
+                "10251e71.1d0512"
             ]
         ]
     },
     {
-        "id": "6e72e41e.46988c",
+        "id": "ecef9971.84eb28",
         "type": "json",
-        "z": "14a01cb.fc3cfe3",
+        "z": "67bc88ef.745748",
         "name": "",
         "pretty": false,
         "x": 2393.213996887207,
         "y": 2309.6426906585693,
         "wires": [
             [
-                "ecb4ea5c.f489b8"
+                "1325db49.51b9c5"
             ]
         ]
     },
     {
-        "id": "ecb4ea5c.f489b8",
+        "id": "1325db49.51b9c5",
         "type": "join",
-        "z": "14a01cb.fc3cfe3",
+        "z": "67bc88ef.745748",
         "name": "",
         "mode": "auto",
         "build": "string",
@@ -2284,14 +2189,14 @@
         "y": 2309.6426906585693,
         "wires": [
             [
-                "80815cee.5b444"
+                "a5300c3c.6266b"
             ]
         ]
     },
     {
-        "id": "1c3cb742.9ec869",
+        "id": "536ff1d3.2d79a",
         "type": "trigger",
-        "z": "14a01cb.fc3cfe3",
+        "z": "67bc88ef.745748",
         "op1": "",
         "op2": "",
         "op1type": "nul",
@@ -2305,108 +2210,98 @@
         "y": 2469.6426906585693,
         "wires": [
             [
-                "80815cee.5b444"
+                "a5300c3c.6266b"
             ]
         ]
     },
     {
-        "id": "7287b382.1d17cc",
-        "type": "comment",
-        "z": "14a01cb.fc3cfe3",
-        "name": "=============================ONLINE OFFLINE TTS TEST================================",
-        "info": "",
-        "x": 890,
-        "y": 960,
-        "wires": []
-    },
-    {
-        "id": "b3176555.47b158",
+        "id": "c3f24d65.3b747",
         "type": "link in",
-        "z": "14a01cb.fc3cfe3",
+        "z": "67bc88ef.745748",
         "name": "Lights Intent OUT",
         "links": [
-            "a7410ae9.c1d558"
+            "41fda770.7e0728"
         ],
         "x": 2155,
         "y": 620,
         "wires": [
             [
-                "e79ae266.62ad3"
+                "ebdf5c2d.d39dc"
             ]
         ]
     },
     {
-        "id": "a7410ae9.c1d558",
+        "id": "41fda770.7e0728",
         "type": "link out",
-        "z": "14a01cb.fc3cfe3",
+        "z": "67bc88ef.745748",
         "name": "Lights Intent IN",
         "links": [
-            "b3176555.47b158"
+            "c3f24d65.3b747"
         ],
         "x": 3215,
         "y": 240,
         "wires": []
     },
     {
-        "id": "ba550d87.b6442",
+        "id": "37d74189.d404ae",
         "type": "link out",
-        "z": "14a01cb.fc3cfe3",
+        "z": "67bc88ef.745748",
         "name": "Shutters Intent IN",
         "links": [
-            "bd43fada.435fc8"
+            "12ea281d.07c648"
         ],
         "x": 3215,
         "y": 280,
         "wires": []
     },
     {
-        "id": "14f80e07.7eaea2",
+        "id": "772eb900.1cd6b8",
         "type": "link out",
-        "z": "14a01cb.fc3cfe3",
+        "z": "67bc88ef.745748",
         "name": "Thermostats Intent IN",
         "links": [
-            "d8d81da7.49706"
+            "f1befa8c.7074c8"
         ],
         "x": 3215,
         "y": 320,
         "wires": []
     },
     {
-        "id": "bd43fada.435fc8",
+        "id": "12ea281d.07c648",
         "type": "link in",
-        "z": "14a01cb.fc3cfe3",
+        "z": "67bc88ef.745748",
         "name": "Shutters Intent OUT",
         "links": [
-            "ba550d87.b6442"
+            "37d74189.d404ae"
         ],
         "x": 3015,
         "y": 620,
         "wires": [
             [
-                "8e248f6d.5d04d"
+                "8c330fdf.5184a"
             ]
         ]
     },
     {
-        "id": "d8d81da7.49706",
+        "id": "f1befa8c.7074c8",
         "type": "link in",
-        "z": "14a01cb.fc3cfe3",
+        "z": "67bc88ef.745748",
         "name": "Thermostats Intent OUT",
         "links": [
-            "14f80e07.7eaea2"
+            "772eb900.1cd6b8"
         ],
         "x": 2559.8807487487793,
         "y": 1502.9760084152222,
         "wires": [
             [
-                "cea6b5ec.d02088"
+                "2c420daf.f0d6d2"
             ]
         ]
     },
     {
-        "id": "a6d5a516.08ac78",
+        "id": "e96f69f5.c5deb8",
         "type": "comment",
-        "z": "14a01cb.fc3cfe3",
+        "z": "67bc88ef.745748",
         "name": "=================================================================================HOME AUTOMATION INTENTS===================================================================================",
         "info": "",
         "x": 2900,
@@ -2414,9 +2309,9 @@
         "wires": []
     },
     {
-        "id": "8b895483.59e8d8",
+        "id": "4c6de2e8.fbd06c",
         "type": "comment",
-        "z": "14a01cb.fc3cfe3",
+        "z": "67bc88ef.745748",
         "name": "===================================================================================SNIPS CORE FUNCTIONS===================================================================================",
         "info": "",
         "x": 870,
@@ -2424,119 +2319,9 @@
         "wires": []
     },
     {
-        "id": "2efa034b.e712dc",
-        "type": "switch",
-        "z": "14a01cb.fc3cfe3",
-        "name": "Snips intents",
-        "property": "payload.intent.intentName",
-        "propertyType": "msg",
-        "rules": [
-            {
-                "t": "eq",
-                "v": "ProKNX:config_room",
-                "vt": "str"
-            },
-            {
-                "t": "eq",
-                "v": "ProKNX:config_language",
-                "vt": "str"
-            }
-        ],
-        "checkall": "true",
-        "outputs": 2,
-        "x": 1050,
-        "y": 280,
-        "wires": [
-            [
-                "16e40618.e86f3a"
-            ],
-            [
-                "c50f366f.5013a8"
-            ]
-        ]
-    },
-    {
-        "id": "db38964e.bed0a8",
-        "type": "mqtt in",
-        "z": "14a01cb.fc3cfe3",
-        "name": "",
-        "topic": "hermes/intent/ProKNX:discover",
-        "qos": "2",
-        "broker": "66182679.b3a438",
-        "x": 710,
-        "y": 220,
-        "wires": [
-            [
-                "847086b2.626688",
-                "22cacad6.f835e6"
-            ]
-        ]
-    },
-    {
-        "id": "b3f277ee.3350d8",
-        "type": "json",
-        "z": "14a01cb.fc3cfe3",
-        "name": "",
-        "pretty": true,
-        "x": 910,
-        "y": 260,
-        "wires": [
-            [
-                "2efa034b.e712dc",
-                "22cacad6.f835e6"
-            ]
-        ]
-    },
-    {
-        "id": "fafe46a.d0887b8",
-        "type": "mqtt in",
-        "z": "14a01cb.fc3cfe3",
-        "name": "",
-        "topic": "hermes/intent/ProKNX:config_room",
-        "qos": "2",
-        "broker": "66182679.b3a438",
-        "x": 700,
-        "y": 260,
-        "wires": [
-            [
-                "b3f277ee.3350d8"
-            ]
-        ]
-    },
-    {
-        "id": "deabfcf2.4fb47",
-        "type": "mqtt in",
-        "z": "14a01cb.fc3cfe3",
-        "name": "",
-        "topic": "hermes/intent/ProKNX:config_language",
-        "qos": "2",
-        "broker": "66182679.b3a438",
-        "x": 690,
-        "y": 300,
-        "wires": [
-            [
-                "274776d0.897cfa"
-            ]
-        ]
-    },
-    {
-        "id": "274776d0.897cfa",
-        "type": "json",
-        "z": "14a01cb.fc3cfe3",
-        "name": "",
-        "pretty": true,
-        "x": 910,
-        "y": 300,
-        "wires": [
-            [
-                "2efa034b.e712dc"
-            ]
-        ]
-    },
-    {
-        "id": "5ea0c7d9.1231d8",
+        "id": "c3bc87d2.ee77d8",
         "type": "comment",
-        "z": "14a01cb.fc3cfe3",
+        "z": "67bc88ef.745748",
         "name": "=================================SNIPS INTENTS INPUT==================================",
         "info": "",
         "x": 880,
@@ -2544,84 +2329,9 @@
         "wires": []
     },
     {
-        "id": "847086b2.626688",
-        "type": "link out",
-        "z": "14a01cb.fc3cfe3",
-        "name": "Discover IN",
-        "links": [
-            "ae75bf2.0e4f84"
-        ],
-        "x": 1195,
-        "y": 220,
-        "wires": []
-    },
-    {
-        "id": "af8b841.8aa1d78",
-        "type": "comment",
-        "z": "14a01cb.fc3cfe3",
-        "name": "=============================SNIPS DISCOVERING================================",
-        "info": "",
-        "x": 430,
-        "y": 400,
-        "wires": []
-    },
-    {
-        "id": "102872d1.1e016d",
-        "type": "mqtt out",
-        "z": "14a01cb.fc3cfe3",
-        "name": "",
-        "topic": "hermes/intent/ProKNX:server_IP",
-        "qos": "",
-        "retain": "",
-        "broker": "66182679.b3a438",
-        "x": 610,
-        "y": 460,
-        "wires": []
-    },
-    {
-        "id": "ae75bf2.0e4f84",
-        "type": "link in",
-        "z": "14a01cb.fc3cfe3",
-        "name": "Discover OUT",
-        "links": [
-            "847086b2.626688"
-        ],
-        "x": 135,
-        "y": 460,
-        "wires": [
-            [
-                "6ea46991.ce4fe8"
-            ]
-        ]
-    },
-    {
-        "id": "16e40618.e86f3a",
-        "type": "link out",
-        "z": "14a01cb.fc3cfe3",
-        "name": "Config Room IN",
-        "links": [
-            "1dc4491f.291167"
-        ],
-        "x": 1195,
-        "y": 260,
-        "wires": []
-    },
-    {
-        "id": "c50f366f.5013a8",
-        "type": "link out",
-        "z": "14a01cb.fc3cfe3",
-        "name": "Config Language IN",
-        "links": [
-            "c8da03d8.8d46f"
-        ],
-        "x": 1195,
-        "y": 300,
-        "wires": []
-    },
-    {
-        "id": "e7aaee73.7bfa",
+        "id": "ca94bbe6.2d93c8",
         "type": "delay",
-        "z": "14a01cb.fc3cfe3",
+        "z": "67bc88ef.745748",
         "name": "",
         "pauseType": "rate",
         "timeout": "5",
@@ -2637,205 +2347,14 @@
         "y": 1200,
         "wires": [
             [
-                "90141575.6291c8"
+                "bc6e51c7.9fd2f"
             ]
         ]
     },
     {
-        "id": "6ea46991.ce4fe8",
-        "type": "change",
-        "z": "14a01cb.fc3cfe3",
-        "name": "",
-        "rules": [
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "hello snips",
-                "tot": "str"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 300,
-        "y": 460,
-        "wires": [
-            [
-                "102872d1.1e016d"
-            ]
-        ]
-    },
-    {
-        "id": "22cacad6.f835e6",
-        "type": "debug",
-        "z": "14a01cb.fc3cfe3",
-        "name": "",
-        "active": true,
-        "console": "false",
-        "complete": "true",
-        "x": 1050,
-        "y": 200,
-        "wires": []
-    },
-    {
-        "id": "df538fa0.003cf",
-        "type": "debug",
-        "z": "14a01cb.fc3cfe3",
-        "name": "",
-        "active": true,
-        "console": "false",
-        "complete": "true",
-        "x": 2930,
-        "y": 440,
-        "wires": []
-    },
-    {
-        "id": "32dca76.7154758",
-        "type": "comment",
-        "z": "14a01cb.fc3cfe3",
-        "name": "===========================LANGUAGE CONFIGURATION==============================",
-        "info": "",
-        "x": 1300,
-        "y": 400,
-        "wires": []
-    },
-    {
-        "id": "c05bb2af.dbe75",
-        "type": "mqtt out",
-        "z": "14a01cb.fc3cfe3",
-        "name": "",
-        "topic": "hermes/intent/ProKNX:config_language_local",
-        "qos": "",
-        "retain": "",
-        "broker": "66182679.b3a438",
-        "x": 1150,
-        "y": 520,
-        "wires": []
-    },
-    {
-        "id": "c8da03d8.8d46f",
-        "type": "link in",
-        "z": "14a01cb.fc3cfe3",
-        "name": "Config Language OUT",
-        "links": [
-            "c50f366f.5013a8"
-        ],
-        "x": 995,
-        "y": 460,
-        "wires": [
-            [
-                "d5b665ed.d1a828"
-            ]
-        ]
-    },
-    {
-        "id": "a9e16b54.57cf18",
-        "type": "change",
-        "z": "14a01cb.fc3cfe3",
-        "name": "",
-        "rules": [
-            {
-                "t": "move",
-                "p": "cmd.language",
-                "pt": "msg",
-                "to": "payload",
-                "tot": "msg"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 1450,
-        "y": 460,
-        "wires": [
-            [
-                "c05bb2af.dbe75"
-            ]
-        ]
-    },
-    {
-        "id": "d5b665ed.d1a828",
-        "type": "function",
-        "z": "14a01cb.fc3cfe3",
-        "name": "Array_lang",
-        "func": "function findObjectByKey(array, key, value) {\n    for (var i = 0; i < array.length; i++) {\n        if (array[i][key] === value) {\n            return array[i];\n        }\n    }\n    return null;\n}\n\nvar rawCmd = findObjectByKey(msg.payload.slots, 'slotName', 'config_lang');\nvar rawLanguage = findObjectByKey(msg.payload.slots, 'slotName', 'language');\nvar rawConfirm = findObjectByKey(msg.payload.slots, 'slotName', 'confirm');\n\nmsg.cmd.siteId = msg.payload.siteId;\n\nmsg.cmd = [];\nif (rawCmd !== null) {\n    if (rawCmd.value.value == \"language configuration\"){\n    \tmsg.cmd.cmd = rawCmd.value.value;\n    }\n}\nif (rawConfirm !== null){\n    if (rawConfirm == \"yes\"){\n        if (rawLanguage !== null) {\n        \tmsg.cmd.language = rawLanguage.value.value;\n            return msg;\n        }\n    }\n}",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 1150,
-        "y": 460,
-        "wires": [
-            [
-                "a9e16b54.57cf18"
-            ]
-        ]
-    },
-    {
-        "id": "6d19598a.e41b98",
-        "type": "comment",
-        "z": "14a01cb.fc3cfe3",
-        "name": "=============================ROOM CONFIGURATION================================",
-        "info": "",
-        "x": 1300,
-        "y": 620,
-        "wires": []
-    },
-    {
-        "id": "fee37edb.3502e",
-        "type": "mqtt out",
-        "z": "14a01cb.fc3cfe3",
-        "name": "",
-        "topic": "hermes/intent/ProKNX:config_room_local",
-        "qos": "",
-        "retain": "",
-        "broker": "66182679.b3a438",
-        "x": 1100,
-        "y": 840,
-        "wires": []
-    },
-    {
-        "id": "1dc4491f.291167",
-        "type": "link in",
-        "z": "14a01cb.fc3cfe3",
-        "name": "Config Room OUT",
-        "links": [
-            "16e40618.e86f3a"
-        ],
-        "x": 975,
-        "y": 680,
-        "wires": [
-            [
-                "d3ded911.c8a928"
-            ]
-        ]
-    },
-    {
-        "id": "1e820a0c.a66da6",
-        "type": "function",
-        "z": "14a01cb.fc3cfe3",
-        "name": "Array_room",
-        "func": "function findObjectByKey(array, key, value) {\n    for (var i = 0; i < array.length; i++) {\n        if (array[i][key] === value) {\n            return array[i];\n        }\n    }\n    return null;\n}\n\nfunction list_mic() {\n    tmp = [];\n    msg.devices = msg.devices.trim();\n    tmp = msg.devices.replace(/audio = \\[\\\"/, \"\");\n    tmp = tmp.replace(/@mqtt\\\"/g, \"\");\n    tmp = tmp.replace(/\\\"/g, \"\");\n    tmp = tmp.replace(/, \\]/g, \"\");\n    tmp = tmp.replace(/\\]/g, \"\");\n    tmp = tmp.trim();\n    tmp = tmp.split(\",\");\n    for (var i = 0; i < tmp.length; i++) {\n        tmp[i] = tmp[i].trim();\n    }\n}\n\nvar rawCmd = findObjectByKey(msg.payload_bis.slots, 'slotName', 'config_room');\nvar rawRoom = findObjectByKey(msg.payload_bis.slots, 'slotName', 'room');\nvar rawConfirm = findObjectByKey(msg.payload_bis.slots, 'slotName', 'confirm');\n\nif (rawCmd !== null) {\n    if (rawCmd.value.value == \"name configuration\"){\n        if (rawConfirm !== null){\n            if (rawConfirm.value.value == \"yes\"){\n                if (rawRoom !== null) {\n                \tlist_mic();\n                \texist = false;\n                \tfor (var i=0 ; i <tmp.length ; i++){\n                \t    if (tmp[i] === rawRoom.value.value) {\n                \t        exist = true;\n                \t    }\n                \t}\n                \tif (exist !== true) {\n                \t    tmp.push(rawRoom.value.value);\n                \t    for (var i=0 ; i <tmp.length ; i++){\n                \t        text1 = \"\\\"\";\n                \t        text2 = \"@mqtt\\\", \";\n                \t        ftext = [];\n                \t        ftext = [text1, tmp[i], text2];\n                \t        tmp[i] = \"\".concat(...ftext);\n                \t    }\n                \t    devices = \"\".concat(...tmp);\n                \t    part1 = \"audio = \\[\";\n                \t    part2 = \"\\]\";\n                \t    fline = [];\n                \t    fline = [part1, devices, part2];\n                \t    msg.new_device = \"\".concat(...fline);\n                \t    fpart1 = \"sudo sed -i -re 's/^audio = .*/\";\n                \t    fpart2 = \"/g' /etc/snips.toml\";\n                \t    fcmd = [];\n                \t    fcmd = [fpart1, msg.new_device, fpart2];\n                \t    msg.new_device = \"\".concat(...fcmd);\n                \t} else {\n                \t    msg.new_device = msg.devices.trim();\n                \t}\n                \ttext_siteId = \"siteId:\";\n                \traw = [];\n                \traw = [rawRoom.value.value, text_siteId, msg.payload_bis.siteId];\n                \tmsg.payload = \"\".concat(...raw);\n                    return msg;\n                }\n            }\n        }\n    }\n}",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 1030,
-        "y": 740,
-        "wires": [
-            [
-                "fee37edb.3502e",
-                "881b95d5.5d6658",
-                "dea5de17.3d6ec",
-                "cf70d761.d1fee8"
-            ]
-        ]
-    },
-    {
-        "id": "45d74780.f82128",
+        "id": "742ddd3c.1a0244",
         "type": "exec",
-        "z": "14a01cb.fc3cfe3",
+        "z": "67bc88ef.745748",
         "command": "sudo ifconfig | grep 'inet' | grep '255.255.255.0' | cut -f2 -d: | awk '{print $1}'",
         "addpay": false,
         "append": "",
@@ -2847,16 +2366,16 @@
         "y": 720,
         "wires": [
             [
-                "33aac80c.577478"
+                "f60fb078.8ce2f"
             ],
             [],
             []
         ]
     },
     {
-        "id": "33aac80c.577478",
+        "id": "f60fb078.8ce2f",
         "type": "function",
-        "z": "14a01cb.fc3cfe3",
+        "z": "67bc88ef.745748",
         "name": "Trim answer",
         "func": "msg.payload = msg.payload.trim();\nreturn msg;",
         "outputs": 1,
@@ -2865,14 +2384,14 @@
         "y": 720,
         "wires": [
             [
-                "3c13098c.c1c4f6"
+                "770cc04a.9ddbf"
             ]
         ]
     },
     {
-        "id": "3d7dd222.f34a9e",
+        "id": "7244a7f1.dbb248",
         "type": "exec",
-        "z": "14a01cb.fc3cfe3",
+        "z": "67bc88ef.745748",
         "command": "sudo ifconfig | grep 'inet' | grep '255.255.255.0' | cut -f2 -d: | awk '{print $1}'",
         "addpay": false,
         "append": "",
@@ -2884,16 +2403,16 @@
         "y": 720,
         "wires": [
             [
-                "8d18af08.2b9a1"
+                "dbac813a.e7a9d"
             ],
             [],
             []
         ]
     },
     {
-        "id": "8d18af08.2b9a1",
+        "id": "dbac813a.e7a9d",
         "type": "function",
-        "z": "14a01cb.fc3cfe3",
+        "z": "67bc88ef.745748",
         "name": "Trim answer",
         "func": "msg.payload = msg.payload.trim();\nreturn msg;",
         "outputs": 1,
@@ -2902,14 +2421,14 @@
         "y": 720,
         "wires": [
             [
-                "88ae0142.24d27"
+                "ee1a6bbf.721058"
             ]
         ]
     },
     {
-        "id": "76fd43d6.be760c",
+        "id": "9f30336.a6dabd",
         "type": "exec",
-        "z": "14a01cb.fc3cfe3",
+        "z": "67bc88ef.745748",
         "command": "sudo ifconfig | grep 'inet' | grep '255.255.255.0' | cut -f2 -d: | awk '{print $1}'",
         "addpay": false,
         "append": "",
@@ -2921,16 +2440,16 @@
         "y": 1600,
         "wires": [
             [
-                "d69632cf.56ccb"
+                "af799d09.77269"
             ],
             [],
             []
         ]
     },
     {
-        "id": "d69632cf.56ccb",
+        "id": "af799d09.77269",
         "type": "function",
-        "z": "14a01cb.fc3cfe3",
+        "z": "67bc88ef.745748",
         "name": "Trim answer",
         "func": "msg.payload = msg.payload.trim();\nreturn msg;",
         "outputs": 1,
@@ -2939,152 +2458,77 @@
         "y": 1600,
         "wires": [
             [
-                "14faeede.691401"
+                "1f79431b.5669fd"
             ]
         ]
     },
     {
-        "id": "61ff861b.497df8",
-        "type": "inject",
-        "z": "14a01cb.fc3cfe3",
-        "name": "",
-        "topic": "",
-        "payload": "1",
-        "payloadType": "str",
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "x": 870,
-        "y": 640,
-        "wires": [
-            [
-                "c659601e.2f1f6"
-            ]
-        ]
-    },
-    {
-        "id": "881b95d5.5d6658",
-        "type": "debug",
-        "z": "14a01cb.fc3cfe3",
-        "name": "",
-        "active": true,
-        "console": "false",
-        "complete": "new_device",
-        "x": 1650,
-        "y": 860,
+        "id": "cad229bb.150898",
+        "type": "comment",
+        "z": "67bc88ef.745748",
+        "name": "==================================TRIGGER FEEDBACK===================================",
+        "info": "",
+        "x": 885.2380981445312,
+        "y": 289.76194190979004,
         "wires": []
     },
     {
-        "id": "c659601e.2f1f6",
+        "id": "14ea98e3.4c4537",
+        "type": "mqtt in",
+        "z": "67bc88ef.745748",
+        "name": "",
+        "topic": "hermes/hotword/default/detected",
+        "qos": "2",
+        "broker": "f965f064.1e786",
+        "x": 718.3333587646484,
+        "y": 211.66670417785645,
+        "wires": [
+            [
+                "22fb5e64.177aa2"
+            ]
+        ]
+    },
+    {
+        "id": "22fb5e64.177aa2",
+        "type": "link out",
+        "z": "67bc88ef.745748",
+        "name": "Trigger feedback IN",
+        "links": [
+            "5fbba336.23e5ec"
+        ],
+        "x": 1162.6189212799072,
+        "y": 211.66668891906738,
+        "wires": []
+    },
+    {
+        "id": "5fbba336.23e5ec",
+        "type": "link in",
+        "z": "67bc88ef.745748",
+        "name": "Trigger feedback OUT",
+        "links": [
+            "22fb5e64.177aa2"
+        ],
+        "x": 563.8095092773438,
+        "y": 346.90476417541504,
+        "wires": [
+            [
+                "36274876.e5f238"
+            ]
+        ]
+    },
+    {
+        "id": "36274876.e5f238",
         "type": "exec",
-        "z": "14a01cb.fc3cfe3",
-        "command": "sudo grep \"^audio.*\" /etc/snips.toml",
+        "z": "67bc88ef.745748",
+        "command": "su pi -c \"aplay /usr/share/snips/snips_feedback/toc.wav\"",
         "addpay": false,
         "append": "",
         "useSpawn": "false",
         "timer": "",
         "oldrc": false,
-        "name": "Read device names",
-        "x": 1320,
-        "y": 680,
-        "wires": [
-            [
-                "6aded286.6f7d8c"
-            ],
-            [],
-            []
-        ]
-    },
-    {
-        "id": "6aded286.6f7d8c",
-        "type": "change",
-        "z": "14a01cb.fc3cfe3",
-        "name": "",
-        "rules": [
-            {
-                "t": "move",
-                "p": "payload",
-                "pt": "msg",
-                "to": "devices",
-                "tot": "msg"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 1550,
-        "y": 680,
-        "wires": [
-            [
-                "1e820a0c.a66da6"
-            ]
-        ]
-    },
-    {
-        "id": "d3ded911.c8a928",
-        "type": "change",
-        "z": "14a01cb.fc3cfe3",
-        "name": "",
-        "rules": [
-            {
-                "t": "move",
-                "p": "payload",
-                "pt": "msg",
-                "to": "payload_bis",
-                "tot": "msg"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 1110,
-        "y": 680,
-        "wires": [
-            [
-                "c659601e.2f1f6"
-            ]
-        ]
-    },
-    {
-        "id": "880b64f4.306298",
-        "type": "exec",
-        "z": "14a01cb.fc3cfe3",
-        "command": "",
-        "addpay": true,
-        "append": "",
-        "useSpawn": "false",
-        "timer": "",
-        "oldrc": false,
-        "name": "Read device names",
-        "x": 1580,
-        "y": 740,
-        "wires": [
-            [
-                "343b3183.1a744e"
-            ],
-            [
-                "343b3183.1a744e"
-            ],
-            []
-        ]
-    },
-    {
-        "id": "93ea9ec4.39109",
-        "type": "exec",
-        "z": "14a01cb.fc3cfe3",
-        "command": "sudo systemctl restart \"snips-*\"",
-        "addpay": false,
-        "append": "",
-        "useSpawn": "false",
-        "timer": "",
-        "oldrc": false,
-        "name": "Read device names",
-        "x": 1840,
-        "y": 700,
+        "name": "Play Response",
+        "x": 685.2380981445312,
+        "y": 346.90481185913086,
         "wires": [
             [],
             [],
@@ -3092,59 +2536,7 @@
         ]
     },
     {
-        "id": "343b3183.1a744e",
-        "type": "debug",
-        "z": "14a01cb.fc3cfe3",
-        "name": "",
-        "active": true,
-        "console": "false",
-        "complete": "payload",
-        "x": 1630,
-        "y": 800,
-        "wires": []
-    },
-    {
-        "id": "dea5de17.3d6ec",
-        "type": "debug",
-        "z": "14a01cb.fc3cfe3",
-        "name": "",
-        "active": true,
-        "console": "false",
-        "complete": "devices",
-        "x": 1630,
-        "y": 920,
-        "wires": []
-    },
-    {
-        "id": "cf70d761.d1fee8",
-        "type": "change",
-        "z": "14a01cb.fc3cfe3",
-        "name": "",
-        "rules": [
-            {
-                "t": "move",
-                "p": "new_device",
-                "pt": "msg",
-                "to": "payload",
-                "tot": "msg"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 1260,
-        "y": 740,
-        "wires": [
-            [
-                "880b64f4.306298",
-                "343b3183.1a744e"
-            ]
-        ]
-    },
-    {
-        "id": "66182679.b3a438",
+        "id": "f965f064.1e786",
         "type": "mqtt-broker",
         "z": "",
         "broker": "localhost",
