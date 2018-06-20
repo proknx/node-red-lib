@@ -1,0 +1,2821 @@
+[
+    {
+        "id": "67bc88ef.745748",
+        "type": "tab",
+        "label": "Snips EN v0.1",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "1dc21860.669458",
+        "type": "switch",
+        "z": "67bc88ef.745748",
+        "name": "Snips intents",
+        "property": "payload.intent.intentName",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "ProKNX:on_off_lights",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "ProKNX:open_close_shutter",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "ProKNX:set_thermostats",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "outputs": 3,
+        "x": 3090,
+        "y": 280,
+        "wires": [
+            [
+                "41fda770.7e0728"
+            ],
+            [
+                "37d74189.d404ae"
+            ],
+            [
+                "772eb900.1cd6b8"
+            ]
+        ]
+    },
+    {
+        "id": "ebdf5c2d.d39dc",
+        "type": "function",
+        "z": "67bc88ef.745748",
+        "name": "Array_lights",
+        "func": "function findObjectByKey(array, key, value) {\n    for (var i = 0; i < array.length; i++) {\n        if (array[i][key] === value) {\n            return array[i];\n        }\n    }\n    return null;\n}\n\nvar rawCmd = findObjectByKey(msg.payload.slots, 'slotName', 'cmd');\nvar rawRoom = findObjectByKey(msg.payload.slots, 'slotName', 'room');\nvar rawDevice = findObjectByKey(msg.payload.slots, 'slotName', 'device');\nvar rawAll = findObjectByKey(msg.payload.slots, 'slotName', 'all');\nvar rawValue = findObjectByKey(msg.payload.slots, 'slotName', 'value');\nvar rawHere = findObjectByKey(msg.payload.slots, 'slotName', 'here');\n\nmsg.cmd = [];\nif (rawCmd !== null) {\n\tmsg.cmd.cmd = rawCmd.value.value;\n}\nif (rawRoom !== null) {\n\tmsg.cmd.room = rawRoom.value.value;\n} else if (rawAll === null) {\n    msg.cmd.room = msg.payload.siteId;\n}\nif (rawDevice !== null && rawDevice.value.value !== \"lights\" && rawDevice.value.value !== \"the lights\" && rawDevice.value.value !== \"light\" && rawDevice.value.value !== \"the light\") {\n\tmsg.cmd.device = rawDevice.value.value;\n}\nif (rawAll !== null) {\n\tmsg.cmd.all = rawAll.value.value;\n}\nif (rawValue !== null) {\n\tmsg.cmd.value = rawValue.value.value;\n}\nif (rawHere !== null) {\n\tmsg.cmd.room = msg.payload.siteId;\n}\nmsg.cmd.siteId = msg.payload.siteId;\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 2190,
+        "y": 720,
+        "wires": [
+            [
+                "742ddd3c.1a0244"
+            ]
+        ]
+    },
+    {
+        "id": "3edad875.637048",
+        "type": "http request",
+        "z": "67bc88ef.745748",
+        "name": "GET devices",
+        "method": "GET",
+        "ret": "txt",
+        "url": "http://localhost:3000/rest/alexa/skill/items",
+        "tls": "",
+        "x": 2430,
+        "y": 780,
+        "wires": [
+            [
+                "5ddaf9f9.a08248"
+            ]
+        ]
+    },
+    {
+        "id": "5ddaf9f9.a08248",
+        "type": "json",
+        "z": "67bc88ef.745748",
+        "name": "",
+        "pretty": false,
+        "x": 2590,
+        "y": 780,
+        "wires": [
+            [
+                "fc666dcd.11dae"
+            ]
+        ]
+    },
+    {
+        "id": "fc666dcd.11dae",
+        "type": "function",
+        "z": "67bc88ef.745748",
+        "name": "List_lights",
+        "func": "function findSwitchByKey(array, key, value) {\n    msg.payload.switch_lights = [];\n    var cpt = 0;\n    for (var i = 0; i < array.length; i++) {\n        if (array[i][key] === value) {\n            msg.payload.switch_lights[cpt] = array[i];\n            cpt ++;\n        }\n    }\n    return null;\n}\n\nfunction findDimmerByKey(array, key, value) {\n    msg.payload.dimmer_lights = [];\n    var cpt = 0;\n    for (var i = 0; i < array.length; i++) {\n        if (array[i][key] === value) {\n            msg.payload.dimmer_lights[cpt] = array[i];\n            cpt ++;\n        }\n    }\n    return null;\n}\n\nfindSwitchByKey(msg.payload, 'type', 'lights');\nfindDimmerByKey(msg.payload, 'type', 'dimmers');\n\nmsg.lights = msg.payload.switch_lights.concat(msg.payload.dimmer_lights);\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 2740,
+        "y": 780,
+        "wires": [
+            [
+                "11fca6e6.c557c9"
+            ]
+        ]
+    },
+    {
+        "id": "11fca6e6.c557c9",
+        "type": "function",
+        "z": "67bc88ef.745748",
+        "name": "Prepare_request",
+        "func": "function precisionRound(number, precision) {\n  var factor = Math.pow(10, precision);\n  return Math.round(number * factor) / factor;\n}\n\n//put an array of objets matching the type of device given in parameters in msg.room\nfunction findDeviceByKey(array, key, value) {\n    msg.items = [];\n    var cpt = 0;\n    for (var i = 0; i < array.length; i++) {\n        var x = array[i][key];\n        x = x.toLowerCase();\n        x = x.split(\"   \");\n        if (x[1] === value) {\n            msg.items[cpt] = array[i];\n            cpt ++;\n        }\n    }\n    return null;\n}\n\n//put an array of objets located in the room given in parameters in msg.room\nfunction findRoomByKey(array, key, value) {\n    msg.items = [];\n    var cpt = 0;\n    for (var i = 0; i < array.length; i++) {\n        var x = array[i][key].toLowerCase();\n        x = x.split(\"   \");\n        if (x[0] === value) {\n            msg.items[cpt] = array[i];\n            cpt ++;\n        }\n    }\n    return null;\n}\n\n//put an array of objects that the user want to control in msg.items, error if his request is to vague\nif (msg.cmd.all !== undefined && msg.cmd.device !== undefined && msg.cmd.room === undefined) {\n\tfindDeviceByKey(msg.lights, 'name', msg.cmd.device);\n} else if (msg.cmd.all !== undefined && msg.cmd.room !== undefined && msg.cmd.device === undefined) {\n\tfindRoomByKey(msg.lights, 'name', msg.cmd.room);\n}else if (msg.cmd.all !== undefined && msg.cmd.room === undefined && msg.cmd.device === undefined) {\n\tmsg.items = msg.lights;\n} else if (msg.cmd.room !== undefined && msg.cmd.device !== undefined) {\n    tmp = [];\n    findDeviceByKey(msg.lights, 'name', msg.cmd.device);\n\ttmp = msg.items;\n\tfindRoomByKey(tmp, 'name', msg.cmd.room);\n} else if (msg.cmd.all === undefined && msg.cmd.room !== undefined && msg.cmd.device === undefined) {\n\tfindRoomByKey(msg.lights, 'name', msg.cmd.room);\n} else {}\n\n//Prepare all HTTP requests for \"SET\" commands and put them in msg.url\nmsg.url = [];\nif (msg.cmd.value !== undefined) {\n   \tfor (var i = 0; i < msg.items.length; i++) {\n   \t\tif (msg.items[i].type === \"dimmers\") {\n   \t\t\tvar val = msg.cmd.value*2.55;\n   \t\t\tval = precisionRound(val, 1);\n   \t\t\tmsg.items[i].setDimUrl = msg.items[i].setDimUrl.replace(\"${intensity.byte}\", '');\n   \t\t\tmsg.url[i] = [msg.proServIP, msg.items[i].setDimUrl, val];\n   \t\t\tmsg.url[i] = \"\".concat(...msg.url[i]);\n   \t\t} \n   \t\telse if (msg.cmd.value > 0) {\n\t\t    msg.url[i] = [msg.proServIP, msg.items[i].setOnUrl];\n   \t\t    msg.url[i] = \"\".concat(...msg.url[i]);\n   \t\t}\n   \t\telse {\n\t    \tmsg.url[i] = [msg.proServIP, msg.items[i].setOffUrl];\n   \t\t    msg.url[i] = \"\".concat(...msg.url[i]);\n   \t\t}\n\t}\n}\nelse if (msg.cmd.cmd === \"on\") {\n\tfor (var i = 0; i < msg.items.length; i++) {\n\t\tmsg.url[i] = [msg.proServIP, msg.items[i].setOnUrl];\n   \t\tmsg.url[i] = \"\".concat(...msg.url[i]);\n\t}\n}\nelse if (msg.cmd.cmd === \"off\") {\n\tfor (var i = 0; i < msg.items.length; i++) {\n\t\tmsg.url[i] = [msg.proServIP, msg.items[i].setOffUrl];\n   \t\tmsg.url[i] = \"\".concat(...msg.url[i]);\n\t}\n} else if (msg.cmd.cmd !== \"on\" && msg.cmd.cmd !== \"off\" && msg.cmd.cmd !== \"increase\" && msg.cmd.cmd !== \"decrease\") {\n   msg.error = {\n        text: \"Sorry I did not understand your command\",\n        siteId: msg.cmd.siteId\n    }; \n}\n\nif (msg.url[0] === undefined && msg.error === undefined) {\n    msg.error = {\n        text: \"Sorry I can not find this device\",\n        siteId: msg.cmd.siteId\n    };\n}\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 2220.00004196167,
+        "y": 896.6668996810913,
+        "wires": [
+            [
+                "1c0d3836.1d9f78",
+                "ab30b125.6cfea"
+            ]
+        ]
+    },
+    {
+        "id": "bed6792d.313e88",
+        "type": "http request",
+        "z": "67bc88ef.745748",
+        "name": "Send URL",
+        "method": "GET",
+        "ret": "obj",
+        "url": "{{{payload}}}",
+        "tls": "",
+        "x": 2203.3334312438965,
+        "y": 1041.6669645309448,
+        "wires": [
+            [
+                "f6e71433.341d98"
+            ]
+        ]
+    },
+    {
+        "id": "388e4af0.a67a66",
+        "type": "split",
+        "z": "67bc88ef.745748",
+        "name": "",
+        "splt": "\\n",
+        "spltType": "str",
+        "arraySplt": 1,
+        "arraySpltType": "len",
+        "stream": false,
+        "addname": "",
+        "x": 2566.666690826416,
+        "y": 896.666880607605,
+        "wires": [
+            [
+                "b58ba496.f0e468"
+            ]
+        ]
+    },
+    {
+        "id": "1c0d3836.1d9f78",
+        "type": "change",
+        "z": "67bc88ef.745748",
+        "name": "",
+        "rules": [
+            {
+                "t": "move",
+                "p": "url",
+                "pt": "msg",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 2415.000026702881,
+        "y": 896.6668787002563,
+        "wires": [
+            [
+                "388e4af0.a67a66"
+            ]
+        ]
+    },
+    {
+        "id": "b58ba496.f0e468",
+        "type": "delay",
+        "z": "67bc88ef.745748",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "50",
+        "timeoutUnits": "milliseconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "x": 2706.666721343994,
+        "y": 898.3334627151489,
+        "wires": [
+            [
+                "bed6792d.313e88"
+            ]
+        ]
+    },
+    {
+        "id": "8c330fdf.5184a",
+        "type": "function",
+        "z": "67bc88ef.745748",
+        "name": "Array_shutters",
+        "func": "String.prototype.trimRight = function(charlist) {\n  if (charlist === undefined)\n    charlist = \"\\s\";\n\n  return this.replace(new RegExp(\"[\" + charlist + \"]+$\"), \"\");\n};\n\nfunction findObjectByKey(array, key, value) {\n    for (var i = 0; i < array.length; i++) {\n        if (array[i][key] === value) {\n            return array[i];\n        }\n    }\n    return null;\n}\n\nvar rawCmd = findObjectByKey(msg.payload.slots, 'slotName', 'cmd');\nvar rawRoom = findObjectByKey(msg.payload.slots, 'slotName', 'room');\nvar rawDevice = findObjectByKey(msg.payload.slots, 'slotName', 'device');\nvar rawValue = findObjectByKey(msg.payload.slots, 'slotName', 'value');\nvar rawAll = findObjectByKey(msg.payload.slots, 'slotName', 'all');\nvar rawHere = findObjectByKey(msg.payload.slots, 'slotName', 'here');\n\nmsg.cmd = [];\nif (rawCmd !== null) {\n\tif (rawCmd.value.value === \"open\" || rawCmd.value.value === \"on\") {\n\t    msg.cmd.cmd = \"open\";\n\t}\n\tif (rawCmd.value.value === \"close\" || rawCmd.value.value === \"off\") {\n\t    msg.cmd.cmd = \"close\";\n\t}\n}\nif (rawRoom !== null) {\n    rawRoom.value.value = rawRoom.value.value.trimRight();\n\tmsg.cmd.room = rawRoom.value.value;\n} else if (rawAll === null) {\n    msg.cmd.room = msg.payload.siteId;\n}\nif (rawDevice !== null && rawDevice.value.value !== \"shutters\" && rawDevice.value.value !== \"shutter\" && rawDevice.value.value !== \"curtains\" && rawDevice.value.value !== \"curtain\") {\n\tmsg.cmd.device = rawDevice.value.value;\n}\nif (rawAll !== null) {\n\tmsg.cmd.all = rawAll.value.value;\n}\nif (rawValue !== null) {\n\tmsg.cmd.value = rawValue.value.value;\n}\nif (rawHere !== null) {\n\tmsg.cmd.room = msg.payload.siteId;\n}\nmsg.cmd.siteId = msg.payload.siteId;\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 3080,
+        "y": 720,
+        "wires": [
+            [
+                "7244a7f1.dbb248"
+            ]
+        ]
+    },
+    {
+        "id": "890fdae2.b2d7d8",
+        "type": "http request",
+        "z": "67bc88ef.745748",
+        "name": "GET Devices",
+        "method": "GET",
+        "ret": "txt",
+        "url": "http://localhost:3000/rest/alexa/skill/items",
+        "tls": "",
+        "x": 3310,
+        "y": 780,
+        "wires": [
+            [
+                "fe5efdfc.33d9d"
+            ]
+        ]
+    },
+    {
+        "id": "fe5efdfc.33d9d",
+        "type": "json",
+        "z": "67bc88ef.745748",
+        "name": "",
+        "pretty": false,
+        "x": 3470,
+        "y": 780,
+        "wires": [
+            [
+                "6bedd60e.433048"
+            ]
+        ]
+    },
+    {
+        "id": "6bedd60e.433048",
+        "type": "function",
+        "z": "67bc88ef.745748",
+        "name": "List_shutters",
+        "func": "function findShutterByKey(array, key, value) {\n    msg.shutters = [];\n    var cpt = 0;\n    for (var i = 0; i < array.length; i++) {\n        if (array[i][key] === value) {\n            msg.shutters[cpt] = array[i];\n            cpt ++;\n        }\n    }\n    return null;\n}\n\nfindShutterByKey(msg.payload, 'type', 'blinds');\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 3630,
+        "y": 780,
+        "wires": [
+            [
+                "3327a6ad.3453ea"
+            ]
+        ]
+    },
+    {
+        "id": "3327a6ad.3453ea",
+        "type": "function",
+        "z": "67bc88ef.745748",
+        "name": "Prepare_request",
+        "func": "function precisionRound(number, precision) {\n  var factor = Math.pow(10, precision);\n  return Math.round(number * factor) / factor;\n}\n\n//put an array of objets matching the type of device given in parameters in msg.room\nfunction findDeviceByKey(array, key, value) {\n    msg.items = [];\n    var cpt = 0;\n    for (var i = 0; i < array.length; i++) {\n        var x = array[i][key];\n        x = x.toLowerCase();\n        x = x.split(\"   \");\n        if (x[1] === value) {\n            msg.items[cpt] = array[i];\n            cpt ++;\n        }\n    }\n    return null;\n}\n\n//put an array of objets located in the room given in parameters in msg.room\nfunction findRoomByKey(array, key, value) {\n    msg.items = [];\n    var cpt = 0;\n    for (var i = 0; i < array.length; i++) {\n        var x = array[i][key].toLowerCase();\n        x = x.toLowerCase();\n        x = x.split(\"   \");\n        if (x[0] === value) {\n            msg.items[cpt] = array[i];\n            cpt ++;\n        }\n    }\n    return null;\n}\n\n//put an array of objects that the user want to control in msg.items, error if his request is to vague\nif (msg.cmd.all !== undefined && msg.cmd.device !== undefined && msg.cmd.room === undefined) {\n\tfindDeviceByKey(msg.shutters, 'name', msg.cmd.device);\n} else if (msg.cmd.all !== undefined && msg.cmd.room !== undefined && msg.cmd.device === undefined) {\n\tfindRoomByKey(msg.shutters, 'name', msg.cmd.room);\n}else if (msg.cmd.all !== undefined && msg.cmd.room === undefined && msg.cmd.device === undefined) {\n\tmsg.items = msg.shutters;\n} else if (msg.cmd.room !== undefined && msg.cmd.device !== undefined) {\n    tmp = [];\n    findDeviceByKey(msg.shutters, 'name', msg.cmd.device);\n\ttmp = msg.items;\n\tfindRoomByKey(tmp, 'name', msg.cmd.room);\n} else if (msg.cmd.all === undefined && msg.cmd.room !== undefined && msg.cmd.device === undefined) {\n\tfindRoomByKey(msg.shutters, 'name', msg.cmd.room);\n} else {}\n\n//Prepare all HTTP requests for \"SET\" commands and put them in msg.url\nmsg.url = [];\nfor (var i = 0; i < msg.items.length; i++) {\n\tif (msg.cmd.cmd === \"open\" && msg.cmd.value === undefined) {\n    \tmsg.url[i] = [msg.proServIP, msg.items[i].setOnUrl];\n\t    msg.url[i] = \"\".concat(...msg.url[i]);\n\t}\n\telse if (msg.cmd.cmd === \"close\" && msg.cmd.value === undefined) {\n    \tmsg.url[i] = [msg.proServIP, msg.items[i].setOffUrl];\n\t    msg.url[i] = \"\".concat(...msg.url[i]);\n    }\n    else if (msg.cmd.value !== undefined) {\n   \t\tvar val = (100-msg.cmd.value)*2.55;\n   \t\tval = precisionRound(val, 1);\n   \t\tmsg.items[i].setDimUrl = msg.items[i].setDimUrl.replace(\"${intensity.byte}\", '');\n   \t\tmsg.url[i] = [msg.proServIP, msg.items[i].setDimUrl, val];\n   \t\tmsg.url[i] = \"\".concat(...msg.url[i]);\n    }\n    else if (msg.cmd.cmd !== \"on\" && msg.cmd.cmd !== \"off\" && msg.cmd.cmd !== \"increase\" && msg.cmd.cmd !== \"decrease\") {\n        msg.error = {\n        text: \"Sorry I did not understand your command\",\n        siteId: msg.cmd.siteId\n        }; \n    }\n} \n\nif (msg.url[0] === undefined && msg.error === undefined) {\n    msg.error = {\n        text: \"Sorry I can not find this device\",\n        siteId: msg.cmd.siteId\n    };\n}\n\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 3089.999897003174,
+        "y": 900.8335256576538,
+        "wires": [
+            [
+                "ba8abd9c.a3b4a",
+                "f1914c2f.ec81a"
+            ]
+        ]
+    },
+    {
+        "id": "2875f039.e052f",
+        "type": "http request",
+        "z": "67bc88ef.745748",
+        "name": "Send URL",
+        "method": "GET",
+        "ret": "obj",
+        "url": "{{{payload}}}",
+        "tls": "",
+        "x": 3070.0000610351562,
+        "y": 1044.1668949127197,
+        "wires": [
+            [
+                "830c017e.5a5fb"
+            ]
+        ]
+    },
+    {
+        "id": "af60e688.201088",
+        "type": "split",
+        "z": "67bc88ef.745748",
+        "name": "",
+        "splt": "\\n",
+        "spltType": "str",
+        "arraySplt": 1,
+        "arraySpltType": "len",
+        "stream": false,
+        "addname": "",
+        "x": 3450.000057220459,
+        "y": 902.5002603530884,
+        "wires": [
+            [
+                "7d0abc20.f5da94"
+            ]
+        ]
+    },
+    {
+        "id": "ba8abd9c.a3b4a",
+        "type": "change",
+        "z": "67bc88ef.745748",
+        "name": "",
+        "rules": [
+            {
+                "t": "move",
+                "p": "url",
+                "pt": "msg",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 3293.3332862854004,
+        "y": 902.5001306533813,
+        "wires": [
+            [
+                "af60e688.201088"
+            ]
+        ]
+    },
+    {
+        "id": "7d0abc20.f5da94",
+        "type": "delay",
+        "z": "67bc88ef.745748",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "50",
+        "timeoutUnits": "milliseconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "x": 3598.3334350585938,
+        "y": 902.5002403259277,
+        "wires": [
+            [
+                "2875f039.e052f"
+            ]
+        ]
+    },
+    {
+        "id": "86b2968.c4cfc68",
+        "type": "mqtt in",
+        "z": "67bc88ef.745748",
+        "name": "",
+        "topic": "hermes/intent/ProKNX:on_off_lights",
+        "qos": "2",
+        "broker": "f965f064.1e786",
+        "x": 2680,
+        "y": 240,
+        "wires": [
+            [
+                "e5acf7a3.ca1b68"
+            ]
+        ]
+    },
+    {
+        "id": "e5acf7a3.ca1b68",
+        "type": "json",
+        "z": "67bc88ef.745748",
+        "name": "",
+        "pretty": true,
+        "x": 2953.0000915527344,
+        "y": 280.00000381469727,
+        "wires": [
+            [
+                "1dc21860.669458",
+                "c56743de.c4ab9"
+            ]
+        ]
+    },
+    {
+        "id": "7f9b9c8a.f9c484",
+        "type": "mqtt in",
+        "z": "67bc88ef.745748",
+        "name": "",
+        "topic": "hermes/intent/ProKNX:open_close_shutter",
+        "qos": "2",
+        "broker": "f965f064.1e786",
+        "x": 2700,
+        "y": 280,
+        "wires": [
+            [
+                "e5acf7a3.ca1b68"
+            ]
+        ]
+    },
+    {
+        "id": "770cc04a.9ddbf",
+        "type": "http request",
+        "z": "67bc88ef.745748",
+        "name": "GET ProServIP",
+        "method": "GET",
+        "ret": "txt",
+        "url": "http://{{{payload}}}:3000/proservip",
+        "tls": "",
+        "x": 2740,
+        "y": 720,
+        "wires": [
+            [
+                "46a0959f.e1012c"
+            ]
+        ]
+    },
+    {
+        "id": "46a0959f.e1012c",
+        "type": "change",
+        "z": "67bc88ef.745748",
+        "name": "",
+        "rules": [
+            {
+                "t": "move",
+                "p": "payload",
+                "pt": "msg",
+                "to": "proServIP",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 2230,
+        "y": 780,
+        "wires": [
+            [
+                "3edad875.637048"
+            ]
+        ]
+    },
+    {
+        "id": "ee1a6bbf.721058",
+        "type": "http request",
+        "z": "67bc88ef.745748",
+        "name": "GET ProServIP",
+        "method": "GET",
+        "ret": "txt",
+        "url": "http://localhost:3000/proservip",
+        "tls": "",
+        "x": 3620,
+        "y": 720,
+        "wires": [
+            [
+                "b2cdc9ea.5d5208"
+            ]
+        ]
+    },
+    {
+        "id": "b2cdc9ea.5d5208",
+        "type": "change",
+        "z": "67bc88ef.745748",
+        "name": "",
+        "rules": [
+            {
+                "t": "move",
+                "p": "payload",
+                "pt": "msg",
+                "to": "proServIP",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 3090,
+        "y": 780,
+        "wires": [
+            [
+                "890fdae2.b2d7d8"
+            ]
+        ]
+    },
+    {
+        "id": "2c420daf.f0d6d2",
+        "type": "function",
+        "z": "67bc88ef.745748",
+        "name": "Array_thermostats",
+        "func": "function precisionRound(number, precision) {\n  var factor = Math.pow(10, precision);\n  return Math.round(number * factor) / factor;\n}\n\nfunction findObjectByKey(array, key, value) {\n    for (var i = 0; i < array.length; i++) {\n        if (array[i][key] === value) {\n            return array[i];\n        }\n    }\n    return null;\n}\n\nvar rawCmd = findObjectByKey(msg.payload.slots, 'slotName', 'cmd');\nvar rawRoom = findObjectByKey(msg.payload.slots, 'slotName', 'room');\nvar rawQuery = findObjectByKey(msg.payload.slots, 'slotName', 'query');\nvar rawValue = findObjectByKey(msg.payload.slots, 'slotName', 'value');\nvar rawAll = findObjectByKey(msg.payload.slots, 'slotName', 'all');\nvar rawHere = findObjectByKey(msg.payload.slots, 'slotName', 'here');\n\nmsg.cmd = [];\nif (rawCmd !== null) {\n\tmsg.cmd.cmd = rawCmd.value.value;\n}\nif (rawRoom !== null) {\n\tmsg.cmd.room = rawRoom.value.value;\n} else if (rawAll === null) {\n    msg.cmd.room = msg.payload.siteId;\n}\nif (rawQuery !== null) {\n\tmsg.cmd.query = rawQuery.value.value;\n}\nif (rawAll !== null) {\n\tmsg.cmd.all = rawAll.value.value;\n}\nif (rawValue !== null) {\n\tmsg.cmd.value = rawValue.value.value;\n}\nif (rawHere !== null) {\n\tmsg.cmd.room = msg.payload.siteId;\n}\nmsg.cmd.siteId = msg.payload.siteId;\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 2630,
+        "y": 1600,
+        "wires": [
+            [
+                "9f30336.a6dabd"
+            ]
+        ]
+    },
+    {
+        "id": "1f79431b.5669fd",
+        "type": "http request",
+        "z": "67bc88ef.745748",
+        "name": "GET ProServIP",
+        "method": "GET",
+        "ret": "txt",
+        "url": "http://localhost:3000/proservip",
+        "tls": "",
+        "x": 3140,
+        "y": 1600,
+        "wires": [
+            [
+                "a3e15db.23cc4a"
+            ]
+        ]
+    },
+    {
+        "id": "a3e15db.23cc4a",
+        "type": "change",
+        "z": "67bc88ef.745748",
+        "name": "",
+        "rules": [
+            {
+                "t": "move",
+                "p": "payload",
+                "pt": "msg",
+                "to": "proServIP",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 2630,
+        "y": 1660,
+        "wires": [
+            [
+                "c5de08ae.0b2808"
+            ]
+        ]
+    },
+    {
+        "id": "fadab1a3.7057",
+        "type": "mqtt in",
+        "z": "67bc88ef.745748",
+        "name": "",
+        "topic": "hermes/intent/ProKNX:set_thermostats",
+        "qos": "2",
+        "broker": "f965f064.1e786",
+        "x": 2690,
+        "y": 320,
+        "wires": [
+            [
+                "e5acf7a3.ca1b68"
+            ]
+        ]
+    },
+    {
+        "id": "c5de08ae.0b2808",
+        "type": "http request",
+        "z": "67bc88ef.745748",
+        "name": "GET Devices",
+        "method": "GET",
+        "ret": "txt",
+        "url": "http://localhost:3000/rest/alexa/skill/items",
+        "tls": "",
+        "x": 2830,
+        "y": 1660,
+        "wires": [
+            [
+                "fc6820e3.25f9"
+            ]
+        ]
+    },
+    {
+        "id": "fc6820e3.25f9",
+        "type": "json",
+        "z": "67bc88ef.745748",
+        "name": "",
+        "pretty": false,
+        "x": 2990,
+        "y": 1660,
+        "wires": [
+            [
+                "ecf37efc.82f9a"
+            ]
+        ]
+    },
+    {
+        "id": "ecf37efc.82f9a",
+        "type": "function",
+        "z": "67bc88ef.745748",
+        "name": "List_heaters",
+        "func": "function findHeatersByKey(array, key, value) {\n    msg.heaters = [];\n    var cpt = 0;\n    for (var i = 0; i < array.length; i++) {\n        if (array[i][key] === value) {\n            msg.heaters[cpt] = array[i];\n            cpt ++;\n        }\n    }\n    return null;\n}\n\nfindHeatersByKey(msg.payload, 'type', 'heating');\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 3150,
+        "y": 1660,
+        "wires": [
+            [
+                "f51466f9.6fbde8"
+            ]
+        ]
+    },
+    {
+        "id": "407ea4ee.75898c",
+        "type": "function",
+        "z": "67bc88ef.745748",
+        "name": "Prepare_request",
+        "func": "function precisionRound(number, precision) {\n  var factor = Math.pow(10, precision);\n  return Math.round(number * factor) / factor;\n}\n\n//put an array of objets located in the room given in parameters in msg.room\nfunction findRoomByKey(array, key, value) {\n    msg.items = [];\n    var cpt = 0;\n    for (var i = 0; i < array.length; i++) {\n        var x = array[i][key].toLowerCase();\n        x = x.split(\"   \");\n        if (x[0] === value) {\n            msg.items[cpt] = array[i];\n            cpt ++;\n        }\n    }\n    return null;\n}\n\n//put an array of objects that the user want to control in msg.items, error if his request is to vague\nif (msg.cmd.all !== undefined && msg.cmd.room !== undefined) {\n\tfindRoomByKey(msg.heaters, 'name', msg.cmd.room);\n}else if (msg.cmd.all !== undefined && msg.cmd.room === undefined) {\n\tmsg.items = msg.heaters;\n} else if (msg.cmd.all === undefined && msg.cmd.room !== undefined) {\n\tfindRoomByKey(msg.heaters, 'name', msg.cmd.room);\n} else {}\n\n//Prepare all HTTP requests for \"SET\" commands and put them in msg.url\nmsg.url = [];\nmsg.newVal= [];\nif (msg.cmd.cmd === \"set\" && msg.cmd.value !== undefined) {\n   \tfor (var i = 0; i < msg.items.length; i++) {\n   \t\tvar val = msg.cmd.value;\n   \t\tif (val < 18){\n\t            val = 18;\n        \t} else if (val > 28) {\n        \t    val = 28;\n\t        } else {\n    \t        val = val;\n\t        }\n   \t\tmsg.newVal[i] = val;\n   \t\tmsg.url[i] = [msg.proServIP, msg.items[i].setTargetUrl, val];\n   \t\tmsg.url[i] = \"\".concat(...msg.url[i]);\n   \t\t\n\t}\n}\nelse if (msg.cmd.cmd === \"colder\") {\n\tfor (var i = 0; i < msg.items.length; i++) {\n\t\tif (msg.cmd.value !== undefined) {\n\t\t    var val = msg.cmd.value;\n\t\t    var target = msg.target[i].Data[0].Value;\n\t\t    var newVal = target-val;\n\t\t    if (newVal < 18){\n\t            newVal = 18;\n        \t} else if (newVal > 28) {\n        \t    newVal = 28;\n\t        } else {\n    \t        newVal = newVal;\n\t        }\n\t\t    msg.newVal[i] = newVal;\n\t\t    msg.url[i] = [msg.proServIP, msg.items[i].setTargetUrl, newVal];\n   \t\t    msg.url[i] = \"\".concat(...msg.url[i]);\n\t\t}\n\t\telse {\n\t\t    var val = 2;\n\t\t    var target = msg.target[i].Data[0].Value;\n\t\t    var newVal = target-val;\n\t\t    if (newVal < 18){\n\t            newVal = 18;\n        \t} else if (newVal > 28) {\n        \t    newVal = 28;\n\t        } else {\n    \t        newVal = newVal;\n\t        }\n\t\t    msg.newVal[i] = newVal;\n\t\t    msg.url[i] = [msg.proServIP, msg.items[i].setTargetUrl, newVal];\n   \t\t    msg.url[i] = \"\".concat(...msg.url[i]);\n\t\t}\n\t}\n}\nelse if (msg.cmd.cmd === \"warmer\") {\n\tfor (var i = 0; i < msg.items.length; i++) {\n\t\tif (msg.cmd.value !== undefined) {\n\t\t    var val = msg.cmd.value;\n\t\t    var target = msg.target[i].Data[0].Value;\n\t\t    var newVal = target+val;\n\t\t    if (newVal < 18){\n\t            newVal = 18;\n        \t} else if (newVal > 28) {\n        \t    newVal = 28;\n\t        } else {\n    \t        newVal = newVal;\n\t        }\n\t\t    msg.newVal[i] = newVal;\n\t\t    msg.url[i] = [msg.proServIP, msg.items[i].setTargetUrl, newVal];\n   \t\t    msg.url[i] = \"\".concat(...msg.url[i]);\n\t\t}\n\t\telse {\n\t\t    var val = 2;\n\t\t    var target = msg.target[i].Data[0].Value;\n\t\t    var newVal = target+val;\n\t\t    if (newVal < 18){\n\t            newVal = 18;\n        \t} else if (newVal > 28) {\n        \t    newVal = 28;\n\t        } else {\n    \t        newVal = newVal;\n\t        }\n\t\t    msg.newVal[i] = newVal;\n\t\t    msg.url[i] = [msg.proServIP, msg.items[i].setTargetUrl, newVal];\n   \t\t    msg.url[i] = \"\".concat(...msg.url[i]);\n\t\t}\n\t}\n}\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 2251.9051666259766,
+        "y": 2145.2381086349487,
+        "wires": [
+            [
+                "db92549.a1c79a8",
+                "a34938d6.640648"
+            ]
+        ]
+    },
+    {
+        "id": "42505ad.465dfa4",
+        "type": "function",
+        "z": "67bc88ef.745748",
+        "name": "GET_Target",
+        "func": "//put an array of objets located in the room given in parameters in msg.room\nfunction findRoomByKey(array, key, value) {\n    msg.items = [];\n    var cpt = 0;\n    for (var i = 0; i < array.length; i++) {\n        var x = array[i][key].toLowerCase();\n        x = x.split(\"   \");\n        if (x[0] === value) {\n            msg.items[cpt] = array[i];\n            cpt ++;\n        }\n    }\n    return null;\n}\n\n//put an array of objects that the user want to control in msg.items, error if his request is to vague\nif (msg.cmd.all !== undefined && msg.cmd.room !== undefined) {\n\tfindRoomByKey(msg.heaters, 'name', msg.cmd.room);\n}else if (msg.cmd.all !== undefined && msg.cmd.room === undefined) {\n\tmsg.items = msg.heaters;\n} else if (msg.cmd.all === undefined && msg.cmd.room !== undefined) {\n\tfindRoomByKey(msg.heaters, 'name', msg.cmd.room);\n} else {}\n\n//Prepare all HTTP requests for GET Current Temp and put them in msg.url\nmsg.url = [];\nfor (var i = 0; i < msg.items.length; i++) {\n\tmsg.url[i] = [msg.proServIP, msg.items[i].getTargetUrl];\n\tmsg.url[i] = \"\".concat(...msg.url[i]);\n}\n\nif (msg.items[0] === undefined) {\n    msg.error = {\n        text: \" Sorry There is no thermostat in this room\",\n        siteId: msg.cmd.siteId\n    };\n}\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 2233.33341217041,
+        "y": 1965.2380867004395,
+        "wires": [
+            [
+                "a31c1e45.f7202",
+                "a34938d6.640648"
+            ]
+        ]
+    },
+    {
+        "id": "7ace2779.5432e8",
+        "type": "http request",
+        "z": "67bc88ef.745748",
+        "name": "GET Target",
+        "method": "GET",
+        "ret": "txt",
+        "url": "{{{payload}}}",
+        "tls": "",
+        "x": 2234.7621269226074,
+        "y": 2019.523889541626,
+        "wires": [
+            [
+                "5b5edbb5.c097e4",
+                "536ff1d3.2d79a"
+            ]
+        ]
+    },
+    {
+        "id": "cbd6d958.b39508",
+        "type": "delay",
+        "z": "67bc88ef.745748",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "50",
+        "timeoutUnits": "milliseconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "x": 2696.9049682617188,
+        "y": 1965.23814868927,
+        "wires": [
+            [
+                "7ace2779.5432e8",
+                "536ff1d3.2d79a"
+            ]
+        ]
+    },
+    {
+        "id": "11f4a78b.b12c18",
+        "type": "switch",
+        "z": "67bc88ef.745748",
+        "name": "Cmd ?",
+        "property": "cmd.cmd",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "set",
+                "vt": "str"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "true",
+        "outputs": 2,
+        "x": 2213.333309173584,
+        "y": 1853.8096809387207,
+        "wires": [
+            [
+                "407ea4ee.75898c"
+            ],
+            [
+                "42505ad.465dfa4"
+            ]
+        ]
+    },
+    {
+        "id": "660e05cc.55efdc",
+        "type": "change",
+        "z": "67bc88ef.745748",
+        "name": "",
+        "rules": [
+            {
+                "t": "move",
+                "p": "payload",
+                "pt": "msg",
+                "to": "target",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 2663.33353805542,
+        "y": 2019.523853302002,
+        "wires": [
+            [
+                "407ea4ee.75898c"
+            ]
+        ]
+    },
+    {
+        "id": "a84cf0da.f62fd",
+        "type": "split",
+        "z": "67bc88ef.745748",
+        "name": "",
+        "splt": "\\n",
+        "spltType": "str",
+        "arraySplt": 1,
+        "arraySpltType": "len",
+        "stream": false,
+        "addname": "",
+        "x": 2556.1907501220703,
+        "y": 1965.23814868927,
+        "wires": [
+            [
+                "cbd6d958.b39508"
+            ]
+        ]
+    },
+    {
+        "id": "a31c1e45.f7202",
+        "type": "change",
+        "z": "67bc88ef.745748",
+        "name": "",
+        "rules": [
+            {
+                "t": "move",
+                "p": "url",
+                "pt": "msg",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 2405.4761848449707,
+        "y": 1965.2381315231323,
+        "wires": [
+            [
+                "a84cf0da.f62fd"
+            ]
+        ]
+    },
+    {
+        "id": "e31589cc.0428e8",
+        "type": "join",
+        "z": "67bc88ef.745748",
+        "name": "",
+        "mode": "auto",
+        "build": "string",
+        "property": "payload",
+        "propertyType": "msg",
+        "key": "topic",
+        "joiner": "\\n",
+        "joinerType": "str",
+        "accumulate": false,
+        "timeout": "",
+        "count": "",
+        "x": 2499.7621994018555,
+        "y": 2019.5239152908325,
+        "wires": [
+            [
+                "660e05cc.55efdc"
+            ]
+        ]
+    },
+    {
+        "id": "5b5edbb5.c097e4",
+        "type": "json",
+        "z": "67bc88ef.745748",
+        "name": "",
+        "pretty": false,
+        "x": 2376.1906814575195,
+        "y": 2019.5238628387451,
+        "wires": [
+            [
+                "e31589cc.0428e8"
+            ]
+        ]
+    },
+    {
+        "id": "f51466f9.6fbde8",
+        "type": "switch",
+        "z": "67bc88ef.745748",
+        "name": "Query ?",
+        "property": "cmd.query",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "nnull"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "true",
+        "outputs": 2,
+        "x": 2883.6907348632812,
+        "y": 1751.3096237182617,
+        "wires": [
+            [
+                "a4f2ed1b.62e0c"
+            ],
+            [
+                "11f4a78b.b12c18"
+            ]
+        ]
+    },
+    {
+        "id": "a4f2ed1b.62e0c",
+        "type": "function",
+        "z": "67bc88ef.745748",
+        "name": "GET_Target",
+        "func": "//put an array of objets located in the room given in parameters in msg.room\nfunction findRoomByKey(array, key, value) {\n    msg.items = [];\n    var cpt = 0;\n    for (var i = 0; i < array.length; i++) {\n        var x = array[i][key].toLowerCase();\n        x = x.split(\"   \");\n        if (x[0] === value) {\n            msg.items[cpt] = array[i];\n            cpt ++;\n        }\n    }\n    return null;\n}\n\nmsg.error = [];\n\n//put an array of objects that the user want to control in msg.items, error if his request is to vague\nif (msg.cmd.all !== undefined && msg.cmd.room !== undefined) {\n\tfindRoomByKey(msg.heaters, 'name', msg.cmd.room);\n}else if (msg.cmd.all !== undefined && msg.cmd.room === undefined) {\n\tmsg.items = msg.heaters;\n} else if (msg.cmd.all === undefined && msg.cmd.room !== undefined) {\n\tfindRoomByKey(msg.heaters, 'name', msg.cmd.room);\n} else if (msg.cmd.all === undefined && msg.cmd.room === undefined){\n    msg.error = {\n        text: \"Sorry, can you be more specific ?\",\n        siteId: msg.cmd.siteId\n    };\n}\n\n//Prepare all HTTP requests for GET Current Temp and put them in msg.url\nmsg.url = [];\nfor (var i = 0; i < msg.items.length; i++) {\n\tmsg.url[i] = [msg.proServIP, msg.items[i].getTargetUrl];\n\tmsg.url[i] = \"\".concat(...msg.url[i]);\n}\n\nif (msg.items[0] === undefined) {\n    msg.error = {\n        text: \" Sorry I can not find this device\",\n        siteId: msg.cmd.siteId\n    };\n}\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 3024.047939300537,
+        "y": 1871.666498184204,
+        "wires": [
+            [
+                "15348d86.f583a2",
+                "4f4cc1cb.ed7d2"
+            ]
+        ]
+    },
+    {
+        "id": "4ee2fd42.d5d884",
+        "type": "http request",
+        "z": "67bc88ef.745748",
+        "name": "GET Target",
+        "method": "GET",
+        "ret": "txt",
+        "url": "{{{payload}}}",
+        "tls": "",
+        "x": 3025.476650238037,
+        "y": 1924.5236492156982,
+        "wires": [
+            [
+                "ff115c65.a9a72",
+                "fca9ea52.f7afb8"
+            ]
+        ]
+    },
+    {
+        "id": "d91d0b65.3791c8",
+        "type": "delay",
+        "z": "67bc88ef.745748",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "50",
+        "timeoutUnits": "milliseconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "x": 3490.4766845703125,
+        "y": 1871.666488647461,
+        "wires": [
+            [
+                "4ee2fd42.d5d884",
+                "fca9ea52.f7afb8"
+            ]
+        ]
+    },
+    {
+        "id": "f9001d1e.ad7cd",
+        "type": "change",
+        "z": "67bc88ef.745748",
+        "name": "",
+        "rules": [
+            {
+                "t": "move",
+                "p": "payload",
+                "pt": "msg",
+                "to": "target",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 3451.1907958984375,
+        "y": 1925.9522285461426,
+        "wires": [
+            [
+                "c41f46ec.960c78"
+            ]
+        ]
+    },
+    {
+        "id": "525be599.5198ec",
+        "type": "split",
+        "z": "67bc88ef.745748",
+        "name": "",
+        "splt": "\\n",
+        "spltType": "str",
+        "arraySplt": 1,
+        "arraySpltType": "len",
+        "stream": false,
+        "addname": "",
+        "x": 3351.190830230713,
+        "y": 1871.6665058135986,
+        "wires": [
+            [
+                "d91d0b65.3791c8"
+            ]
+        ]
+    },
+    {
+        "id": "15348d86.f583a2",
+        "type": "change",
+        "z": "67bc88ef.745748",
+        "name": "",
+        "rules": [
+            {
+                "t": "move",
+                "p": "url",
+                "pt": "msg",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 3199.0479736328125,
+        "y": 1871.6665229797363,
+        "wires": [
+            [
+                "525be599.5198ec"
+            ]
+        ]
+    },
+    {
+        "id": "c5059a00.b54408",
+        "type": "join",
+        "z": "67bc88ef.745748",
+        "name": "",
+        "mode": "auto",
+        "build": "string",
+        "property": "payload",
+        "propertyType": "msg",
+        "key": "topic",
+        "joiner": "\\n",
+        "joinerType": "str",
+        "accumulate": false,
+        "timeout": "",
+        "count": "",
+        "x": 3286.1908645629883,
+        "y": 1925.952229499817,
+        "wires": [
+            [
+                "f9001d1e.ad7cd"
+            ]
+        ]
+    },
+    {
+        "id": "ff115c65.a9a72",
+        "type": "json",
+        "z": "67bc88ef.745748",
+        "name": "",
+        "pretty": false,
+        "x": 3164.048007965088,
+        "y": 1924.5236568450928,
+        "wires": [
+            [
+                "c5059a00.b54408"
+            ]
+        ]
+    },
+    {
+        "id": "c41f46ec.960c78",
+        "type": "function",
+        "z": "67bc88ef.745748",
+        "name": "GET_Current",
+        "func": "//put an array of objets located in the room given in parameters in msg.room\nfunction findRoomByKey(array, key, value) {\n    msg.items = [];\n    var cpt = 0;\n    for (var i = 0; i < array.length; i++) {\n        var x = array[i][key].toLowerCase();\n        x = x.split(\"   \");\n        if (x[0] === value) {\n            msg.items[cpt] = array[i];\n            cpt ++;\n        }\n    }\n    return null;\n}\n\n//put an array of objects that the user want to control in msg.items, error if his request is to vague\nif (msg.cmd.all !== undefined && msg.cmd.room !== undefined) {\n\tfindRoomByKey(msg.heaters, 'name', msg.cmd.room);\n}else if (msg.cmd.all !== undefined && msg.cmd.room === undefined) {\n\tmsg.items = msg.heaters;\n} else if (msg.cmd.all === undefined && msg.cmd.room !== undefined) {\n\tfindRoomByKey(msg.heaters, 'name', msg.cmd.room);\n} else {}\n\n//Prepare all HTTP requests for GET Current Temp and put them in msg.url\nmsg.url = [];\nfor (var i = 0; i < msg.items.length; i++) {\n\tmsg.url[i] = [msg.proServIP, msg.items[i].getCurrentUrl];\n\tmsg.url[i] = \"\".concat(...msg.url[i]);\n}\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 3025.476665496826,
+        "y": 2053.809331893921,
+        "wires": [
+            [
+                "b8aca002.caf8f"
+            ]
+        ]
+    },
+    {
+        "id": "d19fa008.61261",
+        "type": "http request",
+        "z": "67bc88ef.745748",
+        "name": "GET Current",
+        "method": "GET",
+        "ret": "txt",
+        "url": "{{{payload}}}",
+        "tls": "",
+        "x": 3025.476909637451,
+        "y": 2106.6665019989014,
+        "wires": [
+            [
+                "758f6baf.e22194"
+            ]
+        ]
+    },
+    {
+        "id": "97ab071d.8bb698",
+        "type": "delay",
+        "z": "67bc88ef.745748",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "50",
+        "timeoutUnits": "milliseconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "x": 3483.3339462280273,
+        "y": 2053.809383392334,
+        "wires": [
+            [
+                "d19fa008.61261"
+            ]
+        ]
+    },
+    {
+        "id": "ef1b9550.3ba558",
+        "type": "change",
+        "z": "67bc88ef.745748",
+        "name": "",
+        "rules": [
+            {
+                "t": "move",
+                "p": "payload",
+                "pt": "msg",
+                "to": "current",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 3448.3335762023926,
+        "y": 2106.6665439605713,
+        "wires": [
+            [
+                "9e9563cf.666e8"
+            ]
+        ]
+    },
+    {
+        "id": "fd19637b.41585",
+        "type": "split",
+        "z": "67bc88ef.745748",
+        "name": "",
+        "splt": "\\n",
+        "spltType": "str",
+        "arraySplt": 1,
+        "arraySpltType": "len",
+        "stream": false,
+        "addname": "",
+        "x": 3344.048023223877,
+        "y": 2053.809331893921,
+        "wires": [
+            [
+                "97ab071d.8bb698"
+            ]
+        ]
+    },
+    {
+        "id": "b8aca002.caf8f",
+        "type": "change",
+        "z": "67bc88ef.745748",
+        "name": "",
+        "rules": [
+            {
+                "t": "move",
+                "p": "url",
+                "pt": "msg",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 3196.190986633301,
+        "y": 2053.809383392334,
+        "wires": [
+            [
+                "fd19637b.41585"
+            ]
+        ]
+    },
+    {
+        "id": "564398c9.3f4198",
+        "type": "join",
+        "z": "67bc88ef.745748",
+        "name": "",
+        "mode": "auto",
+        "build": "string",
+        "property": "payload",
+        "propertyType": "msg",
+        "key": "topic",
+        "joiner": "\\n",
+        "joinerType": "str",
+        "accumulate": false,
+        "timeout": "",
+        "count": "",
+        "x": 3289.0481605529785,
+        "y": 2106.666492462158,
+        "wires": [
+            [
+                "ef1b9550.3ba558"
+            ]
+        ]
+    },
+    {
+        "id": "758f6baf.e22194",
+        "type": "json",
+        "z": "67bc88ef.745748",
+        "name": "",
+        "pretty": false,
+        "x": 3168.333839416504,
+        "y": 2106.666491508484,
+        "wires": [
+            [
+                "564398c9.3f4198"
+            ]
+        ]
+    },
+    {
+        "id": "ab4e1acb.9cf468",
+        "type": "http request",
+        "z": "67bc88ef.745748",
+        "name": "Send URL",
+        "method": "GET",
+        "ret": "txt",
+        "url": "{{{payload}}}",
+        "tls": "",
+        "x": 2233.213996887207,
+        "y": 2309.6426906585693,
+        "wires": [
+            [
+                "ecef9971.84eb28"
+            ]
+        ]
+    },
+    {
+        "id": "579a9e49.0a1d7",
+        "type": "split",
+        "z": "67bc88ef.745748",
+        "name": "",
+        "splt": "\\n",
+        "spltType": "str",
+        "arraySplt": 1,
+        "arraySpltType": "len",
+        "stream": false,
+        "addname": "",
+        "x": 2595.4765625,
+        "y": 2145.238265991211,
+        "wires": [
+            [
+                "9ef73c0f.32cad"
+            ]
+        ]
+    },
+    {
+        "id": "db92549.a1c79a8",
+        "type": "change",
+        "z": "67bc88ef.745748",
+        "name": "",
+        "rules": [
+            {
+                "t": "move",
+                "p": "url",
+                "pt": "msg",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 2442.619453430176,
+        "y": 2145.2381954193115,
+        "wires": [
+            [
+                "579a9e49.0a1d7"
+            ]
+        ]
+    },
+    {
+        "id": "9ef73c0f.32cad",
+        "type": "delay",
+        "z": "67bc88ef.745748",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "50",
+        "timeoutUnits": "milliseconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "x": 2738.333911895752,
+        "y": 2145.238247871399,
+        "wires": [
+            [
+                "ab4e1acb.9cf468"
+            ]
+        ]
+    },
+    {
+        "id": "bc6e51c7.9fd2f",
+        "type": "mqtt out",
+        "z": "67bc88ef.745748",
+        "name": "",
+        "topic": "hermes/tts/say",
+        "qos": "",
+        "retain": "",
+        "broker": "f965f064.1e786",
+        "x": 2743.71431350708,
+        "y": 1159.0001649856567,
+        "wires": []
+    },
+    {
+        "id": "f6e71433.341d98",
+        "type": "function",
+        "z": "67bc88ef.745748",
+        "name": "Feedback",
+        "func": "if (msg.payload.Result === true) {\n    msg.payload = {\n        text: \"Okay\",\n        siteId: msg.cmd.siteId\n    };\n}\nelse if (msg.payload.Result === \"false\") {\n    msg.payload = {\n        text: \" Sorry the server did not understand your request\",\n        siteId: msg.cmd.siteId\n    };\n}\nelse {\n    msg.payload = {\n        text: \"Sorry The server is not responding\",\n        siteId: msg.cmd.siteId\n    };\n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 2200.000066757202,
+        "y": 1203.333683013916,
+        "wires": [
+            [
+                "b4b82472.a8d528"
+            ]
+        ]
+    },
+    {
+        "id": "ab30b125.6cfea",
+        "type": "switch",
+        "z": "67bc88ef.745748",
+        "name": "Error ?",
+        "property": "error",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "nnull"
+            }
+        ],
+        "checkall": "true",
+        "outputs": 1,
+        "x": 2190,
+        "y": 1160,
+        "wires": [
+            [
+                "1107c053.0be71"
+            ]
+        ]
+    },
+    {
+        "id": "1107c053.0be71",
+        "type": "change",
+        "z": "67bc88ef.745748",
+        "name": "",
+        "rules": [
+            {
+                "t": "move",
+                "p": "error",
+                "pt": "msg",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 2340,
+        "y": 1160,
+        "wires": [
+            [
+                "aca4e2b1.1daaf"
+            ]
+        ]
+    },
+    {
+        "id": "aca4e2b1.1daaf",
+        "type": "delay",
+        "z": "67bc88ef.745748",
+        "name": "",
+        "pauseType": "rate",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "15",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": true,
+        "x": 2520,
+        "y": 1160,
+        "wires": [
+            [
+                "bc6e51c7.9fd2f"
+            ]
+        ]
+    },
+    {
+        "id": "f1914c2f.ec81a",
+        "type": "switch",
+        "z": "67bc88ef.745748",
+        "name": "Error ?",
+        "property": "error",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "nnull"
+            }
+        ],
+        "checkall": "true",
+        "outputs": 1,
+        "x": 3048.3332481384277,
+        "y": 1146.6666822433472,
+        "wires": [
+            [
+                "abd6c7a8.8dbdf8"
+            ]
+        ]
+    },
+    {
+        "id": "830c017e.5a5fb",
+        "type": "function",
+        "z": "67bc88ef.745748",
+        "name": "Feedback",
+        "func": "if (msg.payload.Result === true) {\n    msg.payload = {\n        text: \"Okay\",\n        siteId: msg.cmd.siteId\n    };\n}\nelse if (msg.payload.Result === \"false\") {\n    msg.payload = {\n        text: \" Sorry the server did not understand your request\",\n        siteId: msg.cmd.siteId\n    };\n}\nelse {\n    msg.payload = {\n        text: \"Sorry The server is not responding\",\n        siteId: msg.cmd.siteId\n    };\n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 3060.0000610351562,
+        "y": 1207.5002346038818,
+        "wires": [
+            [
+                "8ec9779f.882c58"
+            ]
+        ]
+    },
+    {
+        "id": "7a8ec9a2.068728",
+        "type": "comment",
+        "z": "67bc88ef.745748",
+        "name": "================================SPOKEN FEEDBACK===================================",
+        "info": "",
+        "x": 2468.4999351501465,
+        "y": 1096.6668691635132,
+        "wires": []
+    },
+    {
+        "id": "fa322f85.d18f1",
+        "type": "comment",
+        "z": "67bc88ef.745748",
+        "name": "===================================LIGHTS CONTROL=================================",
+        "info": "",
+        "x": 2470,
+        "y": 580,
+        "wires": []
+    },
+    {
+        "id": "dd43453b.0f0838",
+        "type": "comment",
+        "z": "67bc88ef.745748",
+        "name": "==============================REQUEST CONSTRUCTION==============================",
+        "info": "",
+        "x": 2470.1666221618652,
+        "y": 838.3334283828735,
+        "wires": []
+    },
+    {
+        "id": "b14631dc.8ab8e",
+        "type": "comment",
+        "z": "67bc88ef.745748",
+        "name": "=================================SHUTTERS CONTROL==================================",
+        "info": "",
+        "x": 3340,
+        "y": 580,
+        "wires": []
+    },
+    {
+        "id": "beb21567.1fd018",
+        "type": "comment",
+        "z": "67bc88ef.745748",
+        "name": "================================SPOKEN FEEDBACK===================================",
+        "info": "",
+        "x": 3338.3331718444824,
+        "y": 1101.6666765213013,
+        "wires": []
+    },
+    {
+        "id": "53534079.ba66d",
+        "type": "comment",
+        "z": "67bc88ef.745748",
+        "name": "================================REQUEST CONSTRUCTION===============================",
+        "info": "",
+        "x": 3345.0001640319824,
+        "y": 838.3332328796387,
+        "wires": []
+    },
+    {
+        "id": "a501b061.e2ae2",
+        "type": "comment",
+        "z": "67bc88ef.745748",
+        "name": "=============================THERMOSTATS CONTROL================================",
+        "info": "",
+        "x": 2874.8807487487793,
+        "y": 1462.9760084152222,
+        "wires": []
+    },
+    {
+        "id": "4502a1f2.5de3",
+        "type": "comment",
+        "z": "67bc88ef.745748",
+        "name": "================================DEVICES DETECTION=================================",
+        "info": "",
+        "x": 2470,
+        "y": 660,
+        "wires": []
+    },
+    {
+        "id": "9e025804.a14238",
+        "type": "comment",
+        "z": "67bc88ef.745748",
+        "name": "===============================REQUEST EXECUTION=================================",
+        "info": "",
+        "x": 2469.9999046325684,
+        "y": 984.9999952316284,
+        "wires": []
+    },
+    {
+        "id": "1200cf94.0f89d",
+        "type": "comment",
+        "z": "67bc88ef.745748",
+        "name": "===============================REQUEST EXECUTION=================================",
+        "info": "",
+        "x": 3336.6665000915527,
+        "y": 986.6666212081909,
+        "wires": []
+    },
+    {
+        "id": "c3783d27.da18e",
+        "type": "comment",
+        "z": "67bc88ef.745748",
+        "name": "==================================DEVICES DETECTION=================================",
+        "info": "",
+        "x": 3340,
+        "y": 660,
+        "wires": []
+    },
+    {
+        "id": "a2efc224.f987",
+        "type": "comment",
+        "z": "67bc88ef.745748",
+        "name": "===============================DEVICES DETECTION==================================",
+        "info": "",
+        "x": 2878.547431945801,
+        "y": 1545.595069885254,
+        "wires": []
+    },
+    {
+        "id": "cb283bac.bc0438",
+        "type": "comment",
+        "z": "67bc88ef.745748",
+        "name": "===============================QUERY OR COMMAND==================================",
+        "info": "",
+        "x": 2876.928535461426,
+        "y": 1709.6427383422852,
+        "wires": []
+    },
+    {
+        "id": "49f33ac3.0b9694",
+        "type": "comment",
+        "z": "67bc88ef.745748",
+        "name": "====================SET TARGET TEMP OR ADAPT OLD TARGET TEMP======================",
+        "info": "",
+        "x": 2486.928291320801,
+        "y": 1806.785593032837,
+        "wires": []
+    },
+    {
+        "id": "e347d543.1bcfb8",
+        "type": "comment",
+        "z": "67bc88ef.745748",
+        "name": "==================================GET TARGET TEMP=================================",
+        "info": "",
+        "x": 2486.928352355957,
+        "y": 1912.4998683929443,
+        "wires": []
+    },
+    {
+        "id": "6195b072.89c75",
+        "type": "comment",
+        "z": "67bc88ef.745748",
+        "name": "==============================REQUEST CONSTRUCTION==============================",
+        "info": "",
+        "x": 2486.928352355957,
+        "y": 2085.3570461273193,
+        "wires": []
+    },
+    {
+        "id": "b9865799.1989f8",
+        "type": "comment",
+        "z": "67bc88ef.745748",
+        "name": "===============================REQUEST EXECUTION=================================",
+        "info": "",
+        "x": 2490.0710830688477,
+        "y": 2252.4999494552612,
+        "wires": []
+    },
+    {
+        "id": "f04a31f5.e5e72",
+        "type": "comment",
+        "z": "67bc88ef.745748",
+        "name": "==================================GET TARGET TEMP=================================",
+        "info": "",
+        "x": 3286.356819152832,
+        "y": 1806.7855739593506,
+        "wires": []
+    },
+    {
+        "id": "19f5ca6e.9eb2b6",
+        "type": "comment",
+        "z": "67bc88ef.745748",
+        "name": "================================GET CURRENT TEMP=================================",
+        "info": "",
+        "x": 3287.499641418457,
+        "y": 1989.6426906585693,
+        "wires": []
+    },
+    {
+        "id": "c57b0f45.61662",
+        "type": "comment",
+        "z": "67bc88ef.745748",
+        "name": "=================================SNIPS INTENTS INPUT==================================",
+        "info": "",
+        "x": 2896.666717529297,
+        "y": 183.33332633972168,
+        "wires": []
+    },
+    {
+        "id": "4f4cc1cb.ed7d2",
+        "type": "switch",
+        "z": "67bc88ef.745748",
+        "name": "Error ?",
+        "property": "error.text",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "nnull"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "true",
+        "outputs": 2,
+        "x": 3013.213996887207,
+        "y": 2289.6426906585693,
+        "wires": [
+            [
+                "f950d964.194188"
+            ],
+            [
+                "9e26f7af.a84988"
+            ]
+        ]
+    },
+    {
+        "id": "f950d964.194188",
+        "type": "change",
+        "z": "67bc88ef.745748",
+        "name": "",
+        "rules": [
+            {
+                "t": "move",
+                "p": "error",
+                "pt": "msg",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 3203.213996887207,
+        "y": 2289.6426906585693,
+        "wires": [
+            [
+                "5c496317.1c372c"
+            ]
+        ]
+    },
+    {
+        "id": "a7065beb.cfab08",
+        "type": "mqtt out",
+        "z": "67bc88ef.745748",
+        "name": "",
+        "topic": "hermes/tts/say",
+        "qos": "",
+        "retain": "",
+        "broker": "f965f064.1e786",
+        "x": 3541.5473403930664,
+        "y": 2399.3092155456543,
+        "wires": []
+    },
+    {
+        "id": "5c496317.1c372c",
+        "type": "delay",
+        "z": "67bc88ef.745748",
+        "name": "",
+        "pauseType": "rate",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "15",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": true,
+        "x": 3403.213996887207,
+        "y": 2289.6426906585693,
+        "wires": [
+            [
+                "a7065beb.cfab08"
+            ]
+        ]
+    },
+    {
+        "id": "9e9563cf.666e8",
+        "type": "function",
+        "z": "67bc88ef.745748",
+        "name": "Feedback",
+        "func": "function precisionRound(number, precision) {\n  var factor = Math.pow(10, precision);\n  return Math.round(number * factor) / factor;\n}\n\nmsg.answer = [];\nmsg.text = [];\nmsg.error = [];\n\nif (msg.current !== undefined && msg.target !== undefined){\n    if (msg.current[0].Result === true && msg.target[0].Result === true) {\n        for (var i = 0; i < msg.items.length; i++) {\n            var target = msg.target[i].Data[0].Value;\n            var current = precisionRound(msg.current[i].Data[0].Value, 0);\n            var room = msg.items[i].zone;\n            var text1 = \"Heating is set to \";\n            var text2 = \" degrees in the \";\n            var text3 = \", with a current temperature of \";\n            msg.text[i] = [text1, target, text2, room, text3, current];\n       \t\tvar endText = \"\".concat(...msg.text[i]);\n            msg.answer[i] = {\n                text: endText,\n                siteId: msg.cmd.siteId\n            };\n        }\n    }\n    else if (msg.current[0].Result === \"false\") {\n        msg.error = {\n            text: \"Sorry the server did not understand your request\",\n            siteId: msg.cmd.siteId\n        };\n    }\n}\nelse {\n    msg.error = {\n        text: \"Sorry The server is not responding\",\n        siteId: msg.cmd.siteId\n    };\n}\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 3183.213996887207,
+        "y": 2229.6426906585693,
+        "wires": [
+            [
+                "6c33d5b3.9751bc"
+            ]
+        ]
+    },
+    {
+        "id": "ce6d9973.fc89f8",
+        "type": "comment",
+        "z": "67bc88ef.745748",
+        "name": "================================SPOKEN FEEDBACK===================================",
+        "info": "",
+        "x": 3285.30912399292,
+        "y": 2179.3648796081543,
+        "wires": []
+    },
+    {
+        "id": "97177cf3.accf",
+        "type": "split",
+        "z": "67bc88ef.745748",
+        "name": "",
+        "splt": "\\n",
+        "spltType": "str",
+        "arraySplt": 1,
+        "arraySpltType": "len",
+        "stream": false,
+        "addname": "",
+        "x": 3218.547782897949,
+        "y": 2347.9764156341553,
+        "wires": [
+            [
+                "f2ef0a9c.1dc2b8"
+            ]
+        ]
+    },
+    {
+        "id": "f2ef0a9c.1dc2b8",
+        "type": "delay",
+        "z": "67bc88ef.745748",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "50",
+        "timeoutUnits": "milliseconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "x": 3363.5476455688477,
+        "y": 2347.9761714935303,
+        "wires": [
+            [
+                "cba3cb1b.b537b8"
+            ]
+        ]
+    },
+    {
+        "id": "cba3cb1b.b537b8",
+        "type": "delay",
+        "z": "67bc88ef.745748",
+        "name": "",
+        "pauseType": "rate",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "8",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "x": 3543.214385986328,
+        "y": 2347.9761152267456,
+        "wires": [
+            [
+                "a7065beb.cfab08"
+            ]
+        ]
+    },
+    {
+        "id": "9e26f7af.a84988",
+        "type": "change",
+        "z": "67bc88ef.745748",
+        "name": "",
+        "rules": [
+            {
+                "t": "move",
+                "p": "answer",
+                "pt": "msg",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 3051.2143325805664,
+        "y": 2347.9759607315063,
+        "wires": [
+            [
+                "97177cf3.accf"
+            ]
+        ]
+    },
+    {
+        "id": "a34938d6.640648",
+        "type": "switch",
+        "z": "67bc88ef.745748",
+        "name": "Error ?",
+        "property": "error",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "nnull"
+            }
+        ],
+        "checkall": "true",
+        "outputs": 1,
+        "x": 2217.880527496338,
+        "y": 2423.3092880249023,
+        "wires": [
+            [
+                "2be29c57.dc3714"
+            ]
+        ]
+    },
+    {
+        "id": "2be29c57.dc3714",
+        "type": "change",
+        "z": "67bc88ef.745748",
+        "name": "",
+        "rules": [
+            {
+                "t": "move",
+                "p": "error",
+                "pt": "msg",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 2377.8801307678223,
+        "y": 2423.309326171875,
+        "wires": [
+            [
+                "e97e7dc0.caa78"
+            ]
+        ]
+    },
+    {
+        "id": "a5300c3c.6266b",
+        "type": "function",
+        "z": "67bc88ef.745748",
+        "name": "Feedback",
+        "func": "msg.text = [];\n\nfor (var i = 0; i < msg.payload.length; i++) {\n    if (msg.payload[i].Result === true) {\n        var room = msg.items[i].zone;\n        var target = msg.newVal[i];\n        var text1 = \"Okay, setting the heating to \";\n        var text2 = \" degrees in the \";\n        msg.text[i] = [text1, target, text2, room];\n        var endText = \"\".concat(...msg.text[i]);\n        msg.payload = {\n            text: endText,\n            siteId: msg.cmd.siteId\n        };\n    }\n    else if (msg.payload.Result === \"false\") {\n        msg.payload = {\n            text: \" Sorry the server did not understand your request\",\n            siteId: msg.cmd.siteId\n        };\n    }\n    else {\n        msg.payload = {\n            text: \"Sorry The server is not responding\",\n            siteId: msg.cmd.siteId\n        };\n    }\n}\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 2403.213996887207,
+        "y": 2469.6426906585693,
+        "wires": [
+            [
+                "e97e7dc0.caa78"
+            ]
+        ]
+    },
+    {
+        "id": "6fde55f1.081d4c",
+        "type": "mqtt out",
+        "z": "67bc88ef.745748",
+        "name": "",
+        "topic": "hermes/tts/say",
+        "qos": "",
+        "retain": "",
+        "broker": "f965f064.1e786",
+        "x": 2776.5469512939453,
+        "y": 2469.975908279419,
+        "wires": []
+    },
+    {
+        "id": "e97e7dc0.caa78",
+        "type": "delay",
+        "z": "67bc88ef.745748",
+        "name": "",
+        "pauseType": "rate",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "10",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": true,
+        "x": 2586.5470275878906,
+        "y": 2469.975923538208,
+        "wires": [
+            [
+                "6fde55f1.081d4c"
+            ]
+        ]
+    },
+    {
+        "id": "b19acb65.6b5178",
+        "type": "comment",
+        "z": "67bc88ef.745748",
+        "name": "================================SPOKEN FEEDBACK==================================",
+        "info": "",
+        "x": 2493.213996887207,
+        "y": 2369.6426906585693,
+        "wires": []
+    },
+    {
+        "id": "fca9ea52.f7afb8",
+        "type": "trigger",
+        "z": "67bc88ef.745748",
+        "op1": "",
+        "op2": "",
+        "op1type": "nul",
+        "op2type": "payl",
+        "duration": "1",
+        "extend": true,
+        "units": "s",
+        "reset": "",
+        "name": "",
+        "x": 3023.213996887207,
+        "y": 2229.6426906585693,
+        "wires": [
+            [
+                "9e9563cf.666e8"
+            ]
+        ]
+    },
+    {
+        "id": "6c33d5b3.9751bc",
+        "type": "delay",
+        "z": "67bc88ef.745748",
+        "name": "",
+        "pauseType": "rate",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "8",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": true,
+        "x": 3363.213996887207,
+        "y": 2229.6426906585693,
+        "wires": [
+            [
+                "4f4cc1cb.ed7d2"
+            ]
+        ]
+    },
+    {
+        "id": "b4b82472.a8d528",
+        "type": "switch",
+        "z": "67bc88ef.745748",
+        "name": "All ?",
+        "property": "cmd.device",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "nnull"
+            },
+            {
+                "t": "null"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "true",
+        "outputs": 3,
+        "x": 2348.3332481384277,
+        "y": 1206.6666822433472,
+        "wires": [
+            [
+                "aca4e2b1.1daaf"
+            ],
+            [
+                "ca94bbe6.2d93c8"
+            ],
+            [
+                "bc6e51c7.9fd2f"
+            ]
+        ]
+    },
+    {
+        "id": "10251e71.1d0512",
+        "type": "mqtt out",
+        "z": "67bc88ef.745748",
+        "name": "",
+        "topic": "hermes/tts/say",
+        "qos": "",
+        "retain": "",
+        "broker": "f965f064.1e786",
+        "x": 3615.476016998291,
+        "y": 1157.0951347351074,
+        "wires": []
+    },
+    {
+        "id": "abd6c7a8.8dbdf8",
+        "type": "change",
+        "z": "67bc88ef.745748",
+        "name": "",
+        "rules": [
+            {
+                "t": "move",
+                "p": "error",
+                "pt": "msg",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 3202.77774810791,
+        "y": 1158.8890075683594,
+        "wires": [
+            [
+                "9161b9e3.6a82f8"
+            ]
+        ]
+    },
+    {
+        "id": "9161b9e3.6a82f8",
+        "type": "delay",
+        "z": "67bc88ef.745748",
+        "name": "",
+        "pauseType": "rate",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "15",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": true,
+        "x": 3404.333351135254,
+        "y": 1157.666618347168,
+        "wires": [
+            [
+                "10251e71.1d0512"
+            ]
+        ]
+    },
+    {
+        "id": "8ec9779f.882c58",
+        "type": "switch",
+        "z": "67bc88ef.745748",
+        "name": "All ?",
+        "property": "cmd.all",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "nnull"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "true",
+        "outputs": 2,
+        "x": 3208.3332481384277,
+        "y": 1206.6666822433472,
+        "wires": [
+            [
+                "9161b9e3.6a82f8"
+            ],
+            [
+                "9161b9e3.6a82f8"
+            ]
+        ]
+    },
+    {
+        "id": "ecef9971.84eb28",
+        "type": "json",
+        "z": "67bc88ef.745748",
+        "name": "",
+        "pretty": false,
+        "x": 2393.213996887207,
+        "y": 2309.6426906585693,
+        "wires": [
+            [
+                "1325db49.51b9c5"
+            ]
+        ]
+    },
+    {
+        "id": "1325db49.51b9c5",
+        "type": "join",
+        "z": "67bc88ef.745748",
+        "name": "",
+        "mode": "auto",
+        "build": "string",
+        "property": "payload",
+        "propertyType": "msg",
+        "key": "topic",
+        "joiner": "\\n",
+        "joinerType": "str",
+        "accumulate": false,
+        "timeout": "",
+        "count": "",
+        "x": 2533.213996887207,
+        "y": 2309.6426906585693,
+        "wires": [
+            [
+                "a5300c3c.6266b"
+            ]
+        ]
+    },
+    {
+        "id": "536ff1d3.2d79a",
+        "type": "trigger",
+        "z": "67bc88ef.745748",
+        "op1": "",
+        "op2": "",
+        "op1type": "nul",
+        "op2type": "payl",
+        "duration": "1",
+        "extend": true,
+        "units": "s",
+        "reset": "",
+        "name": "",
+        "x": 2223.213996887207,
+        "y": 2469.6426906585693,
+        "wires": [
+            [
+                "a5300c3c.6266b"
+            ]
+        ]
+    },
+    {
+        "id": "c3f24d65.3b747",
+        "type": "link in",
+        "z": "67bc88ef.745748",
+        "name": "Lights Intent OUT",
+        "links": [
+            "41fda770.7e0728"
+        ],
+        "x": 2155,
+        "y": 620,
+        "wires": [
+            [
+                "ebdf5c2d.d39dc"
+            ]
+        ]
+    },
+    {
+        "id": "41fda770.7e0728",
+        "type": "link out",
+        "z": "67bc88ef.745748",
+        "name": "Lights Intent IN",
+        "links": [
+            "c3f24d65.3b747"
+        ],
+        "x": 3215,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "37d74189.d404ae",
+        "type": "link out",
+        "z": "67bc88ef.745748",
+        "name": "Shutters Intent IN",
+        "links": [
+            "12ea281d.07c648"
+        ],
+        "x": 3215,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "772eb900.1cd6b8",
+        "type": "link out",
+        "z": "67bc88ef.745748",
+        "name": "Thermostats Intent IN",
+        "links": [
+            "f1befa8c.7074c8"
+        ],
+        "x": 3215,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "12ea281d.07c648",
+        "type": "link in",
+        "z": "67bc88ef.745748",
+        "name": "Shutters Intent OUT",
+        "links": [
+            "37d74189.d404ae"
+        ],
+        "x": 3015,
+        "y": 620,
+        "wires": [
+            [
+                "8c330fdf.5184a"
+            ]
+        ]
+    },
+    {
+        "id": "f1befa8c.7074c8",
+        "type": "link in",
+        "z": "67bc88ef.745748",
+        "name": "Thermostats Intent OUT",
+        "links": [
+            "772eb900.1cd6b8"
+        ],
+        "x": 2559.8807487487793,
+        "y": 1502.9760084152222,
+        "wires": [
+            [
+                "2c420daf.f0d6d2"
+            ]
+        ]
+    },
+    {
+        "id": "e96f69f5.c5deb8",
+        "type": "comment",
+        "z": "67bc88ef.745748",
+        "name": "=================================================================================HOME AUTOMATION INTENTS===================================================================================",
+        "info": "",
+        "x": 2900,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "4c6de2e8.fbd06c",
+        "type": "comment",
+        "z": "67bc88ef.745748",
+        "name": "===================================================================================SNIPS CORE FUNCTIONS===================================================================================",
+        "info": "",
+        "x": 870,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "c3bc87d2.ee77d8",
+        "type": "comment",
+        "z": "67bc88ef.745748",
+        "name": "=================================SNIPS INTENTS INPUT==================================",
+        "info": "",
+        "x": 880,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "ca94bbe6.2d93c8",
+        "type": "delay",
+        "z": "67bc88ef.745748",
+        "name": "",
+        "pauseType": "rate",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "6",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": true,
+        "x": 2520,
+        "y": 1200,
+        "wires": [
+            [
+                "bc6e51c7.9fd2f"
+            ]
+        ]
+    },
+    {
+        "id": "742ddd3c.1a0244",
+        "type": "exec",
+        "z": "67bc88ef.745748",
+        "command": "sudo ifconfig | grep 'inet' | grep '255.255.255.0' | cut -f2 -d: | awk '{print $1}'",
+        "addpay": false,
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "oldrc": true,
+        "name": "GET local IP",
+        "x": 2350,
+        "y": 720,
+        "wires": [
+            [
+                "f60fb078.8ce2f"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "f60fb078.8ce2f",
+        "type": "function",
+        "z": "67bc88ef.745748",
+        "name": "Trim answer",
+        "func": "msg.payload = msg.payload.trim();\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 2550,
+        "y": 720,
+        "wires": [
+            [
+                "770cc04a.9ddbf"
+            ]
+        ]
+    },
+    {
+        "id": "7244a7f1.dbb248",
+        "type": "exec",
+        "z": "67bc88ef.745748",
+        "command": "sudo ifconfig | grep 'inet' | grep '255.255.255.0' | cut -f2 -d: | awk '{print $1}'",
+        "addpay": false,
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "oldrc": true,
+        "name": "GET local IP",
+        "x": 3250,
+        "y": 720,
+        "wires": [
+            [
+                "dbac813a.e7a9d"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "dbac813a.e7a9d",
+        "type": "function",
+        "z": "67bc88ef.745748",
+        "name": "Trim answer",
+        "func": "msg.payload = msg.payload.trim();\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 3450,
+        "y": 720,
+        "wires": [
+            [
+                "ee1a6bbf.721058"
+            ]
+        ]
+    },
+    {
+        "id": "9f30336.a6dabd",
+        "type": "exec",
+        "z": "67bc88ef.745748",
+        "command": "sudo ifconfig | grep 'inet' | grep '255.255.255.0' | cut -f2 -d: | awk '{print $1}'",
+        "addpay": false,
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "oldrc": true,
+        "name": "GET local IP",
+        "x": 2810,
+        "y": 1600,
+        "wires": [
+            [
+                "af799d09.77269"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "af799d09.77269",
+        "type": "function",
+        "z": "67bc88ef.745748",
+        "name": "Trim answer",
+        "func": "msg.payload = msg.payload.trim();\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 2970,
+        "y": 1600,
+        "wires": [
+            [
+                "1f79431b.5669fd"
+            ]
+        ]
+    },
+    {
+        "id": "cad229bb.150898",
+        "type": "comment",
+        "z": "67bc88ef.745748",
+        "name": "==================================TRIGGER FEEDBACK===================================",
+        "info": "",
+        "x": 885.2380981445312,
+        "y": 289.76194190979004,
+        "wires": []
+    },
+    {
+        "id": "14ea98e3.4c4537",
+        "type": "mqtt in",
+        "z": "67bc88ef.745748",
+        "name": "",
+        "topic": "hermes/hotword/default/detected",
+        "qos": "2",
+        "broker": "f965f064.1e786",
+        "x": 718.3333587646484,
+        "y": 211.66670417785645,
+        "wires": [
+            [
+                "22fb5e64.177aa2"
+            ]
+        ]
+    },
+    {
+        "id": "22fb5e64.177aa2",
+        "type": "link out",
+        "z": "67bc88ef.745748",
+        "name": "Trigger feedback IN",
+        "links": [
+            "5fbba336.23e5ec"
+        ],
+        "x": 1162.6189212799072,
+        "y": 211.66668891906738,
+        "wires": []
+    },
+    {
+        "id": "5fbba336.23e5ec",
+        "type": "link in",
+        "z": "67bc88ef.745748",
+        "name": "Trigger feedback OUT",
+        "links": [
+            "22fb5e64.177aa2"
+        ],
+        "x": 555,
+        "y": 340,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "36274876.e5f238",
+        "type": "exec",
+        "z": "67bc88ef.745748",
+        "command": "su pi -c \"aplay /usr/share/snips/snips_feedback/toc.wav\"",
+        "addpay": false,
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "oldrc": false,
+        "name": "Play Response",
+        "x": 700,
+        "y": 340,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "e33c4ac6.737bf8",
+        "type": "exec",
+        "z": "67bc88ef.745748",
+        "command": "",
+        "addpay": true,
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "oldrc": false,
+        "name": "Generate response",
+        "x": 2530,
+        "y": 2540,
+        "wires": [
+            [
+                "e28d0c.c91112f8"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "e28d0c.c91112f8",
+        "type": "exec",
+        "z": "67bc88ef.745748",
+        "command": "su pi -c \"mplayer /usr/share/snips/snips_feedback/response.wav\"",
+        "addpay": false,
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "oldrc": false,
+        "name": "Play Response",
+        "x": 2714.2857933044434,
+        "y": 2539.57137298584,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "cd34789d.4266a8",
+        "type": "function",
+        "z": "67bc88ef.745748",
+        "name": "Build command",
+        "func": "text = \nmsg.payload = \"pico2wave -w '/usr/share/snips/snips_feedback/response.wav' -l 'en-GB' '\" + msg.payload.text + \"'\";\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 2338.8286361694336,
+        "y": 2539.5713329315186,
+        "wires": [
+            [
+                "e33c4ac6.737bf8"
+            ]
+        ]
+    },
+    {
+        "id": "ac41457e.15d9c8",
+        "type": "exec",
+        "z": "67bc88ef.745748",
+        "command": "",
+        "addpay": true,
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "oldrc": false,
+        "name": "Generate response",
+        "x": 3350,
+        "y": 2460,
+        "wires": [
+            [
+                "8a9137f5.b2d278"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "8a9137f5.b2d278",
+        "type": "exec",
+        "z": "67bc88ef.745748",
+        "command": "su pi -c \"mplayer /usr/share/snips/snips_feedback/response.wav\"",
+        "addpay": false,
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "oldrc": false,
+        "name": "Play Response",
+        "x": 3534.2857933044434,
+        "y": 2459.57137298584,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "8d7852d1.b285f",
+        "type": "function",
+        "z": "67bc88ef.745748",
+        "name": "Build command",
+        "func": "text = \nmsg.payload = \"pico2wave -w '/usr/share/snips/snips_feedback/response.wav' -l 'en-GB' '\" + msg.payload.text + \"'\";\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 3158.8286361694336,
+        "y": 2459.5713329315186,
+        "wires": [
+            [
+                "ac41457e.15d9c8"
+            ]
+        ]
+    },
+    {
+        "id": "ce389014.831c9",
+        "type": "exec",
+        "z": "67bc88ef.745748",
+        "command": "",
+        "addpay": true,
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "oldrc": false,
+        "name": "Generate response",
+        "x": 2550,
+        "y": 1280,
+        "wires": [
+            [
+                "89914e3c.c7d59"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "89914e3c.c7d59",
+        "type": "exec",
+        "z": "67bc88ef.745748",
+        "command": "su pi -c \"mplayer /usr/share/snips/snips_feedback/response.wav\"",
+        "addpay": false,
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "oldrc": false,
+        "name": "Play Response",
+        "x": 2734.2857933044434,
+        "y": 1279.5713729858398,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "4e7ab522.78baec",
+        "type": "function",
+        "z": "67bc88ef.745748",
+        "name": "Build command",
+        "func": "text = \nmsg.payload = \"pico2wave -w '/usr/share/snips/snips_feedback/response.wav' -l 'en-GB' '\" + msg.payload.text + \"'\";\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 2358.8286361694336,
+        "y": 1279.5713329315186,
+        "wires": [
+            [
+                "ce389014.831c9"
+            ]
+        ]
+    },
+    {
+        "id": "6e41ebf9.7dfe94",
+        "type": "exec",
+        "z": "67bc88ef.745748",
+        "command": "",
+        "addpay": true,
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "oldrc": false,
+        "name": "Generate response",
+        "x": 3430,
+        "y": 1260,
+        "wires": [
+            [
+                "e925d0bc.fe469"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "e925d0bc.fe469",
+        "type": "exec",
+        "z": "67bc88ef.745748",
+        "command": "su pi -c \"mplayer /usr/share/snips/snips_feedback/response.wav\"",
+        "addpay": false,
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "oldrc": false,
+        "name": "Play Response",
+        "x": 3614.2857933044434,
+        "y": 1259.5713729858398,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "af874370.09b31",
+        "type": "function",
+        "z": "67bc88ef.745748",
+        "name": "Build command",
+        "func": "text = \nmsg.payload = \"pico2wave -w '/usr/share/snips/snips_feedback/response.wav' -l 'en-GB' '\" + msg.payload.text + \"'\";\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 3238.8286361694336,
+        "y": 1259.5713329315186,
+        "wires": [
+            [
+                "6e41ebf9.7dfe94"
+            ]
+        ]
+    },
+    {
+        "id": "4de74e87.39299",
+        "type": "function",
+        "z": "67bc88ef.745748",
+        "name": "endSession",
+        "func": "msg.payload = {\n    \"sessionId\": msg.payload.sessionId    \n};\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 2843.800090789795,
+        "y": 383.0000057220459,
+        "wires": [
+            [
+                "1eced01b.6c5ff"
+            ]
+        ]
+    },
+    {
+        "id": "1eced01b.6c5ff",
+        "type": "mqtt out",
+        "z": "67bc88ef.745748",
+        "name": "",
+        "topic": "hermes/dialogueManager/endSession",
+        "qos": "",
+        "retain": "",
+        "broker": "56fe4675.f76838",
+        "x": 3082.800048828125,
+        "y": 383,
+        "wires": []
+    },
+    {
+        "id": "c56743de.c4ab9",
+        "type": "delay",
+        "z": "67bc88ef.745748",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "250",
+        "timeoutUnits": "milliseconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "x": 2686.8000869750977,
+        "y": 383.0000057220459,
+        "wires": [
+            [
+                "4de74e87.39299"
+            ]
+        ]
+    },
+    {
+        "id": "f965f064.1e786",
+        "type": "mqtt-broker",
+        "z": "",
+        "broker": "localhost",
+        "port": "1883",
+        "clientid": "",
+        "usetls": false,
+        "compatmode": true,
+        "keepalive": "60",
+        "cleansession": true,
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": ""
+    },
+    {
+        "id": "56fe4675.f76838",
+        "type": "mqtt-broker",
+        "z": "",
+        "broker": "localhost",
+        "port": "1883",
+        "clientid": "",
+        "usetls": false,
+        "compatmode": true,
+        "keepalive": "60",
+        "cleansession": true,
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": ""
+    }
+]
