@@ -1,5 +1,5 @@
 [{
-      "name" : "English v0.1",
+      "name" : "v0: Control lights, thermostat, shutters. Known issue: delay between cmd",
       "info" : "This is Beta, bugreporting to jens@proknx.com",
       "url" : "https://raw.githubusercontent.com/proknx/node-red-lib/master/offline-voice-snips-en-v0.json"
    }
