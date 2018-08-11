@@ -1,238 +1,14 @@
 [
     {
-        "id": "731bbab.756f044",
-        "type": "tab",
-        "label": "Telegram Bot",
-        "disabled": false,
-        "info": ""
-    },
-    {
-        "id": "5f5d86f6.6a4218",
-        "type": "telegrambot-payload",
-        "z": "731bbab.756f044",
-        "name": "",
-        "bot": "4359293f.ca2928",
-        "chatId": "",
-        "sendMethod": "sendMessage",
-        "payload": "",
-        "x": 550,
-        "y": 689,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "94c6903d.94963",
-        "type": "telegrambot-command",
-        "z": "731bbab.756f044",
-        "bot": "4359293f.ca2928",
-        "command": "/help",
-        "commandType": "str",
-        "commandCase": false,
-        "x": 123,
-        "y": 514,
-        "wires": [
-            [
-                "bc8e510d.7425e"
-            ]
-        ]
-    },
-    {
-        "id": "c4d6057c.7b1898",
-        "type": "comment",
-        "z": "731bbab.756f044",
-        "name": "Help",
-        "info": "",
-        "x": 85,
-        "y": 473,
-        "wires": []
-    },
-    {
-        "id": "9683ad2a.77f16",
-        "type": "telegrambot-command",
-        "z": "731bbab.756f044",
-        "bot": "4359293f.ca2928",
-        "command": "help",
-        "commandType": "str",
-        "commandCase": false,
-        "x": 123,
-        "y": 563,
-        "wires": [
-            [
-                "bc8e510d.7425e"
-            ]
-        ]
-    },
-    {
-        "id": "dd869e0e.4718f",
-        "type": "telegrambot-command",
-        "z": "731bbab.756f044",
-        "bot": "4359293f.ca2928",
-        "command": "/start",
-        "commandType": "str",
-        "commandCase": false,
-        "x": 124,
-        "y": 610,
-        "wires": [
-            [
-                "bc8e510d.7425e"
-            ]
-        ]
-    },
-    {
-        "id": "7287a25e.e5450c",
-        "type": "http request",
-        "z": "731bbab.756f044",
-        "name": "GET devices",
-        "method": "GET",
-        "ret": "txt",
-        "url": "http://localhost:3000/rest/alexa/skill/items",
-        "tls": "",
-        "x": 395,
-        "y": 630,
-        "wires": [
-            [
-                "cddc63f0.7b20e"
-            ]
-        ]
-    },
-    {
-        "id": "a894d387.90bad",
-        "type": "change",
-        "z": "731bbab.756f044",
-        "name": "save",
-        "rules": [
-            {
-                "t": "move",
-                "p": "payload",
-                "pt": "msg",
-                "to": "proServIP",
-                "tot": "msg"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 819,
-        "y": 562,
-        "wires": [
-            [
-                "7287a25e.e5450c"
-            ]
-        ]
-    },
-    {
-        "id": "bc8e510d.7425e",
-        "type": "exec",
-        "z": "731bbab.756f044",
-        "command": "sudo ifconfig | grep 'inet' | grep '255.255.255.0' | cut -f2 -d: | awk '{print $1}'",
-        "addpay": false,
-        "append": "",
-        "useSpawn": "false",
-        "timer": "",
-        "oldrc": true,
-        "name": "GET local IP",
-        "x": 364,
-        "y": 561,
-        "wires": [
-            [
-                "2498e7e3.5c0dc8"
-            ],
-            [],
-            []
-        ]
-    },
-    {
-        "id": "2498e7e3.5c0dc8",
-        "type": "function",
-        "z": "731bbab.756f044",
-        "name": "Trim",
-        "func": "msg.payload = msg.payload.trim();\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 510,
-        "y": 562,
-        "wires": [
-            [
-                "ea51e8dc.83f368"
-            ]
-        ]
-    },
-    {
-        "id": "ea51e8dc.83f368",
-        "type": "http request",
-        "z": "731bbab.756f044",
-        "name": "GET ProServIP",
-        "method": "GET",
-        "ret": "txt",
-        "url": "http://{{{payload}}}:3000/proservip",
-        "tls": "",
-        "x": 666,
-        "y": 562,
-        "wires": [
-            [
-                "a894d387.90bad"
-            ]
-        ]
-    },
-    {
-        "id": "cddc63f0.7b20e",
-        "type": "json",
-        "z": "731bbab.756f044",
-        "name": "",
-        "pretty": false,
-        "x": 537,
-        "y": 629,
-        "wires": [
-            [
-                "e1a81200.51f7e"
-            ]
-        ]
-    },
-    {
-        "id": "e1a81200.51f7e",
-        "type": "function",
-        "z": "731bbab.756f044",
-        "name": "List_lights",
-        "func": "function findSwitchByKey(array, key, value) {\n    msg.payload.switch_lights = [];\n    var cpt = 0;\n    for (var i = 0; i < array.length; i++) {\n        if (array[i][key] === value) {\n            msg.payload.switch_lights[cpt] = array[i];\n            cpt ++;\n        }\n    }\n    return null;\n}\n\nfunction findDimmerByKey(array, key, value) {\n    msg.payload.dimmer_lights = [];\n    var cpt = 0;\n    for (var i = 0; i < array.length; i++) {\n        if (array[i][key] === value) {\n            msg.payload.dimmer_lights[cpt] = array[i];\n            cpt ++;\n        }\n    }\n    return null;\n}\n\nfindSwitchByKey(msg.payload, 'type', 'lights');\nfindDimmerByKey(msg.payload, 'type', 'dimmers');\n\nmsg.lights = msg.payload.switch_lights.concat(msg.payload.dimmer_lights);\n\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 668,
-        "y": 626,
-        "wires": [
-            [
-                "dd582be.56e87d8"
-            ]
-        ]
-    },
-    {
-        "id": "dd582be.56e87d8",
-        "type": "function",
-        "z": "731bbab.756f044",
-        "name": "build tg payload",
-        "func": "function pad(n, width, z) {\n  z = z || '0';\n  n = n + '';\n  return n.length >= width ? n : new Array(width - n.length + 1).join(z) + n;\n}\n\nmsg.lights.sort(function(a, b) {\n   return a.zone.localeCompare(b.zone);\n});\nflow.set(\"msg\", msg);\n\nvar text = '';\nvar curZone = '';\nfor (var i = 0; i < msg.lights.length; i++) {\n    if(curZone != msg.lights[i].zone){\n        curZone = msg.lights[i].zone;\n        text += '*' + curZone + '*\\n';\n    }\n    text += msg.lights[i].object + ': [/L' + pad(i,3) + ']\\n';\n}\n\nmsg.payload = {\n    \"text\": text,\n    \"parse_mode\": \"Markdown\"\n}\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 834,
-        "y": 626,
-        "wires": [
-            [
-                "5f5d86f6.6a4218"
-            ]
-        ]
-    },
-    {
         "id": "5c0df4a1.37d4ec",
         "type": "telegrambot-command",
-        "z": "731bbab.756f044",
+        "z": "d81dbbbb.358bb8",
         "bot": "4359293f.ca2928",
         "command": "/L.",
         "commandType": "re",
         "commandCase": false,
-        "x": 136,
-        "y": 113,
+        "x": 140,
+        "y": 440,
         "wires": [
             [
                 "e3010db4.0a32e"
@@ -242,7 +18,7 @@
     {
         "id": "e3010db4.0a32e",
         "type": "change",
-        "z": "731bbab.756f044",
+        "z": "d81dbbbb.358bb8",
         "name": "save",
         "rules": [
             {
@@ -265,8 +41,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 214,
-        "y": 155,
+        "x": 330,
+        "y": 440,
         "wires": [
             [
                 "dfb37749.0d1098"
@@ -276,28 +52,28 @@
     {
         "id": "a5a5151e.70e398",
         "type": "telegrambot-switch",
-        "z": "731bbab.756f044",
-        "name": "light",
+        "z": "d81dbbbb.358bb8",
+        "name": "ON/OFF",
         "bot": "4359293f.ca2928",
         "chatId": "",
         "question": "",
         "answers": [
-            "Turn ON",
             "Turn OFF",
+            "Turn ON",
             "Skip"
         ],
         "outputs": 4,
         "autoAnswerCallback": true,
         "timeoutValue": "60",
         "timeoutUnits": "s",
-        "x": 121,
-        "y": 342,
+        "x": 262,
+        "y": 529,
         "wires": [
             [
-                "adb179d2.c859a8"
+                "4b2bedb9.960c64"
             ],
             [
-                "4b2bedb9.960c64"
+                "adb179d2.c859a8"
             ],
             [
                 "d8791843.cca6f8"
@@ -305,12 +81,18 @@
             [
                 "47b1a9a3.6356c8"
             ]
+        ],
+        "outputLabels": [
+            "Off",
+            "On",
+            "Skip",
+            ""
         ]
     },
     {
         "id": "d8791843.cca6f8",
         "type": "change",
-        "z": "731bbab.756f044",
+        "z": "d81dbbbb.358bb8",
         "name": "skip",
         "rules": [
             {
@@ -333,8 +115,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 331,
-        "y": 311,
+        "x": 500,
+        "y": 765,
         "wires": [
             [
                 "e84b5123.46e6"
@@ -344,7 +126,7 @@
     {
         "id": "47b1a9a3.6356c8",
         "type": "change",
-        "z": "731bbab.756f044",
+        "z": "d81dbbbb.358bb8",
         "name": "timeout",
         "rules": [
             {
@@ -367,8 +149,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 343,
-        "y": 351,
+        "x": 498,
+        "y": 806,
         "wires": [
             [
                 "e84b5123.46e6"
@@ -378,142 +160,80 @@
     {
         "id": "e84b5123.46e6",
         "type": "telegrambot-notify",
-        "z": "731bbab.756f044",
+        "z": "d81dbbbb.358bb8",
         "name": "",
         "bot": "4359293f.ca2928",
         "chatId": "flow.chat.id",
         "message": "",
         "parseMode": "",
-        "x": 644,
-        "y": 312,
+        "x": 764,
+        "y": 841,
         "wires": []
     },
     {
         "id": "3b9f7b94.cf49a4",
         "type": "function",
-        "z": "731bbab.756f044",
-        "name": "Prepare_request",
-        "func": "var mergedmsg = {};\nvar savedmsg = flow.get(\"msg\");\nfor(var key in msg) mergedmsg[key] = msg[key];\nfor(var key in savedmsg) mergedmsg[key] = savedmsg[key];\nmsg = mergedmsg;\n\nmsg.cmd = {};\nmsg.cmd.cmd = msg.op;\nvar id = parseInt(flow.get(\"deviceID\").substring(2));\nmsg.items = [];\nmsg.items[0] = msg.lights[id];\n\nfunction precisionRound(number, precision) {\n  var factor = Math.pow(10, precision);\n  return Math.round(number * factor) / factor;\n}\n\n\n//Prepare all HTTP requests for \"SET\" commands and put them in msg.url\nmsg.url = [];\nif (msg.cmd.value !== undefined) {\n   \tfor (var i = 0; i < msg.items.length; i++) {\n   \t\tif (msg.items[i].type === \"dimmers\") {\n   \t\t\tvar val = msg.cmd.value*2.55;\n   \t\t\tval = precisionRound(val, 1);\n   \t\t\tmsg.items[i].setDimUrl = msg.items[i].setDimUrl.replace(\"${intensity.byte}\", '');\n   \t\t\tmsg.url[i] = [msg.proServIP, msg.items[i].setDimUrl, val];\n   \t\t\tmsg.url[i] = \"\".concat(...msg.url[i]);\n   \t\t} \n   \t\telse if (msg.cmd.value > 0) {\n\t\t    msg.url[i] = [msg.proServIP, msg.items[i].setOnUrl];\n   \t\t    msg.url[i] = \"\".concat(...msg.url[i]);\n   \t\t}\n   \t\telse {\n\t    \tmsg.url[i] = [msg.proServIP, msg.items[i].setOffUrl];\n   \t\t    msg.url[i] = \"\".concat(...msg.url[i]);\n   \t\t}\n\t}\n}\nelse if (msg.cmd.cmd === \"get\") {\n\tfor (var i = 0; i < msg.items.length; i++) {\n\t\tmsg.url[i] = [msg.proServIP, msg.items[i].getCurrentUrl];\n   \t\tmsg.url[i] = \"\".concat(...msg.url[i]);\n\t}\n}\nelse if (msg.cmd.cmd === \"on\") {\n\tfor (var i = 0; i < msg.items.length; i++) {\n\t\tmsg.url[i] = [msg.proServIP, msg.items[i].setOnUrl];\n   \t\tmsg.url[i] = \"\".concat(...msg.url[i]);\n\t}\n}\nelse if (msg.cmd.cmd === \"off\") {\n\tfor (var i = 0; i < msg.items.length; i++) {\n\t\tmsg.url[i] = [msg.proServIP, msg.items[i].setOffUrl];\n   \t\tmsg.url[i] = \"\".concat(...msg.url[i]);\n\t}\n} else if (msg.cmd.cmd !== \"on\" && msg.cmd.cmd !== \"off\" && msg.cmd.cmd !== \"increase\" && msg.cmd.cmd !== \"decrease\") {\n   msg.error = {\n        text: \"Sorry I did not understand your command\",\n        siteId: msg.cmd.siteId\n    }; \n}\n\nif (msg.url[0] === undefined && msg.error === undefined) {\n    msg.error = {\n        text: \"Sorry I can not find this device\"\n    };\n}\n\nreturn msg;",
+        "z": "d81dbbbb.358bb8",
+        "name": "Prep req.",
+        "func": "var mergedmsg = {};\nvar msgDeviceInfo = flow.get(\"msgDeviceInfo\");\nfor(var key in msg) mergedmsg[key] = msg[key];\nfor(var key in msgDeviceInfo) mergedmsg[key] = msgDeviceInfo[key];\nmsg = mergedmsg;\n\nif (msg.cmd === undefined)\n    msg.cmd = {};\nmsg.cmd.cmd = msg.op;\nvar id = parseInt(flow.get(\"deviceID\").substring(2));\nmsg.items = [];\nmsg.items[0] = msg.lights[id];\n\nfunction precisionRound(number, precision) {\n  var factor = Math.pow(10, precision);\n  return Math.round(number * factor) / factor;\n}\n\n\n//Prepare all HTTP requests for \"SET\" commands and put them in msg.url\nmsg.url = [];\nif (msg.cmd.value !== undefined) {\n   \tfor (var i = 0; i < msg.items.length; i++) {\n   \t\tif (msg.items[i].type === \"dimmers\") {\n   \t\t\tvar val = msg.cmd.value*2.55;\n   \t\t\tval = precisionRound(val, 1);\n   \t\t\tmsg.items[i].setDimUrl = msg.items[i].setDimUrl.replace(\"${intensity.byte}\", '');\n   \t\t\tmsg.url[i] = [msg.proServIP, msg.items[i].setDimUrl, val];\n   \t\t\tmsg.url[i] = \"\".concat(...msg.url[i]);\n   \t\t} \n   \t\telse if (msg.cmd.value > 0) {\n\t\t    msg.url[i] = [msg.proServIP, msg.items[i].setOnUrl];\n   \t\t    msg.url[i] = \"\".concat(...msg.url[i]);\n   \t\t}\n   \t\telse {\n\t    \tmsg.url[i] = [msg.proServIP, msg.items[i].setOffUrl];\n   \t\t    msg.url[i] = \"\".concat(...msg.url[i]);\n   \t\t}\n\t}\n}\nelse if (msg.cmd.cmd === \"get\") {\n\tfor (var i = 0; i < msg.items.length; i++) {\n\t\tmsg.url[i] = [msg.proServIP, msg.items[i].getCurrentUrl];\n   \t\tmsg.url[i] = \"\".concat(...msg.url[i]);\n\t}\n}\nelse if (msg.cmd.cmd === \"on\") {\n\tfor (var i = 0; i < msg.items.length; i++) {\n\t\tmsg.url[i] = [msg.proServIP, msg.items[i].setOnUrl];\n   \t\tmsg.url[i] = \"\".concat(...msg.url[i]);\n\t}\n}\nelse if (msg.cmd.cmd === \"off\") {\n\tfor (var i = 0; i < msg.items.length; i++) {\n\t\tmsg.url[i] = [msg.proServIP, msg.items[i].setOffUrl];\n   \t\tmsg.url[i] = \"\".concat(...msg.url[i]);\n\t}\n} else if (msg.cmd.cmd !== \"on\" && msg.cmd.cmd !== \"off\" && msg.cmd.cmd !== \"increase\" && msg.cmd.cmd !== \"decrease\") {\n   msg.error = {\n        text: \"Sorry I did not understand your command\",\n        siteId: msg.cmd.siteId\n    }; \n}\n\nif (msg.url[0] === undefined && msg.error === undefined) {\n    msg.error = {\n        text: \"Sorry I can not find this device\"\n    };\n}\n//msg.payload = msg.url;\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 577,
-        "y": 154,
+        "x": 714,
+        "y": 440,
         "wires": [
             [
-                "5d17a685.89fe48"
+                "c2216816.4f5428"
             ]
         ]
     },
     {
         "id": "588982.8299368",
         "type": "http request",
-        "z": "731bbab.756f044",
+        "z": "d81dbbbb.358bb8",
         "name": "Send URL",
         "method": "GET",
         "ret": "obj",
         "url": "{{{payload}}}",
         "tls": "",
-        "x": 928,
-        "y": 332,
+        "x": 818,
+        "y": 653,
         "wires": [
             [
-                "9d179a31.adb7e8"
-            ]
-        ]
-    },
-    {
-        "id": "21e09d3b.524e02",
-        "type": "split",
-        "z": "731bbab.756f044",
-        "name": "",
-        "splt": "\\n",
-        "spltType": "str",
-        "arraySplt": 1,
-        "arraySpltType": "len",
-        "stream": false,
-        "addname": "",
-        "x": 754,
-        "y": 243,
-        "wires": [
-            [
-                "75364592.c89e6c"
-            ]
-        ]
-    },
-    {
-        "id": "5d17a685.89fe48",
-        "type": "change",
-        "z": "731bbab.756f044",
-        "name": "save",
-        "rules": [
-            {
-                "t": "move",
-                "p": "url",
-                "pt": "msg",
-                "to": "payload",
-                "tot": "msg"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 682,
-        "y": 199,
-        "wires": [
-            [
-                "21e09d3b.524e02"
-            ]
-        ]
-    },
-    {
-        "id": "75364592.c89e6c",
-        "type": "delay",
-        "z": "731bbab.756f044",
-        "name": "delay",
-        "pauseType": "delay",
-        "timeout": "50",
-        "timeoutUnits": "milliseconds",
-        "rate": "1",
-        "nbRateUnits": "1",
-        "rateUnits": "second",
-        "randomFirst": "1",
-        "randomLast": "5",
-        "randomUnits": "seconds",
-        "drop": false,
-        "x": 828,
-        "y": 285,
-        "wires": [
-            [
-                "588982.8299368"
+                "cb46f567.699948"
             ]
         ]
     },
     {
         "id": "9d179a31.adb7e8",
         "type": "function",
-        "z": "731bbab.756f044",
+        "z": "d81dbbbb.358bb8",
         "name": "Feedback",
-        "func": "var name = msg.items[0].name.replace(\"  \",\"\");\n\nif(msg.op != \"get\"){\n    var id = flow.get(\"deviceID\");\n    if (msg.payload.Result === true) {\n        msg.payload = name + \" is \" + msg.op.toUpperCase() + '   ' + id + '   /start';\n    }\n    else if (msg.payload.Result === \"false\") {\n        msg.payload = \" The request failed.  /start\";\n    }\n    else {\n        msg.payload = \"The server is not responding  /start\";\n    }\n    return [msg, null];\n} else {\n    var txt ;\n    if(msg.payload.Data[0].Value === true){\n        txt = name + \" is ON\";\n    }\n    else if(msg.payload.Data[0].Value === false){\n        txt = name + \" is OFF\";\n    }\n    else {\n        var val = Math.round(msg.payload.Data[0].Value*100/255);\n        txt = name + \" is set to \" + val + \" %\";\n    }\n    msg.payload = txt;\n    return [null, msg]\n}\n\n",
-        "outputs": "2",
+        "func": "var name = msg.items[0].name.replace(\"  \",\"\");\n\nif( msg.op != \"get\" ){\n    var id = flow.get(\"deviceID\");\n    if (msg.payload.Result === true) {\n        var val = \"\";\n        if(msg.op === \"set\")\n            msg.payload = name + \" is set to \" + msg.cmd.value + '%   ' + id + '   /start';\n        else        \n            msg.payload = name + \" is \" + msg.op.toUpperCase() + '   ' + id + '   /start';\n    }\n    else if (msg.payload.Result === \"false\") {\n        msg.payload = \" The request failed.  /start\";\n    }\n    else {\n        msg.payload = \"The server is not responding  /start\";\n    }\n    msg.op = '';\n    return [msg, null, null];\n} else {\n    var txt = '';\n    var isDimmer = false;\n    if(msg.payload.Data[0].Value === true){\n        txt = name + \" is ON\";\n    }\n    else if(msg.payload.Data[0].Value === false){\n        txt = name + \" is OFF\";\n    }\n    else {\n        var val = Math.round(msg.payload.Data[0].Value*100/255);\n        txt = name + \" is set to \" + val + \" %\";\n        isDimmer = true;\n    }\n    msg.op = '';\n    msg.payload = txt;\n    if(isDimmer === true){\n        return [null, null, msg]\n    }\n    else {\n        return [null, msg, null]\n    }\n}\n\n",
+        "outputs": "3",
         "noerr": 0,
-        "x": 503,
-        "y": 459,
+        "x": 115,
+        "y": 856,
         "wires": [
             [
                 "e84b5123.46e6"
             ],
             [
-                "16fb41.d3e534bf",
                 "a5a5151e.70e398"
+            ],
+            [
+                "ef907206.aa2bb"
             ]
+        ],
+        "outputLabels": [
+            "get",
+            "ON/OFF",
+            "Dimmer"
         ]
     },
     {
         "id": "adb179d2.c859a8",
         "type": "change",
-        "z": "731bbab.756f044",
+        "z": "d81dbbbb.358bb8",
         "name": "on",
         "rules": [
             {
@@ -529,8 +249,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 332,
-        "y": 231,
+        "x": 500,
+        "y": 479,
         "wires": [
             [
                 "3b9f7b94.cf49a4"
@@ -540,7 +260,7 @@
     {
         "id": "4b2bedb9.960c64",
         "type": "change",
-        "z": "731bbab.756f044",
+        "z": "d81dbbbb.358bb8",
         "name": "off",
         "rules": [
             {
@@ -556,8 +276,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 333,
-        "y": 271,
+        "x": 501,
+        "y": 519,
         "wires": [
             [
                 "3b9f7b94.cf49a4"
@@ -565,21 +285,9 @@
         ]
     },
     {
-        "id": "16fb41.d3e534bf",
-        "type": "debug",
-        "z": "731bbab.756f044",
-        "name": "",
-        "active": false,
-        "console": "false",
-        "complete": "true",
-        "x": 748,
-        "y": 464,
-        "wires": []
-    },
-    {
         "id": "dfb37749.0d1098",
         "type": "change",
-        "z": "731bbab.756f044",
+        "z": "d81dbbbb.358bb8",
         "name": "get",
         "rules": [
             {
@@ -595,8 +303,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 330,
-        "y": 192,
+        "x": 498,
+        "y": 440,
         "wires": [
             [
                 "3b9f7b94.cf49a4"
@@ -604,9 +312,558 @@
         ]
     },
     {
+        "id": "ef907206.aa2bb",
+        "type": "telegrambot-switch",
+        "z": "d81dbbbb.358bb8",
+        "name": "Dimmer",
+        "bot": "4359293f.ca2928",
+        "chatId": "",
+        "question": "",
+        "answers": [
+            "0%",
+            "25%",
+            "50%",
+            "75%",
+            "100%",
+            "Skip"
+        ],
+        "outputs": 7,
+        "autoAnswerCallback": true,
+        "timeoutValue": "60",
+        "timeoutUnits": "s",
+        "x": 276,
+        "y": 662,
+        "wires": [
+            [
+                "45359fec.1dbfb"
+            ],
+            [
+                "a17a91ae.ff166"
+            ],
+            [
+                "e58bf95.eec4908"
+            ],
+            [
+                "3d057a14.286716"
+            ],
+            [
+                "8d99a9f0.2e9b18"
+            ],
+            [
+                "d8791843.cca6f8"
+            ],
+            [
+                "47b1a9a3.6356c8"
+            ]
+        ],
+        "outputLabels": [
+            "0%",
+            "25%",
+            "50%",
+            "75%",
+            "100%",
+            "Skip",
+            ""
+        ]
+    },
+    {
+        "id": "a17a91ae.ff166",
+        "type": "change",
+        "z": "d81dbbbb.358bb8",
+        "name": "25%",
+        "rules": [
+            {
+                "t": "set",
+                "p": "cmd.value",
+                "pt": "msg",
+                "to": "25",
+                "tot": "num"
+            },
+            {
+                "t": "set",
+                "p": "op",
+                "pt": "msg",
+                "to": "set",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 499,
+        "y": 597,
+        "wires": [
+            [
+                "3b9f7b94.cf49a4"
+            ]
+        ]
+    },
+    {
+        "id": "cb46f567.699948",
+        "type": "link out",
+        "z": "d81dbbbb.358bb8",
+        "name": "Send URL OUT",
+        "links": [
+            "5a879407.61466c"
+        ],
+        "x": 916,
+        "y": 679,
+        "wires": []
+    },
+    {
+        "id": "5a879407.61466c",
+        "type": "link in",
+        "z": "d81dbbbb.358bb8",
+        "name": "Send URL IN",
+        "links": [
+            "cb46f567.699948"
+        ],
+        "x": 66,
+        "y": 776,
+        "wires": [
+            [
+                "9d179a31.adb7e8"
+            ]
+        ]
+    },
+    {
+        "id": "c2216816.4f5428",
+        "type": "change",
+        "z": "d81dbbbb.358bb8",
+        "name": "url -> payload",
+        "rules": [
+            {
+                "t": "move",
+                "p": "url",
+                "pt": "msg",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 789,
+        "y": 494,
+        "wires": [
+            [
+                "9d97623a.7e088"
+            ]
+        ]
+    },
+    {
+        "id": "9d97623a.7e088",
+        "type": "split",
+        "z": "d81dbbbb.358bb8",
+        "name": "",
+        "splt": "\\n",
+        "spltType": "str",
+        "arraySplt": 1,
+        "arraySpltType": "len",
+        "stream": false,
+        "addname": "",
+        "x": 893,
+        "y": 542,
+        "wires": [
+            [
+                "a64ac1f2.1bf12"
+            ]
+        ]
+    },
+    {
+        "id": "a64ac1f2.1bf12",
+        "type": "delay",
+        "z": "d81dbbbb.358bb8",
+        "name": "delay",
+        "pauseType": "delay",
+        "timeout": "50",
+        "timeoutUnits": "milliseconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "x": 746,
+        "y": 604,
+        "wires": [
+            [
+                "588982.8299368"
+            ]
+        ]
+    },
+    {
+        "id": "45359fec.1dbfb",
+        "type": "change",
+        "z": "d81dbbbb.358bb8",
+        "name": "0%",
+        "rules": [
+            {
+                "t": "set",
+                "p": "cmd.value",
+                "pt": "msg",
+                "to": "0",
+                "tot": "num"
+            },
+            {
+                "t": "set",
+                "p": "op",
+                "pt": "msg",
+                "to": "set",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 501,
+        "y": 557,
+        "wires": [
+            [
+                "3b9f7b94.cf49a4"
+            ]
+        ]
+    },
+    {
+        "id": "3d057a14.286716",
+        "type": "change",
+        "z": "d81dbbbb.358bb8",
+        "name": "75%",
+        "rules": [
+            {
+                "t": "set",
+                "p": "cmd.value",
+                "pt": "msg",
+                "to": "75",
+                "tot": "num"
+            },
+            {
+                "t": "set",
+                "p": "op",
+                "pt": "msg",
+                "to": "set",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 498,
+        "y": 679,
+        "wires": [
+            [
+                "3b9f7b94.cf49a4"
+            ]
+        ]
+    },
+    {
+        "id": "8d99a9f0.2e9b18",
+        "type": "change",
+        "z": "d81dbbbb.358bb8",
+        "name": "100%",
+        "rules": [
+            {
+                "t": "set",
+                "p": "cmd.value",
+                "pt": "msg",
+                "to": "100",
+                "tot": "num"
+            },
+            {
+                "t": "set",
+                "p": "op",
+                "pt": "msg",
+                "to": "set",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 500,
+        "y": 720,
+        "wires": [
+            [
+                "3b9f7b94.cf49a4"
+            ]
+        ]
+    },
+    {
+        "id": "e58bf95.eec4908",
+        "type": "change",
+        "z": "d81dbbbb.358bb8",
+        "name": "50%",
+        "rules": [
+            {
+                "t": "set",
+                "p": "cmd.value",
+                "pt": "msg",
+                "to": "50",
+                "tot": "num"
+            },
+            {
+                "t": "set",
+                "p": "op",
+                "pt": "msg",
+                "to": "set",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 501,
+        "y": 638,
+        "wires": [
+            [
+                "3b9f7b94.cf49a4"
+            ]
+        ]
+    },
+    {
+        "id": "9e29896c.866588",
+        "type": "telegrambot-payload",
+        "z": "d81dbbbb.358bb8",
+        "name": "",
+        "bot": "4359293f.ca2928",
+        "chatId": "",
+        "sendMethod": "sendMessage",
+        "payload": "",
+        "x": 565,
+        "y": 310,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "e6ec87d8.58bc28",
+        "type": "telegrambot-command",
+        "z": "d81dbbbb.358bb8",
+        "bot": "4359293f.ca2928",
+        "command": "/help",
+        "commandType": "str",
+        "commandCase": false,
+        "x": 140,
+        "y": 135,
+        "wires": [
+            [
+                "ffa4ad9a.15928"
+            ]
+        ]
+    },
+    {
+        "id": "3b273bd8.c5cc64",
+        "type": "comment",
+        "z": "d81dbbbb.358bb8",
+        "name": "Handler for Help & Start cmd",
+        "info": "",
+        "x": 170,
+        "y": 94,
+        "wires": []
+    },
+    {
+        "id": "39909b14.4ee584",
+        "type": "telegrambot-command",
+        "z": "d81dbbbb.358bb8",
+        "bot": "4359293f.ca2928",
+        "command": "help",
+        "commandType": "str",
+        "commandCase": false,
+        "x": 138,
+        "y": 184,
+        "wires": [
+            [
+                "ffa4ad9a.15928"
+            ]
+        ]
+    },
+    {
+        "id": "dd16313f.f6927",
+        "type": "telegrambot-command",
+        "z": "d81dbbbb.358bb8",
+        "bot": "4359293f.ca2928",
+        "command": "/start",
+        "commandType": "str",
+        "commandCase": false,
+        "x": 139,
+        "y": 231,
+        "wires": [
+            [
+                "ffa4ad9a.15928"
+            ]
+        ]
+    },
+    {
+        "id": "17da831e.c7e29d",
+        "type": "http request",
+        "z": "d81dbbbb.358bb8",
+        "name": "GET devices",
+        "method": "GET",
+        "ret": "txt",
+        "url": "http://localhost:3000/rest/alexa/skill/items",
+        "tls": "",
+        "x": 410,
+        "y": 251,
+        "wires": [
+            [
+                "b66eed5d.0d0a4"
+            ]
+        ]
+    },
+    {
+        "id": "6acb9c62.2445d4",
+        "type": "change",
+        "z": "d81dbbbb.358bb8",
+        "name": "save",
+        "rules": [
+            {
+                "t": "move",
+                "p": "payload",
+                "pt": "msg",
+                "to": "proServIP",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 834,
+        "y": 183,
+        "wires": [
+            [
+                "17da831e.c7e29d"
+            ]
+        ]
+    },
+    {
+        "id": "ffa4ad9a.15928",
+        "type": "exec",
+        "z": "d81dbbbb.358bb8",
+        "command": "sudo ifconfig | grep 'inet' | grep '255.255.255.0' | cut -f2 -d: | awk '{print $1}'",
+        "addpay": false,
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "oldrc": true,
+        "name": "GET local IP",
+        "x": 379,
+        "y": 182,
+        "wires": [
+            [
+                "9d4b05e9.7f01c8"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "9d4b05e9.7f01c8",
+        "type": "function",
+        "z": "d81dbbbb.358bb8",
+        "name": "Trim",
+        "func": "msg.payload = msg.payload.trim();\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 525,
+        "y": 183,
+        "wires": [
+            [
+                "3c006a6.630c696"
+            ]
+        ]
+    },
+    {
+        "id": "3c006a6.630c696",
+        "type": "http request",
+        "z": "d81dbbbb.358bb8",
+        "name": "GET ProServIP",
+        "method": "GET",
+        "ret": "txt",
+        "url": "http://{{{payload}}}:3000/proservip",
+        "tls": "",
+        "x": 681,
+        "y": 183,
+        "wires": [
+            [
+                "6acb9c62.2445d4"
+            ]
+        ]
+    },
+    {
+        "id": "b66eed5d.0d0a4",
+        "type": "json",
+        "z": "d81dbbbb.358bb8",
+        "name": "",
+        "pretty": false,
+        "x": 552,
+        "y": 250,
+        "wires": [
+            [
+                "80af19a3.e6cd78"
+            ]
+        ]
+    },
+    {
+        "id": "80af19a3.e6cd78",
+        "type": "function",
+        "z": "d81dbbbb.358bb8",
+        "name": "List_lights",
+        "func": "function findSwitchByKey(array, key, value) {\n    msg.payload.switch_lights = [];\n    var cpt = 0;\n    for (var i = 0; i < array.length; i++) {\n        if (array[i][key] === value) {\n            msg.payload.switch_lights[cpt] = array[i];\n            cpt ++;\n        }\n    }\n    return null;\n}\n\nfunction findDimmerByKey(array, key, value) {\n    msg.payload.dimmer_lights = [];\n    var cpt = 0;\n    for (var i = 0; i < array.length; i++) {\n        if (array[i][key] === value) {\n            msg.payload.dimmer_lights[cpt] = array[i];\n            cpt ++;\n        }\n    }\n    return null;\n}\n\nfindSwitchByKey(msg.payload, 'type', 'lights');\nfindDimmerByKey(msg.payload, 'type', 'dimmers');\n\nmsg.lights = msg.payload.switch_lights.concat(msg.payload.dimmer_lights);\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 683,
+        "y": 247,
+        "wires": [
+            [
+                "b82f621e.db691"
+            ]
+        ]
+    },
+    {
+        "id": "b82f621e.db691",
+        "type": "function",
+        "z": "d81dbbbb.358bb8",
+        "name": "build tg payload",
+        "func": "function pad(n, width, z) {\n  z = z || '0';\n  n = n + '';\n  return n.length >= width ? n : new Array(width - n.length + 1).join(z) + n;\n}\n\nmsg.lights.sort(function(a, b) {\n   return a.zone.localeCompare(b.zone);\n});\nflow.set(\"msgDeviceInfo\", msg); // save for later use\n\nvar text = '';\nvar curZone = '';\nfor (var i = 0; i < msg.lights.length; i++) {\n    if(curZone != msg.lights[i].zone){\n        curZone = msg.lights[i].zone;\n        text += '*' + curZone + '*\\n';\n    }\n    text += msg.lights[i].object + ': [/L' + pad(i,3) + ']\\n';\n}\n\nmsg.payload = {\n    \"text\": text,\n    \"parse_mode\": \"Markdown\"\n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 849,
+        "y": 247,
+        "wires": [
+            [
+                "9e29896c.866588"
+            ]
+        ]
+    },
+    {
+        "id": "652a1a02.d734b4",
+        "type": "comment",
+        "z": "d81dbbbb.358bb8",
+        "name": "Handler for /L command",
+        "info": "",
+        "x": 149,
+        "y": 388,
+        "wires": []
+    },
+    {
         "id": "4359293f.ca2928",
         "type": "telegrambot-config",
-        "z": "",
+        "z": "d81dbbbb.358bb8",
         "botname": "proknx_bot",
         "usernames": "",
         "chatIds": "",
