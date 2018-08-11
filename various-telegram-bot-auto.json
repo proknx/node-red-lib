@@ -1,5 +1,12 @@
 [
     {
+        "id": "d81dbbbb.358bb8",
+        "type": "tab",
+        "label": "Telegram Bot",
+        "disabled": false,
+        "info": ""
+    },
+    {
         "id": "5c0df4a1.37d4ec",
         "type": "telegrambot-command",
         "z": "d81dbbbb.358bb8",
