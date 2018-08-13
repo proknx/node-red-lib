@@ -1,6 +1,6 @@
 [
     {
-        "id": "d81dbbbb.358bb8",
+        "id": "85a4929a.0b1e",
         "type": "tab",
         "label": "Telegram Bot",
         "disabled": false,
@@ -9,23 +9,23 @@
     {
         "id": "5c0df4a1.37d4ec",
         "type": "telegrambot-command",
-        "z": "d81dbbbb.358bb8",
+        "z": "85a4929a.0b1e",
         "bot": "4359293f.ca2928",
         "command": "/L.",
         "commandType": "re",
         "commandCase": false,
         "x": 140,
-        "y": 440,
+        "y": 445,
         "wires": [
             [
-                "e3010db4.0a32e"
+                "62b78522.1ffdec"
             ]
         ]
     },
     {
         "id": "e3010db4.0a32e",
         "type": "change",
-        "z": "d81dbbbb.358bb8",
+        "z": "85a4929a.0b1e",
         "name": "save",
         "rules": [
             {
@@ -48,8 +48,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 330,
-        "y": 440,
+        "x": 365,
+        "y": 445,
         "wires": [
             [
                 "dfb37749.0d1098"
@@ -59,7 +59,7 @@
     {
         "id": "a5a5151e.70e398",
         "type": "telegrambot-switch",
-        "z": "d81dbbbb.358bb8",
+        "z": "85a4929a.0b1e",
         "name": "ON/OFF",
         "bot": "4359293f.ca2928",
         "chatId": "",
@@ -71,10 +71,10 @@
         ],
         "outputs": 4,
         "autoAnswerCallback": true,
-        "timeoutValue": "60",
+        "timeoutValue": "20",
         "timeoutUnits": "s",
-        "x": 262,
-        "y": 529,
+        "x": 275,
+        "y": 565,
         "wires": [
             [
                 "4b2bedb9.960c64"
@@ -99,7 +99,7 @@
     {
         "id": "d8791843.cca6f8",
         "type": "change",
-        "z": "d81dbbbb.358bb8",
+        "z": "85a4929a.0b1e",
         "name": "skip",
         "rules": [
             {
@@ -123,17 +123,18 @@
         "to": "",
         "reg": false,
         "x": 500,
-        "y": 765,
+        "y": 760,
         "wires": [
             [
-                "e84b5123.46e6"
+                "e84b5123.46e6",
+                "c06abf73.f337c"
             ]
         ]
     },
     {
         "id": "47b1a9a3.6356c8",
         "type": "change",
-        "z": "d81dbbbb.358bb8",
+        "z": "85a4929a.0b1e",
         "name": "timeout",
         "rules": [
             {
@@ -156,36 +157,36 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 498,
-        "y": 806,
+        "x": 495,
+        "y": 800,
         "wires": [
             [
-                "e84b5123.46e6"
+                "c06abf73.f337c"
             ]
         ]
     },
     {
         "id": "e84b5123.46e6",
         "type": "telegrambot-notify",
-        "z": "d81dbbbb.358bb8",
+        "z": "85a4929a.0b1e",
         "name": "",
         "bot": "4359293f.ca2928",
         "chatId": "flow.chat.id",
         "message": "",
         "parseMode": "",
-        "x": 764,
-        "y": 841,
+        "x": 770,
+        "y": 865,
         "wires": []
     },
     {
         "id": "3b9f7b94.cf49a4",
         "type": "function",
-        "z": "d81dbbbb.358bb8",
+        "z": "85a4929a.0b1e",
         "name": "Prep req.",
         "func": "var mergedmsg = {};\nvar msgDeviceInfo = flow.get(\"msgDeviceInfo\");\nfor(var key in msg) mergedmsg[key] = msg[key];\nfor(var key in msgDeviceInfo) mergedmsg[key] = msgDeviceInfo[key];\nmsg = mergedmsg;\n\nif (msg.cmd === undefined)\n    msg.cmd = {};\nmsg.cmd.cmd = msg.op;\nvar id = parseInt(flow.get(\"deviceID\").substring(2));\nmsg.items = [];\nmsg.items[0] = msg.lights[id];\n\nfunction precisionRound(number, precision) {\n  var factor = Math.pow(10, precision);\n  return Math.round(number * factor) / factor;\n}\n\n\n//Prepare all HTTP requests for \"SET\" commands and put them in msg.url\nmsg.url = [];\nif (msg.cmd.value !== undefined) {\n   \tfor (var i = 0; i < msg.items.length; i++) {\n   \t\tif (msg.items[i].type === \"dimmers\") {\n   \t\t\tvar val = msg.cmd.value*2.55;\n   \t\t\tval = precisionRound(val, 1);\n   \t\t\tmsg.items[i].setDimUrl = msg.items[i].setDimUrl.replace(\"${intensity.byte}\", '');\n   \t\t\tmsg.url[i] = [msg.proServIP, msg.items[i].setDimUrl, val];\n   \t\t\tmsg.url[i] = \"\".concat(...msg.url[i]);\n   \t\t} \n   \t\telse if (msg.cmd.value > 0) {\n\t\t    msg.url[i] = [msg.proServIP, msg.items[i].setOnUrl];\n   \t\t    msg.url[i] = \"\".concat(...msg.url[i]);\n   \t\t}\n   \t\telse {\n\t    \tmsg.url[i] = [msg.proServIP, msg.items[i].setOffUrl];\n   \t\t    msg.url[i] = \"\".concat(...msg.url[i]);\n   \t\t}\n\t}\n}\nelse if (msg.cmd.cmd === \"get\") {\n\tfor (var i = 0; i < msg.items.length; i++) {\n\t\tmsg.url[i] = [msg.proServIP, msg.items[i].getCurrentUrl];\n   \t\tmsg.url[i] = \"\".concat(...msg.url[i]);\n\t}\n}\nelse if (msg.cmd.cmd === \"on\") {\n\tfor (var i = 0; i < msg.items.length; i++) {\n\t\tmsg.url[i] = [msg.proServIP, msg.items[i].setOnUrl];\n   \t\tmsg.url[i] = \"\".concat(...msg.url[i]);\n\t}\n}\nelse if (msg.cmd.cmd === \"off\") {\n\tfor (var i = 0; i < msg.items.length; i++) {\n\t\tmsg.url[i] = [msg.proServIP, msg.items[i].setOffUrl];\n   \t\tmsg.url[i] = \"\".concat(...msg.url[i]);\n\t}\n} else if (msg.cmd.cmd !== \"on\" && msg.cmd.cmd !== \"off\" && msg.cmd.cmd !== \"increase\" && msg.cmd.cmd !== \"decrease\") {\n   msg.error = {\n        text: \"Sorry I did not understand your command\",\n        siteId: msg.cmd.siteId\n    }; \n}\n\nif (msg.url[0] === undefined && msg.error === undefined) {\n    msg.error = {\n        text: \"Sorry I can not find this device\"\n    };\n}\n//msg.payload = msg.url;\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 714,
+        "x": 710,
         "y": 440,
         "wires": [
             [
@@ -196,14 +197,14 @@
     {
         "id": "588982.8299368",
         "type": "http request",
-        "z": "d81dbbbb.358bb8",
+        "z": "85a4929a.0b1e",
         "name": "Send URL",
         "method": "GET",
         "ret": "obj",
         "url": "{{{payload}}}",
         "tls": "",
-        "x": 818,
-        "y": 653,
+        "x": 835,
+        "y": 630,
         "wires": [
             [
                 "cb46f567.699948"
@@ -213,22 +214,24 @@
     {
         "id": "9d179a31.adb7e8",
         "type": "function",
-        "z": "d81dbbbb.358bb8",
+        "z": "85a4929a.0b1e",
         "name": "Feedback",
         "func": "var name = msg.items[0].name.replace(\"  \",\"\");\n\nif( msg.op != \"get\" ){\n    var id = flow.get(\"deviceID\");\n    if (msg.payload.Result === true) {\n        var val = \"\";\n        if(msg.op === \"set\")\n            msg.payload = name + \" is set to \" + msg.cmd.value + '%   ' + id + '   /start';\n        else        \n            msg.payload = name + \" is \" + msg.op.toUpperCase() + '   ' + id + '   /start';\n    }\n    else if (msg.payload.Result === \"false\") {\n        msg.payload = \" The request failed.  /start\";\n    }\n    else {\n        msg.payload = \"The server is not responding  /start\";\n    }\n    msg.op = '';\n    return [msg, null, null];\n} else {\n    var txt = '';\n    var isDimmer = false;\n    if(msg.payload.Data[0].Value === true){\n        txt = name + \" is ON\";\n    }\n    else if(msg.payload.Data[0].Value === false){\n        txt = name + \" is OFF\";\n    }\n    else {\n        var val = Math.round(msg.payload.Data[0].Value*100/255);\n        txt = name + \" is set to \" + val + \" %\";\n        isDimmer = true;\n    }\n    msg.op = '';\n    msg.payload = txt;\n    if(isDimmer === true){\n        return [null, null, msg]\n    }\n    else {\n        return [null, msg, null]\n    }\n}\n\n",
         "outputs": "3",
         "noerr": 0,
-        "x": 115,
-        "y": 856,
+        "x": 121,
+        "y": 880,
         "wires": [
             [
                 "e84b5123.46e6"
             ],
             [
-                "a5a5151e.70e398"
+                "a5a5151e.70e398",
+                "27003bf2.35f284"
             ],
             [
-                "ef907206.aa2bb"
+                "ef907206.aa2bb",
+                "27003bf2.35f284"
             ]
         ],
         "outputLabels": [
@@ -240,7 +243,7 @@
     {
         "id": "adb179d2.c859a8",
         "type": "change",
-        "z": "d81dbbbb.358bb8",
+        "z": "85a4929a.0b1e",
         "name": "on",
         "rules": [
             {
@@ -260,14 +263,14 @@
         "y": 479,
         "wires": [
             [
-                "3b9f7b94.cf49a4"
+                "e7f6bb55.d03118"
             ]
         ]
     },
     {
         "id": "4b2bedb9.960c64",
         "type": "change",
-        "z": "d81dbbbb.358bb8",
+        "z": "85a4929a.0b1e",
         "name": "off",
         "rules": [
             {
@@ -287,14 +290,14 @@
         "y": 519,
         "wires": [
             [
-                "3b9f7b94.cf49a4"
+                "e7f6bb55.d03118"
             ]
         ]
     },
     {
         "id": "dfb37749.0d1098",
         "type": "change",
-        "z": "d81dbbbb.358bb8",
+        "z": "85a4929a.0b1e",
         "name": "get",
         "rules": [
             {
@@ -321,7 +324,7 @@
     {
         "id": "ef907206.aa2bb",
         "type": "telegrambot-switch",
-        "z": "d81dbbbb.358bb8",
+        "z": "85a4929a.0b1e",
         "name": "Dimmer",
         "bot": "4359293f.ca2928",
         "chatId": "",
@@ -336,10 +339,10 @@
         ],
         "outputs": 7,
         "autoAnswerCallback": true,
-        "timeoutValue": "60",
+        "timeoutValue": "20",
         "timeoutUnits": "s",
         "x": 276,
-        "y": 662,
+        "y": 687,
         "wires": [
             [
                 "45359fec.1dbfb"
@@ -376,7 +379,7 @@
     {
         "id": "a17a91ae.ff166",
         "type": "change",
-        "z": "d81dbbbb.358bb8",
+        "z": "85a4929a.0b1e",
         "name": "25%",
         "rules": [
             {
@@ -403,32 +406,32 @@
         "y": 597,
         "wires": [
             [
-                "3b9f7b94.cf49a4"
+                "e7f6bb55.d03118"
             ]
         ]
     },
     {
         "id": "cb46f567.699948",
         "type": "link out",
-        "z": "d81dbbbb.358bb8",
+        "z": "85a4929a.0b1e",
         "name": "Send URL OUT",
         "links": [
             "5a879407.61466c"
         ],
-        "x": 916,
-        "y": 679,
+        "x": 865,
+        "y": 665,
         "wires": []
     },
     {
         "id": "5a879407.61466c",
         "type": "link in",
-        "z": "d81dbbbb.358bb8",
+        "z": "85a4929a.0b1e",
         "name": "Send URL IN",
         "links": [
             "cb46f567.699948"
         ],
-        "x": 66,
-        "y": 776,
+        "x": 85,
+        "y": 805,
         "wires": [
             [
                 "9d179a31.adb7e8"
@@ -438,7 +441,7 @@
     {
         "id": "c2216816.4f5428",
         "type": "change",
-        "z": "d81dbbbb.358bb8",
+        "z": "85a4929a.0b1e",
         "name": "url -> payload",
         "rules": [
             {
@@ -454,8 +457,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 789,
-        "y": 494,
+        "x": 775,
+        "y": 490,
         "wires": [
             [
                 "9d97623a.7e088"
@@ -465,7 +468,7 @@
     {
         "id": "9d97623a.7e088",
         "type": "split",
-        "z": "d81dbbbb.358bb8",
+        "z": "85a4929a.0b1e",
         "name": "",
         "splt": "\\n",
         "spltType": "str",
@@ -473,8 +476,8 @@
         "arraySpltType": "len",
         "stream": false,
         "addname": "",
-        "x": 893,
-        "y": 542,
+        "x": 790,
+        "y": 535,
         "wires": [
             [
                 "a64ac1f2.1bf12"
@@ -484,7 +487,7 @@
     {
         "id": "a64ac1f2.1bf12",
         "type": "delay",
-        "z": "d81dbbbb.358bb8",
+        "z": "85a4929a.0b1e",
         "name": "delay",
         "pauseType": "delay",
         "timeout": "50",
@@ -496,8 +499,8 @@
         "randomLast": "5",
         "randomUnits": "seconds",
         "drop": false,
-        "x": 746,
-        "y": 604,
+        "x": 805,
+        "y": 580,
         "wires": [
             [
                 "588982.8299368"
@@ -507,7 +510,7 @@
     {
         "id": "45359fec.1dbfb",
         "type": "change",
-        "z": "d81dbbbb.358bb8",
+        "z": "85a4929a.0b1e",
         "name": "0%",
         "rules": [
             {
@@ -534,14 +537,14 @@
         "y": 557,
         "wires": [
             [
-                "3b9f7b94.cf49a4"
+                "e7f6bb55.d03118"
             ]
         ]
     },
     {
         "id": "3d057a14.286716",
         "type": "change",
-        "z": "d81dbbbb.358bb8",
+        "z": "85a4929a.0b1e",
         "name": "75%",
         "rules": [
             {
@@ -568,14 +571,14 @@
         "y": 679,
         "wires": [
             [
-                "3b9f7b94.cf49a4"
+                "e7f6bb55.d03118"
             ]
         ]
     },
     {
         "id": "8d99a9f0.2e9b18",
         "type": "change",
-        "z": "d81dbbbb.358bb8",
+        "z": "85a4929a.0b1e",
         "name": "100%",
         "rules": [
             {
@@ -602,14 +605,14 @@
         "y": 720,
         "wires": [
             [
-                "3b9f7b94.cf49a4"
+                "e7f6bb55.d03118"
             ]
         ]
     },
     {
         "id": "e58bf95.eec4908",
         "type": "change",
-        "z": "d81dbbbb.358bb8",
+        "z": "85a4929a.0b1e",
         "name": "50%",
         "rules": [
             {
@@ -636,14 +639,14 @@
         "y": 638,
         "wires": [
             [
-                "3b9f7b94.cf49a4"
+                "e7f6bb55.d03118"
             ]
         ]
     },
     {
         "id": "9e29896c.866588",
         "type": "telegrambot-payload",
-        "z": "d81dbbbb.358bb8",
+        "z": "85a4929a.0b1e",
         "name": "",
         "bot": "4359293f.ca2928",
         "chatId": "",
@@ -658,7 +661,7 @@
     {
         "id": "e6ec87d8.58bc28",
         "type": "telegrambot-command",
-        "z": "d81dbbbb.358bb8",
+        "z": "85a4929a.0b1e",
         "bot": "4359293f.ca2928",
         "command": "/help",
         "commandType": "str",
@@ -674,7 +677,7 @@
     {
         "id": "3b273bd8.c5cc64",
         "type": "comment",
-        "z": "d81dbbbb.358bb8",
+        "z": "85a4929a.0b1e",
         "name": "Handler for Help & Start cmd",
         "info": "",
         "x": 170,
@@ -684,7 +687,7 @@
     {
         "id": "39909b14.4ee584",
         "type": "telegrambot-command",
-        "z": "d81dbbbb.358bb8",
+        "z": "85a4929a.0b1e",
         "bot": "4359293f.ca2928",
         "command": "help",
         "commandType": "str",
@@ -700,7 +703,7 @@
     {
         "id": "dd16313f.f6927",
         "type": "telegrambot-command",
-        "z": "d81dbbbb.358bb8",
+        "z": "85a4929a.0b1e",
         "bot": "4359293f.ca2928",
         "command": "/start",
         "commandType": "str",
@@ -716,7 +719,7 @@
     {
         "id": "17da831e.c7e29d",
         "type": "http request",
-        "z": "d81dbbbb.358bb8",
+        "z": "85a4929a.0b1e",
         "name": "GET devices",
         "method": "GET",
         "ret": "txt",
@@ -733,7 +736,7 @@
     {
         "id": "6acb9c62.2445d4",
         "type": "change",
-        "z": "d81dbbbb.358bb8",
+        "z": "85a4929a.0b1e",
         "name": "save",
         "rules": [
             {
@@ -760,7 +763,7 @@
     {
         "id": "ffa4ad9a.15928",
         "type": "exec",
-        "z": "d81dbbbb.358bb8",
+        "z": "85a4929a.0b1e",
         "command": "sudo ifconfig | grep 'inet' | grep '255.255.255.0' | cut -f2 -d: | awk '{print $1}'",
         "addpay": false,
         "append": "",
@@ -781,7 +784,7 @@
     {
         "id": "9d4b05e9.7f01c8",
         "type": "function",
-        "z": "d81dbbbb.358bb8",
+        "z": "85a4929a.0b1e",
         "name": "Trim",
         "func": "msg.payload = msg.payload.trim();\nreturn msg;",
         "outputs": 1,
@@ -797,7 +800,7 @@
     {
         "id": "3c006a6.630c696",
         "type": "http request",
-        "z": "d81dbbbb.358bb8",
+        "z": "85a4929a.0b1e",
         "name": "GET ProServIP",
         "method": "GET",
         "ret": "txt",
@@ -814,7 +817,7 @@
     {
         "id": "b66eed5d.0d0a4",
         "type": "json",
-        "z": "d81dbbbb.358bb8",
+        "z": "85a4929a.0b1e",
         "name": "",
         "pretty": false,
         "x": 552,
@@ -828,7 +831,7 @@
     {
         "id": "80af19a3.e6cd78",
         "type": "function",
-        "z": "d81dbbbb.358bb8",
+        "z": "85a4929a.0b1e",
         "name": "List_lights",
         "func": "function findSwitchByKey(array, key, value) {\n    msg.payload.switch_lights = [];\n    var cpt = 0;\n    for (var i = 0; i < array.length; i++) {\n        if (array[i][key] === value) {\n            msg.payload.switch_lights[cpt] = array[i];\n            cpt ++;\n        }\n    }\n    return null;\n}\n\nfunction findDimmerByKey(array, key, value) {\n    msg.payload.dimmer_lights = [];\n    var cpt = 0;\n    for (var i = 0; i < array.length; i++) {\n        if (array[i][key] === value) {\n            msg.payload.dimmer_lights[cpt] = array[i];\n            cpt ++;\n        }\n    }\n    return null;\n}\n\nfindSwitchByKey(msg.payload, 'type', 'lights');\nfindDimmerByKey(msg.payload, 'type', 'dimmers');\n\nmsg.lights = msg.payload.switch_lights.concat(msg.payload.dimmer_lights);\n\nreturn msg;",
         "outputs": 1,
@@ -844,7 +847,7 @@
     {
         "id": "b82f621e.db691",
         "type": "function",
-        "z": "d81dbbbb.358bb8",
+        "z": "85a4929a.0b1e",
         "name": "build tg payload",
         "func": "function pad(n, width, z) {\n  z = z || '0';\n  n = n + '';\n  return n.length >= width ? n : new Array(width - n.length + 1).join(z) + n;\n}\n\nmsg.lights.sort(function(a, b) {\n   return a.zone.localeCompare(b.zone);\n});\nflow.set(\"msgDeviceInfo\", msg); // save for later use\n\nvar text = '';\nvar curZone = '';\nfor (var i = 0; i < msg.lights.length; i++) {\n    if(curZone != msg.lights[i].zone){\n        curZone = msg.lights[i].zone;\n        text += '*' + curZone + '*\\n';\n    }\n    text += msg.lights[i].object + ': [/L' + pad(i,3) + ']\\n';\n}\n\nmsg.payload = {\n    \"text\": text,\n    \"parse_mode\": \"Markdown\"\n}\nreturn msg;",
         "outputs": 1,
@@ -860,17 +863,127 @@
     {
         "id": "652a1a02.d734b4",
         "type": "comment",
-        "z": "d81dbbbb.358bb8",
+        "z": "85a4929a.0b1e",
         "name": "Handler for /L command",
         "info": "",
         "x": 149,
-        "y": 388,
+        "y": 403,
         "wires": []
+    },
+    {
+        "id": "27003bf2.35f284",
+        "type": "function",
+        "z": "85a4929a.0b1e",
+        "name": "busy!",
+        "func": "flow.set(\"isWaiting\", true);",
+        "outputs": "0",
+        "noerr": 0,
+        "x": 290,
+        "y": 895,
+        "wires": []
+    },
+    {
+        "id": "b8a166e9.5afb58",
+        "type": "change",
+        "z": "85a4929a.0b1e",
+        "name": "busy",
+        "rules": [
+            {
+                "t": "set",
+                "p": "telegram.chat",
+                "pt": "msg",
+                "to": "chat",
+                "tot": "flow"
+            },
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "Busy, waiting for reply!",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 490,
+        "y": 840,
+        "wires": [
+            [
+                "e84b5123.46e6"
+            ]
+        ]
+    },
+    {
+        "id": "c06abf73.f337c",
+        "type": "function",
+        "z": "85a4929a.0b1e",
+        "name": "not busy",
+        "func": "flow.set(\"isWaiting\", false);\n",
+        "outputs": "0",
+        "noerr": 0,
+        "x": 735,
+        "y": 700,
+        "wires": []
+    },
+    {
+        "id": "e7f6bb55.d03118",
+        "type": "link out",
+        "z": "85a4929a.0b1e",
+        "name": "set OUT",
+        "links": [
+            "89556f19.b908b"
+        ],
+        "x": 615,
+        "y": 595,
+        "wires": []
+    },
+    {
+        "id": "89556f19.b908b",
+        "type": "link in",
+        "z": "85a4929a.0b1e",
+        "name": "set IN",
+        "links": [
+            "e7f6bb55.d03118"
+        ],
+        "x": 615,
+        "y": 545,
+        "wires": [
+            [
+                "3b9f7b94.cf49a4",
+                "c06abf73.f337c"
+            ]
+        ]
+    },
+    {
+        "id": "62b78522.1ffdec",
+        "type": "function",
+        "z": "85a4929a.0b1e",
+        "name": "busy?",
+        "func": "var isWaiting = flow.get(\"isWaiting\");\nif(isWaiting===true)\n    return [null, msg];\nelse\n    return [msg, null];",
+        "outputs": "2",
+        "noerr": 0,
+        "x": 275,
+        "y": 505,
+        "wires": [
+            [
+                "e3010db4.0a32e"
+            ],
+            [
+                "b8a166e9.5afb58"
+            ]
+        ],
+        "outputLabels": [
+            "continue",
+            "iswaiting"
+        ]
     },
     {
         "id": "4359293f.ca2928",
         "type": "telegrambot-config",
-        "z": "d81dbbbb.358bb8",
+        "z": "85a4929a.0b1e",
         "botname": "proknx_bot",
         "usernames": "",
         "chatIds": "",
