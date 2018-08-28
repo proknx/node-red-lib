@@ -1979,7 +1979,7 @@
         "id": "4359293f.ca2928",
         "type": "telegrambot-config",
         "z": "6037544e.4186ac",
-        "botname": "proknx_bot",
+        "botname": "",
         "usernames": "",
         "chatIds": "",
         "pollInterval": "300"
