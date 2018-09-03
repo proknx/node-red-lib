@@ -7,5 +7,10 @@
       "name" : "v1: Control lights, thermostat, shutters. ",
       "info" : "This is Beta, bugreporting to jens@proknx.com",
       "url" : "https://raw.githubusercontent.com/proknx/node-red-lib/master/offline-voice-snips-v1.json"
+ },
+ {
+      "name" : "v1-berlin: Control lights, thermostat, shutters. ",
+      "info" : "This is Beta, bugreporting to jens@proknx.com",
+      "url" : "https://raw.githubusercontent.com/proknx/node-red-lib/master/offline-voice-snips-v1-berlin.json"
  }
 ]
