@@ -2,7 +2,7 @@
     {
         "id": "66510db6.2b76b4",
         "type": "tab",
-        "label": "Auto SNIPS V3"
+        "label": "SNIPS V3"
     },
     {
         "id": "dd84dd95.a6ff8",
@@ -149,7 +149,7 @@
         "ret": "txt",
         "url": "http://localhost:3000/rest/alexa/skill/items",
         "tls": "",
-        "x": 830,
+        "x": 930,
         "y": 520,
         "wires": [
             [
@@ -163,7 +163,7 @@
         "z": "66510db6.2b76b4",
         "name": "",
         "pretty": false,
-        "x": 990,
+        "x": 1070,
         "y": 520,
         "wires": [
             [
@@ -194,8 +194,8 @@
         "ret": "txt",
         "url": "http://{{{payload}}}:3000/proservip",
         "tls": "",
-        "x": 1020,
-        "y": 460,
+        "x": 560,
+        "y": 520,
         "wires": [
             [
                 "224f5848.8ebf88"
@@ -221,7 +221,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 630,
+        "x": 750,
         "y": 520,
         "wires": [
             [
@@ -240,7 +240,7 @@
         "timer": "",
         "oldrc": true,
         "name": "GET local IP",
-        "x": 690,
+        "x": 890,
         "y": 460,
         "wires": [
             [
@@ -258,7 +258,7 @@
         "func": "msg.payload = msg.payload.trim();\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 850,
+        "x": 1050,
         "y": 460,
         "wires": [
             [
@@ -281,7 +281,7 @@
         "y": 460,
         "wires": [
             [
-                "8ec34fe0.26ebc"
+                "1b241ce0.df5c83"
             ]
         ]
     },
@@ -1634,7 +1634,7 @@
         "format": "utf8",
         "chunk": false,
         "sendError": false,
-        "x": 720,
+        "x": 740,
         "y": 740,
         "wires": [
             [
@@ -1648,7 +1648,7 @@
         "z": "66510db6.2b76b4",
         "name": "",
         "pretty": false,
-        "x": 890,
+        "x": 910,
         "y": 740,
         "wires": [
             [
@@ -1744,10 +1744,10 @@
         "type": "function",
         "z": "66510db6.2b76b4",
         "name": "Store supported commands",
-        "func": "test_lights = [\"on\",\"off\"];\ntest_dimmers = [\"on\",\"off\",\"set\",\"increase\", \"decrease\",\"lower\",\"dim\",\"brighten\"];\ntest_heating = [\"set\",\"increase\",\"decrease\",\"warmer\",\"colder\",\"dim\"];\ntest_blinds = [\"open\",\"close\",\"set\",\"increase\",\"decrease\",\"higher\",\"lower\"];\ntest_scenes = [\"on\",\"activate\"];\ntest_aux = [\"on\",\"activate\",\"deactivate\",\"off\",\"set\",\"increase\",\"decrease\"];\n\nmsg.commandCat = [\n    {\n        on: {\n            on:\"\",\n            activate:\"\",\n            open:\"\"\n        },\n        off: {\n            off:\"\",\n            deactivate:\"\",\n            close:\"\"\n        },\n        set: {\n            set:\"\"\n        },\n        increase: {\n            increase:\"\",\n            higher:\"\",\n            warmer:\"\",\n            brighten:\"\"\n        },\n        decrease: {\n            decrease:\"\",\n            lower:\"\",\n            colder:\"\",\n            darker:\"\",\n            dim:\"\"\n        }\n    }\n];\n\nflow.set(\"msg_test_lights\", test_lights); // save for later use\nflow.set(\"msg_test_dimmers\", test_dimmers); // save for later use\nflow.set(\"msg_test_heating\", test_heating); // save for later use\nflow.set(\"msg_test_blinds\", test_blinds); // save for later use\nflow.set(\"msg_test_scenes\", test_scenes); // save for later use\nflow.set(\"msg_test_aux\", test_aux); // save for later use\nflow.set(\"msgCommandCat\", msg.commandCat); // save for later use\n\nreturn msg;",
+        "func": "test_lights = [\"on\",\"off\"];\ntest_dimmers = [\"on\",\"off\",\"set\",\"increase\", \"decrease\",\"lower\",\"dim\",\"brighten\",\"more\",\"less\"];\ntest_heating = [\"set\",\"increase\",\"decrease\",\"warmer\",\"colder\",\"dim\",\"less\",\"more\"];\ntest_blinds = [\"open\",\"close\",\"set\",\"increase\",\"decrease\",\"higher\",\"lower\"];\ntest_scenes = [\"on\",\"activate\"];\ntest_aux = [\"on\",\"activate\",\"deactivate\",\"off\",\"set\",\"increase\",\"decrease\",\"more\",\"less\"];\n\nmsg.commandCat = [\n    {\n        on: {\n            on:\"\",\n            activate:\"\",\n            open:\"\"\n        },\n        off: {\n            off:\"\",\n            deactivate:\"\",\n            close:\"\"\n        },\n        set: {\n            set:\"\"\n        },\n        increase: {\n            increase:\"\",\n            higher:\"\",\n            warmer:\"\",\n            brighten:\"\",\n            more:\"\"\n        },\n        decrease: {\n            decrease:\"\",\n            lower:\"\",\n            colder:\"\",\n            darker:\"\",\n            dim:\"\",\n            less:\"\",\n            cooler:\"\"\n        }\n    }\n];\n\nflow.set(\"msg_test_lights\", test_lights); // save for later use\nflow.set(\"msg_test_dimmers\", test_dimmers); // save for later use\nflow.set(\"msg_test_heating\", test_heating); // save for later use\nflow.set(\"msg_test_blinds\", test_blinds); // save for later use\nflow.set(\"msg_test_scenes\", test_scenes); // save for later use\nflow.set(\"msg_test_aux\", test_aux); // save for later use\nflow.set(\"msgCommandCat\", msg.commandCat); // save for later use\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 860,
+        "x": 880,
         "y": 880,
         "wires": [
             []
@@ -3737,6 +3737,27 @@
         "x": 790,
         "y": 980,
         "wires": []
+    },
+    {
+        "id": "1b241ce0.df5c83",
+        "type": "trigger",
+        "z": "66510db6.2b76b4",
+        "op1": "",
+        "op2": "",
+        "op1type": "pay",
+        "op2type": "pay",
+        "duration": "1",
+        "extend": false,
+        "units": "min",
+        "reset": "",
+        "name": "",
+        "x": 710,
+        "y": 460,
+        "wires": [
+            [
+                "8ec34fe0.26ebc"
+            ]
+        ]
     },
     {
         "id": "96de078e.0139e8",
