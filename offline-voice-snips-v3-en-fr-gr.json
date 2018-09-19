@@ -25,7 +25,7 @@
         "name": "=================================SNIPS INTENTS INPUT================================",
         "info": "",
         "x": 790,
-        "y": 100,
+        "y": 80,
         "wires": []
     },
     {
@@ -153,7 +153,7 @@
         "y": 520,
         "wires": [
             [
-                "aa74904c.b910c"
+                "b92a9f7f.6d074"
             ]
         ]
     },
@@ -163,8 +163,8 @@
         "z": "2e77cfda.e26f3",
         "name": "",
         "pretty": false,
-        "x": 1070,
-        "y": 520,
+        "x": 550,
+        "y": 580,
         "wires": [
             [
                 "eb7c4fff.49a1b"
@@ -179,7 +179,7 @@
         "func": "flow.set(\"msgDeviceList\", msg.payload); // save for later use\nflow.set(\"msgProServIP\", msg.proServIP); // save for later use\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 950,
+        "x": 1030,
         "y": 580,
         "wires": [
             []
@@ -281,7 +281,11 @@
         "y": 460,
         "wires": [
             [
-                "1b241ce0.df5c83"
+                "a5e744f8.c26e18",
+                "8be62b35.7e9fa8",
+                "c46e6a6d.13ad28",
+                "dc29831e.5736d",
+                "ac3737ab.33be58"
             ]
         ]
     },
@@ -291,8 +295,8 @@
         "z": "2e77cfda.e26f3",
         "name": "===============================GET LIST OF DEVICES==================================",
         "info": "",
-        "x": 790,
-        "y": 400,
+        "x": 810,
+        "y": 360,
         "wires": []
     },
     {
@@ -316,7 +320,7 @@
         "type": "function",
         "z": "2e77cfda.e26f3",
         "name": "Array_intent",
-        "func": "String.prototype.sansAccent = function() {\n    var accent = [\n        /[\\300-\\306]/g, /[\\340-\\346]/g, // A, a\n        /[\\310-\\313]/g, /[\\350-\\353]/g, // E, e\n        /[\\314-\\317]/g, /[\\354-\\357]/g, // I, i\n        /[\\322-\\330]/g, /[\\362-\\370]/g, // O, o\n        /[\\331-\\334]/g, /[\\371-\\374]/g, // U, u\n        /[\\321]/g, /[\\361]/g, // N, n\n        /[\\307]/g, /[\\347]/g, // C, c\n    ];\n    var noaccent = ['A','a','E','e','I','i','O','o','U','u','N','n','C','c'];\n     \n    var str = this;\n    for(var i = 0; i < accent.length; i++){\n        str = str.replace(accent[i], noaccent[i]);\n    }\n     \n    return str;\n};\n\nfunction precisionRound(number, precision) {\n  var factor = Math.pow(10, precision);\n  return Math.round(number * factor) / factor;\n}\n\nfunction findObjectByKey(array, key, value) {\n    for (var i = 0; i < array.length; i++) {\n        if (array[i][key] === value) {\n            return array[i];\n        }\n    }\n    return null;\n}\n\nvar rawCmd = findObjectByKey(msg.payload.slots, 'slotName', 'cmd');\nvar rawRoom = findObjectByKey(msg.payload.slots, 'slotName', 'room');\nvar rawDevice = findObjectByKey(msg.payload.slots, 'slotName', 'device');\nvar rawAll = findObjectByKey(msg.payload.slots, 'slotName', 'all');\nvar rawPercent = findObjectByKey(msg.payload.slots, 'slotName', 'percent');\nvar rawTemp = findObjectByKey(msg.payload.slots, 'slotName', 'temp');\nvar rawQuery = findObjectByKey(msg.payload.slots, 'slotName', 'query');\nvar rawType = findObjectByKey(msg.payload.slots, 'slotName', 'type');\n\nmsg.cmd = [];\nif (rawCmd !== null) { \n    msg.cmd.cmd = rawCmd.value.value.toLowerCase().sansAccent();\n} else {\n    msg.cmd.cmd = \"\";\n}\nif (rawRoom !== null) {\n\tmsg.cmd.room = rawRoom.value.value.toLowerCase().sansAccent();\n} else if (rawAll === null) {\n    msg.cmd.room = msg.payload.siteId;\n}\nif (rawDevice !== null) {\n\tmsg.cmd.device = rawDevice.value.value.toLowerCase().sansAccent();\n}\nif (rawAll !== null) {\n\tmsg.cmd.all = rawAll.value.value;\n}\nif (rawPercent !== null) {\n\tmsg.cmd.value = precisionRound(rawPercent.value.value, 1);\n}\nif (rawTemp !== null) {\n\tmsg.cmd.value = precisionRound(rawTemp.value.value, 1);\n}\nif (rawQuery !== null) {\n\tmsg.cmd.query = rawQuery.value.value;\n}\nif (rawType !== null) {\n    if (rawType.value.value.toLowerCase().sansAccent() === \"heating\" || rawType.value.value.toLowerCase().sansAccent() === \"heizung\" || rawType.value.value.toLowerCase().sansAccent() === \"chauffage\") {\n        msg.cmd.type = \"heating\";\n    } else if (rawType.value.value.toLowerCase().sansAccent() === \"lights\" || rawType.value.value.toLowerCase().sansAccent() === \"licht\" || rawType.value.value.toLowerCase().sansAccent() === \"lumieres\") {\n        msg.cmd.type = \"lights\";\n    } else if (rawType.value.value.toLowerCase().sansAccent() === \"blinds\" || rawType.value.value.toLowerCase().sansAccent() === \"fensterladen\" || rawType.value.value.toLowerCase().sansAccent() === \"rolladen\" || rawType.value.value.toLowerCase().sansAccent() === \"volets\") {\n        msg.cmd.type = \"blinds\";\n    } else if (rawType.value.value.toLowerCase().sansAccent() === \"scenes\" || rawType.value.value.toLowerCase().sansAccent() === \"szene\") {\n        msg.cmd.type = \"scenes\";\n    }\n}\nmsg.cmd.siteId = msg.payload.siteId;\n\nmsg.deviceList = flow.get(\"msgDeviceList\");\nmsg.cmd.lang = flow.get(\"msgLang\");\nmsg.test_lights = flow.get(\"msg_test_lights\");\nmsg.test_dimmers = flow.get(\"msg_test_dimmers\");\nmsg.test_heating = flow.get(\"msg_test_heating\");\nmsg.test_blinds = flow.get(\"msg_test_blinds\");\nmsg.test_scenes = flow.get(\"msg_test_scenes\");\nmsg.test_aux = flow.get(\"msg_test_aux\");\nmsg.commandCat = flow.get(\"msgCommandCat\");\nmsg.proServIP = flow.get(\"msgProServIP\");\n\nreturn msg;",
+        "func": "String.prototype.sansAccent = function() {\n    var accent = [\n        /[\\300-\\306]/g, /[\\340-\\346]/g, // A, a\n        /[\\310-\\313]/g, /[\\350-\\353]/g, // E, e\n        /[\\314-\\317]/g, /[\\354-\\357]/g, // I, i\n        /[\\322-\\330]/g, /[\\362-\\370]/g, // O, o\n        /[\\331-\\334]/g, /[\\371-\\374]/g, // U, u\n        /[\\321]/g, /[\\361]/g, // N, n\n        /[\\307]/g, /[\\347]/g, // C, c\n    ];\n    var noaccent = ['A','a','E','e','I','i','O','o','U','u','N','n','C','c'];\n     \n    var str = this;\n    for(var i = 0; i < accent.length; i++){\n        str = str.replace(accent[i], noaccent[i]);\n    }\n     \n    return str;\n};\n\nfunction precisionRound(number, precision) {\n  var factor = Math.pow(10, precision);\n  return Math.round(number * factor) / factor;\n}\n\nfunction findObjectByKey(array, key, value) {\n    for (var i = 0; i < array.length; i++) {\n        if (array[i][key] === value) {\n            return array[i];\n        }\n    }\n    return null;\n}\n\nvar rawCmd = findObjectByKey(msg.payload.slots, 'slotName', 'cmd');\nvar rawRoom = findObjectByKey(msg.payload.slots, 'slotName', 'room');\nvar rawDevice = findObjectByKey(msg.payload.slots, 'slotName', 'device');\nvar rawAll = findObjectByKey(msg.payload.slots, 'slotName', 'all');\nvar rawPercent = findObjectByKey(msg.payload.slots, 'slotName', 'percent');\nvar rawTemp = findObjectByKey(msg.payload.slots, 'slotName', 'temp');\nvar rawQuery = findObjectByKey(msg.payload.slots, 'slotName', 'query');\nvar rawType = findObjectByKey(msg.payload.slots, 'slotName', 'type');\n\nmsg.cmd = [];\nif (rawCmd !== null) { \n    msg.cmd.cmd = rawCmd.value.value.toLowerCase().sansAccent();\n} else {\n    msg.cmd.cmd = \"\";\n}\nif (rawRoom !== null) {\n\tmsg.cmd.room = rawRoom.value.value.toLowerCase().sansAccent();\n} else if (rawAll === null) {\n    msg.cmd.room = msg.payload.siteId;\n}\nif (rawDevice !== null) {\n\tmsg.cmd.device = rawDevice.value.value.toLowerCase().sansAccent();\n\tif (msg.cmd.device === \"rolladen\") {msg.cmd.device = \"rollladen\";}\n}\nif (rawAll !== null) {\n\tmsg.cmd.all = rawAll.value.value;\n}\nif (rawPercent !== null) {\n\tmsg.cmd.value = precisionRound(rawPercent.value.value, 1);\n}\nif (rawTemp !== null) {\n\tmsg.cmd.value = precisionRound(rawTemp.value.value, 1);\n}\nif (rawQuery !== null) {\n\tmsg.cmd.query = rawQuery.value.value;\n}\nif (rawType !== null) {\n    if (rawType.value.value.toLowerCase().sansAccent() === \"heating\" || rawType.value.value.toLowerCase().sansAccent() === \"heizung\" || rawType.value.value.toLowerCase().sansAccent() === \"chauffage\") {\n        msg.cmd.type = \"heating\";\n    } else if (rawType.value.value.toLowerCase().sansAccent() === \"lights\" || rawType.value.value.toLowerCase().sansAccent() === \"licht\" || rawType.value.value.toLowerCase().sansAccent() === \"lumieres\") {\n        msg.cmd.type = \"lights\";\n    } else if (rawType.value.value.toLowerCase().sansAccent() === \"blinds\" || rawType.value.value.toLowerCase().sansAccent() === \"fensterladen\" || rawType.value.value.toLowerCase().sansAccent() === \"rolladen\" || rawType.value.value.toLowerCase().sansAccent() === \"volets\") {\n        msg.cmd.type = \"blinds\";\n    } else if (rawType.value.value.toLowerCase().sansAccent() === \"scenes\" || rawType.value.value.toLowerCase().sansAccent() === \"szene\") {\n        msg.cmd.type = \"scenes\";\n    }\n}\nmsg.cmd.siteId = msg.payload.siteId;\n\nmsg.deviceList = flow.get(\"msgDeviceList\");\nmsg.cmd.lang = flow.get(\"msgLang\");\nmsg.test_lights = flow.get(\"msg_test_lights\");\nmsg.test_dimmers = flow.get(\"msg_test_dimmers\");\nmsg.test_heating = flow.get(\"msg_test_heating\");\nmsg.test_blinds = flow.get(\"msg_test_blinds\");\nmsg.test_scenes = flow.get(\"msg_test_scenes\");\nmsg.test_aux = flow.get(\"msg_test_aux\");\nmsg.commandCat = flow.get(\"msgCommandCat\");\nmsg.proServIP = flow.get(\"msgProServIP\");\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "x": 990,
@@ -342,7 +346,7 @@
         "type": "function",
         "z": "2e77cfda.e26f3",
         "name": "Check supported",
-        "func": "function findCommandByType(array, cmd) {\n    for (var i = 0; i < array.length; i++) {\n        if (array[i] == cmd) {\n            msg.supported = true;\n            break;\n        } else {\n            msg.supported = false;\n        }\n    }\n\n    return null;\n}\n\nvar cptok=0;\nvar cpter=0;\nmsg.itemsok=[];\nmsg.itemser=[];\nfor (var i = 0; i < msg.items.length; i++) {\n    if (msg.items[i].type === \"lights\") {findCommandByType(msg.test_lights, msg.cmd.cmd);}\n    else if (msg.items[i].type === \"dimmers\") {findCommandByType(msg.test_dimmers, msg.cmd.cmd);}\n    else if (msg.items[i].type === \"heating\") {findCommandByType(msg.test_heating, msg.cmd.cmd);}\n    else if (msg.items[i].type === \"blinds\") {findCommandByType(msg.test_blinds, msg.cmd.cmd);}\n    else if (msg.items[i].type === \"scenes\") {findCommandByType(msg.test_scenes, msg.cmd.cmd);}\n    else if (msg.items[i].type === \"aux\") {findCommandByType(msg.test_aux, msg.cmd.cmd);}\n    if(msg.supported === true) {\n        if (msg.cmd.type === \"aux\" && msg.cmd.cmd === \"off\" && msg.items[i].setOffUrl === undefined) {\n            msg.itemser[cpter]=msg.items[i];\n            cpter++;\n        } else {\n            msg.itemsok[cptok]=msg.items[i];\n            cptok++;\n        }\n    } else {\n        msg.itemser[cpter]=msg.items[i];\n        cpter++;\n    }\n}\n\nmsg.items = msg.itemsok;\n\nif (msg.itemser.length > 0 && msg.itemsok.length === 0) {\n    if (msg.itemser.length > 1) {\n        if (msg.cmd.lang === \"de\") {\n            text1 = msg.itemser[0].name;\n            text2 = \" und \";\n            text3 = msg.itemser.length-1;\n            text4 = \"  unterstütze das nicht\";\n            texttabl = [text1, text2, text3, text4];\n            var text = \"\".concat(...texttabl);            \n            msg.error = {\n                text: text,\n                siteId: msg.cmd.siteId,\n                lang: \"de-DE\"\n            };\n        } else if (msg.cmd.lang === \"fr\") {\n            text1 = msg.itemser[0].name;\n            text2 = \" et \";\n            text3 = msg.itemser.length-1;\n            text4 = \" autres appareils ne supportent pas cette commande\";\n            texttabl = [text1, text2, text3, text4];\n            var text = \"\".concat(...texttabl);            \n            msg.error = {\n                text: text,\n                siteId: msg.cmd.siteId,\n                lang: \"fr-FR\"\n            };\n        } else {\n            text1 = msg.itemser[0].name;\n            text2 = \" and \";\n            text3 = msg.itemser.length-1;\n            text4 = \" other devices do not support this command\";\n            texttabl = [text1, text2, text3, text4];\n            var text = \"\".concat(...texttabl);            \n            msg.error = {\n                text: text,\n                siteId: msg.cmd.siteId,\n                lang: \"en-EN\"\n            };\n        }\n    } else {\n        if (msg.cmd.lang === \"de\") {\n            text1 = msg.itemser[0].name;\n            text2 = \" unterstütze das nicht\";\n            texttabl = [text1, text2];\n            var text = \"\".concat(...texttabl);\n            msg.error = {\n                text: text,\n                siteId: msg.cmd.siteId,\n                lang: \"de-DE\"\n            };\n        } else if (msg.cmd.lang === \"fr\") {\n            text1 = msg.itemser[0].name;\n            text2 = \" ne supporte pas cette commande\";\n            texttabl = [text1, text2];\n            var text = \"\".concat(...texttabl);\n            msg.error = {\n                text: text,\n                siteId: msg.cmd.siteId,\n                lang: \"fr-FR\"\n            };\n        } else {\n            text1 = msg.itemser[0].name;\n            text2 = \" does not support this command\";\n            texttabl = [text1, text2];\n            var text = \"\".concat(...texttabl);\n            msg.error = {\n                text: text,\n                siteId: msg.cmd.siteId,\n                lang: \"en-EN\"\n            };\n        }\n    }\n}\n\nreturn msg;",
+        "func": "function findCommandByType(array, cmd) {\n    for (var i = 0; i < array.length; i++) {\n        if (array[i] == cmd) {\n            msg.supported = true;\n            break;\n        } else {\n            msg.supported = false;\n        }\n    }\n\n    return null;\n}\n\nvar cptok=0;\nvar cpter=0;\nmsg.itemsok=[];\nmsg.itemser=[];\nfor (var i = 0; i < msg.items.length; i++) {\n    if (msg.items[i].type === \"lights\") {findCommandByType(msg.test_lights, msg.cmd.cmd);}\n    else if (msg.items[i].type === \"dimmers\") {findCommandByType(msg.test_dimmers, msg.cmd.cmd);}\n    else if (msg.items[i].type === \"heating\") {findCommandByType(msg.test_heating, msg.cmd.cmd);}\n    else if (msg.items[i].type === \"blinds\") {findCommandByType(msg.test_blinds, msg.cmd.cmd);}\n    else if (msg.items[i].type === \"scenes\") {findCommandByType(msg.test_scenes, msg.cmd.cmd);}\n    else if (msg.items[i].type === \"aux\") {findCommandByType(msg.test_aux, msg.cmd.cmd);}\n    if(msg.supported === true) {\n        if (msg.cmd.type === \"aux\" && msg.cmd.cmd === \"off\" && msg.items[i].setOffUrl === undefined) {\n            msg.itemser[cpter]=msg.items[i];\n            cpter++;\n        } else {\n            msg.itemsok[cptok]=msg.items[i];\n            cptok++;\n        }\n    } else {\n        msg.itemser[cpter]=msg.items[i];\n        cpter++;\n    }\n}\n\nmsg.items = msg.itemsok;\n\nif (msg.itemser.length > 0 && msg.itemsok.length === 0) {\n    if (msg.itemser.length > 1) {\n        if (msg.cmd.lang === \"de\") {\n            text1 = msg.itemser[0].name;\n            text2 = \" und \";\n            text3 = msg.itemser.length-1;\n            text4 = \" andere Geräte unterstützen das nicht\";\n            texttabl = [text1, text2, text3, text4];\n            var text = \"\".concat(...texttabl);            \n            msg.error = {\n                text: text,\n                siteId: msg.cmd.siteId,\n                lang: \"de-DE\"\n            };\n        } else if (msg.cmd.lang === \"fr\") {\n            text1 = msg.itemser[0].name;\n            text2 = \" et \";\n            text3 = msg.itemser.length-1;\n            text4 = \" autres appareils ne supportent pas cette commande\";\n            texttabl = [text1, text2, text3, text4];\n            var text = \"\".concat(...texttabl);            \n            msg.error = {\n                text: text,\n                siteId: msg.cmd.siteId,\n                lang: \"fr-FR\"\n            };\n        } else {\n            text1 = msg.itemser[0].name;\n            text2 = \" and \";\n            text3 = msg.itemser.length-1;\n            text4 = \" other devices do not support this command\";\n            texttabl = [text1, text2, text3, text4];\n            var text = \"\".concat(...texttabl);            \n            msg.error = {\n                text: text,\n                siteId: msg.cmd.siteId,\n                lang: \"en-EN\"\n            };\n        }\n    } else {\n        if (msg.cmd.lang === \"de\") {\n            text1 = msg.itemser[0].name;\n            text2 = \" unterstützt das nicht\";\n            texttabl = [text1, text2];\n            var text = \"\".concat(...texttabl);\n            msg.error = {\n                text: text,\n                siteId: msg.cmd.siteId,\n                lang: \"de-DE\"\n            };\n        } else if (msg.cmd.lang === \"fr\") {\n            text1 = msg.itemser[0].name;\n            text2 = \" ne supporte pas cette commande\";\n            texttabl = [text1, text2];\n            var text = \"\".concat(...texttabl);\n            msg.error = {\n                text: text,\n                siteId: msg.cmd.siteId,\n                lang: \"fr-FR\"\n            };\n        } else {\n            text1 = msg.itemser[0].name;\n            text2 = \" does not support this command\";\n            texttabl = [text1, text2];\n            var text = \"\".concat(...texttabl);\n            msg.error = {\n                text: text,\n                siteId: msg.cmd.siteId,\n                lang: \"en-EN\"\n            };\n        }\n    }\n}\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "x": 2110,
@@ -1259,7 +1263,7 @@
         "timeout": "5",
         "timeoutUnits": "seconds",
         "rate": "1",
-        "nbRateUnits": "15",
+        "nbRateUnits": "8",
         "rateUnits": "second",
         "randomFirst": "1",
         "randomLast": "5",
@@ -1644,7 +1648,7 @@
         "repeat": "",
         "crontab": "",
         "once": true,
-        "x": 540,
+        "x": 560,
         "y": 740,
         "wires": [
             [
@@ -3260,10 +3264,10 @@
         "type": "function",
         "z": "2e77cfda.e26f3",
         "name": "test ProSerIP",
-        "func": "if (msg.proServIP === \"\" || msg.proServIP === undefined) {\n    if (msg.cmd.lang === \"de\") {\n        text = \"Bitte überprüfen Sie die adresse von ProServ\";\n        msg.error = {\n            text: text,\n            siteId: msg.cmd.siteId,\n            lang: \"de-DE\"\n        };\n    } else if (msg.cmd.lang === \"fr\") {\n        text = \"Veuillez vérifier l'adresse du Proserv\";\n        msg.error = {\n            text: text,\n            siteId: msg.cmd.siteId,\n            lang: \"fr-FR\"\n        };\n    } else {\n        text = \"Please check the configuration of the ProServ address\";\n        msg.error = {\n            text: text,\n            siteId: msg.cmd.siteId,\n            lang: \"en-EN\"\n        };\n    }\n}\nreturn msg;",
+        "func": "msg.cmd=[];\nmsg.cmd.lang = flow.get(\"msgLang\");\n\nif (msg.proServIP === \"\" || msg.proServIP.search(\"ECONNREFUSED\") !== -1) {\n    if (msg.cmd.lang === \"de\") {\n        text = \"Bitte überprüfen Sie die adresse von ProServ\";\n        msg.error = {\n            text: text,\n            siteId: msg.cmd.siteId,\n            lang: \"de-DE\"\n        };\n    } else if (msg.cmd.lang === \"fr\") {\n        text = \"Veuillez vérifier l'adresse du Proserv\";\n        msg.error = {\n            text: text,\n            siteId: msg.cmd.siteId,\n            lang: \"fr-FR\"\n        };\n    } else {\n        text = \"Please check the configuration of the ProServ address\";\n        msg.error = {\n            text: text,\n            siteId: msg.cmd.siteId,\n            lang: \"en-EN\"\n        };\n    }\n}\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 630,
+        "x": 690,
         "y": 580,
         "wires": [
             [
@@ -3288,7 +3292,7 @@
         ],
         "checkall": "true",
         "outputs": 2,
-        "x": 770,
+        "x": 850,
         "y": 580,
         "wires": [
             [
@@ -3307,7 +3311,7 @@
         "links": [
             "439f3f8d.b1db5"
         ],
-        "x": 855,
+        "x": 935,
         "y": 600,
         "wires": []
     },
@@ -3566,7 +3570,7 @@
         "type": "debug",
         "z": "2e77cfda.e26f3",
         "name": "",
-        "active": true,
+        "active": false,
         "console": "false",
         "complete": "cmd.room",
         "x": 800,
@@ -3578,7 +3582,7 @@
         "type": "debug",
         "z": "2e77cfda.e26f3",
         "name": "",
-        "active": true,
+        "active": false,
         "console": "false",
         "complete": "cmd.cmd",
         "x": 800,
@@ -3590,7 +3594,7 @@
         "type": "debug",
         "z": "2e77cfda.e26f3",
         "name": "",
-        "active": true,
+        "active": false,
         "console": "false",
         "complete": "cmd.device",
         "x": 800,
@@ -3626,7 +3630,7 @@
         "type": "debug",
         "z": "2e77cfda.e26f3",
         "name": "",
-        "active": true,
+        "active": false,
         "console": "false",
         "complete": "cmd.lang",
         "x": 800,
@@ -3638,7 +3642,7 @@
         "type": "debug",
         "z": "2e77cfda.e26f3",
         "name": "",
-        "active": true,
+        "active": false,
         "console": "false",
         "complete": "deviceList",
         "x": 799.8571341378347,
@@ -3686,7 +3690,7 @@
         "type": "debug",
         "z": "2e77cfda.e26f3",
         "name": "",
-        "active": true,
+        "active": false,
         "console": "false",
         "complete": "cmd.all",
         "x": 790,
@@ -3698,7 +3702,7 @@
         "type": "debug",
         "z": "2e77cfda.e26f3",
         "name": "",
-        "active": true,
+        "active": false,
         "console": "false",
         "complete": "false",
         "x": 790,
@@ -3714,27 +3718,6 @@
         "x": 790,
         "y": 980,
         "wires": []
-    },
-    {
-        "id": "1b241ce0.df5c83",
-        "type": "trigger",
-        "z": "2e77cfda.e26f3",
-        "op1": "",
-        "op2": "",
-        "op1type": "pay",
-        "op2type": "pay",
-        "duration": "1",
-        "extend": false,
-        "units": "min",
-        "reset": "",
-        "name": "",
-        "x": 710,
-        "y": 460,
-        "wires": [
-            [
-                "8ec34fe0.26ebc"
-            ]
-        ]
     },
     {
         "id": "f669de4c.d88f7",
@@ -3847,6 +3830,141 @@
         "wires": [
             [
                 "da749ffa.28648"
+            ]
+        ]
+    },
+    {
+        "id": "b92a9f7f.6d074",
+        "type": "switch",
+        "z": "2e77cfda.e26f3",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "cont",
+                "v": "Error",
+                "vt": "str"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "true",
+        "outputs": 2,
+        "x": 1070,
+        "y": 520,
+        "wires": [
+            [
+                "eb7c4fff.49a1b"
+            ],
+            [
+                "aa74904c.b910c"
+            ]
+        ]
+    },
+    {
+        "id": "ac3737ab.33be58",
+        "type": "trigger",
+        "z": "2e77cfda.e26f3",
+        "op1": "",
+        "op2": "",
+        "op1type": "pay",
+        "op2type": "pay",
+        "duration": "1",
+        "extend": false,
+        "units": "min",
+        "reset": "",
+        "name": "",
+        "x": 710,
+        "y": 400,
+        "wires": [
+            [
+                "8ec34fe0.26ebc"
+            ]
+        ]
+    },
+    {
+        "id": "dc29831e.5736d",
+        "type": "trigger",
+        "z": "2e77cfda.e26f3",
+        "op1": "",
+        "op2": "",
+        "op1type": "pay",
+        "op2type": "pay",
+        "duration": "2",
+        "extend": false,
+        "units": "min",
+        "reset": "",
+        "name": "",
+        "x": 710,
+        "y": 420,
+        "wires": [
+            [
+                "8ec34fe0.26ebc"
+            ]
+        ]
+    },
+    {
+        "id": "c46e6a6d.13ad28",
+        "type": "trigger",
+        "z": "2e77cfda.e26f3",
+        "op1": "",
+        "op2": "",
+        "op1type": "pay",
+        "op2type": "pay",
+        "duration": "3",
+        "extend": false,
+        "units": "min",
+        "reset": "",
+        "name": "",
+        "x": 710,
+        "y": 440,
+        "wires": [
+            [
+                "8ec34fe0.26ebc"
+            ]
+        ]
+    },
+    {
+        "id": "a5e744f8.c26e18",
+        "type": "trigger",
+        "z": "2e77cfda.e26f3",
+        "op1": "",
+        "op2": "",
+        "op1type": "pay",
+        "op2type": "pay",
+        "duration": "4",
+        "extend": false,
+        "units": "min",
+        "reset": "",
+        "name": "",
+        "x": 710,
+        "y": 460,
+        "wires": [
+            [
+                "8ec34fe0.26ebc"
+            ]
+        ]
+    },
+    {
+        "id": "8be62b35.7e9fa8",
+        "type": "trigger",
+        "z": "2e77cfda.e26f3",
+        "op1": "",
+        "op2": "",
+        "op1type": "pay",
+        "op2type": "pay",
+        "duration": "5",
+        "extend": false,
+        "units": "min",
+        "reset": "",
+        "name": "",
+        "x": 710,
+        "y": 480,
+        "wires": [
+            [
+                "8ec34fe0.26ebc"
             ]
         ]
     },
