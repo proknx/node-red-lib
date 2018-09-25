@@ -1,6 +1,6 @@
 [
  {
-      "name" : "realKNX Air",
+      "name" : "SNIPS v3",
       "info" : "Support english, french and german, bugreporting to jens@proknx.com",
       "url" : "https://raw.githubusercontent.com/proknx/node-red-lib/master/offline-voice-snips-v3-en-fr-gr.json"
  }
