@@ -1,20 +1,6 @@
-[{
-      "name" : "v0: Control lights, thermostat, shutters. Known issue: delay between cmd",
-      "info" : "This is Beta, bugreporting to jens@proknx.com",
-      "url" : "https://raw.githubusercontent.com/proknx/node-red-lib/master/offline-voice-snips-en-v0.json"
-   },
+[
  {
-      "name" : "v1: Control lights, thermostat, shutters. ",
-      "info" : "This is Beta, bugreporting to jens@proknx.com",
-      "url" : "https://raw.githubusercontent.com/proknx/node-red-lib/master/offline-voice-snips-v1.json"
- },
- {
-      "name" : "v1-berlin: Control lights, thermostat, shutters. ",
-      "info" : "This is Beta, bugreporting to jens@proknx.com",
-      "url" : "https://raw.githubusercontent.com/proknx/node-red-lib/master/offline-voice-snips-v1-berlin.json"
- },
- {
-      "name" : "v3: Control lights, thermostat, shutters, scenes, aux. ",
+      "name" : "realKNX Air",
       "info" : "Support english, french and german, bugreporting to jens@proknx.com",
       "url" : "https://raw.githubusercontent.com/proknx/node-red-lib/master/offline-voice-snips-v3-en-fr-gr.json"
  }
