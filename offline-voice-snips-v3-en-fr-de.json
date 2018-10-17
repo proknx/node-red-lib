@@ -1,0 +1,21 @@
+[
+    {
+        "id": "4b38ce77.02d4b",
+        "type": "tab",
+        "label": "Snips v3"
+    },
+    {
+        "id": "dd84dd95.a6ff8",
+        "type": "json",
+        "z": "4b38ce77.02d4b",
+        "name": "",
+        "pretty": true,
+        "x": 830,
+        "y": 140,
+        "wires": [
+            [
+                "c7d37e1d.97bd3"
+            ]
+        ]
+    }
+]
