@@ -1,12 +1,7 @@
 [
  {
-      "name" : "SNIPS v3",
+      "name" : "SNIPS Node-RED Application",
       "info" : "Support english, french and german, bugreporting to jens@proknx.com",
       "url" : "https://raw.githubusercontent.com/proknx/node-red-lib/master/offline-voice-snips-v3-en-fr-de.json"
- },
- {
-      "name" : "SNIPS v2.9",
-      "info" : "Support english, french and german, bugreporting to jens@proknx.com",
-      "url" : "https://raw.githubusercontent.com/proknx/node-red-lib/master/offline-voice-snips-v29-en-fr-de.json"
  }
 ]
