@@ -1,6 +1,6 @@
 [
     {
-        "id": "6037544e.4186ac",
+        "id": "5022bdd7.ed2114",
         "type": "tab",
         "label": "Telegram Bot",
         "disabled": false,
@@ -9,7 +9,7 @@
     {
         "id": "5c0df4a1.37d4ec",
         "type": "telegrambot-command",
-        "z": "6037544e.4186ac",
+        "z": "5022bdd7.ed2114",
         "bot": "4359293f.ca2928",
         "command": "/T.",
         "commandType": "re",
@@ -25,7 +25,7 @@
     {
         "id": "e3010db4.0a32e",
         "type": "change",
-        "z": "6037544e.4186ac",
+        "z": "5022bdd7.ed2114",
         "name": "save",
         "rules": [
             {
@@ -39,7 +39,7 @@
                 "t": "set",
                 "p": "deviceID",
                 "pt": "flow",
-                "to": "payload.text",
+                "to": "payload",
                 "tot": "msg"
             }
         ],
@@ -59,7 +59,7 @@
     {
         "id": "a5a5151e.70e398",
         "type": "telegrambot-switch",
-        "z": "6037544e.4186ac",
+        "z": "5022bdd7.ed2114",
         "name": "+/-1°",
         "bot": "4359293f.ca2928",
         "chatId": "",
@@ -99,7 +99,7 @@
     {
         "id": "d8791843.cca6f8",
         "type": "change",
-        "z": "6037544e.4186ac",
+        "z": "5022bdd7.ed2114",
         "name": "skip",
         "rules": [
             {
@@ -134,7 +134,7 @@
     {
         "id": "47b1a9a3.6356c8",
         "type": "change",
-        "z": "6037544e.4186ac",
+        "z": "5022bdd7.ed2114",
         "name": "timeout",
         "rules": [
             {
@@ -168,7 +168,7 @@
     {
         "id": "e84b5123.46e6",
         "type": "telegrambot-notify",
-        "z": "6037544e.4186ac",
+        "z": "5022bdd7.ed2114",
         "name": "",
         "bot": "4359293f.ca2928",
         "chatId": "flow.chat.id",
@@ -181,7 +181,7 @@
     {
         "id": "3b9f7b94.cf49a4",
         "type": "function",
-        "z": "6037544e.4186ac",
+        "z": "5022bdd7.ed2114",
         "name": "Prep req.",
         "func": "var mergedmsg = {};\nvar msgDeviceInfo = flow.get(\"msgDeviceInfo\");\nfor(var key in msg) mergedmsg[key] = msg[key];\nfor(var key in msgDeviceInfo) mergedmsg[key] = msgDeviceInfo[key];\nmsg = mergedmsg;\n\nif (msg.cmd === undefined)\n    msg.cmd = {};\nmsg.cmd.cmd = msg.op;\nvar id = parseInt(flow.get(\"deviceID\").substring(2));\nmsg.items = [];\nmsg.items[0] = msg.allitems[id];\n\nfunction precisionRound(number, precision) {\n  var factor = Math.pow(10, precision);\n  return Math.round(number * factor) / factor;\n}\n\nvar outputID = 0;\n//Prepare all HTTP requests for \"SET\" commands and put them in msg.url\nmsg.url = [];\nvar msg1 = msg;\nif (msg.cmd.value !== undefined) {\n    outputID = 1;    \n   \tfor (var i = 0; i < msg.items.length; i++) {\n   \t\tmsg.url[i] = [msg.proServIP, msg.items[i].setTargetUrl, msg.cmd.value];\n   \t\tmsg.url[i] = \"\".concat(...msg.url[i]);\n\t}\n}\nelse if (msg.cmd.cmd === \"getCurrent\") {\n\tfor (var i = 0; i < msg.items.length; i++) {\n\t\tmsg.url[i] = [msg.proServIP, msg.items[i].getCurrentUrl];\n   \t\tmsg.url[i] = \"\".concat(...msg.url[i]);\n\t}\n}\nelse if (msg.cmd.cmd === \"getTarget\") {\n    outputID = 1;\n\tfor (var i = 0; i < msg.items.length; i++) {\n\t\tmsg.url[i] = [msg.proServIP, msg.items[i].getTargetUrl];\n   \t\tmsg.url[i] = \"\".concat(...msg.url[i]);\n\t}\t\n}\n\n\nif (msg.url[0] === undefined && msg.error === undefined) {\n    msg.error = {\n        text: \"Something's not right.\"\n    };\n}\n\nif(outputID===0)\n    return [msg,null];\nelse \n    return [null,msg];\n",
         "outputs": "2",
@@ -204,7 +204,7 @@
     {
         "id": "588982.8299368",
         "type": "http request",
-        "z": "6037544e.4186ac",
+        "z": "5022bdd7.ed2114",
         "name": "Send URL",
         "method": "GET",
         "ret": "obj",
@@ -221,7 +221,7 @@
     {
         "id": "9d179a31.adb7e8",
         "type": "function",
-        "z": "6037544e.4186ac",
+        "z": "5022bdd7.ed2114",
         "name": "Feedback",
         "func": "function precisionRound(number, precision) {\n  var factor = Math.pow(10, precision);\n  return Math.round(number * factor) / factor;\n}\n\nvar name = msg.items[0].name.replace(\"  \",\"\");\n\nif( msg.op != \"getCurrent\" && msg.op != \"getTarget\"  ){\n    var id = flow.get(\"deviceID\");\n    if (msg.payload.Result === true) {\n        var val = \"\";\n        msg.payload = name + \" is set to \" + msg.cmd.value + '°   ' + id + '   /start';\n    }\n    else if (msg.payload.Result === \"false\") {\n        msg.payload = \" The request failed.  /start\";\n    }\n    else {\n        msg.payload = \"The server is not responding  /start\";\n    }\n    msg.op = '';\n    return [msg, null];\n} else {\n    var txt = '';\n    msg.oldTargetTemp = msg.payload.Data[0].Value;\n    var currentTemp = precisionRound(flow.get(\"currentTemp\"),1);\n    txt = name + \" is set to \" + precisionRound(msg.payload.Data[0].Value,1) + \"°. The current temp is \" + currentTemp + \"°\";\n    msg.op = '';\n    msg.payload = txt;\n    return [null, msg]\n}\n\n",
         "outputs": "2",
@@ -245,7 +245,7 @@
     {
         "id": "adb179d2.c859a8",
         "type": "change",
-        "z": "6037544e.4186ac",
+        "z": "5022bdd7.ed2114",
         "name": "+1",
         "rules": [
             {
@@ -279,7 +279,7 @@
     {
         "id": "dfb37749.0d1098",
         "type": "change",
-        "z": "6037544e.4186ac",
+        "z": "5022bdd7.ed2114",
         "name": "getCurrent",
         "rules": [
             {
@@ -306,7 +306,7 @@
     {
         "id": "5a879407.61466c",
         "type": "link in",
-        "z": "6037544e.4186ac",
+        "z": "5022bdd7.ed2114",
         "name": "Send URL IN",
         "links": [
             "cb46f567.699948"
@@ -322,7 +322,7 @@
     {
         "id": "c2216816.4f5428",
         "type": "change",
-        "z": "6037544e.4186ac",
+        "z": "5022bdd7.ed2114",
         "name": "url -> payload",
         "rules": [
             {
@@ -349,7 +349,7 @@
     {
         "id": "9d97623a.7e088",
         "type": "split",
-        "z": "6037544e.4186ac",
+        "z": "5022bdd7.ed2114",
         "name": "",
         "splt": "\\n",
         "spltType": "str",
@@ -368,7 +368,7 @@
     {
         "id": "a64ac1f2.1bf12",
         "type": "delay",
-        "z": "6037544e.4186ac",
+        "z": "5022bdd7.ed2114",
         "name": ".05s",
         "pauseType": "delay",
         "timeout": "50",
@@ -391,7 +391,7 @@
     {
         "id": "9e29896c.866588",
         "type": "telegrambot-payload",
-        "z": "6037544e.4186ac",
+        "z": "5022bdd7.ed2114",
         "name": "",
         "bot": "4359293f.ca2928",
         "chatId": "",
@@ -406,7 +406,7 @@
     {
         "id": "3b273bd8.c5cc64",
         "type": "comment",
-        "z": "6037544e.4186ac",
+        "z": "5022bdd7.ed2114",
         "name": "Handler for Start cmd",
         "info": "",
         "x": 170,
@@ -416,7 +416,8 @@
     {
         "id": "dd16313f.f6927",
         "type": "telegrambot-command",
-        "z": "6037544e.4186ac",
+        "z": "5022bdd7.ed2114",
+        "name": "",
         "bot": "4359293f.ca2928",
         "command": "^/start",
         "commandType": "re",
@@ -432,7 +433,7 @@
     {
         "id": "17da831e.c7e29d",
         "type": "http request",
-        "z": "6037544e.4186ac",
+        "z": "5022bdd7.ed2114",
         "name": "GET devices",
         "method": "GET",
         "ret": "txt",
@@ -449,7 +450,7 @@
     {
         "id": "6acb9c62.2445d4",
         "type": "change",
-        "z": "6037544e.4186ac",
+        "z": "5022bdd7.ed2114",
         "name": "save",
         "rules": [
             {
@@ -476,7 +477,7 @@
     {
         "id": "ffa4ad9a.15928",
         "type": "exec",
-        "z": "6037544e.4186ac",
+        "z": "5022bdd7.ed2114",
         "command": "sudo ip addr show eth0 | grep \"inet\\b\" | awk '{print $2}' | cut -d/ -f1",
         "addpay": false,
         "append": "",
@@ -497,7 +498,7 @@
     {
         "id": "9d4b05e9.7f01c8",
         "type": "function",
-        "z": "6037544e.4186ac",
+        "z": "5022bdd7.ed2114",
         "name": "Trim",
         "func": "msg.payload = msg.payload.trim();\nreturn msg;",
         "outputs": 1,
@@ -513,7 +514,7 @@
     {
         "id": "3c006a6.630c696",
         "type": "http request",
-        "z": "6037544e.4186ac",
+        "z": "5022bdd7.ed2114",
         "name": "GET ProServIP",
         "method": "GET",
         "ret": "txt",
@@ -530,7 +531,7 @@
     {
         "id": "b66eed5d.0d0a4",
         "type": "json",
-        "z": "6037544e.4186ac",
+        "z": "5022bdd7.ed2114",
         "name": "",
         "pretty": false,
         "x": 727,
@@ -544,7 +545,7 @@
     {
         "id": "80af19a3.e6cd78",
         "type": "function",
-        "z": "6037544e.4186ac",
+        "z": "5022bdd7.ed2114",
         "name": "List by Type",
         "func": "function findSwitchByKey(array, key, value) {\n    msg.payload.switch_lights = [];\n    var cpt = 0;\n    for (var i = 0; i < array.length; i++) {\n        if (array[i][key] === value) {\n            msg.payload.switch_lights[cpt] = array[i];\n            cpt ++;\n        }\n    }\n    return null;\n}\n\nfunction findDimmerByKey(array, key, value) {\n    msg.payload.dimmer_lights = [];\n    var cpt = 0;\n    for (var i = 0; i < array.length; i++) {\n        if (array[i][key] === value) {\n            msg.payload.dimmer_lights[cpt] = array[i];\n            cpt ++;\n        }\n    }\n    return null;\n}\nfunction findHeatersByKey(array, key, value) {\n    msg.payload.heaters = [];\n    var cpt = 0;\n    for (var i = 0; i < array.length; i++) {\n        if (array[i][key] === value) {\n            msg.payload.heaters[cpt] = array[i];\n            cpt ++;\n        }\n    }\n    return null;\n}\n\nfindSwitchByKey(msg.payload, 'type', 'lights');\nfindDimmerByKey(msg.payload, 'type', 'dimmers');\nmsg.lights = msg.payload.switch_lights.concat(msg.payload.dimmer_lights);\n\nfindHeatersByKey(msg.payload, 'type', 'heating');\nmsg.heaters = msg.payload.heaters;\n\nmsg.allitems = msg.payload;\n\nreturn msg;",
         "outputs": 1,
@@ -560,7 +561,7 @@
     {
         "id": "b82f621e.db691",
         "type": "function",
-        "z": "6037544e.4186ac",
+        "z": "5022bdd7.ed2114",
         "name": "build tg payload",
         "func": "function pad(n, width, z) {\n  z = z || '0';\n  n = n + '';\n  return n.length >= width ? n : new Array(width - n.length + 1).join(z) + n;\n}\n\nmsg.lights.sort(function(a, b) {\n   return a.zone.localeCompare(b.zone);\n});\nmsg.heaters.sort(function(a, b) {\n   return a.zone.localeCompare(b.zone);\n});\nmsg.allitems.sort(function(a, b) {\n   return a.zone.localeCompare(b.zone);\n});\nflow.set(\"msgDeviceInfo\", msg); // save for later use\n\n\nvar text = '';\nvar curZone = '';\nvar header = '';\n\nfor (var i = 0; i < msg.allitems.length; i++) {\n    if(curZone != msg.allitems[i].zone){\n        curZone = msg.allitems[i].zone;\n        header = '*' + curZone + '*\\n';\n    }\n    if(msg.lights.indexOf(msg.allitems[i])!=-1){\n        if(header.length>0){\n            text += header;\n            header = \"\";\n        }\n        text += msg.allitems[i].object + ': [/L' + pad(i,3) + ']\\n';\n    } else if(msg.heaters.indexOf(msg.allitems[i])!=-1){\n        if(header.length>0){\n            text += header;\n            header = \"\";\n        }\n        text += msg.allitems[i].object + ': [/T' + pad(i,3) + ']\\n';\n    }  \n}\nif(msg.lights.length>1){\n    text +=  '*All Lights*' + ': [/Lall]\\n';\n}\ntext += '*Help*' + ': [/help]\\n';\n\nmsg.payload = {\n    \"text\": text,\n    \"parse_mode\": \"Markdown\"\n}\nreturn msg;",
         "outputs": "1",
@@ -576,7 +577,7 @@
     {
         "id": "652a1a02.d734b4",
         "type": "comment",
-        "z": "6037544e.4186ac",
+        "z": "5022bdd7.ed2114",
         "name": "Handler for /T command : Temperature control",
         "info": "",
         "x": 245,
@@ -586,7 +587,7 @@
     {
         "id": "27003bf2.35f284",
         "type": "function",
-        "z": "6037544e.4186ac",
+        "z": "5022bdd7.ed2114",
         "name": "busy!",
         "func": "flow.set(\"isWaiting\", true);",
         "outputs": "0",
@@ -598,7 +599,7 @@
     {
         "id": "b8a166e9.5afb58",
         "type": "change",
-        "z": "6037544e.4186ac",
+        "z": "5022bdd7.ed2114",
         "name": "busy",
         "rules": [
             {
@@ -632,7 +633,7 @@
     {
         "id": "c06abf73.f337c",
         "type": "function",
-        "z": "6037544e.4186ac",
+        "z": "5022bdd7.ed2114",
         "name": "not busy",
         "func": "flow.set(\"isWaiting\", false);\n",
         "outputs": "0",
@@ -644,7 +645,7 @@
     {
         "id": "e7f6bb55.d03118",
         "type": "link out",
-        "z": "6037544e.4186ac",
+        "z": "5022bdd7.ed2114",
         "name": "set OUT",
         "links": [
             "89556f19.b908b"
@@ -656,7 +657,7 @@
     {
         "id": "89556f19.b908b",
         "type": "link in",
-        "z": "6037544e.4186ac",
+        "z": "5022bdd7.ed2114",
         "name": "set IN",
         "links": [
             "e7f6bb55.d03118"
@@ -673,9 +674,9 @@
     {
         "id": "62b78522.1ffdec",
         "type": "function",
-        "z": "6037544e.4186ac",
+        "z": "5022bdd7.ed2114",
         "name": "busy?",
-        "func": "// remove @xxx_bot in group commands\nvar n = msg.payload.text.indexOf('@');\nmsg.payload.text = msg.payload.text.substring(0, n != -1 ? n : msg.payload.text.length);\n\n// set busy flag\nvar isWaiting = flow.get(\"isWaiting\");\nif(isWaiting===true)\n    return [null, msg];\nelse\n    return [msg, null];",
+        "func": "// remove @xxx_bot in group commands\nvar n = msg.payload.indexOf('@');\nmsg.payload = msg.payload.substring(0, n != -1 ? n : msg.payload.length);\n\n// set busy flag\nvar isWaiting = flow.get(\"isWaiting\");\nif(isWaiting===true)\n    return [null, msg];\nelse\n    return [msg, null];",
         "outputs": "2",
         "noerr": 0,
         "x": 295,
@@ -696,7 +697,7 @@
     {
         "id": "131a208a.4d315f",
         "type": "telegrambot-command",
-        "z": "6037544e.4186ac",
+        "z": "5022bdd7.ed2114",
         "bot": "4359293f.ca2928",
         "command": "/L.",
         "commandType": "re",
@@ -712,7 +713,7 @@
     {
         "id": "6f29eaed.e912f4",
         "type": "change",
-        "z": "6037544e.4186ac",
+        "z": "5022bdd7.ed2114",
         "name": "save",
         "rules": [
             {
@@ -726,7 +727,7 @@
                 "t": "set",
                 "p": "deviceID",
                 "pt": "flow",
-                "to": "payload.text",
+                "to": "payload",
                 "tot": "msg"
             }
         ],
@@ -746,7 +747,7 @@
     {
         "id": "8ee91255.52a95",
         "type": "telegrambot-switch",
-        "z": "6037544e.4186ac",
+        "z": "5022bdd7.ed2114",
         "name": "ON/OFF",
         "bot": "4359293f.ca2928",
         "chatId": "",
@@ -786,7 +787,7 @@
     {
         "id": "eca02aa6.db88c8",
         "type": "change",
-        "z": "6037544e.4186ac",
+        "z": "5022bdd7.ed2114",
         "name": "skip",
         "rules": [
             {
@@ -821,7 +822,7 @@
     {
         "id": "ff19a742.9ba778",
         "type": "change",
-        "z": "6037544e.4186ac",
+        "z": "5022bdd7.ed2114",
         "name": "timeout",
         "rules": [
             {
@@ -855,7 +856,7 @@
     {
         "id": "d20f847a.e85fb8",
         "type": "telegrambot-notify",
-        "z": "6037544e.4186ac",
+        "z": "5022bdd7.ed2114",
         "name": "Feedback",
         "bot": "4359293f.ca2928",
         "chatId": "flow.chat.id",
@@ -868,9 +869,9 @@
     {
         "id": "74396940.4b0958",
         "type": "function",
-        "z": "6037544e.4186ac",
+        "z": "5022bdd7.ed2114",
         "name": "Prep req.",
-        "func": "if (typeof msg.payload.text === 'string' && msg.payload.text.startsWith('/Lall')){\n    if (msg.cmd === undefined)\n        msg.cmd = {};    \n    msg.cmd.all = true;\n    return [msg, null]; // skip get for 'all'\n}\n\nvar mergedmsg = {};\nvar msgDeviceInfo = flow.get(\"msgDeviceInfo\");\nfor(var key in msg) mergedmsg[key] = msg[key];\nfor(var key in msgDeviceInfo) mergedmsg[key] = msgDeviceInfo[key];\nmsg = mergedmsg;\n\nif (msg.cmd === undefined){\n    msg.cmd = {};\n}\n\nmsg.cmd.cmd = msg.op;\n\nif(msg.cmd.all !== undefined ){\n    msg.items = msg.lights;\n}\nelse {\n    var id = parseInt(flow.get(\"deviceID\").substring(2));\n    msg.items = [];\n    msg.items[0] = msg.allitems[id];\n}\nfunction precisionRound(number, precision) {\n  var factor = Math.pow(10, precision);\n  return Math.round(number * factor) / factor;\n}\n\n\n//Prepare all HTTP requests for \"SET\" commands and put them in msg.url\nmsg.url = [];\nif (msg.cmd.value !== undefined) {\n   \tfor (var i = 0; i < msg.items.length; i++) {\n   \t\tif (msg.items[i].type === \"dimmers\") {\n   \t\t\tvar val = msg.cmd.value*2.55;\n   \t\t\tval = precisionRound(val, 1);\n   \t\t\tmsg.items[i].setDimUrl = msg.items[i].setDimUrl.replace(\"${intensity.byte}\", '');\n   \t\t\tmsg.url[i] = [msg.proServIP, msg.items[i].setDimUrl, val];\n   \t\t\tmsg.url[i] = \"\".concat(...msg.url[i]);\n   \t\t} \n   \t\telse if (msg.cmd.value > 0) {\n\t\t    msg.url[i] = [msg.proServIP, msg.items[i].setOnUrl];\n   \t\t    msg.url[i] = \"\".concat(...msg.url[i]);\n   \t\t}\n   \t\telse {\n\t    \tmsg.url[i] = [msg.proServIP, msg.items[i].setOffUrl];\n   \t\t    msg.url[i] = \"\".concat(...msg.url[i]);\n   \t\t}\n\t}\n}\nelse if (msg.cmd.cmd === \"get\") {\n\tfor (var i = 0; i < msg.items.length; i++) {\n\t\tmsg.url[i] = [msg.proServIP, msg.items[i].getCurrentUrl];\n   \t\tmsg.url[i] = \"\".concat(...msg.url[i]);\n\t}\n}\nelse if (msg.cmd.cmd === \"on\") {\n\tfor (var i = 0; i < msg.items.length; i++) {\n\t\tmsg.url[i] = [msg.proServIP, msg.items[i].setOnUrl];\n   \t\tmsg.url[i] = \"\".concat(...msg.url[i]);\n\t}\n}\nelse if (msg.cmd.cmd === \"off\") {\n\tfor (var i = 0; i < msg.items.length; i++) {\n\t\tmsg.url[i] = [msg.proServIP, msg.items[i].setOffUrl];\n   \t\tmsg.url[i] = \"\".concat(...msg.url[i]);\n\t}\n} else if (msg.cmd.cmd !== \"on\" && msg.cmd.cmd !== \"off\" && msg.cmd.cmd !== \"increase\" && msg.cmd.cmd !== \"decrease\") {\n   msg.error = {\n        text: \"Sorry I did not understand your command\",\n        siteId: msg.cmd.siteId\n    }; \n}\n\nif (msg.url[0] === undefined && msg.error === undefined) {\n    msg.error = {\n        text: \"Something's not right.\"\n    };\n}\n\nreturn [null, msg];",
+        "func": "if (typeof msg.payload === 'string' && msg.payload.startsWith('/Lall')){\n    if (msg.cmd === undefined)\n        msg.cmd = {};    \n    msg.cmd.all = true;\n    return [msg, null]; // skip get for 'all'\n}\n\nvar mergedmsg = {};\nvar msgDeviceInfo = flow.get(\"msgDeviceInfo\");\nfor(var key in msg) mergedmsg[key] = msg[key];\nfor(var key in msgDeviceInfo) mergedmsg[key] = msgDeviceInfo[key];\nmsg = mergedmsg;\n\nif (msg.cmd === undefined){\n    msg.cmd = {};\n}\n\nmsg.cmd.cmd = msg.op;\n\nif(msg.cmd.all !== undefined ){\n    msg.items = msg.lights;\n}\nelse {\n    var id = parseInt(flow.get(\"deviceID\").substring(2));\n    msg.items = [];\n    msg.items[0] = msg.allitems[id];\n}\nfunction precisionRound(number, precision) {\n  var factor = Math.pow(10, precision);\n  return Math.round(number * factor) / factor;\n}\n\n\n//Prepare all HTTP requests for \"SET\" commands and put them in msg.url\nmsg.url = [];\nif (msg.cmd.value !== undefined) {\n   \tfor (var i = 0; i < msg.items.length; i++) {\n   \t\tif (msg.items[i].type === \"dimmers\") {\n   \t\t\tvar val = msg.cmd.value*2.55;\n   \t\t\tval = precisionRound(val, 1);\n   \t\t\tmsg.items[i].setDimUrl = msg.items[i].setDimUrl.replace(\"${intensity.byte}\", '');\n   \t\t\tmsg.url[i] = [msg.proServIP, msg.items[i].setDimUrl, val];\n   \t\t\tmsg.url[i] = \"\".concat(...msg.url[i]);\n   \t\t} \n   \t\telse if (msg.cmd.value > 0) {\n\t\t    msg.url[i] = [msg.proServIP, msg.items[i].setOnUrl];\n   \t\t    msg.url[i] = \"\".concat(...msg.url[i]);\n   \t\t}\n   \t\telse {\n\t    \tmsg.url[i] = [msg.proServIP, msg.items[i].setOffUrl];\n   \t\t    msg.url[i] = \"\".concat(...msg.url[i]);\n   \t\t}\n\t}\n}\nelse if (msg.cmd.cmd === \"get\") {\n\tfor (var i = 0; i < msg.items.length; i++) {\n\t\tmsg.url[i] = [msg.proServIP, msg.items[i].getCurrentUrl];\n   \t\tmsg.url[i] = \"\".concat(...msg.url[i]);\n\t}\n}\nelse if (msg.cmd.cmd === \"on\") {\n\tfor (var i = 0; i < msg.items.length; i++) {\n\t\tmsg.url[i] = [msg.proServIP, msg.items[i].setOnUrl];\n   \t\tmsg.url[i] = \"\".concat(...msg.url[i]);\n\t}\n}\nelse if (msg.cmd.cmd === \"off\") {\n\tfor (var i = 0; i < msg.items.length; i++) {\n\t\tmsg.url[i] = [msg.proServIP, msg.items[i].setOffUrl];\n   \t\tmsg.url[i] = \"\".concat(...msg.url[i]);\n\t}\n} else if (msg.cmd.cmd !== \"on\" && msg.cmd.cmd !== \"off\" && msg.cmd.cmd !== \"increase\" && msg.cmd.cmd !== \"decrease\") {\n   msg.error = {\n        text: \"Sorry I did not understand your command\",\n        siteId: msg.cmd.siteId\n    }; \n}\n\nif (msg.url[0] === undefined && msg.error === undefined) {\n    msg.error = {\n        text: \"Something's not right.\"\n    };\n}\n\nreturn [null, msg];",
         "outputs": "2",
         "noerr": 0,
         "x": 690,
@@ -891,7 +892,7 @@
     {
         "id": "302c08a4.2e1858",
         "type": "http request",
-        "z": "6037544e.4186ac",
+        "z": "5022bdd7.ed2114",
         "name": "Send URL",
         "method": "GET",
         "ret": "obj",
@@ -908,9 +909,9 @@
     {
         "id": "f3eacc94.dcd55",
         "type": "function",
-        "z": "6037544e.4186ac",
+        "z": "5022bdd7.ed2114",
         "name": "Feedback",
-        "func": "if(typeof msg.payload === 'string' && msg.payload.startsWith(\"Error\"))\n    return [null,null,null];\n\nif (msg.payload.text==='/Lall'){\n    msg.payload = \"All lights\"\n    msg.op = '';\n    return [null, msg, null];\n}\n\nvar name = msg.items[0].name.replace(\"  \",\"\");\n\nif( msg.op != \"get\" ){\n    var id = flow.get(\"deviceID\");\n    if (msg.payload.Result === true) {\n        if(msg.cmd.all)\n            msg.payload = \"All lights are \" + msg.op.toUpperCase() + '   ' + id + '   /start';\n        else if(msg.op === \"set\")\n            msg.payload = name + \" is set to \" + msg.cmd.value + '%   ' + id + '   /start';\n        else        \n            msg.payload = name + \" is \" + msg.op.toUpperCase() + '   ' + id + '   /start';\n    }\n    else if (msg.payload.Result === \"false\") {\n        msg.payload = \" The request failed.  /start\";\n    }\n    else {\n        msg.payload = \"The server is not responding  /start\";\n    }\n    msg.op = '';\n    return [msg, null, null];\n} else {\n    var txt = '';\n    var isDimmer = false;\n    if(msg.payload.Data[0].Value === true){\n        txt = name + \" is ON\";\n    }\n    else if(msg.payload.Data[0].Value === false){\n        txt = name + \" is OFF\";\n    }\n    else {\n        var val = Math.round(msg.payload.Data[0].Value*100/255);\n        txt = name + \" is set to \" + val + \" %\";\n        isDimmer = true;\n    }\n    msg.op = '';\n    msg.payload = txt;\n    if(isDimmer === true){\n        return [null, null, msg];\n    }\n    else {\n        return [null, msg, null];\n    }\n}\n",
+        "func": "if(typeof msg.payload === 'string' && msg.payload.startsWith(\"Error\"))\n    return [null,null,null];\n\nif (msg.payload==='/Lall'){\n    msg.payload = \"All lights\"\n    msg.op = '';\n    return [null, msg, null];\n}\n\nvar name = msg.items[0].name.replace(\"  \",\"\");\n\nif( msg.op != \"get\" ){\n    var id = flow.get(\"deviceID\");\n    if (msg.payload.Result === true) {\n        if(msg.cmd.all)\n            msg.payload = \"All lights are \" + msg.op.toUpperCase() + '   ' + id + '   /start';\n        else if(msg.op === \"set\")\n            msg.payload = name + \" is set to \" + msg.cmd.value + '%   ' + id + '   /start';\n        else        \n            msg.payload = name + \" is \" + msg.op.toUpperCase() + '   ' + id + '   /start';\n    }\n    else if (msg.payload.Result === \"false\") {\n        msg.payload = \" The request failed.  /start\";\n    }\n    else {\n        msg.payload = \"The server is not responding  /start\";\n    }\n    msg.op = '';\n    return [msg, null, null];\n} else {\n    var txt = '';\n    var isDimmer = false;\n    if(msg.payload.Data[0].Value === true){\n        txt = name + \" is ON\";\n    }\n    else if(msg.payload.Data[0].Value === false){\n        txt = name + \" is OFF\";\n    }\n    else {\n        var val = Math.round(msg.payload.Data[0].Value*100/255);\n        txt = name + \" is set to \" + val + \" %\";\n        isDimmer = true;\n    }\n    msg.op = '';\n    msg.payload = txt;\n    if(isDimmer === true){\n        return [null, null, msg];\n    }\n    else {\n        return [null, msg, null];\n    }\n}\n",
         "outputs": "3",
         "noerr": 0,
         "x": 141,
@@ -937,7 +938,7 @@
     {
         "id": "88b8527b.6e9cf",
         "type": "change",
-        "z": "6037544e.4186ac",
+        "z": "5022bdd7.ed2114",
         "name": "on",
         "rules": [
             {
@@ -964,7 +965,7 @@
     {
         "id": "749a0639.826b18",
         "type": "change",
-        "z": "6037544e.4186ac",
+        "z": "5022bdd7.ed2114",
         "name": "off",
         "rules": [
             {
@@ -991,7 +992,7 @@
     {
         "id": "3371afb6.82a8a",
         "type": "change",
-        "z": "6037544e.4186ac",
+        "z": "5022bdd7.ed2114",
         "name": "get",
         "rules": [
             {
@@ -1018,7 +1019,7 @@
     {
         "id": "bf90c405.b12a28",
         "type": "telegrambot-switch",
-        "z": "6037544e.4186ac",
+        "z": "5022bdd7.ed2114",
         "name": "Dimmer",
         "bot": "4359293f.ca2928",
         "chatId": "",
@@ -1073,7 +1074,7 @@
     {
         "id": "6ea688bf.a39d18",
         "type": "change",
-        "z": "6037544e.4186ac",
+        "z": "5022bdd7.ed2114",
         "name": "25%",
         "rules": [
             {
@@ -1107,7 +1108,7 @@
     {
         "id": "ac350385.db1da",
         "type": "link out",
-        "z": "6037544e.4186ac",
+        "z": "5022bdd7.ed2114",
         "name": "Feedback OUT",
         "links": [
             "69ad7e6d.1d2e"
@@ -1119,7 +1120,7 @@
     {
         "id": "69ad7e6d.1d2e",
         "type": "link in",
-        "z": "6037544e.4186ac",
+        "z": "5022bdd7.ed2114",
         "name": "Feedback IN",
         "links": [
             "3020f478.7e06dc",
@@ -1136,7 +1137,7 @@
     {
         "id": "7e3a2684.0de168",
         "type": "change",
-        "z": "6037544e.4186ac",
+        "z": "5022bdd7.ed2114",
         "name": "url -> payload",
         "rules": [
             {
@@ -1163,7 +1164,7 @@
     {
         "id": "eb4bac42.2f1d5",
         "type": "split",
-        "z": "6037544e.4186ac",
+        "z": "5022bdd7.ed2114",
         "name": "",
         "splt": "\\n",
         "spltType": "str",
@@ -1182,7 +1183,7 @@
     {
         "id": "c3e3c4c8.a7b5c8",
         "type": "delay",
-        "z": "6037544e.4186ac",
+        "z": "5022bdd7.ed2114",
         "name": ".1s",
         "pauseType": "delay",
         "timeout": "100",
@@ -1205,7 +1206,7 @@
     {
         "id": "c0042d57.6bfd2",
         "type": "change",
-        "z": "6037544e.4186ac",
+        "z": "5022bdd7.ed2114",
         "name": "0%",
         "rules": [
             {
@@ -1239,7 +1240,7 @@
     {
         "id": "164b1fda.11d08",
         "type": "change",
-        "z": "6037544e.4186ac",
+        "z": "5022bdd7.ed2114",
         "name": "75%",
         "rules": [
             {
@@ -1273,7 +1274,7 @@
     {
         "id": "b96e60f3.64601",
         "type": "change",
-        "z": "6037544e.4186ac",
+        "z": "5022bdd7.ed2114",
         "name": "100%",
         "rules": [
             {
@@ -1307,7 +1308,7 @@
     {
         "id": "f6de925a.50a83",
         "type": "change",
-        "z": "6037544e.4186ac",
+        "z": "5022bdd7.ed2114",
         "name": "50%",
         "rules": [
             {
@@ -1341,7 +1342,7 @@
     {
         "id": "876ccd4c.4f829",
         "type": "comment",
-        "z": "6037544e.4186ac",
+        "z": "5022bdd7.ed2114",
         "name": "Handler for /L command : Lights & Dimmers",
         "info": "",
         "x": 239,
@@ -1351,7 +1352,7 @@
     {
         "id": "a2b5abed.b59218",
         "type": "change",
-        "z": "6037544e.4186ac",
+        "z": "5022bdd7.ed2114",
         "name": "busy",
         "rules": [
             {
@@ -1385,7 +1386,7 @@
     {
         "id": "c0615465.9cbeb8",
         "type": "link out",
-        "z": "6037544e.4186ac",
+        "z": "5022bdd7.ed2114",
         "name": "set OUT",
         "links": [
             "c4faecd2.3b3f4"
@@ -1397,7 +1398,7 @@
     {
         "id": "c4faecd2.3b3f4",
         "type": "link in",
-        "z": "6037544e.4186ac",
+        "z": "5022bdd7.ed2114",
         "name": "set IN",
         "links": [
             "c0615465.9cbeb8"
@@ -1414,9 +1415,9 @@
     {
         "id": "6444233a.7f001c",
         "type": "function",
-        "z": "6037544e.4186ac",
+        "z": "5022bdd7.ed2114",
         "name": "busy?",
-        "func": "// remove @xxx_bot in group commands\nvar n = msg.payload.text.indexOf('@');\nmsg.payload.text = msg.payload.text.substring(0, n != -1 ? n : msg.payload.text.length);\n\n// set busy flag\nvar isWaiting = flow.get(\"isWaiting\");\nif(isWaiting===true)\n    return [null, msg];\nelse\n    return [msg, null];",
+        "func": "// remove @xxx_bot in group commands\nvar n = msg.payload.indexOf('@');\nmsg.payload = msg.payload.substring(0, n != -1 ? n : msg.payload.length);\n\n// set busy flag\nvar isWaiting = flow.get(\"isWaiting\");\nif(isWaiting===true)\n    return [null, msg];\nelse\n    return [msg, null];",
         "outputs": "2",
         "noerr": 0,
         "x": 290,
@@ -1437,7 +1438,7 @@
     {
         "id": "cb46f567.699948",
         "type": "link out",
-        "z": "6037544e.4186ac",
+        "z": "5022bdd7.ed2114",
         "name": "Send URL OUT",
         "links": [
             "5a879407.61466c"
@@ -1449,7 +1450,7 @@
     {
         "id": "91935285.c54cb",
         "type": "http request",
-        "z": "6037544e.4186ac",
+        "z": "5022bdd7.ed2114",
         "name": "Send URL",
         "method": "GET",
         "ret": "obj",
@@ -1466,7 +1467,7 @@
     {
         "id": "40e7f9b0.8bcd38",
         "type": "change",
-        "z": "6037544e.4186ac",
+        "z": "5022bdd7.ed2114",
         "name": "url -> payload",
         "rules": [
             {
@@ -1493,7 +1494,7 @@
     {
         "id": "f5324071.a059b",
         "type": "split",
-        "z": "6037544e.4186ac",
+        "z": "5022bdd7.ed2114",
         "name": "",
         "splt": "\\n",
         "spltType": "str",
@@ -1512,7 +1513,7 @@
     {
         "id": "d12f9c31.775e5",
         "type": "delay",
-        "z": "6037544e.4186ac",
+        "z": "5022bdd7.ed2114",
         "name": ".05s",
         "pauseType": "delay",
         "timeout": "50",
@@ -1535,7 +1536,7 @@
     {
         "id": "ffabd8dd.cbbd08",
         "type": "change",
-        "z": "6037544e.4186ac",
+        "z": "5022bdd7.ed2114",
         "name": "-1",
         "rules": [
             {
@@ -1569,7 +1570,7 @@
     {
         "id": "e8c1bfee.31046",
         "type": "function",
-        "z": "6037544e.4186ac",
+        "z": "5022bdd7.ed2114",
         "name": "Save cur temp",
         "func": "flow.set(\"currentTemp\", msg.payload.Data[0].Value);\nreturn msg;\n\n\n",
         "outputs": "1",
@@ -1585,7 +1586,7 @@
     {
         "id": "c386091f.603aa8",
         "type": "change",
-        "z": "6037544e.4186ac",
+        "z": "5022bdd7.ed2114",
         "name": "getTarget",
         "rules": [
             {
@@ -1612,7 +1613,7 @@
     {
         "id": "f8fef309.7bf2c",
         "type": "link out",
-        "z": "6037544e.4186ac",
+        "z": "5022bdd7.ed2114",
         "name": "Cur temp OUT",
         "links": [
             "be34fb65.f76d78"
@@ -1624,7 +1625,7 @@
     {
         "id": "be34fb65.f76d78",
         "type": "link in",
-        "z": "6037544e.4186ac",
+        "z": "5022bdd7.ed2114",
         "name": "Cur temp IN",
         "links": [
             "f8fef309.7bf2c"
@@ -1640,7 +1641,7 @@
     {
         "id": "4a88157e.f5178c",
         "type": "switch",
-        "z": "6037544e.4186ac",
+        "z": "5022bdd7.ed2114",
         "name": "last?",
         "property": "msg.parts.index +1",
         "propertyType": "jsonata",
@@ -1676,7 +1677,7 @@
     {
         "id": "3020f478.7e06dc",
         "type": "link out",
-        "z": "6037544e.4186ac",
+        "z": "5022bdd7.ed2114",
         "name": "Feedback OUT",
         "links": [
             "69ad7e6d.1d2e"
@@ -1688,7 +1689,7 @@
     {
         "id": "611193ef.d6312c",
         "type": "telegrambot-notify",
-        "z": "6037544e.4186ac",
+        "z": "5022bdd7.ed2114",
         "name": "Working..",
         "bot": "4359293f.ca2928",
         "chatId": "flow.chat.id",
@@ -1701,7 +1702,7 @@
     {
         "id": "5afadb16.3247f4",
         "type": "change",
-        "z": "6037544e.4186ac",
+        "z": "5022bdd7.ed2114",
         "name": "!busy",
         "rules": [
             {
@@ -1728,7 +1729,7 @@
     {
         "id": "b6f2ac06.c6a51",
         "type": "change",
-        "z": "6037544e.4186ac",
+        "z": "5022bdd7.ed2114",
         "name": "busy!",
         "rules": [
             {
@@ -1755,7 +1756,7 @@
     {
         "id": "ff341b13.401278",
         "type": "change",
-        "z": "6037544e.4186ac",
+        "z": "5022bdd7.ed2114",
         "name": "!busy",
         "rules": [
             {
@@ -1780,7 +1781,7 @@
     {
         "id": "bc20a724.33aff8",
         "type": "change",
-        "z": "6037544e.4186ac",
+        "z": "5022bdd7.ed2114",
         "name": "busy!",
         "rules": [
             {
@@ -1805,9 +1806,9 @@
     {
         "id": "b45b606c.bfc6b",
         "type": "function",
-        "z": "6037544e.4186ac",
+        "z": "5022bdd7.ed2114",
         "name": "busy?",
-        "func": "// remove @xxx_bot in group commands\nvar n = msg.payload.text.indexOf('@');\nmsg.payload.text = msg.payload.text.substring(0, n != -1 ? n : msg.payload.text.length);\n\n// set busy flag\nvar isWaiting = flow.get(\"isWaiting\");\nif(isWaiting===true)\n    return [null, msg];\nelse\n    return [msg, null];",
+        "func": "// remove @xxx_bot in group commands\nvar n = msg.payload.indexOf('@');\nmsg.payload = msg.payload.substring(0, n != -1 ? n : msg.payload.length);\n\n// set busy flag\nvar isWaiting = flow.get(\"isWaiting\");\nif(isWaiting===true)\n    return [null, msg];\nelse\n    return [msg, null];",
         "outputs": "2",
         "noerr": 0,
         "x": 380,
@@ -1828,7 +1829,7 @@
     {
         "id": "d8f0872f.4adee8",
         "type": "change",
-        "z": "6037544e.4186ac",
+        "z": "5022bdd7.ed2114",
         "name": "busy",
         "rules": [
             {
@@ -1862,7 +1863,7 @@
     {
         "id": "9831d6eb.443f48",
         "type": "telegrambot-notify",
-        "z": "6037544e.4186ac",
+        "z": "5022bdd7.ed2114",
         "name": "Feedback",
         "bot": "4359293f.ca2928",
         "chatId": "flow.chat.id",
@@ -1875,7 +1876,7 @@
     {
         "id": "7e62f9c3.558878",
         "type": "catch",
-        "z": "6037544e.4186ac",
+        "z": "5022bdd7.ed2114",
         "name": "",
         "scope": null,
         "x": 440,
@@ -1889,7 +1890,7 @@
     {
         "id": "d9c7885c.5836f8",
         "type": "function",
-        "z": "6037544e.4186ac",
+        "z": "5022bdd7.ed2114",
         "name": "err msg",
         "func": "msg.payload = \"Something's not right, I got this error:\\n\"\nif(msg.error.message!==undefined){\n    msg.payload += msg.error.message;\n}\nreturn msg;",
         "outputs": 1,
@@ -1905,7 +1906,7 @@
     {
         "id": "f4479e2.085716",
         "type": "comment",
-        "z": "6037544e.4186ac",
+        "z": "5022bdd7.ed2114",
         "name": "Handler for Help cmd",
         "info": "",
         "x": 170,
@@ -1915,7 +1916,8 @@
     {
         "id": "404dd23b.f10fbc",
         "type": "telegrambot-command",
-        "z": "6037544e.4186ac",
+        "z": "5022bdd7.ed2114",
+        "name": "",
         "bot": "4359293f.ca2928",
         "command": "help",
         "commandType": "str",
@@ -1931,7 +1933,8 @@
     {
         "id": "16203f55.fe14e1",
         "type": "telegrambot-command",
-        "z": "6037544e.4186ac",
+        "z": "5022bdd7.ed2114",
+        "name": "",
         "bot": "4359293f.ca2928",
         "command": "^/help",
         "commandType": "re",
@@ -1947,9 +1950,9 @@
     {
         "id": "3d7f102.0721cf",
         "type": "function",
-        "z": "6037544e.4186ac",
+        "z": "5022bdd7.ed2114",
         "name": "help text",
-        "func": "// remove @xxx_bot in group commands\nvar n = msg.payload.text.indexOf('@');\nmsg.payload.text = msg.payload.text.substring(0, n != -1 ? n : msg.payload.text.length);\n\n\nvar text = \"*Telegram Chatbot for realKNX - Help*\\n\";\ntext += \"Q: What can I use this for?\\n\" \ntext += \"A: Remote and secure control *realKNX* lights and thermostats.\\n\\n\";\ntext +=  \"To list all items that can be controlled, type /start.\\n\";\ntext += \"To control a device, tap the link next to each device (/L001 e.g.).\\n\";\ntext += \"Lights and Dimmers are prefixed with */L*, thermostats with */T*.\";\n\nmsg.payload = {\n    \"text\": text,\n    \"parse_mode\": \"Markdown\"\n}\nreturn msg;",
+        "func": "// remove @xxx_bot in group commands\nvar n = msg.payload.indexOf('@');\nmsg.payload = msg.payload.substring(0, n != -1 ? n : msg.payload.length);\n\n\nvar text = \"*Telegram Chatbot for realKNX - Help*\\n\";\ntext += \"Q: What can I use this for?\\n\" \ntext += \"A: Remote and secure control *realKNX* lights and thermostats.\\n\\n\";\ntext +=  \"To list all items that can be controlled, type /start.\\n\";\ntext += \"To control a device, tap the link next to each device (/L001 e.g.).\\n\";\ntext += \"Lights and Dimmers are prefixed with */L*, thermostats with */T*.\";\n\nmsg.payload = {\n    \"text\": text,\n    \"parse_mode\": \"Markdown\"\n}\nreturn msg;",
         "outputs": "1",
         "noerr": 0,
         "x": 365,
@@ -1963,7 +1966,7 @@
     {
         "id": "9fc13aa7.bcee48",
         "type": "telegrambot-payload",
-        "z": "6037544e.4186ac",
+        "z": "5022bdd7.ed2114",
         "name": "",
         "bot": "4359293f.ca2928",
         "chatId": "",
@@ -1978,7 +1981,7 @@
     {
         "id": "4359293f.ca2928",
         "type": "telegrambot-config",
-        "z": "6037544e.4186ac",
+        "z": "5022bdd7.ed2114",
         "botname": "",
         "usernames": "",
         "chatIds": "",
