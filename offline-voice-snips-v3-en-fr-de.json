@@ -2,7 +2,9 @@
     {
         "id": "eaca0ac7.88c298",
         "type": "tab",
-        "label": "SNIPS V3"
+        "label": "SNIPS V3",
+        "disabled": false,
+        "info": ""
     },
     {
         "id": "eb60198e.f18468",
@@ -2419,7 +2421,7 @@
         "type": "function",
         "z": "eaca0ac7.88c298",
         "name": "Process connection status",
-        "func": "msg.cmd=[];\nmsg.cmd.lang = flow.get(\"msgLang\");\nmsg.deviceList = flow.get(\"msgDeviceList\");\nmsg.proServIP = flow.get(\"msgProServIP\");\ncptok = flow.get(\"cptok\");\ncpter = flow.get(\"cpter\");\nmsg.serverSiteId = flow.get(\"msgServerSiteId\");\n\n/*if (msg.cmd.siteId === undefined) {\n    msg.cmd.siteId = msg.serverSiteId;\n}*/\n\nif (msg.deviceList !== undefined && msg.proServIP !== undefined && cptok === 0 && msg.statusCode === 200) {\n    cpter = 0;\n    if (msg.cmd.lang === \"de\") {\n        text = \"real KNX Air ist betriebsbereit\";\n        msg.error = {\n            text: text,\n            siteId: msg.cmd.siteId,\n            lang: \"de-DE\"\n        };\n    } else if (msg.cmd.lang === \"fr\") {\n        text = \"real KNX Air est à présent prêt à l'emploi\";\n        msg.error = {\n            text: text,\n            siteId: msg.cmd.siteId,\n            lang: \"fr-FR\"\n        };\n    } else {\n        text = \"real KNX Air is now ready to use\";\n        msg.error = {\n            text: text,\n            siteId: msg.cmd.siteId,\n            lang: \"en-EN\"\n        };\n    }\n    cptok++;\n    flow.set(\"cptok\", cptok); // save for later use\n    flow.set(\"cpter\", cpter); // save for later use\n} else if (msg.deviceList === undefined || msg.proServIP === undefined || msg.statusCode !== 200) {\n    cptok = 0;\n    cpter++;\n    if (cpter > 3) {\n        cpter = -1;\n        if (msg.cmd.lang === \"de\") {\n            text = \"Snips hat Probleme, sich mit dem KNX-Netzwerk zu verbinden\";\n            msg.error = {\n                text: text,\n                siteId: msg.cmd.siteId,\n                lang: \"de-DE\"\n            };\n        } else if (msg.cmd.lang === \"fr\") {\n            text = \"Real KNX Air rencontre des problèmes pour se connecter au réseau KNX\";\n            msg.error = {\n                text: text,\n                siteId: msg.cmd.siteId,\n                lang: \"fr-FR\"\n            };\n        } else {\n            text = \"Real KNX Air is having problem to connect to the KNX network\";\n            msg.error = {\n                text: text,\n                siteId: msg.cmd.siteId,\n                lang: \"en-EN\"\n            };\n        }\n    }\n    flow.set(\"cptok\", cptok); // save for later use\n    flow.set(\"cpter\", cpter); // save for later use\n}\n\nreturn msg;",
+        "func": "msg.cmd=[];\nmsg.cmd.lang = flow.get(\"msgLang\");\nmsg.deviceList = flow.get(\"msgDeviceList\");\nmsg.proServIP = flow.get(\"msgProServIP\");\ncptok = flow.get(\"cptok\");\ncpter = flow.get(\"cpter\");\nmsg.serverSiteId = flow.get(\"msgServerSiteId\");\n\n/*if (msg.cmd.siteId === undefined) {\n    msg.cmd.siteId = msg.serverSiteId;\n}*/\n\nif (msg.deviceList !== undefined && msg.proServIP !== undefined && cptok === 0 && msg.statusCode === 200) {\n    cpter = 0;\n    if (msg.cmd.lang === \"de\") {\n        text = \"real KNX Air ist betriebsbereit\";\n        msg.error = {\n            text: text,\n            siteId: msg.cmd.siteId,\n            lang: \"de-DE\"\n        };\n    } else if (msg.cmd.lang === \"fr\") {\n        text = \"real KNX Air est à présent prêt à l'emploi\";\n        msg.error = {\n            text: text,\n            siteId: msg.cmd.siteId,\n            lang: \"fr-FR\"\n        };\n    } else {\n        text = \"real KNX Air is now ready to use\";\n        msg.error = {\n            text: text,\n            siteId: msg.cmd.siteId,\n            lang: \"en-EN\"\n        };\n    }\n    cptok++;\n    flow.set(\"cptok\", cptok); // save for later use\n    flow.set(\"cpter\", cpter); // save for later use\n} else if (msg.deviceList === undefined || msg.proServIP === undefined || msg.statusCode !== 200) {\n    cptok = 0;\n    cpter++;\n    if (cpter > 3) {\n        cpter = -1;\n        if (msg.cmd.lang === \"de\") {\n            text = \"Etwas stimmt nicht, ich kann die KNX-Geräte nicht laden. Bitte überprüfen Sie die IP von proServ.\";\n            msg.error = {\n                text: text,\n                siteId: msg.cmd.siteId,\n                lang: \"de-DE\"\n            };\n        } else if (msg.cmd.lang === \"fr\") {\n            text = \"Quelque chose ne va pas, je ne peux pas charger les appareils KNX. Veuillez vérifier l'adresse IP de proServ.\";\n            msg.error = {\n                text: text,\n                siteId: msg.cmd.siteId,\n                lang: \"fr-FR\"\n            };\n        } else {\n            text = \"Something is wrong, I cannot load the KNX devices. Please check the IP of proServ.\";\n            msg.error = {\n                text: text,\n                siteId: msg.cmd.siteId,\n                lang: \"en-EN\"\n            };\n        }\n    }\n    flow.set(\"cptok\", cptok); // save for later use\n    flow.set(\"cpter\", cpter); // save for later use\n}\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "x": 1170,
@@ -2808,7 +2810,9 @@
         "x": 290,
         "y": 620,
         "wires": [
-            []
+            [
+                "1b1a6184.98b5ae"
+            ]
         ]
     },
     {
@@ -4509,7 +4513,7 @@
         "type": "function",
         "z": "eaca0ac7.88c298",
         "name": "msg EN",
-        "func": "\nmsg.payload = {\n    text: \"Hello, this is a test message!\",\n    siteId: \"default\",\n    lang: \"en-UK\"\n};\n\nreturn msg;",
+        "func": "msg.payload = {\n    text: \"Hello, this is a test message!\",\n    siteId: \"default\",\n    lang: \"en-UK\"\n};\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "x": 2639.999969482422,
