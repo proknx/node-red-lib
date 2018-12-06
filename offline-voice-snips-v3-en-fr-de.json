@@ -10,12 +10,12 @@
         "z": "470f040b.7391ac",
         "name": "",
         "pretty": true,
-        "x": 2070,
+        "x": 2010,
         "y": 240,
         "wires": [
             [
-                "10cc755a.0d8ceb",
-                "dccacc10.26c4c"
+                "dccacc10.26c4c",
+                "f0a3da36.d18d48"
             ]
         ]
     },
@@ -262,7 +262,7 @@
         "func": "msg.cmd.cmd = \"on\";\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 2860,
+        "x": 2920,
         "y": 160,
         "wires": [
             [
@@ -434,7 +434,11 @@
             "90d47db3.aca5f",
             "7d780d15.2d88f4",
             "11da80e0.36178f",
-            "3f0f076c.ee86b8"
+            "3f0f076c.ee86b8",
+            "5d8a0042.86117",
+            "fe25f296.7631a",
+            "56752a03.e183b4",
+            "9d8abe64.267cf"
         ],
         "x": 1796.0000305175781,
         "y": 1894.0000886917114,
@@ -1815,7 +1819,7 @@
         "topic": "hermes/intent/ProKNX:turnOnLights",
         "qos": "2",
         "broker": "c0e0d49d.594088",
-        "x": 1880,
+        "x": 1820,
         "y": 160,
         "wires": [
             [
@@ -2971,14 +2975,12 @@
         "id": "10cc755a.0d8ceb",
         "type": "switch",
         "z": "470f040b.7391ac",
-        "name": "",
-        "property": "payload.intent.probability",
+        "name": "Error ?",
+        "property": "error",
         "propertyType": "msg",
         "rules": [
             {
-                "t": "gte",
-                "v": "0.5",
-                "vt": "num"
+                "t": "null"
             },
             {
                 "t": "else"
@@ -2986,14 +2988,14 @@
         ],
         "checkall": "true",
         "outputs": 2,
-        "x": 2190,
+        "x": 2250,
         "y": 240,
         "wires": [
             [
                 "53f423a5.f9e73c"
             ],
             [
-                "a5a1d83b.9b8ec8"
+                "4aa110f9.a482d"
             ]
         ]
     },
@@ -3005,7 +3007,7 @@
         "topic": "hermes/intent/ProKNX:shiftUpLights",
         "qos": "2",
         "broker": "c0e0d49d.594088",
-        "x": 1880,
+        "x": 1820,
         "y": 240,
         "wires": [
             [
@@ -3021,7 +3023,7 @@
         "topic": "hermes/intent/ProKNX:turnOffLights",
         "qos": "2",
         "broker": "c0e0d49d.594088",
-        "x": 1880,
+        "x": 1820,
         "y": 200,
         "wires": [
             [
@@ -3037,7 +3039,7 @@
         "topic": "hermes/intent/ProKNX:shiftDownLights",
         "qos": "2",
         "broker": "c0e0d49d.594088",
-        "x": 1880,
+        "x": 1820,
         "y": 280,
         "wires": [
             [
@@ -3053,7 +3055,7 @@
         "topic": "hermes/intent/ProKNX:setBrightnessLights",
         "qos": "2",
         "broker": "c0e0d49d.594088",
-        "x": 1880,
+        "x": 1820,
         "y": 320,
         "wires": [
             [
@@ -3067,12 +3069,12 @@
         "z": "470f040b.7391ac",
         "name": "",
         "pretty": true,
-        "x": 2070,
+        "x": 2010,
         "y": 480,
         "wires": [
             [
-                "d333ef90.4178c",
-                "5d2f2827.88ca68"
+                "5d2f2827.88ca68",
+                "c8efe84c.dff4b8"
             ]
         ]
     },
@@ -3084,41 +3086,11 @@
         "topic": "hermes/intent/ProKNX:openSetShutters",
         "qos": "2",
         "broker": "c0e0d49d.594088",
-        "x": 1880,
+        "x": 1820,
         "y": 420,
         "wires": [
             [
                 "2d695cf8.312014"
-            ]
-        ]
-    },
-    {
-        "id": "d333ef90.4178c",
-        "type": "switch",
-        "z": "470f040b.7391ac",
-        "name": "",
-        "property": "payload.intent.probability",
-        "propertyType": "msg",
-        "rules": [
-            {
-                "t": "gte",
-                "v": "0.45",
-                "vt": "num"
-            },
-            {
-                "t": "else"
-            }
-        ],
-        "checkall": "true",
-        "outputs": 2,
-        "x": 2190,
-        "y": 480,
-        "wires": [
-            [
-                "3dd9690a.f84f16"
-            ],
-            [
-                "519bbfd4.4b6fa"
             ]
         ]
     },
@@ -3130,7 +3102,7 @@
         "topic": "hermes/intent/ProKNX:shiftUpShutters",
         "qos": "2",
         "broker": "c0e0d49d.594088",
-        "x": 1880,
+        "x": 1820,
         "y": 500,
         "wires": [
             [
@@ -3146,7 +3118,7 @@
         "topic": "hermes/intent/ProKNX:closeSetShutters",
         "qos": "2",
         "broker": "c0e0d49d.594088",
-        "x": 1880,
+        "x": 1820,
         "y": 460,
         "wires": [
             [
@@ -3162,7 +3134,7 @@
         "topic": "hermes/intent/ProKNX:shiftDownShutters",
         "qos": "2",
         "broker": "c0e0d49d.594088",
-        "x": 1880,
+        "x": 1820,
         "y": 540,
         "wires": [
             [
@@ -3176,12 +3148,12 @@
         "z": "470f040b.7391ac",
         "name": "",
         "pretty": true,
-        "x": 2070,
+        "x": 2010,
         "y": 660,
         "wires": [
             [
-                "1fa40536.9f39cb",
-                "93009144.1645d"
+                "93009144.1645d",
+                "c7f1cf36.b9b4a"
             ]
         ]
     },
@@ -3193,41 +3165,11 @@
         "topic": "hermes/intent/ProKNX:setThermostats",
         "qos": "2",
         "broker": "c0e0d49d.594088",
-        "x": 1880,
+        "x": 1820,
         "y": 640,
         "wires": [
             [
                 "8df6cac8.1a2e58"
-            ]
-        ]
-    },
-    {
-        "id": "1fa40536.9f39cb",
-        "type": "switch",
-        "z": "470f040b.7391ac",
-        "name": "",
-        "property": "payload.intent.probability",
-        "propertyType": "msg",
-        "rules": [
-            {
-                "t": "gte",
-                "v": "0.35",
-                "vt": "num"
-            },
-            {
-                "t": "else"
-            }
-        ],
-        "checkall": "true",
-        "outputs": 2,
-        "x": 2190,
-        "y": 660,
-        "wires": [
-            [
-                "2098bebe.db1312"
-            ],
-            [
-                "ddef9880.502558"
             ]
         ]
     },
@@ -3239,7 +3181,7 @@
         "topic": "hermes/intent/ProKNX:shiftThermostats",
         "qos": "2",
         "broker": "c0e0d49d.594088",
-        "x": 1880,
+        "x": 1820,
         "y": 680,
         "wires": [
             [
@@ -3253,42 +3195,12 @@
         "z": "470f040b.7391ac",
         "name": "",
         "pretty": true,
-        "x": 2070,
+        "x": 2010,
         "y": 800,
         "wires": [
             [
-                "97d28f0.f5fca7",
-                "b54336f8.fbad28"
-            ]
-        ]
-    },
-    {
-        "id": "97d28f0.f5fca7",
-        "type": "switch",
-        "z": "470f040b.7391ac",
-        "name": "",
-        "property": "payload.intent.probability",
-        "propertyType": "msg",
-        "rules": [
-            {
-                "t": "gte",
-                "v": "0.5",
-                "vt": "num"
-            },
-            {
-                "t": "else"
-            }
-        ],
-        "checkall": "true",
-        "outputs": 2,
-        "x": 2190,
-        "y": 800,
-        "wires": [
-            [
-                "c57b0579.d514e8"
-            ],
-            [
-                "16555c0f.80e714"
+                "b54336f8.fbad28",
+                "290dec8a.e75984"
             ]
         ]
     },
@@ -3300,7 +3212,7 @@
         "topic": "hermes/intent/ProKNX:activateScenes",
         "qos": "2",
         "broker": "c0e0d49d.594088",
-        "x": 1880,
+        "x": 1820,
         "y": 800,
         "wires": [
             [
@@ -3344,7 +3256,7 @@
         ],
         "checkall": "true",
         "outputs": 5,
-        "x": 2660,
+        "x": 2720,
         "y": 240,
         "wires": [
             [
@@ -3365,22 +3277,6 @@
         ]
     },
     {
-        "id": "a5a1d83b.9b8ec8",
-        "type": "function",
-        "z": "470f040b.7391ac",
-        "name": "Error ?",
-        "func": "msg.cmd = [];\nmsg.cmd.lang = flow.get(\"msgLang\");\nmsg.cmd.siteId = msg.payload.siteId.replace(/_/g,\" \");\n\nif (msg.cmd.lang === \"de\") {\n    text = \"Entschuldigung, Ich habe deine Anweisung nicht verstanden\";\n    msg.error = {\n        text: text,\n        siteId: msg.cmd.siteId,\n        lang: \"de-DE\"\n    };\n} else if (msg.cmd.lang === \"fr\") {\n    text = \"Désolé, je n'ai pas compris la commande\";\n    msg.error = {\n        text: text,\n        siteId: msg.cmd.siteId,\n        lang: \"fr-FR\"\n    };\n} else {\n    text = \"Sorry, I do not understand your command\";\n    msg.error = {\n        text: text,\n        siteId: msg.cmd.siteId,\n        lang: \"en-EN\"\n    };\n}\n\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 2310,
-        "y": 260,
-        "wires": [
-            [
-                "4aa110f9.a482d"
-            ]
-        ]
-    },
-    {
         "id": "4aa110f9.a482d",
         "type": "link out",
         "z": "470f040b.7391ac",
@@ -3390,7 +3286,7 @@
             "8be6dbfa.f122e8",
             "ce8c5acd.622cd8"
         ],
-        "x": 2395,
+        "x": 2335,
         "y": 260,
         "wires": []
     },
@@ -3402,7 +3298,7 @@
         "func": "msg.cmd = [];\nmsg.items = [];\nmsg.deviceList = flow.get(\"msgDeviceList\");\nmsg.cmd.lang = flow.get(\"msgLang\");\nmsg.proServIP = flow.get(\"msgProServIP\");\n\nString.prototype.sansAccent = function() {\n    var accent = [\n        /[\\300-\\306]/g, /[\\340-\\346]/g, // A, a\n        /[\\310-\\313]/g, /[\\350-\\353]/g, // E, e\n        /[\\314-\\317]/g, /[\\354-\\357]/g, // I, i\n        /[\\322-\\330]/g, /[\\362-\\370]/g, // O, o\n        /[\\331-\\334]/g, /[\\371-\\374]/g, // U, u\n        /[\\321]/g, /[\\361]/g, // N, n\n        /[\\307]/g, /[\\347]/g, // C, c\n    ];\n    var noaccent = ['A','a','E','e','I','i','O','o','U','u','N','n','C','c'];\n     \n    var str = this;\n    for(var i = 0; i < accent.length; i++){\n        str = str.replace(accent[i], noaccent[i]);\n    }\n     \n    return str;\n};\n\nfunction precisionRound(number, precision) {\n  var factor = Math.pow(10, precision);\n  return Math.round(number * factor) / factor;\n}\n\nfunction findObjectByKey(array, key, value) {\n    items=[];\n    var cpt=0;\n    for (var i = 0; i < array.length; i++) {\n        if (array[i][key] === value) {\n            items[cpt]=array[i];\n            cpt++;\n        }\n    }\n    if (items[0] !== undefined) {\n        return items;\n    } else {\n        return null;\n    }\n}\n\nfunction findRoomByKey(array, key, value) {\n    msg.items = [];\n    var cpt = 0;\n    for (var i = 0; i < array.length; i++) {\n        var x = array[i][key].toLowerCase().sansAccent();\n        if (x === value) {\n            msg.items[cpt] = array[i];\n            cpt ++;\n        }\n    }\n    return null;\n}\n\nfunction findDeviceByKey(array, key, value) {\n    msg.items = [];\n    var cpt = 0;\n    for (var i = 0; i < array.length; i++) {\n        var x = array[i][key].toLowerCase().sansAccent();\n        if (x === value) {\n            msg.items[cpt] = array[i];\n            cpt ++;\n        }\n    }\n    return null;\n}\n\nfunction findTypeByKey(array, key, value) {\n    msg.items = [];\n    var cpt = 0;\n    for (var i = 0; i < array.length; i++) {\n        var x = array[i][key];\n        if (x === value) {\n            msg.items[cpt] = array[i];\n            cpt ++;\n        }\n    }\n    return null;\n}\n\nfunction findSwitchByKey(array, key, value) {\n    msg.payload.switch_lights = [];\n    var cpt = 0;\n    for (var i = 0; i < array.length; i++) {\n        if (array[i][key] === value) {\n            msg.payload.switch_lights[cpt] = array[i];\n            cpt ++;\n        }\n    }\n    return null;\n}\n\nfunction findDimmerByKey(array, key, value) {\n    msg.payload.dimmer_lights = [];\n    var cpt = 0;\n    for (var i = 0; i < array.length; i++) {\n        if (array[i][key] === value) {\n            msg.payload.dimmer_lights[cpt] = array[i];\n            cpt ++;\n        }\n    }\n    return null;\n}\n\nvar rawRoom = findObjectByKey(msg.payload.slots, 'slotName', 'room');\nvar rawDevice = findObjectByKey(msg.payload.slots, 'slotName', 'light_device');\nvar rawValue = findObjectByKey(msg.payload.slots, 'slotName', 'value');\nmsg.cmd.type = \"lights\";\nmsg.cmd.siteId = msg.payload.siteId.replace(/_/g,\" \");\nif (rawRoom !== null) {\n    msg.cmd.room = [];\n    for (var i = 0; i < rawRoom.length; i++) {\n        msg.cmd.room[i] = rawRoom[i].value.value.toLowerCase().sansAccent();\n        if (msg.cmd.room[i] === \"here\" ||msg.cmd.room[i] === \"hier\" || msg.cmd.room[i] === \"ici\" ) {\n            msg.cmd.room[i] = msg.payload.siteId.replace(/_/g,\" \");\n        }\n        if (msg.cmd.room[i] === \"everywhere\" || msg.cmd.room[i] === \"uberall\" || msg.cmd.room[i] === \"partout\"){\n            delete msg.cmd.room;\n            break;\n        }\n    }\n} else {\n    msg.cmd.room = [];\n    msg.cmd.room[0] = msg.payload.siteId.replace(/_/g,\" \");\n}\n\nif (rawDevice !== null) {\n    msg.rawDevice = rawDevice;\n    msg.cmd.device = [];\n    cpt = 0;\n    for (var i = 0; i < rawDevice.length; i++) {\n    \tmsg.cmd.device[cpt] = rawDevice[i].value.value.toLowerCase().sansAccent();\n        cpt++;\n        if (msg.cmd.device[i] === \"light\") {\n            delete msg.cmd.device[i];\n            cpt--;\n            if (rawDevice.length == 1) {delete msg.cmd.device;}\n        } else if (msg.cmd.device[i] === \"licht\") {\n            delete msg.cmd.device[i];\n            cpt--;\n            if (rawDevice.length == 1) {delete msg.cmd.device;}\n        } else if (msg.cmd.device[i] === \"lumiere\") {\n            delete msg.cmd.device[i];\n            cpt--;\n            if (rawDevice.length == 1) {delete msg.cmd.device;}\n        } else if (msg.cmd.device[i] === \"everything\" ) {\n            delete msg.cmd.device;\n            break;\n        }\n    }\n}\n\nif (rawValue !== null) {\n\tmsg.cmd.value = precisionRound(rawValue[0].value.value, 1);\n}\n\ntmp = [];\nfindSwitchByKey(msg.deviceList, 'type', 'lights');\nfindDimmerByKey(msg.deviceList, 'type', 'dimmers');\nmsg.items = msg.payload.switch_lights.concat(msg.payload.dimmer_lights);\ntmp = msg.items;\n\nif (msg.cmd.device !== undefined) {\n    tmpList = [];\n    cpt = 0;\n    for (var i = 0; i < msg.cmd.device.length; i++) {\n        findDeviceByKey(tmp, 'object', msg.cmd.device[i]);\n        tmpList[cpt] = msg.items;\n        cpt++;\n    }\n    tmp = [];\n    for (var i = 0; i < tmpList.length; i++) {\n        for (var n = 0; n < tmpList[i].length; n++) {\n            tmp.push(tmpList[i][n]);\n        }\n    }\n}\n\nif (msg.cmd.room !== undefined) {\n    tmpList = [];\n    cpt = 0;\n    for (var i = 0; i < msg.cmd.room.length; i++) {\n        findRoomByKey(tmp, 'zone', msg.cmd.room[i]);\n        tmpList[cpt] = msg.items;\n        cpt++;\n    }\n    tmp = [];\n    for (var i = 0; i < tmpList.length; i++) {\n        for (var n = 0; n < tmpList[i].length; n++) {\n            tmp.push(tmpList[i][n]);\n        }\n    }\n}\n\nmsg.items = tmp;\n\nif (msg.items[0] === undefined) {\n    if (msg.cmd.lang === \"de\") {\n        msg.error = {\n            text: \"Ich kann dieses Licht nicht finden\",\n            siteId: msg.cmd.siteId,\n            lang: \"de-DE\"\n        };\n    } else if (msg.cmd.lang === \"fr\") {\n        msg.error = {\n            text: \"Je n'ai pas pu trouver cette lumière\",\n            siteId: msg.cmd.siteId,\n            lang:\"fr-FR\"\n        };\n    } else {\n        msg.error = {\n            text: \"I can not find this light\",\n            siteId: msg.cmd.siteId,\n            lang:\"en-EN\"\n        };\n    }\n}\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 2330,
+        "x": 2390,
         "y": 220,
         "wires": [
             [
@@ -3427,7 +3323,7 @@
         ],
         "checkall": "true",
         "outputs": 2,
-        "x": 2480,
+        "x": 2540,
         "y": 220,
         "wires": [
             [
@@ -3448,7 +3344,7 @@
             "8be6dbfa.f122e8",
             "ce8c5acd.622cd8"
         ],
-        "x": 2615,
+        "x": 2675,
         "y": 160,
         "wires": []
     },
@@ -3460,7 +3356,7 @@
         "func": "msg.cmd.cmd = \"off\";\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 2860,
+        "x": 2920,
         "y": 200,
         "wires": [
             [
@@ -3476,7 +3372,7 @@
         "func": "msg.cmd.cmd = \"increase\";\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 2860,
+        "x": 2920,
         "y": 240,
         "wires": [
             [
@@ -3492,7 +3388,7 @@
         "func": "msg.cmd.cmd = \"decrease\";\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 2860,
+        "x": 2920,
         "y": 280,
         "wires": [
             [
@@ -3508,7 +3404,7 @@
         "func": "msg.cmd.cmd = \"on\";\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 2860,
+        "x": 2920,
         "y": 320,
         "wires": [
             [
@@ -3525,7 +3421,7 @@
             "eba6ccd8.bcc9c",
             "62466314.d3ef3c"
         ],
-        "x": 2975,
+        "x": 3035,
         "y": 160,
         "wires": []
     },
@@ -3538,7 +3434,7 @@
             "eba6ccd8.bcc9c",
             "62466314.d3ef3c"
         ],
-        "x": 2975,
+        "x": 3035,
         "y": 200,
         "wires": []
     },
@@ -3551,7 +3447,7 @@
             "eba6ccd8.bcc9c",
             "62466314.d3ef3c"
         ],
-        "x": 2975,
+        "x": 3035,
         "y": 240,
         "wires": []
     },
@@ -3564,7 +3460,7 @@
             "eba6ccd8.bcc9c",
             "62466314.d3ef3c"
         ],
-        "x": 2975,
+        "x": 3035,
         "y": 280,
         "wires": []
     },
@@ -3577,7 +3473,7 @@
             "eba6ccd8.bcc9c",
             "62466314.d3ef3c"
         ],
-        "x": 2975,
+        "x": 3035,
         "y": 320,
         "wires": []
     },
@@ -3587,16 +3483,16 @@
         "z": "470f040b.7391ac",
         "name": "",
         "topic": "",
-        "payload": "{\"sessionId\":\"40951a47-03ec-447e-8bf8-9302374e892e\",\"customData\":null,\"siteId\":\"bedroom\",\"input\":\"set the brightness of the wall to fifty percent in the home cinema\",\"asrTokens\":[[{\"value\":\"set\",\"confidence\":1,\"range_start\":0,\"range_end\":3,\"time\":{\"start\":0,\"end\":0.48}},{\"value\":\"the\",\"confidence\":1,\"range_start\":4,\"range_end\":7,\"time\":{\"start\":0.48,\"end\":0.63}},{\"value\":\"brightness\",\"confidence\":1,\"range_start\":8,\"range_end\":18,\"time\":{\"start\":0.63,\"end\":1.29}},{\"value\":\"of\",\"confidence\":1,\"range_start\":19,\"range_end\":21,\"time\":{\"start\":1.29,\"end\":1.5}},{\"value\":\"the\",\"confidence\":1,\"range_start\":22,\"range_end\":25,\"time\":{\"start\":1.5,\"end\":1.68}},{\"value\":\"wall\",\"confidence\":0.974062,\"range_start\":26,\"range_end\":30,\"time\":{\"start\":1.68,\"end\":2.4031124}},{\"value\":\"to\",\"confidence\":1,\"range_start\":31,\"range_end\":33,\"time\":{\"start\":2.4031124,\"end\":2.9099998}},{\"value\":\"fifty\",\"confidence\":0.9698206,\"range_start\":34,\"range_end\":39,\"time\":{\"start\":2.9099998,\"end\":3.36}},{\"value\":\"percent\",\"confidence\":0.6872867,\"range_start\":40,\"range_end\":47,\"time\":{\"start\":3.36,\"end\":3.57}},{\"value\":\"in\",\"confidence\":1,\"range_start\":48,\"range_end\":50,\"time\":{\"start\":3.57,\"end\":3.78}},{\"value\":\"the\",\"confidence\":1,\"range_start\":51,\"range_end\":54,\"time\":{\"start\":3.78,\"end\":3.87}},{\"value\":\"home\",\"confidence\":1,\"range_start\":55,\"range_end\":59,\"time\":{\"start\":3.87,\"end\":3.87}},{\"value\":\"cinema\",\"confidence\":1,\"range_start\":60,\"range_end\":66,\"time\":{\"start\":3.87,\"end\":5.46}}]],\"intent\":{\"intentName\":\"ProKNX:turnOffLights\",\"probability\":0.75861675},\"slots\":[{\"confidence\":0.9698206,\"rawValue\":\"fifty\",\"value\":{\"kind\":\"custom\",\"value\":\"light\"},\"range\":{\"start\":34,\"end\":39},\"entity\":\"light_device\",\"slotName\":\"light_device\"},{\"confidence\":1,\"rawValue\":\"home cinema\",\"value\":{\"kind\":\"Custom\",\"value\":\"home cinema\"},\"range\":{\"start\":55,\"end\":66},\"entity\":\"house_room\",\"slotName\":\"room\"}]}",
+        "payload": "{\"sessionId\":\"40951a47-03ec-447e-8bf8-9302374e892e\",\"customData\":null,\"siteId\":\"bedroom\",\"input\":\"set the brightness of the wall to fifty percent in the home cinema\",\"asrTokens\":[[{\"value\":\"set\",\"confidence\":1,\"range_start\":0,\"range_end\":3,\"time\":{\"start\":0,\"end\":0.48}},{\"value\":\"the\",\"confidence\":1,\"range_start\":4,\"range_end\":7,\"time\":{\"start\":0.48,\"end\":0.63}},{\"value\":\"brightness\",\"confidence\":1,\"range_start\":8,\"range_end\":18,\"time\":{\"start\":0.63,\"end\":1.29}},{\"value\":\"of\",\"confidence\":1,\"range_start\":19,\"range_end\":21,\"time\":{\"start\":1.29,\"end\":1.5}},{\"value\":\"the\",\"confidence\":1,\"range_start\":22,\"range_end\":25,\"time\":{\"start\":1.5,\"end\":1.68}},{\"value\":\"wall\",\"confidence\":0.974062,\"range_start\":26,\"range_end\":30,\"time\":{\"start\":1.68,\"end\":2.4031124}},{\"value\":\"to\",\"confidence\":1,\"range_start\":31,\"range_end\":33,\"time\":{\"start\":2.4031124,\"end\":2.9099998}},{\"value\":\"fifty\",\"confidence\":0.9698206,\"range_start\":34,\"range_end\":39,\"time\":{\"start\":2.9099998,\"end\":3.36}},{\"value\":\"percent\",\"confidence\":0.6872867,\"range_start\":40,\"range_end\":47,\"time\":{\"start\":3.36,\"end\":3.57}},{\"value\":\"in\",\"confidence\":1,\"range_start\":48,\"range_end\":50,\"time\":{\"start\":3.57,\"end\":3.78}},{\"value\":\"the\",\"confidence\":1,\"range_start\":51,\"range_end\":54,\"time\":{\"start\":3.78,\"end\":3.87}},{\"value\":\"home\",\"confidence\":1,\"range_start\":55,\"range_end\":59,\"time\":{\"start\":3.87,\"end\":3.87}},{\"value\":\"cinema\",\"confidence\":1,\"range_start\":60,\"range_end\":66,\"time\":{\"start\":3.87,\"end\":5.46}}]],\"intent\":{\"intentName\":\"ProKNX:turnOffLights\",\"probability\":0.65861675},\"slots\":[{\"confidence\":0.9698206,\"rawValue\":\"fifty\",\"value\":{\"kind\":\"custom\",\"value\":\"light\"},\"range\":{\"start\":34,\"end\":39},\"entity\":\"light_device\",\"slotName\":\"light_device\"},{\"confidence\":1,\"rawValue\":\"home cinema\",\"value\":{\"kind\":\"Custom\",\"value\":\"home cinema\"},\"range\":{\"start\":55,\"end\":66},\"entity\":\"house_room\",\"slotName\":\"room\"}]}",
         "payloadType": "json",
         "repeat": "",
         "crontab": "",
         "once": false,
-        "x": 2070,
+        "x": 2010,
         "y": 280,
         "wires": [
             [
-                "10cc755a.0d8ceb"
+                "f0a3da36.d18d48"
             ]
         ]
     },
@@ -3624,7 +3520,7 @@
         "links": [
             "c8aa1b9f.0682e8"
         ],
-        "x": 2155,
+        "x": 2095,
         "y": 200,
         "wires": []
     },
@@ -3636,7 +3532,7 @@
         "links": [
             "c8aa1b9f.0682e8"
         ],
-        "x": 2155,
+        "x": 2095,
         "y": 440,
         "wires": []
     },
@@ -3648,7 +3544,7 @@
         "links": [
             "c8aa1b9f.0682e8"
         ],
-        "x": 2155,
+        "x": 2095,
         "y": 620,
         "wires": []
     },
@@ -3660,7 +3556,7 @@
         "links": [
             "c8aa1b9f.0682e8"
         ],
-        "x": 2155,
+        "x": 2095,
         "y": 760,
         "wires": []
     },
@@ -3672,7 +3568,7 @@
         "topic": "hermes/intent/ProKNX:deviceStatusCheck",
         "qos": "2",
         "broker": "c0e0d49d.594088",
-        "x": 1880,
+        "x": 1820,
         "y": 960,
         "wires": [
             [
@@ -3686,12 +3582,12 @@
         "z": "470f040b.7391ac",
         "name": "",
         "pretty": true,
-        "x": 2070,
+        "x": 2010,
         "y": 960,
         "wires": [
             [
                 "83cb1008.359f4",
-                "81198276.3ae09"
+                "51724a9c.4338c4"
             ]
         ]
     },
@@ -3703,7 +3599,7 @@
         "links": [
             "c8aa1b9f.0682e8"
         ],
-        "x": 2155,
+        "x": 2095,
         "y": 920,
         "wires": []
     },
@@ -3715,7 +3611,7 @@
         "func": "msg.cmd.cmd = \"on\";\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 2860,
+        "x": 2920,
         "y": 420,
         "wires": [
             [
@@ -3754,7 +3650,7 @@
         ],
         "checkall": "true",
         "outputs": 4,
-        "x": 2660,
+        "x": 2720,
         "y": 480,
         "wires": [
             [
@@ -3772,36 +3668,6 @@
         ]
     },
     {
-        "id": "519bbfd4.4b6fa",
-        "type": "function",
-        "z": "470f040b.7391ac",
-        "name": "Error ?",
-        "func": "msg.cmd = [];\nmsg.cmd.lang = flow.get(\"msgLang\");\nmsg.cmd.siteId = msg.payload.siteId.replace(/_/g,\" \");\n\nif (msg.cmd.lang === \"de\") {\n    text = \"Entschuldigung, Ich habe deine Anweisung nicht verstanden\";\n    msg.error = {\n        text: text,\n        siteId: msg.cmd.siteId,\n        lang: \"de-DE\"\n    };\n} else if (msg.cmd.lang === \"fr\") {\n    text = \"Désolé, je n'ai pas compris la commande\";\n    msg.error = {\n        text: text,\n        siteId: msg.cmd.siteId,\n        lang: \"fr-FR\"\n    };\n} else {\n    text = \"Sorry, I do not understand your command\";\n    msg.error = {\n        text: text,\n        siteId: msg.cmd.siteId,\n        lang: \"en-EN\"\n    };\n}\n\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 2310,
-        "y": 500,
-        "wires": [
-            [
-                "2b525da6.a5ead2"
-            ]
-        ]
-    },
-    {
-        "id": "2b525da6.a5ead2",
-        "type": "link out",
-        "z": "470f040b.7391ac",
-        "name": "ERROR IN",
-        "links": [
-            "aeff6d7b.9a0df",
-            "8be6dbfa.f122e8",
-            "ce8c5acd.622cd8"
-        ],
-        "x": 2395,
-        "y": 500,
-        "wires": []
-    },
-    {
         "id": "3dd9690a.f84f16",
         "type": "function",
         "z": "470f040b.7391ac",
@@ -3809,7 +3675,7 @@
         "func": "msg.cmd = [];\nmsg.items = [];\nmsg.deviceList = flow.get(\"msgDeviceList\");\nmsg.cmd.lang = flow.get(\"msgLang\");\nmsg.proServIP = flow.get(\"msgProServIP\");\n\nString.prototype.sansAccent = function() {\n    var accent = [\n        /[\\300-\\306]/g, /[\\340-\\346]/g, // A, a\n        /[\\310-\\313]/g, /[\\350-\\353]/g, // E, e\n        /[\\314-\\317]/g, /[\\354-\\357]/g, // I, i\n        /[\\322-\\330]/g, /[\\362-\\370]/g, // O, o\n        /[\\331-\\334]/g, /[\\371-\\374]/g, // U, u\n        /[\\321]/g, /[\\361]/g, // N, n\n        /[\\307]/g, /[\\347]/g, // C, c\n    ];\n    var noaccent = ['A','a','E','e','I','i','O','o','U','u','N','n','C','c'];\n     \n    var str = this;\n    for(var i = 0; i < accent.length; i++){\n        str = str.replace(accent[i], noaccent[i]);\n    }\n     \n    return str;\n};\n\nfunction precisionRound(number, precision) {\n  var factor = Math.pow(10, precision);\n  return Math.round(number * factor) / factor;\n}\n\nfunction findObjectByKey(array, key, value) {\n    items=[];\n    var cpt=0;\n    for (var i = 0; i < array.length; i++) {\n        if (array[i][key] === value) {\n            items[cpt]=array[i];\n            cpt++;\n        }\n    }\n    if (items[0] !== undefined) {\n        return items;\n    } else {\n        return null;\n    }\n}\n\nfunction findRoomByKey(array, key, value) {\n    msg.items = [];\n    var cpt = 0;\n    for (var i = 0; i < array.length; i++) {\n        var x = array[i][key].toLowerCase().sansAccent();\n        if (x === value) {\n            msg.items[cpt] = array[i];\n            cpt ++;\n        }\n    }\n    return null;\n}\n\nfunction findDeviceByKey(array, key, value) {\n    msg.items = [];\n    var cpt = 0;\n    for (var i = 0; i < array.length; i++) {\n        var x = array[i][key].toLowerCase().sansAccent();\n        if (x === value) {\n            msg.items[cpt] = array[i];\n            cpt ++;\n        }\n    }\n    return null;\n}\n\nfunction findTypeByKey(array, key, value) {\n    msg.items = [];\n    var cpt = 0;\n    for (var i = 0; i < array.length; i++) {\n        var x = array[i][key];\n        if (x === value) {\n            msg.items[cpt] = array[i];\n            cpt ++;\n        }\n    }\n    return null;\n}\n\nvar rawRoom = findObjectByKey(msg.payload.slots, 'slotName', 'room');\nvar rawDevice = findObjectByKey(msg.payload.slots, 'slotName', 'window_device');\nvar rawValue = findObjectByKey(msg.payload.slots, 'slotName', 'value');\nmsg.cmd.type = \"blinds\";\nmsg.cmd.siteId = msg.payload.siteId.replace(/_/g,\" \");\nif (rawRoom !== null) {\n    msg.cmd.room = [];\n    for (var i = 0; i < rawRoom.length; i++) {\n        msg.cmd.room[i] = rawRoom[i].value.value.toLowerCase().sansAccent();\n        if (msg.cmd.room[i] === \"here\" ||msg.cmd.room[i] === \"hier\" || msg.cmd.room[i] === \"ici\" ) {\n            msg.cmd.room[i] = msg.payload.siteId.replace(/_/g,\" \");\n        }\n        if (msg.cmd.room[i] === \"everywhere\" || msg.cmd.room[i] === \"uberall\" || msg.cmd.room[i] === \"partout\"){\n            delete msg.cmd.room;\n            break;\n        }\n    }\n} else {\n    msg.cmd.room = [];\n    msg.cmd.room[0] = msg.payload.siteId.replace(/_/g,\" \");\n}\n\nif (rawDevice !== null) {\n    msg.rawDevice = rawDevice;\n    msg.cmd.device = [];\n    cpt = 0;\n    for (var i = 0; i < rawDevice.length; i++) {\n    \tmsg.cmd.device[cpt] = rawDevice[i].value.value.toLowerCase().sansAccent();\n        cpt++;\n        if (msg.cmd.device[i] === \"all shutters\") {\n            delete msg.cmd.device[i];\n            cpt--;\n            if (rawDevice.length == 1) {delete msg.cmd.device;}\n        } else if (msg.cmd.device[i] === \"alle rollladen\") {\n            delete msg.cmd.device[i];\n            cpt--;\n            if (rawDevice.length == 1) {delete msg.cmd.device;}\n        }\n    }\n}\n\nif (rawValue !== null) {\n\tmsg.cmd.value = precisionRound(rawValue[0].value.value, 1);\n}\n\ntmp = [];\nfindTypeByKey(msg.deviceList, 'type', msg.cmd.type);\ntmp = msg.items;\n\nif (msg.cmd.device !== undefined) {\n    tmpList = [];\n    cpt = 0;\n    for (var i = 0; i < msg.cmd.device.length; i++) {\n        findDeviceByKey(tmp, 'object', msg.cmd.device[i]);\n        tmpList[cpt] = msg.items;\n        cpt++;\n    }\n    tmp = [];\n    for (var i = 0; i < tmpList.length; i++) {\n        for (var n = 0; n < tmpList[i].length; n++) {\n            tmp.push(tmpList[i][n]);\n        }\n    }\n}\n\nif (msg.cmd.room !== undefined && tmp !== undefined) {\n    tmpList = [];\n    cpt = 0;\n    for (var i = 0; i < msg.cmd.room.length; i++) {\n        findRoomByKey(tmp, 'zone', msg.cmd.room[i]);\n        tmpList[cpt] = msg.items;\n        cpt++;\n    }\n    tmp = [];\n    for (var i = 0; i < tmpList.length; i++) {\n        for (var n = 0; n < tmpList[i].length; n++) {\n            tmp.push(tmpList[i][n]);\n        }\n    }\n}\n\nmsg.items = tmp;\n\nif (msg.items[0] === undefined) {\n    if (msg.cmd.lang === \"de\") {\n        msg.error = {\n            text: \"Ich kann diesen Rolladen nicht finden\",\n            siteId: msg.cmd.siteId,\n            lang: \"de-DE\"\n        };\n    } else if (msg.cmd.lang === \"fr\") {\n        msg.error = {\n            text: \"Je n'ai pas pu trouver ce volet\",\n            siteId: msg.cmd.siteId,\n            lang:\"fr-FR\"\n        };\n    } else {\n        msg.error = {\n            text: \"I can not find this shutter\",\n            siteId: msg.cmd.siteId,\n            lang:\"en-EN\"\n        };\n    }\n}\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 2330,
+        "x": 2390,
         "y": 460,
         "wires": [
             [
@@ -3834,7 +3700,7 @@
         ],
         "checkall": "true",
         "outputs": 2,
-        "x": 2480,
+        "x": 2540,
         "y": 460,
         "wires": [
             [
@@ -3855,7 +3721,7 @@
             "8be6dbfa.f122e8",
             "ce8c5acd.622cd8"
         ],
-        "x": 2595,
+        "x": 2655,
         "y": 420,
         "wires": []
     },
@@ -3867,7 +3733,7 @@
         "func": "msg.cmd.cmd = \"off\";\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 2860,
+        "x": 2920,
         "y": 460,
         "wires": [
             [
@@ -3883,7 +3749,7 @@
         "func": "msg.cmd.cmd = \"increase\";\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 2860,
+        "x": 2920,
         "y": 500,
         "wires": [
             [
@@ -3899,7 +3765,7 @@
         "func": "msg.cmd.cmd = \"decrease\";\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 2860,
+        "x": 2920,
         "y": 540,
         "wires": [
             [
@@ -3916,7 +3782,7 @@
             "eba6ccd8.bcc9c",
             "62466314.d3ef3c"
         ],
-        "x": 2975,
+        "x": 3035,
         "y": 420,
         "wires": []
     },
@@ -3929,7 +3795,7 @@
             "eba6ccd8.bcc9c",
             "62466314.d3ef3c"
         ],
-        "x": 2975,
+        "x": 3035,
         "y": 460,
         "wires": []
     },
@@ -3942,7 +3808,7 @@
             "eba6ccd8.bcc9c",
             "62466314.d3ef3c"
         ],
-        "x": 2975,
+        "x": 3035,
         "y": 500,
         "wires": []
     },
@@ -3955,7 +3821,7 @@
             "eba6ccd8.bcc9c",
             "62466314.d3ef3c"
         ],
-        "x": 2975,
+        "x": 3035,
         "y": 540,
         "wires": []
     },
@@ -3967,7 +3833,7 @@
         "func": "String.prototype.sansAccent = function() {\n    var accent = [\n        /[\\300-\\306]/g, /[\\340-\\346]/g, // A, a\n        /[\\310-\\313]/g, /[\\350-\\353]/g, // E, e\n        /[\\314-\\317]/g, /[\\354-\\357]/g, // I, i\n        /[\\322-\\330]/g, /[\\362-\\370]/g, // O, o\n        /[\\331-\\334]/g, /[\\371-\\374]/g, // U, u\n        /[\\321]/g, /[\\361]/g, // N, n\n        /[\\307]/g, /[\\347]/g, // C, c\n    ];\n    var noaccent = ['A','a','E','e','I','i','O','o','U','u','N','n','C','c'];\n     \n    var str = this;\n    for(var i = 0; i < accent.length; i++){\n        str = str.replace(accent[i], noaccent[i]);\n    }\n     \n    return str;\n};\n\nfunction findObjectByKey(array, key, value) {\n    items=[];\n    var cpt=0;\n    for (var i = 0; i < array.length; i++) {\n        if (array[i][key] === value) {\n            items[cpt]=array[i];\n            cpt++;\n        }\n    }\n    if (items[0] !== undefined) {\n        return items;\n    } else {\n        return null;\n    }\n}\n\nvar rawAction = findObjectByKey(msg.payload.slots, 'slotName', 'up_down');\n\nif (rawAction[0].value.value.toLowerCase().sansAccent() === \"up\" || rawAction[0].value.value.toLowerCase().sansAccent() === \"hoher\" || rawAction[0].value.value.toLowerCase().sansAccent() === \"plus chaud\") {\n    msg.cmd.cmd = \"increase\";\n} else if (rawAction[0].value.value.toLowerCase().sansAccent() === \"down\" || rawAction[0].value.value.toLowerCase().sansAccent() === \"niedriger\" || rawAction[0].value.value.toLowerCase().sansAccent() === \"plus froid\") {\n    msg.cmd.cmd = \"decrease\";\n}\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 2860,
+        "x": 2920,
         "y": 640,
         "wires": [
             [
@@ -3996,7 +3862,7 @@
         ],
         "checkall": "true",
         "outputs": 2,
-        "x": 2660,
+        "x": 2720,
         "y": 660,
         "wires": [
             [
@@ -4008,36 +3874,6 @@
         ]
     },
     {
-        "id": "ddef9880.502558",
-        "type": "function",
-        "z": "470f040b.7391ac",
-        "name": "Error ?",
-        "func": "msg.cmd = [];\nmsg.cmd.lang = flow.get(\"msgLang\");\nmsg.cmd.siteId = msg.payload.siteId.replace(/_/g,\" \");\n\nif (msg.cmd.lang === \"de\") {\n    text = \"Entschuldigung, Ich habe deine Anweisung nicht verstanden\";\n    msg.error = {\n        text: text,\n        siteId: msg.cmd.siteId,\n        lang: \"de-DE\"\n    };\n} else if (msg.cmd.lang === \"fr\") {\n    text = \"Désolé, je n'ai pas compris la commande\";\n    msg.error = {\n        text: text,\n        siteId: msg.cmd.siteId,\n        lang: \"fr-FR\"\n    };\n} else {\n    text = \"Sorry, I do not understand your command\";\n    msg.error = {\n        text: text,\n        siteId: msg.cmd.siteId,\n        lang: \"en-EN\"\n    };\n}\n\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 2310,
-        "y": 680,
-        "wires": [
-            [
-                "a673cbd6.ea8e98"
-            ]
-        ]
-    },
-    {
-        "id": "a673cbd6.ea8e98",
-        "type": "link out",
-        "z": "470f040b.7391ac",
-        "name": "ERROR IN",
-        "links": [
-            "aeff6d7b.9a0df",
-            "8be6dbfa.f122e8",
-            "ce8c5acd.622cd8"
-        ],
-        "x": 2395,
-        "y": 680,
-        "wires": []
-    },
-    {
         "id": "2098bebe.db1312",
         "type": "function",
         "z": "470f040b.7391ac",
@@ -4045,7 +3881,7 @@
         "func": "msg.cmd = [];\nmsg.items = [];\nmsg.deviceList = flow.get(\"msgDeviceList\");\nmsg.cmd.lang = flow.get(\"msgLang\");\nmsg.proServIP = flow.get(\"msgProServIP\");\n\nString.prototype.sansAccent = function() {\n    var accent = [\n        /[\\300-\\306]/g, /[\\340-\\346]/g, // A, a\n        /[\\310-\\313]/g, /[\\350-\\353]/g, // E, e\n        /[\\314-\\317]/g, /[\\354-\\357]/g, // I, i\n        /[\\322-\\330]/g, /[\\362-\\370]/g, // O, o\n        /[\\331-\\334]/g, /[\\371-\\374]/g, // U, u\n        /[\\321]/g, /[\\361]/g, // N, n\n        /[\\307]/g, /[\\347]/g, // C, c\n    ];\n    var noaccent = ['A','a','E','e','I','i','O','o','U','u','N','n','C','c'];\n     \n    var str = this;\n    for(var i = 0; i < accent.length; i++){\n        str = str.replace(accent[i], noaccent[i]);\n    }\n     \n    return str;\n};\n\nfunction precisionRound(number, precision) {\n  var factor = Math.pow(10, precision);\n  return Math.round(number * factor) / factor;\n}\n\nfunction findObjectByKey(array, key, value) {\n    items=[];\n    var cpt=0;\n    for (var i = 0; i < array.length; i++) {\n        if (array[i][key] === value) {\n            items[cpt]=array[i];\n            cpt++;\n        }\n    }\n    if (items[0] !== undefined) {\n        return items;\n    } else {\n        return null;\n    }\n}\n\nfunction findRoomByKey(array, key, value) {\n    msg.items = [];\n    var cpt = 0;\n    for (var i = 0; i < array.length; i++) {\n        var x = array[i][key].toLowerCase().sansAccent();\n        if (x === value) {\n            msg.items[cpt] = array[i];\n            cpt ++;\n        }\n    }\n    return null;\n}\n\nfunction findDeviceByKey(array, key, value) {\n    msg.items = [];\n    var cpt = 0;\n    for (var i = 0; i < array.length; i++) {\n        var x = array[i][key].toLowerCase().sansAccent();\n        if (x === value) {\n            msg.items[cpt] = array[i];\n            cpt ++;\n        }\n    }\n    return null;\n}\n\nfunction findTypeByKey(array, key, value) {\n    msg.items = [];\n    var cpt = 0;\n    for (var i = 0; i < array.length; i++) {\n        var x = array[i][key];\n        if (x === value) {\n            msg.items[cpt] = array[i];\n            cpt ++;\n        }\n    }\n    return null;\n}\n\nvar rawRoom = findObjectByKey(msg.payload.slots, 'slotName', 'room');\nvar rawDevice = findObjectByKey(msg.payload.slots, 'slotName', 'temperature_device');\nvar rawValue = findObjectByKey(msg.payload.slots, 'slotName', 'temperature');\nvar rawUpDown = findObjectByKey(msg.payload.slots, 'slotName', 'up_down');\nmsg.cmd.type = \"heating\";\nmsg.cmd.siteId = msg.payload.siteId.replace(/_/g,\" \");\n\nif (rawRoom !== null) {\n    msg.cmd.room = [];\n    for (var i = 0; i < rawRoom.length; i++) {\n        msg.cmd.room[i] = rawRoom[i].value.value.toLowerCase().sansAccent();\n        if (msg.cmd.room[i] === \"here\" ||msg.cmd.room[i] === \"hier\" || msg.cmd.room[i] === \"ici\" ) {\n            msg.cmd.room[i] = msg.payload.siteId.replace(/_/g,\" \");\n        }\n        if (msg.cmd.room[i] === \"everywhere\" || msg.cmd.room[i] === \"uberall\" || msg.cmd.room[i] === \"partout\"){\n            delete msg.cmd.room;\n            break;\n        }\n    }\n} else {\n    msg.cmd.room = [];\n    msg.cmd.room[0] = msg.payload.siteId.replace(/_/g,\" \");\n}\n\nif (rawDevice !== null) {\n    msg.cmd.device = [];\n    for (var i = 0; i < rawDevice.length; i++) {\n\t    msg.cmd.device[i] = rawDevice[i].value.value.toLowerCase().sansAccent();\n    }\n}\n\nif (rawValue !== null) {\n\tmsg.cmd.value = precisionRound(rawValue[0].value.value, 1);\n}\n\ntmp = [];\nfindTypeByKey(msg.deviceList, 'type', msg.cmd.type);\ntmp = msg.items;\n\nif (msg.cmd.device !== undefined) {\n    tmpList = [];\n    cpt = 0;\n    for (var i = 0; i < msg.cmd.device.length; i++) {\n        findDeviceByKey(tmp, 'object', msg.cmd.device[i]);\n        tmpList[cpt] = msg.items;\n        cpt++;\n    }\n    if (tmpList[0][0]!== undefined) {\n            if (tmpList[0][0].name!== undefined) {\n                tmp = [];\n                for (var i = 0; i < tmpList.length; i++) {\n                    for (var n = 0; n < tmpList[i].length; n++) {\n                        tmp.push(tmpList[i][n]);\n                    }\n                }\n            }\n        } else {}\n}\nif (msg.cmd.room !== undefined && tmp !== undefined) {\n    tmpList = [];\n    cpt = 0;\n    for (var i = 0; i < msg.cmd.room.length; i++) {\n        findRoomByKey(tmp, 'zone', msg.cmd.room[i]);\n        tmpList[cpt] = msg.items;\n        cpt++;\n    }\n    tmp = [];\n    for (var i = 0; i < tmpList.length; i++) {\n        for (var n = 0; n < tmpList[i].length; n++) {\n            tmp.push(tmpList[i][n]);\n        }\n    }\n}\n\nmsg.items = tmp;\n\nif (msg.items[0] === undefined) {\n    if (msg.cmd.lang === \"de\") {\n        msg.error = {\n            text: \"Ich kann dieses Thermostat nicht finden\",\n            siteId: msg.cmd.siteId,\n            lang: \"de-DE\"\n        };\n    } else if (msg.cmd.lang === \"fr\") {\n        msg.error = {\n            text: \"Je n'ai pas pu trouver ce thermostat\",\n            siteId: msg.cmd.siteId,\n            lang:\"fr-FR\"\n        };\n    } else {\n        msg.error = {\n            text: \"I can not find this thermostat\",\n            siteId: msg.cmd.siteId,\n            lang:\"en-EN\"\n        };\n    }\n}\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 2330,
+        "x": 2390,
         "y": 640,
         "wires": [
             [
@@ -4070,7 +3906,7 @@
         ],
         "checkall": "true",
         "outputs": 2,
-        "x": 2480,
+        "x": 2540,
         "y": 640,
         "wires": [
             [
@@ -4091,7 +3927,7 @@
             "8be6dbfa.f122e8",
             "ce8c5acd.622cd8"
         ],
-        "x": 2595,
+        "x": 2655,
         "y": 620,
         "wires": []
     },
@@ -4103,7 +3939,7 @@
         "func": "msg.cmd.cmd = \"set\";\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 2860,
+        "x": 2920,
         "y": 680,
         "wires": [
             [
@@ -4120,7 +3956,7 @@
             "eba6ccd8.bcc9c",
             "62466314.d3ef3c"
         ],
-        "x": 2975,
+        "x": 3035,
         "y": 640,
         "wires": []
     },
@@ -4133,7 +3969,7 @@
             "eba6ccd8.bcc9c",
             "62466314.d3ef3c"
         ],
-        "x": 2975,
+        "x": 3035,
         "y": 680,
         "wires": []
     },
@@ -4148,11 +3984,11 @@
         "repeat": "",
         "crontab": "",
         "once": false,
-        "x": 2070,
+        "x": 2010,
         "y": 520,
         "wires": [
             [
-                "d333ef90.4178c"
+                "c8efe84c.dff4b8"
             ]
         ]
     },
@@ -4167,11 +4003,11 @@
         "repeat": "",
         "crontab": "",
         "once": false,
-        "x": 2070,
+        "x": 2010,
         "y": 700,
         "wires": [
             [
-                "1fa40536.9f39cb"
+                "c7f1cf36.b9b4a"
             ]
         ]
     },
@@ -4183,7 +4019,7 @@
         "func": "msg.cmd.cmd = \"on\";\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 2860,
+        "x": 2920,
         "y": 800,
         "wires": [
             [
@@ -4207,43 +4043,13 @@
         ],
         "checkall": "true",
         "outputs": 1,
-        "x": 2660,
+        "x": 2720,
         "y": 800,
         "wires": [
             [
                 "bde3d191.f8182"
             ]
         ]
-    },
-    {
-        "id": "16555c0f.80e714",
-        "type": "function",
-        "z": "470f040b.7391ac",
-        "name": "Error ?",
-        "func": "msg.cmd = [];\nmsg.cmd.lang = flow.get(\"msgLang\");\nmsg.cmd.siteId = msg.payload.siteId.replace(/_/g,\" \");\n\nif (msg.cmd.lang === \"de\") {\n    text = \"Entschuldigung, Ich habe deine Anweisung nicht verstanden\";\n    msg.error = {\n        text: text,\n        siteId: msg.cmd.siteId,\n        lang: \"de-DE\"\n    };\n} else if (msg.cmd.lang === \"fr\") {\n    text = \"Désolé, je n'ai pas compris la commande\";\n    msg.error = {\n        text: text,\n        siteId: msg.cmd.siteId,\n        lang: \"fr-FR\"\n    };\n} else {\n    text = \"Sorry, I do not understand your command\";\n    msg.error = {\n        text: text,\n        siteId: msg.cmd.siteId,\n        lang: \"en-EN\"\n    };\n}\n\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 2310,
-        "y": 820,
-        "wires": [
-            [
-                "90d47db3.aca5f"
-            ]
-        ]
-    },
-    {
-        "id": "90d47db3.aca5f",
-        "type": "link out",
-        "z": "470f040b.7391ac",
-        "name": "ERROR IN",
-        "links": [
-            "aeff6d7b.9a0df",
-            "8be6dbfa.f122e8",
-            "ce8c5acd.622cd8"
-        ],
-        "x": 2395,
-        "y": 820,
-        "wires": []
     },
     {
         "id": "c57b0579.d514e8",
@@ -4253,7 +4059,7 @@
         "func": "msg.cmd = [];\nmsg.items = [];\nmsg.deviceList = flow.get(\"msgDeviceList\");\nmsg.cmd.lang = flow.get(\"msgLang\");\nmsg.proServIP = flow.get(\"msgProServIP\");\n\nString.prototype.sansAccent = function() {\n    var accent = [\n        /[\\300-\\306]/g, /[\\340-\\346]/g, // A, a\n        /[\\310-\\313]/g, /[\\350-\\353]/g, // E, e\n        /[\\314-\\317]/g, /[\\354-\\357]/g, // I, i\n        /[\\322-\\330]/g, /[\\362-\\370]/g, // O, o\n        /[\\331-\\334]/g, /[\\371-\\374]/g, // U, u\n        /[\\321]/g, /[\\361]/g, // N, n\n        /[\\307]/g, /[\\347]/g, // C, c\n    ];\n    var noaccent = ['A','a','E','e','I','i','O','o','U','u','N','n','C','c'];\n     \n    var str = this;\n    for(var i = 0; i < accent.length; i++){\n        str = str.replace(accent[i], noaccent[i]);\n    }\n     \n    return str;\n};\n\nfunction precisionRound(number, precision) {\n  var factor = Math.pow(10, precision);\n  return Math.round(number * factor) / factor;\n}\n\nfunction findObjectByKey(array, key, value) {\n    items=[];\n    var cpt=0;\n    for (var i = 0; i < array.length; i++) {\n        if (array[i][key] === value) {\n            items[cpt]=array[i];\n            cpt++;\n        }\n    }\n    if (items[0] !== undefined) {\n        return items;\n    } else {\n        return null;\n    }\n}\n\nfunction findRoomByKey(array, key, value) {\n    msg.items = [];\n    var cpt = 0;\n    for (var i = 0; i < array.length; i++) {\n        var x = array[i][key].toLowerCase().sansAccent();\n        if (x === value) {\n            msg.items[cpt] = array[i];\n            cpt ++;\n        }\n    }\n    return null;\n}\n\nfunction findDeviceByKey(array, key, value) {\n    msg.items = [];\n    var cpt = 0;\n    for (var i = 0; i < array.length; i++) {\n        var x = array[i][key].toLowerCase().sansAccent();\n        if (x === value) {\n            msg.items[cpt] = array[i];\n            cpt ++;\n        }\n    }\n    return null;\n}\n\nfunction findTypeByKey(array, key, value) {\n    msg.items = [];\n    var cpt = 0;\n    for (var i = 0; i < array.length; i++) {\n        var x = array[i][key];\n        if (x === value) {\n            msg.items[cpt] = array[i];\n            cpt ++;\n        }\n    }\n    return null;\n}\n\nvar rawRoom = findObjectByKey(msg.payload.slots, 'slotName', 'room');\nvar rawDevice = findObjectByKey(msg.payload.slots, 'slotName', 'scene_device');\nvar rawValue = findObjectByKey(msg.payload.slots, 'slotName', 'value');\nmsg.cmd.type = \"scenes\";\nmsg.cmd.siteId = msg.payload.siteId.replace(/_/g,\" \");\nif (rawRoom !== null) {\n    msg.cmd.room = [];\n    for (var i = 0; i < rawRoom.length; i++) {\n        msg.cmd.room[i] = rawRoom[i].value.value.toLowerCase().sansAccent();\n        if (msg.cmd.room[i] === \"here\" ||msg.cmd.room[i] === \"hier\" || msg.cmd.room[i] === \"ici\" ) {\n            msg.cmd.room[i] = msg.payload.siteId.replace(/_/g,\" \");\n        }\n        if (msg.cmd.room[i] === \"everywhere\" || msg.cmd.room[i] === \"uberall\" || msg.cmd.room[i] === \"partout\"){\n            delete msg.cmd.room;\n            break;\n        }\n    }\n} else {\n    msg.cmd.room = [];\n    msg.cmd.room[0] = msg.payload.siteId.replace(/_/g,\" \");\n}\n\nif (rawDevice !== null) {\n    msg.cmd.device = [];\n    cpt = 0;\n    for (var i = 0; i < rawDevice.length; i++) {\n        if (rawDevice[i].value.value.toLowerCase().sansAccent() !== \"scene\" && rawDevice[i].value.value.toLowerCase().sansAccent() !== \"szene\") {\n    \t    msg.cmd.device[cpt] = rawDevice[i].value.value.toLowerCase().sansAccent();\n            cpt++;\n        }\n    }\n}\n\nif (rawValue !== null) {\n\tmsg.cmd.value = precisionRound(rawValue[0].value.value, 1);\n}\n\ntmp = [];\nfindTypeByKey(msg.deviceList, 'type', msg.cmd.type);\ntmp = msg.items;\n\nif (msg.cmd.device !== undefined) {\n    tmpList = [];\n    cpt = 0;\n    for (var i = 0; i < msg.cmd.device.length; i++) {\n        findDeviceByKey(tmp, 'object', msg.cmd.device[i]);\n        tmpList[cpt] = msg.items;\n        cpt++;\n    }\n    tmp = [];\n    for (var i = 0; i < tmpList.length; i++) {\n        for (var n = 0; n < tmpList[i].length; n++) {\n            tmp.push(tmpList[i][n]);\n        }\n    }\n}\nif (msg.cmd.room !== undefined) {\n    tmpList = [];\n    cpt = 0;\n    for (var i = 0; i < msg.cmd.room.length; i++) {\n        findRoomByKey(tmp, 'zone', msg.cmd.room[i]);\n        tmpList[cpt] = msg.items;\n        cpt++;\n    }\n    tmp = [];\n    for (var i = 0; i < tmpList.length; i++) {\n        for (var n = 0; n < tmpList[i].length; n++) {\n            tmp.push(tmpList[i][n]);\n        }\n    }\n} else {tmp = [];}\n\nmsg.items = tmp;\n\nif (msg.items[0] === undefined) {\n    if (msg.cmd.lang === \"de\") {\n        msg.error = {\n            text: \"Ich kann diese Szene nicht finden\",\n            siteId: msg.cmd.siteId,\n            lang: \"de-DE\"\n        };\n    } else if (msg.cmd.lang === \"fr\") {\n        msg.error = {\n            text: \"Je n'ai pas pu trouver cette scène\",\n            siteId: msg.cmd.siteId,\n            lang:\"fr-FR\"\n        };\n    } else {\n        msg.error = {\n            text: \"I can not find this scene\",\n            siteId: msg.cmd.siteId,\n            lang:\"en-EN\"\n        };\n    }\n}\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 2330,
+        "x": 2390,
         "y": 780,
         "wires": [
             [
@@ -4278,7 +4084,7 @@
         ],
         "checkall": "true",
         "outputs": 2,
-        "x": 2480,
+        "x": 2540,
         "y": 780,
         "wires": [
             [
@@ -4299,7 +4105,7 @@
             "8be6dbfa.f122e8",
             "ce8c5acd.622cd8"
         ],
-        "x": 2595,
+        "x": 2655,
         "y": 760,
         "wires": []
     },
@@ -4312,68 +4118,8 @@
             "62466314.d3ef3c",
             "eba6ccd8.bcc9c"
         ],
-        "x": 2975,
+        "x": 3035,
         "y": 800,
-        "wires": []
-    },
-    {
-        "id": "81198276.3ae09",
-        "type": "switch",
-        "z": "470f040b.7391ac",
-        "name": "",
-        "property": "payload.intent.probability",
-        "propertyType": "msg",
-        "rules": [
-            {
-                "t": "gte",
-                "v": "0.4",
-                "vt": "num"
-            },
-            {
-                "t": "else"
-            }
-        ],
-        "checkall": "true",
-        "outputs": 2,
-        "x": 2190,
-        "y": 960,
-        "wires": [
-            [
-                "43314f3a.552c3"
-            ],
-            [
-                "2b345b17.877eb4"
-            ]
-        ]
-    },
-    {
-        "id": "2b345b17.877eb4",
-        "type": "function",
-        "z": "470f040b.7391ac",
-        "name": "Error ?",
-        "func": "msg.cmd = [];\nmsg.cmd.lang = flow.get(\"msgLang\");\nmsg.cmd.siteId = msg.payload.siteId.replace(/_/g,\" \");\n\nif (msg.cmd.lang === \"de\") {\n    text = \"Entschuldigung, Ich habe deine Anweisung nicht verstanden\";\n    msg.error = {\n        text: text,\n        siteId: msg.cmd.siteId,\n        lang: \"de-DE\"\n    };\n} else if (msg.cmd.lang === \"fr\") {\n    text = \"Désolé, je n'ai pas compris la commande\";\n    msg.error = {\n        text: text,\n        siteId: msg.cmd.siteId,\n        lang: \"fr-FR\"\n    };\n} else {\n    text = \"Sorry, I do not understand your command\";\n    msg.error = {\n        text: text,\n        siteId: msg.cmd.siteId,\n        lang: \"en-EN\"\n    };\n}\n\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 2310,
-        "y": 980,
-        "wires": [
-            [
-                "11da80e0.36178f"
-            ]
-        ]
-    },
-    {
-        "id": "11da80e0.36178f",
-        "type": "link out",
-        "z": "470f040b.7391ac",
-        "name": "ERROR IN",
-        "links": [
-            "aeff6d7b.9a0df",
-            "8be6dbfa.f122e8",
-            "ce8c5acd.622cd8"
-        ],
-        "x": 2395,
-        "y": 980,
         "wires": []
     },
     {
@@ -4381,10 +4127,10 @@
         "type": "function",
         "z": "470f040b.7391ac",
         "name": "Array_intent",
-        "func": "msg.cmd = [];\ntmp = [];\nmsg.items = [];\nmsg.deviceList = flow.get(\"msgDeviceList\");\nmsg.cmd.lang = flow.get(\"msgLang\");\nmsg.proServIP = flow.get(\"msgProServIP\");\n\nString.prototype.sansAccent = function() {\n    var accent = [\n        /[\\300-\\306]/g, /[\\340-\\346]/g, // A, a\n        /[\\310-\\313]/g, /[\\350-\\353]/g, // E, e\n        /[\\314-\\317]/g, /[\\354-\\357]/g, // I, i\n        /[\\322-\\330]/g, /[\\362-\\370]/g, // O, o\n        /[\\331-\\334]/g, /[\\371-\\374]/g, // U, u\n        /[\\321]/g, /[\\361]/g, // N, n\n        /[\\307]/g, /[\\347]/g, // C, c\n    ];\n    var noaccent = ['A','a','E','e','I','i','O','o','U','u','N','n','C','c'];\n     \n    var str = this;\n    for(var i = 0; i < accent.length; i++){\n        str = str.replace(accent[i], noaccent[i]);\n    }\n     \n    return str;\n};\n\nfunction precisionRound(number, precision) {\n  var factor = Math.pow(10, precision);\n  return Math.round(number * factor) / factor;\n}\n\nfunction findObjectByKey(array, key, value) {\n    items=[];\n    var cpt=0;\n    for (var i = 0; i < array.length; i++) {\n        if (array[i][key] === value) {\n            items[cpt]=array[i];\n            cpt++;\n        }\n    }\n    if (items[0] !== undefined) {\n        return items;\n    } else {\n        return null;\n    }\n}\n\nfunction findRoomByKey(array, key, value) {\n    msg.items = [];\n    var cpt = 0;\n    for (var i = 0; i < array.length; i++) {\n        var x = array[i][key].toLowerCase().sansAccent();\n        if (x === value) {\n            msg.items[cpt] = array[i];\n            cpt ++;\n        }\n    }\n    return null;\n}\n\nfunction findDeviceByKey(array, key, value) {\n    msg.items = [];\n    var cpt = 0;\n    for (var i = 0; i < array.length; i++) {\n        var x = array[i][key].toLowerCase().sansAccent();\n        if (x === value) {\n            msg.items[cpt] = array[i];\n            cpt ++;\n        }\n    }\n    return null;\n}\n\nfunction findTypeByKey(array, key, value) {\n    msg.items = [];\n    var cpt = 0;\n    for (var i = 0; i < array.length; i++) {\n        var x = array[i][key];\n        if (x === value) {\n            msg.items[cpt] = array[i];\n            cpt ++;\n        }\n    }\n    return null;\n}\n\nfunction findSwitchByKey(array, key, value) {\n    msg.payload.switch_lights = [];\n    var cpt = 0;\n    for (var i = 0; i < array.length; i++) {\n        if (array[i][key] === value) {\n            msg.payload.switch_lights[cpt] = array[i];\n            cpt ++;\n        }\n    }\n    return null;\n}\n\nfunction findDimmerByKey(array, key, value) {\n    msg.payload.dimmer_lights = [];\n    var cpt = 0;\n    for (var i = 0; i < array.length; i++) {\n        if (array[i][key] === value) {\n            msg.payload.dimmer_lights[cpt] = array[i];\n            cpt ++;\n        }\n    }\n    return null;\n}\n\nvar rawRoom = findObjectByKey(msg.payload.slots, 'slotName', 'room');\nvar rawLight = findObjectByKey(msg.payload.slots, 'slotName', 'light_device');\nvar rawShutter = findObjectByKey(msg.payload.slots, 'slotName', 'window_device');\nvar rawTherm = findObjectByKey(msg.payload.slots, 'slotName', 'temperature_device');\nvar rawScene = findObjectByKey(msg.payload.slots, 'slotName', 'scene_device');\nvar rawValue = findObjectByKey(msg.payload.slots, 'slotName', 'value');\nmsg.cmd.siteId = msg.payload.siteId.replace(/_/g,\" \");\nmsg.cmd.query = true;\n\nif (rawRoom !== null) {\n    msg.cmd.room = [];\n    for (var i = 0; i < rawRoom.length; i++) {\n        msg.cmd.room[i] = rawRoom[i].value.value.toLowerCase().sansAccent();\n        if (msg.cmd.room[i] === \"here\" ||msg.cmd.room[i] === \"hier\" || msg.cmd.room[i] === \"ici\" ) {\n            msg.cmd.room[i] = msg.payload.siteId.replace(/_/g,\" \");\n        }\n        if (msg.cmd.room[i] === \"everywhere\" || msg.cmd.room[i] === \"uberall\" || msg.cmd.room[i] === \"partout\"){\n            delete msg.cmd.room;\n            break;\n        }\n    }\n} else {\n    msg.cmd.room = [];\n    msg.cmd.room[0] = msg.payload.siteId.replace(/_/g,\" \");\n}\n\nif (rawLight !== null) {\n    msg.cmd.type = \"lights\";\n    msg.cmd.device = [];\n    cpt = 0;\n    for (var i = 0; i < rawLight.length; i++) {\n        if (rawLight[i].value.value.toLowerCase().sansAccent() !== \"light\" && rawLight[i].value.value.toLowerCase().sansAccent() !== \"all\") {\n    \t    msg.cmd.device[cpt] = rawLight[i].value.value.toLowerCase().sansAccent();\n            cpt++;\n        }\n    }\n    tmp = [];\n    findSwitchByKey(msg.deviceList, 'type', 'lights');\n    findDimmerByKey(msg.deviceList, 'type', 'dimmers');\n    msg.items = msg.payload.switch_lights.concat(msg.payload.dimmer_lights);\n    tmp = msg.items;\n\n    if (msg.cmd.device[0] !== undefined) {\n        msg.tmpList = [];\n        cpt = 0;\n        for (var i = 0; i < msg.cmd.device.length; i++) {\n            findDeviceByKey(tmp, 'object', msg.cmd.device[i]);\n            msg.tmpList[cpt] = msg.items;\n            cpt++;\n        }\n        tmp = [];\n        for (var i = 0; i < msg.tmpList.length; i++) {\n            for (var n = 0; n < msg.tmpList[i].length; n++) {\n                tmp.push(msg.tmpList[i][n]);\n            }\n        }\n    }\n} else if (rawShutter !== null) {\n    msg.cmd.type = \"blinds\";\n    cpt = 0;\n    msg.cmd.device = [];\n    for (var i = 0; i < rawShutter.length; i++) {\n        msg.cmd.device[cpt] = rawShutter[i].value.value.toLowerCase().sansAccent();\n    }\n\n    tmp = [];\n    findTypeByKey(msg.deviceList, 'type', msg.cmd.type);\n    tmp = msg.items;\n\n    if (msg.cmd.device[0] !== undefined) {\n        tmpList = [];\n        cpt = 0;\n        for (var i = 0; i < msg.cmd.device.length; i++) {\n            findDeviceByKey(tmp, 'object', msg.cmd.device[i]);\n            tmpList[cpt] = msg.items;\n            cpt++;\n        }\n        if (tmpList[0][0]!== undefined) {\n            if (tmpList[0][0].name!== undefined) {\n                tmp = [];\n                for (var i = 0; i < tmpList.length; i++) {\n                    for (var n = 0; n < tmpList[i].length; n++) {\n                        tmp.push(tmpList[i][n]);\n                    }\n                }\n            }\n        } else {}\n    }\n} else if (rawTherm !== null) {\n    msg.cmd.type = \"heating\";\n    cpt = 0;\n        msg.cmd.device = [];\n        for (var i = 0; i < rawTherm.length; i++) {\n\t        msg.cmd.device[cpt] = rawTherm[i].value.value.toLowerCase().sansAccent();\n        }\n        \n    tmp = [];\n    findTypeByKey(msg.deviceList, 'type', msg.cmd.type);\n    tmp = msg.items;\n\n    if (msg.cmd.device[0] !== undefined) {\n    tmpList = [];\n    cpt = 0;\n        for (var i = 0; i < msg.cmd.device.length; i++) {\n            findDeviceByKey(tmp, 'object', msg.cmd.device[i]);\n            tmpList[cpt] = msg.items;\n            cpt++;\n        }\n        if (tmpList[0][0]!== undefined) {\n            if (tmpList[0][0].name!== undefined) {\n                tmp = [];\n                for (var i = 0; i < tmpList.length; i++) {\n                    for (var n = 0; n < tmpList[i].length; n++) {\n                        tmp.push(tmpList[i][n]);\n                    }\n                }\n            }\n        } else {}\n    }\n} else if (rawScene !== null) {\n    msg.cmd.type = \"scenes\";\n    msg.cmd.device = [];\n    cpt = 0;\n    for (var i = 0; i < rawScene.length; i++) {\n        if (rawScene[i].value.value.toLowerCase().sansAccent() !== \"scene\" && RawScene[i].value.value.toLowerCase().sansAccent() !== \"all\") {\n    \t    msg.cmd.device[cpt] = rawScene[i].value.value.toLowerCase().sansAccent();\n            cpt++;\n        }\n    }\n    tmp = [];\n    findTypeByKey(msg.deviceList, 'type', msg.cmd.type);\n    tmp = msg.items;\n\n    if (msg.cmd.device[0] !== undefined) {\n        msg.tmpList = [];\n        cpt = 0;\n        for (var i = 0; i < msg.cmd.device.length; i++) {\n            findDeviceByKey(tmp, 'object', msg.cmd.device[i]);\n            msg.tmpList[cpt] = msg.items;\n            cpt++;\n        }\n        tmp = [];\n        for (var i = 0; i < msg.tmpList.length; i++) {\n            for (var n = 0; n < msg.tmpList[i].length; n++) {\n                tmp.push(msg.tmpList[i][n]);\n            }\n        }\n    }\n}\n\nif (msg.cmd.room !== undefined && tmp !== undefined) {\n    tmpList = [];\n    cpt = 0;\n    for (var i = 0; i < msg.cmd.room.length; i++) {\n        findRoomByKey(tmp, 'zone', msg.cmd.room[i]);\n        tmpList[cpt] = msg.items;\n        cpt++;\n    }\n    tmp = [];\n    for (var i = 0; i < tmpList.length; i++) {\n        for (var n = 0; n < tmpList[i].length; n++) {\n            tmp.push(tmpList[i][n]);\n        }\n    }\n}\n\nmsg.items = tmp;\n\nif (msg.items[0] === undefined) {\n    if (msg.cmd.lang === \"de\") {\n        msg.error = {\n            text: \"Ich kann dieses Gerät nicht finden\",\n            siteId: msg.cmd.siteId,\n            lang: \"de-DE\"\n        };\n    } else if (msg.cmd.lang === \"fr\") {\n        msg.error = {\n            text: \"Je n'ai pas pu trouver cet appareil\",\n            siteId: msg.cmd.siteId,\n            lang:\"fr-FR\"\n        };\n    } else {\n        msg.error = {\n            text: \"I can not find this device\",\n            siteId: msg.cmd.siteId,\n            lang:\"en-EN\"\n        };\n    }\n}\n\nreturn msg;",
+        "func": "msg.cmd = [];\ntmp = [];\nmsg.items = [];\nmsg.deviceList = flow.get(\"msgDeviceList\");\nmsg.cmd.lang = flow.get(\"msgLang\");\nmsg.proServIP = flow.get(\"msgProServIP\");\n\nString.prototype.sansAccent = function() {\n    var accent = [\n        /[\\300-\\306]/g, /[\\340-\\346]/g, // A, a\n        /[\\310-\\313]/g, /[\\350-\\353]/g, // E, e\n        /[\\314-\\317]/g, /[\\354-\\357]/g, // I, i\n        /[\\322-\\330]/g, /[\\362-\\370]/g, // O, o\n        /[\\331-\\334]/g, /[\\371-\\374]/g, // U, u\n        /[\\321]/g, /[\\361]/g, // N, n\n        /[\\307]/g, /[\\347]/g, // C, c\n    ];\n    var noaccent = ['A','a','E','e','I','i','O','o','U','u','N','n','C','c'];\n     \n    var str = this;\n    for(var i = 0; i < accent.length; i++){\n        str = str.replace(accent[i], noaccent[i]);\n    }\n     \n    return str;\n};\n\nfunction precisionRound(number, precision) {\n  var factor = Math.pow(10, precision);\n  return Math.round(number * factor) / factor;\n}\n\nfunction findObjectByKey(array, key, value) {\n    items=[];\n    var cpt=0;\n    for (var i = 0; i < array.length; i++) {\n        if (array[i][key] === value) {\n            items[cpt]=array[i];\n            cpt++;\n        }\n    }\n    if (items[0] !== undefined) {\n        return items;\n    } else {\n        return null;\n    }\n}\n\nfunction findRoomByKey(array, key, value) {\n    msg.items = [];\n    var cpt = 0;\n    for (var i = 0; i < array.length; i++) {\n        var x = array[i][key].toLowerCase().sansAccent();\n        if (x === value) {\n            msg.items[cpt] = array[i];\n            cpt ++;\n        }\n    }\n    return null;\n}\n\nfunction findDeviceByKey(array, key, value) {\n    msg.items = [];\n    var cpt = 0;\n    for (var i = 0; i < array.length; i++) {\n        var x = array[i][key].toLowerCase().sansAccent();\n        if (x === value) {\n            msg.items[cpt] = array[i];\n            cpt ++;\n        }\n    }\n    return null;\n}\n\nfunction findTypeByKey(array, key, value) {\n    msg.items = [];\n    var cpt = 0;\n    for (var i = 0; i < array.length; i++) {\n        var x = array[i][key];\n        if (x === value) {\n            msg.items[cpt] = array[i];\n            cpt ++;\n        }\n    }\n    return null;\n}\n\nfunction findSwitchByKey(array, key, value) {\n    msg.payload.switch_lights = [];\n    var cpt = 0;\n    for (var i = 0; i < array.length; i++) {\n        if (array[i][key] === value) {\n            msg.payload.switch_lights[cpt] = array[i];\n            cpt ++;\n        }\n    }\n    return null;\n}\n\nfunction findDimmerByKey(array, key, value) {\n    msg.payload.dimmer_lights = [];\n    var cpt = 0;\n    for (var i = 0; i < array.length; i++) {\n        if (array[i][key] === value) {\n            msg.payload.dimmer_lights[cpt] = array[i];\n            cpt ++;\n        }\n    }\n    return null;\n}\n\nvar rawRoom = findObjectByKey(msg.payload.slots, 'slotName', 'room');\nvar rawLight = findObjectByKey(msg.payload.slots, 'slotName', 'light_device');\nvar rawShutter = findObjectByKey(msg.payload.slots, 'slotName', 'window_device');\nvar rawTherm = findObjectByKey(msg.payload.slots, 'slotName', 'temperature_device');\nvar rawScene = findObjectByKey(msg.payload.slots, 'slotName', 'scene_device');\nvar rawValue = findObjectByKey(msg.payload.slots, 'slotName', 'value');\nmsg.cmd.siteId = msg.payload.siteId.replace(/_/g,\" \");\nmsg.cmd.query = true;\n\nif (rawRoom !== null) {\n    msg.cmd.room = [];\n    for (var i = 0; i < rawRoom.length; i++) {\n        msg.cmd.room[i] = rawRoom[i].value.value.toLowerCase().sansAccent();\n        if (msg.cmd.room[i] === \"here\" ||msg.cmd.room[i] === \"hier\" || msg.cmd.room[i] === \"ici\" ) {\n            msg.cmd.room[i] = msg.payload.siteId.replace(/_/g,\" \");\n        }\n        if (msg.cmd.room[i] === \"everywhere\" || msg.cmd.room[i] === \"uberall\" || msg.cmd.room[i] === \"partout\"){\n            delete msg.cmd.room;\n            break;\n        }\n    }\n} else {\n    msg.cmd.room = [];\n    msg.cmd.room[0] = msg.payload.siteId.replace(/_/g,\" \");\n}\n\nif (rawLight !== null) {\n    msg.cmd.type = \"lights\";\n    msg.cmd.device = [];\n    cpt = 0;\n    for (var i = 0; i < rawLight.length; i++) {\n        if (rawLight[i].value.value.toLowerCase().sansAccent() !== \"light\" && rawLight[i].value.value.toLowerCase().sansAccent() !== \"licht\" && rawLight[i].value.value.toLowerCase().sansAccent() !== \"lumiere\") {\n    \t    msg.cmd.device[cpt] = rawLight[i].value.value.toLowerCase().sansAccent();\n            cpt++;\n        }\n    }\n    tmp = [];\n    findSwitchByKey(msg.deviceList, 'type', 'lights');\n    findDimmerByKey(msg.deviceList, 'type', 'dimmers');\n    msg.items = msg.payload.switch_lights.concat(msg.payload.dimmer_lights);\n    tmp = msg.items;\n\n    if (msg.cmd.device[0] !== undefined) {\n        msg.tmpList = [];\n        cpt = 0;\n        for (var i = 0; i < msg.cmd.device.length; i++) {\n            findDeviceByKey(tmp, 'object', msg.cmd.device[i]);\n            msg.tmpList[cpt] = msg.items;\n            cpt++;\n        }\n        tmp = [];\n        for (var i = 0; i < msg.tmpList.length; i++) {\n            for (var n = 0; n < msg.tmpList[i].length; n++) {\n                tmp.push(msg.tmpList[i][n]);\n            }\n        }\n    }\n} else if (rawShutter !== null) {\n    msg.cmd.type = \"blinds\";\n    cpt = 0;\n    msg.cmd.device = [];\n    for (var i = 0; i < rawShutter.length; i++) {\n        msg.cmd.device[cpt] = rawShutter[i].value.value.toLowerCase().sansAccent();\n    }\n\n    tmp = [];\n    findTypeByKey(msg.deviceList, 'type', msg.cmd.type);\n    tmp = msg.items;\n\n    if (msg.cmd.device[0] !== undefined) {\n        tmpList = [];\n        cpt = 0;\n        for (var i = 0; i < msg.cmd.device.length; i++) {\n            findDeviceByKey(tmp, 'object', msg.cmd.device[i]);\n            tmpList[cpt] = msg.items;\n            cpt++;\n        }\n        if (tmpList[0][0]!== undefined) {\n            if (tmpList[0][0].name!== undefined) {\n                tmp = [];\n                for (var i = 0; i < tmpList.length; i++) {\n                    for (var n = 0; n < tmpList[i].length; n++) {\n                        tmp.push(tmpList[i][n]);\n                    }\n                }\n            }\n        } else {}\n    }\n} else if (rawTherm !== null) {\n    msg.cmd.type = \"heating\";\n    cpt = 0;\n        msg.cmd.device = [];\n        for (var i = 0; i < rawTherm.length; i++) {\n\t        msg.cmd.device[cpt] = rawTherm[i].value.value.toLowerCase().sansAccent();\n        }\n        \n    tmp = [];\n    findTypeByKey(msg.deviceList, 'type', msg.cmd.type);\n    tmp = msg.items;\n\n    if (msg.cmd.device[0] !== undefined) {\n    tmpList = [];\n    cpt = 0;\n        for (var i = 0; i < msg.cmd.device.length; i++) {\n            findDeviceByKey(tmp, 'object', msg.cmd.device[i]);\n            tmpList[cpt] = msg.items;\n            cpt++;\n        }\n        if (tmpList[0][0]!== undefined) {\n            if (tmpList[0][0].name!== undefined) {\n                tmp = [];\n                for (var i = 0; i < tmpList.length; i++) {\n                    for (var n = 0; n < tmpList[i].length; n++) {\n                        tmp.push(tmpList[i][n]);\n                    }\n                }\n            }\n        } else {}\n    }\n} else if (rawScene !== null) {\n    msg.cmd.type = \"scenes\";\n    msg.cmd.device = [];\n    cpt = 0;\n    for (var i = 0; i < rawScene.length; i++) {\n        if (rawScene[i].value.value.toLowerCase().sansAccent() !== \"scene\" && RawScene[i].value.value.toLowerCase().sansAccent() !== \"all\") {\n    \t    msg.cmd.device[cpt] = rawScene[i].value.value.toLowerCase().sansAccent();\n            cpt++;\n        }\n    }\n    tmp = [];\n    findTypeByKey(msg.deviceList, 'type', msg.cmd.type);\n    tmp = msg.items;\n\n    if (msg.cmd.device[0] !== undefined) {\n        msg.tmpList = [];\n        cpt = 0;\n        for (var i = 0; i < msg.cmd.device.length; i++) {\n            findDeviceByKey(tmp, 'object', msg.cmd.device[i]);\n            msg.tmpList[cpt] = msg.items;\n            cpt++;\n        }\n        tmp = [];\n        for (var i = 0; i < msg.tmpList.length; i++) {\n            for (var n = 0; n < msg.tmpList[i].length; n++) {\n                tmp.push(msg.tmpList[i][n]);\n            }\n        }\n    }\n}\n\nif (msg.cmd.room !== undefined && tmp !== undefined) {\n    tmpList = [];\n    cpt = 0;\n    for (var i = 0; i < msg.cmd.room.length; i++) {\n        findRoomByKey(tmp, 'zone', msg.cmd.room[i]);\n        tmpList[cpt] = msg.items;\n        cpt++;\n    }\n    tmp = [];\n    for (var i = 0; i < tmpList.length; i++) {\n        for (var n = 0; n < tmpList[i].length; n++) {\n            tmp.push(tmpList[i][n]);\n        }\n    }\n}\n\nmsg.items = tmp;\n\nif (msg.items[0] === undefined) {\n    if (msg.cmd.lang === \"de\") {\n        msg.error = {\n            text: \"Ich kann dieses Gerät nicht finden\",\n            siteId: msg.cmd.siteId,\n            lang: \"de-DE\"\n        };\n    } else if (msg.cmd.lang === \"fr\") {\n        msg.error = {\n            text: \"Je n'ai pas pu trouver cet appareil\",\n            siteId: msg.cmd.siteId,\n            lang:\"fr-FR\"\n        };\n    } else {\n        msg.error = {\n            text: \"I can not find this device\",\n            siteId: msg.cmd.siteId,\n            lang:\"en-EN\"\n        };\n    }\n}\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 2330,
+        "x": 2390,
         "y": 940,
         "wires": [
             [
@@ -4409,7 +4155,7 @@
         ],
         "checkall": "true",
         "outputs": 2,
-        "x": 2480,
+        "x": 2540,
         "y": 960,
         "wires": [
             [
@@ -4430,7 +4176,7 @@
             "8be6dbfa.f122e8",
             "ce8c5acd.622cd8"
         ],
-        "x": 2595,
+        "x": 2655,
         "y": 940,
         "wires": []
     },
@@ -4443,7 +4189,7 @@
             "a7d3de52.cf769",
             "eba6ccd8.bcc9c"
         ],
-        "x": 2595,
+        "x": 2655,
         "y": 980,
         "wires": []
     },
@@ -4458,11 +4204,11 @@
         "repeat": "",
         "crontab": "",
         "once": false,
-        "x": 2070,
+        "x": 2010,
         "y": 1000,
         "wires": [
             [
-                "81198276.3ae09"
+                "51724a9c.4338c4"
             ]
         ]
     },
@@ -4601,11 +4347,11 @@
         "repeat": "",
         "crontab": "",
         "once": false,
-        "x": 2070,
+        "x": 2010,
         "y": 840,
         "wires": [
             [
-                "97d28f0.f5fca7"
+                "290dec8a.e75984"
             ]
         ]
     },
@@ -4651,6 +4397,254 @@
         "wires": [
             [
                 "7b6e6f.5450619"
+            ]
+        ]
+    },
+    {
+        "id": "f0a3da36.d18d48",
+        "type": "function",
+        "z": "470f040b.7391ac",
+        "name": "Filter",
+        "func": "msg.cmd = [];\nmsg.cmd.lang = flow.get(\"msgLang\");\nmsg.cmd.siteId = msg.payload.siteId.replace(/_/g,\" \");\n\nif (msg.payload.intent.probability < 0.4 || msg.payload.asrTokens[0].length <= 1) {}\nelse if (msg.payload.intent.probability > 0.4 && msg.payload.intent.probability < 0.6){\n    if (msg.cmd.lang === \"de\") {\n        text = \"Entschuldigung, Ich habe deine Anweisung nicht verstanden\";\n        msg.error = {\n            text: text,\n            siteId: msg.cmd.siteId,\n            lang: \"de-DE\"\n        };\n    } else if (msg.cmd.lang === \"fr\") {\n        text = \"Désolé, je n'ai pas compris la commande\";\n        msg.error = {\n            text: text,\n            siteId: msg.cmd.siteId,\n            lang: \"fr-FR\"\n        };\n    } else {\n        text = \"Sorry, I do not understand your command\";\n        msg.error = {\n            text: text,\n            siteId: msg.cmd.siteId,\n            lang: \"en-EN\"\n        };\n    }\n    return msg;\n} else {\n    return msg;\n}",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 2130,
+        "y": 240,
+        "wires": [
+            [
+                "10cc755a.0d8ceb"
+            ]
+        ]
+    },
+    {
+        "id": "b331ed17.a1bfd",
+        "type": "switch",
+        "z": "470f040b.7391ac",
+        "name": "Error ?",
+        "property": "error",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "null"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "true",
+        "outputs": 2,
+        "x": 2250,
+        "y": 480,
+        "wires": [
+            [
+                "3dd9690a.f84f16"
+            ],
+            [
+                "5d8a0042.86117"
+            ]
+        ]
+    },
+    {
+        "id": "5d8a0042.86117",
+        "type": "link out",
+        "z": "470f040b.7391ac",
+        "name": "ERROR IN",
+        "links": [
+            "aeff6d7b.9a0df",
+            "8be6dbfa.f122e8",
+            "ce8c5acd.622cd8"
+        ],
+        "x": 2335,
+        "y": 500,
+        "wires": []
+    },
+    {
+        "id": "c8efe84c.dff4b8",
+        "type": "function",
+        "z": "470f040b.7391ac",
+        "name": "Filter",
+        "func": "msg.cmd = [];\nmsg.cmd.lang = flow.get(\"msgLang\");\nmsg.cmd.siteId = msg.payload.siteId.replace(/_/g,\" \");\n\nif (msg.payload.intent.probability < 0.4 || msg.payload.asrTokens[0].length <= 1) {}\nelse if (msg.payload.intent.probability > 0.4 && msg.payload.intent.probability < 0.6){\n    if (msg.cmd.lang === \"de\") {\n        text = \"Entschuldigung, Ich habe deine Anweisung nicht verstanden\";\n        msg.error = {\n            text: text,\n            siteId: msg.cmd.siteId,\n            lang: \"de-DE\"\n        };\n    } else if (msg.cmd.lang === \"fr\") {\n        text = \"Désolé, je n'ai pas compris la commande\";\n        msg.error = {\n            text: text,\n            siteId: msg.cmd.siteId,\n            lang: \"fr-FR\"\n        };\n    } else {\n        text = \"Sorry, I do not understand your command\";\n        msg.error = {\n            text: text,\n            siteId: msg.cmd.siteId,\n            lang: \"en-EN\"\n        };\n    }\n    return msg;\n} else {\n    return msg;\n}",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 2130,
+        "y": 480,
+        "wires": [
+            [
+                "b331ed17.a1bfd"
+            ]
+        ]
+    },
+    {
+        "id": "a294c0fc.3d734",
+        "type": "switch",
+        "z": "470f040b.7391ac",
+        "name": "Error ?",
+        "property": "error",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "null"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "true",
+        "outputs": 2,
+        "x": 2250,
+        "y": 660,
+        "wires": [
+            [
+                "2098bebe.db1312"
+            ],
+            [
+                "fe25f296.7631a"
+            ]
+        ]
+    },
+    {
+        "id": "fe25f296.7631a",
+        "type": "link out",
+        "z": "470f040b.7391ac",
+        "name": "ERROR IN",
+        "links": [
+            "aeff6d7b.9a0df",
+            "8be6dbfa.f122e8",
+            "ce8c5acd.622cd8"
+        ],
+        "x": 2335,
+        "y": 680,
+        "wires": []
+    },
+    {
+        "id": "c7f1cf36.b9b4a",
+        "type": "function",
+        "z": "470f040b.7391ac",
+        "name": "Filter",
+        "func": "msg.cmd = [];\nmsg.cmd.lang = flow.get(\"msgLang\");\nmsg.cmd.siteId = msg.payload.siteId.replace(/_/g,\" \");\n\nif (msg.payload.intent.probability < 0.4 || msg.payload.asrTokens[0].length <= 1) {}\nelse if (msg.payload.intent.probability > 0.4 && msg.payload.intent.probability < 0.6){\n    if (msg.cmd.lang === \"de\") {\n        text = \"Entschuldigung, Ich habe deine Anweisung nicht verstanden\";\n        msg.error = {\n            text: text,\n            siteId: msg.cmd.siteId,\n            lang: \"de-DE\"\n        };\n    } else if (msg.cmd.lang === \"fr\") {\n        text = \"Désolé, je n'ai pas compris la commande\";\n        msg.error = {\n            text: text,\n            siteId: msg.cmd.siteId,\n            lang: \"fr-FR\"\n        };\n    } else {\n        text = \"Sorry, I do not understand your command\";\n        msg.error = {\n            text: text,\n            siteId: msg.cmd.siteId,\n            lang: \"en-EN\"\n        };\n    }\n    return msg;\n} else {\n    return msg;\n}",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 2130,
+        "y": 660,
+        "wires": [
+            [
+                "a294c0fc.3d734"
+            ]
+        ]
+    },
+    {
+        "id": "3a70c321.045e5c",
+        "type": "switch",
+        "z": "470f040b.7391ac",
+        "name": "Error ?",
+        "property": "error",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "null"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "true",
+        "outputs": 2,
+        "x": 2250,
+        "y": 800,
+        "wires": [
+            [
+                "c57b0579.d514e8"
+            ],
+            [
+                "56752a03.e183b4"
+            ]
+        ]
+    },
+    {
+        "id": "56752a03.e183b4",
+        "type": "link out",
+        "z": "470f040b.7391ac",
+        "name": "ERROR IN",
+        "links": [
+            "aeff6d7b.9a0df",
+            "8be6dbfa.f122e8",
+            "ce8c5acd.622cd8"
+        ],
+        "x": 2335,
+        "y": 820,
+        "wires": []
+    },
+    {
+        "id": "290dec8a.e75984",
+        "type": "function",
+        "z": "470f040b.7391ac",
+        "name": "Filter",
+        "func": "msg.cmd = [];\nmsg.cmd.lang = flow.get(\"msgLang\");\nmsg.cmd.siteId = msg.payload.siteId.replace(/_/g,\" \");\n\nif (msg.payload.intent.probability < 0.4 || msg.payload.asrTokens[0].length <= 1) {}\nelse if (msg.payload.intent.probability > 0.4 && msg.payload.intent.probability < 0.6){\n    if (msg.cmd.lang === \"de\") {\n        text = \"Entschuldigung, Ich habe deine Anweisung nicht verstanden\";\n        msg.error = {\n            text: text,\n            siteId: msg.cmd.siteId,\n            lang: \"de-DE\"\n        };\n    } else if (msg.cmd.lang === \"fr\") {\n        text = \"Désolé, je n'ai pas compris la commande\";\n        msg.error = {\n            text: text,\n            siteId: msg.cmd.siteId,\n            lang: \"fr-FR\"\n        };\n    } else {\n        text = \"Sorry, I do not understand your command\";\n        msg.error = {\n            text: text,\n            siteId: msg.cmd.siteId,\n            lang: \"en-EN\"\n        };\n    }\n    return msg;\n} else {\n    return msg;\n}",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 2130,
+        "y": 800,
+        "wires": [
+            [
+                "3a70c321.045e5c"
+            ]
+        ]
+    },
+    {
+        "id": "8132af0b.48d75",
+        "type": "switch",
+        "z": "470f040b.7391ac",
+        "name": "Error ?",
+        "property": "error",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "null"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "true",
+        "outputs": 2,
+        "x": 2250,
+        "y": 960,
+        "wires": [
+            [
+                "43314f3a.552c3"
+            ],
+            [
+                "9d8abe64.267cf"
+            ]
+        ]
+    },
+    {
+        "id": "9d8abe64.267cf",
+        "type": "link out",
+        "z": "470f040b.7391ac",
+        "name": "ERROR IN",
+        "links": [
+            "aeff6d7b.9a0df",
+            "8be6dbfa.f122e8",
+            "ce8c5acd.622cd8"
+        ],
+        "x": 2335,
+        "y": 980,
+        "wires": []
+    },
+    {
+        "id": "51724a9c.4338c4",
+        "type": "function",
+        "z": "470f040b.7391ac",
+        "name": "Filter",
+        "func": "msg.cmd = [];\nmsg.cmd.lang = flow.get(\"msgLang\");\nmsg.cmd.siteId = msg.payload.siteId.replace(/_/g,\" \");\n\nif (msg.payload.intent.probability < 0.4 || msg.payload.asrTokens[0].length <= 1) {}\nelse if (msg.payload.intent.probability > 0.4 && msg.payload.intent.probability < 0.6){\n    if (msg.cmd.lang === \"de\") {\n        text = \"Entschuldigung, Ich habe deine Anweisung nicht verstanden\";\n        msg.error = {\n            text: text,\n            siteId: msg.cmd.siteId,\n            lang: \"de-DE\"\n        };\n    } else if (msg.cmd.lang === \"fr\") {\n        text = \"Désolé, je n'ai pas compris la commande\";\n        msg.error = {\n            text: text,\n            siteId: msg.cmd.siteId,\n            lang: \"fr-FR\"\n        };\n    } else {\n        text = \"Sorry, I do not understand your command\";\n        msg.error = {\n            text: text,\n            siteId: msg.cmd.siteId,\n            lang: \"en-EN\"\n        };\n    }\n    return msg;\n} else {\n    return msg;\n}",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 2130,
+        "y": 960,
+        "wires": [
+            [
+                "8132af0b.48d75"
             ]
         ]
     },
