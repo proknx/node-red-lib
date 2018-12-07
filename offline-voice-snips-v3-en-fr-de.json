@@ -3672,14 +3672,17 @@
         "type": "function",
         "z": "cb4b5f0.6ff68a",
         "name": "Array_intent",
-        "func": "msg.cmd = [];\nmsg.items = [];\nmsg.deviceList = flow.get(\"msgDeviceList\");\nmsg.cmd.lang = flow.get(\"msgLang\");\nmsg.proServIP = flow.get(\"msgProServIP\");\n\nString.prototype.sansAccent = function() {\n    var accent = [\n        /[\\300-\\306]/g, /[\\340-\\346]/g, // A, a\n        /[\\310-\\313]/g, /[\\350-\\353]/g, // E, e\n        /[\\314-\\317]/g, /[\\354-\\357]/g, // I, i\n        /[\\322-\\330]/g, /[\\362-\\370]/g, // O, o\n        /[\\331-\\334]/g, /[\\371-\\374]/g, // U, u\n        /[\\321]/g, /[\\361]/g, // N, n\n        /[\\307]/g, /[\\347]/g, // C, c\n    ];\n    var noaccent = ['A','a','E','e','I','i','O','o','U','u','N','n','C','c'];\n     \n    var str = this;\n    for(var i = 0; i < accent.length; i++){\n        str = str.replace(accent[i], noaccent[i]);\n    }\n     \n    return str;\n};\n\nfunction precisionRound(number, precision) {\n  var factor = Math.pow(10, precision);\n  return Math.round(number * factor) / factor;\n}\n\nfunction findObjectByKey(array, key, value) {\n    items=[];\n    var cpt=0;\n    for (var i = 0; i < array.length; i++) {\n        if (array[i][key] === value) {\n            items[cpt]=array[i];\n            cpt++;\n        }\n    }\n    if (items[0] !== undefined) {\n        return items;\n    } else {\n        return null;\n    }\n}\n\nfunction findRoomByKey(array, key, value) {\n    msg.items = [];\n    var cpt = 0;\n    for (var i = 0; i < array.length; i++) {\n        var x = array[i][key].toLowerCase().sansAccent();\n        if (x === value) {\n            msg.items[cpt] = array[i];\n            cpt ++;\n        }\n    }\n    return null;\n}\n\nfunction findDeviceByKey(array, key, value) {\n    msg.items = [];\n    var cpt = 0;\n    for (var i = 0; i < array.length; i++) {\n        var x = array[i][key].toLowerCase().sansAccent();\n        if (x === value) {\n            msg.items[cpt] = array[i];\n            cpt ++;\n        }\n    }\n    return null;\n}\n\nfunction findTypeByKey(array, key, value) {\n    msg.items = [];\n    var cpt = 0;\n    for (var i = 0; i < array.length; i++) {\n        var x = array[i][key];\n        if (x === value) {\n            msg.items[cpt] = array[i];\n            cpt ++;\n        }\n    }\n    return null;\n}\n\nvar rawRoom = findObjectByKey(msg.payload.slots, 'slotName', 'room');\nvar rawDevice = findObjectByKey(msg.payload.slots, 'slotName', 'window_device');\nvar rawValue = findObjectByKey(msg.payload.slots, 'slotName', 'value');\nmsg.cmd.type = \"blinds\";\nmsg.cmd.siteId = msg.payload.siteId.replace(/_/g,\" \");\nif (rawRoom !== null) {\n    msg.cmd.room = [];\n    for (var i = 0; i < rawRoom.length; i++) {\n        msg.cmd.room[i] = rawRoom[i].value.value.toLowerCase().sansAccent();\n        if (msg.cmd.room[i] === \"here\" ||msg.cmd.room[i] === \"hier\" || msg.cmd.room[i] === \"ici\" ) {\n            msg.cmd.room[i] = msg.payload.siteId.replace(/_/g,\" \");\n        }\n        if (msg.cmd.room[i] === \"everywhere\" || msg.cmd.room[i] === \"uberall\" || msg.cmd.room[i] === \"partout\"){\n            delete msg.cmd.room;\n            break;\n        }\n    }\n} else {\n    msg.cmd.room = [];\n    msg.cmd.room[0] = msg.payload.siteId.replace(/_/g,\" \");\n}\n\nif (rawDevice !== null) {\n    msg.rawDevice = rawDevice;\n    msg.cmd.device = [];\n    cpt = 0;\n    for (var i = 0; i < rawDevice.length; i++) {\n    \tmsg.cmd.device[cpt] = rawDevice[i].value.value.toLowerCase().sansAccent();\n        cpt++;\n        if (msg.cmd.device[i] === \"all shutters\") {\n            delete msg.cmd.device[i];\n            cpt--;\n            if (rawDevice.length == 1) {delete msg.cmd.device;}\n        } else if (msg.cmd.device[i] === \"alle rollladen\") {\n            delete msg.cmd.device[i];\n            cpt--;\n            if (rawDevice.length == 1) {delete msg.cmd.device;}\n        }\n    }\n}\n\nif (rawValue !== null) {\n\tmsg.cmd.value = precisionRound(rawValue[0].value.value, 1);\n}\n\ntmp = [];\nfindTypeByKey(msg.deviceList, 'type', msg.cmd.type);\ntmp = msg.items;\n\nif (msg.cmd.device !== undefined) {\n    tmpList = [];\n    cpt = 0;\n    for (var i = 0; i < msg.cmd.device.length; i++) {\n        findDeviceByKey(tmp, 'object', msg.cmd.device[i]);\n        tmpList[cpt] = msg.items;\n        cpt++;\n    }\n    tmp = [];\n    for (var i = 0; i < tmpList.length; i++) {\n        for (var n = 0; n < tmpList[i].length; n++) {\n            tmp.push(tmpList[i][n]);\n        }\n    }\n}\n\nif (msg.cmd.room !== undefined && tmp !== undefined) {\n    tmpList = [];\n    cpt = 0;\n    for (var i = 0; i < msg.cmd.room.length; i++) {\n        findRoomByKey(tmp, 'zone', msg.cmd.room[i]);\n        tmpList[cpt] = msg.items;\n        cpt++;\n    }\n    tmp = [];\n    for (var i = 0; i < tmpList.length; i++) {\n        for (var n = 0; n < tmpList[i].length; n++) {\n            tmp.push(tmpList[i][n]);\n        }\n    }\n}\n\nmsg.items = tmp;\n\nif (msg.items[0] === undefined) {\n    if (msg.cmd.lang === \"de\") {\n        msg.error = {\n            text: \"Ich kann diesen Rolladen nicht finden\",\n            siteId: msg.cmd.siteId,\n            lang: \"de-DE\"\n        };\n    } else if (msg.cmd.lang === \"fr\") {\n        msg.error = {\n            text: \"Je n'ai pas pu trouver ce volet\",\n            siteId: msg.cmd.siteId,\n            lang:\"fr-FR\"\n        };\n    } else {\n        msg.error = {\n            text: \"I can not find this shutter\",\n            siteId: msg.cmd.siteId,\n            lang:\"en-EN\"\n        };\n    }\n}\n\nreturn msg;",
+        "func": "msg.cmd = [];\nmsg.items = [];\nmsg.deviceList = flow.get(\"msgDeviceList\");\nmsg.cmd.lang = flow.get(\"msgLang\");\nmsg.proServIP = flow.get(\"msgProServIP\");\n\nString.prototype.sansAccent = function() {\n    var accent = [\n        /[\\300-\\306]/g, /[\\340-\\346]/g, // A, a\n        /[\\310-\\313]/g, /[\\350-\\353]/g, // E, e\n        /[\\314-\\317]/g, /[\\354-\\357]/g, // I, i\n        /[\\322-\\330]/g, /[\\362-\\370]/g, // O, o\n        /[\\331-\\334]/g, /[\\371-\\374]/g, // U, u\n        /[\\321]/g, /[\\361]/g, // N, n\n        /[\\307]/g, /[\\347]/g, // C, c\n    ];\n    var noaccent = ['A','a','E','e','I','i','O','o','U','u','N','n','C','c'];\n     \n    var str = this;\n    for(var i = 0; i < accent.length; i++){\n        str = str.replace(accent[i], noaccent[i]);\n    }\n     \n    return str;\n};\n\nfunction precisionRound(number, precision) {\n  var factor = Math.pow(10, precision);\n  return Math.round(number * factor) / factor;\n}\n\nfunction findObjectByKey(array, key, value) {\n    items=[];\n    var cpt=0;\n    for (var i = 0; i < array.length; i++) {\n        if (array[i][key] === value) {\n            items[cpt]=array[i];\n            cpt++;\n        }\n    }\n    if (items[0] !== undefined) {\n        return items;\n    } else {\n        return null;\n    }\n}\n\nfunction findRoomByKey(array, key, value) {\n    msg.items = [];\n    var cpt = 0;\n    for (var i = 0; i < array.length; i++) {\n        var x = array[i][key].toLowerCase().sansAccent();\n        if (x === value) {\n            msg.items[cpt] = array[i];\n            cpt ++;\n        }\n    }\n    return null;\n}\n\nfunction findDeviceByKey(array, key, value) {\n    msg.items = [];\n    var cpt = 0;\n    for (var i = 0; i < array.length; i++) {\n        var x = array[i][key].toLowerCase().sansAccent();\n        if (x === value) {\n            msg.items[cpt] = array[i];\n            cpt ++;\n        }\n    }\n    return null;\n}\n\nfunction findTypeByKey(array, key, value) {\n    msg.items = [];\n    var cpt = 0;\n    for (var i = 0; i < array.length; i++) {\n        var x = array[i][key];\n        if (x === value) {\n            msg.items[cpt] = array[i];\n            cpt ++;\n        }\n    }\n    return null;\n}\n\nvar rawRoom = findObjectByKey(msg.payload.slots, 'slotName', 'room');\nvar rawDevice = findObjectByKey(msg.payload.slots, 'slotName', 'window_device');\nvar rawValue = findObjectByKey(msg.payload.slots, 'slotName', 'value');\nmsg.cmd.type = \"blinds\";\nmsg.cmd.siteId = msg.payload.siteId.replace(/_/g,\" \");\nif (rawRoom !== null) {\n    msg.cmd.room = [];\n    for (var i = 0; i < rawRoom.length; i++) {\n        msg.cmd.room[i] = rawRoom[i].value.value.toLowerCase().sansAccent();\n        if (msg.cmd.room[i] === \"here\" ||msg.cmd.room[i] === \"hier\" || msg.cmd.room[i] === \"ici\" ) {\n            msg.cmd.room[i] = msg.payload.siteId.replace(/_/g,\" \");\n        }\n        if (msg.cmd.room[i] === \"everywhere\" || msg.cmd.room[i] === \"uberall\" || msg.cmd.room[i] === \"partout\"){\n            delete msg.cmd.room;\n            break;\n        }\n    }\n} else {\n    msg.cmd.room = [];\n    msg.cmd.room[0] = msg.payload.siteId.replace(/_/g,\" \");\n}\n\nif (rawDevice !== null) {\n    msg.rawDevice = rawDevice;\n    msg.cmd.device = [];\n    cpt = 0;\n    for (var i = 0; i < rawDevice.length; i++) {\n    \tmsg.cmd.device[cpt] = rawDevice[i].value.value.toLowerCase().sansAccent();\n        cpt++;\n        if (msg.cmd.device[i] === \"all shutters\") {\n            delete msg.cmd.device[i];\n            cpt--;\n            if (rawDevice.length == 1) {delete msg.cmd.device;}\n        } else if (msg.cmd.device[i] === \"alle rollladen\") {\n            delete msg.cmd.device[i];\n            cpt--;\n            if (rawDevice.length == 1) {delete msg.cmd.device;}\n        }\n    }\n}\n\nif (rawValue !== null) {\n\tmsg.cmd.value = precisionRound(rawValue[0].value.value, 1);\n}\n\ntmp = [];\nfindTypeByKey(msg.deviceList, 'type', msg.cmd.type);\ntmp = msg.items;\n\nif (msg.cmd.device !== undefined) {\n    tmpList = [];\n    cpt = 0;\n    for (var i = 0; i < msg.cmd.device.length; i++) {\n        findDeviceByKey(tmp, 'object', msg.cmd.device[i]);\n        tmpList[cpt] = msg.items;\n        cpt++;\n    }\n    msg.test = tmpList;\n    if (tmpList[0] !== undefined) {} else {\n        for (var i = 0; i < tmpList.length; i++) {\n            tmp = [];\n            for (var n = 0; n < tmpList[i].length; n++) {\n                tmp.push(tmpList[i][n]);\n            }\n        }\n    }\n}\n\nif (msg.cmd.room !== undefined && tmp !== undefined) {\n    tmpList = [];\n    cpt = 0;\n    for (var i = 0; i < msg.cmd.room.length; i++) {\n        findRoomByKey(tmp, 'zone', msg.cmd.room[i]);\n        tmpList[cpt] = msg.items;\n        cpt++;\n    }\n    tmp = [];\n    for (var i = 0; i < tmpList.length; i++) {\n        for (var n = 0; n < tmpList[i].length; n++) {\n            tmp.push(tmpList[i][n]);\n        }\n    }\n}\n\nmsg.items = tmp;\n\nif (msg.items[0] === undefined) {\n    if (msg.cmd.lang === \"de\") {\n        msg.error = {\n            text: \"Ich kann diesen Rolladen nicht finden\",\n            siteId: msg.cmd.siteId,\n            lang: \"de-DE\"\n        };\n    } else if (msg.cmd.lang === \"fr\") {\n        msg.error = {\n            text: \"Je n'ai pas pu trouver ce volet\",\n            siteId: msg.cmd.siteId,\n            lang:\"fr-FR\"\n        };\n    } else {\n        msg.error = {\n            text: \"I can not find this shutter\",\n            siteId: msg.cmd.siteId,\n            lang:\"en-EN\"\n        };\n    }\n}\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "x": 2390,
         "y": 460,
         "wires": [
             [
-                "bb5d3bab.8bcd18"
+                "bb5d3bab.8bcd18",
+                "3f3bb6b.6ad244a",
+                "2c90dd91.d977b2",
+                "f5b170ef.48a2"
             ]
         ]
     },
@@ -3979,7 +3982,7 @@
         "z": "cb4b5f0.6ff68a",
         "name": "",
         "topic": "",
-        "payload": "{\"sessionId\":\"bad1fb80-9c46-42de-80c4-7ac8c52b4132\",\"customData\":null,\"siteId\":\"default\",\"input\":\"öffne die lamellen im wohnzimmer\",\"asrTokens\":[[{\"value\":\"öffne\",\"confidence\":1,\"range_start\":0,\"range_end\":5,\"time\":{\"start\":0,\"end\":0.71999997}},{\"value\":\"die\",\"confidence\":1,\"range_start\":6,\"range_end\":9,\"time\":{\"start\":0.71999997,\"end\":0.78}},{\"value\":\"lamellen\",\"confidence\":1,\"range_start\":10,\"range_end\":18,\"time\":{\"start\":0.78,\"end\":1.23}},{\"value\":\"im\",\"confidence\":1,\"range_start\":19,\"range_end\":21,\"time\":{\"start\":1.23,\"end\":1.53}},{\"value\":\"wohnzimmer\",\"confidence\":1,\"range_start\":22,\"range_end\":32,\"time\":{\"start\":1.53,\"end\":2.73}}]],\"intent\":{\"intentName\":\"ProKNX:openSetShutters\",\"probability\":1},\"slots\":[{\"confidence\":1,\"rawValue\":\"lamellen\",\"value\":{\"kind\":\"Custom\",\"value\":\"lamellen\"},\"range\":{\"start\":6,\"end\":18},\"entity\":\"window_devices\",\"slotName\":\"window_device\"},{\"confidence\":1,\"rawValue\":\"wohnzimmer\",\"value\":{\"kind\":\"Custom\",\"value\":\"Wohnzimmer\"},\"range\":{\"start\":22,\"end\":32},\"entity\":\"room\",\"slotName\":\"room\"}]}",
+        "payload": "{\"sessionId\":\"bad1fb80-9c46-42de-80c4-7ac8c52b4132\",\"customData\":null,\"siteId\":\"default\",\"input\":\"open home cinema shutter\",\"asrTokens\":[[{\"value\":\"öffne\",\"confidence\":1,\"range_start\":0,\"range_end\":5,\"time\":{\"start\":0,\"end\":0.71999997}},{\"value\":\"die\",\"confidence\":1,\"range_start\":6,\"range_end\":9,\"time\":{\"start\":0.71999997,\"end\":0.78}},{\"value\":\"lamellen\",\"confidence\":1,\"range_start\":10,\"range_end\":18,\"time\":{\"start\":0.78,\"end\":1.23}},{\"value\":\"im\",\"confidence\":1,\"range_start\":19,\"range_end\":21,\"time\":{\"start\":1.23,\"end\":1.53}},{\"value\":\"wohnzimmer\",\"confidence\":1,\"range_start\":22,\"range_end\":32,\"time\":{\"start\":1.53,\"end\":2.73}}]],\"intent\":{\"intentName\":\"ProKNX:openSetShutters\",\"probability\":1},\"slots\":[{\"confidence\":1,\"rawValue\":\"shutter\",\"value\":{\"kind\":\"Custom\",\"value\":\"shutters\"},\"range\":{\"start\":6,\"end\":18},\"entity\":\"window_devices\",\"slotName\":\"window_device\"},{\"confidence\":1,\"rawValue\":\"home cinema\",\"value\":{\"kind\":\"Custom\",\"value\":\"home cinema\"},\"range\":{\"start\":22,\"end\":32},\"entity\":\"room\",\"slotName\":\"room\"}]}",
         "payloadType": "json",
         "repeat": "",
         "crontab": "",
@@ -4437,7 +4440,8 @@
         "y": 480,
         "wires": [
             [
-                "3dd9690a.f84f16"
+                "3dd9690a.f84f16",
+                "78953a9e.f19d74"
             ],
             [
                 "5d8a0042.86117"
@@ -4685,6 +4689,54 @@
                 "475b338d.5dd5cc"
             ]
         ]
+    },
+    {
+        "id": "78953a9e.f19d74",
+        "type": "debug",
+        "z": "cb4b5f0.6ff68a",
+        "name": "",
+        "active": true,
+        "console": "false",
+        "complete": "false",
+        "x": 2307.142857142857,
+        "y": 560,
+        "wires": []
+    },
+    {
+        "id": "3f3bb6b.6ad244a",
+        "type": "debug",
+        "z": "cb4b5f0.6ff68a",
+        "name": "",
+        "active": true,
+        "console": "false",
+        "complete": "items",
+        "x": 2550,
+        "y": 500,
+        "wires": []
+    },
+    {
+        "id": "2c90dd91.d977b2",
+        "type": "debug",
+        "z": "cb4b5f0.6ff68a",
+        "name": "",
+        "active": true,
+        "console": "false",
+        "complete": "cmd.device",
+        "x": 2560,
+        "y": 540,
+        "wires": []
+    },
+    {
+        "id": "f5b170ef.48a2",
+        "type": "debug",
+        "z": "cb4b5f0.6ff68a",
+        "name": "",
+        "active": true,
+        "console": "false",
+        "complete": "test",
+        "x": 2540,
+        "y": 580,
+        "wires": []
     },
     {
         "id": "c0e0d49d.594088",
