@@ -1,15 +1,13 @@
 [
     {
-        "id": "a10efc34.c3f2a",
+        "id": "6c697848.f2dcf8",
         "type": "tab",
-        "label": "SNIPS V3.0",
-        "disabled": false,
-        "info": ""
+        "label": "SNIPS V3.0"
     },
     {
         "id": "746c2cc4.1e9ac4",
         "type": "json",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "name": "",
         "pretty": true,
         "x": 2010,
@@ -24,7 +22,7 @@
     {
         "id": "672bf0df.1c8ac",
         "type": "comment",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "name": "========================================================================SNIPS INTENTS INPUT=======================================================================",
         "info": "",
         "x": 2410,
@@ -34,7 +32,7 @@
     {
         "id": "3aef5a54.163086",
         "type": "function",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "name": "endSession",
         "func": "msg.payload = {\n    \"sessionId\": msg.payload.sessionId    \n};\n\nreturn msg;",
         "outputs": 1,
@@ -50,7 +48,7 @@
     {
         "id": "b91923ca.02363",
         "type": "mqtt out",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "name": "",
         "topic": "hermes/dialogueManager/endSession",
         "qos": "",
@@ -63,7 +61,7 @@
     {
         "id": "40caa787.3874e8",
         "type": "delay",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "name": "",
         "pauseType": "delay",
         "timeout": "250",
@@ -86,7 +84,7 @@
     {
         "id": "2b8ef9a5.8e7326",
         "type": "comment",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "name": "===================================================================================SNIPS CORE FUNCTIONS===================================================================================",
         "info": "",
         "x": 790,
@@ -96,7 +94,7 @@
     {
         "id": "1b1248e1.913487",
         "type": "comment",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "name": "=================================================================================HOME AUTOMATION INTENTS===================================================================================",
         "info": "",
         "x": 2420,
@@ -106,7 +104,7 @@
     {
         "id": "94188149.7438",
         "type": "comment",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "name": "===============================CLOSE SNIPS SESSION=================================",
         "info": "",
         "x": 510,
@@ -116,7 +114,7 @@
     {
         "id": "34555777.8b5d98",
         "type": "link in",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "name": "Session OUT",
         "links": [
             "61125eea.3ce74",
@@ -136,7 +134,7 @@
     {
         "id": "cc4b58d8.417238",
         "type": "http request",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "name": "GET devices",
         "method": "GET",
         "ret": "txt",
@@ -153,7 +151,7 @@
     {
         "id": "366b7b9d.b3a494",
         "type": "json",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "name": "",
         "pretty": false,
         "x": 690,
@@ -167,7 +165,7 @@
     {
         "id": "2403b1bd.23dc0e",
         "type": "function",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "name": "List_devices",
         "func": "flow.set(\"msgDeviceList\", msg.payload); // save for later use\nflow.set(\"msgProServIP\", msg.proServIP); // save for later use\n\nreturn msg;",
         "outputs": 1,
@@ -181,7 +179,7 @@
     {
         "id": "cb6c15b2.3e4138",
         "type": "http request",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "name": "GET ProServIP",
         "method": "GET",
         "ret": "txt",
@@ -198,7 +196,7 @@
     {
         "id": "bb0f0aa9.06a338",
         "type": "change",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "name": "",
         "rules": [
             {
@@ -225,7 +223,7 @@
     {
         "id": "2d14c8bb.c2caa8",
         "type": "inject",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "name": "Start GET",
         "topic": "",
         "payload": "true",
@@ -249,7 +247,7 @@
     {
         "id": "4c7d63b5.8157dc",
         "type": "comment",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "name": "===============================GET LIST OF DEVICES==================================",
         "info": "",
         "x": 510,
@@ -259,7 +257,7 @@
     {
         "id": "3f4718bd.1dbf08",
         "type": "function",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "name": "Set_cmd",
         "func": "msg.cmd.cmd = \"on\";\n\nreturn msg;",
         "outputs": 1,
@@ -275,7 +273,7 @@
     {
         "id": "23236ea1.0f3502",
         "type": "comment",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "name": "=============================GET CURRENT LANGUAGE================================",
         "info": "",
         "x": 510,
@@ -285,20 +283,20 @@
     {
         "id": "a1a7b37b.e5ef",
         "type": "mqtt out",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "name": "",
         "topic": "hermes/tts/say",
         "qos": "",
         "retain": "",
         "broker": "7c060369.da740c",
         "x": 3060,
-        "y": 2100,
+        "y": 2140,
         "wires": []
     },
     {
         "id": "6c1da1dd.c65d3",
         "type": "function",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "name": "Absolute command feedback",
         "func": "if (msg.payload[0].Result === true) {\n    msg.payload = {\n        text: \"Okay\",\n        siteId: msg.cmd.siteId\n    };\n} else if (msg.current[0].Result !== false || msg.target[0].Result !== false) {\n    if (msg.cmd.lang === \"de\") {\n        msg.error = {\n            text: \"Der Server hat nicht korrekt reagiert\",\n            siteId: msg.cmd.siteId,\n            lang: \"de-DE\"\n        };\n    } else if (msg.cmd.lang === \"fr\") {\n        msg.error = {\n            text: \"Le serveur n'a pas répondu correctement\",\n            siteId: msg.cmd.siteId,\n            lang:\"fr-FR\"\n        };\n    } else {\n        msg.error = {\n            text: \"The server did not answer correctly\",\n            siteId: msg.cmd.siteId,\n            lang:\"en-EN\"\n        };\n    }\n} else {\n    if (msg.cmd.lang === \"de\") {\n        msg.error = {\n            text: \"Der Server antwortet nicht\",\n            siteId: msg.cmd.siteId,\n            lang: \"de-DE\"\n        };\n    } else if (msg.cmd.lang === \"fr\") {\n        msg.error = {\n            text: \"Le serveur ne répond pas\",\n            siteId: msg.cmd.siteId,\n            lang:\"fr-FR\"\n        };\n    } else {\n        msg.error = {\n            text: \"The server did not respond\",\n            siteId: msg.cmd.siteId,\n            lang:\"en-EN\"\n        };\n    }\n}\n\nreturn msg;",
         "outputs": 1,
@@ -314,7 +312,7 @@
     {
         "id": "e9e5ae48.d5cea",
         "type": "switch",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "name": "Error ?",
         "property": "error",
         "propertyType": "msg",
@@ -336,7 +334,7 @@
     {
         "id": "10908b2b.c0fc65",
         "type": "change",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "name": "",
         "rules": [
             {
@@ -363,7 +361,7 @@
     {
         "id": "11efe3d2.23842c",
         "type": "delay",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "name": "",
         "pauseType": "rate",
         "timeout": "5",
@@ -386,7 +384,7 @@
     {
         "id": "2375b844.f22a48",
         "type": "comment",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "name": "======================================================================SPOKEN FEEDBACK==========================================================================",
         "info": "",
         "x": 2389.9998168945312,
@@ -396,7 +394,7 @@
     {
         "id": "c1d9abe6.c5f8b8",
         "type": "link in",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "name": "ERROR OUT",
         "links": [
             "a568cecd.16763",
@@ -453,7 +451,7 @@
     {
         "id": "3d331fc0.01c7d",
         "type": "file in",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "name": "Get current langage",
         "filename": "/usr/share/snips/assistant/custom_asr/config.json",
         "format": "utf8",
@@ -470,7 +468,7 @@
     {
         "id": "4216f57e.b667bc",
         "type": "json",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "name": "",
         "pretty": false,
         "x": 930,
@@ -484,7 +482,7 @@
     {
         "id": "8f5c19e1.643d28",
         "type": "inject",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "name": "Start GET",
         "topic": "",
         "payload": "true",
@@ -503,7 +501,7 @@
     {
         "id": "d2adbc3f.fbbe8",
         "type": "function",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "name": "Store_language",
         "func": "flow.set(\"msgLang\", msg.payload.language); // save for later use\n\nreturn msg;",
         "outputs": 1,
@@ -517,7 +515,7 @@
     {
         "id": "3fc042c5.23d35e",
         "type": "function",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "name": "Store supported commands",
         "func": "String.prototype.sansAccent = function() {\n    var accent = [\n        /[\\300-\\306]/g, /[\\340-\\346]/g, // A, a\n        /[\\310-\\313]/g, /[\\350-\\353]/g, // E, e\n        /[\\314-\\317]/g, /[\\354-\\357]/g, // I, i\n        /[\\322-\\330]/g, /[\\362-\\370]/g, // O, o\n        /[\\331-\\334]/g, /[\\371-\\374]/g, // U, u\n        /[\\321]/g, /[\\361]/g, // N, n\n        /[\\307]/g, /[\\347]/g, // C, c\n    ];\n    var noaccent = ['A','a','E','e','I','i','O','o','U','u','N','n','C','c'];\n     \n    var str = this;\n    for(var i = 0; i < accent.length; i++){\n        str = str.replace(accent[i], noaccent[i]);\n    }\n     \n    return str;\n};\n\ntest_lights = [\"on\",\"off\",\"an\",\"aus\",\"allume\",\"éteins\"];\ntest_dimmers = [\"on\",\"off\",\"set\",\"increase\",\"decrease\",\"lower\",\"dim\",\"brighten\",\"more\",\"less\",\"stelle\",\"dimme\",\"aus\",\"an\",\"erhohe\",\"verringere\",\"allume\",\"éteins\",\"augmente\",\"baisse\",\"règle\"];\ntest_heating = [\"set\",\"increase\",\"decrease\",\"warmer\",\"cooler\",\"dim\",\"less\",\"more\",\"stelle\",\"erhohe\",\"verringere\",\"règle\",\"augmente\",\"baisse\",\"plus chaud\",\"moins chaud\",\"trop chaud\",\"trop froid\",\"zu warm\",\"zu kalt\",\"too cold\",\"too warm\"];\ntest_blinds = [\"open\",\"close\",\"set\",\"increase\",\"decrease\",\"higher\",\"lower\",\"oeffne\",\"schliesse\",\"stelle\",\"erhohe\",\"verringere\",\"ouvre\",\"règle\",\"ferme\",\"ouvre moins\",\"ouvre plus\",\"ouvre davantage\",\"baisse\",\"monte\",\"ferme davantage\"];\ntest_scenes = [\"on\",\"activate\",\"aktiviere\",\"an\",\"allume\",\"active\"];\ntest_aux = [\"on\",\"activate\",\"deactivate\",\"off\",\"set\",\"increase\",\"decrease\",\"more\",\"less\",\"aktiviere\",\"deaktiviere\",\"erhohe\",\"verringere\",\"aus\",\"an\",\"active\",\"désactive\",\"allume\",\"éteins\",\"ouvre\",\"ferme\",\"augmente\",\"baisse\",\"monte\"];\n\nmsg.commandCat = [\n    {\n        on: {\n            \"on\":\"\",\n            \"activate\":\"\",\n            \"open\":\"\",\n            \"oeffne\":\"\",\n            \"an\":\"\",\n            \"aktiviere\":\"\",\n            \"allume\":\"\",\n            \"ouvre\":\"\",\n            \"active\":\"\"\n        },\n        off: {\n            \"off\":\"\",\n            \"deactivate\":\"\",\n            \"close\":\"\",\n            \"deaktiviere\":\"\",\n            \"aus\":\"\",\n            \"schliesse\":\"\",\n            \"éteins\":\"\",\n            \"eteins\":\"\",\n            \"ferme\":\"\",\n            \"désactive\":\"\",\n            \"desactive\":\"\"\n        },\n        set: {\n            \"set\":\"\",\n            \"stelle\":\"\",\n            \"règle\":\"\",\n            \"regle\":\"\"\n        },\n        increase: {\n            \"increase\":\"\",\n            \"higher\":\"\",\n            \"warmer\":\"\",\n            \"brighten\":\"\",\n            \"more\":\"\",\n            \"erhohe\":\"\",\n            \"plus chaud\":\"\",\n            \"ouvre plus\":\"\",\n            \"ouvre davantage\":\"\",\n            \"trop froid\":\"\",\n            \"augmente\":\"\",\n            \"monte\":\"\",\n            \"too cold\":\"\",\n            \"zu kalt\":\"\",\n        },\n        decrease: {\n            \"decrease\":\"\",\n            \"lower\":\"\",\n            \"colder\":\"\",\n            \"darker\":\"\",\n            \"dim\":\"\",\n            \"less\":\"\",\n            \"cooler\":\"\",\n            \"abnehme\":\"\",\n            \"dimme\":\"\",\n            \"verringere\":\"\",\n            \"baisse\":\"\",\n            \"ouvre moins\":\"\",\n            \"trop chaud\":\"\",\n            \"moins chaud\":\"\",\n            \"too warm\":\"\",\n            \"zu warm\":\"\",\n            \"ferme davantage\":\"\"\n        }\n    }\n];\n\nflow.set(\"msg_test_lights\", test_lights); // save for later use\nflow.set(\"msg_test_dimmers\", test_dimmers); // save for later use\nflow.set(\"msg_test_heating\", test_heating); // save for later use\nflow.set(\"msg_test_blinds\", test_blinds); // save for later use\nflow.set(\"msg_test_scenes\", test_scenes); // save for later use\nflow.set(\"msg_test_aux\", test_aux); // save for later use\nflow.set(\"msgCommandCat\", msg.commandCat); // save for later use\n\nreturn msg;",
         "outputs": 1,
@@ -531,7 +529,7 @@
     {
         "id": "4aed2f4f.b660e",
         "type": "comment",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "name": "===========================GET SUPPORTED COMMANDS===============================",
         "info": "",
         "x": 510,
@@ -541,7 +539,7 @@
     {
         "id": "85725fe1.389f7",
         "type": "inject",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "name": "Start GET",
         "topic": "",
         "payload": "true",
@@ -560,7 +558,7 @@
     {
         "id": "4d07a305.e460dc",
         "type": "comment",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "name": "=======================================================================EXECUTE COMMAND========================================================================",
         "info": "",
         "x": 2411.000030517578,
@@ -570,7 +568,7 @@
     {
         "id": "e5c52d9e.d074c",
         "type": "link in",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "name": "COMMAND EXECUTION OUT",
         "links": [
             "508fe008.41f8b",
@@ -609,7 +607,7 @@
     {
         "id": "4fb527ea.08b358",
         "type": "function",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "name": "Prepare request",
         "func": "function precisionRound(number, precision) {\n  var factor = Math.pow(10, precision);\n  return Math.round(number * factor) / factor;\n}\n\nmsg.url = [];\n\nif (msg.cmd.type === \"heating\") {\n   \tfor (var i = 0; i < msg.items.length; i++) {\n   \t\tvar val = msg.cmd.value;\n   \t\tif (val < 18){\n\t            val = 18;\n        \t} else if (val > 28) {\n        \t    val = 28;\n\t        } else {\n    \t        val = val;\n\t        }\n   \t\tmsg.url[i] = [msg.proServIP, msg.items[i].setTargetUrl, val];\n   \t\tmsg.url[i] = \"\".concat(...msg.url[i]);\n   \t\t\n\t}\n} else if (msg.cmd.type === \"lights\") {\n    if (msg.cmd.value !== undefined) {\n       \tfor (var i = 0; i < msg.items.length; i++) {\n       \t\tif (msg.items[i].type === \"dimmers\" && msg.cmd.cmd !== \"off\") {\n       \t\t\tvar val = msg.cmd.value*2.55;\n       \t\t\tval = precisionRound(val, 1);\n       \t\t\tmsg.items[i].setDimUrl = msg.items[i].setDimUrl.replace(\"${intensity.byte}\", '');\n       \t\t\tmsg.url[i] = [msg.proServIP, msg.items[i].setDimUrl, val];\n       \t\t\tmsg.url[i] = \"\".concat(...msg.url[i]);\n       \t\t} \n       \t\telse if (msg.cmd.value > 0) {\n    \t\t    msg.url[i] = [msg.proServIP, msg.items[i].setOnUrl];\n       \t\t    msg.url[i] = \"\".concat(...msg.url[i]);\n       \t\t}\n       \t\telse {\n    \t    \tmsg.url[i] = [msg.proServIP, msg.items[i].setOffUrl];\n       \t\t    msg.url[i] = \"\".concat(...msg.url[i]);\n       \t\t}\n    \t}\n    }\n    else if (msg.cmd.cmd === \"on\") {\n    \tfor (var i = 0; i < msg.items.length; i++) {\n    \t\tmsg.url[i] = [msg.proServIP, msg.items[i].setOnUrl];\n       \t\tmsg.url[i] = \"\".concat(...msg.url[i]);\n    \t}\n    }\n    else if (msg.cmd.cmd === \"off\") {\n    \tfor (var i = 0; i < msg.items.length; i++) {\n    \t\tmsg.url[i] = [msg.proServIP, msg.items[i].setOffUrl];\n       \t\tmsg.url[i] = \"\".concat(...msg.url[i]);\n    \t}\n    }\n} else if (msg.cmd.type === \"blinds\") {\n    for (var i = 0; i < msg.items.length; i++) {\n    \tif (msg.cmd.cmd === \"on\" && msg.cmd.value === undefined) {\n        \tmsg.url[i] = [msg.proServIP, msg.items[i].setOnUrl];\n    \t    msg.url[i] = \"\".concat(...msg.url[i]);\n    \t}\n    \telse if (msg.cmd.cmd === \"off\" && msg.cmd.value === undefined) {\n        \tmsg.url[i] = [msg.proServIP, msg.items[i].setOffUrl];\n    \t    msg.url[i] = \"\".concat(...msg.url[i]);\n        }\n        else if (msg.cmd.value !== undefined) {\n            if (msg.cmd.cmd === \"on\" || msg.cmd.cmd === \"set\") {\n           \t\tvar val = (100-msg.cmd.value)*2.55;\n           \t\tval = precisionRound(val, 1);\n           \t\tif (val > 255) {val=255;} else if (val < 0) {val=0;}\n           \t\tmsg.items[i].setDimUrl = msg.items[i].setDimUrl.replace(\"${intensity.byte}\", '');\n           \t\tmsg.url[i] = [msg.proServIP, msg.items[i].setDimUrl, val];\n           \t\tmsg.url[i] = \"\".concat(...msg.url[i]);\n            } else if (msg.cmd.cmd === \"off\") {\n                var val = (msg.cmd.value)*2.55;\n           \t\tval = precisionRound(val, 1);\n           \t\tif (val > 255) {val=255;} else if (val < 0) {val=0;}\n           \t\tmsg.items[i].setDimUrl = msg.items[i].setDimUrl.replace(\"${intensity.byte}\", '');\n           \t\tmsg.url[i] = [msg.proServIP, msg.items[i].setDimUrl, val];\n           \t\tmsg.url[i] = \"\".concat(...msg.url[i]);\n            }\n        }\n    }\n} else if (msg.cmd.type === \"aux\" || msg.cmd.type === \"scenes\") {\n    if (msg.cmd.cmd === \"on\" || msg.cmd.cmd === \"set\") {\n        if (msg.cmd.value !== undefined) {\n           \tfor (var i = 0; i < msg.items.length; i++) {\n           \t\tif (msg.items[i].setDimUrl !== undefined) {\n           \t\t\tvar val = msg.cmd.value*2.55;\n           \t\t\tval = precisionRound(val, 1);\n           \t\t\tmsg.items[i].setDimUrl = msg.items[i].setDimUrl.replace(\"${intensity.byte}\", '');\n           \t\t\tmsg.url[i] = [msg.proServIP, msg.items[i].setDimUrl, val];\n           \t\t\tmsg.url[i] = \"\".concat(...msg.url[i]);\n           \t\t} \n           \t\telse if (msg.cmd.value > 0) {\n        \t\t    msg.url[i] = [msg.proServIP, msg.items[i].setOnUrl];\n           \t\t    msg.url[i] = \"\".concat(...msg.url[i]);\n           \t\t}\n           \t\telse {\n        \t    \tmsg.url[i] = [msg.proServIP, msg.items[i].setOffUrl];\n           \t\t    msg.url[i] = \"\".concat(...msg.url[i]);\n           \t\t}\n        \t}\n        }\n        else {\n    \t    for (var i = 0; i < msg.items.length; i++) {\n    \t    \tmsg.url[i] = [msg.proServIP, msg.items[i].setOnUrl];\n       \t    \tmsg.url[i] = \"\".concat(...msg.url[i]);\n    \t    }\n        }\n    }\n    else if (msg.cmd.cmd === \"off\") {\n    \tfor (var i = 0; i < msg.items.length; i++) {\n    \t\tif (msg.items[i].setOffUrl !== undefined) {\n        \t\tmsg.url[i] = [msg.proServIP, msg.items[i].setOffUrl];\n           \t\tmsg.url[i] = \"\".concat(...msg.url[i]);\n        \t}\n    \t}\n    }\n}\n\nreturn msg; ",
         "outputs": 1,
@@ -626,7 +624,7 @@
     {
         "id": "a23c4410.f5fa48",
         "type": "switch",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "name": "Error ?",
         "property": "error",
         "propertyType": "msg",
@@ -654,7 +652,7 @@
     {
         "id": "1b9a37ed.0aabb8",
         "type": "link out",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "name": "ERROR IN",
         "links": [
             "c1d9abe6.c5f8b8",
@@ -668,7 +666,7 @@
     {
         "id": "a0851a32.a5e518",
         "type": "split",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "name": "",
         "splt": "\\n",
         "spltType": "str",
@@ -687,7 +685,7 @@
     {
         "id": "ea985aa3.23bd58",
         "type": "change",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "name": "",
         "rules": [
             {
@@ -714,7 +712,7 @@
     {
         "id": "79e39868.8417e8",
         "type": "delay",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "name": "50ms",
         "pauseType": "delay",
         "timeout": "20",
@@ -737,7 +735,7 @@
     {
         "id": "c35776a0.96a408",
         "type": "switch",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "name": "Cmd ?",
         "property": "cmd.cmd",
         "propertyType": "msg",
@@ -793,7 +791,7 @@
     {
         "id": "a1ff7636.f58bb8",
         "type": "link in",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "name": "FEEDBACK OUT",
         "links": [
             "3f4d295c.ebd3f6",
@@ -811,7 +809,7 @@
     {
         "id": "8fea9dda.f56dc",
         "type": "switch",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "name": "Type ?",
         "property": "cmd.type",
         "propertyType": "msg",
@@ -843,7 +841,7 @@
     {
         "id": "e63db790.6a58e8",
         "type": "function",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "name": "GET Current",
         "func": "msg.url = [];\n\nif (msg.items[0].type === \"heating\") {\n    for (var i = 0; i < msg.items.length; i++) {\n    \tmsg.url[i] = [msg.proServIP, msg.items[i].getTargetUrl];\n    \tmsg.url[i] = \"\".concat(...msg.url[i]);\n    }\n} else if (msg.cmd.type === \"aux\" || msg.cmd.type === \"scenes\" || msg.cmd.type === \"lights\" || msg.cmd.type === \"dimmers\" || msg.cmd.type === \"blinds\") {\n    var cptok=0;\n    var cpter=0;\n    msg.itemsok=[];\n    msg.itemser=[];\n    for (var i = 0; i < msg.items.length; i++) {\n        if(msg.items[i].getCurrentUrl !== undefined && msg.items[i].setDimUrl !== undefined && msg.items[i].type !== \"lights\") {\n            msg.itemsok[cptok]=msg.items[i];\n            cptok++;\n        } else {\n            msg.itemser[cpter]=msg.items[i];\n            cpter++;\n        }\n    }\n    if (msg.itemsok[0] !== undefined) {\n        msg.items = msg.itemsok;\n        for (var i = 0; i < msg.itemsok.length; i++) {\n        \tmsg.url[i] = [msg.proServIP, msg.itemsok[i].getCurrentUrl];\n        \tmsg.url[i] = \"\".concat(...msg.url[i]);\n        }\n    }\n\n    if (msg.itemser.length > 0 && msg.itemsok.length === 0) {\n        if (msg.itemser.length > 1) {\n            if (msg.cmd.lang === \"de\") {\n                text1 = msg.itemser[0].name;\n                text2 = \" und \";\n                text3 = msg.itemser.length-1;\n                text4 = \" andere Geräte verstehen diesen Befehl nicht\";\n                texttabl = [text1, text2, text3, text4];\n                var text = \"\".concat(...texttabl);            \n                msg.error = {\n                    text: text,\n                    siteId: msg.cmd.siteId,\n                    lang: \"de-DE\"\n                };\n            } else if (msg.cmd.lang === \"fr\") {\n                text1 = msg.itemser[0].name;\n                text2 = \" et \";\n                text3 = msg.itemser.length-1;\n                text4 = \" autres appareils ne supportent pas cette commande\";\n                texttabl = [text1, text2, text3, text4];\n                var text = \"\".concat(...texttabl);            \n                msg.error = {\n                    text: text,\n                    siteId: msg.cmd.siteId,\n                    lang: \"fr-FR\"\n                };\n            } else {\n                text1 = msg.itemser[0].name;\n                text2 = \" and \";\n                text3 = msg.itemser.length-1;\n                text4 = \" other devices do not support this command\";\n                texttabl = [text1, text2, text3, text4];\n                var text = \"\".concat(...texttabl);            \n                msg.error = {\n                    text: text,\n                    siteId: msg.cmd.siteId,\n                    lang: \"en-EN\"\n                };\n            }\n        } else {\n            if (msg.cmd.lang === \"de\") {\n                text1 = msg.itemser[0].name;\n                text2 = \" versteht diesen Befehl nicht\";\n                texttabl = [text1, text2];\n                var text = \"\".concat(...texttabl);\n                msg.error = {\n                    text: text,\n                    siteId: msg.cmd.siteId,\n                    lang: \"de-DE\"\n                };\n            } else if (msg.cmd.lang === \"fr\") {\n                text1 = msg.itemser[0].name;\n                text2 = \" ne supporte pas cette commande\";\n                texttabl = [text1, text2];\n                var text = \"\".concat(...texttabl);\n                msg.error = {\n                    text: text,\n                    siteId: msg.cmd.siteId,\n                    lang: \"fr-FR\"\n                };\n            } else {\n                text1 = msg.itemser[0].name;\n                text2 = \" does not support this command\";\n                texttabl = [text1, text2];\n                var text = \"\".concat(...texttabl);\n                msg.error = {\n                    text: text,\n                    siteId: msg.cmd.siteId,\n                    lang: \"en-EN\"\n                };\n            }\n        }\n    }\n}\n\nreturn msg;",
         "outputs": 1,
@@ -859,7 +857,7 @@
     {
         "id": "f4b0693a.da3ed8",
         "type": "http request",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "name": "GET Current",
         "method": "GET",
         "ret": "txt",
@@ -876,7 +874,7 @@
     {
         "id": "39125258.05f8ae",
         "type": "delay",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "name": "50ms",
         "pauseType": "delay",
         "timeout": "50",
@@ -899,7 +897,7 @@
     {
         "id": "70d7897b.7ad208",
         "type": "change",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "name": "move msg.payload",
         "rules": [
             {
@@ -933,7 +931,7 @@
     {
         "id": "f33a6b76.0beed8",
         "type": "split",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "name": "",
         "splt": "\\n",
         "spltType": "str",
@@ -952,7 +950,7 @@
     {
         "id": "40005f88.9bf82",
         "type": "change",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "name": "",
         "rules": [
             {
@@ -979,7 +977,7 @@
     {
         "id": "649911af.e2609",
         "type": "join",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "name": "",
         "mode": "auto",
         "build": "string",
@@ -1002,7 +1000,7 @@
     {
         "id": "eb0aa19f.3cf12",
         "type": "json",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "name": "",
         "pretty": false,
         "x": 2951.000030517578,
@@ -1016,7 +1014,7 @@
     {
         "id": "85f7d215.4253d",
         "type": "function",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "name": "Prepare_request",
         "func": "function precisionRound(number, precision) {\n  var factor = Math.pow(10, precision);\n  return Math.round(number * factor) / factor;\n}\n\nmsg.url = [];\nmsg.newVal= [];\n\nif (msg.items[0].type === \"heating\" && msg.cmd.cmd === \"decrease\") {\n\tfor (var i = 0; i < msg.items.length; i++) {\n\t\tif (msg.cmd.value !== undefined) {\n\t\t    var val = msg.cmd.value;\n\t\t    var target = msg.target[i].Data[0].Value;\n\t\t    var newVal = target-val;\n\t\t    if (newVal < 18){\n\t            newVal = 18;\n        \t} else if (newVal > 28) {\n        \t    newVal = 28;\n\t        } else {\n    \t        newVal = newVal;\n\t        }\n\t\t    msg.newVal[i] = newVal;\n\t\t    msg.url[i] = [msg.proServIP, msg.items[i].setTargetUrl, newVal];\n   \t\t    msg.url[i] = \"\".concat(...msg.url[i]);\n\t\t}\n\t\telse {\n\t\t    var val = 2;\n\t\t    var target = msg.target[i].Data[0].Value;\n\t\t    var newVal = target-val;\n\t\t    if (newVal < 18){\n\t            newVal = 18;\n        \t} else if (newVal > 28) {\n        \t    newVal = 28;\n\t        } else {\n    \t        newVal = newVal;\n\t        }\n\t\t    msg.newVal[i] = newVal;\n\t\t    msg.url[i] = [msg.proServIP, msg.items[i].setTargetUrl, newVal];\n   \t\t    msg.url[i] = \"\".concat(...msg.url[i]);\n\t\t}\n\t}\n} else if (msg.items[0].type === \"heating\" && msg.cmd.cmd === \"increase\") {\n\tfor (var i = 0; i < msg.items.length; i++) {\n\t\tif (msg.cmd.value !== undefined) {\n\t\t    var val = msg.cmd.value;\n\t\t    var target = msg.target[i].Data[0].Value;\n\t\t    var newVal = target+val;\n\t\t    if (newVal < 18){\n\t            newVal = 18;\n        \t} else if (newVal > 28) {\n        \t    newVal = 28;\n\t        } else {\n    \t        newVal = newVal;\n\t        }\n\t\t    msg.newVal[i] = newVal;\n\t\t    msg.url[i] = [msg.proServIP, msg.items[i].setTargetUrl, newVal];\n   \t\t    msg.url[i] = \"\".concat(...msg.url[i]);\n\t\t}\n\t\telse {\n\t\t    var val = 2;\n\t\t    var target = msg.target[i].Data[0].Value;\n\t\t    var newVal = target+val;\n\t\t    if (newVal < 18){\n\t            newVal = 18;\n        \t} else if (newVal > 28) {\n        \t    newVal = 28;\n\t        } else {\n    \t        newVal = newVal;\n\t        }\n\t\t    msg.newVal[i] = newVal;\n\t\t    msg.url[i] = [msg.proServIP, msg.items[i].setTargetUrl, newVal];\n   \t\t    msg.url[i] = \"\".concat(...msg.url[i]);\n\t\t}\n\t}\n} else if (msg.cmd.type === \"lights\" && msg.cmd.cmd ===\"increase\") {\n    cptok = 0;\n    for (var i = 0; i < msg.items.length; i++) {\n        if (msg.items[i].type === \"dimmers\") {\n    \t    if (msg.cmd.value !== undefined){\n    \t\t    var val = msg.cmd.value*2.55;\n    \t\t    val = precisionRound(val, 1);\n    \t\t    var newVal = msg.current[i].Data[0].Value+val;\n    \t\t    if (newVal > 255) {\n    \t    \t    newVal = 255;\n    \t        }\n    \t\t    msg.items[i].setDimUrl = msg.items[i].setDimUrl.replace(\"${intensity.byte}\", '');\n    \t\t    msg.url[cptok] = [msg.proServIP, msg.items[i].setDimUrl, newVal];\n    \t\t    msg.url[cptok] = \"\".concat(...msg.url[cptok]);\n    \t\t    cptok++;\n    \t    }\n    \t    else {\n    \t        var newVal = msg.current[i].Data[0].Value+51;\n    \t\t    if (newVal > 255) {\n    \t    \t    newVal = 255;\n    \t        }\n    \t\t    msg.items[i].setDimUrl = msg.items[i].setDimUrl.replace(\"${intensity.byte}\", '');\n    \t\t    msg.url[cptok] = [msg.proServIP, msg.items[i].setDimUrl, newVal];\n    \t\t    msg.url[cptok] = \"\".concat(...msg.url[cptok]);\n    \t\t    cptok++;\n    \t    }\n        }\n    }\n} else if (msg.cmd.type === \"lights\" && msg.cmd.cmd ===\"decrease\") {\n    cptok = 0;\n    for (var i = 0; i < msg.items.length; i++) {\n        if (msg.items[i].type === \"dimmers\") {\n       \t\tif (msg.cmd.value !== undefined) {\n       \t\t    var val = msg.cmd.value*2.55;\n       \t\t    val = precisionRound(val, 1);\n       \t\t    var newVal = msg.current[i].Data[0].Value-val;\n       \t\t    if (newVal < 0) {\n       \t\t        newVal = 0;\n       \t\t    }\n       \t\t\tmsg.items[i].setDimUrl = msg.items[i].setDimUrl.replace(\"${intensity.byte}\", '');\n       \t\t    msg.url[cptok] = [msg.proServIP, msg.items[i].setDimUrl, newVal];\n       \t    \tmsg.url[cptok] = \"\".concat(...msg.url[cptok]);\n       \t    \tcptok++;\n       \t\t} else {\n                var newVal = msg.current[i].Data[0].Value-51;\n       \t\t    if (newVal < 0) {\n       \t\t        newVal = 0;\n       \t\t    }\n       \t\t\tmsg.items[i].setDimUrl = msg.items[i].setDimUrl.replace(\"${intensity.byte}\", '');\n            \tmsg.url[cptok] = [msg.proServIP, msg.items[i].setDimUrl, newVal];\n        \t\tmsg.url[cptok] = \"\".concat(...msg.url[cptok]);\n        \t\tcptok++;\n       \t\t}\n        }\n    }\n} else if (msg.cmd.type === \"blinds\" && msg.cmd.cmd ===\"decrease\") {\n    for (var i = 0; i < msg.items.length; i++) {\n    \t    if (msg.cmd.value !== undefined){\n    \t\t    var val = msg.cmd.value*2.55;\n    \t\t    val = precisionRound(val, 1);\n    \t\t    var newVal = msg.current[i].Data[0].Value+val;\n    \t\t    if (newVal > 255) {newVal=255;} else if (newVal < 0) {newVal=0;}\n    \t\t    msg.items[i].setDimUrl = msg.items[i].setDimUrl.replace(\"${intensity.byte}\", '');\n    \t\t    msg.url[i] = [msg.proServIP, msg.items[i].setDimUrl, newVal];\n    \t\t    msg.url[i] = \"\".concat(...msg.url[i]);\n    \t    }\n    \t    else {\n    \t        var newVal = msg.current[i].Data[0].Value+51;\n    \t\t    if (newVal > 255) {newVal=255;} else if (newVal < 0) {newVal=0;}\n    \t\t    msg.items[i].setDimUrl = msg.items[i].setDimUrl.replace(\"${intensity.byte}\", '');\n    \t\t    msg.url[i] = [msg.proServIP, msg.items[i].setDimUrl, newVal];\n    \t\t    msg.url[i] = \"\".concat(...msg.url[i]);\n    \t    }\n    }\n} else if (msg.cmd.type === \"blinds\" && msg.cmd.cmd === \"increase\") {\n        for (var i = 0; i < msg.items.length; i++) {\n    \t    if (msg.cmd.value !== undefined) {\n    \t        var val = msg.cmd.value*2.55;\n    \t    \tval = precisionRound(val, 1);\n    \t    \tvar newVal = msg.current[i].Data[0].Value-val;\n           \t\tif (newVal > 255) {newVal=255;} else if (newVal < 0) {newVal=0;}\n    \t\t    msg.items[i].setDimUrl = msg.items[i].setDimUrl.replace(\"${intensity.byte}\", '');\n    \t    \tmsg.url[i] = [msg.proServIP, msg.items[i].setDimUrl, newVal];\n        \t\tmsg.url[i] = \"\".concat(...msg.url[i]);\n    \t    }\n    \t    else {\n    \t        var newVal = msg.current[i].Data[0].Value-51;\n    \t    \tif (newVal > 255) {newVal=255;} else if (newVal < 0) {newVal=0;}\n                msg.items[i].setDimUrl = msg.items[i].setDimUrl.replace(\"${intensity.byte}\", '');\n            \tmsg.url[i] = [msg.proServIP, msg.items[i].setDimUrl, newVal];\n        \t\tmsg.url[i] = \"\".concat(...msg.url[i]);\n        \t}\n        }\n}\n\nreturn msg;",
         "outputs": 1,
@@ -1033,7 +1031,7 @@
     {
         "id": "b97d53af.46b1a",
         "type": "split",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "name": "",
         "splt": "\\n",
         "spltType": "str",
@@ -1052,7 +1050,7 @@
     {
         "id": "a35df340.0b7be",
         "type": "change",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "name": "",
         "rules": [
             {
@@ -1079,7 +1077,7 @@
     {
         "id": "32050251.195aee",
         "type": "delay",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "name": "50ms",
         "pauseType": "delay",
         "timeout": "50",
@@ -1102,7 +1100,7 @@
     {
         "id": "3f4d295c.ebd3f6",
         "type": "link out",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "name": "FEEDBACK IN",
         "links": [
             "a1ff7636.f58bb8",
@@ -1116,7 +1114,7 @@
     {
         "id": "a5f1e0f.240832",
         "type": "link out",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "name": "FEEDBACK IN",
         "links": [
             "a1ff7636.f58bb8",
@@ -1130,7 +1128,7 @@
     {
         "id": "94f31b44.2d7a18",
         "type": "switch",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "name": "Error ?",
         "property": "error",
         "propertyType": "msg",
@@ -1158,7 +1156,7 @@
     {
         "id": "72b623d8.c21d9c",
         "type": "link out",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "name": "ERROR IN",
         "links": [
             "c1d9abe6.c5f8b8",
@@ -1172,7 +1170,7 @@
     {
         "id": "8a679de.bdbe76",
         "type": "function",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "name": "GET_Target",
         "func": "//Prepare all HTTP requests for GET Current Temp and put them in msg.url\n\nmsg.url = [];\n\nfor (var i = 0; i < msg.items.length; i++) {\n\tmsg.url[i] = [msg.proServIP, msg.items[i].getTargetUrl];\n\tmsg.url[i] = \"\".concat(...msg.url[i]);\n}\n\nreturn msg;",
         "outputs": 1,
@@ -1189,7 +1187,7 @@
     {
         "id": "52517051.2fdd4",
         "type": "http request",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "name": "GET Target",
         "method": "GET",
         "ret": "txt",
@@ -1206,7 +1204,7 @@
     {
         "id": "f53bd75f.a4ab98",
         "type": "delay",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "name": "",
         "pauseType": "delay",
         "timeout": "50",
@@ -1229,7 +1227,7 @@
     {
         "id": "5b38b46.ad4bf4c",
         "type": "change",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "name": "",
         "rules": [
             {
@@ -1256,7 +1254,7 @@
     {
         "id": "be604e9e.12753",
         "type": "split",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "name": "",
         "splt": "\\n",
         "spltType": "str",
@@ -1275,7 +1273,7 @@
     {
         "id": "1bdf0340.fd57ad",
         "type": "change",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "name": "",
         "rules": [
             {
@@ -1302,7 +1300,7 @@
     {
         "id": "4b874fdd.251a6",
         "type": "join",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "name": "",
         "mode": "auto",
         "build": "string",
@@ -1325,7 +1323,7 @@
     {
         "id": "68f7ee71.f61db",
         "type": "json",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "name": "",
         "pretty": false,
         "x": 2829.571388244629,
@@ -1339,7 +1337,7 @@
     {
         "id": "2f1b5419.a8accc",
         "type": "function",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "name": "GET_Current",
         "func": "msg.url = [];\n\nif (msg.cmd.type === \"heating\") {\n    for (var i = 0; i < msg.items.length; i++) {\n    \tmsg.url[i] = [msg.proServIP, msg.items[i].getCurrentUrl];\n    \tmsg.url[i] = \"\".concat(...msg.url[i]);\n    }\n} else if (msg.cmd.type === \"aux\" || msg.cmd.type === \"scenes\" || msg.cmd.type === \"lights\" || msg.cmd.type === \"dimmers\" || msg.cmd.type === \"blinds\") {\n    var cptok=0;\n    var cpter=0;\n    msg.itemsok=[];\n    msg.itemser=[];\n    for (var i = 0; i < msg.items.length; i++) {\n        if(msg.items[i].getCurrentUrl !== undefined) {\n            msg.itemsok[cptok]=msg.items[i];\n            cptok++;\n        } else {\n            msg.itemser[cpter]=msg.items[i];\n            cpter++;\n        }\n    }\n    \n    if (msg.itemsok[0] !== undefined) {\n        for (var i = 0; i < msg.itemsok.length; i++) {\n        \tmsg.url[i] = [msg.proServIP, msg.itemsok[i].getCurrentUrl];\n        \tmsg.url[i] = \"\".concat(...msg.url[i]);\n        }\n    }\n    \n    if (msg.itemser.length > 0 && msg.itemsok.length === 0) {\n        if (msg.itemser.length > 1) {\n            if (msg.cmd.lang === \"de\") {\n                text1 = msg.itemser[0].name;\n                text2 = \" und \";\n                text3 = msg.itemser.length-1;\n                text4 = \" \";\n                texttabl = [text1, text2, text3, text4];\n                var text = \"\".concat(...texttabl);            \n                msg.error = {\n                    text: text,\n                    siteId: msg.cmd.siteId,\n                    lang: \"de-DE\"\n                };\n            } else if (msg.cmd.lang === \"fr\") {\n                text1 = msg.itemser[0].name;\n                text2 = \" et \";\n                text3 = msg.itemser.length-1;\n                text4 = \" autres appareils ne supportent pas cette commande\";\n                texttabl = [text1, text2, text3, text4];\n                var text = \"\".concat(...texttabl);            \n                msg.error = {\n                    text: text,\n                    siteId: msg.cmd.siteId,\n                    lang: \"fr-FR\"\n                };\n            } else {\n                text1 = msg.itemser[0].name;\n                text2 = \" and \";\n                text3 = msg.itemser.length-1;\n                text4 = \" other devices do not support this command\";\n                texttabl = [text1, text2, text3, text4];\n                var text = \"\".concat(...texttabl);            \n                msg.error = {\n                    text: text,\n                    siteId: msg.cmd.siteId,\n                    lang: \"en-EN\"\n                };\n            }\n        } else {\n            if (msg.cmd.lang === \"de\") {\n                text1 = msg.itemser[0].name;\n                text2 = \" \";\n                texttabl = [text1, text2];\n                var text = \"\".concat(...texttabl);\n                msg.error = {\n                    text: text,\n                    siteId: msg.cmd.siteId,\n                    lang: \"de-DE\"\n                };\n            } else if (msg.cmd.lang === \"fr\") {\n                text1 = msg.itemser[0].name;\n                text2 = \" ne supporte pas cette commande\";\n                texttabl = [text1, text2];\n                var text = \"\".concat(...texttabl);\n                msg.error = {\n                    text: text,\n                    siteId: msg.cmd.siteId,\n                    lang: \"fr-FR\"\n                };\n            } else {\n                text1 = msg.itemser[0].name;\n                text2 = \" does not support this command\";\n                texttabl = [text1, text2];\n                var text = \"\".concat(...texttabl);\n                msg.error = {\n                    text: text,\n                    siteId: msg.cmd.siteId,\n                    lang: \"en-EN\"\n                };\n            }\n        }\n    }\n}\nreturn msg;",
         "outputs": 1,
@@ -1356,7 +1354,7 @@
     {
         "id": "2e04b8d4.a23dc8",
         "type": "http request",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "name": "GET Current",
         "method": "GET",
         "ret": "txt",
@@ -1373,7 +1371,7 @@
     {
         "id": "edad6dd9.7755b",
         "type": "delay",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "name": "",
         "pauseType": "delay",
         "timeout": "50",
@@ -1396,7 +1394,7 @@
     {
         "id": "a4d340cf.51151",
         "type": "change",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "name": "",
         "rules": [
             {
@@ -1423,7 +1421,7 @@
     {
         "id": "6fac744e.354f1c",
         "type": "split",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "name": "",
         "splt": "\\n",
         "spltType": "str",
@@ -1442,7 +1440,7 @@
     {
         "id": "d851f8e.e718308",
         "type": "change",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "name": "",
         "rules": [
             {
@@ -1469,7 +1467,7 @@
     {
         "id": "b1c07fa8.208a6",
         "type": "join",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "name": "",
         "mode": "auto",
         "build": "string",
@@ -1492,7 +1490,7 @@
     {
         "id": "20339339.cd269c",
         "type": "json",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "name": "",
         "pretty": false,
         "x": 2051.000030517578,
@@ -1506,7 +1504,7 @@
     {
         "id": "7f0085de.6742dc",
         "type": "link out",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "name": "FEEDBACK IN",
         "links": [
             "a1ff7636.f58bb8",
@@ -1520,7 +1518,7 @@
     {
         "id": "8e263da2.9be34",
         "type": "switch",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "name": "Error ?",
         "property": "error",
         "propertyType": "msg",
@@ -1548,7 +1546,7 @@
     {
         "id": "111fd1c1.61023e",
         "type": "link out",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "name": "ERROR IN",
         "links": [
             "c1d9abe6.c5f8b8",
@@ -1562,7 +1560,7 @@
     {
         "id": "c088f2bf.a2199",
         "type": "link in",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "name": "QUERY EXECUTION OUT",
         "links": [
             "a940c273.c4976",
@@ -1582,7 +1580,7 @@
     {
         "id": "8fb8b4bc.d045b8",
         "type": "http request",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "name": "Send URL",
         "method": "GET",
         "ret": "txt",
@@ -1599,7 +1597,7 @@
     {
         "id": "fa43f76a.ece9a8",
         "type": "join",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "name": "",
         "mode": "auto",
         "build": "string",
@@ -1622,7 +1620,7 @@
     {
         "id": "ce6deb77.5eb6d8",
         "type": "json",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "name": "",
         "pretty": false,
         "x": 2831.000030517578,
@@ -1636,7 +1634,7 @@
     {
         "id": "ede6b1b3.a3886",
         "type": "http request",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "name": "Send URL",
         "method": "GET",
         "ret": "txt",
@@ -1653,7 +1651,7 @@
     {
         "id": "1db0767d.58ca0a",
         "type": "join",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "name": "",
         "mode": "auto",
         "build": "string",
@@ -1676,7 +1674,7 @@
     {
         "id": "7a8e0316.36ebdc",
         "type": "json",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "name": "",
         "pretty": false,
         "x": 2831.000030517578,
@@ -1690,7 +1688,7 @@
     {
         "id": "f281bd2b.8d75c",
         "type": "comment",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "name": "========================================================================EXECUTE QUERY==========================================================================",
         "info": "",
         "x": 2411.000030517578,
@@ -1700,7 +1698,7 @@
     {
         "id": "70a34bf1.e8c094",
         "type": "switch",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "name": "Query ?",
         "property": "cmd.query",
         "propertyType": "msg",
@@ -1728,7 +1726,7 @@
     {
         "id": "27d1214c.bf5c0e",
         "type": "switch",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "name": "",
         "property": "cmd.cmd",
         "propertyType": "msg",
@@ -1784,7 +1782,7 @@
     {
         "id": "3f9500d2.8eeeb",
         "type": "function",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "name": "Relative command feedback",
         "func": "if (msg.cmd.type === \"aux\" || msg.cmd.type === \"lights\" || msg.cmd.type === \"blinds\") {\n    if (msg.payload[0].Result === true) {\n        msg.payload = {\n            text: \"Okay\",\n            siteId: msg.cmd.siteId,\n            lang: \"en-EN\"\n        };\n    }\n} else if (msg.cmd.type === \"heating\") {\n    msg.text = [];\n    if (msg.cmd.lang === \"fr\") {\n        for (var i = 0; i < msg.payload.length; i++) {\n            if (msg.payload[i].Result === true) {\n                var room = msg.items[i].zone;\n                var target = msg.newVal[i];\n                var text1 = \"Okay, le thermostat est réglé sur \";\n                var text2 = \" degrés dans la zone \";\n                msg.text[i] = [text1, target, text2, room];\n                var endText = \"\".concat(...msg.text[i]);\n                msg.payload = {\n                    text: endText,\n                    siteId: msg.cmd.siteId,\n                    lang: \"fr-FR\"\n                };\n            }\n        }\n    } else if (msg.cmd.lang === \"de\") {\n        for (var i = 0; i < msg.payload.length; i++) {\n            if (msg.payload[i].Result === true) {\n                var room = msg.items[i].zone;\n                var target = msg.newVal[i];\n                var text1 = \"Okay, die Heizung ist aus \";\n                var text2 = \" Grad in \";\n                var text3 = \" eingestellt\";\n                msg.text[i] = [text1, target, text2, room, text3];\n                var endText = \"\".concat(...msg.text[i]);\n                msg.payload = {\n                    text: endText,\n                    siteId: msg.cmd.siteId,\n                    lang: \"de-DE\"\n                };\n            }\n        }\n    } else {\n        for (var i = 0; i < msg.payload.length; i++) {\n            if (msg.payload[i].Result === true) {\n                var room = msg.items[i].zone;\n                var target = msg.newVal[i];\n                var text1 = \"Okay, setting the heating to \";\n                var text2 = \" degrees in the \";\n                msg.text[i] = [text1, target, text2, room];\n                var endText = \"\".concat(...msg.text[i]);\n                msg.payload = {\n                    text: endText,\n                    siteId: msg.cmd.siteId,\n                    lang: \"en-EN\"\n                };\n            }\n        }\n    }\n}\nreturn msg;",
         "outputs": 1,
@@ -1800,7 +1798,7 @@
     {
         "id": "9678371c.e1bd18",
         "type": "function",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "name": "Query feedback",
         "func": "function precisionRound(number, precision) {\n  var factor = Math.pow(10, precision);\n  return Math.round(number * factor) / factor;\n}\n\nmsg.payload = [];\nmsg.text = [];\n\nif (msg.cmd.type === \"lights\" && msg.current !== undefined){\n    if (msg.current[0].Result === true) {\n        if (msg.cmd.lang === \"fr\"){\n            for (var i = 0; i < msg.items.length; i++) {\n                var current = msg.current[i].Data[0].Value;\n                if (current === false || current === 0){\n                    var text1 = msg.items[i].object;\n                    var text2 = \" est éteint\";\n                    msg.text[i] = [text1, text2];\n                    var endText = \"\".concat(...msg.text[i]);\n                }\n                if (current === true){\n                    var text1 = msg.items[i].object;\n                    var text2 = \" est allumé\";\n                    msg.text[i] = [text1, text2];\n                    var endText = \"\".concat(...msg.text[i]);\n                }\n                if (typeof(current) !== \"boolean\" && current > 0 && current <256){\n                    var current = precisionRound(current/2.55, 0);\n                    var text1 = msg.items[i].object;\n                    var text2 = \" est allumée à \";\n                    var text3 = \" pourcents\";\n                    msg.text[i] = [text1, text2, current, text3];\n                    var endText = \"\".concat(...msg.text[i]);\n                }\n                msg.payload[i] = {\n                    text: endText,\n                    siteId: msg.cmd.siteId,\n                    lang: \"fr-FR\"\n                };\n            }\n        } else if (msg.cmd.lang === \"de\"){\n            for (var i = 0; i < msg.items.length; i++) {\n                var current = msg.current[i].Data[0].Value;\n                if (current === false || current === 0){\n                    var text1 = msg.items[i].object;\n                    var text2 = \" ist aus\";\n                    msg.text[i] = [text1, text2];\n                    var endText = \"\".concat(...msg.text[i]);\n                }\n                if (current === true){\n                    var text1 = msg.items[i].object;\n                    var text2 = \" ist an\";\n                    msg.text[i] = [text1, text2];\n                    var endText = \"\".concat(...msg.text[i]);\n                }\n                if (typeof(current) !== \"boolean\" && current > 0 && current <256){\n                    var current = precisionRound(current/2.55, 0);\n                    var text1 = msg.items[i].object;\n                    var text2 = \"Die Helligkeit von \";\n                    var text3 = \" ist aus \";\n                    var text4 = \" Prozent eingestellt\";\n                    msg.text[i] = [text2, text1, text3, current, text4];\n                    var endText = \"\".concat(...msg.text[i]);\n                }\n                msg.payload[i] = {\n                    text: endText,\n                    siteId: msg.cmd.siteId,\n                    lang: \"de-DE\"\n                };\n            }\n        } else {\n            for (var i = 0; i < msg.items.length; i++) {\n                var current = msg.current[i].Data[0].Value;\n                if (current === false || current === 0){\n                    var text1 = msg.items[i].object;\n                    var text2 = \" is off\";\n                    msg.text[i] = [text1, text2];\n                    var endText = \"\".concat(...msg.text[i]);\n                }\n                if (current === true){\n                    var text1 = msg.items[i].object;\n                    var text2 = \" is on\";\n                    msg.text[i] = [text1, text2];\n                    var endText = \"\".concat(...msg.text[i]);\n                }\n                if (typeof(current) !== \"boolean\" && current > 0 && current <256){\n                    var current = precisionRound(current/2.55, 0);\n                    var text1 = msg.items[i].object;\n                    var text2 = \"'s luminosity is set to  \";\n                    var text3 = \" percent\";\n                    msg.text[i] = [text1, text2, current, text3];\n                    var endText = \"\".concat(...msg.text[i]);\n                }\n                msg.payload[i] = {\n                    text: endText,\n                    siteId: msg.cmd.siteId,\n                    lang: \"en-EN\"\n                };\n            }\n        }\n    } \n} else if (msg.cmd.type === \"heating\" && msg.current !== undefined && msg.target !== undefined) {\n    if (msg.cmd.lang === \"fr\"){\n        if (msg.current[0].Result === true && msg.target[0].Result === true) {\n            for (var i = 0; i < msg.items.length; i++) {\n                var target = msg.target[i].Data[0].Value;\n                var current = precisionRound(msg.current[i].Data[0].Value, 0);\n                var room = msg.items[i].zone;\n           \t\tvar text1 = \"Le thermostat est réglé sur \";\n                var text2 = \" dans la zone \";\n                var text3 = \" pour une température actuelle de \";\n                msg.text[i] = [text1, target, text2, room, text3, current];\n           \t\tvar endText = \"\".concat(...msg.text[i]);\n                msg.payload[i] = {\n                    text: endText,\n                    siteId: msg.cmd.siteId,\n                    lang: \"fr-FR\"\n                };\n            }\n        }\n    } else if (msg.cmd.lang === \"de\") {\n        if (msg.current[0].Result === true && msg.target[0].Result === true) {\n            for (var i = 0; i < msg.items.length; i++) {\n                var target = msg.target[i].Data[0].Value;\n                var current = precisionRound(msg.current[i].Data[0].Value, 0);\n                var room = msg.items[i].zone;\n           \t\tvar text1 = \"Die Heizung ist aus \";\n                var text2 = \" grad in \";\n                var text3 = \" eingestellt bei einer aktuellen Temperatur von \";\n                msg.text[i] = [text1, target, text2, room, text3, current];\n           \t\tvar endText = \"\".concat(...msg.text[i]);\n                msg.payload[i] = {\n                    text: endText,\n                    siteId: msg.cmd.siteId,\n                    lang: \"de-DE\"\n                };\n            }\n        }\n    } else {\n        if (msg.current[0].Result === true && msg.target[0].Result === true) {\n            for (var i = 0; i < msg.items.length; i++) {\n                var target = msg.target[i].Data[0].Value;\n                var current = precisionRound(msg.current[i].Data[0].Value, 0);\n                var room = msg.items[i].zone;\n                var text1 = \"Heating is set to \";\n                var text2 = \" degrees in the \";\n                var text3 = \", with a current temperature of \";\n                msg.text[i] = [text1, target, text2, room, text3, current];\n           \t\tvar endText = \"\".concat(...msg.text[i]);\n                msg.payload[i] = {\n                    text: endText,\n                    siteId: msg.cmd.siteId,\n                    lang: \"en-EN\"\n                };\n            }\n        }\n    }\n} if (msg.cmd.type === \"aux\" && msg.current !== undefined){\n    if (msg.current[0].Result === true) {\n        if (msg.cmd.lang === \"de\"){\n            for (var i = 0; i < msg.items.length; i++) {\n                var current = msg.current[i].Data[0].Value;\n                if (current === false || current === 0){\n                    var text1 = msg.items[i].object;\n                    var text2 = \" est éteint\";\n                    msg.text[i] = [text1, text2];\n                    var endText = \"\".concat(...msg.text[i]);\n                }\n                if (current === true){\n                    var text1 = msg.items[i].object;\n                    var text2 = \" est allumé\";\n                    msg.text[i] = [text1, text2];\n                    var endText = \"\".concat(...msg.text[i]);\n                }\n                if (typeof(current) !== \"boolean\" && current > 0 && current <256){\n                    var current = precisionRound(current/2.55, 0);\n                    var text1 = msg.items[i].object;\n                    var text2 = \" est allumée à \";\n                    var text3 = \" pourcents\";\n                    msg.text[i] = [text1, text2, current, text3];\n                    var endText = \"\".concat(...msg.text[i]);\n                }\n                msg.payload[i] = {\n                    text: endText,\n                    siteId: msg.cmd.siteId,\n                    lang: \"fr-FR\"\n                };\n            }\n        } else if (msg.cmd.lang === \"de\"){\n            for (var i = 0; i < msg.items.length; i++) {\n                var current = msg.current[i].Data[0].Value;\n                if (current === false || current === 0){\n                    var text1 = msg.items[i].object;\n                    var text2 = \" ist aus\";\n                    msg.text[i] = [text1, text2];\n                    var endText = \"\".concat(...msg.text[i]);\n                }\n                if (current === true){\n                    var text1 = msg.items[i].object;\n                    var text2 = \" ist an\";\n                    msg.text[i] = [text1, text2];\n                    var endText = \"\".concat(...msg.text[i]);\n                }\n                if (typeof(current) !== \"boolean\" && current > 0 && current <256){\n                    var current = precisionRound(current/2.55, 0);\n                    var text1 = msg.items[i].object;\n                    var text2 = \"Das Gerät \";\n                    var text3 = \"ist aus \";\n                    var text4 = \"Prozent eingestellt\";\n                    msg.text[i] = [text2, text1, text3, current, text4];\n                    var endText = \"\".concat(...msg.text[i]);\n                }\n                msg.payload[i] = {\n                    text: endText,\n                    siteId: msg.cmd.siteId,\n                    lang: \"de-DE\"\n                };\n            }\n        } else {\n            for (var i = 0; i < msg.items.length; i++) {\n                var current = msg.current[i].Data[0].Value;\n                if (current === false || current === 0){\n                    var text1 = msg.items[i].object;\n                    var text2 = \" is off\";\n                    msg.text[i] = [text1, text2];\n                    var endText = \"\".concat(...msg.text[i]);\n                }\n                if (current === true){\n                    var text1 = msg.items[i].object;\n                    var text2 = \" is on\";\n                    msg.text[i] = [text1, text2];\n                    var endText = \"\".concat(...msg.text[i]);\n                }\n                if (typeof(current) !== \"boolean\" && current > 0 && current <256){\n                    var current = precisionRound(current/2.55, 0);\n                    var text1 = msg.items[i].object;\n                    var text2 = \" is set to  \";\n                    var text3 = \"percent\";\n                    msg.text[i] = [text1, text2, current, text3];\n                    var endText = \"\".concat(...msg.text[i]);\n                }\n                msg.payload[i] = {\n                    text: endText,\n                    siteId: msg.cmd.siteId,\n                    lang: \"en-EN\"\n                };\n            }\n        }\n    } \n} if (msg.cmd.type === \"blinds\" && msg.current !== undefined){\n    if (msg.cmd.lang === \"de\") {\n        if (msg.current[0].Result === true) {\n            for (var i = 0; i < msg.items.length; i++) {\n                var current = msg.current[i].Data[0].Value;\n                if (current === false || current === 0){\n                    var text1 = msg.items[i].object;\n                    var text2 = \" ist geöffnet\";\n                    msg.text[i] = [text1, text2];\n                    var endText = \"\".concat(...msg.text[i]);\n                }\n                if (current === true || current === 255){\n                    var text1 = msg.items[i].object;\n                    var text2 = \"ist geschlossen\"; \n                    msg.text[i] = [text1, text2];\n                    var endText = \"\".concat(...msg.text[i]);\n                }\n                if (typeof(current) !== \"boolean\" && current > 0 && current <255){\n                    var current = precisionRound((255-current)/2.55, 0);\n                    var text1 = msg.items[i].object;\n                    var text2 = \" ist aus \";\n                    var text3 = \" Prozent gestellt\";\n                    msg.text[i] = [text1, text2, current, text3];\n                    var endText = \"\".concat(...msg.text[i]);\n                }\n                msg.payload[i] = {\n                    text: endText,\n                    siteId: msg.cmd.siteId,\n                    lang: \"de-DE\"\n                };\n            }\n        }\n    } else if (msg.cmd.lang === \"fr\") {\n        if (msg.current[0].Result === true) {\n            for (var i = 0; i < msg.items.length; i++) {\n                var current = msg.current[i].Data[0].Value;\n                if (current === false || current === 0){\n                    var text1 = msg.items[i].object;\n                    var text2 = \" est ouvert\";\n                    msg.text[i] = [text1, text2];\n                    var endText = \"\".concat(...msg.text[i]);\n                }\n                if (current === true || current === 255){\n                    var text1 = msg.items[i].object;\n                    var text2 = \"est fermé\"; \n                    msg.text[i] = [text1, text2];\n                    var endText = \"\".concat(...msg.text[i]);\n                }\n                if (typeof(current) !== \"boolean\" && current > 0 && current <255){\n                    var current = precisionRound((255-current)/2.55, 0);\n                    var text1 = msg.items[i].object;\n                    var text2 = \" est réglé sur \";\n                    var text3 = \" pourcents\";\n                    msg.text[i] = [text1, text2, current, text3];\n                    var endText = \"\".concat(...msg.text[i]);\n                }\n                msg.payload[i] = {\n                    text: endText,\n                    siteId: msg.cmd.siteId,\n                    lang: \"fr-FR\"\n                };\n            }\n        }\n    } else {\n        if (msg.current[0].Result === true) {\n            for (var i = 0; i < msg.items.length; i++) {\n                var current = msg.current[i].Data[0].Value;\n                if (current === false || current === 0){\n                    var text1 = msg.items[i].object;\n                    var text2 = \" is fully open\";\n                    msg.text[i] = [text1, text2];\n                    var endText = \"\".concat(...msg.text[i]);\n                }\n                if (current === true || current === 255){\n                    var text1 = msg.items[i].object;\n                    var text2 = \" is closed\";\n                    msg.text[i] = [text1, text2];\n                    var endText = \"\".concat(...msg.text[i]);\n                }\n                if (typeof(current) !== \"boolean\" && current > 0 && current <255){\n                    var current = precisionRound((255-current)/2.55, 0);\n                    var text1 = msg.items[i].object;\n                    var text2 = \" is \";\n                    var text3 = \" percent open\";\n                    msg.text[i] = [text1, text2, current, text3];\n                    msg.text[i] = [text1, text2, current, text3];\n                    var endText = \"\".concat(...msg.text[i]);\n                }\n                msg.payload[i] = {\n                    text: endText,\n                    siteId: msg.cmd.siteId,\n                    lang:\"en-EN\"\n                };\n            }\n        }\n    }\n\n\n} else if ((msg.cmd.type === \"heating\" && (msg.current === undefined || msg.target === undefined))|| \n(msg.current === undefined && msg.cmd.type !== \"heating\")) {\n    msg.error = [];\n    if (msg.current[0].Result !== false || msg.target[0].Result !== false) {\n        if (msg.cmd.lang === \"de\") {\n            msg.error = {\n                text: \"Der Server hat nicht korrekt reagiert\",\n                siteId: msg.cmd.siteId,\n                lang: \"de-DE\"\n            };\n        } else if (msg.cmd.lang === \"fr\") {\n            msg.error = {\n                text: \"Le serveur n'a pas répondu correctement\",\n                siteId: msg.cmd.siteId,\n                lang:\"fr-FR\"\n            };\n        } else {\n            msg.error = {\n                text: \"The server did not react correctly\",\n                siteId: msg.cmd.siteId,\n                lang:\"en-EN\"\n            };\n        }\n    }\n}\n\nreturn msg;",
         "outputs": 1,
@@ -1816,7 +1814,7 @@
     {
         "id": "3c43f92c.20f066",
         "type": "mqtt in",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "name": "MQTT IN",
         "topic": "hermes/intent/ProKNX:turnOnLights",
         "qos": "2",
@@ -1832,7 +1830,7 @@
     {
         "id": "5a4cede1.94a094",
         "type": "function",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "name": "test ProServIP",
         "func": "msg.cmd=[];\nmsg.cmd.lang = flow.get(\"msgLang\");\n\nif (msg.proServIP === \"\" || msg.proServIP.search(\"ECONNREFUSED\") !== -1 || msg.proServIP === undefined) {\n    if (msg.cmd.lang === \"de\") {\n        text = \"Bitte überprüfen Sie die adresse von ProServ\";\n        msg.error = {\n            text: text,\n            siteId: msg.cmd.siteId,\n            lang: \"de-DE\"\n        };\n    } else if (msg.cmd.lang === \"fr\") {\n        text = \"Veuillez vérifier l'adresse du Proserv\";\n        msg.error = {\n            text: text,\n            siteId: msg.cmd.siteId,\n            lang: \"fr-FR\"\n        };\n    } else {\n        text = \"Please check the configuration of the ProServ address\";\n        msg.error = {\n            text: text,\n            siteId: msg.cmd.siteId,\n            lang: \"en-EN\"\n        };\n    }\n}\n\nreturn msg;",
         "outputs": 1,
@@ -1848,7 +1846,7 @@
     {
         "id": "7b50e03b.443ee",
         "type": "switch",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "name": "Error ?",
         "property": "error",
         "propertyType": "msg",
@@ -1876,7 +1874,7 @@
     {
         "id": "4400e2ca.f5fe1c",
         "type": "link out",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "name": "ERROR IN",
         "links": [
             "c1d9abe6.c5f8b8",
@@ -1890,7 +1888,7 @@
     {
         "id": "b6752b12.93f788",
         "type": "switch",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "name": "Error ?",
         "property": "error",
         "propertyType": "msg",
@@ -1918,7 +1916,7 @@
     {
         "id": "2fa5efbc.7118f",
         "type": "link out",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "name": "ERROR IN",
         "links": [
             "c1d9abe6.c5f8b8"
@@ -1930,7 +1928,7 @@
     {
         "id": "98128e03.ebfa",
         "type": "switch",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "name": "Error ?",
         "property": "error",
         "propertyType": "msg",
@@ -1958,7 +1956,7 @@
     {
         "id": "f8816f3c.df85d",
         "type": "link out",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "name": "ERROR IN",
         "links": [
             "c1d9abe6.c5f8b8"
@@ -1970,7 +1968,7 @@
     {
         "id": "a21c2264.1e132",
         "type": "switch",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "name": "Error ?",
         "property": "error",
         "propertyType": "msg",
@@ -1998,7 +1996,7 @@
     {
         "id": "445ebe3e.435d4",
         "type": "link out",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "name": "ERROR IN",
         "links": [
             "c1d9abe6.c5f8b8"
@@ -2010,7 +2008,7 @@
     {
         "id": "a7526a82.79b968",
         "type": "link in",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "name": "DEBUG OUT",
         "links": [
             "e443f6e.2335a08",
@@ -2067,7 +2065,7 @@
     {
         "id": "337d77a1.b027e8",
         "type": "debug",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "name": "",
         "active": false,
         "console": "false",
@@ -2079,7 +2077,7 @@
     {
         "id": "ea5560fd.0a1a2",
         "type": "debug",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "name": "",
         "active": false,
         "console": "false",
@@ -2091,7 +2089,7 @@
     {
         "id": "c2954e37.b7d63",
         "type": "debug",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "name": "",
         "active": false,
         "console": "false",
@@ -2103,7 +2101,7 @@
     {
         "id": "e0ac7790.f7ed98",
         "type": "debug",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "name": "",
         "active": false,
         "console": "false",
@@ -2115,7 +2113,7 @@
     {
         "id": "1e1a3e79.2813b2",
         "type": "debug",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "name": "",
         "active": false,
         "console": "false",
@@ -2127,7 +2125,7 @@
     {
         "id": "3b05078c.2b5d68",
         "type": "debug",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "name": "",
         "active": false,
         "console": "false",
@@ -2139,7 +2137,7 @@
     {
         "id": "481ab0da.c31ca",
         "type": "debug",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "name": "",
         "active": false,
         "console": "false",
@@ -2151,7 +2149,7 @@
     {
         "id": "c6f7c16c.09a78",
         "type": "debug",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "name": "",
         "active": false,
         "console": "false",
@@ -2163,7 +2161,7 @@
     {
         "id": "3b0b276c.911808",
         "type": "debug",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "name": "",
         "active": false,
         "console": "false",
@@ -2175,7 +2173,7 @@
     {
         "id": "fc6e5e03.291f8",
         "type": "debug",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "name": "",
         "active": false,
         "console": "false",
@@ -2187,7 +2185,7 @@
     {
         "id": "4d42ff15.0288e",
         "type": "debug",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "name": "",
         "active": false,
         "console": "false",
@@ -2199,7 +2197,7 @@
     {
         "id": "40cea1e4.83e24",
         "type": "debug",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "name": "",
         "active": false,
         "console": "false",
@@ -2211,7 +2209,7 @@
     {
         "id": "f1bb39f8.7d0878",
         "type": "comment",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "name": "================================DEBUGGING TOOLS===================================",
         "info": "",
         "x": 510,
@@ -2221,7 +2219,7 @@
     {
         "id": "10c37944.5cb037",
         "type": "switch",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "name": "",
         "property": "items[1]",
         "propertyType": "msg",
@@ -2249,7 +2247,7 @@
     {
         "id": "126f47e7.1c8078",
         "type": "function",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "name": "Query feedback",
         "func": "function precisionRound(number, precision) {\n  var factor = Math.pow(10, precision);\n  return Math.round(number * factor) / factor;\n}\n\nfunction searchStatusDevice() {\n    msg.itemson = [];\n    msg.itemsoff = [];\n    cpton = 0;\n    cptoff = 0;\n    for (var i = 0; i < msg.items.length; i++) {\n        if (msg.current[i].Data[0].Value === true || (msg.current[i].Data[0].Value > 0 && msg.current[i].Data[0].Value <256)) {\n            msg.itemson[cpton] = msg.items[i];\n            cpton++;\n        } else if (msg.current[i].Data[0].Value === false || msg.current[i].Data[0].Value === 0) {\n            msg.itemsoff[cptoff] = msg.items[i];\n            cptoff++;\n        }\n    }\n}\n\nfunction searchStatusBlinds() {\n    msg.itemson = [];\n    msg.itemsoff = [];\n    cpton = 0;\n    cptoff = 0;\n    for (var i = 0; i < msg.items.length; i++) {\n        if (msg.current[i].Data[0].Value === false || msg.current[i].Data[0].Value === 255) {\n            msg.itemsoff[cptoff] = msg.items[i];\n            cptoff++;\n        } else if (msg.current[i].Data[0].Value === true || (msg.current[i].Data[0].Value >= 0 && msg.current[i].Data[0].Value <255)) {\n            msg.itemson[cpton] = msg.items[i];\n            cpton++;\n        }\n    }\n}\n\nmsg.payload = [];\nmsg.text = [];\n\nif (msg.cmd.type === \"lights\" && msg.current !== undefined){\n    if (msg.current[0].Result === true) {\n        searchStatusDevice();\n        if (msg.itemson.length > 0 && msg.itemsoff.length > 0) {\n            if (msg.itemson.length === 1) {\n                if (msg.cmd.lang === \"fr\"){\n                    var text1 = msg.itemson[0].object;\n                    var text2 = \" est allumé et \";\n                    textTabl = [text1, text2];\n                    var textTabl1 = \"\".concat(...textTabl);\n                }\n                else if (msg.cmd.lang === \"de\"){\n                    var text1 = msg.itemson[0].object;\n                    var text2 = \" ist an und \";\n                    textTabl = [text1, text2];\n                    var textTabl1 = \"\".concat(...textTabl);\n                } else {\n                    var text1 = msg.itemson[0].object;\n                    var text2 = \" is on and \";\n                    textTabl = [text1, text2];\n                    var textTabl1 = \"\".concat(...textTabl);\n                }\n            } else if (msg.itemson.length > 1) {\n                if (msg.cmd.lang === \"de\") {\n                    text1 = msg.itemson[0].object;\n                    text2 = \" und \";\n                    text3 = msg.itemson.length-1;\n                    text4 = \" andere Licht sind an und \";\n                    textTabl = [text1, text2, text3, text4];\n                    var textTabl1 = \"\".concat(...textTabl);\n                } else if (msg.cmd.lang === \"fr\") {\n                    text1 = msg.itemson[0].object;\n                    text2 = \" et \";\n                    text3 = msg.itemson.length-1;\n                    text4 = \" autres lumières sont allumées et \";\n                    textTabl = [text1, text2, text3, text4];\n                    var textTabl1 = \"\".concat(...textTabl);\n                } else {\n                    text1 = msg.itemson[0].object;\n                    text2 = \" and \";\n                    text3 = msg.itemson.length-1;\n                    text4 = \" other lights are on and \";\n                    textTabl = [text1, text2, text3, text4];\n                    var textTabl1 = \"\".concat(...textTabl);\n                }\n            }\n            if (msg.itemsoff.length === 1) {\n                if (msg.cmd.lang === \"fr\"){\n                    var text1 = msg.itemsoff[0].object;\n                    var text2 = \" est éteints\";\n                    textTabl = [text1, text2];\n                    var textTabl2 = \"\".concat(...textTabl);\n                }\n                else if (msg.cmd.lang === \"de\"){\n                    var text1 = msg.itemsoff[0].object;\n                    var text2 = \" ist aus\";\n                    textTabl = [text1, text2];\n                    var textTabl2 = \"\".concat(...textTabl);\n                } else {\n                    var text1 = msg.itemsoff[0].object;\n                    var text2 = \" is off\";\n                    textTabl = [text1, text2];\n                    var textTabl2 = \"\".concat(...textTabl);\n                }\n            } else if (msg.itemsoff.length > 1) {\n                if (msg.cmd.lang === \"de\") {\n                    text1 = msg.itemsoff[0].object;\n                    text2 = \" und \";\n                    text3 = msg.itemsoff.length-1;\n                    text4 = \" andere Licht sind aus\";\n                    textTabl = [text1, text2, text3, text4];\n                    var textTabl2 = \"\".concat(...textTabl);\n                } else if (msg.cmd.lang === \"fr\") {\n                    text1 = msg.itemsoff[0].object;\n                    text2 = \" et \";\n                    text3 = msg.itemsoff.length-1;\n                    text4 = \" autres lumières sont éteintes\";\n                    textTabl = [text1, text2, text3, text4];\n                    var textTabl2 = \"\".concat(...textTabl);\n                } else {\n                    text1 = msg.itemsoff[0].object;\n                    text2 = \" and \";\n                    text3 = msg.itemsoff.length-1;\n                    text4 = \" other lights are off\";\n                    textTabl = [text1, text2, text3, text4];\n                    var textTabl2 = \"\".concat(...textTabl);\n                }\n            }\n            endTextTabl = [textTabl1, textTabl2];\n            var endText = \"\".concat(...endTextTabl);\n            if (msg.cmd.lang === \"de\") {endLang = \"de-DE\";} else if (msg.cmd.lang === \"fr\") {endLang = \"fr-FR\";} else {endLang = \"en-EN\";}\n            msg.payload = {\n                text: endText,\n                siteId: msg.cmd.siteId,\n                lang: endLang\n            };\n        } else {\n            if (msg.itemson.length === 0) {\n                if (msg.cmd.lang === \"fr\"){\n                    var text1 = \"Toutes les lumières sont éteintes\";\n                    textTabl = [text1];\n                    var endText = \"\".concat(...textTabl);\n                    msg.payload = {\n                        text: endText,\n                        siteId: msg.cmd.siteId,\n                        lang: \"fr-FR\"\n                    };\n                }\n                else if (msg.cmd.lang === \"de\"){\n                    var text1 = \" alles ist aus\";\n                    textTabl = [text1];\n                    var endText = \"\".concat(...textTabl);\n                    msg.payload = {\n                        text: endText,\n                        siteId: msg.cmd.siteId,\n                        lang: \"de-DE\"\n                    };\n                } else {\n                    var text1 = \" all lights are off\";\n                    textTabl = [text1];\n                    var endText = \"\".concat(...textTabl);\n                    msg.payload = {\n                        text: endText,\n                        siteId: msg.cmd.siteId,\n                        lang: \"en-EN\"\n                    };\n                }\n            }\n            else if (msg.itemsoff.length === 0) {\n                if (msg.cmd.lang === \"fr\"){\n                    var text1 = \"Toutes les lumières sont allumées\";\n                    textTabl = [text1];\n                    var endText = \"\".concat(...textTabl);\n                    msg.payload = {\n                        text: endText,\n                        siteId: msg.cmd.siteId,\n                        lang: \"fr-FR\"\n                    };\n                }\n                else if (msg.cmd.lang === \"de\"){\n                    var text1 = \" alles ist an\";\n                    textTabl = [text1];\n                    var endText = \"\".concat(...textTabl);\n                    msg.payload = {\n                        text: endText,\n                        siteId: msg.cmd.siteId,\n                        lang: \"de-DE\"\n                    };\n                } else {\n                    var text1 = \" all lights are on\";\n                    textTabl = [text1];\n                    var endText = \"\".concat(...textTabl);\n                    msg.payload = {\n                        text: endText,\n                        siteId: msg.cmd.siteId,\n                        lang: \"en-EN\"\n                    };\n                }\n            }\n        }\n    }\n}\n\nif (msg.cmd.type === \"blinds\" && msg.current !== undefined){\n    if (msg.current[0].Result === true) {\n        searchOnBlinds();\n        if (msg.itemson.length > 0 && msg.itemsoff.length > 0) {\n            if (msg.itemson.length === 1) {\n                if (msg.cmd.lang === \"fr\"){\n                    var text1 = msg.itemson[0].object;\n                    var text2 = \" est ouvert et \";\n                    textTabl = [text1, text2];\n                    var textTabl1 = \"\".concat(...textTabl);\n                }\n                else if (msg.cmd.lang === \"de\"){\n                    var text1 = msg.itemson[0].object;\n                    var text2 = \" ist geoeffnet und \";\n                    textTabl = [text1, text2];\n                    var textTabl1 = \"\".concat(...textTabl);\n                } else {\n                    var text1 = msg.itemson[0].object;\n                    var text2 = \" is opened and \";\n                    textTabl = [text1, text2];\n                    var textTabl1 = \"\".concat(...textTabl);\n                }\n            } else if (msg.itemson.length > 1) {\n                if (msg.cmd.lang === \"de\") {\n                    text1 = msg.itemson[0].object;\n                    text2 = \" und \";\n                    text3 = msg.itemson.length-1;\n                    text4 = \" andere Geräte sind geöffnet und \";\n                    textTabl = [text1, text2, text3, text4];\n                    var textTabl1 = \"\".concat(...textTabl);\n                } else if (msg.cmd.lang === \"fr\") {\n                    text1 = msg.itemson[0].object;\n                    text2 = \" et \";\n                    text3 = msg.itemson.length-1;\n                    text4 = \" autres appareils sont ouverts et \";\n                    textTabl = [text1, text2, text3, text4];\n                    var textTabl1 = \"\".concat(...textTabl);\n                } else {\n                    text1 = msg.itemson[0].object;\n                    text2 = \" and \";\n                    text3 = msg.itemson.length-1;\n                    text4 = \" other devices are opened and \";\n                    textTabl = [text1, text2, text3, text4];\n                    var textTabl1 = \"\".concat(...textTabl);\n                }\n            }\n            if (msg.itemsoff.length === 1) {\n                if (msg.cmd.lang === \"fr\"){\n                    var text1 = msg.itemsoff[0].object;\n                    var text2 = \" est fermés\";\n                    textTabl = [text1, text2];\n                    var textTabl2 = \"\".concat(...textTabl);\n                }\n                else if (msg.cmd.lang === \"de\"){\n                    var text1 = msg.itemsoff[0].object;\n                    var text2 = \" ist geschlossen\";\n                    textTabl = [text1, text2];\n                    var textTabl2 = \"\".concat(...textTabl);\n                } else {\n                    var text1 = msg.itemsoff[0].object;\n                    var text2 = \" is closed\";\n                    textTabl = [text1, text2];\n                    var textTabl2 = \"\".concat(...textTabl);\n                }\n            } else if (msg.itemsoff.length > 1) {\n                if (msg.cmd.lang === \"de\") {\n                    text1 = msg.itemsoff[0].object;\n                    text2 = \" und \";\n                    text3 = msg.itemsoff.length-1;\n                    text4 = \" andere Geräte sind geschlossen\";\n                    textTabl = [text1, text2, text3, text4];\n                    var textTabl2 = \"\".concat(...textTabl);\n                } else if (msg.cmd.lang === \"fr\") {\n                    text1 = msg.itemsoff[0].object;\n                    text2 = \" et \";\n                    text3 = msg.itemsoff.length-1;\n                    text4 = \" autres appareils sont fermés\";\n                    textTabl = [text1, text2, text3, text4];\n                    var textTabl2 = \"\".concat(...textTabl);\n                } else {\n                    text1 = msg.itemsoff[0].object;\n                    text2 = \" and \";\n                    text3 = msg.itemsoff.length-1;\n                    text4 = \" other devices are closed\";\n                    textTabl = [text1, text2, text3, text4];\n                    var textTabl2 = \"\".concat(...textTabl);\n                }\n            }\n            endTextTabl = [textTabl1, textTabl2];\n            var endText = \"\".concat(...endTextTabl);\n            if (msg.cmd.lang === \"de\") {endLang = \"de-DE\";} else if (msg.cmd.lang === \"fr\") {endLang = \"fr-FR\";} else {endLang = \"en-EN\";}\n            msg.payload = {\n                text: endText,\n                siteId: msg.cmd.siteId,\n                lang: endLang\n            };\n        }\n        if (msg.itemson.length === 0) {\n            if (msg.cmd.lang === \"fr\"){\n                var text1 = \" tous les volets sont fermés\";\n                textTabl = [text4, text1];\n                var endText = \"\".concat(...textTabl);\n                msg.payload = {\n                    text: endText,\n                    siteId: msg.cmd.siteId,\n                    lang: \"fr-FR\"\n                };\n            }\n            else if (msg.cmd.lang === \"de\"){\n                var text1 = \" alles ist geschlossen\";\n                textTabl = [text4, text1];\n                var endText = \"\".concat(...textTabl);\n                msg.payload = {\n                    text: endText,\n                    siteId: msg.cmd.siteId,\n                    lang: \"de-DE\"\n                };\n            } else {\n                var text1 = \" all shutters are off\";\n                textTabl = [text4, text1, text2];\n                var endText = \"\".concat(...textTabl);\n                msg.payload = {\n                    text: endText,\n                    siteId: msg.cmd.siteId,\n                    lang: \"en-EN\"\n                };\n            }\n        }\n        if (msg.itemsoff.length === 0) {\n            if (msg.cmd.lang === \"fr\"){\n                var text1 = \" tous les volets sont ouverts\";\n                textTabl = [text4, text1];\n                var endText = \"\".concat(...textTabl);\n                msg.payload = {\n                    text: endText,\n                    siteId: msg.cmd.siteId,\n                    lang: \"fr-FR\"\n                };\n            }\n            else if (msg.cmd.lang === \"de\"){\n                var text1 = \" alles ist geöffnet\";\n                textTabl = [text4, text1];\n                var endText = \"\".concat(...textTabl);\n                msg.payload = {\n                    text: endText,\n                    siteId: msg.cmd.siteId,\n                    lang: \"de-DE\"\n                };\n            } else {\n                var text1 = \" all blinds are open\";\n                textTabl = [text4, text1, text2];\n                var endText = \"\".concat(...textTabl);\n                msg.payload = {\n                    text: endText,\n                    siteId: msg.cmd.siteId,\n                    lang: \"en-EN\"\n                };\n            }\n        }\n    }\n}\n\nif (msg.cmd.type === \"scenes\" && msg.current !== undefined){\n    if (msg.current[0].Result === true) {\n        searchStatusDevice();\n            if (msg.itemson.length === 1) {\n                if (msg.cmd.lang === \"fr\"){\n                    var text1 = msg.itemson[0].object;\n                    var text2 = \" est activée\";\n                    textTabl = [text1, text2];\n                    var textTabl1 = \"\".concat(...textTabl);\n                }\n                else if (msg.cmd.lang === \"de\"){\n                    var text1 = msg.itemson[0].object;\n                    var text2 = \" ist an\";\n                    textTabl = [text1, text2];\n                    var textTabl1 = \"\".concat(...textTabl);\n                } else {\n                    var text1 = msg.itemson[0].object;\n                    var text2 = \" is activated\";\n                    textTabl = [text1, text2];\n                    var textTabl1 = \"\".concat(...textTabl);\n                }\n            if (msg.itemson.length === 0) {\n                if (msg.cmd.lang === \"fr\"){\n                    var text1 = \"Aucune scène n'est activée\";\n                    textTabl = [text1];\n                    var endText = \"\".concat(...textTabl);\n                    msg.payload = {\n                        text: endText,\n                        siteId: msg.cmd.siteId,\n                        lang: \"fr-FR\"\n                    };\n                }\n                else if (msg.cmd.lang === \"de\"){\n                    var text1 = \" alles ist aus\";\n                    textTabl = [text1];\n                    var endText = \"\".concat(...textTabl);\n                    msg.payload = {\n                        text: endText,\n                        siteId: msg.cmd.siteId,\n                        lang: \"de-DE\"\n                    };\n                } else {\n                    var text1 = \"There is no scene activated\";\n                    textTabl = [text1];\n                    var endText = \"\".concat(...textTabl);\n                    msg.payload = {\n                        text: endText,\n                        siteId: msg.cmd.siteId,\n                        lang: \"en-EN\"\n                    };\n                }\n            }\n        }\n    }\n}\n\n/*\nif (msg.cmd.type === \"aux\" && msg.current !== undefined){\n    if (msg.current[0].Result === true) {\n        if ((msg.cmd.cmd === \"on\" && msg.cmd.room !== undefined) || (msg.cmd.cmd === \"on\" && msg.cmd.all === \"everywhere\") || (msg.cmd.cmd === \"off\" && (msg.cmd.all !== undefined || msg.cmd.room !== undefined))) {\n            searchStatusDevice();\n            if (msg.itemsok.length === 0) {\n                if (msg.cmd.lang === \"fr\"){\n                    if (msg.true === true) { var text4 = \"Oui, \";} else if (msg.true === false) { var text4 = \"Non, \";} else {var text4 = \"\";}\n                    var text1 = \" tous les appareils sont éteints\";\n                    textTabl = [text4, text1];\n                    var endText = \"\".concat(...textTabl);\n                    msg.payload = {\n                        text: endText,\n                        siteId: msg.cmd.siteId,\n                        lang: \"fr-FR\"\n                    };\n                }\n                else if (msg.cmd.lang === \"de\"){\n                    if (msg.true === true) { var text4 = \"Ja, \";} else if (msg.true === false) { var text4 = \"Nein, \";} else {var text4 = \"\";}\n                    var text1 = \" alles ist aus\";\n                    textTabl = [text4, text1];\n                    var endText = \"\".concat(...textTabl);\n                    msg.payload = {\n                        text: endText,\n                        siteId: msg.cmd.siteId,\n                        lang: \"de-DE\"\n                    };\n                } else {\n                    if (msg.true === true) { var text4 = \"Yes, \";} else if (msg.true === false) { var text4 = \"No, \";} else {var text4 = \"\";}\n                    var text1 = \" all devices are off\";\n                    textTabl = [text4, text1, text2];\n                    var endText = \"\".concat(...textTabl);\n                    msg.payload = {\n                        text: endText,\n                        siteId: msg.cmd.siteId,\n                        lang: \"en-EN\"\n                    };\n                }\n            }\n            else if (msg.itemsok.length === 1) {\n                if (msg.cmd.lang === \"fr\"){\n                    if (msg.true === true) { var text4 = \"Oui, \";} else if (msg.true === false) { var text4 = \"Non, \";} else {var text4 = \"\";}\n                    var text1 = msg.itemsok[0].name;\n                    var text2 = \" est allumé\";\n                    textTabl = [text4, text1, text2];\n                    var endText = \"\".concat(...textTabl);\n                    msg.payload = {\n                        text: endText,\n                        siteId: msg.cmd.siteId,\n                        lang: \"fr-FR\"\n                    };\n                }\n                else if (msg.cmd.lang === \"de\"){\n                    if (msg.true === true) { var text4 = \"Ja, \";} else if (msg.true === false) { var text4 = \"Nein, \";} else {var text4 = \"\";}\n                    var text1 = msg.itemsok[0].name;\n                    var text2 = \" ist an\";\n                    textTabl = [text4, text1, text2];\n                    var endText = \"\".concat(...textTabl);\n                    msg.payload = {\n                        text: endText,\n                        siteId: msg.cmd.siteId,\n                        lang: \"de-DE\"\n                    };\n                } else {\n                    if (msg.true === true) { var text4 = \"Yes, \";} else if (msg.true === false) { var text4 = \"No, \";} else {var text4 = \"\";}\n                    var text1 = msg.itemsok[0].name;\n                    var text2 = \" is on\";\n                    textTabl = [text4, text1, text2];\n                    var endText = \"\".concat(...textTabl);\n                    msg.payload = {\n                        text: endText,\n                        siteId: msg.cmd.siteId,\n                        lang: \"en-EN\"\n                    };\n                }\n            } if (msg.itemsok.length > 1) {\n                if (msg.cmd.lang === \"de\") {\n                    if (msg.true === true) { var text5 = \"Ja, \";} else if (msg.true === false) { var text5 = \"Nein, \";} else {var text5 = \"\";}\n                    text1 = msg.itemsok[0].name;\n                    text2 = \" und \";\n                    text3 = msg.itemsok.length-1;\n                    text4 = \" andere Geräte sind an\";\n                    textTabl = [text5,text1, text2, text3, text4];\n                    var text = \"\".concat(...textTabl);            \n                    msg.payload = {\n                        text: text,\n                        siteId: msg.cmd.siteId,\n                        lang: \"de-DE\"\n                    };\n                } else if (msg.cmd.lang === \"fr\") {\n                    if (msg.true === true) { var text5 = \"Oui, \";} else if (msg.true === false) { var text5 = \"Non, \";} else {var text5 = \"\";}\n                    text1 = msg.itemsok[0].name;\n                    text2 = \" et \";\n                    text3 = msg.itemsok.length-1;\n                    text4 = \" autres appareils sont allumés\";\n                    textTabl = [text5, text1, text2, text3, text4];\n                    var text = \"\".concat(...textTabl);            \n                    msg.payload = {\n                        text: text,\n                        siteId: msg.cmd.siteId,\n                        lang: \"fr-FR\"\n                    };\n                } else {\n                    if (msg.true === true) { var text5 = \"Yes, \";} else if (msg.true === false) { var text5 = \"No, \";} else {var text5 = \"\";}\n                    text1 = msg.itemsok[0].name;\n                    text2 = \" and \";\n                    text3 = msg.itemsok.length-1;\n                    text4 = \" other devices are on\";\n                    textTabl = [text5, text1, text2, text3, text4];\n                    var text = \"\".concat(...textTabl);            \n                    msg.payload = {\n                        text: text,\n                        siteId: msg.cmd.siteId,\n                        lang: \"en-EN\"\n                    };\n                }\n            }\n        } else if (msg.cmd.cmd === \"on\" && msg.cmd.all === \"all\") {\n            searchStatusDevice();\n            if (msg.itemsok.length === 0) {\n                if (msg.cmd.lang === \"fr\"){\n                    if (msg.true === true) { var text4 = \"Oui, \";} else if (msg.true === false) { var text4 = \"Non, \";} else {var text4 = \"\";}\n                    var text1 = \" tous les appareils sont allumés\";\n                    textTabl = [text4, text1];\n                    var endText = \"\".concat(...textTabl);\n                    msg.payload = {\n                        text: endText,\n                        siteId: msg.cmd.siteId,\n                        lang: \"fr-FR\"\n                    };\n                }\n                else if (msg.cmd.lang === \"de\"){\n                    if (msg.true === true) { var text4 = \"Ja, \";} else if (msg.true === false) { var text4 = \"Nein, \";} else {var text4 = \"\";}\n                    var text1 = \" alles ist an\";\n                    textTabl = [text4, text1];\n                    var endText = \"\".concat(...textTabl);\n                    msg.payload = {\n                        text: endText,\n                        siteId: msg.cmd.siteId,\n                        lang: \"de-DE\"\n                    };\n                } else {\n                    if (msg.true === true) { var text4 = \"Yes, \";} else if (msg.true === false) { var text4 = \"No, \";} else {var text4 = \"\";}\n                    var text1 = \" all devices are on\";\n                    textTabl = [text4, text1, text2];\n                    var endText = \"\".concat(...textTabl);\n                    msg.payload = {\n                        text: endText,\n                        siteId: msg.cmd.siteId,\n                        lang: \"en-EN\"\n                    };\n                }\n            }\n            else if (msg.itemsok.length === 1) {\n                if (msg.cmd.lang === \"fr\"){\n                    if (msg.true === true) { var text4 = \"Oui, \";} else if (msg.true === false) { var text4 = \"Non, \";} else {var text4 = \"\";}\n                    var text1 = msg.itemsok[0].name;\n                    var text2 = \" est éteints\";\n                    textTabl = [text4, text1, text2];\n                    var endText = \"\".concat(...textTabl);\n                    msg.payload = {\n                        text: endText,\n                        siteId: msg.cmd.siteId,\n                        lang: \"fr-FR\"\n                    };\n                }\n                else if (msg.cmd.lang === \"de\"){\n                    if (msg.true === true) { var text4 = \"Ja, \";} else if (msg.true === false) { var text4 = \"Nein, \";} else {var text4 = \"\";}\n                    var text1 = msg.itemsok[0].name;\n                    var text2 = \" ist aus\";\n                    textTabl = [text4, text1, text2];\n                    var endText = \"\".concat(...textTabl);\n                    msg.payload = {\n                        text: endText,\n                        siteId: msg.cmd.siteId,\n                        lang: \"de-DE\"\n                    };\n                } else {\n                    if (msg.true === true) { var text4 = \"Yes, \";} else if (msg.true === false) { var text4 = \"No, \";} else {var text4 = \"\";}\n                    var text1 = msg.itemsok[0].name;\n                    var text2 = \" is off\";\n                    textTabl = [text4, text1, text2];\n                    var endText = \"\".concat(...textTabl);\n                    msg.payload = {\n                        text: endText,\n                        siteId: msg.cmd.siteId,\n                        lang: \"en-EN\"\n                    };\n                }\n            } if (msg.itemsok.length > 1) {\n                if (msg.cmd.lang === \"de\") {\n                    if (msg.true === true) { var text5 = \"Ja, \";} else if (msg.true === false) { var text5 = \"Nein, \";} else {var text5 = \"\";}\n                    text1 = msg.itemsok[0].name;\n                    text2 = \" und \";\n                    text3 = msg.itemsok.length-1;\n                    text4 = \" andere Geräte sind auf\";\n                    textTabl = [text5, text1, text2, text3, text4];\n                    var text = \"\".concat(...textTabl);            \n                    msg.payload = {\n                        text: text,\n                        siteId: msg.cmd.siteId,\n                        lang: \"de-DE\"\n                    };\n                } else if (msg.cmd.lang === \"fr\") {\n                    if (msg.true === true) { var text5 = \"Oui, \";} else if (msg.true === false) { var text5 = \"Non, \";} else {var text5 = \"\";}\n                    text1 = msg.itemsok[0].name;\n                    text2 = \" et \";\n                    text3 = msg.itemsok.length-1;\n                    text4 = \" autres appareils sont éteints\";\n                    textTabl = [text5, text1, text2, text3, text4];\n                    var text = \"\".concat(...textTabl);            \n                    msg.payload = {\n                        text: text,\n                        siteId: msg.cmd.siteId,\n                        lang: \"fr-FR\"\n                    };\n                } else {\n                    if (msg.true === true) { var text5 = \"Yes, \";} else if (msg.true === false) { var text5 = \"No, \";} else {var text5 = \"\";}\n                    text1 = msg.itemsok[0].name;\n                    text2 = \" and \";\n                    text3 = msg.itemsok.length-1;\n                    text4 = \" other devices are off\";\n                    textTabl = [text5, text1, text2, text3, text4];\n                    var text = \"\".concat(...textTabl);            \n                    msg.payload = {\n                        text: text,\n                        siteId: msg.cmd.siteId,\n                        lang: \"en-EN\"\n                    };\n                }\n            }\n        }\n    }\n}*/\n\nreturn msg;",
         "outputs": 1,
@@ -2265,7 +2263,7 @@
     {
         "id": "627de4c2.41387c",
         "type": "trigger",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "op1": "",
         "op2": "",
         "op1type": "pay",
@@ -2286,7 +2284,7 @@
     {
         "id": "560c6eb.df5ae9",
         "type": "trigger",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "op1": "",
         "op2": "",
         "op1type": "pay",
@@ -2307,7 +2305,7 @@
     {
         "id": "3c6ae6b7.b3833a",
         "type": "trigger",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "op1": "",
         "op2": "",
         "op1type": "pay",
@@ -2328,7 +2326,7 @@
     {
         "id": "9ff27f4e.5094b",
         "type": "trigger",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "op1": "",
         "op2": "",
         "op1type": "pay",
@@ -2349,7 +2347,7 @@
     {
         "id": "b387752.3646088",
         "type": "trigger",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "op1": "",
         "op2": "",
         "op1type": "pay",
@@ -2370,7 +2368,7 @@
     {
         "id": "dab6ee9d.1ea2d",
         "type": "function",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "name": "Starting up feedback",
         "func": "msg.cmd=[];\nmsg.cmd.lang = flow.get(\"msgLang\");\nmsg.serverSiteId = flow.get(\"msgServerSiteId\");\n\nif (msg.cmd.siteId === undefined) {\n    msg.cmd.siteId = msg.serverSiteId;\n}\n\nif (msg.cmd.lang === \"de\") {\n    text = \"Startet, bitte warten\";\n    msg.error = {\n        text: text,\n        siteId: msg.cmd.siteId,\n        lang: \"de-DE\"\n    };\n} else if (msg.cmd.lang === \"fr\") {\n    text = \"Démarrage, veuillez patienter\";\n    msg.error = {\n        text: text,\n        siteId: msg.cmd.siteId,\n        lang: \"fr-FR\"\n    };\n} else {\n    text = \"Starting up, please wait\";\n    msg.error = {\n        text: text,\n        siteId: msg.cmd.siteId,\n        lang: \"en-EN\"\n    };\n}\n\ncptok = 0;\ncpter = 0;\nflow.set(\"cptok\", cptok); // save for later use\nflow.set(\"cpter\", cpter); // save for later use\n\nreturn msg;",
         "outputs": 1,
@@ -2386,7 +2384,7 @@
     {
         "id": "f8e73052.da9ba",
         "type": "link out",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "name": "ERROR IN",
         "links": [
             "c1d9abe6.c5f8b8",
@@ -2400,7 +2398,7 @@
     {
         "id": "11157267.7865fe",
         "type": "delay",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "name": "",
         "pauseType": "delay",
         "timeout": "500",
@@ -2423,7 +2421,7 @@
     {
         "id": "e3e15614.42e058",
         "type": "function",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "name": "Process connection status",
         "func": "msg.cmd=[];\nmsg.cmd.lang = flow.get(\"msgLang\");\nmsg.deviceList = flow.get(\"msgDeviceList\");\nmsg.proServIP = flow.get(\"msgProServIP\");\ncptok = flow.get(\"cptok\");\ncpter = flow.get(\"cpter\");\nmsg.serverSiteId = flow.get(\"msgServerSiteId\");\n\n/*if (msg.cmd.siteId === undefined) {\n    msg.cmd.siteId = msg.serverSiteId;\n}*/\n\nif (msg.deviceList !== undefined && msg.proServIP !== undefined && cptok === 0 && msg.statusCode === 200) {\n    cpter = 0;\n    if (msg.cmd.lang === \"de\") {\n        text = \"real KNX Air ist betriebsbereit\";\n        msg.error = {\n            text: text,\n            siteId: msg.cmd.siteId,\n            lang: \"de-DE\"\n        };\n    } else if (msg.cmd.lang === \"fr\") {\n        text = \"real KNX Air est à présent prêt à l'emploi\";\n        msg.error = {\n            text: text,\n            siteId: msg.cmd.siteId,\n            lang: \"fr-FR\"\n        };\n    } else {\n        text = \"real KNX Air is now ready to use\";\n        msg.error = {\n            text: text,\n            siteId: msg.cmd.siteId,\n            lang: \"en-EN\"\n        };\n    }\n    cptok++;\n    flow.set(\"cptok\", cptok); // save for later use\n    flow.set(\"cpter\", cpter); // save for later use\n} else if (msg.deviceList === undefined || msg.proServIP === undefined || msg.statusCode !== 200) {\n    cptok = 0;\n    cpter++;\n    if (cpter > 3) {\n        cpter = -1;\n        if (msg.cmd.lang === \"de\") {\n            text = \"Etwas stimmt nicht, ich kann die KNX-Geräte nicht laden. Bitte überprüfen Sie die IP von proServ.\";\n            msg.error = {\n                text: text,\n                siteId: msg.cmd.siteId,\n                lang: \"de-DE\"\n            };\n        } else if (msg.cmd.lang === \"fr\") {\n            text = \"Quelque chose ne va pas, je ne peux pas charger les appareils KNX. Veuillez vérifier l'adresse IP de proServ.\";\n            msg.error = {\n                text: text,\n                siteId: msg.cmd.siteId,\n                lang: \"fr-FR\"\n            };\n        } else {\n            text = \"Something is wrong, I cannot load the KNX devices. Please check the IP of proServ.\";\n            msg.error = {\n                text: text,\n                siteId: msg.cmd.siteId,\n                lang: \"en-EN\"\n            };\n        }\n    }\n    flow.set(\"cptok\", cptok); // save for later use\n    flow.set(\"cpter\", cpter); // save for later use\n}\n\nreturn msg;",
         "outputs": 1,
@@ -2439,7 +2437,7 @@
     {
         "id": "b50ba690.4aebc8",
         "type": "comment",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "name": "=============================GET CONNECTION STATUS================================",
         "info": "",
         "x": 510,
@@ -2449,7 +2447,7 @@
     {
         "id": "107b848e.12430b",
         "type": "inject",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "name": "Start GET",
         "topic": "",
         "payload": "true",
@@ -2468,7 +2466,7 @@
     {
         "id": "15084b61.db6f65",
         "type": "delay",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "name": "",
         "pauseType": "delay",
         "timeout": "10",
@@ -2491,7 +2489,7 @@
     {
         "id": "7d6634f0.ae8d0c",
         "type": "link out",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "name": "ERROR IN",
         "links": [
             "c1d9abe6.c5f8b8",
@@ -2505,7 +2503,7 @@
     {
         "id": "d06ea170.3166f",
         "type": "function",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "name": "Store server siteId",
         "func": "tmp = msg.payload.split(\"\\\"\");\ntmp1 = tmp[1].split(\"@\");\nmsg.serverSiteId = tmp1[0];\n\nflow.set(\"msgServerSiteId\", msg.serverSiteId); // save for later use\n\nreturn msg;",
         "outputs": 1,
@@ -2519,7 +2517,7 @@
     {
         "id": "9cdfc864.1136d8",
         "type": "comment",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "name": "================================GET SERVER SITE ID==================================",
         "info": "",
         "x": 510,
@@ -2529,7 +2527,7 @@
     {
         "id": "36c88cf5.bcbea4",
         "type": "inject",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "name": "Start GET",
         "topic": "",
         "payload": "true",
@@ -2548,7 +2546,7 @@
     {
         "id": "e49dec9d.315c2",
         "type": "exec",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "command": "grep \"bind*\" /etc/snips.toml",
         "addpay": false,
         "append": "",
@@ -2569,7 +2567,7 @@
     {
         "id": "a44e94ec.92ec88",
         "type": "http request",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "name": "GET devices",
         "method": "GET",
         "ret": "txt",
@@ -2586,7 +2584,7 @@
     {
         "id": "68712651.dc8b98",
         "type": "function",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "name": "GET proServIP",
         "func": "msg.proServIP = flow.get(\"msgProServIP\");\n\nreturn msg;",
         "outputs": 1,
@@ -2602,7 +2600,7 @@
     {
         "id": "1e86bda6.544b72",
         "type": "debug",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "name": "",
         "active": false,
         "console": "false",
@@ -2614,7 +2612,7 @@
     {
         "id": "5eec8250.d7592c",
         "type": "link out",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "name": "DEBUG IN",
         "links": [
             "a7526a82.79b968"
@@ -2626,7 +2624,7 @@
     {
         "id": "9259b1a4.d5033",
         "type": "link out",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "name": "DEBUG IN",
         "links": [
             "a7526a82.79b968"
@@ -2638,7 +2636,7 @@
     {
         "id": "b808d8f.602f728",
         "type": "link out",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "name": "DEBUG IN",
         "links": [
             "a7526a82.79b968"
@@ -2650,7 +2648,7 @@
     {
         "id": "9248a617.9164f8",
         "type": "link out",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "name": "DEBUG IN",
         "links": [
             "a7526a82.79b968"
@@ -2662,7 +2660,7 @@
     {
         "id": "2c52b37.17d3a4c",
         "type": "debug",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "name": "",
         "active": false,
         "console": "false",
@@ -2674,7 +2672,7 @@
     {
         "id": "2342a368.7b895c",
         "type": "link out",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "name": "DEBUG IN",
         "links": [
             "a7526a82.79b968"
@@ -2686,7 +2684,7 @@
     {
         "id": "3e278040.0209c",
         "type": "link out",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "name": "DEBUG IN",
         "links": [
             "a7526a82.79b968"
@@ -2698,7 +2696,7 @@
     {
         "id": "6da5a38.781545c",
         "type": "exec",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "command": "sudo ip addr show eth0 | grep \"inet\\b\" | awk '{print $2}' | cut -d/ -f1",
         "addpay": false,
         "append": "",
@@ -2719,7 +2717,7 @@
     {
         "id": "f6e23f9c.49119",
         "type": "switch",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "name": "",
         "property": "payload",
         "propertyType": "msg",
@@ -2749,7 +2747,7 @@
     {
         "id": "8e9f76fd.c03768",
         "type": "exec",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "command": "sudo ip addr show wlan0 | grep \"inet\\b\" | awk '{print $2}' | cut -d/ -f1",
         "addpay": false,
         "append": "",
@@ -2770,7 +2768,7 @@
     {
         "id": "6a61d624.cee4d8",
         "type": "function",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "name": "Trim answer",
         "func": "msg.payload = msg.payload.trim();\nreturn msg;",
         "outputs": 1,
@@ -2786,7 +2784,7 @@
     {
         "id": "5fdf0f76.e3dc8",
         "type": "file in",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "name": "Get existing names",
         "filename": "/usr/share/snips/assistant/nlu_engine/nlu_engine.json",
         "format": "utf8",
@@ -2803,7 +2801,7 @@
     {
         "id": "1b7afa5e.6cf886",
         "type": "inject",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "name": "Start GET",
         "topic": "",
         "payload": "true",
@@ -2820,7 +2818,7 @@
     {
         "id": "a78bf3c6.b4bd8",
         "type": "change",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "name": "Move names",
         "rules": [
             {
@@ -2854,7 +2852,7 @@
     {
         "id": "891d466c.4f05f8",
         "type": "function",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "name": "Create/Compare",
         "func": "String.prototype.sansAccent = function() {\n    var accent = [\n        /[\\300-\\306]/g, /[\\340-\\346]/g, // A, a\n        /[\\310-\\313]/g, /[\\350-\\353]/g, // E, e\n        /[\\314-\\317]/g, /[\\354-\\357]/g, // I, i\n        /[\\322-\\330]/g, /[\\362-\\370]/g, // O, o\n        /[\\331-\\334]/g, /[\\371-\\374]/g, // U, u\n        /[\\321]/g, /[\\361]/g, // N, n\n        /[\\307]/g, /[\\347]/g, // C, c\n    ];\n    var noaccent = ['A','a','E','e','I','i','O','o','U','u','N','n','C','c'];\n     \n    var str = this;\n    for(var i = 0; i < accent.length; i++){\n        str = str.replace(accent[i], noaccent[i]);\n    }\n     \n    return str;\n};\n\nfunction findNamesByKey(array, key, value) {\n    msg.items = [];\n    var cpt = 0;\n    for (var i = 0; i < array.length; i++) {\n        var x = array[i][key];\n        x = x.toLowerCase().sansAccent();\n        x = x.split(\"   \");\n        if (x[1] === value) {\n            msg.items[cpt] = array[i];\n            cpt ++;\n        }\n    }\n    return null;\n}\n\nfunction buildETSNamesList(array) {\n    ETSNamesDevice = [];\n    ETSNamesRoom = [];\n    for (var i = 0; i < array.length; i++) {\n        if (ETSNamesDevice.indexOf(array[i].object.toLowerCase().sansAccent()) === -1) {\n            ETSNamesDevice.push(array[i].object.toLowerCase().sansAccent());\n        }\n        if (ETSNamesRoom.indexOf(array[i].zone.toLowerCase().sansAccent()) === -1) {\n            ETSNamesRoom.push(array[i].zone.toLowerCase().sansAccent());\n        }\n    }\n    return null;\n}\n\nfunction buildSNIPSDeviceList(array) {\n    array = JSON.stringify(array);\n    array = array.replace(/\\{\\\"/g, \"\\[\\{\\\"\");\n    array = array.replace(/\\\"\\}/g, \"\\\"\\}\\]\");\n    array = array.replace(/,/g, \"\\},\\{\");\n    array = JSON.parse(array);\n    SNIPSNamesDevice = [];\n    for (var i = 0; i < array.length; i++) {\n        tmp = JSON.stringify(array[i]);\n        tmp = tmp.split(\":\");\n        tmp = tmp[1].replace(\"\\\"\", \"\");\n        tmp = tmp.replace(/\\\"\\}/g, \"\");\n        if (SNIPSNamesDevice.indexOf(tmp.toLowerCase().sansAccent()) === -1) {\n            SNIPSNamesDevice.push(tmp.toLowerCase().sansAccent());\n        }\n    }\n    return null;\n}\n\nfunction buildSNIPSRoomList(array) {\n    array = JSON.stringify(array);\n    array = array.replace(/\\{\\\"/g, \"\\[\\{\\\"\");\n    array = array.replace(/\\\"\\}/g, \"\\\"\\}\\]\");\n    array = array.replace(/,/g, \"\\},\\{\");\n    array = JSON.parse(array);\n    SNIPSNamesRoom = [];\n    for (var i = 0; i < array.length; i++) {\n        tmp = JSON.stringify(array[i]);\n        tmp = tmp.split(\":\");\n        tmp = tmp[1].replace(\"\\\"\", \"\");\n        tmp = tmp.replace(/\\\"\\}/g, \"\");\n        if (SNIPSNamesRoom.indexOf(tmp.toLowerCase().sansAccent()) === -1) {\n            SNIPSNamesRoom.push(tmp.toLowerCase().sansAccent());\n        }\n    }\n    return null;\n}\n\nfunction compareDeviceLists(SNIPSList, ETSList) {\n    deviceToInject = [];\n    cpt = 0;\n    for (var i = 0; i < ETSList.length; i++) {\n        exist = false;\n        for (var x = 0; x < SNIPSList.length; x++) {\n            if (ETSList[i] === SNIPSList[x]) {\n                exist = true;\n            }\n        }\n        if (exist === false) {\n            deviceToInject[cpt] = \"\\\"\"+ETSList[i]+\"\\\"\";\n        }\n    }\n}\n\nfunction compareRoomLists(SNIPSList, ETSList) {\n    roomToInject = [];\n    cpt = 0;\n    for (var i = 0; i < ETSList.length; i++) {\n        exist = false;\n        for (var x = 0; x < SNIPSList.length; x++) {\n            if (ETSList[i] === SNIPSList[x]) {\n                exist = true;\n            }\n        }\n        if (exist === false) {\n            roomToInject[cpt] = \"\\\"\"+ETSList[i]+\"\\\"\";\n        }\n    }\n}\n\nmsg.deviceList = flow.get(\"msgDeviceList\");\n\nif (msg.deviceList !== undefined && msg.existingNames !== undefined) {\n    buildETSNamesList(msg.deviceList, 'type', 'lights');\n    buildETSNamesList(msg.deviceList, 'type', 'dimmers');\n    buildETSNamesList(msg.deviceList, 'type', 'blinds');\n    buildETSNamesList(msg.deviceList, 'type', 'heating');\n    buildETSNamesList(msg.deviceList, 'type', 'scenes');\n    buildETSNamesList(msg.deviceList, 'type', 'aux');\n    buildETSNamesList(msg.deviceList, 'type', 'controls');\n    \n    buildSNIPSDeviceList(msg.existingNames.device);\n    buildSNIPSRoomList(msg.existingNames.room);\n    \n    compareDeviceLists(SNIPSNamesDevice, ETSNamesDevice);\n    compareRoomLists(SNIPSNamesRoom, ETSNamesRoom);\n    \n    if (roomToInject !== undefined || deviceToInject !== undefined) {\n        msg.inject = true;\n        template1 = \"{\\\"operations\\\": [\";\n        template2 = \"]}\";\n        if (roomToInject !== undefined) {\n            newRoomList1 = \"[\\\"addFromVanilla\\\",{\\\"room\\\":[\";\n            newRoomList2 = roomToInject;\n            if (deviceToInject !== undefined) {newRoomList3 = \"]}],\";} else {newRoomList3 = \"]}]\";}\n            tmpNRL = [newRoomList1, newRoomList2, newRoomList3];\n            newRoomList = \"\".concat(...tmpNRL);\n        } else {\n            newRoomlist = \"\";\n        }\n        if (deviceToInject !== undefined) {\n            newDeviceList1 = \"[\\\"addFromVanilla\\\",{\\\"device\\\":[\";\n            newDeviceList2 = deviceToInject;\n            newDeviceList3 = \"]}]\";\n            tmpNDL = [newDeviceList1, newDeviceList2, newDeviceList3];\n            newDeviceList = \"\".concat(...tmpNDL);\n        } else {\n            newDevicelist = \"\";\n        }\n        injectionString = [template1, newRoomList, newDeviceList, template2];\n        tmpInject = \"\".concat(...injectionString);\n        msg.payload = JSON.parse(tmpInject);\n    }\n}\n\nmsg.one = roomToInject;\nmsg.two = deviceToInject;\nmsg.three = tmpInject;\n\nreturn msg;",
         "outputs": 1,
@@ -2870,7 +2868,7 @@
     {
         "id": "345ace36.647f12",
         "type": "exec",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "command": "sudo mosquitto_pub -t hermes/injection/perform -f /usr/share/snips/injections.json",
         "addpay": false,
         "append": "",
@@ -2889,7 +2887,7 @@
     {
         "id": "99c10e49.73f06",
         "type": "file",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "name": "",
         "filename": "/usr/share/snips/injections.json",
         "appendNewline": true,
@@ -2902,7 +2900,7 @@
     {
         "id": "c30d66dd.6ad328",
         "type": "json",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "name": "",
         "pretty": false,
         "x": 630,
@@ -2916,7 +2914,7 @@
     {
         "id": "f79af15a.b5ce4",
         "type": "switch",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "name": "",
         "property": "inject",
         "propertyType": "msg",
@@ -2943,7 +2941,7 @@
     {
         "id": "84c32b61.2489f8",
         "type": "delay",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "name": "",
         "pauseType": "delay",
         "timeout": "2",
@@ -2966,7 +2964,7 @@
     {
         "id": "e2a5f924.158f28",
         "type": "comment",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "name": "=============================DYNAMIC VOCABULARY================================",
         "info": "",
         "x": 500,
@@ -2976,7 +2974,7 @@
     {
         "id": "4393304c.a80ed",
         "type": "switch",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "name": "Error ?",
         "property": "error",
         "propertyType": "msg",
@@ -3004,7 +3002,7 @@
     {
         "id": "e88f8c93.899b5",
         "type": "mqtt in",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "name": "MQTT IN",
         "topic": "hermes/intent/ProKNX:shiftUpLights",
         "qos": "2",
@@ -3020,7 +3018,7 @@
     {
         "id": "744247bf.491b58",
         "type": "mqtt in",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "name": "MQTT IN",
         "topic": "hermes/intent/ProKNX:turnOffLights",
         "qos": "2",
@@ -3036,7 +3034,7 @@
     {
         "id": "5edc6384.c4f13c",
         "type": "mqtt in",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "name": "MQTT IN",
         "topic": "hermes/intent/ProKNX:shiftDownLights",
         "qos": "2",
@@ -3052,7 +3050,7 @@
     {
         "id": "d0d00091.c46a6",
         "type": "mqtt in",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "name": "MQTT IN",
         "topic": "hermes/intent/ProKNX:setBrightnessLights",
         "qos": "2",
@@ -3068,7 +3066,7 @@
     {
         "id": "a7a7bc30.6d66b",
         "type": "json",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "name": "",
         "pretty": true,
         "x": 2010,
@@ -3083,7 +3081,7 @@
     {
         "id": "5e102653.713298",
         "type": "mqtt in",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "name": "MQTT IN",
         "topic": "hermes/intent/ProKNX:openSetShutters",
         "qos": "2",
@@ -3099,7 +3097,7 @@
     {
         "id": "312fef91.fee28",
         "type": "mqtt in",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "name": "MQTT IN",
         "topic": "hermes/intent/ProKNX:shiftUpShutters",
         "qos": "2",
@@ -3115,7 +3113,7 @@
     {
         "id": "98057fee.dcfdf",
         "type": "mqtt in",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "name": "MQTT IN",
         "topic": "hermes/intent/ProKNX:closeSetShutters",
         "qos": "2",
@@ -3131,7 +3129,7 @@
     {
         "id": "f5ca50b9.cb5e9",
         "type": "mqtt in",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "name": "MQTT IN",
         "topic": "hermes/intent/ProKNX:shiftDownShutters",
         "qos": "2",
@@ -3147,7 +3145,7 @@
     {
         "id": "ec55e503.49a328",
         "type": "json",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "name": "",
         "pretty": true,
         "x": 2010,
@@ -3162,7 +3160,7 @@
     {
         "id": "54dffe9b.2bafa",
         "type": "mqtt in",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "name": "MQTT IN",
         "topic": "hermes/intent/ProKNX:setThermostats",
         "qos": "2",
@@ -3178,7 +3176,7 @@
     {
         "id": "2cbe7129.3baf4e",
         "type": "mqtt in",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "name": "MQTT IN",
         "topic": "hermes/intent/ProKNX:shiftThermostats",
         "qos": "2",
@@ -3194,7 +3192,7 @@
     {
         "id": "17056edf.b2b531",
         "type": "json",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "name": "",
         "pretty": true,
         "x": 2010,
@@ -3209,7 +3207,7 @@
     {
         "id": "c61b0ffb.7a009",
         "type": "mqtt in",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "name": "MQTT IN",
         "topic": "hermes/intent/ProKNX:activateScenes",
         "qos": "2",
@@ -3225,7 +3223,7 @@
     {
         "id": "c3615e25.3b4e1",
         "type": "switch",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "name": "Route requests",
         "property": "payload.intent.intentName",
         "propertyType": "msg",
@@ -3281,7 +3279,7 @@
     {
         "id": "32d13670.23f93a",
         "type": "link out",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "name": "ERROR IN",
         "links": [
             "c1d9abe6.c5f8b8",
@@ -3295,7 +3293,7 @@
     {
         "id": "7b35e315.90b12c",
         "type": "function",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "name": "Array_intent",
         "func": "msg.cmd = [];\nmsg.items = [];\nmsg.deviceList = flow.get(\"msgDeviceList\");\nmsg.cmd.lang = flow.get(\"msgLang\");\nmsg.proServIP = flow.get(\"msgProServIP\");\n\nString.prototype.sansAccent = function() {\n    var accent = [\n        /[\\300-\\306]/g, /[\\340-\\346]/g, // A, a\n        /[\\310-\\313]/g, /[\\350-\\353]/g, // E, e\n        /[\\314-\\317]/g, /[\\354-\\357]/g, // I, i\n        /[\\322-\\330]/g, /[\\362-\\370]/g, // O, o\n        /[\\331-\\334]/g, /[\\371-\\374]/g, // U, u\n        /[\\321]/g, /[\\361]/g, // N, n\n        /[\\307]/g, /[\\347]/g, // C, c\n    ];\n    var noaccent = ['A','a','E','e','I','i','O','o','U','u','N','n','C','c'];\n     \n    var str = this;\n    for(var i = 0; i < accent.length; i++){\n        str = str.replace(accent[i], noaccent[i]);\n    }\n     \n    return str;\n};\n\nfunction precisionRound(number, precision) {\n  var factor = Math.pow(10, precision);\n  return Math.round(number * factor) / factor;\n}\n\nfunction findObjectByKey(array, key, value) {\n    items=[];\n    var cpt=0;\n    for (var i = 0; i < array.length; i++) {\n        if (array[i][key] === value) {\n            items[cpt]=array[i];\n            cpt++;\n        }\n    }\n    if (items[0] !== undefined) {\n        return items;\n    } else {\n        return null;\n    }\n}\n\nfunction findRoomByKey(array, key, value) {\n    msg.items = [];\n    var cpt = 0;\n    for (var i = 0; i < array.length; i++) {\n        var x = array[i][key].toLowerCase().sansAccent();\n        if (x === value) {\n            msg.items[cpt] = array[i];\n            cpt ++;\n        }\n    }\n    return null;\n}\n\nfunction findDeviceByKey(array, key, value) {\n    msg.items = [];\n    var cpt = 0;\n    for (var i = 0; i < array.length; i++) {\n        var x = array[i][key].toLowerCase().sansAccent();\n        if (x === value) {\n            msg.items[cpt] = array[i];\n            cpt ++;\n        }\n    }\n    return null;\n}\n\nfunction findTypeByKey(array, key, value) {\n    msg.items = [];\n    var cpt = 0;\n    for (var i = 0; i < array.length; i++) {\n        var x = array[i][key];\n        if (x === value) {\n            msg.items[cpt] = array[i];\n            cpt ++;\n        }\n    }\n    return null;\n}\n\nfunction findSwitchByKey(array, key, value) {\n    msg.payload.switch_lights = [];\n    var cpt = 0;\n    for (var i = 0; i < array.length; i++) {\n        if (array[i][key] === value) {\n            msg.payload.switch_lights[cpt] = array[i];\n            cpt ++;\n        }\n    }\n    return null;\n}\n\nfunction findDimmerByKey(array, key, value) {\n    msg.payload.dimmer_lights = [];\n    var cpt = 0;\n    for (var i = 0; i < array.length; i++) {\n        if (array[i][key] === value) {\n            msg.payload.dimmer_lights[cpt] = array[i];\n            cpt ++;\n        }\n    }\n    return null;\n}\n\nvar rawRoom = findObjectByKey(msg.payload.slots, 'slotName', 'room');\nvar rawDevice = findObjectByKey(msg.payload.slots, 'slotName', 'light_device');\nvar rawValue = findObjectByKey(msg.payload.slots, 'slotName', 'value');\nmsg.cmd.type = \"lights\";\nmsg.cmd.siteId = msg.payload.siteId.replace(/_/g,\" \");\nif (rawRoom !== null) {\n    msg.cmd.room = [];\n    for (var i = 0; i < rawRoom.length; i++) {\n        msg.cmd.room[i] = rawRoom[i].value.value.toLowerCase().sansAccent();\n        if (msg.cmd.room[i] === \"here\" ||msg.cmd.room[i] === \"hier\" || msg.cmd.room[i] === \"ici\" ) {\n            msg.cmd.room[i] = msg.payload.siteId.replace(/_/g,\" \");\n        }\n        if (msg.cmd.room[i] === \"everywhere\" || msg.cmd.room[i] === \"uberall\" || msg.cmd.room[i] === \"partout\"){\n            delete msg.cmd.room;\n            break;\n        }\n    }\n} else {\n    msg.cmd.room = [];\n    msg.cmd.room[0] = msg.payload.siteId.replace(/_/g,\" \");\n}\n\nif (rawDevice !== null) {\n    msg.rawDevice = rawDevice;\n    msg.cmd.device = [];\n    cpt = 0;\n    for (var i = 0; i < rawDevice.length; i++) {\n    \tmsg.cmd.device[cpt] = rawDevice[i].value.value.toLowerCase().sansAccent();\n        cpt++;\n        if (msg.cmd.device[i] === \"light\") {\n            delete msg.cmd.device[i];\n            cpt--;\n            if (rawDevice.length == 1) {delete msg.cmd.device;}\n        } else if (msg.cmd.device[i] === \"licht\") {\n            delete msg.cmd.device[i];\n            cpt--;\n            if (rawDevice.length == 1) {delete msg.cmd.device;}\n        } else if (msg.cmd.device[i] === \"lumiere\") {\n            delete msg.cmd.device[i];\n            cpt--;\n            if (rawDevice.length == 1) {delete msg.cmd.device;}\n        } else if (msg.cmd.device[i] === \"everything\" ) {\n            delete msg.cmd.device;\n            break;\n        }\n    }\n}\n\nif (rawValue !== null) {\n\tmsg.cmd.value = precisionRound(rawValue[0].value.value, 1);\n}\n\ntmp = [];\nfindSwitchByKey(msg.deviceList, 'type', 'lights');\nfindDimmerByKey(msg.deviceList, 'type', 'dimmers');\nmsg.items = msg.payload.switch_lights.concat(msg.payload.dimmer_lights);\ntmp = msg.items;\n\nif (msg.cmd.device !== undefined) {\n    tmpList = [];\n    cpt = 0;\n    for (var i = 0; i < msg.cmd.device.length; i++) {\n        findDeviceByKey(tmp, 'object', msg.cmd.device[i]);\n        tmpList[cpt] = msg.items;\n        cpt++;\n    }\n    tmp = [];\n    for (var i = 0; i < tmpList.length; i++) {\n        for (var n = 0; n < tmpList[i].length; n++) {\n            tmp.push(tmpList[i][n]);\n        }\n    }\n}\n\nif (msg.cmd.room !== undefined) {\n    tmpList = [];\n    cpt = 0;\n    for (var i = 0; i < msg.cmd.room.length; i++) {\n        findRoomByKey(tmp, 'zone', msg.cmd.room[i]);\n        tmpList[cpt] = msg.items;\n        cpt++;\n    }\n    tmp = [];\n    for (var i = 0; i < tmpList.length; i++) {\n        for (var n = 0; n < tmpList[i].length; n++) {\n            tmp.push(tmpList[i][n]);\n        }\n    }\n}\n\nmsg.items = tmp;\n\nif (msg.items[0] === undefined) {\n    if (msg.cmd.lang === \"de\") {\n        msg.error = {\n            text: \"Ich kann dieses Licht nicht finden\",\n            siteId: msg.cmd.siteId,\n            lang: \"de-DE\"\n        };\n    } else if (msg.cmd.lang === \"fr\") {\n        msg.error = {\n            text: \"Je n'ai pas pu trouver cette lumière\",\n            siteId: msg.cmd.siteId,\n            lang:\"fr-FR\"\n        };\n    } else {\n        msg.error = {\n            text: \"I can not find this light\",\n            siteId: msg.cmd.siteId,\n            lang:\"en-EN\"\n        };\n    }\n}\n\nreturn msg;",
         "outputs": 1,
@@ -3311,7 +3309,7 @@
     {
         "id": "3550fefa.32cdd2",
         "type": "switch",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "name": "Items ?",
         "property": "error",
         "propertyType": "msg",
@@ -3339,7 +3337,7 @@
     {
         "id": "cfbcad03.e372f",
         "type": "link out",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "name": "ERROR IN",
         "links": [
             "c1d9abe6.c5f8b8",
@@ -3353,7 +3351,7 @@
     {
         "id": "cee28c68.4e631",
         "type": "function",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "name": "Set_cmd",
         "func": "msg.cmd.cmd = \"off\";\n\nreturn msg;",
         "outputs": 1,
@@ -3369,7 +3367,7 @@
     {
         "id": "5f0978bd.4fa918",
         "type": "function",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "name": "Set_cmd",
         "func": "msg.cmd.cmd = \"increase\";\n\nreturn msg;",
         "outputs": 1,
@@ -3385,7 +3383,7 @@
     {
         "id": "1acba517.25669b",
         "type": "function",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "name": "Set_cmd",
         "func": "msg.cmd.cmd = \"decrease\";\n\nreturn msg;",
         "outputs": 1,
@@ -3401,7 +3399,7 @@
     {
         "id": "23ed58cd.3b61a8",
         "type": "function",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "name": "Set_cmd",
         "func": "msg.cmd.cmd = \"on\";\n\nreturn msg;",
         "outputs": 1,
@@ -3417,7 +3415,7 @@
     {
         "id": "7771a49d.371a0c",
         "type": "link out",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "name": "COMMAND EXECUTION IN",
         "links": [
             "a7526a82.79b968",
@@ -3430,7 +3428,7 @@
     {
         "id": "5a03801d.e4a8b",
         "type": "link out",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "name": "COMMAND EXECUTION IN",
         "links": [
             "a7526a82.79b968",
@@ -3443,7 +3441,7 @@
     {
         "id": "1b3e1a6d.7d1266",
         "type": "link out",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "name": "COMMAND EXECUTION IN",
         "links": [
             "a7526a82.79b968",
@@ -3456,7 +3454,7 @@
     {
         "id": "8bdb3d96.4133b",
         "type": "link out",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "name": "COMMAND EXECUTION IN",
         "links": [
             "a7526a82.79b968",
@@ -3469,7 +3467,7 @@
     {
         "id": "20cf4d61.337642",
         "type": "link out",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "name": "COMMAND EXECUTION IN",
         "links": [
             "a7526a82.79b968",
@@ -3482,7 +3480,7 @@
     {
         "id": "eb55b480.97ce28",
         "type": "inject",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "name": "",
         "topic": "",
         "payload": "{\"sessionId\":\"40951a47-03ec-447e-8bf8-9302374e892e\",\"customData\":null,\"siteId\":\"bedroom\",\"input\":\"set the brightness of the wall to fifty percent in the home cinema\",\"asrTokens\":[[{\"value\":\"set\",\"confidence\":1,\"range_start\":0,\"range_end\":3,\"time\":{\"start\":0,\"end\":0.48}},{\"value\":\"the\",\"confidence\":1,\"range_start\":4,\"range_end\":7,\"time\":{\"start\":0.48,\"end\":0.63}},{\"value\":\"brightness\",\"confidence\":1,\"range_start\":8,\"range_end\":18,\"time\":{\"start\":0.63,\"end\":1.29}},{\"value\":\"of\",\"confidence\":1,\"range_start\":19,\"range_end\":21,\"time\":{\"start\":1.29,\"end\":1.5}},{\"value\":\"the\",\"confidence\":1,\"range_start\":22,\"range_end\":25,\"time\":{\"start\":1.5,\"end\":1.68}},{\"value\":\"wall\",\"confidence\":0.974062,\"range_start\":26,\"range_end\":30,\"time\":{\"start\":1.68,\"end\":2.4031124}},{\"value\":\"to\",\"confidence\":1,\"range_start\":31,\"range_end\":33,\"time\":{\"start\":2.4031124,\"end\":2.9099998}},{\"value\":\"fifty\",\"confidence\":0.9698206,\"range_start\":34,\"range_end\":39,\"time\":{\"start\":2.9099998,\"end\":3.36}},{\"value\":\"percent\",\"confidence\":0.6872867,\"range_start\":40,\"range_end\":47,\"time\":{\"start\":3.36,\"end\":3.57}},{\"value\":\"in\",\"confidence\":1,\"range_start\":48,\"range_end\":50,\"time\":{\"start\":3.57,\"end\":3.78}},{\"value\":\"the\",\"confidence\":1,\"range_start\":51,\"range_end\":54,\"time\":{\"start\":3.78,\"end\":3.87}},{\"value\":\"home\",\"confidence\":1,\"range_start\":55,\"range_end\":59,\"time\":{\"start\":3.87,\"end\":3.87}},{\"value\":\"cinema\",\"confidence\":1,\"range_start\":60,\"range_end\":66,\"time\":{\"start\":3.87,\"end\":5.46}}]],\"intent\":{\"intentName\":\"ProKNX:turnOffLights\",\"probability\":0.65861675},\"slots\":[{\"confidence\":0.9698206,\"rawValue\":\"fifty\",\"value\":{\"kind\":\"custom\",\"value\":\"light\"},\"range\":{\"start\":34,\"end\":39},\"entity\":\"light_device\",\"slotName\":\"light_device\"},{\"confidence\":1,\"rawValue\":\"home cinema\",\"value\":{\"kind\":\"Custom\",\"value\":\"home cinema\"},\"range\":{\"start\":55,\"end\":66},\"entity\":\"house_room\",\"slotName\":\"room\"}]}",
@@ -3501,7 +3499,7 @@
     {
         "id": "fe891c6a.2877d",
         "type": "function",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "name": "siteID replace ' ' with '_'",
         "func": "if(msg.payload.siteId)\n    msg.payload.siteId = msg.payload.siteId.replace(/ /g,\"_\");\nelse\n    msg.payload.siteId = \"default\";\nreturn msg;",
         "outputs": "1",
@@ -3518,7 +3516,7 @@
     {
         "id": "61125eea.3ce74",
         "type": "link out",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "name": "Session IN",
         "links": [
             "34555777.8b5d98"
@@ -3530,7 +3528,7 @@
     {
         "id": "42f6efbb.98cee",
         "type": "link out",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "name": "Session IN",
         "links": [
             "34555777.8b5d98"
@@ -3542,7 +3540,7 @@
     {
         "id": "aad3cf12.c40b7",
         "type": "link out",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "name": "Session IN",
         "links": [
             "34555777.8b5d98"
@@ -3554,7 +3552,7 @@
     {
         "id": "e3914417.848fb8",
         "type": "link out",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "name": "Session IN",
         "links": [
             "34555777.8b5d98"
@@ -3566,7 +3564,7 @@
     {
         "id": "c2c1df17.441f3",
         "type": "mqtt in",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "name": "MQTT IN",
         "topic": "hermes/intent/ProKNX:deviceStatusCheck",
         "qos": "2",
@@ -3582,7 +3580,7 @@
     {
         "id": "93a3651.cc41598",
         "type": "json",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "name": "",
         "pretty": true,
         "x": 2010,
@@ -3597,7 +3595,7 @@
     {
         "id": "584ce928.167e48",
         "type": "link out",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "name": "Session IN",
         "links": [
             "34555777.8b5d98"
@@ -3609,7 +3607,7 @@
     {
         "id": "5fb8841e.3d2efc",
         "type": "function",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "name": "Set_cmd",
         "func": "msg.cmd.cmd = \"on\";\n\nreturn msg;",
         "outputs": 1,
@@ -3625,7 +3623,7 @@
     {
         "id": "e4e9ddc6.567c4",
         "type": "switch",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "name": "Route requests",
         "property": "payload.intent.intentName",
         "propertyType": "msg",
@@ -3673,7 +3671,7 @@
     {
         "id": "6ae8eda4.08eae4",
         "type": "function",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "name": "Array_intent",
         "func": "msg.cmd = [];\nmsg.items = [];\nmsg.deviceList = flow.get(\"msgDeviceList\");\nmsg.cmd.lang = flow.get(\"msgLang\");\nmsg.proServIP = flow.get(\"msgProServIP\");\n\nString.prototype.sansAccent = function() {\n    var accent = [\n        /[\\300-\\306]/g, /[\\340-\\346]/g, // A, a\n        /[\\310-\\313]/g, /[\\350-\\353]/g, // E, e\n        /[\\314-\\317]/g, /[\\354-\\357]/g, // I, i\n        /[\\322-\\330]/g, /[\\362-\\370]/g, // O, o\n        /[\\331-\\334]/g, /[\\371-\\374]/g, // U, u\n        /[\\321]/g, /[\\361]/g, // N, n\n        /[\\307]/g, /[\\347]/g, // C, c\n    ];\n    var noaccent = ['A','a','E','e','I','i','O','o','U','u','N','n','C','c'];\n     \n    var str = this;\n    for(var i = 0; i < accent.length; i++){\n        str = str.replace(accent[i], noaccent[i]);\n    }\n     \n    return str;\n};\n\nfunction precisionRound(number, precision) {\n  var factor = Math.pow(10, precision);\n  return Math.round(number * factor) / factor;\n}\n\nfunction findObjectByKey(array, key, value) {\n    items=[];\n    var cpt=0;\n    for (var i = 0; i < array.length; i++) {\n        if (array[i][key] === value) {\n            items[cpt]=array[i];\n            cpt++;\n        }\n    }\n    if (items[0] !== undefined) {\n        return items;\n    } else {\n        return null;\n    }\n}\n\nfunction findRoomByKey(array, key, value) {\n    msg.items = [];\n    var cpt = 0;\n    for (var i = 0; i < array.length; i++) {\n        var x = array[i][key].toLowerCase().sansAccent();\n        if (x === value) {\n            msg.items[cpt] = array[i];\n            cpt ++;\n        }\n    }\n    return null;\n}\n\nfunction findDeviceByKey(array, key, value) {\n    msg.items = [];\n    var cpt = 0;\n    for (var i = 0; i < array.length; i++) {\n        var x = array[i][key].toLowerCase().sansAccent();\n        if (x === value) {\n            msg.items[cpt] = array[i];\n            cpt ++;\n        }\n    }\n    return null;\n}\n\nfunction findTypeByKey(array, key, value) {\n    msg.items = [];\n    var cpt = 0;\n    for (var i = 0; i < array.length; i++) {\n        var x = array[i][key];\n        if (x === value) {\n            msg.items[cpt] = array[i];\n            cpt ++;\n        }\n    }\n    return null;\n}\n\nvar rawRoom = findObjectByKey(msg.payload.slots, 'slotName', 'room');\nvar rawDevice = findObjectByKey(msg.payload.slots, 'slotName', 'window_device');\nvar rawValue = findObjectByKey(msg.payload.slots, 'slotName', 'value');\nmsg.cmd.type = \"blinds\";\nmsg.cmd.siteId = msg.payload.siteId.replace(/_/g,\" \");\nif (rawRoom !== null) {\n    msg.cmd.room = [];\n    for (var i = 0; i < rawRoom.length; i++) {\n        msg.cmd.room[i] = rawRoom[i].value.value.toLowerCase().sansAccent();\n        if (msg.cmd.room[i] === \"here\" ||msg.cmd.room[i] === \"hier\" || msg.cmd.room[i] === \"ici\" ) {\n            msg.cmd.room[i] = msg.payload.siteId.replace(/_/g,\" \");\n        }\n        if (msg.cmd.room[i] === \"everywhere\" || msg.cmd.room[i] === \"uberall\" || msg.cmd.room[i] === \"partout\"){\n            delete msg.cmd.room;\n            break;\n        }\n    }\n} else {\n    msg.cmd.room = [];\n    msg.cmd.room[0] = msg.payload.siteId.replace(/_/g,\" \");\n}\n\nif (rawDevice !== null) {\n    msg.rawDevice = rawDevice;\n    msg.cmd.device = [];\n    cpt = 0;\n    for (var i = 0; i < rawDevice.length; i++) {\n    \tmsg.cmd.device[cpt] = rawDevice[i].value.value.toLowerCase().sansAccent();\n        cpt++;\n        if (msg.cmd.device[i] === \"all shutters\") {\n            delete msg.cmd.device[i];\n            cpt--;\n            if (rawDevice.length == 1) {delete msg.cmd.device;}\n        } else if (msg.cmd.device[i] === \"alle rollladen\") {\n            delete msg.cmd.device[i];\n            cpt--;\n            if (rawDevice.length == 1) {delete msg.cmd.device;}\n        }\n    }\n}\n\nif (rawValue !== null) {\n\tmsg.cmd.value = precisionRound(rawValue[0].value.value, 1);\n}\n\ntmp = [];\nfindTypeByKey(msg.deviceList, 'type', msg.cmd.type);\ntmp = msg.items;\n\nif (msg.cmd.device !== undefined) {\n    tmpList = [];\n    cpt = 0;\n    for (var i = 0; i < msg.cmd.device.length; i++) {\n        findDeviceByKey(tmp, 'object', msg.cmd.device[i]);\n        tmpList[cpt] = msg.items;\n        cpt++;\n    }\n    msg.test = tmpList;\n    if (tmpList[0] !== undefined) {} else {\n        for (var i = 0; i < tmpList.length; i++) {\n            tmp = [];\n            for (var n = 0; n < tmpList[i].length; n++) {\n                tmp.push(tmpList[i][n]);\n            }\n        }\n    }\n}\n\nif (msg.cmd.room !== undefined && tmp !== undefined) {\n    tmpList = [];\n    cpt = 0;\n    for (var i = 0; i < msg.cmd.room.length; i++) {\n        findRoomByKey(tmp, 'zone', msg.cmd.room[i]);\n        tmpList[cpt] = msg.items;\n        cpt++;\n    }\n    tmp = [];\n    for (var i = 0; i < tmpList.length; i++) {\n        for (var n = 0; n < tmpList[i].length; n++) {\n            tmp.push(tmpList[i][n]);\n        }\n    }\n}\n\nmsg.items = tmp;\n\nif (msg.items[0] === undefined) {\n    if (msg.cmd.lang === \"de\") {\n        msg.error = {\n            text: \"Ich kann diesen Rolladen nicht finden\",\n            siteId: msg.cmd.siteId,\n            lang: \"de-DE\"\n        };\n    } else if (msg.cmd.lang === \"fr\") {\n        msg.error = {\n            text: \"Je n'ai pas pu trouver ce volet\",\n            siteId: msg.cmd.siteId,\n            lang:\"fr-FR\"\n        };\n    } else {\n        msg.error = {\n            text: \"I can not find this shutter\",\n            siteId: msg.cmd.siteId,\n            lang:\"en-EN\"\n        };\n    }\n}\n\nreturn msg;",
         "outputs": 1,
@@ -3692,7 +3690,7 @@
     {
         "id": "7e8aefe1.98a64",
         "type": "switch",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "name": "Items ?",
         "property": "error",
         "propertyType": "msg",
@@ -3720,7 +3718,7 @@
     {
         "id": "ffc6bfd7.49a8b",
         "type": "link out",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "name": "ERROR IN",
         "links": [
             "c1d9abe6.c5f8b8",
@@ -3734,7 +3732,7 @@
     {
         "id": "4df5039a.24315c",
         "type": "function",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "name": "Set_cmd",
         "func": "msg.cmd.cmd = \"off\";\n\nreturn msg;",
         "outputs": 1,
@@ -3750,7 +3748,7 @@
     {
         "id": "f9c4b097.f4e6f",
         "type": "function",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "name": "Set_cmd",
         "func": "msg.cmd.cmd = \"increase\";\n\nreturn msg;",
         "outputs": 1,
@@ -3766,7 +3764,7 @@
     {
         "id": "58a2f3d9.cd92ec",
         "type": "function",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "name": "Set_cmd",
         "func": "msg.cmd.cmd = \"decrease\";\n\nreturn msg;",
         "outputs": 1,
@@ -3782,7 +3780,7 @@
     {
         "id": "8508f849.58ce48",
         "type": "link out",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "name": "COMMAND EXECUTION IN",
         "links": [
             "a7526a82.79b968",
@@ -3795,7 +3793,7 @@
     {
         "id": "f38a525c.4ce42",
         "type": "link out",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "name": "COMMAND EXECUTION IN",
         "links": [
             "a7526a82.79b968",
@@ -3808,7 +3806,7 @@
     {
         "id": "8c51ddf6.1a475",
         "type": "link out",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "name": "COMMAND EXECUTION IN",
         "links": [
             "a7526a82.79b968",
@@ -3821,7 +3819,7 @@
     {
         "id": "a4efe9b6.c3c3b8",
         "type": "link out",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "name": "COMMAND EXECUTION IN",
         "links": [
             "a7526a82.79b968",
@@ -3834,7 +3832,7 @@
     {
         "id": "b37a8537.d5cf78",
         "type": "function",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "name": "Set_cmd",
         "func": "String.prototype.sansAccent = function() {\n    var accent = [\n        /[\\300-\\306]/g, /[\\340-\\346]/g, // A, a\n        /[\\310-\\313]/g, /[\\350-\\353]/g, // E, e\n        /[\\314-\\317]/g, /[\\354-\\357]/g, // I, i\n        /[\\322-\\330]/g, /[\\362-\\370]/g, // O, o\n        /[\\331-\\334]/g, /[\\371-\\374]/g, // U, u\n        /[\\321]/g, /[\\361]/g, // N, n\n        /[\\307]/g, /[\\347]/g, // C, c\n    ];\n    var noaccent = ['A','a','E','e','I','i','O','o','U','u','N','n','C','c'];\n     \n    var str = this;\n    for(var i = 0; i < accent.length; i++){\n        str = str.replace(accent[i], noaccent[i]);\n    }\n     \n    return str;\n};\n\nfunction findObjectByKey(array, key, value) {\n    items=[];\n    var cpt=0;\n    for (var i = 0; i < array.length; i++) {\n        if (array[i][key] === value) {\n            items[cpt]=array[i];\n            cpt++;\n        }\n    }\n    if (items[0] !== undefined) {\n        return items;\n    } else {\n        return null;\n    }\n}\n\nvar rawAction = findObjectByKey(msg.payload.slots, 'slotName', 'up_down');\n\nif (rawAction[0].value.value.toLowerCase().sansAccent() === \"up\" || rawAction[0].value.value.toLowerCase().sansAccent() === \"hoher\" || rawAction[0].value.value.toLowerCase().sansAccent() === \"plus chaud\") {\n    msg.cmd.cmd = \"increase\";\n} else if (rawAction[0].value.value.toLowerCase().sansAccent() === \"down\" || rawAction[0].value.value.toLowerCase().sansAccent() === \"niedriger\" || rawAction[0].value.value.toLowerCase().sansAccent() === \"plus froid\") {\n    msg.cmd.cmd = \"decrease\";\n}\n\nreturn msg;",
         "outputs": 1,
@@ -3850,7 +3848,7 @@
     {
         "id": "6f2192f1.fac98c",
         "type": "switch",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "name": "Route requests",
         "property": "payload.intent.intentName",
         "propertyType": "msg",
@@ -3882,7 +3880,7 @@
     {
         "id": "53c4a71f.ebf928",
         "type": "function",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "name": "Array_intent",
         "func": "msg.cmd = [];\nmsg.items = [];\nmsg.deviceList = flow.get(\"msgDeviceList\");\nmsg.cmd.lang = flow.get(\"msgLang\");\nmsg.proServIP = flow.get(\"msgProServIP\");\n\nString.prototype.sansAccent = function() {\n    var accent = [\n        /[\\300-\\306]/g, /[\\340-\\346]/g, // A, a\n        /[\\310-\\313]/g, /[\\350-\\353]/g, // E, e\n        /[\\314-\\317]/g, /[\\354-\\357]/g, // I, i\n        /[\\322-\\330]/g, /[\\362-\\370]/g, // O, o\n        /[\\331-\\334]/g, /[\\371-\\374]/g, // U, u\n        /[\\321]/g, /[\\361]/g, // N, n\n        /[\\307]/g, /[\\347]/g, // C, c\n    ];\n    var noaccent = ['A','a','E','e','I','i','O','o','U','u','N','n','C','c'];\n     \n    var str = this;\n    for(var i = 0; i < accent.length; i++){\n        str = str.replace(accent[i], noaccent[i]);\n    }\n     \n    return str;\n};\n\nfunction precisionRound(number, precision) {\n  var factor = Math.pow(10, precision);\n  return Math.round(number * factor) / factor;\n}\n\nfunction findObjectByKey(array, key, value) {\n    items=[];\n    var cpt=0;\n    for (var i = 0; i < array.length; i++) {\n        if (array[i][key] === value) {\n            items[cpt]=array[i];\n            cpt++;\n        }\n    }\n    if (items[0] !== undefined) {\n        return items;\n    } else {\n        return null;\n    }\n}\n\nfunction findRoomByKey(array, key, value) {\n    msg.items = [];\n    var cpt = 0;\n    for (var i = 0; i < array.length; i++) {\n        var x = array[i][key].toLowerCase().sansAccent();\n        if (x === value) {\n            msg.items[cpt] = array[i];\n            cpt ++;\n        }\n    }\n    return null;\n}\n\nfunction findDeviceByKey(array, key, value) {\n    msg.items = [];\n    var cpt = 0;\n    for (var i = 0; i < array.length; i++) {\n        var x = array[i][key].toLowerCase().sansAccent();\n        if (x === value) {\n            msg.items[cpt] = array[i];\n            cpt ++;\n        }\n    }\n    return null;\n}\n\nfunction findTypeByKey(array, key, value) {\n    msg.items = [];\n    var cpt = 0;\n    for (var i = 0; i < array.length; i++) {\n        var x = array[i][key];\n        if (x === value) {\n            msg.items[cpt] = array[i];\n            cpt ++;\n        }\n    }\n    return null;\n}\n\nvar rawRoom = findObjectByKey(msg.payload.slots, 'slotName', 'room');\nvar rawDevice = findObjectByKey(msg.payload.slots, 'slotName', 'temperature_device');\nvar rawValue = findObjectByKey(msg.payload.slots, 'slotName', 'temperature');\nvar rawUpDown = findObjectByKey(msg.payload.slots, 'slotName', 'up_down');\nmsg.cmd.type = \"heating\";\nmsg.cmd.siteId = msg.payload.siteId.replace(/_/g,\" \");\n\nif (rawRoom !== null) {\n    msg.cmd.room = [];\n    for (var i = 0; i < rawRoom.length; i++) {\n        msg.cmd.room[i] = rawRoom[i].value.value.toLowerCase().sansAccent();\n        if (msg.cmd.room[i] === \"here\" ||msg.cmd.room[i] === \"hier\" || msg.cmd.room[i] === \"ici\" ) {\n            msg.cmd.room[i] = msg.payload.siteId.replace(/_/g,\" \");\n        }\n        if (msg.cmd.room[i] === \"everywhere\" || msg.cmd.room[i] === \"uberall\" || msg.cmd.room[i] === \"partout\"){\n            delete msg.cmd.room;\n            break;\n        }\n    }\n} else {\n    msg.cmd.room = [];\n    msg.cmd.room[0] = msg.payload.siteId.replace(/_/g,\" \");\n}\n\nif (rawDevice !== null) {\n    msg.cmd.device = [];\n    for (var i = 0; i < rawDevice.length; i++) {\n\t    msg.cmd.device[i] = rawDevice[i].value.value.toLowerCase().sansAccent();\n    }\n}\n\nif (rawValue !== null) {\n\tmsg.cmd.value = precisionRound(rawValue[0].value.value, 1);\n}\n\ntmp = [];\nfindTypeByKey(msg.deviceList, 'type', msg.cmd.type);\ntmp = msg.items;\n\nif (msg.cmd.device !== undefined) {\n    tmpList = [];\n    cpt = 0;\n    for (var i = 0; i < msg.cmd.device.length; i++) {\n        findDeviceByKey(tmp, 'object', msg.cmd.device[i]);\n        tmpList[cpt] = msg.items;\n        cpt++;\n    }\n    if (tmpList[0][0]!== undefined) {\n            if (tmpList[0][0].name!== undefined) {\n                tmp = [];\n                for (var i = 0; i < tmpList.length; i++) {\n                    for (var n = 0; n < tmpList[i].length; n++) {\n                        tmp.push(tmpList[i][n]);\n                    }\n                }\n            }\n        } else {}\n}\nif (msg.cmd.room !== undefined && tmp !== undefined) {\n    tmpList = [];\n    cpt = 0;\n    for (var i = 0; i < msg.cmd.room.length; i++) {\n        findRoomByKey(tmp, 'zone', msg.cmd.room[i]);\n        tmpList[cpt] = msg.items;\n        cpt++;\n    }\n    tmp = [];\n    for (var i = 0; i < tmpList.length; i++) {\n        for (var n = 0; n < tmpList[i].length; n++) {\n            tmp.push(tmpList[i][n]);\n        }\n    }\n}\n\nmsg.items = tmp;\n\nif (msg.items[0] === undefined) {\n    if (msg.cmd.lang === \"de\") {\n        msg.error = {\n            text: \"Ich kann dieses Thermostat nicht finden\",\n            siteId: msg.cmd.siteId,\n            lang: \"de-DE\"\n        };\n    } else if (msg.cmd.lang === \"fr\") {\n        msg.error = {\n            text: \"Je n'ai pas pu trouver ce thermostat\",\n            siteId: msg.cmd.siteId,\n            lang:\"fr-FR\"\n        };\n    } else {\n        msg.error = {\n            text: \"I can not find this thermostat\",\n            siteId: msg.cmd.siteId,\n            lang:\"en-EN\"\n        };\n    }\n}\n\nreturn msg;",
         "outputs": 1,
@@ -3898,7 +3896,7 @@
     {
         "id": "33ffb61f.013b6a",
         "type": "switch",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "name": "Items ?",
         "property": "error",
         "propertyType": "msg",
@@ -3926,7 +3924,7 @@
     {
         "id": "3980d0b4.3e627",
         "type": "link out",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "name": "ERROR IN",
         "links": [
             "c1d9abe6.c5f8b8",
@@ -3940,7 +3938,7 @@
     {
         "id": "47ef329b.d8b2cc",
         "type": "function",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "name": "Set_cmd",
         "func": "msg.cmd.cmd = \"set\";\n\nreturn msg;",
         "outputs": 1,
@@ -3956,7 +3954,7 @@
     {
         "id": "4aed5869.ba1d68",
         "type": "link out",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "name": "COMMAND EXECUTION IN",
         "links": [
             "a7526a82.79b968",
@@ -3969,7 +3967,7 @@
     {
         "id": "be25cb66.912838",
         "type": "link out",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "name": "COMMAND EXECUTION IN",
         "links": [
             "a7526a82.79b968",
@@ -3982,7 +3980,7 @@
     {
         "id": "46552365.f53f1c",
         "type": "inject",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "name": "",
         "topic": "",
         "payload": "{\"sessionId\":\"bad1fb80-9c46-42de-80c4-7ac8c52b4132\",\"customData\":null,\"siteId\":\"default\",\"input\":\"open home cinema shutter\",\"asrTokens\":[[{\"value\":\"öffne\",\"confidence\":1,\"range_start\":0,\"range_end\":5,\"time\":{\"start\":0,\"end\":0.71999997}},{\"value\":\"die\",\"confidence\":1,\"range_start\":6,\"range_end\":9,\"time\":{\"start\":0.71999997,\"end\":0.78}},{\"value\":\"lamellen\",\"confidence\":1,\"range_start\":10,\"range_end\":18,\"time\":{\"start\":0.78,\"end\":1.23}},{\"value\":\"im\",\"confidence\":1,\"range_start\":19,\"range_end\":21,\"time\":{\"start\":1.23,\"end\":1.53}},{\"value\":\"wohnzimmer\",\"confidence\":1,\"range_start\":22,\"range_end\":32,\"time\":{\"start\":1.53,\"end\":2.73}}]],\"intent\":{\"intentName\":\"ProKNX:openSetShutters\",\"probability\":1},\"slots\":[{\"confidence\":1,\"rawValue\":\"shutter\",\"value\":{\"kind\":\"Custom\",\"value\":\"shutters\"},\"range\":{\"start\":6,\"end\":18},\"entity\":\"window_devices\",\"slotName\":\"window_device\"},{\"confidence\":1,\"rawValue\":\"home cinema\",\"value\":{\"kind\":\"Custom\",\"value\":\"home cinema\"},\"range\":{\"start\":22,\"end\":32},\"entity\":\"room\",\"slotName\":\"room\"}]}",
@@ -4001,7 +3999,7 @@
     {
         "id": "1d33d7cb.6953e8",
         "type": "inject",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "name": "",
         "topic": "",
         "payload": "{\"sessionId\":\"40951a47-03ec-447e-8bf8-9302374e892e\",\"customData\":null,\"siteId\":\"bedroom\",\"input\":\"set the brightness of the wall to fifty percent in the home cinema\",\"intent\":{\"intentName\":\"ProKNX:shiftThermostats\",\"probability\":0.75861675},\"slots\":[{\"confidence\":0.974062,\"rawValue\":\"up\",\"value\":{\"kind\":\"Custom\",\"value\":\"down\"},\"range\":{\"start\":26,\"end\":30},\"entity\":\"up_down\",\"slotName\":\"up_down\"},{\"confidence\":1,\"rawValue\":\"home cinema\",\"value\":{\"kind\":\"Custom\",\"value\":\"home cinema\"},\"range\":{\"start\":55,\"end\":66},\"entity\":\"house_room\",\"slotName\":\"room\"}]}",
@@ -4020,7 +4018,7 @@
     {
         "id": "397decc4.fcedc4",
         "type": "function",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "name": "Set_cmd",
         "func": "msg.cmd.cmd = \"on\";\n\nreturn msg;",
         "outputs": 1,
@@ -4036,7 +4034,7 @@
     {
         "id": "9b536b7e.9f3148",
         "type": "switch",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "name": "Route requests",
         "property": "payload.intent.intentName",
         "propertyType": "msg",
@@ -4060,7 +4058,7 @@
     {
         "id": "e54fae8e.dda05",
         "type": "function",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "name": "Array_intent",
         "func": "msg.cmd = [];\nmsg.items = [];\nmsg.deviceList = flow.get(\"msgDeviceList\");\nmsg.cmd.lang = flow.get(\"msgLang\");\nmsg.proServIP = flow.get(\"msgProServIP\");\n\nString.prototype.sansAccent = function() {\n    var accent = [\n        /[\\300-\\306]/g, /[\\340-\\346]/g, // A, a\n        /[\\310-\\313]/g, /[\\350-\\353]/g, // E, e\n        /[\\314-\\317]/g, /[\\354-\\357]/g, // I, i\n        /[\\322-\\330]/g, /[\\362-\\370]/g, // O, o\n        /[\\331-\\334]/g, /[\\371-\\374]/g, // U, u\n        /[\\321]/g, /[\\361]/g, // N, n\n        /[\\307]/g, /[\\347]/g, // C, c\n    ];\n    var noaccent = ['A','a','E','e','I','i','O','o','U','u','N','n','C','c'];\n     \n    var str = this;\n    for(var i = 0; i < accent.length; i++){\n        str = str.replace(accent[i], noaccent[i]);\n    }\n     \n    return str;\n};\n\nfunction precisionRound(number, precision) {\n  var factor = Math.pow(10, precision);\n  return Math.round(number * factor) / factor;\n}\n\nfunction findObjectByKey(array, key, value) {\n    items=[];\n    var cpt=0;\n    for (var i = 0; i < array.length; i++) {\n        if (array[i][key] === value) {\n            items[cpt]=array[i];\n            cpt++;\n        }\n    }\n    if (items[0] !== undefined) {\n        return items;\n    } else {\n        return null;\n    }\n}\n\nfunction findRoomByKey(array, key, value) {\n    msg.items = [];\n    var cpt = 0;\n    for (var i = 0; i < array.length; i++) {\n        var x = array[i][key].toLowerCase().sansAccent();\n        if (x === value) {\n            msg.items[cpt] = array[i];\n            cpt ++;\n        }\n    }\n    return null;\n}\n\nfunction findDeviceByKey(array, key, value) {\n    msg.items = [];\n    var cpt = 0;\n    for (var i = 0; i < array.length; i++) {\n        var x = array[i][key].toLowerCase().sansAccent();\n        if (x === value) {\n            msg.items[cpt] = array[i];\n            cpt ++;\n        }\n    }\n    return null;\n}\n\nfunction findTypeByKey(array, key, value) {\n    msg.items = [];\n    var cpt = 0;\n    for (var i = 0; i < array.length; i++) {\n        var x = array[i][key];\n        if (x === value) {\n            msg.items[cpt] = array[i];\n            cpt ++;\n        }\n    }\n    return null;\n}\n\nvar rawRoom = findObjectByKey(msg.payload.slots, 'slotName', 'room');\nvar rawDevice = findObjectByKey(msg.payload.slots, 'slotName', 'scene_device');\nvar rawValue = findObjectByKey(msg.payload.slots, 'slotName', 'value');\nmsg.cmd.type = \"scenes\";\nmsg.cmd.siteId = msg.payload.siteId.replace(/_/g,\" \");\nif (rawRoom !== null) {\n    msg.cmd.room = [];\n    for (var i = 0; i < rawRoom.length; i++) {\n        msg.cmd.room[i] = rawRoom[i].value.value.toLowerCase().sansAccent();\n        if (msg.cmd.room[i] === \"here\" ||msg.cmd.room[i] === \"hier\" || msg.cmd.room[i] === \"ici\" ) {\n            msg.cmd.room[i] = msg.payload.siteId.replace(/_/g,\" \");\n        }\n        if (msg.cmd.room[i] === \"everywhere\" || msg.cmd.room[i] === \"uberall\" || msg.cmd.room[i] === \"partout\"){\n            delete msg.cmd.room;\n            break;\n        }\n    }\n} else {\n    msg.cmd.room = [];\n    msg.cmd.room[0] = msg.payload.siteId.replace(/_/g,\" \");\n}\n\nif (rawDevice !== null) {\n    msg.cmd.device = [];\n    cpt = 0;\n    for (var i = 0; i < rawDevice.length; i++) {\n        if (rawDevice[i].value.value.toLowerCase().sansAccent() !== \"scene\" && rawDevice[i].value.value.toLowerCase().sansAccent() !== \"szene\") {\n    \t    msg.cmd.device[cpt] = rawDevice[i].value.value.toLowerCase().sansAccent();\n            cpt++;\n        }\n    }\n}\n\nif (rawValue !== null) {\n\tmsg.cmd.value = precisionRound(rawValue[0].value.value, 1);\n}\n\ntmp = [];\nfindTypeByKey(msg.deviceList, 'type', msg.cmd.type);\ntmp = msg.items;\n\nif (msg.cmd.device !== undefined) {\n    tmpList = [];\n    cpt = 0;\n    for (var i = 0; i < msg.cmd.device.length; i++) {\n        findDeviceByKey(tmp, 'object', msg.cmd.device[i]);\n        tmpList[cpt] = msg.items;\n        cpt++;\n    }\n    tmp = [];\n    for (var i = 0; i < tmpList.length; i++) {\n        for (var n = 0; n < tmpList[i].length; n++) {\n            tmp.push(tmpList[i][n]);\n        }\n    }\n}\nif (msg.cmd.room !== undefined) {\n    tmpList = [];\n    cpt = 0;\n    for (var i = 0; i < msg.cmd.room.length; i++) {\n        findRoomByKey(tmp, 'zone', msg.cmd.room[i]);\n        tmpList[cpt] = msg.items;\n        cpt++;\n    }\n    tmp = [];\n    for (var i = 0; i < tmpList.length; i++) {\n        for (var n = 0; n < tmpList[i].length; n++) {\n            tmp.push(tmpList[i][n]);\n        }\n    }\n} else {tmp = [];}\n\nmsg.items = tmp;\n\nif (msg.items[0] === undefined) {\n    if (msg.cmd.lang === \"de\") {\n        msg.error = {\n            text: \"Ich kann diese Szene nicht finden\",\n            siteId: msg.cmd.siteId,\n            lang: \"de-DE\"\n        };\n    } else if (msg.cmd.lang === \"fr\") {\n        msg.error = {\n            text: \"Je n'ai pas pu trouver cette scène\",\n            siteId: msg.cmd.siteId,\n            lang:\"fr-FR\"\n        };\n    } else {\n        msg.error = {\n            text: \"I can not find this scene\",\n            siteId: msg.cmd.siteId,\n            lang:\"en-EN\"\n        };\n    }\n}\n\nreturn msg;",
         "outputs": 1,
@@ -4076,7 +4074,7 @@
     {
         "id": "219c04bf.e060ec",
         "type": "switch",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "name": "Items ?",
         "property": "error",
         "propertyType": "msg",
@@ -4104,7 +4102,7 @@
     {
         "id": "91d41aaa.7dd1d8",
         "type": "link out",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "name": "ERROR IN",
         "links": [
             "c1d9abe6.c5f8b8",
@@ -4118,7 +4116,7 @@
     {
         "id": "fa026c94.9a529",
         "type": "link out",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "name": "COMMAND EXECUTION IN",
         "links": [
             "e5c52d9e.d074c",
@@ -4131,7 +4129,7 @@
     {
         "id": "d904ccd.7e8df3",
         "type": "function",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "name": "Array_intent",
         "func": "msg.cmd = [];\ntmp = [];\nmsg.items = [];\nmsg.deviceList = flow.get(\"msgDeviceList\");\nmsg.cmd.lang = flow.get(\"msgLang\");\nmsg.proServIP = flow.get(\"msgProServIP\");\n\nString.prototype.sansAccent = function() {\n    var accent = [\n        /[\\300-\\306]/g, /[\\340-\\346]/g, // A, a\n        /[\\310-\\313]/g, /[\\350-\\353]/g, // E, e\n        /[\\314-\\317]/g, /[\\354-\\357]/g, // I, i\n        /[\\322-\\330]/g, /[\\362-\\370]/g, // O, o\n        /[\\331-\\334]/g, /[\\371-\\374]/g, // U, u\n        /[\\321]/g, /[\\361]/g, // N, n\n        /[\\307]/g, /[\\347]/g, // C, c\n    ];\n    var noaccent = ['A','a','E','e','I','i','O','o','U','u','N','n','C','c'];\n     \n    var str = this;\n    for(var i = 0; i < accent.length; i++){\n        str = str.replace(accent[i], noaccent[i]);\n    }\n     \n    return str;\n};\n\nfunction precisionRound(number, precision) {\n  var factor = Math.pow(10, precision);\n  return Math.round(number * factor) / factor;\n}\n\nfunction findObjectByKey(array, key, value) {\n    items=[];\n    var cpt=0;\n    for (var i = 0; i < array.length; i++) {\n        if (array[i][key] === value) {\n            items[cpt]=array[i];\n            cpt++;\n        }\n    }\n    if (items[0] !== undefined) {\n        return items;\n    } else {\n        return null;\n    }\n}\n\nfunction findRoomByKey(array, key, value) {\n    msg.items = [];\n    var cpt = 0;\n    for (var i = 0; i < array.length; i++) {\n        var x = array[i][key].toLowerCase().sansAccent();\n        if (x === value) {\n            msg.items[cpt] = array[i];\n            cpt ++;\n        }\n    }\n    return null;\n}\n\nfunction findDeviceByKey(array, key, value) {\n    msg.items = [];\n    var cpt = 0;\n    for (var i = 0; i < array.length; i++) {\n        var x = array[i][key].toLowerCase().sansAccent();\n        if (x === value) {\n            msg.items[cpt] = array[i];\n            cpt ++;\n        }\n    }\n    return null;\n}\n\nfunction findTypeByKey(array, key, value) {\n    msg.items = [];\n    var cpt = 0;\n    for (var i = 0; i < array.length; i++) {\n        var x = array[i][key];\n        if (x === value) {\n            msg.items[cpt] = array[i];\n            cpt ++;\n        }\n    }\n    return null;\n}\n\nfunction findSwitchByKey(array, key, value) {\n    msg.payload.switch_lights = [];\n    var cpt = 0;\n    for (var i = 0; i < array.length; i++) {\n        if (array[i][key] === value) {\n            msg.payload.switch_lights[cpt] = array[i];\n            cpt ++;\n        }\n    }\n    return null;\n}\n\nfunction findDimmerByKey(array, key, value) {\n    msg.payload.dimmer_lights = [];\n    var cpt = 0;\n    for (var i = 0; i < array.length; i++) {\n        if (array[i][key] === value) {\n            msg.payload.dimmer_lights[cpt] = array[i];\n            cpt ++;\n        }\n    }\n    return null;\n}\n\nvar rawRoom = findObjectByKey(msg.payload.slots, 'slotName', 'room');\nvar rawLight = findObjectByKey(msg.payload.slots, 'slotName', 'light_device');\nvar rawShutter = findObjectByKey(msg.payload.slots, 'slotName', 'window_device');\nvar rawTherm = findObjectByKey(msg.payload.slots, 'slotName', 'temperature_device');\nvar rawScene = findObjectByKey(msg.payload.slots, 'slotName', 'scene_device');\nvar rawValue = findObjectByKey(msg.payload.slots, 'slotName', 'value');\nmsg.cmd.siteId = msg.payload.siteId.replace(/_/g,\" \");\nmsg.cmd.query = true;\n\nif (rawRoom !== null) {\n    msg.cmd.room = [];\n    for (var i = 0; i < rawRoom.length; i++) {\n        msg.cmd.room[i] = rawRoom[i].value.value.toLowerCase().sansAccent();\n        if (msg.cmd.room[i] === \"here\" ||msg.cmd.room[i] === \"hier\" || msg.cmd.room[i] === \"ici\" ) {\n            msg.cmd.room[i] = msg.payload.siteId.replace(/_/g,\" \");\n        }\n        if (msg.cmd.room[i] === \"everywhere\" || msg.cmd.room[i] === \"uberall\" || msg.cmd.room[i] === \"partout\"){\n            delete msg.cmd.room;\n            break;\n        }\n    }\n} else {\n    msg.cmd.room = [];\n    msg.cmd.room[0] = msg.payload.siteId.replace(/_/g,\" \");\n}\n\nif (rawLight !== null) {\n    msg.cmd.type = \"lights\";\n    msg.cmd.device = [];\n    cpt = 0;\n    for (var i = 0; i < rawLight.length; i++) {\n        if (rawLight[i].value.value.toLowerCase().sansAccent() !== \"light\" && rawLight[i].value.value.toLowerCase().sansAccent() !== \"licht\" && rawLight[i].value.value.toLowerCase().sansAccent() !== \"lumiere\") {\n    \t    msg.cmd.device[cpt] = rawLight[i].value.value.toLowerCase().sansAccent();\n            cpt++;\n        }\n    }\n    tmp = [];\n    findSwitchByKey(msg.deviceList, 'type', 'lights');\n    findDimmerByKey(msg.deviceList, 'type', 'dimmers');\n    msg.items = msg.payload.switch_lights.concat(msg.payload.dimmer_lights);\n    tmp = msg.items;\n\n    if (msg.cmd.device[0] !== undefined) {\n        msg.tmpList = [];\n        cpt = 0;\n        for (var i = 0; i < msg.cmd.device.length; i++) {\n            findDeviceByKey(tmp, 'object', msg.cmd.device[i]);\n            msg.tmpList[cpt] = msg.items;\n            cpt++;\n        }\n        tmp = [];\n        for (var i = 0; i < msg.tmpList.length; i++) {\n            for (var n = 0; n < msg.tmpList[i].length; n++) {\n                tmp.push(msg.tmpList[i][n]);\n            }\n        }\n    }\n} else if (rawShutter !== null) {\n    msg.cmd.type = \"blinds\";\n    cpt = 0;\n    msg.cmd.device = [];\n    for (var i = 0; i < rawShutter.length; i++) {\n        msg.cmd.device[cpt] = rawShutter[i].value.value.toLowerCase().sansAccent();\n    }\n\n    tmp = [];\n    findTypeByKey(msg.deviceList, 'type', msg.cmd.type);\n    tmp = msg.items;\n\n    if (msg.cmd.device[0] !== undefined) {\n        tmpList = [];\n        cpt = 0;\n        for (var i = 0; i < msg.cmd.device.length; i++) {\n            findDeviceByKey(tmp, 'object', msg.cmd.device[i]);\n            tmpList[cpt] = msg.items;\n            cpt++;\n        }\n        if (tmpList[0][0]!== undefined) {\n            if (tmpList[0][0].name!== undefined) {\n                tmp = [];\n                for (var i = 0; i < tmpList.length; i++) {\n                    for (var n = 0; n < tmpList[i].length; n++) {\n                        tmp.push(tmpList[i][n]);\n                    }\n                }\n            }\n        } else {}\n    }\n} else if (rawTherm !== null) {\n    msg.cmd.type = \"heating\";\n    cpt = 0;\n        msg.cmd.device = [];\n        for (var i = 0; i < rawTherm.length; i++) {\n\t        msg.cmd.device[cpt] = rawTherm[i].value.value.toLowerCase().sansAccent();\n        }\n        \n    tmp = [];\n    findTypeByKey(msg.deviceList, 'type', msg.cmd.type);\n    tmp = msg.items;\n\n    if (msg.cmd.device[0] !== undefined) {\n    tmpList = [];\n    cpt = 0;\n        for (var i = 0; i < msg.cmd.device.length; i++) {\n            findDeviceByKey(tmp, 'object', msg.cmd.device[i]);\n            tmpList[cpt] = msg.items;\n            cpt++;\n        }\n        if (tmpList[0][0]!== undefined) {\n            if (tmpList[0][0].name!== undefined) {\n                tmp = [];\n                for (var i = 0; i < tmpList.length; i++) {\n                    for (var n = 0; n < tmpList[i].length; n++) {\n                        tmp.push(tmpList[i][n]);\n                    }\n                }\n            }\n        } else {}\n    }\n} else if (rawScene !== null) {\n    msg.cmd.type = \"scenes\";\n    msg.cmd.device = [];\n    cpt = 0;\n    for (var i = 0; i < rawScene.length; i++) {\n        if (rawScene[i].value.value.toLowerCase().sansAccent() !== \"scene\" && RawScene[i].value.value.toLowerCase().sansAccent() !== \"all\") {\n    \t    msg.cmd.device[cpt] = rawScene[i].value.value.toLowerCase().sansAccent();\n            cpt++;\n        }\n    }\n    tmp = [];\n    findTypeByKey(msg.deviceList, 'type', msg.cmd.type);\n    tmp = msg.items;\n\n    if (msg.cmd.device[0] !== undefined) {\n        msg.tmpList = [];\n        cpt = 0;\n        for (var i = 0; i < msg.cmd.device.length; i++) {\n            findDeviceByKey(tmp, 'object', msg.cmd.device[i]);\n            msg.tmpList[cpt] = msg.items;\n            cpt++;\n        }\n        tmp = [];\n        for (var i = 0; i < msg.tmpList.length; i++) {\n            for (var n = 0; n < msg.tmpList[i].length; n++) {\n                tmp.push(msg.tmpList[i][n]);\n            }\n        }\n    }\n}\n\nif (msg.cmd.room !== undefined && tmp !== undefined) {\n    tmpList = [];\n    cpt = 0;\n    for (var i = 0; i < msg.cmd.room.length; i++) {\n        findRoomByKey(tmp, 'zone', msg.cmd.room[i]);\n        tmpList[cpt] = msg.items;\n        cpt++;\n    }\n    tmp = [];\n    for (var i = 0; i < tmpList.length; i++) {\n        for (var n = 0; n < tmpList[i].length; n++) {\n            tmp.push(tmpList[i][n]);\n        }\n    }\n}\n\nmsg.items = tmp;\n\nif (msg.items[0] === undefined) {\n    if (msg.cmd.lang === \"de\") {\n        msg.error = {\n            text: \"Ich kann dieses Gerät nicht finden\",\n            siteId: msg.cmd.siteId,\n            lang: \"de-DE\"\n        };\n    } else if (msg.cmd.lang === \"fr\") {\n        msg.error = {\n            text: \"Je n'ai pas pu trouver cet appareil\",\n            siteId: msg.cmd.siteId,\n            lang:\"fr-FR\"\n        };\n    } else {\n        msg.error = {\n            text: \"I can not find this device\",\n            siteId: msg.cmd.siteId,\n            lang:\"en-EN\"\n        };\n    }\n}\n\nreturn msg;",
         "outputs": 1,
@@ -4147,7 +4145,7 @@
     {
         "id": "6b7d133a.73143c",
         "type": "switch",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "name": "Items ?",
         "property": "error",
         "propertyType": "msg",
@@ -4175,7 +4173,7 @@
     {
         "id": "2574023e.402abe",
         "type": "link out",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "name": "ERROR IN",
         "links": [
             "c1d9abe6.c5f8b8",
@@ -4189,7 +4187,7 @@
     {
         "id": "6066c1eb.1b935",
         "type": "link out",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "name": "QUERY EXECUTION IN",
         "links": [
             "c088f2bf.a2199",
@@ -4202,7 +4200,7 @@
     {
         "id": "d6da8c.87a0b578",
         "type": "inject",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "name": "",
         "topic": "",
         "payload": "{\"sessionId\":\"ada95fa7-80bc-4a75-86dd-1c43e4921950\",\"customData\":null,\"siteId\":\"default\",\"input\":\"what 's the status of the blinds in the home cinema\",\"asrTokens\":[[{\"value\":\"what\",\"confidence\":1,\"range_start\":0,\"range_end\":4,\"time\":{\"start\":0,\"end\":1.02}},{\"value\":\"'s\",\"confidence\":1,\"range_start\":5,\"range_end\":7,\"time\":{\"start\":1.02,\"end\":1.14}},{\"value\":\"the\",\"confidence\":0.9781889,\"range_start\":8,\"range_end\":11,\"time\":{\"start\":1.14,\"end\":1.316074}},{\"value\":\"status\",\"confidence\":1,\"range_start\":12,\"range_end\":18,\"time\":{\"start\":1.316074,\"end\":1.8299999}},{\"value\":\"of\",\"confidence\":1,\"range_start\":19,\"range_end\":21,\"time\":{\"start\":1.8299999,\"end\":1.9799999}},{\"value\":\"the\",\"confidence\":0.9132247,\"range_start\":22,\"range_end\":25,\"time\":{\"start\":1.9799999,\"end\":2.7471087}},{\"value\":\"blinds\",\"confidence\":1,\"range_start\":26,\"range_end\":32,\"time\":{\"start\":2.7471087,\"end\":2.9099998}},{\"value\":\"in\",\"confidence\":1,\"range_start\":33,\"range_end\":35,\"time\":{\"start\":2.9099998,\"end\":3.06}},{\"value\":\"the\",\"confidence\":1,\"range_start\":36,\"range_end\":39,\"time\":{\"start\":3.06,\"end\":3.3}},{\"value\":\"home\",\"confidence\":1,\"range_start\":40,\"range_end\":44,\"time\":{\"start\":3.3,\"end\":3.3899999}},{\"value\":\"cinema\",\"confidence\":1,\"range_start\":45,\"range_end\":51,\"time\":{\"start\":3.3899999,\"end\":4.62}}]],\"intent\":{\"intentName\":\"ProKNX:deviceStatusCheck\",\"probability\":0.99101967},\"slots\":[{\"confidence\":1,\"rawValue\":\"blinds\",\"value\":{\"kind\":\"Custom\",\"value\":\"blinds\"},\"range\":{\"start\":26,\"end\":32},\"entity\":\"window_device\",\"slotName\":\"window_device\"},{\"confidence\":1,\"rawValue\":\"home cinema\",\"value\":{\"kind\":\"Custom\",\"value\":\"home cinema\"},\"range\":{\"start\":40,\"end\":51},\"entity\":\"house_room\",\"slotName\":\"room\"}]}",
@@ -4221,7 +4219,7 @@
     {
         "id": "fe4b8df.994307",
         "type": "split",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "name": "",
         "splt": "\\n",
         "spltType": "str",
@@ -4240,7 +4238,7 @@
     {
         "id": "8d3c6904.8edd28",
         "type": "inject",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "name": "Inject English",
         "topic": "",
         "payload": "true",
@@ -4259,7 +4257,7 @@
     {
         "id": "784ba7f5.ae2318",
         "type": "function",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "name": "msg EN",
         "func": "msg.payload = {\n    text: \"Hello, this is a test message!\",\n    siteId: \"default\",\n    lang: \"en-UK\"\n};\n\nreturn msg;",
         "outputs": 1,
@@ -4276,7 +4274,7 @@
     {
         "id": "ebbb6e3d.adf96",
         "type": "function",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "name": "msg FR",
         "func": "msg.payload = {\n    text: \"Bonjour, ceci est un message de test!\",\n    siteId: \"default\",\n    lang: \"fr-FR\"\n};\n\n\nreturn msg;",
         "outputs": 1,
@@ -4293,7 +4291,7 @@
     {
         "id": "b3fe8240.68061",
         "type": "inject",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "name": "Inject French",
         "topic": "",
         "payload": "true",
@@ -4312,7 +4310,7 @@
     {
         "id": "277f14ff.4e29fc",
         "type": "function",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "name": "msg DE",
         "func": "msg.payload = {\n    text: \"Hallo, das ist eine Testnachricht!\",\n    siteId: \"default\",\n    lang: \"de-DE\"\n};\n\nreturn msg;",
         "outputs": 1,
@@ -4329,7 +4327,7 @@
     {
         "id": "2839957a.48597a",
         "type": "inject",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "name": "Inject German",
         "topic": "",
         "payload": "true",
@@ -4348,7 +4346,7 @@
     {
         "id": "71f2211.ac294e",
         "type": "inject",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "name": "",
         "topic": "",
         "payload": "{\"sessionId\":\"f4bfcec4-95e6-4258-bbae-090cddd189db\",\"customData\":null,\"siteId\":\"bedroom\",\"input\":\"activate\",\"asrTokens\":[[{\"value\":\"activate\",\"confidence\":1,\"range_start\":0,\"range_end\":8,\"time\":{\"start\":0,\"end\":1.89}}]],\"intent\":{\"intentName\":\"ProKNX:activateScenes\",\"probability\":0.81419545},\"slots\":[{\"confidence\":1,\"rawValue\":\"activate\",\"value\":{\"kind\":\"Custom\",\"value\":\"activate\"},\"range\":{\"start\":0,\"end\":8},\"entity\":\"scene_name\",\"slotName\":\"scene_device\"}]}",
@@ -4367,7 +4365,7 @@
     {
         "id": "c16397dc.c90aa8",
         "type": "http in",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "name": "",
         "url": "/hello",
         "method": "get",
@@ -4385,7 +4383,7 @@
     {
         "id": "1777c7a2.feaaf8",
         "type": "http response",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "name": "",
         "statusCode": "200",
         "headers": {},
@@ -4396,7 +4394,7 @@
     {
         "id": "1cfab996.c00b06",
         "type": "function",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "name": "msg",
         "func": "if(!msg.payload){\n    msg.payload = {\n        text: \"Hello!\",\n        siteId: \"default\",\n        lang: \"en-UK\"\n    };\n}\nreturn msg;",
         "outputs": "1",
@@ -4413,7 +4411,7 @@
     {
         "id": "62b402d3.103e3c",
         "type": "function",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "name": "Filter",
         "func": "msg.cmd = [];\nmsg.cmd.lang = flow.get(\"msgLang\");\nmsg.cmd.siteId = msg.payload.siteId.replace(/_/g,\" \");\n\nif (msg.payload.intent.probability < 0.4 || msg.payload.asrTokens[0].length <= 1) {}\nelse if (msg.payload.intent.probability > 0.4 && msg.payload.intent.probability < 0.6){\n    if (msg.cmd.lang === \"de\") {\n        text = \"Entschuldigung, Ich habe deine Anweisung nicht verstanden\";\n        msg.error = {\n            text: text,\n            siteId: msg.cmd.siteId,\n            lang: \"de-DE\"\n        };\n    } else if (msg.cmd.lang === \"fr\") {\n        text = \"Désolé, je n'ai pas compris la commande\";\n        msg.error = {\n            text: text,\n            siteId: msg.cmd.siteId,\n            lang: \"fr-FR\"\n        };\n    } else {\n        text = \"Sorry, I do not understand your command\";\n        msg.error = {\n            text: text,\n            siteId: msg.cmd.siteId,\n            lang: \"en-EN\"\n        };\n    }\n    return msg;\n} else {\n    return msg;\n}",
         "outputs": 1,
@@ -4429,7 +4427,7 @@
     {
         "id": "870d61f3.00bdb",
         "type": "switch",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "name": "Error ?",
         "property": "error",
         "propertyType": "msg",
@@ -4458,7 +4456,7 @@
     {
         "id": "f4e11622.bb2ed8",
         "type": "link out",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "name": "ERROR IN",
         "links": [
             "c1d9abe6.c5f8b8",
@@ -4472,7 +4470,7 @@
     {
         "id": "43a64861.5066a8",
         "type": "function",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "name": "Filter",
         "func": "msg.cmd = [];\nmsg.cmd.lang = flow.get(\"msgLang\");\nmsg.cmd.siteId = msg.payload.siteId.replace(/_/g,\" \");\n\nif (msg.payload.intent.probability < 0.4 || msg.payload.asrTokens[0].length <= 1) {}\nelse if (msg.payload.intent.probability > 0.4 && msg.payload.intent.probability < 0.6){\n    if (msg.cmd.lang === \"de\") {\n        text = \"Entschuldigung, Ich habe deine Anweisung nicht verstanden\";\n        msg.error = {\n            text: text,\n            siteId: msg.cmd.siteId,\n            lang: \"de-DE\"\n        };\n    } else if (msg.cmd.lang === \"fr\") {\n        text = \"Désolé, je n'ai pas compris la commande\";\n        msg.error = {\n            text: text,\n            siteId: msg.cmd.siteId,\n            lang: \"fr-FR\"\n        };\n    } else {\n        text = \"Sorry, I do not understand your command\";\n        msg.error = {\n            text: text,\n            siteId: msg.cmd.siteId,\n            lang: \"en-EN\"\n        };\n    }\n    return msg;\n} else {\n    return msg;\n}",
         "outputs": 1,
@@ -4488,7 +4486,7 @@
     {
         "id": "225df12b.138bbe",
         "type": "switch",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "name": "Error ?",
         "property": "error",
         "propertyType": "msg",
@@ -4516,7 +4514,7 @@
     {
         "id": "28a2ac7.e0bcc54",
         "type": "link out",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "name": "ERROR IN",
         "links": [
             "c1d9abe6.c5f8b8",
@@ -4530,7 +4528,7 @@
     {
         "id": "6c783899.f36df8",
         "type": "function",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "name": "Filter",
         "func": "msg.cmd = [];\nmsg.cmd.lang = flow.get(\"msgLang\");\nmsg.cmd.siteId = msg.payload.siteId.replace(/_/g,\" \");\n\nif (msg.payload.intent.probability < 0.4 || msg.payload.asrTokens[0].length <= 1) {}\nelse if (msg.payload.intent.probability > 0.4 && msg.payload.intent.probability < 0.6){\n    if (msg.cmd.lang === \"de\") {\n        text = \"Entschuldigung, Ich habe deine Anweisung nicht verstanden\";\n        msg.error = {\n            text: text,\n            siteId: msg.cmd.siteId,\n            lang: \"de-DE\"\n        };\n    } else if (msg.cmd.lang === \"fr\") {\n        text = \"Désolé, je n'ai pas compris la commande\";\n        msg.error = {\n            text: text,\n            siteId: msg.cmd.siteId,\n            lang: \"fr-FR\"\n        };\n    } else {\n        text = \"Sorry, I do not understand your command\";\n        msg.error = {\n            text: text,\n            siteId: msg.cmd.siteId,\n            lang: \"en-EN\"\n        };\n    }\n    return msg;\n} else {\n    return msg;\n}",
         "outputs": 1,
@@ -4546,7 +4544,7 @@
     {
         "id": "fc567d25.4c59b",
         "type": "switch",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "name": "Error ?",
         "property": "error",
         "propertyType": "msg",
@@ -4574,7 +4572,7 @@
     {
         "id": "8be38c38.0f1fb",
         "type": "link out",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "name": "ERROR IN",
         "links": [
             "c1d9abe6.c5f8b8",
@@ -4588,7 +4586,7 @@
     {
         "id": "45dc1865.8dc8f8",
         "type": "function",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "name": "Filter",
         "func": "msg.cmd = [];\nmsg.cmd.lang = flow.get(\"msgLang\");\nmsg.cmd.siteId = msg.payload.siteId.replace(/_/g,\" \");\n\nif (msg.payload.intent.probability < 0.4 || msg.payload.asrTokens[0].length <= 1) {}\nelse if (msg.payload.intent.probability > 0.4 && msg.payload.intent.probability < 0.6){\n    if (msg.cmd.lang === \"de\") {\n        text = \"Entschuldigung, Ich habe deine Anweisung nicht verstanden\";\n        msg.error = {\n            text: text,\n            siteId: msg.cmd.siteId,\n            lang: \"de-DE\"\n        };\n    } else if (msg.cmd.lang === \"fr\") {\n        text = \"Désolé, je n'ai pas compris la commande\";\n        msg.error = {\n            text: text,\n            siteId: msg.cmd.siteId,\n            lang: \"fr-FR\"\n        };\n    } else {\n        text = \"Sorry, I do not understand your command\";\n        msg.error = {\n            text: text,\n            siteId: msg.cmd.siteId,\n            lang: \"en-EN\"\n        };\n    }\n    return msg;\n} else {\n    return msg;\n}",
         "outputs": 1,
@@ -4604,7 +4602,7 @@
     {
         "id": "c891740d.947d28",
         "type": "switch",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "name": "Error ?",
         "property": "error",
         "propertyType": "msg",
@@ -4632,7 +4630,7 @@
     {
         "id": "fbb56eed.f4d2b",
         "type": "link out",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "name": "ERROR IN",
         "links": [
             "c1d9abe6.c5f8b8",
@@ -4646,7 +4644,7 @@
     {
         "id": "53defec2.a21c1",
         "type": "function",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "name": "Filter",
         "func": "msg.cmd = [];\nmsg.cmd.lang = flow.get(\"msgLang\");\nmsg.cmd.siteId = msg.payload.siteId.replace(/_/g,\" \");\n\nif (msg.payload.intent.probability < 0.4 || msg.payload.asrTokens[0].length <= 1) {}\nelse if (msg.payload.intent.probability > 0.4 && msg.payload.intent.probability < 0.6){\n    if (msg.cmd.lang === \"de\") {\n        text = \"Entschuldigung, Ich habe deine Anweisung nicht verstanden\";\n        msg.error = {\n            text: text,\n            siteId: msg.cmd.siteId,\n            lang: \"de-DE\"\n        };\n    } else if (msg.cmd.lang === \"fr\") {\n        text = \"Désolé, je n'ai pas compris la commande\";\n        msg.error = {\n            text: text,\n            siteId: msg.cmd.siteId,\n            lang: \"fr-FR\"\n        };\n    } else {\n        text = \"Sorry, I do not understand your command\";\n        msg.error = {\n            text: text,\n            siteId: msg.cmd.siteId,\n            lang: \"en-EN\"\n        };\n    }\n    return msg;\n} else {\n    return msg;\n}",
         "outputs": 1,
@@ -4662,7 +4660,7 @@
     {
         "id": "2e58610d.38f19e",
         "type": "switch",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "name": "",
         "property": "cmd.type",
         "propertyType": "msg",
@@ -4700,7 +4698,7 @@
     {
         "id": "30e34fe.0e1dbb",
         "type": "debug",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "name": "",
         "active": true,
         "console": "false",
@@ -4712,7 +4710,7 @@
     {
         "id": "e1dc2399.32e56",
         "type": "debug",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "name": "",
         "active": true,
         "console": "false",
@@ -4724,7 +4722,7 @@
     {
         "id": "f43e1a2d.e4ba18",
         "type": "debug",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "name": "",
         "active": true,
         "console": "false",
@@ -4736,7 +4734,7 @@
     {
         "id": "7d9e32d1.7a651c",
         "type": "debug",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "name": "",
         "active": true,
         "console": "false",
@@ -4748,13 +4746,13 @@
     {
         "id": "2be71b45.6307c4",
         "type": "function",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "name": "warmup",
         "func": "// the respeaker speaker needs time to get started\nmsg.payload.text = \" \";\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 2900,
-        "y": 2080,
+        "x": 2860,
+        "y": 2100,
         "wires": [
             [
                 "a1a7b37b.e5ef"
@@ -4764,7 +4762,7 @@
     {
         "id": "9d977f98.3f62e",
         "type": "delay",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "name": "",
         "pauseType": "delay",
         "timeout": "500",
@@ -4776,7 +4774,7 @@
         "randomLast": "5",
         "randomUnits": "seconds",
         "drop": false,
-        "x": 2890,
+        "x": 2870,
         "y": 2140,
         "wires": [
             [
@@ -4785,9 +4783,51 @@
         ]
     },
     {
+        "id": "b8650fe6.5e3ce",
+        "type": "mqtt in",
+        "z": "6c697848.f2dcf8",
+        "name": "hermes/hotword/toggleOn",
+        "topic": "hermes/hotword/toggleOn",
+        "qos": "2",
+        "broker": "7c060369.da740c",
+        "x": 2790,
+        "y": 2280,
+        "wires": [
+            [
+                "1d5d4735.765da9"
+            ]
+        ]
+    },
+    {
+        "id": "1d5d4735.765da9",
+        "type": "function",
+        "z": "6c697848.f2dcf8",
+        "name": "",
+        "func": "msg.payload = {\n    text: \"\",\n    siteId: \"default\",\n    lang: \"fr-FR\"\n};\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 3030,
+        "y": 2280,
+        "wires": [
+            [
+                "a1a7b37b.e5ef"
+            ]
+        ]
+    },
+    {
+        "id": "29065f0e.ed3b38",
+        "type": "comment",
+        "z": "6c697848.f2dcf8",
+        "name": "Fix to avoid SLC getting stuch in error state",
+        "info": "",
+        "x": 2849,
+        "y": 2245,
+        "wires": []
+    },
+    {
         "id": "7c060369.da740c",
         "type": "mqtt-broker",
-        "z": "a10efc34.c3f2a",
+        "z": "6c697848.f2dcf8",
         "broker": "localhost",
         "port": "1883",
         "clientid": "",
