@@ -172,7 +172,7 @@
         "outputs": 1,
         "noerr": 0,
         "x": 1150,
-        "y": 480,
+        "y": 460,
         "wires": [
             []
         ]
@@ -278,7 +278,7 @@
         "name": "=================================================================GET CURRENT LANGUAGE=================================================================",
         "info": "",
         "x": 790,
-        "y": 900,
+        "y": 940,
         "wires": []
     },
     {
@@ -459,7 +459,7 @@
         "chunk": false,
         "sendError": false,
         "x": 760,
-        "y": 960,
+        "y": 1000,
         "wires": [
             [
                 "8b0ea983.355e78"
@@ -473,7 +473,7 @@
         "name": "",
         "pretty": false,
         "x": 930,
-        "y": 960,
+        "y": 1000,
         "wires": [
             [
                 "170b5386.ee51bc"
@@ -492,7 +492,7 @@
         "crontab": "",
         "once": true,
         "x": 580,
-        "y": 960,
+        "y": 1000,
         "wires": [
             [
                 "3c80f1e1.d8e0fe"
@@ -508,7 +508,7 @@
         "outputs": 1,
         "noerr": 0,
         "x": 1080,
-        "y": 960,
+        "y": 1000,
         "wires": [
             []
         ]
@@ -518,11 +518,11 @@
         "type": "function",
         "z": "513f94dc.e2eecc",
         "name": "Store supported commands",
-        "func": "String.prototype.sansAccent = function() {\n    var accent = [\n        /[\\300-\\306]/g, /[\\340-\\346]/g, // A, a\n        /[\\310-\\313]/g, /[\\350-\\353]/g, // E, e\n        /[\\314-\\317]/g, /[\\354-\\357]/g, // I, i\n        /[\\322-\\330]/g, /[\\362-\\370]/g, // O, o\n        /[\\331-\\334]/g, /[\\371-\\374]/g, // U, u\n        /[\\321]/g, /[\\361]/g, // N, n\n        /[\\307]/g, /[\\347]/g, // C, c\n    ];\n    var noaccent = ['A','a','E','e','I','i','O','o','U','u','N','n','C','c'];\n     \n    var str = this;\n    for(var i = 0; i < accent.length; i++){\n        str = str.replace(accent[i], noaccent[i]);\n    }\n     \n    return str;\n};\n\ntest_lights = [\"on\",\"off\",\"an\",\"aus\",\"allume\",\"éteins\"];\ntest_dimmers = [\"on\",\"off\",\"set\",\"increase\",\"decrease\",\"lower\",\"dim\",\"brighten\",\"more\",\"less\",\"stelle\",\"dimme\",\"aus\",\"an\",\"erhohe\",\"verringere\",\"allume\",\"éteins\",\"augmente\",\"baisse\",\"règle\"];\ntest_heating = [\"set\",\"increase\",\"decrease\",\"warmer\",\"cooler\",\"dim\",\"less\",\"more\",\"stelle\",\"erhohe\",\"verringere\",\"règle\",\"augmente\",\"baisse\",\"plus chaud\",\"moins chaud\",\"trop chaud\",\"trop froid\",\"zu warm\",\"zu kalt\",\"too cold\",\"too warm\"];\ntest_blinds = [\"open\",\"close\",\"set\",\"increase\",\"decrease\",\"higher\",\"lower\",\"oeffne\",\"schliesse\",\"stelle\",\"erhohe\",\"verringere\",\"ouvre\",\"règle\",\"ferme\",\"ouvre moins\",\"ouvre plus\",\"ouvre davantage\",\"baisse\",\"monte\",\"ferme davantage\"];\ntest_scenes = [\"on\",\"activate\",\"aktiviere\",\"an\",\"allume\",\"active\"];\ntest_aux = [\"on\",\"activate\",\"deactivate\",\"off\",\"set\",\"increase\",\"decrease\",\"more\",\"less\",\"aktiviere\",\"deaktiviere\",\"erhohe\",\"verringere\",\"aus\",\"an\",\"active\",\"désactive\",\"allume\",\"éteins\",\"ouvre\",\"ferme\",\"augmente\",\"baisse\",\"monte\"];\n\nmsg.commandCat = [\n    {\n        on: {\n            \"on\":\"\",\n            \"activate\":\"\",\n            \"open\":\"\",\n            \"oeffne\":\"\",\n            \"an\":\"\",\n            \"aktiviere\":\"\",\n            \"allume\":\"\",\n            \"ouvre\":\"\",\n            \"active\":\"\"\n        },\n        off: {\n            \"off\":\"\",\n            \"deactivate\":\"\",\n            \"close\":\"\",\n            \"deaktiviere\":\"\",\n            \"aus\":\"\",\n            \"schliesse\":\"\",\n            \"éteins\":\"\",\n            \"eteins\":\"\",\n            \"ferme\":\"\",\n            \"désactive\":\"\",\n            \"desactive\":\"\"\n        },\n        set: {\n            \"set\":\"\",\n            \"stelle\":\"\",\n            \"règle\":\"\",\n            \"regle\":\"\"\n        },\n        increase: {\n            \"increase\":\"\",\n            \"higher\":\"\",\n            \"warmer\":\"\",\n            \"brighten\":\"\",\n            \"more\":\"\",\n            \"erhohe\":\"\",\n            \"plus chaud\":\"\",\n            \"ouvre plus\":\"\",\n            \"ouvre davantage\":\"\",\n            \"trop froid\":\"\",\n            \"augmente\":\"\",\n            \"monte\":\"\",\n            \"too cold\":\"\",\n            \"zu kalt\":\"\",\n        },\n        decrease: {\n            \"decrease\":\"\",\n            \"lower\":\"\",\n            \"colder\":\"\",\n            \"darker\":\"\",\n            \"dim\":\"\",\n            \"less\":\"\",\n            \"cooler\":\"\",\n            \"abnehme\":\"\",\n            \"dimme\":\"\",\n            \"verringere\":\"\",\n            \"baisse\":\"\",\n            \"ouvre moins\":\"\",\n            \"trop chaud\":\"\",\n            \"moins chaud\":\"\",\n            \"too warm\":\"\",\n            \"zu warm\":\"\",\n            \"ferme davantage\":\"\"\n        }\n    }\n];\n\nflow.set(\"msg_test_lights\", test_lights); // save for later use\nflow.set(\"msg_test_dimmers\", test_dimmers); // save for later use\nflow.set(\"msg_test_heating\", test_heating); // save for later use\nflow.set(\"msg_test_blinds\", test_blinds); // save for later use\nflow.set(\"msg_test_scenes\", test_scenes); // save for later use\nflow.set(\"msg_test_aux\", test_aux); // save for later use\nflow.set(\"msgCommandCat\", msg.commandCat); // save for later use\n\nreturn msg;",
+        "func": "/*result = msg.payload;\ntmp = [];\ntmp = result.split(' ');\ntmp = tmp[1].split('.');*/\n\nresult = msg.payload;\ntmp = result.split('.');\nmsg.version = {\n    major: tmp[0],\n    minor: tmp[1],\n    build: tmp[2]\n};\n\nflow.set(\"msgVersion\", msg.version); // save for later use\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 920,
-        "y": 1100,
+        "x": 980,
+        "y": 1140,
         "wires": [
             []
         ]
@@ -531,10 +531,10 @@
         "id": "b74db2fd.ef17a",
         "type": "comment",
         "z": "513f94dc.e2eecc",
-        "name": "=================================================================GET SUPPORTED COMMANDS==============================================================",
+        "name": "===============================================================GET CURRENT CORE VERSION===============================================================",
         "info": "",
         "x": 790,
-        "y": 1040,
+        "y": 1080,
         "wires": []
     },
     {
@@ -548,11 +548,11 @@
         "repeat": "",
         "crontab": "",
         "once": true,
-        "x": 700,
-        "y": 1100,
+        "x": 560,
+        "y": 1140,
         "wires": [
             [
-                "de95b72d.5566a8"
+                "dc191c1b.ef0c5"
             ]
         ]
     },
@@ -1836,7 +1836,7 @@
         "func": "msg.cmd=[];\nmsg.cmd.lang = flow.get(\"msgLang\");\n\nif (msg.proServIP === \"\" || msg.proServIP.search(\"ECONNREFUSED\") !== -1 || msg.proServIP === undefined) {\n    if (msg.cmd.lang === \"de\") {\n        text = \"Bitte überprüfen Sie die adresse von ProServ\";\n        msg.error = {\n            text: text,\n            siteId: msg.cmd.siteId,\n            lang: \"de-DE\"\n        };\n    } else if (msg.cmd.lang === \"fr\") {\n        text = \"Veuillez vérifier l'adresse du Proserv\";\n        msg.error = {\n            text: text,\n            siteId: msg.cmd.siteId,\n            lang: \"fr-FR\"\n        };\n    } else {\n        text = \"Please check the configuration of the ProServ address\";\n        msg.error = {\n            text: text,\n            siteId: msg.cmd.siteId,\n            lang: \"en-EN\"\n        };\n    }\n}\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 830,
+        "x": 840,
         "y": 480,
         "wires": [
             [
@@ -1861,7 +1861,7 @@
         ],
         "checkall": "true",
         "outputs": 2,
-        "x": 970,
+        "x": 990,
         "y": 480,
         "wires": [
             [
@@ -1882,7 +1882,7 @@
             "8be6dbfa.f122e8",
             "ce8c5acd.622cd8"
         ],
-        "x": 1055,
+        "x": 1075,
         "y": 500,
         "wires": []
     },
@@ -2043,7 +2043,7 @@
             "7e44759b.48d93c"
         ],
         "x": 675,
-        "y": 1640,
+        "y": 1920,
         "wires": [
             [
                 "7cea74ff.3c8b9c",
@@ -2072,7 +2072,7 @@
         "console": "false",
         "complete": "cmd.room",
         "x": 840,
-        "y": 1560,
+        "y": 1840,
         "wires": []
     },
     {
@@ -2084,7 +2084,7 @@
         "console": "false",
         "complete": "cmd.cmd",
         "x": 840,
-        "y": 1520,
+        "y": 1800,
         "wires": []
     },
     {
@@ -2096,7 +2096,7 @@
         "console": "false",
         "complete": "cmd.device",
         "x": 840,
-        "y": 1600,
+        "y": 1880,
         "wires": []
     },
     {
@@ -2108,7 +2108,7 @@
         "console": "false",
         "complete": "cmd.value",
         "x": 840,
-        "y": 1640,
+        "y": 1920,
         "wires": []
     },
     {
@@ -2120,7 +2120,7 @@
         "console": "false",
         "complete": "cmd.query",
         "x": 840,
-        "y": 1680,
+        "y": 1960,
         "wires": []
     },
     {
@@ -2132,7 +2132,7 @@
         "console": "false",
         "complete": "cmd.lang",
         "x": 840,
-        "y": 1480,
+        "y": 1760,
         "wires": []
     },
     {
@@ -2144,7 +2144,7 @@
         "console": "false",
         "complete": "deviceList",
         "x": 839.8571341378347,
-        "y": 1440,
+        "y": 1720,
         "wires": []
     },
     {
@@ -2156,7 +2156,7 @@
         "console": "false",
         "complete": "commandList",
         "x": 850,
-        "y": 1720,
+        "y": 2000,
         "wires": []
     },
     {
@@ -2168,7 +2168,7 @@
         "console": "false",
         "complete": "cmd.type",
         "x": 840,
-        "y": 1760,
+        "y": 2040,
         "wires": []
     },
     {
@@ -2180,7 +2180,7 @@
         "console": "false",
         "complete": "proServIP",
         "x": 840,
-        "y": 1800,
+        "y": 2080,
         "wires": []
     },
     {
@@ -2192,7 +2192,7 @@
         "console": "false",
         "complete": "cmd.all",
         "x": 830,
-        "y": 1400,
+        "y": 1680,
         "wires": []
     },
     {
@@ -2204,7 +2204,7 @@
         "console": "false",
         "complete": "false",
         "x": 830,
-        "y": 1840,
+        "y": 2120,
         "wires": []
     },
     {
@@ -2214,7 +2214,7 @@
         "name": "======================================================================DEBUGGING TOOLS==================================================================",
         "info": "",
         "x": 790,
-        "y": 1340,
+        "y": 1620,
         "wires": []
     },
     {
@@ -2428,7 +2428,7 @@
         "outputs": 1,
         "noerr": 0,
         "x": 1170,
-        "y": 820,
+        "y": 860,
         "wires": [
             [
                 "52569d1f.0e69b4"
@@ -2442,7 +2442,7 @@
         "name": "=================================================================GET CONNECTION STATUS=================================================================",
         "info": "",
         "x": 790,
-        "y": 760,
+        "y": 800,
         "wires": []
     },
     {
@@ -2457,7 +2457,7 @@
         "crontab": "",
         "once": true,
         "x": 490,
-        "y": 820,
+        "y": 860,
         "wires": [
             [
                 "33675444.3d31bc"
@@ -2480,7 +2480,7 @@
         "randomUnits": "seconds",
         "drop": false,
         "x": 640,
-        "y": 820,
+        "y": 860,
         "wires": [
             [
                 "f563aa21.345208"
@@ -2498,7 +2498,7 @@
             "ce8c5acd.622cd8"
         ],
         "x": 1315,
-        "y": 820,
+        "y": 860,
         "wires": []
     },
     {
@@ -2510,7 +2510,7 @@
         "outputs": 1,
         "noerr": 0,
         "x": 1010,
-        "y": 1240,
+        "y": 1280,
         "wires": [
             []
         ]
@@ -2522,7 +2522,7 @@
         "name": "=====================================================================GET SERVER SITE ID==================================================================",
         "info": "",
         "x": 790,
-        "y": 1180,
+        "y": 1220,
         "wires": []
     },
     {
@@ -2537,7 +2537,7 @@
         "crontab": "",
         "once": true,
         "x": 600,
-        "y": 1240,
+        "y": 1280,
         "wires": [
             [
                 "98ecfcd6.42c7a"
@@ -2556,7 +2556,7 @@
         "oldrc": true,
         "name": "GET server siteId",
         "x": 790,
-        "y": 1240,
+        "y": 1280,
         "wires": [
             [
                 "27a1b28d.f8f4fe"
@@ -2575,7 +2575,7 @@
         "url": "http://{{{proServIP}}}",
         "tls": "",
         "x": 970,
-        "y": 820,
+        "y": 860,
         "wires": [
             [
                 "f40fdfba.31578"
@@ -2591,7 +2591,7 @@
         "outputs": 1,
         "noerr": 0,
         "x": 800,
-        "y": 820,
+        "y": 860,
         "wires": [
             [
                 "7d1bfecf.ec658"
@@ -2607,7 +2607,7 @@
         "console": "false",
         "complete": "items",
         "x": 830,
-        "y": 1880,
+        "y": 2160,
         "wires": []
     },
     {
@@ -2667,7 +2667,7 @@
         "console": "false",
         "complete": "url",
         "x": 820,
-        "y": 1920,
+        "y": 2200,
         "wires": []
     },
     {
@@ -2771,7 +2771,7 @@
         "type": "function",
         "z": "513f94dc.e2eecc",
         "name": "Trim answer",
-        "func": "msg.payload = msg.payload.trim();\nreturn msg;",
+        "func": "msg.payload = msg.payload.trim();\n\nflow.set(\"msgServerIP\", msg.payload); // save for later use\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "x": 1030,
@@ -2786,17 +2786,19 @@
         "id": "5cbfe09f.6af38",
         "type": "inject",
         "z": "513f94dc.e2eecc",
-        "name": "Start GET",
+        "name": "Start INJECT",
         "topic": "",
         "payload": "true",
         "payloadType": "bool",
         "repeat": "",
-        "crontab": "00 05 * * *",
+        "crontab": "00 04 * * *",
         "once": false,
-        "x": 450,
-        "y": 660,
+        "x": 360,
+        "y": 720,
         "wires": [
-            []
+            [
+                "efb90d1a.4e84a"
+            ]
         ]
     },
     {
@@ -4638,11 +4640,11 @@
         "type": "function",
         "z": "513f94dc.e2eecc",
         "name": "Create/Compare",
-        "func": "String.prototype.sansAccent = function() {\n    var accent = [\n        /[\\300-\\306]/g, /[\\340-\\346]/g, // A, a\n        /[\\310-\\313]/g, /[\\350-\\353]/g, // E, e\n        /[\\314-\\317]/g, /[\\354-\\357]/g, // I, i\n        /[\\322-\\330]/g, /[\\362-\\370]/g, // O, o\n        /[\\331-\\334]/g, /[\\371-\\374]/g, // U, u\n        /[\\321]/g, /[\\361]/g, // N, n\n        /[\\307]/g, /[\\347]/g, // C, c\n    ];\n    var noaccent = ['A','a','E','e','I','i','O','o','U','u','N','n','C','c'];\n     \n    var str = this;\n    for(var i = 0; i < accent.length; i++){\n        str = str.replace(accent[i], noaccent[i]);\n    }\n     \n    return str;\n};\n\nfunction findSwitchByKey(array, key, value) {\n    msg.switch_lights = [];\n    var cpt = 0;\n    for (var i = 0; i < array.length; i++) {\n        if (array[i][key] === value) {\n            msg.switch_lights[cpt] = array[i];\n            cpt ++;\n        }\n    }\n    return null;\n}\n\nfunction findDimmerByKey(array, key, value) {\n    msg.dimmer_lights = [];\n    var cpt = 0;\n    for (var i = 0; i < array.length; i++) {\n        if (array[i][key] === value) {\n            msg.dimmer_lights[cpt] = array[i];\n            cpt ++;\n        }\n    }\n    return null;\n}\n\nfunction findTypeByKey(array, key, value) {\n    msg.items = [];\n    var cpt = 0;\n    for (var i = 0; i < array.length; i++) {\n        var x = array[i][key];\n        if (x === value) {\n            msg.items[cpt] = array[i];\n            cpt ++;\n        }\n    }\n    return null;\n}\n\nfunction findLightsByKey() {\n    msg.items = [];\n    findSwitchByKey(msg.deviceList, 'type', 'lights');\n    findDimmerByKey(msg.deviceList, 'type', 'dimmers');\n    msg.items = msg.switch_lights.concat(msg.dimmer_lights);\n    return null;\n}\n\nfunction buildETSNamesList(array, key, value) {\n    ETSNamesDevice = [];\n    ETSNamesRoom = [];\n    if (value === \"lights\") {\n        findLightsByKey();\n    } else {\n        findTypeByKey(array, key, value);\n    }\n    \n    for (var i = 0; i < msg.items.length; i++) {\n        if (ETSNamesDevice.indexOf(\"\\\"\"+msg.items[i].object.toLowerCase().sansAccent()+\"\\\"\") === -1) {\n            ETSNamesDevice.push(\"\\\"\"+msg.items[i].object.toLowerCase().sansAccent()+\"\\\"\");\n        }\n        if (ETSNamesRoom.indexOf(\"\\\"\"+msg.items[i].zone.toLowerCase().sansAccent()+\"\\\"\") === -1) {\n            ETSNamesRoom.push(\"\\\"\"+msg.items[i].zone.toLowerCase().sansAccent()+\"\\\"\");\n        }\n    }\n    return ETSNamesDevice;\n}\n\nmsg.deviceList = flow.get(\"msgDeviceList\");\n/*\nA FAIRE !!!!!\n\nREMPLACER ROOM PAR NOMS LISTES SNIPS + CONCATENER LIGHTS AND DIMMERS + CHECKER QUE LA FONCTION NE PREND QUE UN TYPE PRECIS DE DEVICES\n\n*/\nif (msg.deviceList !== undefined) {\n    lightsList = buildETSNamesList(msg.deviceList, 'type', 'lights');\n    blindsList = buildETSNamesList(msg.deviceList, 'type', 'blinds');\n    heatingList = buildETSNamesList(msg.deviceList, 'type', 'heating');\n    scenesList = buildETSNamesList(msg.deviceList, 'type', 'scenes');\n    auxList = buildETSNamesList(msg.deviceList, 'type', 'aux');\n    controlsList = buildETSNamesList(msg.deviceList, 'type', 'controls');\n\n    \n    if (ETSNamesRoom !== undefined || ETSNamesDevice !== undefined) {\n        msg.inject = true;\n        template1 = \"{\\\"operations\\\": [\";\n        template2 = \"]}\";\n        if (ETSNamesRoom !== undefined) {\n            newRoomList1 = \"[\\\"addFromVanilla\\\",{\\\"house_room\\\":[\";\n            newRoomList2 = ETSNamesRoom;\n            if (lightsList !== undefined) {newRoomList3 = \"]}],\";} else {newRoomList3 = \"]}]\";}\n            tmpNRL = [newRoomList1, newRoomList2, newRoomList3];\n            newRoomList = \"\".concat(...tmpNRL);\n        } else {\n            newRoomlist = \"\";\n        }\n        if (lightsList !== undefined) {\n            newLightsList1 = \"[\\\"addFromVanilla\\\",{\\\"light_device\\\":[\";\n            newLightsList2 = lightsList;\n            if (blindsList !== undefined) {newLightsList3 = \"]}],\";} else {newLightsList3 = \"]}]\";}\n            tmpNRL = [newLightsList1, newLightsList2, newLightsList3];\n            newLightsList = \"\".concat(...tmpNRL);\n        } else {\n            newLightslist = \"\";\n        }\n        if (blindsList !== undefined) {\n            newBlindsList1 = \"[\\\"addFromVanilla\\\",{\\\"window_device\\\":[\";\n            newBlindsList2 = blindsList;\n            if (heatingList !== undefined) {newBlindsList3 = \"]}],\";} else {newBlindsList3 = \"]}]\";}\n            tmpNRL = [newBlindsList1, newBlindsList2, newBlindsList3];\n            newBlindsList = \"\".concat(...tmpNRL);\n        } else {\n            newBlindsList = \"\";\n        }\n        if (heatingList !== undefined) {\n            newHeatingList1 = \"[\\\"addFromVanilla\\\",{\\\"temperature_device\\\":[\";\n            newHeatingList2 = heatingList;\n            if (scenesList !== undefined) {newHeatingList3 = \"]}],\";} else {newHeatingList3 = \"]}]\";}\n            tmpNRL = [newHeatingList1, newHeatingList2, newHeatingList3];\n            newHeatingList = \"\".concat(...tmpNRL);\n        } else {\n            newHeatingList = \"\";\n        }\n        if (scenesList !== undefined) {\n            newScenesList1 = \"[\\\"addFromVanilla\\\",{\\\"scene_name\\\":[\";\n            newScenesList2 = scenesList;\n            newScenesList3 = \"]}]\";\n            tmpNRL = [newScenesList1, newScenesList2, newScenesList3];\n            newScenesList = \"\".concat(...tmpNRL);\n        } else {\n            newScenesList = \"\";\n        }\n        /*if (heatingList !== undefined) {\n            newHeatingList1 = \"[\\\"addFromVanilla\\\",{\\\"device\\\":[\";\n            newHeatingList2 = heatingList;\n            newDeviceList3 = \"]}]\";\n            tmpNDL = [newDeviceList1, newDeviceList2, newDeviceList3];\n            newDeviceList = \"\".concat(...tmpNDL);\n        } else {\n            newDevicelist = \"\";\n        }*/\n        injectionString = [template1, newRoomList, newLightsList, newBlindsList, newHeatingList, newScenesList, template2];\n        tmpInject = \"\".concat(...injectionString);\n        msg.payload = JSON.parse(tmpInject);\n    }\n}\n\nreturn msg;",
+        "func": "version = flow.get(\"msgVersion\");\nmsg.deviceList = flow.get(\"msgDeviceList\");\n\nString.prototype.sansAccent = function() {\n    var accent = [\n        /[\\300-\\306]/g, /[\\340-\\346]/g, // A, a\n        /[\\310-\\313]/g, /[\\350-\\353]/g, // E, e\n        /[\\314-\\317]/g, /[\\354-\\357]/g, // I, i\n        /[\\322-\\330]/g, /[\\362-\\370]/g, // O, o\n        /[\\331-\\334]/g, /[\\371-\\374]/g, // U, u\n        /[\\321]/g, /[\\361]/g, // N, n\n        /[\\307]/g, /[\\347]/g, // C, c\n    ];\n    var noaccent = ['A','a','E','e','I','i','O','o','U','u','N','n','C','c'];\n     \n    var str = this;\n    for(var i = 0; i < accent.length; i++){\n        str = str.replace(accent[i], noaccent[i]);\n    }\n     \n    return str;\n};\n\nfunction findSwitchByKey(array, key, value) {\n    msg.switch_lights = [];\n    var cpt = 0;\n    for (var i = 0; i < array.length; i++) {\n        if (array[i][key] === value) {\n            msg.switch_lights[cpt] = array[i];\n            cpt ++;\n        }\n    }\n    return null;\n}\n\nfunction findDimmerByKey(array, key, value) {\n    msg.dimmer_lights = [];\n    var cpt = 0;\n    for (var i = 0; i < array.length; i++) {\n        if (array[i][key] === value) {\n            msg.dimmer_lights[cpt] = array[i];\n            cpt ++;\n        }\n    }\n    return null;\n}\n\nfunction findTypeByKey(array, key, value) {\n    msg.items = [];\n    var cpt = 0;\n    for (var i = 0; i < array.length; i++) {\n        var x = array[i][key];\n        if (x === value) {\n            msg.items[cpt] = array[i];\n            cpt ++;\n        }\n    }\n    return null;\n}\n\nfunction findLightsByKey() {\n    msg.items = [];\n    findSwitchByKey(msg.deviceList, 'type', 'lights');\n    findDimmerByKey(msg.deviceList, 'type', 'dimmers');\n    msg.items = msg.switch_lights.concat(msg.dimmer_lights);\n    return null;\n}\n\nfunction buildETSNamesList(array, key, value) {\n    ETSNamesDevice = [];\n    ETSNamesRoom = [];\n    if (value === \"lights\") {\n        findLightsByKey();\n    } else {\n        findTypeByKey(array, key, value);\n    }\n    \n    for (var i = 0; i < msg.items.length; i++) {\n        if (ETSNamesDevice.indexOf(\"\\\"\"+msg.items[i].object.toLowerCase().sansAccent()+\"\\\"\") === -1) {\n            ETSNamesDevice.push(\"\\\"\"+msg.items[i].object.toLowerCase().sansAccent()+\"\\\"\");\n        }\n        if (ETSNamesRoom.indexOf(\"\\\"\"+msg.items[i].zone.toLowerCase().sansAccent()+\"\\\"\") === -1) {\n            ETSNamesRoom.push(\"\\\"\"+msg.items[i].zone.toLowerCase().sansAccent()+\"\\\"\");\n        }\n    }\n    return ETSNamesDevice;\n}\n\nif (version.major >= 0 && version.minor >= 60 && version.build >= 10) {\n    if (msg.deviceList !== undefined) {\n        lightsList = buildETSNamesList(msg.deviceList, 'type', 'lights');\n        blindsList = buildETSNamesList(msg.deviceList, 'type', 'blinds');\n        heatingList = buildETSNamesList(msg.deviceList, 'type', 'heating');\n        scenesList = buildETSNamesList(msg.deviceList, 'type', 'scenes');\n        auxList = buildETSNamesList(msg.deviceList, 'type', 'aux');\n        controlsList = buildETSNamesList(msg.deviceList, 'type', 'controls');\n    \n        \n        if (ETSNamesRoom !== undefined || ETSNamesDevice !== undefined) {\n            msg.inject = true;\n            template1 = \"{\\\"operations\\\": [\";\n            template2 = \"]}\";\n            if (ETSNamesRoom !== undefined) {\n                newRoomList1 = \"[\\\"addFromVanilla\\\",{\\\"house_room\\\":[\";\n                newRoomList2 = ETSNamesRoom;\n                if (lightsList !== undefined) {newRoomList3 = \"]}],\";} else {newRoomList3 = \"]}]\";}\n                tmpNRL = [newRoomList1, newRoomList2, newRoomList3];\n                newRoomList = \"\".concat(...tmpNRL);\n            } else {\n                newRoomlist = \"\";\n            }\n            if (lightsList !== undefined) {\n                newLightsList1 = \"[\\\"addFromVanilla\\\",{\\\"light_device\\\":[\";\n                newLightsList2 = lightsList;\n                if (blindsList !== undefined) {newLightsList3 = \"]}],\";} else {newLightsList3 = \"]}]\";}\n                tmpNRL = [newLightsList1, newLightsList2, newLightsList3];\n                newLightsList = \"\".concat(...tmpNRL);\n            } else {\n                newLightslist = \"\";\n            }\n            if (blindsList !== undefined) {\n                newBlindsList1 = \"[\\\"addFromVanilla\\\",{\\\"window_device\\\":[\";\n                newBlindsList2 = blindsList;\n                if (heatingList !== undefined) {newBlindsList3 = \"]}],\";} else {newBlindsList3 = \"]}]\";}\n                tmpNRL = [newBlindsList1, newBlindsList2, newBlindsList3];\n                newBlindsList = \"\".concat(...tmpNRL);\n            } else {\n                newBlindsList = \"\";\n            }\n            if (heatingList !== undefined) {\n                newHeatingList1 = \"[\\\"addFromVanilla\\\",{\\\"temperature_device\\\":[\";\n                newHeatingList2 = heatingList;\n                if (scenesList !== undefined) {newHeatingList3 = \"]}],\";} else {newHeatingList3 = \"]}]\";}\n                tmpNRL = [newHeatingList1, newHeatingList2, newHeatingList3];\n                newHeatingList = \"\".concat(...tmpNRL);\n            } else {\n                newHeatingList = \"\";\n            }\n            if (scenesList !== undefined) {\n                newScenesList1 = \"[\\\"addFromVanilla\\\",{\\\"scene_name\\\":[\";\n                newScenesList2 = scenesList;\n                newScenesList3 = \"]}]\";\n                tmpNRL = [newScenesList1, newScenesList2, newScenesList3];\n                newScenesList = \"\".concat(...tmpNRL);\n            } else {\n                newScenesList = \"\";\n            }\n            /*if (heatingList !== undefined) {\n                newHeatingList1 = \"[\\\"addFromVanilla\\\",{\\\"device\\\":[\";\n                newHeatingList2 = heatingList;\n                newDeviceList3 = \"]}]\";\n                tmpNDL = [newDeviceList1, newDeviceList2, newDeviceList3];\n                newDeviceList = \"\".concat(...tmpNDL);\n            } else {\n                newDevicelist = \"\";\n            }*/\n            injectionString = [template1, newRoomList, newLightsList, newBlindsList, newHeatingList, newScenesList, template2];\n            tmpInject = \"\".concat(...injectionString);\n            msg.payload = JSON.parse(tmpInject);\n        }\n    }\n}\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 780,
-        "y": 660,
+        "x": 870,
+        "y": 720,
         "wires": [
             [
                 "c7a995fc.5d3908",
@@ -4659,8 +4661,8 @@
         "appendNewline": true,
         "createDir": false,
         "overwriteFile": "true",
-        "x": 1030,
-        "y": 680,
+        "x": 1130,
+        "y": 720,
         "wires": []
     },
     {
@@ -4678,8 +4680,8 @@
         "randomLast": "5",
         "randomUnits": "seconds",
         "drop": false,
-        "x": 960,
-        "y": 640,
+        "x": 1060,
+        "y": 680,
         "wires": [
             [
                 "c859a331.88122"
@@ -4697,8 +4699,8 @@
         "timer": "",
         "oldrc": true,
         "name": "Inject new words",
-        "x": 1130,
-        "y": 640,
+        "x": 1230,
+        "y": 680,
         "wires": [
             [],
             [],
@@ -4777,6 +4779,461 @@
         ]
     },
     {
+        "id": "a2a931d2.bd5d9",
+        "type": "ui_form",
+        "z": "513f94dc.e2eecc",
+        "name": "Inject Form",
+        "label": "Please enter the name you want to add and select ONE category",
+        "group": "f505905.fab087",
+        "order": 0,
+        "width": "12",
+        "height": "21",
+        "options": [
+            {
+                "label": "Add a word to inject",
+                "value": "name",
+                "type": "text",
+                "required": true
+            },
+            {
+                "label": "Room / Zimmer / Pièce",
+                "value": "room",
+                "type": "checkbox",
+                "required": true
+            },
+            {
+                "label": "Light / Licht / Lumière",
+                "value": "lights",
+                "type": "checkbox",
+                "required": true
+            },
+            {
+                "label": "Blinds / Rolladen / Volet",
+                "value": "blinds",
+                "type": "checkbox",
+                "required": true
+            },
+            {
+                "label": "Thermostat",
+                "value": "heating",
+                "type": "checkbox",
+                "required": true
+            },
+            {
+                "label": "Scene / Szene / Scène",
+                "value": "scenes",
+                "type": "checkbox",
+                "required": true
+            }
+        ],
+        "formValue": {
+            "name": "",
+            "room": false,
+            "lights": false,
+            "blinds": false,
+            "heating": false,
+            "scenes": false
+        },
+        "payload": "",
+        "topic": "",
+        "x": 300,
+        "y": 1480,
+        "wires": [
+            [
+                "5823a1c2.3f89d"
+            ]
+        ]
+    },
+    {
+        "id": "875ce669.ce10e8",
+        "type": "ui_text",
+        "z": "513f94dc.e2eecc",
+        "group": "f505905.fab087",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "",
+        "format": "{{msg.payload}}",
+        "layout": "col-center",
+        "x": 1270,
+        "y": 1520,
+        "wires": []
+    },
+    {
+        "id": "5823a1c2.3f89d",
+        "type": "function",
+        "z": "513f94dc.e2eecc",
+        "name": "Handle form",
+        "func": "injection = msg.payload;\n\nif (injection.room === true) {\n    msg.cat = \"house_room\";\n} else if (injection.lights === true) {\n    msg.cat = \"light_device\";\n} else if (injection.blinds === true) {\n    msg.cat = \"window_device\";\n} else if (injection.heating === true) {\n    msg.cat = \"temperature_device\";\n} else if (injection.scenes === true) {\n    msg.cat = \"scene_name\";\n}\nif (msg.cat !== undefined) {\n    msg.payload = \"{\\\"operations\\\": [ [\\\"add\\\",{\\\"\"+msg.cat+\"\\\":[\\\"\" +injection.name+\"\\\"]}]]}\";\n    msg.message1 = \"Adding \\\"\" + injection.name + \"\\\"! Please wait...\";\n    msg.message2 = \"Your test word has been added ! You are now able to check if it is correctly triggered by SNIPS. Please go on Snips Watch (port 5000) and ask the command you want (using your test word) in order to see if it is correctly understood and parsed in the right category.\";\n} else {\n    msg.error = \"Please select ONE category for your word\";\n    \n}\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 450,
+        "y": 1480,
+        "wires": [
+            [
+                "f671ef07.38fc7"
+            ]
+        ]
+    },
+    {
+        "id": "766efdfc.494704",
+        "type": "inject",
+        "z": "513f94dc.e2eecc",
+        "name": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "x": 354.44445419311523,
+        "y": 640.0000247955322,
+        "wires": [
+            [
+                "fc79c4a2.42c458"
+            ]
+        ]
+    },
+    {
+        "id": "fc79c4a2.42c458",
+        "type": "exec",
+        "z": "513f94dc.e2eecc",
+        "command": "ls /usr/share/snips/inject*",
+        "addpay": false,
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "oldrc": true,
+        "name": "CHECK previous ",
+        "x": 533.3332748413086,
+        "y": 640.000093460083,
+        "wires": [
+            [],
+            [
+                "4cbf3b82.f9f644"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "4cbf3b82.f9f644",
+        "type": "switch",
+        "z": "513f94dc.e2eecc",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "nnull"
+            }
+        ],
+        "checkall": "true",
+        "outputs": 1,
+        "x": 690,
+        "y": 640,
+        "wires": [
+            [
+                "f5e3dbf.8396c28"
+            ]
+        ]
+    },
+    {
+        "id": "dc191c1b.ef0c5",
+        "type": "exec",
+        "z": "513f94dc.e2eecc",
+        "command": "sudo dpkg-query --showformat='${Version}' --show snips-asr",
+        "addpay": true,
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "oldrc": false,
+        "name": "GET snips-asr version",
+        "x": 740,
+        "y": 1140,
+        "wires": [
+            [
+                "de95b72d.5566a8"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "f5e3dbf.8396c28",
+        "type": "delay",
+        "z": "513f94dc.e2eecc",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "x": 820,
+        "y": 640,
+        "wires": [
+            [
+                "efb90d1a.4e84a"
+            ]
+        ]
+    },
+    {
+        "id": "f671ef07.38fc7",
+        "type": "switch",
+        "z": "513f94dc.e2eecc",
+        "name": "Error ?",
+        "property": "error",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "null"
+            },
+            {
+                "t": "nnull"
+            }
+        ],
+        "checkall": "true",
+        "outputs": 2,
+        "x": 590,
+        "y": 1480,
+        "wires": [
+            [
+                "93be50f9.4bdd6",
+                "9708a3e9.83c36",
+                "7edc2de7.0adf84"
+            ],
+            [
+                "ca2ee943.ea2d18"
+            ]
+        ]
+    },
+    {
+        "id": "ca2ee943.ea2d18",
+        "type": "change",
+        "z": "513f94dc.e2eecc",
+        "name": "",
+        "rules": [
+            {
+                "t": "move",
+                "p": "error",
+                "pt": "msg",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 760,
+        "y": 1520,
+        "wires": [
+            [
+                "875ce669.ce10e8",
+                "35f153f1.e8f73c"
+            ]
+        ]
+    },
+    {
+        "id": "93be50f9.4bdd6",
+        "type": "change",
+        "z": "513f94dc.e2eecc",
+        "name": "",
+        "rules": [
+            {
+                "t": "move",
+                "p": "message1",
+                "pt": "msg",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 780,
+        "y": 1440,
+        "wires": [
+            [
+                "875ce669.ce10e8",
+                "35f153f1.e8f73c"
+            ]
+        ]
+    },
+    {
+        "id": "dcdbe3ba.e99e3",
+        "type": "link in",
+        "z": "513f94dc.e2eecc",
+        "name": "INJECTION OUT",
+        "links": [
+            "9708a3e9.83c36"
+        ],
+        "x": 935,
+        "y": 680,
+        "wires": [
+            [
+                "c7a995fc.5d3908",
+                "97582b76.d48fe8"
+            ]
+        ]
+    },
+    {
+        "id": "9708a3e9.83c36",
+        "type": "link out",
+        "z": "513f94dc.e2eecc",
+        "name": "INJECTION IN",
+        "links": [
+            "dcdbe3ba.e99e3"
+        ],
+        "x": 695,
+        "y": 1480,
+        "wires": []
+    },
+    {
+        "id": "d4801b62.f99858",
+        "type": "ui_toast",
+        "z": "513f94dc.e2eecc",
+        "position": "dialog",
+        "displayTime": "15",
+        "highlight": "",
+        "outputs": 1,
+        "ok": "OK",
+        "cancel": "",
+        "topic": "",
+        "name": "",
+        "x": 1290,
+        "y": 1480,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "87a445c5.5f3238",
+        "type": "delay",
+        "z": "513f94dc.e2eecc",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "20",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "x": 1020,
+        "y": 1480,
+        "wires": [
+            [
+                "d4801b62.f99858"
+            ]
+        ]
+    },
+    {
+        "id": "7edc2de7.0adf84",
+        "type": "change",
+        "z": "513f94dc.e2eecc",
+        "name": "",
+        "rules": [
+            {
+                "t": "move",
+                "p": "message2",
+                "pt": "msg",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 840,
+        "y": 1480,
+        "wires": [
+            [
+                "87a445c5.5f3238"
+            ]
+        ]
+    },
+    {
+        "id": "35f153f1.e8f73c",
+        "type": "delay",
+        "z": "513f94dc.e2eecc",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "20",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "x": 960,
+        "y": 1440,
+        "wires": [
+            [
+                "6608f1e5.f5b98"
+            ]
+        ]
+    },
+    {
+        "id": "6608f1e5.f5b98",
+        "type": "function",
+        "z": "513f94dc.e2eecc",
+        "name": "",
+        "func": "msg.payload = \"\";\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1090,
+        "y": 1440,
+        "wires": [
+            [
+                "875ce669.ce10e8"
+            ]
+        ]
+    },
+    {
+        "id": "bb9b54ee.40af08",
+        "type": "comment",
+        "z": "513f94dc.e2eecc",
+        "name": "======================================================================TROUBLESHOOTING UI===============================================================",
+        "info": "",
+        "x": 790,
+        "y": 1380,
+        "wires": []
+    },
+    {
+        "id": "39524d00.165174",
+        "type": "inject",
+        "z": "513f94dc.e2eecc",
+        "name": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "x": 570,
+        "y": 1440,
+        "wires": [
+            [
+                "6608f1e5.f5b98"
+            ]
+        ]
+    },
+    {
         "id": "4921ae70.68c63",
         "type": "mqtt-broker",
         "z": "513f94dc.e2eecc",
@@ -4793,5 +5250,21 @@
         "birthTopic": "",
         "birthQos": "0",
         "birthPayload": ""
+    },
+    {
+        "id": "f505905.fab087",
+        "type": "ui_group",
+        "z": "",
+        "name": "Vocabulary Injection troubleshoot",
+        "tab": "2e79e50f.0a05aa",
+        "disp": true,
+        "width": "12"
+    },
+    {
+        "id": "2e79e50f.0a05aa",
+        "type": "ui_tab",
+        "z": "",
+        "name": "SNIPS Troubleshoot",
+        "icon": "dashboard"
     }
 ]
