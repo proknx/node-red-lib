@@ -1,0 +1,329 @@
+[
+    {
+        "id": "c4ea7e75.b3c4",
+        "type": "function",
+        "z": "f2dcd008.0f3ad",
+        "name": "Set url",
+        "func": "//msg.payload contain the command input from snips and realknx.\n//\nmsg.device = msg.payload; \nmsg.payload =[];\nfor(var i = 0; i < msg.device.length ; i++){\n    var uid = msg.device[i].uid;\n    msg.payload[i] ={\n        \"url\" : \"http://localhost:1880/api/v1/values/\" + uid + \"?token=dEAUv4WaS2N6CvbLmz2Y8pvRIEamK6gv\"\n    };\n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1330,
+        "y": 1160,
+        "wires": [
+            [
+                "6e4a76ee.a16058"
+            ]
+        ]
+    },
+    {
+        "id": "dda7d162.a80b5",
+        "type": "http request",
+        "z": "f2dcd008.0f3ad",
+        "name": "GET",
+        "method": "GET",
+        "ret": "txt",
+        "paytoqs": false,
+        "url": "",
+        "tls": "",
+        "proxy": "",
+        "authType": "",
+        "x": 1690,
+        "y": 1160,
+        "wires": [
+            [
+                "ac2d243f.d58788"
+            ]
+        ]
+    },
+    {
+        "id": "6e4a76ee.a16058",
+        "type": "split",
+        "z": "f2dcd008.0f3ad",
+        "name": "split",
+        "splt": "\\n",
+        "spltType": "str",
+        "arraySplt": 1,
+        "arraySpltType": "len",
+        "stream": false,
+        "addname": "",
+        "x": 1450,
+        "y": 1160,
+        "wires": [
+            [
+                "dd916a40.0f2278"
+            ]
+        ]
+    },
+    {
+        "id": "ac2d243f.d58788",
+        "type": "join",
+        "z": "f2dcd008.0f3ad",
+        "name": "",
+        "mode": "auto",
+        "build": "string",
+        "property": "payload",
+        "propertyType": "msg",
+        "key": "topic",
+        "joiner": "\\n",
+        "joinerType": "str",
+        "accumulate": false,
+        "timeout": "",
+        "count": "",
+        "reduceRight": false,
+        "reduceExp": "",
+        "reduceInit": "",
+        "reduceInitType": "",
+        "reduceFixup": "",
+        "x": 1810,
+        "y": 1160,
+        "wires": [
+            [
+                "f09c6bfe.295458"
+            ]
+        ]
+    },
+    {
+        "id": "dd916a40.0f2278",
+        "type": "change",
+        "z": "f2dcd008.0f3ad",
+        "name": "set",
+        "rules": [
+            {
+                "t": "set",
+                "p": "url",
+                "pt": "msg",
+                "to": "payload.url",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1570,
+        "y": 1160,
+        "wires": [
+            [
+                "dda7d162.a80b5"
+            ]
+        ]
+    },
+    {
+        "id": "54d5a24b.7ed39c",
+        "type": "function",
+        "z": "f2dcd008.0f3ad",
+        "name": "Set url",
+        "func": "msg.device = msg.payload;\nmsg.payload =[];\nfor(var i = 0; i < msg.device.length ; i++){\n    var uid = msg.device[i].uid;\n    msg.payload[i] ={\n        \"url\" : \"http://localhost:1880/api/v1/values/\" + uid + \"?token=dEAUv4WaS2N6CvbLmz2Y8pvRIEamK6gv\", \n        \"value\": { \"value\" : msg.device[i].value }\n    };\n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1330,
+        "y": 1320,
+        "wires": [
+            [
+                "7636861a.d602a8"
+            ]
+        ]
+    },
+    {
+        "id": "2fc5054d.d34e0a",
+        "type": "http request",
+        "z": "f2dcd008.0f3ad",
+        "name": "PUT",
+        "method": "PUT",
+        "ret": "txt",
+        "paytoqs": false,
+        "url": "",
+        "tls": "",
+        "proxy": "",
+        "authType": "",
+        "x": 1690,
+        "y": 1320,
+        "wires": [
+            [
+                "450d2f4.48088d"
+            ]
+        ]
+    },
+    {
+        "id": "7636861a.d602a8",
+        "type": "split",
+        "z": "f2dcd008.0f3ad",
+        "name": "split",
+        "splt": "\\n",
+        "spltType": "str",
+        "arraySplt": 1,
+        "arraySpltType": "len",
+        "stream": false,
+        "addname": "",
+        "x": 1450,
+        "y": 1320,
+        "wires": [
+            [
+                "bc046a5.5c11d98"
+            ]
+        ]
+    },
+    {
+        "id": "bc046a5.5c11d98",
+        "type": "change",
+        "z": "f2dcd008.0f3ad",
+        "name": "set",
+        "rules": [
+            {
+                "t": "set",
+                "p": "url",
+                "pt": "msg",
+                "to": "payload.url",
+                "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.value",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1570,
+        "y": 1320,
+        "wires": [
+            [
+                "2fc5054d.d34e0a"
+            ]
+        ]
+    },
+    {
+        "id": "450d2f4.48088d",
+        "type": "join",
+        "z": "f2dcd008.0f3ad",
+        "name": "",
+        "mode": "auto",
+        "build": "string",
+        "property": "payload",
+        "propertyType": "msg",
+        "key": "topic",
+        "joiner": "\\n",
+        "joinerType": "str",
+        "accumulate": false,
+        "timeout": "",
+        "count": "",
+        "reduceRight": false,
+        "reduceExp": "",
+        "reduceInit": "",
+        "reduceInitType": "",
+        "reduceFixup": "",
+        "x": 1810,
+        "y": 1320,
+        "wires": [
+            [
+                "68844f39.28948"
+            ]
+        ]
+    },
+    {
+        "id": "f09c6bfe.295458",
+        "type": "function",
+        "z": "f2dcd008.0f3ad",
+        "name": "**Respond from RKNX**",
+        "func": "//From the server respond, put it in this format\n//For more than one devices\n//\n//\n        // [{\n        //     \"Data\" : [{            \n        //         \"Value\" : 100,\n        //         \"uid\" : \"\" \n        //     }],\n        //     \"Result\":true\n        // },\n        // {\n        //     \"Data\" : [{            \n        //         \"Value\" : 50,\n        //         \"type\" : \"\"\n        //     }],\n        //     \"Result\":true\n        // }] \nmsg.states = [];\nfor(var i = 0 ; i < msg.payload.length ; i++){\n    msg.states[i] = JSON.parse(msg.payload[i]);\n}\n\nmsg.payload=msg.states;\ndelete msg.states;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 2010,
+        "y": 1160,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "68844f39.28948",
+        "type": "function",
+        "z": "f2dcd008.0f3ad",
+        "name": "**Respond from RKNX**",
+        "func": "msg.result = [];\nfor(var i = 0 ; i < msg.payload.length ; i++){\n    msg.result[i] = JSON.parse(msg.payload[i]);\n}\n\nmsg.payload=msg.result;\ndelete msg.result;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 2010,
+        "y": 1320,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "179b211f.eef86f",
+        "type": "comment",
+        "z": "f2dcd008.0f3ad",
+        "name": "======= SAMPLE GATEWAY COMMUNICATION MODULE ========",
+        "info": "# Exemple implementation of the Gateway Communication Module.\nIn this part, you will have to implement Gateway Communication code.\nThere are two parts, hence two handlers\n 1. Generic Query - to GET the value\n 2. Generic Command - absolute SET and realtive SET value (increase/decrease)\n\n## Generic Query\nThis handler is called when the Snips application needs to get the current value of a device (temperature, brightness, shutters position, sensors etc)\nIt receives an array of commands & UID of the devices as input. \nThe command name is as well as the UID are defined by **you** in the GGDF.\n\nSample input to receive (type Object):\n`[\n   {\n      \"name\":\"CurrentState\",\n      \"uid\":\"knxcom_function_20190812133320520\"\n   },\n   {\n      \"name\":\"CurrentBrightness\",\n      \"uid\":\"knxcom_function_20190902090905369\"\n   }\n]`\n\nThis input is a list of object query from the description list you provided. \n\nIf the Gateway communication module uses a Web API (http), you can re-use the sample flow. You will need to adapt the\nby changing SET node. Else, you have to replace all the nodes between two links in the handler.\nIf you intend to keep the flow, you can make a copy and detach it from the flow.\n\n\nBefore sending out the response from the gateway server to the link out of generic query, you should put it \nin a Object format that can be read by realKNX.\n\nSample output to send (type Object):\n`[{\n        \"Data\": [{\n                \"Value\": \"OFF\",\n                \"uid\": \"knxcom_function_20190812133320520\"\n            }\n        ],\n        \"Result\": true\n    }, {\n        \"Data\": [{\n                \"Value\": 46.3,\n                \"uid\": \"knxcom_function_20190902090905369\"\n            }\n        ],\n        \"Result\": true\n    }\n]`\n\n# Generic command\nThis handler is called to get the current value of the device (on,off,decrease,set etc)\nThe link in node of the generic command is also connected to Snips application. It receive \ncommands of devices as input. It could be one command or an array of commands at a time.\nSample input to receive (type Object):\n`[\n   {\n      \"name\":\"On\",\n      \"uid\":\"knxcom_function_20190812133320520\",\n      \"value\":\"ON\"\n   },\n   {\n      \"name\":\"On\",\n      \"uid\":\"knxcom_function_20190902090905369\",\n      \"value\":100\n   }\n]\n`\nThis input is a list of object command from the description list you provided. \n    \nBefore send out the response from the gateway server to the link out of generic query, you should put it \nin a Object format that can be read by realknx.\nSample output to send (type Object):\n`[\n   {\n      \"Result\":true\n   },\n   {\n      \"Result\":false\n   }\n]`\ntrue is when the server repond correctly, otherwise, Result is false ",
+        "x": 1470,
+        "y": 1100,
+        "wires": []
+    },
+    {
+        "id": "d33ddb58.71d808",
+        "type": "comment",
+        "z": "f2dcd008.0f3ad",
+        "name": "GGDF - GATEWAY DESCRIPTION FILES EXAMPLES",
+        "info": "# Sample GGDF (Generic Gateway Definition File)\nThe three sample GGDF uses the same format. If you have on of these Gateway availble,\nyou can test it using the following steps:\n1. Edit the green:ish node (name : **IP Address for ..**) and set the IP address of the gateway (without http)\n2. Don't forget to put the url to the description file in realKNX main UI (top left)\n3. Then, click the blue inject button (name : Inject description file - ...) to generate a file & notifcation to Snips engine.\n4. In Sample Implementations of Gateway Communication nodes, connect the corresponding **Respond from ..... UNIFI API** \n    to the flow. \n5. Then, start testing the voice control command \"Hey Snips, turn on the light\".\n\nTo create your GGDF, just edit one of the inject nodes.\n\n# Description file's content\nIn the description file, there are type of functions\n1. lights\n2. dimmers\n3. blinds\n4. heating\n5. scenes\n6. sensor\n7. aux (other)\n",
+        "x": 1420,
+        "y": 1000,
+        "wires": []
+    },
+    {
+        "id": "e45d6842.138358",
+        "type": "inject",
+        "z": "f2dcd008.0f3ad",
+        "name": "Inject description file - RKNX",
+        "topic": "",
+        "payload": "{\"functions\":[{\"displayName\":\"Ceiling\",\"functionType\":\"dimmers\",\"zone\":\"Home Cinema\",\"commands\":[{\"name\":\"On\",\"uid\":\"389\",\"value\":255},{\"name\":\"Off\",\"uid\":\"389\",\"value\":0},{\"name\":\"Brightness\",\"uid\":\"389\",\"valueMin\":0,\"valueMax\":255}],\"currentStates\":[{\"name\":\"CurrentBrightness\",\"uid\":\"390\",\"valueMin\":0,\"valueMax\":255}]},{\"displayName\":\"Table\",\"functionType\":\"lights\",\"zone\":\"Home Cinema\",\"commands\":[{\"name\":\"On\",\"uid\":\"385\",\"value\":1},{\"name\":\"Off\",\"uid\":\"385\",\"value\":0}],\"currentStates\":[{\"name\":\"CurrentState\",\"uid\":\"386\",\"valueMin\":false,\"valueMax\":true}]},{\"displayName\":\"Shutter\",\"functionType\":\"blinds\",\"zone\":\"Bedroom\",\"commands\":[{\"name\":\"On\",\"uid\":\"399\",\"value\":0},{\"name\":\"Off\",\"uid\":\"399\",\"value\":255},{\"name\":\"Position\",\"uid\":\"399\",\"valueMin\":0,\"valueMax\":255}],\"currentStates\":[{\"name\":\"CurrentPosition\",\"uid\":\"399\",\"valueMin\":0,\"valueMax\":255}]},{\"displayName\":\"Thermostat\",\"functionType\":\"heating\",\"zone\":\"Home Cinema\",\"commands\":[{\"name\":\"TargetTemperature\",\"uid\":\"906\",\"valueMin\":18,\"valueMax\":28}],\"currentStates\":[{\"name\":\"TargetTemperature\",\"uid\":\"907\",\"valueMin\":18,\"valueMax\":28},{\"name\":\"CurrentTemperature\",\"uid\":\"905\",\"valueMin\":18,\"valueMax\":28}]},{\"displayName\":\"Cosy\",\"functionType\":\"scenes\",\"zone\":\"Home Cinema\",\"commands\":[{\"name\":\"On\",\"uid\":\"379\",\"value\":1}]},{\"displayName\":\"Total Power\",\"functionType\":\"sensor\",\"zone\":\"Home Cinema\",\"unit\":\"Watt\",\"currentStates\":[{\"name\":\"CurrentValue\",\"uid\":\"817\"}]},{\"displayName\":\"Speaker\",\"functionType\":\"aux\",\"zone\":\"Bedroom\",\"commands\":[{\"name\":\"On\",\"uid\":\"124\",\"value\":50},{\"name\":\"Off\",\"uid\":\"124\",\"value\":0},{\"name\":\"Value\",\"uid\":\"124\",\"valueMin\":0,\"valueMax\":255}]}]}",
+        "payloadType": "json",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 1340,
+        "y": 1040,
+        "wires": [
+            [
+                "af6e1b30.6df928"
+            ]
+        ]
+    },
+    {
+        "id": "af6e1b30.6df928",
+        "type": "change",
+        "z": "f2dcd008.0f3ad",
+        "name": "**IP Address for realKNX(proServ)**",
+        "rules": [
+            {
+                "t": "set",
+                "p": "gatewayName",
+                "pt": "global",
+                "to": "realknx",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "proServIP",
+                "pt": "global",
+                "to": "192.168.9.250",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1630,
+        "y": 1040,
+        "wires": [
+            []
+        ]
+    }
+]
