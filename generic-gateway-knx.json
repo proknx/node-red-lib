@@ -1,0 +1,483 @@
+[
+    {
+        "id": "660c1442.562674",
+        "type": "comment",
+        "z": "c5ebdf92.fa5e7",
+        "name": "======= KNX COMMUNICATION MODULE ========",
+        "info": "# Exemple implementation of the Gateway Communication Module.\nThere are two parts, hence two handlers\n 1. Generic Query - to GET the value\n 2. Generic Command - absolute SET and realtive SET value (increase/decrease)\n\n## Generic Query\nThis handler is called when the Snips application needs to get the current value of a device (temperature, brightness, shutters position, sensors etc)\nIt receives an array of commands.\n\n# Generic command\nThis handler is called to get the current value of the device (on,off,decrease,set etc)\nThe link in node of the generic command is also connected to Snips application. It receive \ncommands of devices as input. It could be one command or an array of commands at a time.\n\n# Return\ntrue is when the server repond correctly, otherwise, Result is false ",
+        "x": 1360,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "eb356b81.707b3",
+        "type": "comment",
+        "z": "c5ebdf92.fa5e7",
+        "name": "GATEWAY DESCRIPTION FILE",
+        "info": "",
+        "x": 1290,
+        "y": 343,
+        "wires": []
+    },
+    {
+        "id": "df4a9740.d8c97",
+        "type": "function",
+        "z": "c5ebdf92.fa5e7",
+        "name": "Respose",
+        "func": "//From the server respond, put it in this format\n//For more than one devices\n//\n//\n        // [{\n        //     \"Data\" : [{            \n        //         \"Value\" : 100,\n        //         \"uid\" : \"\" \n        //     }],\n        //     \"Result\":true\n        // },\n        // {\n        //     \"Data\" : [{            \n        //         \"Value\" : 50,\n        //         \"type\" : \"\"\n        //     }],\n        //     \"Result\":true\n        // }] \n        \nmsg.states = [];\nfor(var i = 0 ; i < msg.payload.length ; i++){\n        msg.states[i] = { \n            \"Data\" : [{\n                \"Value\" : msg.payload[i]\n            }]\n        };\n        if(msg.states[i].Data[0].Value !== undefined){\n            msg.states[i].Result=true;\n        }else{\n            msg.states[i].Result=false;\n        }\n}\n\nmsg.payload=msg.states;\ndelete msg.states;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1980,
+        "y": 540,
+        "wires": [
+            [
+                "d1989de9.e847c"
+            ]
+        ]
+    },
+    {
+        "id": "a0da0318.f82b5",
+        "type": "function",
+        "z": "c5ebdf92.fa5e7",
+        "name": "Response",
+        "func": "msg.result = [];\nfor(var i = 0 ; i < msg.payload.length ; i++){\n    if(msg.payload[i] === \"\"){\n        msg.result[i] = {\"Result\" : true};\n    }else{\n        msg.result[i] = {\"Result\" : false, \"messageError\" : msg.payload};\n    }\n}\n\nmsg.payload=msg.result;\ndelete msg.result;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1690,
+        "y": 640,
+        "wires": [
+            [
+                "c22e06d3.ce5288"
+            ]
+        ]
+    },
+    {
+        "id": "bad8689a.884e68",
+        "type": "knxUltimate",
+        "z": "c5ebdf92.fa5e7",
+        "server": "2ff135e9.e08eaa",
+        "topic": "",
+        "dpt": "1.001",
+        "initialread": false,
+        "notifyreadrequest": false,
+        "notifyresponse": false,
+        "notifywrite": false,
+        "notifyreadrequestalsorespondtobus": false,
+        "notifyreadrequestalsorespondtobusdefaultvalueifnotinitialized": "0",
+        "listenallga": true,
+        "name": "knx",
+        "outputtype": "write",
+        "outputRBE": false,
+        "inputRBE": false,
+        "x": 1650,
+        "y": 680,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "a33ad457.69ce08",
+        "type": "inject",
+        "z": "c5ebdf92.fa5e7",
+        "name": "Inject description file - raw KNX",
+        "topic": "",
+        "payload": "{\"functions\":[{\"displayName\":\"Ceiling\",\"functionType\":\"lights\",\"zone\":\"Bedroom\",\"commands\":[{\"name\":\"On\",\"destination\":\"0/0/6\",\"dpt\":\"1.001\",\"value\":1},{\"name\":\"Off\",\"destination\":\"0/0/6\",\"dpt\":\"1.001\",\"value\":0}],\"currentStates\":[{\"name\":\"CurrentState\",\"dpt\":\"1.001\",\"destination\":\"0/1/6\",\"valueMin\":0,\"valueMax\":1}]},{\"displayName\":\"Ceiling\",\"functionType\":\"dimmers\",\"zone\":\"Home Cinema\",\"commands\":[{\"name\":\"On\",\"destination\":\"0/3/1\",\"dpt\":\"5.001\",\"value\":100},{\"name\":\"Off\",\"destination\":\"0/3/1\",\"dpt\":\"5.001\",\"value\":0},{\"name\":\"Brightness\",\"destination\":\"0/3/1\",\"dpt\":\"5.001\",\"valueMin\":0,\"valueMax\":100}],\"currentStates\":[{\"name\":\"CurrentBrightness\",\"dpt\":\"5.001\",\"destination\":\"0/4/1\",\"valueMin\":0,\"valueMax\":100}]},{\"displayName\":\"Table\",\"functionType\":\"lights\",\"zone\":\"Home Cinema\",\"commands\":[{\"name\":\"On\",\"destination\":\"0/0/7\",\"dpt\":\"1.001\",\"value\":1},{\"name\":\"Off\",\"destination\":\"0/0/7\",\"dpt\":\"1.001\",\"value\":0}],\"currentStates\":[{\"name\":\"CurrentState\",\"destination\":\"0/1/7\",\"dpt\":\"1.001\",\"valueMin\":0,\"valueMax\":1}]},{\"displayName\":\"Shutter\",\"functionType\":\"blinds\",\"zone\":\"Home Cinema\",\"commands\":[{\"name\":\"On\",\"destination\":\"1/3/1\",\"dpt\":\"5.001\",\"value\":0},{\"name\":\"Off\",\"destination\":\"1/3/1\",\"dpt\":\"5.001\",\"value\":255},{\"name\":\"Position\",\"destination\":\"1/3/1\",\"dpt\":\"5.001\",\"valueMin\":0,\"valueMax\":255}],\"currentStates\":[{\"name\":\"CurrentPosition\",\"destination\":\"1/4/1\",\"dpt\":\"5.001\",\"valueMin\":0,\"valueMax\":255}]},{\"displayName\":\"Cinema\",\"functionType\":\"heating\",\"zone\":\"Home Cinema\",\"commands\":[{\"name\":\"TargetTemperature\",\"destination\":\"4/1/0\",\"dpt\":\"9.001\",\"valueMin\":18,\"valueMax\":28}],\"currentStates\":[{\"name\":\"TargetTemperature\",\"destination\":\"4/1/1\",\"dpt\":\"9.001\",\"valueMin\":18,\"valueMax\":28},{\"name\":\"CurrentTemperature\",\"destination\":\"4/1/2\",\"dpt\":\"9.001\",\"valueMin\":18,\"valueMax\":28}]},{\"displayName\":\"Cosy\",\"functionType\":\"scenes\",\"zone\":\"Home Cinema\",\"commands\":[{\"name\":\"On\",\"destination\":\"2/5/0\",\"dpt\":\"18.001\",\"value\":1}]},{\"displayName\":\"Total Power\",\"functionType\":\"sensor\",\"zone\":\"Home Cinema\",\"unit\":\"Watt\",\"currentStates\":[{\"name\":\"CurrentValue\",\"destination\":\"9/1/1\",\"dpt\":\"9.024\"}]},{\"displayName\":\"Speaker\",\"functionType\":\"aux\",\"zone\":\"Bedroom\",\"commands\":[{\"name\":\"On\",\"destination\":\"10/4/4\",\"dpt\":\"5.001\",\"value\":50},{\"name\":\"Off\",\"destination\":\"10/4/4\",\"dpt\":\"5.001\",\"value\":0},{\"name\":\"Value\",\"destination\":\"10/4/4\",\"dpt\":\"5.001\",\"valueMin\":0,\"valueMax\":255}],\"currentStates\":[{\"name\":\"CurrentValue\",\"destination\":\"10/4/3\",\"dpt\":\"5.001\",\"valueMin\":0,\"valueMax\":255}]}]}",
+        "payloadType": "json",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 1310,
+        "y": 380,
+        "wires": [
+            [
+                "38a82b79.a4f754"
+            ]
+        ]
+    },
+    {
+        "id": "3dd6610b.243d76",
+        "type": "change",
+        "z": "c5ebdf92.fa5e7",
+        "name": "prep",
+        "rules": [
+            {
+                "t": "set",
+                "p": "dpt",
+                "pt": "msg",
+                "to": "payload.dpt",
+                "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "destination",
+                "pt": "msg",
+                "to": "payload.destination",
+                "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.value",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1510,
+        "y": 660,
+        "wires": [
+            [
+                "bad8689a.884e68",
+                "a0da0318.f82b5"
+            ]
+        ]
+    },
+    {
+        "id": "a891f378.9acf68",
+        "type": "function",
+        "z": "c5ebdf92.fa5e7",
+        "name": "Write",
+        "func": "msg.device = msg.payload;\nmsg.payload =[];\nfor(var i = 0; i < msg.device.length ; i++){\n    msg.payload[i] ={\n        \"destination\": msg.device[i].destination,\n        \"dpt\": msg.device[i].dpt,\n        \"value\": msg.device[i].value\n    };\n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1270,
+        "y": 660,
+        "wires": [
+            [
+                "1eff4fba.3022d8"
+            ]
+        ]
+    },
+    {
+        "id": "1eff4fba.3022d8",
+        "type": "split",
+        "z": "c5ebdf92.fa5e7",
+        "name": "split",
+        "splt": "\\n",
+        "spltType": "str",
+        "arraySplt": 1,
+        "arraySpltType": "len",
+        "stream": false,
+        "addname": "",
+        "x": 1390,
+        "y": 660,
+        "wires": [
+            [
+                "3dd6610b.243d76"
+            ]
+        ]
+    },
+    {
+        "id": "f88e97a.db427e8",
+        "type": "knxUltimate",
+        "z": "c5ebdf92.fa5e7",
+        "server": "2ff135e9.e08eaa",
+        "topic": "",
+        "dpt": "1.001",
+        "initialread": false,
+        "notifyreadrequest": false,
+        "notifyresponse": true,
+        "notifywrite": false,
+        "notifyreadrequestalsorespondtobus": false,
+        "notifyreadrequestalsorespondtobusdefaultvalueifnotinitialized": "0",
+        "listenallga": true,
+        "name": "knx",
+        "outputtype": "write",
+        "outputRBE": false,
+        "inputRBE": false,
+        "x": 1490,
+        "y": 580,
+        "wires": [
+            [
+                "708fb14.aebe85"
+            ]
+        ]
+    },
+    {
+        "id": "4a134ecf.c5ca58",
+        "type": "change",
+        "z": "c5ebdf92.fa5e7",
+        "name": " prep",
+        "rules": [
+            {
+                "t": "set",
+                "p": "dpt",
+                "pt": "msg",
+                "to": "payload.dpt",
+                "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "destination",
+                "pt": "msg",
+                "to": "payload.destination",
+                "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "readstatus",
+                "pt": "msg",
+                "to": "payload.readstatus",
+                "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1370,
+        "y": 560,
+        "wires": [
+            [
+                "f88e97a.db427e8",
+                "48f32b02.efb8f4"
+            ]
+        ]
+    },
+    {
+        "id": "f61dd3fa.f7c078",
+        "type": "function",
+        "z": "c5ebdf92.fa5e7",
+        "name": "Query",
+        "func": "msg.device = msg.payload;\nmsg.payload = [];\nfor(var i = 0; i < msg.device.length ; i++){\n    msg.payload[i] ={\n        \"destination\": msg.device[i].destination,\n        \"dpt\": msg.device[i].dpt,\n        \"readstatus\" : true\n    };\n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1270,
+        "y": 500,
+        "wires": [
+            [
+                "988b6001.9dea08"
+            ]
+        ]
+    },
+    {
+        "id": "988b6001.9dea08",
+        "type": "split",
+        "z": "c5ebdf92.fa5e7",
+        "name": "split",
+        "splt": "\\n",
+        "spltType": "str",
+        "arraySplt": 1,
+        "arraySpltType": "len",
+        "stream": false,
+        "addname": "",
+        "x": 1390,
+        "y": 480,
+        "wires": [
+            [
+                "4a134ecf.c5ca58"
+            ]
+        ]
+    },
+    {
+        "id": "9ce213d9.008848",
+        "type": "join",
+        "z": "c5ebdf92.fa5e7",
+        "name": "",
+        "mode": "auto",
+        "build": "string",
+        "property": "payload",
+        "propertyType": "msg",
+        "key": "topic",
+        "joiner": "\\n",
+        "joinerType": "str",
+        "accumulate": false,
+        "timeout": "",
+        "count": "",
+        "reduceRight": false,
+        "reduceExp": "",
+        "reduceInit": "",
+        "reduceInitType": "",
+        "reduceFixup": "",
+        "x": 1890,
+        "y": 500,
+        "wires": [
+            [
+                "df4a9740.d8c97"
+            ]
+        ]
+    },
+    {
+        "id": "f53f3fca.704f9",
+        "type": "join-wait",
+        "z": "c5ebdf92.fa5e7",
+        "name": "",
+        "paths": "[\"path_1\", \"path_2\"]",
+        "pathsToExpire": "",
+        "ignoreUnmatched": true,
+        "pathTopic": "paths",
+        "pathTopicType": "msg",
+        "correlationTopic": "correlation",
+        "correlationTopicType": "msg",
+        "timeout": "2000",
+        "timeoutUnits": 1,
+        "exactOrder": "false",
+        "firstMsg": "true",
+        "mapPayload": "true",
+        "disableComplete": false,
+        "x": 1680,
+        "y": 500,
+        "wires": [
+            [
+                "bccc268a.92f2c8"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "708fb14.aebe85",
+        "type": "change",
+        "z": "c5ebdf92.fa5e7",
+        "name": "path_2",
+        "rules": [
+            {
+                "t": "set",
+                "p": "paths",
+                "pt": "msg",
+                "to": "path_2",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "correlation",
+                "pt": "msg",
+                "to": "topic",
+                "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "result",
+                "pt": "msg",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1620,
+        "y": 580,
+        "wires": [
+            [
+                "f53f3fca.704f9"
+            ]
+        ]
+    },
+    {
+        "id": "48f32b02.efb8f4",
+        "type": "change",
+        "z": "c5ebdf92.fa5e7",
+        "name": "path_1",
+        "rules": [
+            {
+                "t": "set",
+                "p": "paths",
+                "pt": "msg",
+                "to": "path_1",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "correlation",
+                "pt": "msg",
+                "to": "destination",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1500,
+        "y": 540,
+        "wires": [
+            [
+                "f53f3fca.704f9"
+            ]
+        ]
+    },
+    {
+        "id": "bccc268a.92f2c8",
+        "type": "change",
+        "z": "c5ebdf92.fa5e7",
+        "name": "result",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "paths.path_2",
+                "tot": "msg"
+            },
+            {
+                "t": "delete",
+                "p": "paths",
+                "pt": "msg"
+            },
+            {
+                "t": "delete",
+                "p": "correlation",
+                "pt": "msg"
+            },
+            {
+                "t": "delete",
+                "p": "readstatus",
+                "pt": "msg"
+            },
+            {
+                "t": "delete",
+                "p": "dpt",
+                "pt": "msg"
+            },
+            {
+                "t": "delete",
+                "p": "destination",
+                "pt": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1790,
+        "y": 540,
+        "wires": [
+            [
+                "9ce213d9.008848"
+            ]
+        ]
+    },
+    {
+        "id": "2ff135e9.e08eaa",
+        "type": "knxUltimate-config",
+        "z": "",
+        "host": "192.168.9.250",
+        "port": "3671",
+        "physAddr": "15.15.22",
+        "suppressACKRequest": false,
+        "csv": "",
+        "KNXEthInterface": "Auto",
+        "KNXEthInterfaceManuallyInput": "",
+        "statusDisplayLastUpdate": true,
+        "statusDisplayDeviceNameWhenALL": true,
+        "statusDisplayDataPoint": false,
+        "stopETSImportIfNoDatapoint": "stop"
+    }
+]
