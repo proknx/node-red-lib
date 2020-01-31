@@ -1,0 +1,169 @@
+{
+    "functions": [
+        {
+            "displayName": "Ceiling",
+            "functionType": "dimmers",
+            "zone": "Home Cinema",
+            "commands": [
+                {
+                    "name": "On",
+                    "uid": "389",
+                    "value": 255,
+                    "description":"Turn on ceiling in Home Cinema"
+                },
+                {
+                    "name": "Off",
+                    "uid": "389",
+                    "value": 0,
+                    "description":"Turn off ceiling in Home Cinema"
+                },
+                {
+                    "name": "Brightness",
+                    "uid": "389",
+                    "valueMin": 0,
+                    "valueMax": 255,
+                    "description":"Set a value ceiling in Home Cinema"
+                }
+            ],
+            "currentStates": [
+                {
+                    "name": "CurrentBrightness",
+                    "uid": "390",
+                    "valueMin": 0,
+                    "valueMax": 255,
+                }
+            ]
+        },
+        {
+            "displayName": "Table",
+            "functionType": "lights",
+            "zone": "Home Cinema",
+            "commands": [
+                {
+                    "name": "On",
+                    "uid": "385",
+                    "value": 1
+                },
+                {
+                    "name": "Off",
+                    "uid": "385",
+                    "value": 0
+                }
+            ],
+            "currentStates": [
+                {
+                    "name": "CurrentState",
+                    "uid": "386",
+                    "valueMin": false,
+                    "valueMax": true
+                }
+            ]
+        },
+        {
+            "displayName": "Shutter",
+            "functionType": "blinds",
+            "zone": "Bedroom",
+            "commands": [
+                {
+                    "name": "On",
+                    "uid": "399",
+                    "value": 0
+                },
+                {
+                    "name": "Off",
+                    "uid": "399",
+                    "value": 255
+                },
+                {
+                    "name": "Position",
+                    "uid": "399",
+                    "valueMin": 0,
+                    "valueMax": 255
+                }
+            ],
+            "currentStates": [
+                {
+                    "name": "CurrentPosition",
+                    "uid": "399",
+                    "valueMin": 0,
+                    "valueMax": 255
+                }
+            ]
+        },
+        {
+            "displayName": "Thermostat",
+            "functionType": "heating",
+            "zone": "Home Cinema",
+            "commands": [
+                {
+                    "name": "TargetTemperature",
+                    "uid": "906",
+                    "valueMin": 18,
+                    "valueMax": 28
+                }
+            ],
+            "currentStates": [
+                {
+                    "name": "TargetTemperature",
+                    "uid": "907",
+                    "valueMin": 18,
+                    "valueMax": 28
+                },
+                {
+                    "name": "CurrentTemperature",
+                    "uid": "905",
+                    "valueMin": 18,
+                    "valueMax": 28
+                }
+            ]
+        },
+        {
+            "displayName": "Cosy",
+            "functionType": "scenes",
+            "zone": "Home Cinema",
+            "commands": [
+                {
+                    "name": "On",
+                    "uid": "379",
+                    "value": 1,
+                    "description": "this is cosy scene"
+                }
+            ]
+        },
+        {
+            "displayName": "Total Power",
+            "functionType": "sensor",
+            "zone": "Home Cinema",
+            "unit": "Watt",
+            "currentStates": [
+                {
+                    "name": "CurrentValue",
+                    "uid": "817"
+                }
+            ]
+        },
+        {
+            "displayName": "Speaker",
+            "functionType": "aux",
+            "zone": "Bedroom",
+            "commands": [
+                {
+                    "name": "On",
+                    "uid": "124",
+                    "value": 50
+                },
+                {
+                    "name": "Off",
+                    "uid": "124",
+                    "value": 0
+                },
+                {
+                    "name": "Value",
+                    "uid": "124",
+                    "valueMin": 0,
+                    "valueMax": 255
+                }
+            ]
+        }
+    ]
+}
