@@ -43,7 +43,7 @@
         "func": "msg.payload = [];\nmsg.payload[0] = {\"Result\" : true};\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 1690,
+        "x": 1710,
         "y": 580,
         "wires": [
             [
@@ -69,7 +69,7 @@
         "outputtype": "write",
         "outputRBE": false,
         "inputRBE": false,
-        "x": 1650,
+        "x": 1670,
         "y": 620,
         "wires": [
             []
@@ -132,8 +132,8 @@
         "y": 600,
         "wires": [
             [
-                "6993737b.062acc",
-                "22ac0f91.533598"
+                "22ac0f91.533598",
+                "6993737b.062acc"
             ]
         ]
     },
@@ -465,11 +465,129 @@
         ]
     },
     {
+        "id": "f52cd133.f01d58",
+        "type": "knxUltimate",
+        "z": "72a1c1.33ab1e4",
+        "server": "c20db14e.e29ce",
+        "topic": "",
+        "dpt": "1.001",
+        "initialread": false,
+        "notifyreadrequest": false,
+        "notifyresponse": false,
+        "notifywrite": false,
+        "notifyreadrequestalsorespondtobus": false,
+        "notifyreadrequestalsorespondtobusdefaultvalueifnotinitialized": "0",
+        "listenallga": true,
+        "name": "knx",
+        "outputtype": "write",
+        "outputRBE": false,
+        "inputRBE": false,
+        "x": 1630,
+        "y": 680,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "adfa50e.eb726b",
+        "type": "inject",
+        "z": "72a1c1.33ab1e4",
+        "name": "Init",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "1",
+        "x": 1230,
+        "y": 680,
+        "wires": [
+            [
+                "94fcb561.3b96a"
+            ]
+        ]
+    },
+    {
+        "id": "94fcb561.3b96a",
+        "type": "change",
+        "z": "72a1c1.33ab1e4",
+        "name": "**IP Address for KNX Gateway**",
+        "rules": [
+            {
+                "t": "set",
+                "p": "setGatewayConfig.IP",
+                "pt": "msg",
+                "to": "192.168.9.250",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "setGatewayConfig.Port",
+                "pt": "msg",
+                "to": "3671",
+                "tot": "num"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1430,
+        "y": 680,
+        "wires": [
+            [
+                "f52cd133.f01d58"
+            ]
+        ]
+    },
+    {
+        "id": "2ae928f3.7ab43",
+        "type": "inject",
+        "z": "72a1c1.33ab1e4",
+        "name": "French version",
+        "topic": "",
+        "payload": "{\"functions\":[{\"displayName\":\"Plafonnier\",\"functionType\":\"lights\",\"zone\":\"Chambre\",\"commands\":[{\"name\":\"On\",\"destination\":\"0/0/6\",\"dpt\":\"1.001\",\"value\":1},{\"name\":\"Off\",\"destination\":\"0/0/6\",\"dpt\":\"1.001\",\"value\":0}],\"currentStates\":[{\"name\":\"CurrentState\",\"dpt\":\"1.001\",\"destination\":\"0/1/6\",\"valueMin\":0,\"valueMax\":1}]},{\"displayName\":\"Plafonnier\",\"functionType\":\"dimmers\",\"zone\":\"Salle à manger\",\"commands\":[{\"name\":\"On\",\"destination\":\"0/3/1\",\"dpt\":\"5.001\",\"value\":100},{\"name\":\"Off\",\"destination\":\"0/3/1\",\"dpt\":\"5.001\",\"value\":0},{\"name\":\"Brightness\",\"destination\":\"0/3/1\",\"dpt\":\"5.001\",\"valueMin\":0,\"valueMax\":100}],\"currentStates\":[{\"name\":\"CurrentBrightness\",\"dpt\":\"5.001\",\"destination\":\"0/4/1\",\"valueMin\":0,\"valueMax\":100}]},{\"displayName\":\"Table\",\"functionType\":\"lights\",\"zone\":\"Salle à manger\",\"commands\":[{\"name\":\"On\",\"destination\":\"0/0/7\",\"dpt\":\"1.001\",\"value\":1},{\"name\":\"Off\",\"destination\":\"0/0/7\",\"dpt\":\"1.001\",\"value\":0}],\"currentStates\":[{\"name\":\"CurrentState\",\"destination\":\"0/1/7\",\"dpt\":\"1.001\",\"valueMin\":0,\"valueMax\":1}]},{\"displayName\":\"Volet\",\"functionType\":\"blinds\",\"zone\":\"Salle à manger\",\"commands\":[{\"name\":\"On\",\"destination\":\"1/3/1\",\"dpt\":\"5.001\",\"value\":0},{\"name\":\"Off\",\"destination\":\"1/3/1\",\"dpt\":\"5.001\",\"value\":255},{\"name\":\"Position\",\"destination\":\"1/3/1\",\"dpt\":\"5.001\",\"valueMin\":0,\"valueMax\":255}],\"currentStates\":[{\"name\":\"CurrentPosition\",\"destination\":\"1/4/1\",\"dpt\":\"5.001\",\"valueMin\":0,\"valueMax\":255}]},{\"displayName\":\"Cinema\",\"functionType\":\"heating\",\"zone\":\"Salle à manger\",\"commands\":[{\"name\":\"TargetTemperature\",\"destination\":\"4/1/0\",\"dpt\":\"9.001\",\"valueMin\":18,\"valueMax\":28}],\"currentStates\":[{\"name\":\"TargetTemperature\",\"destination\":\"4/1/1\",\"dpt\":\"9.001\",\"valueMin\":18,\"valueMax\":28},{\"name\":\"CurrentTemperature\",\"destination\":\"4/1/2\",\"dpt\":\"9.001\",\"valueMin\":18,\"valueMax\":28}]},{\"displayName\":\"Cosy\",\"functionType\":\"scenes\",\"zone\":\"Salle à manger\",\"commands\":[{\"name\":\"On\",\"destination\":\"2/5/0\",\"dpt\":\"18.001\",\"value\":1}]},{\"displayName\":\"Energie totale\",\"functionType\":\"sensor\",\"zone\":\"Salle à manger\",\"unit\":\"Watt\",\"currentStates\":[{\"name\":\"CurrentValue\",\"destination\":\"9/1/1\",\"dpt\":\"9.024\"}]},{\"displayName\":\"Haut-parleur\",\"functionType\":\"aux\",\"zone\":\"Chambre\",\"commands\":[{\"name\":\"On\",\"destination\":\"10/4/4\",\"dpt\":\"5.001\",\"value\":50},{\"name\":\"Off\",\"destination\":\"10/4/4\",\"dpt\":\"5.001\",\"value\":0},{\"name\":\"Value\",\"destination\":\"10/4/4\",\"dpt\":\"5.001\",\"valueMin\":0,\"valueMax\":255}],\"currentStates\":[{\"name\":\"CurrentValue\",\"destination\":\"10/4/3\",\"dpt\":\"5.001\",\"valueMin\":0,\"valueMax\":255}]}]}",
+        "payloadType": "json",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 1600,
+        "y": 300,
+        "wires": [
+            [
+                "2ec856b2.3fa17a"
+            ]
+        ]
+    },
+    {
+        "id": "c8c7262a.698a5",
+        "type": "inject",
+        "z": "72a1c1.33ab1e4",
+        "name": "German version",
+        "topic": "",
+        "payload": "{\"functions\":[{\"displayName\":\"Decke\",\"functionType\":\"lights\",\"zone\":\"Zimmer\",\"commands\":[{\"name\":\"On\",\"destination\":\"0/0/6\",\"dpt\":\"1.001\",\"value\":1},{\"name\":\"Off\",\"destination\":\"0/0/6\",\"dpt\":\"1.001\",\"value\":0}],\"currentStates\":[{\"name\":\"CurrentState\",\"dpt\":\"1.001\",\"destination\":\"0/1/6\",\"valueMin\":0,\"valueMax\":1}]},{\"displayName\":\"Decke\",\"functionType\":\"dimmers\",\"zone\":\"Heimkino\",\"commands\":[{\"name\":\"On\",\"destination\":\"0/3/1\",\"dpt\":\"5.001\",\"value\":100},{\"name\":\"Off\",\"destination\":\"0/3/1\",\"dpt\":\"5.001\",\"value\":0},{\"name\":\"Brightness\",\"destination\":\"0/3/1\",\"dpt\":\"5.001\",\"valueMin\":0,\"valueMax\":100}],\"currentStates\":[{\"name\":\"CurrentBrightness\",\"dpt\":\"5.001\",\"destination\":\"0/4/1\",\"valueMin\":0,\"valueMax\":100}]},{\"displayName\":\"Tisch\",\"functionType\":\"lights\",\"zone\":\"Heimkino\",\"commands\":[{\"name\":\"On\",\"destination\":\"0/0/7\",\"dpt\":\"1.001\",\"value\":1},{\"name\":\"Off\",\"destination\":\"0/0/7\",\"dpt\":\"1.001\",\"value\":0}],\"currentStates\":[{\"name\":\"CurrentState\",\"destination\":\"0/1/7\",\"dpt\":\"1.001\",\"valueMin\":0,\"valueMax\":1}]},{\"displayName\":\"Rollladen\",\"functionType\":\"blinds\",\"zone\":\"Heimkino\",\"commands\":[{\"name\":\"On\",\"destination\":\"1/3/1\",\"dpt\":\"5.001\",\"value\":0},{\"name\":\"Off\",\"destination\":\"1/3/1\",\"dpt\":\"5.001\",\"value\":255},{\"name\":\"Position\",\"destination\":\"1/3/1\",\"dpt\":\"5.001\",\"valueMin\":0,\"valueMax\":255}],\"currentStates\":[{\"name\":\"CurrentPosition\",\"destination\":\"1/4/1\",\"dpt\":\"5.001\",\"valueMin\":0,\"valueMax\":255}]},{\"displayName\":\"\",\"functionType\":\"heating\",\"zone\":\"Heimkino\",\"commands\":[{\"name\":\"TargetTemperature\",\"destination\":\"4/1/0\",\"dpt\":\"9.001\",\"valueMin\":18,\"valueMax\":28}],\"currentStates\":[{\"name\":\"TargetTemperature\",\"destination\":\"4/1/1\",\"dpt\":\"9.001\",\"valueMin\":18,\"valueMax\":28},{\"name\":\"CurrentTemperature\",\"destination\":\"4/1/2\",\"dpt\":\"9.001\",\"valueMin\":18,\"valueMax\":28}]},{\"displayName\":\"Cosy\",\"functionType\":\"scenes\",\"zone\":\"Heimkino\",\"commands\":[{\"name\":\"On\",\"destination\":\"2/5/0\",\"dpt\":\"18.001\",\"value\":1}]},{\"displayName\":\"Energieverbrauch\",\"functionType\":\"sensor\",\"zone\":\"Heimkino\",\"unit\":\"Watt\",\"currentStates\":[{\"name\":\"CurrentValue\",\"destination\":\"9/1/1\",\"dpt\":\"9.024\"}]},{\"displayName\":\"Lautsprecher\",\"functionType\":\"aux\",\"zone\":\"Zimmer\",\"commands\":[{\"name\":\"On\",\"destination\":\"10/4/4\",\"dpt\":\"5.001\",\"value\":50},{\"name\":\"Off\",\"destination\":\"10/4/4\",\"dpt\":\"5.001\",\"value\":0},{\"name\":\"Value\",\"destination\":\"10/4/4\",\"dpt\":\"5.001\",\"valueMin\":0,\"valueMax\":255}],\"currentStates\":[{\"name\":\"CurrentValue\",\"destination\":\"10/4/3\",\"dpt\":\"5.001\",\"valueMin\":0,\"valueMax\":255}]}]}",
+        "payloadType": "json",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 1600,
+        "y": 340,
+        "wires": [
+            [
+                "2ec856b2.3fa17a"
+            ]
+        ]
+    },
+    {
         "id": "c20db14e.e29ce",
         "type": "knxUltimate-config",
         "z": "",
         "host": "",
-        "port": "3671",
+        "port": "",
         "physAddr": "",
         "suppressACKRequest": false,
         "csv": "",
