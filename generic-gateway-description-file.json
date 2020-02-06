@@ -30,7 +30,7 @@
                     "name": "CurrentBrightness",
                     "uid": "390",
                     "valueMin": 0,
-                    "valueMax": 255,
+                    "valueMax": 255
                 }
             ]
         },
