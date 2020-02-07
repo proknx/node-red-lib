@@ -1,22 +1,22 @@
 [
     {
-        "id": "323a9543.ece66a",
+        "id": "a12b4853.d53a98",
         "type": "function",
         "z": "f3ab6910.2495f8",
         "name": "Set url",
-        "func": "//msg.payload contain the command input from snips and realknx.\n//\nvar token = \"dEAUv4WaS2N6CvbLmz2Y8pvRIEamK6gv\";//you should put your own token\nmsg.device = msg.payload; \nmsg.payload =[];\nfor(var i = 0; i < msg.device.length ; i++){\n    var uid = msg.device[i].uid;\n    msg.payload[i] ={\n        \"url\" : \"http://localhost:1880/api/v1/values/\" + uid + \"?token=\"+token\n    };\n}\nreturn msg;",
+        "func": "//msg.payload contain the command input from snips and realknx.\n//\nvar token = global.get(\"tokenGIRA\");//you should put your own token\nmsg.device = msg.payload; \nmsg.payload =[];\nfor(var i = 0; i < msg.device.length ; i++){\n    var uid = msg.device[i].uid;\n    msg.payload[i] ={\n        \"url\" : \"http://localhost:1880/api/v1/values/\" + uid + \"?token=\"+token\n    };\n}\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 1410,
-        "y": 1540,
+        "x": 1270,
+        "y": 440,
         "wires": [
             [
-                "84ac034a.f7895"
+                "362f4e31.dd2d02"
             ]
         ]
     },
     {
-        "id": "13a89c69.7b97d4",
+        "id": "8f8dbf3f.01cb",
         "type": "http request",
         "z": "f3ab6910.2495f8",
         "name": "GET",
@@ -27,16 +27,16 @@
         "tls": "",
         "proxy": "",
         "authType": "",
-        "x": 1770,
-        "y": 1540,
+        "x": 1630,
+        "y": 440,
         "wires": [
             [
-                "9cd80e18.1cdd1"
+                "fe8d328e.60b18"
             ]
         ]
     },
     {
-        "id": "84ac034a.f7895",
+        "id": "362f4e31.dd2d02",
         "type": "split",
         "z": "f3ab6910.2495f8",
         "name": "split",
@@ -46,16 +46,16 @@
         "arraySpltType": "len",
         "stream": false,
         "addname": "",
-        "x": 1530,
-        "y": 1540,
+        "x": 1390,
+        "y": 440,
         "wires": [
             [
-                "5a12d085.7390b"
+                "c6d3b8a.91d9748"
             ]
         ]
     },
     {
-        "id": "9cd80e18.1cdd1",
+        "id": "fe8d328e.60b18",
         "type": "join",
         "z": "f3ab6910.2495f8",
         "name": "",
@@ -74,16 +74,16 @@
         "reduceInit": "",
         "reduceInitType": "",
         "reduceFixup": "",
-        "x": 1890,
-        "y": 1540,
+        "x": 1750,
+        "y": 440,
         "wires": [
             [
-                "c8e32ddf.22bb4"
+                "88d0afda.37017"
             ]
         ]
     },
     {
-        "id": "5a12d085.7390b",
+        "id": "c6d3b8a.91d9748",
         "type": "change",
         "z": "f3ab6910.2495f8",
         "name": "set",
@@ -101,32 +101,32 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1650,
-        "y": 1540,
+        "x": 1510,
+        "y": 440,
         "wires": [
             [
-                "13a89c69.7b97d4"
+                "8f8dbf3f.01cb"
             ]
         ]
     },
     {
-        "id": "8201948a.145138",
+        "id": "eef7b638.4094d8",
         "type": "function",
         "z": "f3ab6910.2495f8",
         "name": "Set url",
-        "func": "var token = \"dEAUv4WaS2N6CvbLmz2Y8pvRIEamK6gv\";//you should put your own token\nmsg.device = msg.payload;\nmsg.payload =[];\nfor(var i = 0; i < msg.device.length ; i++){\n    var uid = msg.device[i].uid;\n    msg.payload[i] ={\n        \"url\" : \"http://localhost:1880/api/v1/values/\" + uid + \"?token=\" + token, \n        \"value\": { \"value\" : msg.device[i].value }\n    };\n}\nreturn msg;",
+        "func": "var token = global.get(\"tokenGIRA\");//you should put your own token\nmsg.device = msg.payload;\nmsg.payload =[];\nfor(var i = 0; i < msg.device.length ; i++){\n    var uid = msg.device[i].uid;\n    msg.payload[i] ={\n        \"url\" : \"http://localhost:1880/api/v1/values/\" + uid + \"?token=\" + token, \n        \"value\": { \"value\" : msg.device[i].value }\n    };\n}\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 1410,
-        "y": 1700,
+        "x": 1270,
+        "y": 600,
         "wires": [
             [
-                "232521fa.d2bdde"
+                "8332ffd7.66134"
             ]
         ]
     },
     {
-        "id": "5dde2b0c.3c2824",
+        "id": "86b1dec8.cf923",
         "type": "http request",
         "z": "f3ab6910.2495f8",
         "name": "PUT",
@@ -137,16 +137,16 @@
         "tls": "",
         "proxy": "",
         "authType": "",
-        "x": 1770,
-        "y": 1700,
+        "x": 1630,
+        "y": 600,
         "wires": [
             [
-                "86fcbd6e.688fd"
+                "9c4180e3.dcd48"
             ]
         ]
     },
     {
-        "id": "232521fa.d2bdde",
+        "id": "8332ffd7.66134",
         "type": "split",
         "z": "f3ab6910.2495f8",
         "name": "split",
@@ -156,16 +156,16 @@
         "arraySpltType": "len",
         "stream": false,
         "addname": "",
-        "x": 1530,
-        "y": 1700,
+        "x": 1390,
+        "y": 600,
         "wires": [
             [
-                "132e42dc.97c06d"
+                "6ecf82d7.2a72cc"
             ]
         ]
     },
     {
-        "id": "132e42dc.97c06d",
+        "id": "6ecf82d7.2a72cc",
         "type": "change",
         "z": "f3ab6910.2495f8",
         "name": "set",
@@ -190,16 +190,16 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1650,
-        "y": 1700,
+        "x": 1510,
+        "y": 600,
         "wires": [
             [
-                "5dde2b0c.3c2824"
+                "86b1dec8.cf923"
             ]
         ]
     },
     {
-        "id": "86fcbd6e.688fd",
+        "id": "9c4180e3.dcd48",
         "type": "join",
         "z": "f3ab6910.2495f8",
         "name": "",
@@ -218,54 +218,48 @@
         "reduceInit": "",
         "reduceInitType": "",
         "reduceFixup": "",
-        "x": 1890,
-        "y": 1700,
+        "x": 1750,
+        "y": 600,
         "wires": [
             [
-                "a16a4c69.d087d"
+                "f84ef415.88cf88"
             ]
         ]
     },
     {
-        "id": "a16a4c69.d087d",
+        "id": "f84ef415.88cf88",
         "type": "function",
         "z": "f3ab6910.2495f8",
         "name": "**Respond from GIRA**",
         "func": "msg.result = [];\nfor(var i = 0 ; i < msg.payload.length ; i++){\n    if(msg.payload[i] === \"\"){\n        msg.result[i] = {\"Result\" : true};\n    }else{\n        msg.result[i] = {\"Result\" : false, \"messageError\" : msg.payload};\n    }\n}\n\nmsg.payload=msg.result;\ndelete msg.result;\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 2070,
-        "y": 1700,
+        "x": 1930,
+        "y": 600,
         "wires": [
-            []
+            [
+                "56b766f0.168948"
+            ]
         ]
     },
     {
-        "id": "c8e32ddf.22bb4",
+        "id": "88d0afda.37017",
         "type": "function",
         "z": "f3ab6910.2495f8",
         "name": "**Respond from GIRA**",
         "func": "//From the server respond, put it in this format\n//For more than one devices\n//\n//\n        // [{\n        //     \"Data\" : [{            \n        //         \"Value\" : 100,\n        //         \"uid\" : \"\" \n        //     }],\n        //     \"Result\":true\n        // },\n        // {\n        //     \"Data\" : [{            \n        //         \"Value\" : 50,\n        //         \"type\" : \"\"\n        //     }],\n        //     \"Result\":true\n        // }] \n        \nmsg.states = [];\nfor(var i = 0 ; i < msg.payload.length ; i++){\n    msg.payload[i] = JSON.parse(msg.payload[i]);\n        msg.states[i] = { \n            \"Data\" : [{\n                \"Value\" : msg.payload[i].values[0].value,\n                \"uid\" : msg.payload[i].values[0].uid\n            }]\n        };\n        if(msg.states[i].Data[0].Value !== undefined){\n            msg.states[i].Result=true;\n        }else{\n            msg.states[i].Result=false;\n        }\n}\n\nmsg.payload=msg.states;\ndelete msg.states;\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 2070,
-        "y": 1540,
+        "x": 1930,
+        "y": 440,
         "wires": [
-            []
+            [
+                "46d199d5.2856c8"
+            ]
         ]
     },
     {
-        "id": "22a49697.38e30a",
-        "type": "comment",
-        "z": "f3ab6910.2495f8",
-        "name": "======= SAMPLE GATEWAY COMMUNICATION MODULE ========",
-        "info": "# Exemple implementation of the Gateway Communication Module.\nIn this part, you will have to implement Gateway Communication code.\nThere are two parts, hence two handlers\n 1. Generic Query - to GET the value\n 2. Generic Command - absolute SET and realtive SET value (increase/decrease)\n\n## Generic Query\nThis handler is called when the Snips application needs to get the current value of a device (temperature, brightness, shutters position, sensors etc)\nIt receives an array of commands & UID of the devices as input. \nThe command name is as well as the UID are defined by **you** in the GGDF.\n\nSample input to receive (type Object):\n`[\n   {\n      \"name\":\"CurrentState\",\n      \"uid\":\"knxcom_function_20190812133320520\"\n   },\n   {\n      \"name\":\"CurrentBrightness\",\n      \"uid\":\"knxcom_function_20190902090905369\"\n   }\n]`\n\nThis input is a list of object query from the description list you provided. \n\nIf the Gateway communication module uses a Web API (http), you can re-use the sample flow. You will need to adapt the\nby changing SET node. Else, you have to replace all the nodes between two links in the handler.\nIf you intend to keep the flow, you can make a copy and detach it from the flow.\n\n\nBefore sending out the response from the gateway server to the link out of generic query, you should put it \nin a Object format that can be read by realKNX.\n\nSample output to send (type Object):\n`[{\n        \"Data\": [{\n                \"Value\": \"OFF\",\n                \"uid\": \"knxcom_function_20190812133320520\"\n            }\n        ],\n        \"Result\": true\n    }, {\n        \"Data\": [{\n                \"Value\": 46.3,\n                \"uid\": \"knxcom_function_20190902090905369\"\n            }\n        ],\n        \"Result\": true\n    }\n]`\n\n# Generic command\nThis handler is called to get the current value of the device (on,off,decrease,set etc)\nThe link in node of the generic command is also connected to Snips application. It receive \ncommands of devices as input. It could be one command or an array of commands at a time.\nSample input to receive (type Object):\n`[\n   {\n      \"name\":\"On\",\n      \"uid\":\"knxcom_function_20190812133320520\",\n      \"value\":\"ON\"\n   },\n   {\n      \"name\":\"On\",\n      \"uid\":\"knxcom_function_20190902090905369\",\n      \"value\":100\n   }\n]\n`\nThis input is a list of object command from the description list you provided. \n    \nBefore send out the response from the gateway server to the link out of generic query, you should put it \nin a Object format that can be read by realknx.\nSample output to send (type Object):\n`[\n   {\n      \"Result\":true\n   },\n   {\n      \"Result\":false\n   }\n]`\ntrue is when the server repond correctly, otherwise, Result is false ",
-        "x": 1550,
-        "y": 1480,
-        "wires": []
-    },
-    {
-        "id": "ba1a08a1.017378",
+        "id": "76a12360.2f0fac",
         "type": "inject",
         "z": "f3ab6910.2495f8",
         "name": "Inject description file - GIRA",
@@ -276,16 +270,16 @@
         "crontab": "",
         "once": false,
         "onceDelay": 0.1,
-        "x": 1440,
-        "y": 1420,
+        "x": 1300,
+        "y": 320,
         "wires": [
             [
-                "5accc785.895eb8"
+                "b97a0f3d.36956"
             ]
         ]
     },
     {
-        "id": "5accc785.895eb8",
+        "id": "b97a0f3d.36956",
         "type": "change",
         "z": "f3ab6910.2495f8",
         "name": "**IP Address for GIRA X1**",
@@ -317,20 +311,32 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1700,
-        "y": 1420,
+        "x": 1560,
+        "y": 320,
         "wires": [
-            []
+            [
+                "72efd0bf.65a02"
+            ]
         ]
     },
     {
-        "id": "827122c5.ccca1",
+        "id": "51a33843.291488",
+        "type": "comment",
+        "z": "f3ab6910.2495f8",
+        "name": "======= SAMPLE GATEWAY COMMUNICATION MODULE ========",
+        "info": "# Exemple implementation of the Gateway Communication Module.\nIn this part, you will have to implement Gateway Communication code.\nThere are two parts, hence two handlers\n 1. Generic Query - to GET the value\n 2. Generic Command - absolute SET and realtive SET value (increase/decrease)\n\n## Generic Query\nThis handler is called when the Snips application needs to get the current value of a device (temperature, brightness, shutters position, sensors etc)\nIt receives an array of commands & UID of the devices as input. \nThe command name is as well as the UID are defined by **you** in the GGDF.\n\nSample input to receive (type Object):\n`[\n   {\n      \"name\":\"CurrentState\",\n      \"uid\":\"knxcom_function_20190812133320520\"\n   },\n   {\n      \"name\":\"CurrentBrightness\",\n      \"uid\":\"knxcom_function_20190902090905369\"\n   }\n]`\n\nThis input is a list of object query from the description list you provided. \n\nIf the Gateway communication module uses a Web API (http), you can re-use the sample flow. You will need to adapt the\nby changing SET node. Else, you have to replace all the nodes between two links in the handler.\nIf you intend to keep the flow, you can make a copy and detach it from the flow.\n\n\nBefore sending out the response from the gateway server to the link out of generic query, you should put it \nin a Object format that can be read by realKNX.\n\nSample output to send (type Object):\n`[{\n        \"Data\": [{\n                \"Value\": \"OFF\",\n                \"uid\": \"knxcom_function_20190812133320520\"\n            }\n        ],\n        \"Result\": true\n    }, {\n        \"Data\": [{\n                \"Value\": 46.3,\n                \"uid\": \"knxcom_function_20190902090905369\"\n            }\n        ],\n        \"Result\": true\n    }\n]`\n\n# Generic command\nThis handler is called to get the current value of the device (on,off,decrease,set etc)\nThe link in node of the generic command is also connected to Snips application. It receive \ncommands of devices as input. It could be one command or an array of commands at a time.\nSample input to receive (type Object):\n`[\n   {\n      \"name\":\"On\",\n      \"uid\":\"knxcom_function_20190812133320520\",\n      \"value\":\"ON\"\n   },\n   {\n      \"name\":\"On\",\n      \"uid\":\"knxcom_function_20190902090905369\",\n      \"value\":100\n   }\n]\n`\nThis input is a list of object command from the description list you provided. \n    \nBefore send out the response from the gateway server to the link out of generic query, you should put it \nin a Object format that can be read by realknx.\nSample output to send (type Object):\n`[\n   {\n      \"Result\":true\n   },\n   {\n      \"Result\":false\n   }\n]`\ntrue is when the server repond correctly, otherwise, Result is false ",
+        "x": 1410,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "13a5fdb9.e9c632",
         "type": "comment",
         "z": "f3ab6910.2495f8",
         "name": "GGDF - GATEWAY DESCRIPTION FILES EXAMPLES",
         "info": "# Sample GGDF (Generic Gateway Definition File)\nThe three sample GGDF uses the same format. If you have on of these Gateway availble,\nyou can test it using the following steps:\n1. Edit the green:ish node (name : **IP Address for ..**) and set the IP address of the gateway (without http)\n2. Don't forget to put the url to the description file in realKNX main UI (top left)\n3. Then, click the blue inject button (name : Inject description file - ...) to generate a file & notifcation to Snips engine.\n4. In Sample Implementations of Gateway Communication nodes, connect the corresponding **Respond from ..... UNIFI API** \n    to the flow. \n5. Then, start testing the voice control command \"Hey Snips, turn on the light\".\n\nTo create your GGDF, just edit one of the inject nodes.\n\n# Description file's content\nIn the description file, there are type of functions\n1. lights\n2. dimmers\n3. blinds\n4. heating\n5. scenes\n6. sensor\n7. aux (other)\n",
-        "x": 1500,
-        "y": 1380,
+        "x": 1360,
+        "y": 280,
         "wires": []
     }
 ]
