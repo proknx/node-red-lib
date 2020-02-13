@@ -1,61 +1,191 @@
 [
     {
-        "id": "ef7e3d81.08b63",
+        "id": "b0122510.beba38",
         "type": "comment",
-        "z": "72a1c1.33ab1e4",
+        "z": "1ab1f00a.7863d",
         "name": "======= KNX COMMUNICATION MODULE ========",
         "info": "# Exemple implementation of the Gateway Communication Module.\nThere are two parts, hence two handlers\n 1. Generic Query - to GET the value\n 2. Generic Command - absolute SET and realtive SET value (increase/decrease)\n\n## Generic Query\nThis handler is called when the Snips application needs to get the current value of a device (temperature, brightness, shutters position, sensors etc)\nIt receives an array of commands.\n\n# Generic command\nThis handler is called to get the current value of the device (on,off,decrease,set etc)\nThe link in node of the generic command is also connected to Snips application. It receive \ncommands of devices as input. It could be one command or an array of commands at a time.\n\n# Return\ntrue is when the server repond correctly, otherwise, Result is false ",
-        "x": 1360,
-        "y": 380,
+        "x": 1520,
+        "y": 920,
         "wires": []
     },
     {
-        "id": "65cdb39c.4fceac",
+        "id": "5a3eb652.6631f8",
         "type": "comment",
-        "z": "72a1c1.33ab1e4",
+        "z": "1ab1f00a.7863d",
         "name": "GATEWAY DESCRIPTION FILE",
         "info": "",
-        "x": 1290,
-        "y": 283,
+        "x": 1450,
+        "y": 821,
         "wires": []
     },
     {
-        "id": "b71223fd.a0daa",
-        "type": "function",
-        "z": "72a1c1.33ab1e4",
-        "name": "Respose",
-        "func": "//From the server respond, put it in this format\n//For more than one devices\n//\n//\n        // [{\n        //     \"Data\" : [{            \n        //         \"Value\" : 100,\n        //         \"uid\" : \"\" \n        //     }],\n        //     \"Result\":true\n        // },\n        // {\n        //     \"Data\" : [{            \n        //         \"Value\" : 50,\n        //         \"type\" : \"\"\n        //     }],\n        //     \"Result\":true\n        // }] \n        \nmsg.states = [];\nfor(var i = 0 ; i < msg.payload.length ; i++){\n        msg.states[i] = { \n            \"Data\" : [{\n                \"Value\" : msg.payload[i]\n            }]\n        };\n        if(msg.states[i].Data[0].Value !== undefined){\n            msg.states[i].Result=true;\n        }else{\n            msg.states[i].Result=false;\n        }\n}\n\nmsg.payload=msg.states;\ndelete msg.states;\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 1980,
-        "y": 480,
+        "id": "b285beb1.a02c2",
+        "type": "inject",
+        "z": "1ab1f00a.7863d",
+        "name": "Inject description file - raw KNX",
+        "topic": "",
+        "payload": "{\"functions\":[{\"displayName\":\"Ceiling\",\"functionType\":\"lights\",\"zone\":\"Bedroom\",\"commands\":[{\"name\":\"On\",\"destination\":\"0/0/6\",\"dpt\":\"1.001\",\"value\":1},{\"name\":\"Off\",\"destination\":\"0/0/6\",\"dpt\":\"1.001\",\"value\":0}],\"currentStates\":[{\"name\":\"CurrentState\",\"dpt\":\"1.001\",\"destination\":\"0/1/6\",\"valueMin\":0,\"valueMax\":1}]},{\"displayName\":\"Ceiling\",\"functionType\":\"dimmers\",\"zone\":\"Home Cinema\",\"commands\":[{\"name\":\"On\",\"destination\":\"0/3/1\",\"dpt\":\"5.001\",\"value\":100},{\"name\":\"Off\",\"destination\":\"0/3/1\",\"dpt\":\"5.001\",\"value\":0},{\"name\":\"Brightness\",\"destination\":\"0/3/1\",\"dpt\":\"5.001\",\"valueMin\":0,\"valueMax\":100}],\"currentStates\":[{\"name\":\"CurrentBrightness\",\"dpt\":\"5.001\",\"destination\":\"0/4/1\",\"valueMin\":0,\"valueMax\":100}]},{\"displayName\":\"Table\",\"functionType\":\"lights\",\"zone\":\"Home Cinema\",\"commands\":[{\"name\":\"On\",\"destination\":\"0/0/7\",\"dpt\":\"1.001\",\"value\":1},{\"name\":\"Off\",\"destination\":\"0/0/7\",\"dpt\":\"1.001\",\"value\":0}],\"currentStates\":[{\"name\":\"CurrentState\",\"destination\":\"0/1/7\",\"dpt\":\"1.001\",\"valueMin\":0,\"valueMax\":1}]},{\"displayName\":\"Shutter\",\"functionType\":\"blinds\",\"zone\":\"Home Cinema\",\"commands\":[{\"name\":\"On\",\"destination\":\"1/3/1\",\"dpt\":\"5.001\",\"value\":0},{\"name\":\"Off\",\"destination\":\"1/3/1\",\"dpt\":\"5.001\",\"value\":255},{\"name\":\"Position\",\"destination\":\"1/3/1\",\"dpt\":\"5.001\",\"valueMin\":0,\"valueMax\":255}],\"currentStates\":[{\"name\":\"CurrentPosition\",\"destination\":\"1/4/1\",\"dpt\":\"5.001\",\"valueMin\":0,\"valueMax\":255}]},{\"displayName\":\"Cinema\",\"functionType\":\"heating\",\"zone\":\"Home Cinema\",\"commands\":[{\"name\":\"TargetTemperature\",\"destination\":\"4/1/0\",\"dpt\":\"9.001\",\"valueMin\":18,\"valueMax\":28}],\"currentStates\":[{\"name\":\"TargetTemperature\",\"destination\":\"4/1/1\",\"dpt\":\"9.001\",\"valueMin\":18,\"valueMax\":28},{\"name\":\"CurrentTemperature\",\"destination\":\"4/1/2\",\"dpt\":\"9.001\",\"valueMin\":18,\"valueMax\":28}]},{\"displayName\":\"Cosy\",\"functionType\":\"scenes\",\"zone\":\"Home Cinema\",\"commands\":[{\"name\":\"On\",\"destination\":\"2/5/0\",\"dpt\":\"18.001\",\"value\":1}]},{\"displayName\":\"Total Power\",\"functionType\":\"sensor\",\"zone\":\"Home Cinema\",\"unit\":\"Watt\",\"currentStates\":[{\"name\":\"CurrentValue\",\"destination\":\"9/1/1\",\"dpt\":\"9.024\"}]},{\"displayName\":\"Speaker\",\"functionType\":\"aux\",\"zone\":\"Bedroom\",\"commands\":[{\"name\":\"On\",\"destination\":\"10/4/4\",\"dpt\":\"5.001\",\"value\":50},{\"name\":\"Off\",\"destination\":\"10/4/4\",\"dpt\":\"5.001\",\"value\":0},{\"name\":\"Value\",\"destination\":\"10/4/4\",\"dpt\":\"5.001\",\"valueMin\":0,\"valueMax\":255}],\"currentStates\":[{\"name\":\"CurrentValue\",\"destination\":\"10/4/3\",\"dpt\":\"5.001\",\"valueMin\":0,\"valueMax\":255}]}]}",
+        "payloadType": "json",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 1470,
+        "y": 860,
         "wires": [
             [
-                "5c6fa84f.1a1118"
+                "aaa57840.e3f848"
             ]
         ]
     },
     {
-        "id": "22ac0f91.533598",
-        "type": "function",
-        "z": "72a1c1.33ab1e4",
-        "name": "Response",
-        "func": "msg.payload = [];\nmsg.payload[0] = {\"Result\" : true};\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 1710,
-        "y": 580,
+        "id": "2f62cf90.84036",
+        "type": "inject",
+        "z": "1ab1f00a.7863d",
+        "name": "French version",
+        "topic": "",
+        "payload": "{\"functions\":[{\"displayName\":\"Plafonnier\",\"functionType\":\"lights\",\"zone\":\"Chambre\",\"commands\":[{\"name\":\"On\",\"destination\":\"0/0/6\",\"dpt\":\"1.001\",\"value\":1},{\"name\":\"Off\",\"destination\":\"0/0/6\",\"dpt\":\"1.001\",\"value\":0}],\"currentStates\":[{\"name\":\"CurrentState\",\"dpt\":\"1.001\",\"destination\":\"0/1/6\",\"valueMin\":0,\"valueMax\":1}]},{\"displayName\":\"Plafonnier\",\"functionType\":\"dimmers\",\"zone\":\"Salle à manger\",\"commands\":[{\"name\":\"On\",\"destination\":\"0/3/1\",\"dpt\":\"5.001\",\"value\":100},{\"name\":\"Off\",\"destination\":\"0/3/1\",\"dpt\":\"5.001\",\"value\":0},{\"name\":\"Brightness\",\"destination\":\"0/3/1\",\"dpt\":\"5.001\",\"valueMin\":0,\"valueMax\":100}],\"currentStates\":[{\"name\":\"CurrentBrightness\",\"dpt\":\"5.001\",\"destination\":\"0/4/1\",\"valueMin\":0,\"valueMax\":100}]},{\"displayName\":\"Table\",\"functionType\":\"lights\",\"zone\":\"Salle à manger\",\"commands\":[{\"name\":\"On\",\"destination\":\"0/0/7\",\"dpt\":\"1.001\",\"value\":1},{\"name\":\"Off\",\"destination\":\"0/0/7\",\"dpt\":\"1.001\",\"value\":0}],\"currentStates\":[{\"name\":\"CurrentState\",\"destination\":\"0/1/7\",\"dpt\":\"1.001\",\"valueMin\":0,\"valueMax\":1}]},{\"displayName\":\"Volet\",\"functionType\":\"blinds\",\"zone\":\"Salle à manger\",\"commands\":[{\"name\":\"On\",\"destination\":\"1/3/1\",\"dpt\":\"5.001\",\"value\":0},{\"name\":\"Off\",\"destination\":\"1/3/1\",\"dpt\":\"5.001\",\"value\":255},{\"name\":\"Position\",\"destination\":\"1/3/1\",\"dpt\":\"5.001\",\"valueMin\":0,\"valueMax\":255}],\"currentStates\":[{\"name\":\"CurrentPosition\",\"destination\":\"1/4/1\",\"dpt\":\"5.001\",\"valueMin\":0,\"valueMax\":255}]},{\"displayName\":\"Cinema\",\"functionType\":\"heating\",\"zone\":\"Salle à manger\",\"commands\":[{\"name\":\"TargetTemperature\",\"destination\":\"4/1/0\",\"dpt\":\"9.001\",\"valueMin\":18,\"valueMax\":28}],\"currentStates\":[{\"name\":\"TargetTemperature\",\"destination\":\"4/1/1\",\"dpt\":\"9.001\",\"valueMin\":18,\"valueMax\":28},{\"name\":\"CurrentTemperature\",\"destination\":\"4/1/2\",\"dpt\":\"9.001\",\"valueMin\":18,\"valueMax\":28}]},{\"displayName\":\"Cosy\",\"functionType\":\"scenes\",\"zone\":\"Salle à manger\",\"commands\":[{\"name\":\"On\",\"destination\":\"2/5/0\",\"dpt\":\"18.001\",\"value\":1}]},{\"displayName\":\"Energie totale\",\"functionType\":\"sensor\",\"zone\":\"Salle à manger\",\"unit\":\"Watt\",\"currentStates\":[{\"name\":\"CurrentValue\",\"destination\":\"9/1/1\",\"dpt\":\"9.024\"}]},{\"displayName\":\"Haut-parleur\",\"functionType\":\"aux\",\"zone\":\"Chambre\",\"commands\":[{\"name\":\"On\",\"destination\":\"10/4/4\",\"dpt\":\"5.001\",\"value\":50},{\"name\":\"Off\",\"destination\":\"10/4/4\",\"dpt\":\"5.001\",\"value\":0},{\"name\":\"Value\",\"destination\":\"10/4/4\",\"dpt\":\"5.001\",\"valueMin\":0,\"valueMax\":255}],\"currentStates\":[{\"name\":\"CurrentValue\",\"destination\":\"10/4/3\",\"dpt\":\"5.001\",\"valueMin\":0,\"valueMax\":255}]}]}",
+        "payloadType": "json",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 1720,
+        "y": 840,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "a580bc71.2986a",
+        "type": "inject",
+        "z": "1ab1f00a.7863d",
+        "name": "German version",
+        "topic": "",
+        "payload": "{\"functions\":[{\"displayName\":\"Decke\",\"functionType\":\"lights\",\"zone\":\"Zimmer\",\"commands\":[{\"name\":\"On\",\"destination\":\"0/0/6\",\"dpt\":\"1.001\",\"value\":1},{\"name\":\"Off\",\"destination\":\"0/0/6\",\"dpt\":\"1.001\",\"value\":0}],\"currentStates\":[{\"name\":\"CurrentState\",\"dpt\":\"1.001\",\"destination\":\"0/1/6\",\"valueMin\":0,\"valueMax\":1}]},{\"displayName\":\"Decke\",\"functionType\":\"dimmers\",\"zone\":\"Heimkino\",\"commands\":[{\"name\":\"On\",\"destination\":\"0/3/1\",\"dpt\":\"5.001\",\"value\":100},{\"name\":\"Off\",\"destination\":\"0/3/1\",\"dpt\":\"5.001\",\"value\":0},{\"name\":\"Brightness\",\"destination\":\"0/3/1\",\"dpt\":\"5.001\",\"valueMin\":0,\"valueMax\":100}],\"currentStates\":[{\"name\":\"CurrentBrightness\",\"dpt\":\"5.001\",\"destination\":\"0/4/1\",\"valueMin\":0,\"valueMax\":100}]},{\"displayName\":\"Tisch\",\"functionType\":\"lights\",\"zone\":\"Heimkino\",\"commands\":[{\"name\":\"On\",\"destination\":\"0/0/7\",\"dpt\":\"1.001\",\"value\":1},{\"name\":\"Off\",\"destination\":\"0/0/7\",\"dpt\":\"1.001\",\"value\":0}],\"currentStates\":[{\"name\":\"CurrentState\",\"destination\":\"0/1/7\",\"dpt\":\"1.001\",\"valueMin\":0,\"valueMax\":1}]},{\"displayName\":\"Rollladen\",\"functionType\":\"blinds\",\"zone\":\"Heimkino\",\"commands\":[{\"name\":\"On\",\"destination\":\"1/3/1\",\"dpt\":\"5.001\",\"value\":0},{\"name\":\"Off\",\"destination\":\"1/3/1\",\"dpt\":\"5.001\",\"value\":255},{\"name\":\"Position\",\"destination\":\"1/3/1\",\"dpt\":\"5.001\",\"valueMin\":0,\"valueMax\":255}],\"currentStates\":[{\"name\":\"CurrentPosition\",\"destination\":\"1/4/1\",\"dpt\":\"5.001\",\"valueMin\":0,\"valueMax\":255}]},{\"displayName\":\"\",\"functionType\":\"heating\",\"zone\":\"Heimkino\",\"commands\":[{\"name\":\"TargetTemperature\",\"destination\":\"4/1/0\",\"dpt\":\"9.001\",\"valueMin\":18,\"valueMax\":28}],\"currentStates\":[{\"name\":\"TargetTemperature\",\"destination\":\"4/1/1\",\"dpt\":\"9.001\",\"valueMin\":18,\"valueMax\":28},{\"name\":\"CurrentTemperature\",\"destination\":\"4/1/2\",\"dpt\":\"9.001\",\"valueMin\":18,\"valueMax\":28}]},{\"displayName\":\"Cosy\",\"functionType\":\"scenes\",\"zone\":\"Heimkino\",\"commands\":[{\"name\":\"On\",\"destination\":\"2/5/0\",\"dpt\":\"18.001\",\"value\":1}]},{\"displayName\":\"Energieverbrauch\",\"functionType\":\"sensor\",\"zone\":\"Heimkino\",\"unit\":\"Watt\",\"currentStates\":[{\"name\":\"CurrentValue\",\"destination\":\"9/1/1\",\"dpt\":\"9.024\"}]},{\"displayName\":\"Lautsprecher\",\"functionType\":\"aux\",\"zone\":\"Zimmer\",\"commands\":[{\"name\":\"On\",\"destination\":\"10/4/4\",\"dpt\":\"5.001\",\"value\":50},{\"name\":\"Off\",\"destination\":\"10/4/4\",\"dpt\":\"5.001\",\"value\":0},{\"name\":\"Value\",\"destination\":\"10/4/4\",\"dpt\":\"5.001\",\"valueMin\":0,\"valueMax\":255}],\"currentStates\":[{\"name\":\"CurrentValue\",\"destination\":\"10/4/3\",\"dpt\":\"5.001\",\"valueMin\":0,\"valueMax\":255}]}]}",
+        "payloadType": "json",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 1720,
+        "y": 880,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "aaa57840.e3f848",
+        "type": "change",
+        "z": "1ab1f00a.7863d",
+        "name": "gatewayName",
+        "rules": [
+            {
+                "t": "set",
+                "p": "gatewayName",
+                "pt": "global",
+                "to": "knxTunnel",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1920,
+        "y": 860,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "e6f983d3.d1873",
+        "type": "inject",
+        "z": "1ab1f00a.7863d",
+        "name": "Inject description file - raw KNX",
+        "topic": "",
+        "payload": "{\"functions\":[{\"displayName\":\"Ceiling\",\"functionType\":\"lights\",\"zone\":\"Bedroom\",\"commands\":[{\"name\":\"On\",\"destination\":\"0/0/6\",\"dpt\":\"1.001\",\"value\":1},{\"name\":\"Off\",\"destination\":\"0/0/6\",\"dpt\":\"1.001\",\"value\":0}],\"currentStates\":[{\"name\":\"CurrentState\",\"dpt\":\"1.001\",\"destination\":\"0/1/6\",\"valueMin\":0,\"valueMax\":1}]},{\"displayName\":\"Ceiling\",\"functionType\":\"dimmers\",\"zone\":\"Home Cinema\",\"commands\":[{\"name\":\"On\",\"destination\":\"0/3/1\",\"dpt\":\"5.001\",\"value\":100},{\"name\":\"Off\",\"destination\":\"0/3/1\",\"dpt\":\"5.001\",\"value\":0},{\"name\":\"Brightness\",\"destination\":\"0/3/1\",\"dpt\":\"5.001\",\"valueMin\":0,\"valueMax\":100}],\"currentStates\":[{\"name\":\"CurrentBrightness\",\"dpt\":\"5.001\",\"destination\":\"0/4/1\",\"valueMin\":0,\"valueMax\":100}]},{\"displayName\":\"Table\",\"functionType\":\"lights\",\"zone\":\"Home Cinema\",\"commands\":[{\"name\":\"On\",\"destination\":\"0/0/7\",\"dpt\":\"1.001\",\"value\":1},{\"name\":\"Off\",\"destination\":\"0/0/7\",\"dpt\":\"1.001\",\"value\":0}],\"currentStates\":[{\"name\":\"CurrentState\",\"destination\":\"0/1/7\",\"dpt\":\"1.001\",\"valueMin\":0,\"valueMax\":1}]},{\"displayName\":\"Shutter\",\"functionType\":\"blinds\",\"zone\":\"Home Cinema\",\"commands\":[{\"name\":\"On\",\"destination\":\"1/3/1\",\"dpt\":\"5.001\",\"value\":0},{\"name\":\"Off\",\"destination\":\"1/3/1\",\"dpt\":\"5.001\",\"value\":255},{\"name\":\"Position\",\"destination\":\"1/3/1\",\"dpt\":\"5.001\",\"valueMin\":0,\"valueMax\":255}],\"currentStates\":[{\"name\":\"CurrentPosition\",\"destination\":\"1/4/1\",\"dpt\":\"5.001\",\"valueMin\":0,\"valueMax\":255}]},{\"displayName\":\"Cinema\",\"functionType\":\"heating\",\"zone\":\"Home Cinema\",\"commands\":[{\"name\":\"TargetTemperature\",\"destination\":\"4/1/0\",\"dpt\":\"9.001\",\"valueMin\":18,\"valueMax\":28}],\"currentStates\":[{\"name\":\"TargetTemperature\",\"destination\":\"4/1/1\",\"dpt\":\"9.001\",\"valueMin\":18,\"valueMax\":28},{\"name\":\"CurrentTemperature\",\"destination\":\"4/1/2\",\"dpt\":\"9.001\",\"valueMin\":18,\"valueMax\":28}]},{\"displayName\":\"Cosy\",\"functionType\":\"scenes\",\"zone\":\"Home Cinema\",\"commands\":[{\"name\":\"On\",\"destination\":\"2/5/0\",\"dpt\":\"18.001\",\"value\":1}]},{\"displayName\":\"Total Power\",\"functionType\":\"sensor\",\"zone\":\"Home Cinema\",\"unit\":\"Watt\",\"currentStates\":[{\"name\":\"CurrentValue\",\"destination\":\"9/1/1\",\"dpt\":\"9.024\"}]},{\"displayName\":\"Speaker\",\"functionType\":\"aux\",\"zone\":\"Bedroom\",\"commands\":[{\"name\":\"On\",\"destination\":\"10/4/4\",\"dpt\":\"5.001\",\"value\":50},{\"name\":\"Off\",\"destination\":\"10/4/4\",\"dpt\":\"5.001\",\"value\":0},{\"name\":\"Value\",\"destination\":\"10/4/4\",\"dpt\":\"5.001\",\"valueMin\":0,\"valueMax\":255}],\"currentStates\":[{\"name\":\"CurrentValue\",\"destination\":\"10/4/3\",\"dpt\":\"5.001\",\"valueMin\":0,\"valueMax\":255}]}]}",
+        "payloadType": "json",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 1470,
+        "y": 860,
         "wires": [
             [
-                "b4ccb159.a5485"
+                "2fe2bfae.ace7d"
             ]
         ]
     },
     {
-        "id": "6993737b.062acc",
+        "id": "71dfc27b.94602c",
+        "type": "inject",
+        "z": "1ab1f00a.7863d",
+        "name": "French version",
+        "topic": "",
+        "payload": "{\"functions\":[{\"displayName\":\"Plafonnier\",\"functionType\":\"lights\",\"zone\":\"Chambre\",\"commands\":[{\"name\":\"On\",\"destination\":\"0/0/6\",\"dpt\":\"1.001\",\"value\":1},{\"name\":\"Off\",\"destination\":\"0/0/6\",\"dpt\":\"1.001\",\"value\":0}],\"currentStates\":[{\"name\":\"CurrentState\",\"dpt\":\"1.001\",\"destination\":\"0/1/6\",\"valueMin\":0,\"valueMax\":1}]},{\"displayName\":\"Plafonnier\",\"functionType\":\"dimmers\",\"zone\":\"Salle à manger\",\"commands\":[{\"name\":\"On\",\"destination\":\"0/3/1\",\"dpt\":\"5.001\",\"value\":100},{\"name\":\"Off\",\"destination\":\"0/3/1\",\"dpt\":\"5.001\",\"value\":0},{\"name\":\"Brightness\",\"destination\":\"0/3/1\",\"dpt\":\"5.001\",\"valueMin\":0,\"valueMax\":100}],\"currentStates\":[{\"name\":\"CurrentBrightness\",\"dpt\":\"5.001\",\"destination\":\"0/4/1\",\"valueMin\":0,\"valueMax\":100}]},{\"displayName\":\"Table\",\"functionType\":\"lights\",\"zone\":\"Salle à manger\",\"commands\":[{\"name\":\"On\",\"destination\":\"0/0/7\",\"dpt\":\"1.001\",\"value\":1},{\"name\":\"Off\",\"destination\":\"0/0/7\",\"dpt\":\"1.001\",\"value\":0}],\"currentStates\":[{\"name\":\"CurrentState\",\"destination\":\"0/1/7\",\"dpt\":\"1.001\",\"valueMin\":0,\"valueMax\":1}]},{\"displayName\":\"Volet\",\"functionType\":\"blinds\",\"zone\":\"Salle à manger\",\"commands\":[{\"name\":\"On\",\"destination\":\"1/3/1\",\"dpt\":\"5.001\",\"value\":0},{\"name\":\"Off\",\"destination\":\"1/3/1\",\"dpt\":\"5.001\",\"value\":255},{\"name\":\"Position\",\"destination\":\"1/3/1\",\"dpt\":\"5.001\",\"valueMin\":0,\"valueMax\":255}],\"currentStates\":[{\"name\":\"CurrentPosition\",\"destination\":\"1/4/1\",\"dpt\":\"5.001\",\"valueMin\":0,\"valueMax\":255}]},{\"displayName\":\"Cinema\",\"functionType\":\"heating\",\"zone\":\"Salle à manger\",\"commands\":[{\"name\":\"TargetTemperature\",\"destination\":\"4/1/0\",\"dpt\":\"9.001\",\"valueMin\":18,\"valueMax\":28}],\"currentStates\":[{\"name\":\"TargetTemperature\",\"destination\":\"4/1/1\",\"dpt\":\"9.001\",\"valueMin\":18,\"valueMax\":28},{\"name\":\"CurrentTemperature\",\"destination\":\"4/1/2\",\"dpt\":\"9.001\",\"valueMin\":18,\"valueMax\":28}]},{\"displayName\":\"Cosy\",\"functionType\":\"scenes\",\"zone\":\"Salle à manger\",\"commands\":[{\"name\":\"On\",\"destination\":\"2/5/0\",\"dpt\":\"18.001\",\"value\":1}]},{\"displayName\":\"Energie totale\",\"functionType\":\"sensor\",\"zone\":\"Salle à manger\",\"unit\":\"Watt\",\"currentStates\":[{\"name\":\"CurrentValue\",\"destination\":\"9/1/1\",\"dpt\":\"9.024\"}]},{\"displayName\":\"Haut-parleur\",\"functionType\":\"aux\",\"zone\":\"Chambre\",\"commands\":[{\"name\":\"On\",\"destination\":\"10/4/4\",\"dpt\":\"5.001\",\"value\":50},{\"name\":\"Off\",\"destination\":\"10/4/4\",\"dpt\":\"5.001\",\"value\":0},{\"name\":\"Value\",\"destination\":\"10/4/4\",\"dpt\":\"5.001\",\"valueMin\":0,\"valueMax\":255}],\"currentStates\":[{\"name\":\"CurrentValue\",\"destination\":\"10/4/3\",\"dpt\":\"5.001\",\"valueMin\":0,\"valueMax\":255}]}]}",
+        "payloadType": "json",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 1720,
+        "y": 840,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "88d36440.6208c8",
+        "type": "inject",
+        "z": "1ab1f00a.7863d",
+        "name": "German version",
+        "topic": "",
+        "payload": "{\"functions\":[{\"displayName\":\"Decke\",\"functionType\":\"lights\",\"zone\":\"Zimmer\",\"commands\":[{\"name\":\"On\",\"destination\":\"0/0/6\",\"dpt\":\"1.001\",\"value\":1},{\"name\":\"Off\",\"destination\":\"0/0/6\",\"dpt\":\"1.001\",\"value\":0}],\"currentStates\":[{\"name\":\"CurrentState\",\"dpt\":\"1.001\",\"destination\":\"0/1/6\",\"valueMin\":0,\"valueMax\":1}]},{\"displayName\":\"Decke\",\"functionType\":\"dimmers\",\"zone\":\"Heimkino\",\"commands\":[{\"name\":\"On\",\"destination\":\"0/3/1\",\"dpt\":\"5.001\",\"value\":100},{\"name\":\"Off\",\"destination\":\"0/3/1\",\"dpt\":\"5.001\",\"value\":0},{\"name\":\"Brightness\",\"destination\":\"0/3/1\",\"dpt\":\"5.001\",\"valueMin\":0,\"valueMax\":100}],\"currentStates\":[{\"name\":\"CurrentBrightness\",\"dpt\":\"5.001\",\"destination\":\"0/4/1\",\"valueMin\":0,\"valueMax\":100}]},{\"displayName\":\"Tisch\",\"functionType\":\"lights\",\"zone\":\"Heimkino\",\"commands\":[{\"name\":\"On\",\"destination\":\"0/0/7\",\"dpt\":\"1.001\",\"value\":1},{\"name\":\"Off\",\"destination\":\"0/0/7\",\"dpt\":\"1.001\",\"value\":0}],\"currentStates\":[{\"name\":\"CurrentState\",\"destination\":\"0/1/7\",\"dpt\":\"1.001\",\"valueMin\":0,\"valueMax\":1}]},{\"displayName\":\"Rollladen\",\"functionType\":\"blinds\",\"zone\":\"Heimkino\",\"commands\":[{\"name\":\"On\",\"destination\":\"1/3/1\",\"dpt\":\"5.001\",\"value\":0},{\"name\":\"Off\",\"destination\":\"1/3/1\",\"dpt\":\"5.001\",\"value\":255},{\"name\":\"Position\",\"destination\":\"1/3/1\",\"dpt\":\"5.001\",\"valueMin\":0,\"valueMax\":255}],\"currentStates\":[{\"name\":\"CurrentPosition\",\"destination\":\"1/4/1\",\"dpt\":\"5.001\",\"valueMin\":0,\"valueMax\":255}]},{\"displayName\":\"\",\"functionType\":\"heating\",\"zone\":\"Heimkino\",\"commands\":[{\"name\":\"TargetTemperature\",\"destination\":\"4/1/0\",\"dpt\":\"9.001\",\"valueMin\":18,\"valueMax\":28}],\"currentStates\":[{\"name\":\"TargetTemperature\",\"destination\":\"4/1/1\",\"dpt\":\"9.001\",\"valueMin\":18,\"valueMax\":28},{\"name\":\"CurrentTemperature\",\"destination\":\"4/1/2\",\"dpt\":\"9.001\",\"valueMin\":18,\"valueMax\":28}]},{\"displayName\":\"Cosy\",\"functionType\":\"scenes\",\"zone\":\"Heimkino\",\"commands\":[{\"name\":\"On\",\"destination\":\"2/5/0\",\"dpt\":\"18.001\",\"value\":1}]},{\"displayName\":\"Energieverbrauch\",\"functionType\":\"sensor\",\"zone\":\"Heimkino\",\"unit\":\"Watt\",\"currentStates\":[{\"name\":\"CurrentValue\",\"destination\":\"9/1/1\",\"dpt\":\"9.024\"}]},{\"displayName\":\"Lautsprecher\",\"functionType\":\"aux\",\"zone\":\"Zimmer\",\"commands\":[{\"name\":\"On\",\"destination\":\"10/4/4\",\"dpt\":\"5.001\",\"value\":50},{\"name\":\"Off\",\"destination\":\"10/4/4\",\"dpt\":\"5.001\",\"value\":0},{\"name\":\"Value\",\"destination\":\"10/4/4\",\"dpt\":\"5.001\",\"valueMin\":0,\"valueMax\":255}],\"currentStates\":[{\"name\":\"CurrentValue\",\"destination\":\"10/4/3\",\"dpt\":\"5.001\",\"valueMin\":0,\"valueMax\":255}]}]}",
+        "payloadType": "json",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 1720,
+        "y": 880,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "2fe2bfae.ace7d",
+        "type": "change",
+        "z": "1ab1f00a.7863d",
+        "name": "gatewayName",
+        "rules": [
+            {
+                "t": "set",
+                "p": "gatewayName",
+                "pt": "global",
+                "to": "knxTunnel",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1920,
+        "y": 860,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "d69994e3.79a028",
         "type": "knxUltimate",
-        "z": "72a1c1.33ab1e4",
-        "server": "c20db14e.e29ce",
+        "z": "1ab1f00a.7863d",
+        "server": "c2ba4746.5f757",
         "topic": "",
         "dpt": "1.001",
         "initialread": false,
@@ -69,36 +199,122 @@
         "outputtype": "write",
         "outputRBE": false,
         "inputRBE": false,
-        "x": 1670,
-        "y": 620,
+        "x": 1810,
+        "y": 1240,
         "wires": [
             []
         ]
     },
     {
-        "id": "113a4cc6.ff8913",
+        "id": "53b9ed56.31bb34",
         "type": "inject",
-        "z": "72a1c1.33ab1e4",
-        "name": "Inject description file - raw KNX",
+        "z": "1ab1f00a.7863d",
+        "name": "Init",
         "topic": "",
-        "payload": "{\"functions\":[{\"displayName\":\"Ceiling\",\"functionType\":\"lights\",\"zone\":\"Bedroom\",\"commands\":[{\"name\":\"On\",\"destination\":\"0/0/6\",\"dpt\":\"1.001\",\"value\":1},{\"name\":\"Off\",\"destination\":\"0/0/6\",\"dpt\":\"1.001\",\"value\":0}],\"currentStates\":[{\"name\":\"CurrentState\",\"dpt\":\"1.001\",\"destination\":\"0/1/6\",\"valueMin\":0,\"valueMax\":1}]},{\"displayName\":\"Ceiling\",\"functionType\":\"dimmers\",\"zone\":\"Home Cinema\",\"commands\":[{\"name\":\"On\",\"destination\":\"0/3/1\",\"dpt\":\"5.001\",\"value\":100},{\"name\":\"Off\",\"destination\":\"0/3/1\",\"dpt\":\"5.001\",\"value\":0},{\"name\":\"Brightness\",\"destination\":\"0/3/1\",\"dpt\":\"5.001\",\"valueMin\":0,\"valueMax\":100}],\"currentStates\":[{\"name\":\"CurrentBrightness\",\"dpt\":\"5.001\",\"destination\":\"0/4/1\",\"valueMin\":0,\"valueMax\":100}]},{\"displayName\":\"Table\",\"functionType\":\"lights\",\"zone\":\"Home Cinema\",\"commands\":[{\"name\":\"On\",\"destination\":\"0/0/7\",\"dpt\":\"1.001\",\"value\":1},{\"name\":\"Off\",\"destination\":\"0/0/7\",\"dpt\":\"1.001\",\"value\":0}],\"currentStates\":[{\"name\":\"CurrentState\",\"destination\":\"0/1/7\",\"dpt\":\"1.001\",\"valueMin\":0,\"valueMax\":1}]},{\"displayName\":\"Shutter\",\"functionType\":\"blinds\",\"zone\":\"Home Cinema\",\"commands\":[{\"name\":\"On\",\"destination\":\"1/3/1\",\"dpt\":\"5.001\",\"value\":0},{\"name\":\"Off\",\"destination\":\"1/3/1\",\"dpt\":\"5.001\",\"value\":255},{\"name\":\"Position\",\"destination\":\"1/3/1\",\"dpt\":\"5.001\",\"valueMin\":0,\"valueMax\":255}],\"currentStates\":[{\"name\":\"CurrentPosition\",\"destination\":\"1/4/1\",\"dpt\":\"5.001\",\"valueMin\":0,\"valueMax\":255}]},{\"displayName\":\"Cinema\",\"functionType\":\"heating\",\"zone\":\"Home Cinema\",\"commands\":[{\"name\":\"TargetTemperature\",\"destination\":\"4/1/0\",\"dpt\":\"9.001\",\"valueMin\":18,\"valueMax\":28}],\"currentStates\":[{\"name\":\"TargetTemperature\",\"destination\":\"4/1/1\",\"dpt\":\"9.001\",\"valueMin\":18,\"valueMax\":28},{\"name\":\"CurrentTemperature\",\"destination\":\"4/1/2\",\"dpt\":\"9.001\",\"valueMin\":18,\"valueMax\":28}]},{\"displayName\":\"Cosy\",\"functionType\":\"scenes\",\"zone\":\"Home Cinema\",\"commands\":[{\"name\":\"On\",\"destination\":\"2/5/0\",\"dpt\":\"18.001\",\"value\":1}]},{\"displayName\":\"Total Power\",\"functionType\":\"sensor\",\"zone\":\"Home Cinema\",\"unit\":\"Watt\",\"currentStates\":[{\"name\":\"CurrentValue\",\"destination\":\"9/1/1\",\"dpt\":\"9.024\"}]},{\"displayName\":\"Speaker\",\"functionType\":\"aux\",\"zone\":\"Bedroom\",\"commands\":[{\"name\":\"On\",\"destination\":\"10/4/4\",\"dpt\":\"5.001\",\"value\":50},{\"name\":\"Off\",\"destination\":\"10/4/4\",\"dpt\":\"5.001\",\"value\":0},{\"name\":\"Value\",\"destination\":\"10/4/4\",\"dpt\":\"5.001\",\"valueMin\":0,\"valueMax\":255}],\"currentStates\":[{\"name\":\"CurrentValue\",\"destination\":\"10/4/3\",\"dpt\":\"5.001\",\"valueMin\":0,\"valueMax\":255}]}]}",
-        "payloadType": "json",
-        "repeat": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "120",
         "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "x": 1310,
-        "y": 320,
+        "once": true,
+        "onceDelay": "1",
+        "x": 1410,
+        "y": 1240,
         "wires": [
             [
-                "2ec856b2.3fa17a"
+                "b511ac60.ae1cf"
             ]
         ]
     },
     {
-        "id": "e4cc57fc.04f6e8",
+        "id": "b511ac60.ae1cf",
         "type": "change",
-        "z": "72a1c1.33ab1e4",
+        "z": "1ab1f00a.7863d",
+        "name": "**IP Address for KNX Gateway**",
+        "rules": [
+            {
+                "t": "set",
+                "p": "setGatewayConfig.IP",
+                "pt": "msg",
+                "to": "",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "setGatewayConfig.Port",
+                "pt": "msg",
+                "to": "3671",
+                "tot": "num"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1610,
+        "y": 1240,
+        "wires": [
+            [
+                "d69994e3.79a028"
+            ]
+        ]
+    },
+    {
+        "id": "7131b92f.c1e508",
+        "type": "function",
+        "z": "1ab1f00a.7863d",
+        "name": "Respose",
+        "func": "//From the server respond, put it in this format\n//For more than one devices\n//\n//\n        // [{\n        //     \"Data\" : [{            \n        //         \"Value\" : 100,\n        //         \"uid\" : \"\" \n        //     }],\n        //     \"Result\":true\n        // },\n        // {\n        //     \"Data\" : [{            \n        //         \"Value\" : 50,\n        //         \"type\" : \"\"\n        //     }],\n        //     \"Result\":true\n        // }] \n        \nmsg.states = [];\nfor(var i = 0 ; i < msg.payload.length ; i++){\n        msg.states[i] = { \n            \"Data\" : [{\n                \"Value\" : msg.payload[i]\n            }]\n        };\n        if(msg.states[i].Data[0].Value !== undefined){\n            msg.states[i].Result=true;\n        }else{\n            msg.states[i].Result=false;\n        }\n}\n\nmsg.payload=msg.states;\ndelete msg.states;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 2100,
+        "y": 1000,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "8b588c9f.669f2",
+        "type": "function",
+        "z": "1ab1f00a.7863d",
+        "name": "Response",
+        "func": "msg.payload = [];\nmsg.payload[0] = {\"Result\" : true};\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1860,
+        "y": 1120,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "c9630066.4b2e8",
+        "type": "knxUltimate",
+        "z": "1ab1f00a.7863d",
+        "server": "c2ba4746.5f757",
+        "topic": "",
+        "dpt": "1.001",
+        "initialread": false,
+        "notifyreadrequest": false,
+        "notifyresponse": false,
+        "notifywrite": false,
+        "notifyreadrequestalsorespondtobus": false,
+        "notifyreadrequestalsorespondtobusdefaultvalueifnotinitialized": "0",
+        "listenallga": true,
+        "name": "knx",
+        "outputtype": "write",
+        "outputRBE": false,
+        "inputRBE": false,
+        "x": 1830,
+        "y": 1160,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "ccbfcb1d.3c0dc8",
+        "type": "change",
+        "z": "1ab1f00a.7863d",
         "name": "prep",
         "rules": [
             {
@@ -128,35 +344,35 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1510,
-        "y": 600,
+        "x": 1670,
+        "y": 1140,
         "wires": [
             [
-                "22ac0f91.533598",
-                "6993737b.062acc"
+                "8b588c9f.669f2",
+                "c9630066.4b2e8"
             ]
         ]
     },
     {
-        "id": "5f20ba11.45287c",
+        "id": "a82bb75c.46d238",
         "type": "function",
-        "z": "72a1c1.33ab1e4",
+        "z": "1ab1f00a.7863d",
         "name": "Write",
         "func": "msg.device = msg.payload;\nmsg.payload =[];\nfor(var i = 0; i < msg.device.length ; i++){\n    msg.payload[i] ={\n        \"destination\": msg.device[i].destination,\n        \"dpt\": msg.device[i].dpt,\n        \"value\": msg.device[i].value\n    };\n}\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 1270,
-        "y": 600,
+        "x": 1430,
+        "y": 1140,
         "wires": [
             [
-                "79333db1.880da4"
+                "c0dba948.def328"
             ]
         ]
     },
     {
-        "id": "79333db1.880da4",
+        "id": "c0dba948.def328",
         "type": "split",
-        "z": "72a1c1.33ab1e4",
+        "z": "1ab1f00a.7863d",
         "name": "split",
         "splt": "\\n",
         "spltType": "str",
@@ -164,19 +380,19 @@
         "arraySpltType": "len",
         "stream": false,
         "addname": "",
-        "x": 1390,
-        "y": 600,
+        "x": 1550,
+        "y": 1140,
         "wires": [
             [
-                "e4cc57fc.04f6e8"
+                "ccbfcb1d.3c0dc8"
             ]
         ]
     },
     {
-        "id": "1c044177.eb9397",
+        "id": "7278d035.9f7c",
         "type": "knxUltimate",
-        "z": "72a1c1.33ab1e4",
-        "server": "c20db14e.e29ce",
+        "z": "1ab1f00a.7863d",
+        "server": "c2ba4746.5f757",
         "topic": "",
         "dpt": "1.001",
         "initialread": false,
@@ -190,18 +406,18 @@
         "outputtype": "write",
         "outputRBE": false,
         "inputRBE": false,
-        "x": 1490,
-        "y": 520,
+        "x": 1650,
+        "y": 1060,
         "wires": [
             [
-                "7ac1fcb5.248814"
+                "7d67d065.75481"
             ]
         ]
     },
     {
-        "id": "8e2cdebc.a616",
+        "id": "39bb6b16.f6dad4",
         "type": "change",
-        "z": "72a1c1.33ab1e4",
+        "z": "1ab1f00a.7863d",
         "name": " prep",
         "rules": [
             {
@@ -238,35 +454,35 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1370,
-        "y": 500,
+        "x": 1530,
+        "y": 1040,
         "wires": [
             [
-                "1c044177.eb9397",
-                "fc784f62.8f05c8"
+                "7278d035.9f7c",
+                "92978abe.2fd1c8"
             ]
         ]
     },
     {
-        "id": "977c95ec.fe0ba8",
+        "id": "a882f1c6.da5b2",
         "type": "function",
-        "z": "72a1c1.33ab1e4",
+        "z": "1ab1f00a.7863d",
         "name": "Query",
         "func": "msg.device = msg.payload;\nmsg.payload = [];\nfor(var i = 0; i < msg.device.length ; i++){\n    msg.payload[i] ={\n        \"destination\": msg.device[i].destination,\n        \"dpt\": msg.device[i].dpt,\n        \"readstatus\" : true\n    };\n}\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 1270,
-        "y": 440,
+        "x": 1430,
+        "y": 980,
         "wires": [
             [
-                "7f182862.005a18"
+                "674db1ed.81796"
             ]
         ]
     },
     {
-        "id": "7f182862.005a18",
+        "id": "674db1ed.81796",
         "type": "split",
-        "z": "72a1c1.33ab1e4",
+        "z": "1ab1f00a.7863d",
         "name": "split",
         "splt": "\\n",
         "spltType": "str",
@@ -274,18 +490,18 @@
         "arraySpltType": "len",
         "stream": false,
         "addname": "",
-        "x": 1390,
-        "y": 420,
+        "x": 1550,
+        "y": 960,
         "wires": [
             [
-                "8e2cdebc.a616"
+                "39bb6b16.f6dad4"
             ]
         ]
     },
     {
-        "id": "f8b5428d.4c619",
+        "id": "fe0fa863.830fb8",
         "type": "join",
-        "z": "72a1c1.33ab1e4",
+        "z": "1ab1f00a.7863d",
         "name": "",
         "mode": "auto",
         "build": "string",
@@ -302,18 +518,18 @@
         "reduceInit": "",
         "reduceInitType": "",
         "reduceFixup": "",
-        "x": 1890,
-        "y": 440,
+        "x": 2010,
+        "y": 960,
         "wires": [
             [
-                "b71223fd.a0daa"
+                "7131b92f.c1e508"
             ]
         ]
     },
     {
-        "id": "ab02b9d6.208b78",
+        "id": "b1110850.f5a978",
         "type": "join-wait",
-        "z": "72a1c1.33ab1e4",
+        "z": "1ab1f00a.7863d",
         "name": "",
         "paths": "[\"path_1\", \"path_2\"]",
         "pathsToExpire": "",
@@ -328,19 +544,19 @@
         "firstMsg": "true",
         "mapPayload": "true",
         "disableComplete": false,
-        "x": 1680,
-        "y": 440,
+        "x": 1840,
+        "y": 960,
         "wires": [
             [
-                "1fdc2e0d.1a5652"
+                "da383e6b.b5ee9"
             ],
             []
         ]
     },
     {
-        "id": "7ac1fcb5.248814",
+        "id": "7d67d065.75481",
         "type": "change",
-        "z": "72a1c1.33ab1e4",
+        "z": "1ab1f00a.7863d",
         "name": "path_2",
         "rules": [
             {
@@ -370,18 +586,18 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1620,
-        "y": 520,
+        "x": 1770,
+        "y": 1060,
         "wires": [
             [
-                "ab02b9d6.208b78"
+                "b1110850.f5a978"
             ]
         ]
     },
     {
-        "id": "fc784f62.8f05c8",
+        "id": "92978abe.2fd1c8",
         "type": "change",
-        "z": "72a1c1.33ab1e4",
+        "z": "1ab1f00a.7863d",
         "name": "path_1",
         "rules": [
             {
@@ -404,18 +620,18 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1500,
-        "y": 480,
+        "x": 1670,
+        "y": 1020,
         "wires": [
             [
-                "ab02b9d6.208b78"
+                "b1110850.f5a978"
             ]
         ]
     },
     {
-        "id": "1fdc2e0d.1a5652",
+        "id": "da383e6b.b5ee9",
         "type": "change",
-        "z": "72a1c1.33ab1e4",
+        "z": "1ab1f00a.7863d",
         "name": "result",
         "rules": [
             {
@@ -456,134 +672,16 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1790,
-        "y": 480,
+        "x": 1930,
+        "y": 1000,
         "wires": [
             [
-                "f8b5428d.4c619"
+                "fe0fa863.830fb8"
             ]
         ]
     },
     {
-        "id": "f52cd133.f01d58",
-        "type": "knxUltimate",
-        "z": "72a1c1.33ab1e4",
-        "server": "c20db14e.e29ce",
-        "topic": "",
-        "dpt": "1.001",
-        "initialread": false,
-        "notifyreadrequest": false,
-        "notifyresponse": false,
-        "notifywrite": false,
-        "notifyreadrequestalsorespondtobus": false,
-        "notifyreadrequestalsorespondtobusdefaultvalueifnotinitialized": "0",
-        "listenallga": true,
-        "name": "knx",
-        "outputtype": "write",
-        "outputRBE": false,
-        "inputRBE": false,
-        "x": 1630,
-        "y": 680,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "adfa50e.eb726b",
-        "type": "inject",
-        "z": "72a1c1.33ab1e4",
-        "name": "Init",
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "repeat": "",
-        "crontab": "",
-        "once": true,
-        "onceDelay": "1",
-        "x": 1230,
-        "y": 680,
-        "wires": [
-            [
-                "94fcb561.3b96a"
-            ]
-        ]
-    },
-    {
-        "id": "94fcb561.3b96a",
-        "type": "change",
-        "z": "72a1c1.33ab1e4",
-        "name": "**IP Address for KNX Gateway**",
-        "rules": [
-            {
-                "t": "set",
-                "p": "setGatewayConfig.IP",
-                "pt": "msg",
-                "to": "192.168.9.250",
-                "tot": "str"
-            },
-            {
-                "t": "set",
-                "p": "setGatewayConfig.Port",
-                "pt": "msg",
-                "to": "3671",
-                "tot": "num"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 1430,
-        "y": 680,
-        "wires": [
-            [
-                "f52cd133.f01d58"
-            ]
-        ]
-    },
-    {
-        "id": "2ae928f3.7ab43",
-        "type": "inject",
-        "z": "72a1c1.33ab1e4",
-        "name": "French version",
-        "topic": "",
-        "payload": "{\"functions\":[{\"displayName\":\"Plafonnier\",\"functionType\":\"lights\",\"zone\":\"Chambre\",\"commands\":[{\"name\":\"On\",\"destination\":\"0/0/6\",\"dpt\":\"1.001\",\"value\":1},{\"name\":\"Off\",\"destination\":\"0/0/6\",\"dpt\":\"1.001\",\"value\":0}],\"currentStates\":[{\"name\":\"CurrentState\",\"dpt\":\"1.001\",\"destination\":\"0/1/6\",\"valueMin\":0,\"valueMax\":1}]},{\"displayName\":\"Plafonnier\",\"functionType\":\"dimmers\",\"zone\":\"Salle à manger\",\"commands\":[{\"name\":\"On\",\"destination\":\"0/3/1\",\"dpt\":\"5.001\",\"value\":100},{\"name\":\"Off\",\"destination\":\"0/3/1\",\"dpt\":\"5.001\",\"value\":0},{\"name\":\"Brightness\",\"destination\":\"0/3/1\",\"dpt\":\"5.001\",\"valueMin\":0,\"valueMax\":100}],\"currentStates\":[{\"name\":\"CurrentBrightness\",\"dpt\":\"5.001\",\"destination\":\"0/4/1\",\"valueMin\":0,\"valueMax\":100}]},{\"displayName\":\"Table\",\"functionType\":\"lights\",\"zone\":\"Salle à manger\",\"commands\":[{\"name\":\"On\",\"destination\":\"0/0/7\",\"dpt\":\"1.001\",\"value\":1},{\"name\":\"Off\",\"destination\":\"0/0/7\",\"dpt\":\"1.001\",\"value\":0}],\"currentStates\":[{\"name\":\"CurrentState\",\"destination\":\"0/1/7\",\"dpt\":\"1.001\",\"valueMin\":0,\"valueMax\":1}]},{\"displayName\":\"Volet\",\"functionType\":\"blinds\",\"zone\":\"Salle à manger\",\"commands\":[{\"name\":\"On\",\"destination\":\"1/3/1\",\"dpt\":\"5.001\",\"value\":0},{\"name\":\"Off\",\"destination\":\"1/3/1\",\"dpt\":\"5.001\",\"value\":255},{\"name\":\"Position\",\"destination\":\"1/3/1\",\"dpt\":\"5.001\",\"valueMin\":0,\"valueMax\":255}],\"currentStates\":[{\"name\":\"CurrentPosition\",\"destination\":\"1/4/1\",\"dpt\":\"5.001\",\"valueMin\":0,\"valueMax\":255}]},{\"displayName\":\"Cinema\",\"functionType\":\"heating\",\"zone\":\"Salle à manger\",\"commands\":[{\"name\":\"TargetTemperature\",\"destination\":\"4/1/0\",\"dpt\":\"9.001\",\"valueMin\":18,\"valueMax\":28}],\"currentStates\":[{\"name\":\"TargetTemperature\",\"destination\":\"4/1/1\",\"dpt\":\"9.001\",\"valueMin\":18,\"valueMax\":28},{\"name\":\"CurrentTemperature\",\"destination\":\"4/1/2\",\"dpt\":\"9.001\",\"valueMin\":18,\"valueMax\":28}]},{\"displayName\":\"Cosy\",\"functionType\":\"scenes\",\"zone\":\"Salle à manger\",\"commands\":[{\"name\":\"On\",\"destination\":\"2/5/0\",\"dpt\":\"18.001\",\"value\":1}]},{\"displayName\":\"Energie totale\",\"functionType\":\"sensor\",\"zone\":\"Salle à manger\",\"unit\":\"Watt\",\"currentStates\":[{\"name\":\"CurrentValue\",\"destination\":\"9/1/1\",\"dpt\":\"9.024\"}]},{\"displayName\":\"Haut-parleur\",\"functionType\":\"aux\",\"zone\":\"Chambre\",\"commands\":[{\"name\":\"On\",\"destination\":\"10/4/4\",\"dpt\":\"5.001\",\"value\":50},{\"name\":\"Off\",\"destination\":\"10/4/4\",\"dpt\":\"5.001\",\"value\":0},{\"name\":\"Value\",\"destination\":\"10/4/4\",\"dpt\":\"5.001\",\"valueMin\":0,\"valueMax\":255}],\"currentStates\":[{\"name\":\"CurrentValue\",\"destination\":\"10/4/3\",\"dpt\":\"5.001\",\"valueMin\":0,\"valueMax\":255}]}]}",
-        "payloadType": "json",
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "x": 1600,
-        "y": 300,
-        "wires": [
-            [
-                "2ec856b2.3fa17a"
-            ]
-        ]
-    },
-    {
-        "id": "c8c7262a.698a5",
-        "type": "inject",
-        "z": "72a1c1.33ab1e4",
-        "name": "German version",
-        "topic": "",
-        "payload": "{\"functions\":[{\"displayName\":\"Decke\",\"functionType\":\"lights\",\"zone\":\"Zimmer\",\"commands\":[{\"name\":\"On\",\"destination\":\"0/0/6\",\"dpt\":\"1.001\",\"value\":1},{\"name\":\"Off\",\"destination\":\"0/0/6\",\"dpt\":\"1.001\",\"value\":0}],\"currentStates\":[{\"name\":\"CurrentState\",\"dpt\":\"1.001\",\"destination\":\"0/1/6\",\"valueMin\":0,\"valueMax\":1}]},{\"displayName\":\"Decke\",\"functionType\":\"dimmers\",\"zone\":\"Heimkino\",\"commands\":[{\"name\":\"On\",\"destination\":\"0/3/1\",\"dpt\":\"5.001\",\"value\":100},{\"name\":\"Off\",\"destination\":\"0/3/1\",\"dpt\":\"5.001\",\"value\":0},{\"name\":\"Brightness\",\"destination\":\"0/3/1\",\"dpt\":\"5.001\",\"valueMin\":0,\"valueMax\":100}],\"currentStates\":[{\"name\":\"CurrentBrightness\",\"dpt\":\"5.001\",\"destination\":\"0/4/1\",\"valueMin\":0,\"valueMax\":100}]},{\"displayName\":\"Tisch\",\"functionType\":\"lights\",\"zone\":\"Heimkino\",\"commands\":[{\"name\":\"On\",\"destination\":\"0/0/7\",\"dpt\":\"1.001\",\"value\":1},{\"name\":\"Off\",\"destination\":\"0/0/7\",\"dpt\":\"1.001\",\"value\":0}],\"currentStates\":[{\"name\":\"CurrentState\",\"destination\":\"0/1/7\",\"dpt\":\"1.001\",\"valueMin\":0,\"valueMax\":1}]},{\"displayName\":\"Rollladen\",\"functionType\":\"blinds\",\"zone\":\"Heimkino\",\"commands\":[{\"name\":\"On\",\"destination\":\"1/3/1\",\"dpt\":\"5.001\",\"value\":0},{\"name\":\"Off\",\"destination\":\"1/3/1\",\"dpt\":\"5.001\",\"value\":255},{\"name\":\"Position\",\"destination\":\"1/3/1\",\"dpt\":\"5.001\",\"valueMin\":0,\"valueMax\":255}],\"currentStates\":[{\"name\":\"CurrentPosition\",\"destination\":\"1/4/1\",\"dpt\":\"5.001\",\"valueMin\":0,\"valueMax\":255}]},{\"displayName\":\"\",\"functionType\":\"heating\",\"zone\":\"Heimkino\",\"commands\":[{\"name\":\"TargetTemperature\",\"destination\":\"4/1/0\",\"dpt\":\"9.001\",\"valueMin\":18,\"valueMax\":28}],\"currentStates\":[{\"name\":\"TargetTemperature\",\"destination\":\"4/1/1\",\"dpt\":\"9.001\",\"valueMin\":18,\"valueMax\":28},{\"name\":\"CurrentTemperature\",\"destination\":\"4/1/2\",\"dpt\":\"9.001\",\"valueMin\":18,\"valueMax\":28}]},{\"displayName\":\"Cosy\",\"functionType\":\"scenes\",\"zone\":\"Heimkino\",\"commands\":[{\"name\":\"On\",\"destination\":\"2/5/0\",\"dpt\":\"18.001\",\"value\":1}]},{\"displayName\":\"Energieverbrauch\",\"functionType\":\"sensor\",\"zone\":\"Heimkino\",\"unit\":\"Watt\",\"currentStates\":[{\"name\":\"CurrentValue\",\"destination\":\"9/1/1\",\"dpt\":\"9.024\"}]},{\"displayName\":\"Lautsprecher\",\"functionType\":\"aux\",\"zone\":\"Zimmer\",\"commands\":[{\"name\":\"On\",\"destination\":\"10/4/4\",\"dpt\":\"5.001\",\"value\":50},{\"name\":\"Off\",\"destination\":\"10/4/4\",\"dpt\":\"5.001\",\"value\":0},{\"name\":\"Value\",\"destination\":\"10/4/4\",\"dpt\":\"5.001\",\"valueMin\":0,\"valueMax\":255}],\"currentStates\":[{\"name\":\"CurrentValue\",\"destination\":\"10/4/3\",\"dpt\":\"5.001\",\"valueMin\":0,\"valueMax\":255}]}]}",
-        "payloadType": "json",
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "x": 1600,
-        "y": 340,
-        "wires": [
-            [
-                "2ec856b2.3fa17a"
-            ]
-        ]
-    },
-    {
-        "id": "c20db14e.e29ce",
+        "id": "c2ba4746.5f757",
         "type": "knxUltimate-config",
         "z": "",
         "host": "",
@@ -593,8 +691,8 @@
         "csv": "",
         "KNXEthInterface": "Auto",
         "KNXEthInterfaceManuallyInput": "",
-        "statusDisplayLastUpdate": true,
-        "statusDisplayDeviceNameWhenALL": true,
+        "statusDisplayLastUpdate": false,
+        "statusDisplayDeviceNameWhenALL": false,
         "statusDisplayDataPoint": false,
         "stopETSImportIfNoDatapoint": "stop"
     }
