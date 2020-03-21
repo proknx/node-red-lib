@@ -1,0 +1,573 @@
+{
+	"title": "Visual Editor GDF",
+	"schema": {
+		"$schema": "http://json-schema.org/draft-07/schema",
+		"$id": "http://example.com/example.json",
+		"type": "object",
+		"title": "Description File",
+		"description": "realKNX - KNX GW Description Generator",
+		"required": [
+			"functions"
+		],
+		"properties": {
+			"functions": {
+				"$id": "#/properties/functions",
+				"type": "array",
+				"title": "Functions",
+				"description": "This functions contain all devices in all rooms. Click Add Device to start",
+				"default": [],
+				"items": {
+					"$id": "#/properties/functions/device",
+					"type": "object",
+					"title": "Device",
+					"description": "",
+					"default": {},
+					"examples": [
+						{
+							"displayName": "Ceiling",
+							"functionType": "lights",
+							"zone": "Bedroom",
+							"commands": [
+								{
+									"dpt": "1.001",
+									"destination": "0/0/6",
+									"name": "On",
+									"value": 1
+								},
+								{
+									"dpt": "1.001",
+									"destination": "0/0/6",
+									"name": "Off",
+									"value": 0
+								}
+							],
+							"currentStates": [
+								{
+									"dpt": "1.001",
+									"valueMin": 0,
+									"destination": "0/1/6",
+									"valueMax": 1,
+									"name": "CurrentState"
+								}
+							]
+						},
+						{
+							"currentStates": [
+								{
+									"name": "CurrentBrightness",
+									"dpt": "5.001",
+									"valueMin": 0,
+									"destination": "0/4/1",
+									"valueMax": 100
+								}
+							],
+							"displayName": "Ceiling",
+							"functionType": "dimmers",
+							"zone": "Home Cinema",
+							"commands": [
+								{
+									"name": "On",
+									"value": 100,
+									"dpt": "5.001",
+									"destination": "0/3/1"
+								},
+								{
+									"name": "Off",
+									"value": 0,
+									"dpt": "5.001",
+									"destination": "0/3/1"
+								},
+								{
+									"name": "Brightness",
+									"dpt": "5.001",
+									"valueMin": 0,
+									"destination": "0/3/1",
+									"valueMax": 100
+								}
+							]
+						},
+						{
+							"displayName": "Table",
+							"functionType": "lights",
+							"zone": "Home Cinema",
+							"commands": [
+								{
+									"name": "On",
+									"value": 1,
+									"dpt": "1.001",
+									"destination": "0/0/7"
+								},
+								{
+									"name": "Off",
+									"value": 0,
+									"dpt": "1.001",
+									"destination": "0/0/7"
+								}
+							],
+							"currentStates": [
+								{
+									"name": "CurrentState",
+									"dpt": "1.001",
+									"valueMin": 0,
+									"destination": "0/1/7",
+									"valueMax": 1
+								}
+							]
+						},
+						{
+							"currentStates": [
+								{
+									"name": "CurrentPosition",
+									"dpt": "5.001",
+									"valueMin": 0,
+									"destination": "1/4/1",
+									"valueMax": 100
+								}
+							],
+							"displayName": "Shutter",
+							"functionType": "blinds",
+							"zone": "Home Cinema",
+							"commands": [
+								{
+									"name": "On",
+									"value": 0,
+									"dpt": "5.001",
+									"destination": "1/3/1"
+								},
+								{
+									"dpt": "5.001",
+									"destination": "1/3/1",
+									"name": "Off",
+									"value": 100
+								},
+								{
+									"dpt": "5.001",
+									"valueMin": 0,
+									"destination": "1/3/1",
+									"valueMax": 100,
+									"name": "Position"
+								}
+							]
+						},
+						{
+							"commands": [
+								{
+									"dpt": "9.001",
+									"valueMin": 18,
+									"destination": "4/1/0",
+									"valueMax": 28,
+									"name": "TargetTemperature"
+								}
+							],
+							"currentStates": [
+								{
+									"valueMin": 18,
+									"destination": "4/1/1",
+									"valueMax": 28,
+									"name": "TargetTemperature",
+									"dpt": "9.001"
+								},
+								{
+									"dpt": "9.001",
+									"valueMin": 18,
+									"destination": "4/1/2",
+									"valueMax": 28,
+									"name": "CurrentTemperature"
+								}
+							],
+							"displayName": "Cinema",
+							"functionType": "heating",
+							"zone": "Home Cinema"
+						},
+						{
+							"displayName": "Cosy",
+							"functionType": "scenes",
+							"zone": "Home Cinema",
+							"commands": [
+								{
+									"name": "On",
+									"value": 1,
+									"dpt": "18.001",
+									"destination": "2/5/0"
+								}
+							]
+						},
+						{
+							"currentStates": [
+								{
+									"dpt": "9.024",
+									"destination": "9/1/1",
+									"name": "CurrentValue"
+								}
+							],
+							"unit": "Watt",
+							"displayName": "Total Power",
+							"functionType": "sensor",
+							"zone": "Home Cinema"
+						},
+						{
+							"displayName": "Speaker",
+							"functionType": "aux",
+							"zone": "Bedroom",
+							"commands": [
+								{
+									"dpt": "5.001",
+									"destination": "10/4/4",
+									"name": "On",
+									"value": 50
+								},
+								{
+									"name": "Off",
+									"value": 0,
+									"dpt": "5.001",
+									"destination": "10/4/4"
+								},
+								{
+									"dpt": "5.001",
+									"valueMin": 0,
+									"destination": "10/4/4",
+									"valueMax": 255,
+									"name": "Value"
+								}
+							],
+							"currentStates": [
+								{
+									"dpt": "5.001",
+									"valueMin": 0,
+									"destination": "10/4/3",
+									"valueMax": 255,
+									"name": "CurrentValue"
+								}
+							]
+						}
+					],
+					"required": [
+						"displayName",
+						"functionType",
+						"zone"
+					],
+					"properties": {
+						"displayName": {
+							"$id": "#/properties/functions/items/properties/displayName",
+							"type": "string",
+							"title": "Display Name",
+							"description": "Name of the device (any name preffered by user)",
+							"default": "",
+							"examples": [
+								"Ceiling"
+							]
+						},
+						"functionType": {
+							"$id": "#/properties/functions/items/properties/functionType",
+							"type": "string",
+							"enum": [
+								"lights",
+								"dimmers",
+								"heating",
+								"blinds",
+								"scenes",
+								"sensor",
+								"aux"
+							],
+							"title": "Type",
+							"description": "Type of the device",
+							"default": "lights",
+							"examples": [
+								"lights"
+							]
+						},
+						"zone": {
+							"$id": "#/properties/functions/items/properties/zone",
+							"type": "string",
+							"title": "Zone",
+							"description": "Name of the Zone where the device is",
+							"default": "",
+							"examples": [
+								"Bedroom"
+							]
+						},
+						"commands": {
+							"options": {
+								"dependencies": {
+									"functionType": [
+										"lights",
+										"dimmers",
+										"blinds",
+										"heating",
+										"scenes",
+										"aux"
+									]
+								}
+							},
+							"$id": "#/properties/functions/items/properties/commands",
+							"type": "array",
+							"title": "Commands",
+							"description": "List of commands used to control the device. Commands required by realKNX based on functionType : [lights -> On, Off] [dimmers -> On, Off, Brightness] [blinds -> On,Off,Position] [heating -> TargetTemperature] [scenes -> On ] [ aux -> On,Off, Value]",
+							"default": [],
+							"items": {
+								"$id": "#/properties/functions/items/properties/commands/items",
+								"type": "object",
+								"title": "Commands",
+								"description": "",
+								"default": {},
+								"examples": [
+									{
+										"name": "On",
+										"value": 1,
+										"dpt": "1.001",
+										"destination": "0/0/6"
+									},
+									{
+										"destination": "0/0/6",
+										"name": "Off",
+										"value": 0,
+										"dpt": "1.001"
+									}
+								],
+								"required": [
+									"name",
+									"destination",
+									"dpt"
+								],
+								"properties": {
+									"name": {
+										"$id": "#/properties/functions/items/properties/commands/items/properties/name",
+										"type": "string",
+										"enum": [
+											"On",
+											"Off",
+											"Brightness",
+											"Position",
+											"TargetTemperature",
+											"Value"
+										],
+										"title": "Name",
+										"description": "The type of command",
+										"default": "",
+										"examples": [
+											"On"
+										]
+									},
+									"destination": {
+										"$id": "#/properties/functions/items/properties/commands/items/properties/destination",
+										"type": "string",
+										"title": "Destination",
+										"description": "KNX destination of the device",
+										"default": "",
+										"examples": [
+											"0/0/6"
+										]
+									},
+									"dpt": {
+										"$id": "#/properties/functions/items/properties/commands/items/properties/dpt",
+										"type": "string",
+										"title": "Dpt",
+										"description": "KNX dpt of the device",
+										"default": "",
+										"examples": [
+											"1.001"
+										]
+									},
+									"valueMin": {
+										"type": "string",
+										"title": "Minimum Value",
+										"description": "Minimum value to set on the device",
+										"options": {
+											"dependencies": {
+												"name": [
+													"Brightness",
+													"Position",
+													"TargetTemperature",
+													"Value"
+												]
+											}
+										}
+									},
+									"valueMax": {
+										"type": "string",
+										"title": "Maximum Value",
+										"description": "Maximum value to set on the device",
+										"options": {
+											"dependencies": {
+												"name": [
+													"Brightness",
+													"Position",
+													"TargetTemperature",
+													"Value"
+												]
+											}
+										}
+									},
+									"value": {
+										"$id": "#/properties/functions/items/properties/commands/items/properties/value",
+										"type": "integer",
+										"title": "Value",
+										"description": "KNX value of the device",
+										"default": "0",
+										"examples": [
+											1
+										],
+										"options": {
+											"dependencies": {
+												"name": [
+													"On",
+													"Off"
+												]
+											}
+										}
+									}
+								}
+							}
+						},
+						"currentStates": {
+							"options": {
+								"dependencies": {
+									"functionType": [
+										"lights",
+										"dimmers",
+										"blinds",
+										"heating",
+										"sensor",
+										"aux"
+									]
+								}
+							},
+							"$id": "#/properties/functions/items/properties/currentStates",
+							"type": "array",
+							"title": "Current State",
+							"description": "List of the current value, state or status of the device. CurrentState required by realKNX based on Type of Device : [lights -> CurrentState] [dimmers -> CurrentBrightness] [blinds -> CurrentPosition] [heating -> TargetTemperature, CurrentTemperature] [sensors -> CurrentValue ]",
+							"default": [],
+							"items": {
+								"$id": "#/properties/functions/items/properties/currentStates/items",
+								"type": "object",
+								"title": "Current State",
+								"description": "",
+								"default": {},
+								"examples": [
+									{
+										"valueMin": 0,
+										"destination": "0/1/6",
+										"valueMax": 1,
+										"name": "CurrentState",
+										"dpt": "1.001"
+									}
+								],
+								"required": [
+									"name",
+									"dpt",
+									"destination",
+									"valueMin",
+									"valueMax"
+								],
+								"properties": {
+									"name": {
+										"$id": "#/properties/functions/items/properties/currentStates/items/properties/name",
+										"type": "string",
+										"enum": [
+											"CurrentBrightness",
+											"CurrentState",
+											"TargetTemperature",
+											"CurrentTemperature",
+											"CurrentValue",
+											"CurrentPosition"
+										],
+										"title": "Name",
+										"description": "The type of current state",
+										"default": "",
+										"examples": [
+											"CurrentState"
+										]
+									},
+									"dpt": {
+										"$id": "#/properties/functions/items/properties/currentStates/items/properties/dpt",
+										"type": "string",
+										"title": "Dpt",
+										"description": "KNX dpt for device current state",
+										"default": "",
+										"examples": [
+											"1.001"
+										]
+									},
+									"destination": {
+										"$id": "#/properties/functions/items/properties/currentStates/items/properties/destination",
+										"type": "string",
+										"title": "Destination",
+										"description": "KNX destination for device current state",
+										"default": "",
+										"examples": [
+											"0/1/6"
+										]
+									},
+									"valueMin": {
+										"$id": "#/properties/functions/items/properties/currentStates/items/properties/valueMin",
+										"type": "integer",
+										"title": "Minimum Value",
+										"description": "Minimum value of the device",
+										"default": 0,
+										"examples": [
+											0
+										]
+									},
+									"valueMax": {
+										"$id": "#/properties/functions/items/properties/currentStates/items/properties/valueMax",
+										"type": "integer",
+										"title": "Maximum value",
+										"description": "Maximum value of the device",
+										"default": 0,
+										"examples": [
+											1
+										]
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	},
+	"startval": {},
+	"config": {
+		"theme": "bootstrap4",
+		"iconlib": "bootstrap3",
+		"object_layout": "normal",
+		"template": "default",
+		"show_errors": "interaction",
+		"required_by_default": 1,
+		"no_additional_properties": 1,
+		"display_required_only": 0,
+		"remove_empty_properties": 0,
+		"keep_oneof_values": 1,
+		"ajax": 0,
+		"ajaxCredentials": 0,
+		"show_opt_in": 0,
+		"disable_edit_json": 1,
+		"disable_collapse": 0,
+		"disable_properties": 1,
+		"disable_array_add": 0,
+		"disable_array_reorder": 1,
+		"disable_array_delete": 0,
+		"enable_array_copy": 0,
+		"array_controls_top": 1,
+		"disable_array_delete_all_rows": 1,
+		"disable_array_delete_last_row": 1,
+		"prompt_before_delete": 1,
+		"lib_aceeditor": 0,
+		"lib_autocomplete": 0,
+		"lib_sceditor": 0,
+		"lib_simplemde": 0,
+		"lib_select2": 0,
+		"lib_selectize": 0,
+		"lib_choices": 0,
+		"lib_flatpickr": 0,
+		"lib_signaturepad": 0,
+		"lib_mathjs": 0,
+		"lib_cleavejs": 0,
+		"lib_jodit": 0,
+		"lib_jquery": 0,
+		"lib_dompurify": 1
+	},
+	"code": "// The following lines are mandatory and readonly. You can add custom code above and below.\nif (jseditor instanceof window.JSONEditor) jseditor.destroy();\njseditor = new window.JSONEditor(document.querySelector(\"#json-editor-form\"), jedata);\n\njseditor.on('ready', function() {\n\n  // Create buttom and insert it after the root header\n  var iButton = jseditor.root.getButton('Icon Only', '', 'Icon Only'),\n  tButton = jseditor.root.getButton('Text Only', '', 'Text Only'),\n  aButton = jseditor.root.getButton('Text & Icon', '', 'Text & Icon'),\n  button_holder = jseditor.root.theme.getHeaderButtonHolder();\n\n  button_holder.appendChild(iButton);\n  button_holder.appendChild(tButton);\n  button_holder.appendChild(aButton);\n  jseditor.root.header.parentNode.insertBefore(button_holder, jseditor.root.header.nextSibling);\n\n  var buttonHandler = function(mode) {\n    var b = document.body;\n    b.classList.remove('button-text', 'button-icon');\n    switch (mode) {\n      case 'icon':\n        b.classList.add('button-icon');\n        break;\n      case 'text':\n        b.classList.add('button-text');\n        break;\n    }\n  };\n\n  iButton.addEventListener('click', buttonHandler.bind(null, 'icon'), false);\n  tButton.addEventListener('click', buttonHandler.bind(null, 'text'), false);\n  aButton.addEventListener('click', buttonHandler.bind(null, ''), false);\n\n});",
+	"style": ".button-text .json-editor-btntype-editjson i,\n.button-text .json-editor-btntype-properties i {\n  display: none;\n}\n\n.button-icon .json-editor-btntype-editjson span,\n.button-icon .json-editor-btntype-properties span {\n  display: none;\n}",
+	"desc": "Add optional description here. (HTML format)"
+}
