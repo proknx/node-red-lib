@@ -70,9 +70,9 @@
             "5e95c17e.4a7c",
             "f2d7e2b4.45ac5"
         ],
-        "x": 1623,
-        "y": 799,
-        "w": 1003,
+        "x": 1703,
+        "y": 119,
+        "w": 803,
         "h": 1242
     },
     {
@@ -85,8 +85,8 @@
         "method": "get",
         "upload": false,
         "swaggerDoc": "",
-        "x": 1740,
-        "y": 2000,
+        "x": 1820,
+        "y": 1320,
         "wires": [
             [
                 "bedbd29d.1378e8"
@@ -104,8 +104,8 @@
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 1855,
-        "y": 2000,
+        "x": 1935,
+        "y": 1320,
         "wires": [
             [
                 "f2d7e2b4.45ac5"
@@ -123,8 +123,8 @@
         "qos": "2",
         "datatype": "auto",
         "broker": "f96ab142.d8bab8",
-        "x": 1701,
-        "y": 1500,
+        "x": 1781,
+        "y": 820,
         "wires": [
             [
                 "850f44dc.810fd"
@@ -141,8 +141,8 @@
         "qos": "2",
         "datatype": "auto",
         "broker": "f96ab142.d8bab8",
-        "x": 1711,
-        "y": 1540,
+        "x": 1791,
+        "y": 860,
         "wires": [
             [
                 "850f44dc.810fd"
@@ -159,8 +159,8 @@
         "qos": "2",
         "datatype": "auto",
         "broker": "f96ab142.d8bab8",
-        "x": 1710,
-        "y": 969,
+        "x": 1790,
+        "y": 289,
         "wires": [
             [
                 "d105c64b.fa1f38"
@@ -177,8 +177,8 @@
         "qos": "2",
         "datatype": "auto",
         "broker": "f96ab142.d8bab8",
-        "x": 1710,
-        "y": 880,
+        "x": 1790,
+        "y": 200,
         "wires": [
             [
                 "dd4ba76d.34d6c"
@@ -196,8 +196,8 @@
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 1901,
-        "y": 1580,
+        "x": 1930,
+        "y": 900,
         "wires": [
             [
                 "f6bd613b.d0726",
@@ -234,8 +234,8 @@
         "property": "payload",
         "action": "",
         "pretty": false,
-        "x": 1825,
-        "y": 880,
+        "x": 1905,
+        "y": 200,
         "wires": [
             [
                 "e8e6fdf1.ebcc1"
@@ -259,8 +259,8 @@
         "randomLast": "5",
         "randomUnits": "seconds",
         "drop": true,
-        "x": 1885,
-        "y": 880,
+        "x": 1954,
+        "y": 200,
         "wires": [
             [
                 "f23d718d.2cfc8"
@@ -277,8 +277,8 @@
         "property": "payload",
         "action": "",
         "pretty": false,
-        "x": 1825,
-        "y": 969,
+        "x": 1905,
+        "y": 289,
         "wires": [
             [
                 "ba9eaf41.0aff8"
@@ -298,8 +298,8 @@
         "tostatus": false,
         "complete": "payload",
         "targetType": "msg",
-        "x": 2299,
-        "y": 1340,
+        "x": 2230,
+        "y": 640,
         "wires": []
     },
     {
@@ -309,8 +309,8 @@
         "g": "bdca02cc.e9661",
         "name": "Info - readme",
         "info": "The following nodes let you implement custom media control for Sony Bravia TV,\n\nIMPORTANT: To avoid your custom code is removed on flow update it is recommended to copy paste the nodes below to a new Tab\n\nTo apply this function it to your tv, you need to change the ip address of the tv\n\nTo change, go to configurations nodes and find SONY BRAVIA TV node and double click it\nChange the host to your tv's ip address and type in the PSK and save\n",
-        "x": 1720,
-        "y": 840,
+        "x": 1800,
+        "y": 160,
         "wires": []
     },
     {
@@ -335,8 +335,8 @@
         "topic": "",
         "payload": "[\"\",\"TF1\",\"France 2\",\"France 3\",\"Canal plus\",\"France 5\",\"Arte\"]",
         "payloadType": "json",
-        "x": 1810,
-        "y": 1880,
+        "x": 1890,
+        "y": 1200,
         "wires": [
             [
                 "a9490e53.1d4918"
@@ -365,8 +365,8 @@
         "topic": "",
         "payload": "[\"\",\"Bayerischer Rundfunk\",\"Das Erste\",\"Rundfunk Berlin-Brandenburg\",\"tset day eff\",\"Sky Deutschland\",\"Arte\"]",
         "payloadType": "json",
-        "x": 1820,
-        "y": 1920,
+        "x": 1900,
+        "y": 1240,
         "wires": [
             [
                 "1aaca277.a880f6"
@@ -384,8 +384,8 @@
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 2050,
-        "y": 1880,
+        "x": 2130,
+        "y": 1200,
         "wires": [
             [
                 "5a5779cd.a1033"
@@ -403,8 +403,8 @@
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 2050,
-        "y": 1920,
+        "x": 2130,
+        "y": 1240,
         "wires": [
             [
                 "5a5779cd.a1033"
@@ -438,8 +438,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 2210,
-        "y": 1920,
+        "x": 2290,
+        "y": 1240,
         "wires": [
             []
         ]
@@ -466,8 +466,8 @@
         "topic": "",
         "payload": "[\"\",\"Bee bee cee World News\",\"France 24\",\"Cee enn bee cee\",\"Sky News\"]",
         "payloadType": "json",
-        "x": 1810,
-        "y": 1960,
+        "x": 1890,
+        "y": 1280,
         "wires": [
             [
                 "c4ac9c63.45665"
@@ -483,8 +483,8 @@
         "func": "var lang = global.get(\"msgLang\");\nif(lang.toLowerCase().includes(\"en\")){\n    return msg;\n}\nelse {\n    //do nothing\n}",
         "outputs": 1,
         "noerr": 0,
-        "x": 2050,
-        "y": 1960,
+        "x": 2130,
+        "y": 1280,
         "wires": [
             [
                 "5a5779cd.a1033"
@@ -516,8 +516,8 @@
         "topic": "",
         "payload": "tv",
         "payloadType": "str",
-        "x": 1703,
-        "y": 1780,
+        "x": 1783,
+        "y": 1100,
         "wires": [
             [
                 "6320cb22.6684a4"
@@ -545,8 +545,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1938,
-        "y": 1810,
+        "x": 2018,
+        "y": 1130,
         "wires": [
             []
         ]
@@ -558,8 +558,8 @@
         "g": "bdca02cc.e9661",
         "name": "Dynamic default speaker (readme)",
         "info": "If the target speaker (tv or speaker) is not given by the user, then it is useful to set the default speaker.\nYoy can set the default speaker dynamically.\n\nUse case:\n1. The TV is on, set the default speaker is set to \"tv\"\n2. User say \"Play Sky news\" \n3. SONOS will *not* play \"Sky news\"\n4. The \"TV handler\" will receive the Play message and handle it \n\nUse case:\n1. The TV is off and the default speaker not set (i.e. speaker)\n2. User say \"Play Sky news\" \n3. SONOS will play \"Sky news\"\n4. The \"TV handler\" will receive the Play message but will not take action\n\nUse case:\n1. The TV is off and the default speaker not set (i.e. speaker)\n2. User say \"Play Sky news on the TV\" \n3. SONOS will *not* play \"Sky news\"\n4. The \"TV handler\" will receive the Play message and handle it \n\n",
-        "x": 1908,
-        "y": 1770,
+        "x": 1988,
+        "y": 1090,
         "wires": []
     },
     {
@@ -569,8 +569,8 @@
         "g": "bdca02cc.e9661",
         "name": "useTvFavorites",
         "info": "Disable injection / training of TvFavorites by setting the useTvFavorites to false.",
-        "x": 2240,
-        "y": 1880,
+        "x": 2320,
+        "y": 1200,
         "wires": []
     },
     {
@@ -587,8 +587,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 2480,
-        "y": 1060,
+        "x": 2340,
+        "y": 420,
         "wires": []
     },
     {
@@ -605,8 +605,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 2251,
-        "y": 1460,
+        "x": 2220,
+        "y": 760,
         "wires": []
     },
     {
@@ -621,8 +621,8 @@
         "tostatus": false,
         "complete": "payload",
         "targetType": "msg",
-        "x": 2291,
-        "y": 1520,
+        "x": 2240,
+        "y": 820,
         "wires": []
     },
     {
@@ -650,8 +650,8 @@
         "topic": "",
         "payload": "speaker",
         "payloadType": "str",
-        "x": 1703,
-        "y": 1820,
+        "x": 1783,
+        "y": 1140,
         "wires": [
             [
                 "6320cb22.6684a4"
@@ -669,8 +669,8 @@
         "qos": "2",
         "datatype": "auto",
         "broker": "f96ab142.d8bab8",
-        "x": 1701,
-        "y": 1580,
+        "x": 1781,
+        "y": 900,
         "wires": [
             [
                 "850f44dc.810fd"
@@ -687,8 +687,8 @@
         "qos": "2",
         "datatype": "auto",
         "broker": "f96ab142.d8bab8",
-        "x": 1701,
-        "y": 1620,
+        "x": 1781,
+        "y": 940,
         "wires": [
             [
                 "850f44dc.810fd"
@@ -705,8 +705,8 @@
         "qos": "2",
         "datatype": "auto",
         "broker": "f96ab142.d8bab8",
-        "x": 1701,
-        "y": 1660,
+        "x": 1781,
+        "y": 980,
         "wires": [
             [
                 "850f44dc.810fd"
@@ -720,8 +720,8 @@
         "g": "bdca02cc.e9661",
         "name": "TV or Speaker?",
         "info": "The target media is available in msg.payload.speaker\nThe value of msg.payload.speaker is either \"tv\" or \"speaker\".\n\nUse the following code snippet to filter out tv commands:\nif(msg.payload.speaker === \"tv\") {\n    // tv commands only\n}\n",
-        "x": 1900,
-        "y": 1500,
+        "x": 1960,
+        "y": 820,
         "wires": []
     },
     {
@@ -731,8 +731,8 @@
         "g": "bdca02cc.e9661",
         "name": "README",
         "info": "Cancel pending Shazam: 20 seconds after a SONOS play command has been executed, an automatic Shazam/What's playing is issued. \nIf you wish to cancel such a pending message, send this message",
-        "x": 2220,
-        "y": 1960,
+        "x": 2300,
+        "y": 1280,
         "wires": []
     },
     {
@@ -743,8 +743,8 @@
         "tv": "80c2b592.d93008",
         "ircc": "Pause",
         "name": "Pause",
-        "x": 2119,
-        "y": 1340,
+        "x": 2070,
+        "y": 640,
         "wires": []
     },
     {
@@ -755,8 +755,8 @@
         "tv": "80c2b592.d93008",
         "ircc": "Next",
         "name": "Next",
-        "x": 2100,
-        "y": 1459.3999938964844,
+        "x": 2070,
+        "y": 760,
         "wires": []
     },
     {
@@ -767,8 +767,8 @@
         "tv": "80c2b592.d93008",
         "ircc": "Prev",
         "name": "Previous",
-        "x": 2111,
-        "y": 1520,
+        "x": 2081,
+        "y": 820.6000061035156,
         "wires": []
     },
     {
@@ -781,8 +781,8 @@
             "794b6571.398214",
             "74020a3e.b8d344"
         ],
-        "x": 2260,
-        "y": 2000,
+        "x": 2340,
+        "y": 1320,
         "wires": []
     },
     {
@@ -803,8 +803,8 @@
         "topic": "",
         "payload": "true",
         "payloadType": "bool",
-        "x": 2200,
-        "y": 2000,
+        "x": 2280,
+        "y": 1320,
         "wires": [
             [
                 "219aa98c.0925ce"
@@ -822,8 +822,8 @@
         "qos": "2",
         "datatype": "auto",
         "broker": "f96ab142.d8bab8",
-        "x": 1700,
-        "y": 1060,
+        "x": 1780,
+        "y": 380,
         "wires": [
             [
                 "363094a1.a6150c"
@@ -841,8 +841,8 @@
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 1860,
-        "y": 1060,
+        "x": 1910,
+        "y": 380,
         "wires": [
             [
                 "599b9eec.43129"
@@ -859,8 +859,8 @@
         "qos": "2",
         "datatype": "auto",
         "broker": "f96ab142.d8bab8",
-        "x": 1699,
-        "y": 1280,
+        "x": 1779,
+        "y": 600,
         "wires": [
             [
                 "d069c9d1.959ef8"
@@ -881,8 +881,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 2309,
-        "y": 1240,
+        "x": 2240,
+        "y": 540,
         "wires": []
     },
     {
@@ -899,8 +899,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 2510,
-        "y": 1000,
+        "x": 2330,
+        "y": 360,
         "wires": []
     },
     {
@@ -913,8 +913,8 @@
         "qos": "2",
         "datatype": "auto",
         "broker": "f96ab142.d8bab8",
-        "x": 1759,
-        "y": 1160,
+        "x": 1839,
+        "y": 480,
         "wires": [
             [
                 "a6fac37.bb5d54"
@@ -932,8 +932,8 @@
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 1839,
-        "y": 1280,
+        "x": 1919,
+        "y": 600,
         "wires": [
             [
                 "611c6b5.18f2494",
@@ -955,8 +955,8 @@
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 1939,
-        "y": 1160,
+        "x": 2008,
+        "y": 480,
         "wires": [
             []
         ]
@@ -970,8 +970,8 @@
         "method": "audio:1.2:setAudioVolume",
         "payload": "{\"target\":\"speaker\", \"volume\":\"+2\"}",
         "name": "Volume up",
-        "x": 2321,
-        "y": 1580,
+        "x": 2230,
+        "y": 880,
         "wires": [
             []
         ]
@@ -985,8 +985,8 @@
         "method": "audio:1.2:setAudioVolume",
         "payload": "{\"target\":\"speaker\", \"volume\":\"-2\"}",
         "name": "Volume down",
-        "x": 2331,
-        "y": 1640,
+        "x": 2251,
+        "y": 940,
         "wires": [
             []
         ]
@@ -1000,8 +1000,8 @@
         "method": "system:1.0:setPowerStatus",
         "payload": "{\"status\":true}",
         "name": "Power on",
-        "x": 2340,
-        "y": 1000,
+        "x": 2300,
+        "y": 320,
         "wires": [
             [
                 "6e4cfbf9.421914"
@@ -1017,8 +1017,8 @@
         "method": "system:1.0:getPowerStatus",
         "payload": "",
         "name": "TV status",
-        "x": 2000,
-        "y": 1060,
+        "x": 2040,
+        "y": 380,
         "wires": [
             [
                 "bc8a193b.afa6d8"
@@ -1048,8 +1048,8 @@
         "checkall": "true",
         "repair": false,
         "outputs": 2,
-        "x": 2160,
-        "y": 1060,
+        "x": 2180,
+        "y": 380,
         "wires": [
             [
                 "24097489.11107c"
@@ -1068,8 +1068,8 @@
         "tv": "80c2b592.d93008",
         "ircc": "Confirm",
         "name": "Play",
-        "x": 2450,
-        "y": 1100,
+        "x": 2310,
+        "y": 460,
         "wires": []
     },
     {
@@ -1081,8 +1081,8 @@
         "method": "audio:1.0:setAudioMute",
         "payload": "{\"status\":true}",
         "name": "Mute",
-        "x": 2010,
-        "y": 880,
+        "x": 2050,
+        "y": 200,
         "wires": [
             []
         ]
@@ -1096,8 +1096,8 @@
         "method": "audio:1.0:setAudioMute",
         "payload": "{\"status\":false}",
         "name": "Unmute",
-        "x": 2000,
-        "y": 970,
+        "x": 2040,
+        "y": 290,
         "wires": [
             []
         ]
@@ -1111,8 +1111,8 @@
         "method": "audio:1.2:setAudioVolume",
         "payload": "",
         "name": "Set volume",
-        "x": 2521,
-        "y": 1700,
+        "x": 2410,
+        "y": 1000,
         "wires": [
             []
         ]
@@ -1126,8 +1126,8 @@
         "method": "audio:1.0:setAudioMute",
         "payload": "{\"status\":false}",
         "name": "Unmute",
-        "x": 2111,
-        "y": 1580,
+        "x": 2081,
+        "y": 880.6000061035156,
         "wires": [
             [
                 "c5cc1e0c.5d97b"
@@ -1143,8 +1143,8 @@
         "method": "audio:1.0:setAudioMute",
         "payload": "{\"status\":false}",
         "name": "Unmute",
-        "x": 2111,
-        "y": 1640,
+        "x": 2080,
+        "y": 940,
         "wires": [
             [
                 "177d1a93.f506c5"
@@ -1160,8 +1160,8 @@
         "method": "system:1.0:setPowerStatus",
         "payload": "{\"status\":false}",
         "name": "Power off",
-        "x": 2129,
-        "y": 1240,
+        "x": 2080,
+        "y": 540,
         "wires": [
             [
                 "4906a052.1ca4e"
@@ -1177,8 +1177,8 @@
         "method": "audio:1.0:setAudioMute",
         "payload": "{\"status\":false}",
         "name": "Unmute",
-        "x": 2031,
-        "y": 1700,
+        "x": 1940,
+        "y": 1000,
         "wires": [
             [
                 "5e95c17e.4a7c"
@@ -1196,8 +1196,8 @@
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 2341,
-        "y": 1700,
+        "x": 2250,
+        "y": 1000,
         "wires": [
             [
                 "bea1345b.a41968"
@@ -1213,8 +1213,8 @@
         "method": "audio:1.0:getVolumeInformation",
         "payload": "",
         "name": "Volume info",
-        "x": 2181,
-        "y": 1700,
+        "x": 2090,
+        "y": 1000,
         "wires": [
             [
                 "83e4b98c.8eac28"
@@ -1229,8 +1229,8 @@
         "name": "",
         "statusCode": "",
         "headers": {},
-        "x": 1915,
-        "y": 2000,
+        "x": 1995,
+        "y": 1320,
         "wires": [],
         "l": false
     },
