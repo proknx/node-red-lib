@@ -1,0 +1,1267 @@
+[
+    {
+        "id": "bdca02cc.e9661",
+        "type": "group",
+        "z": "eb3e4041.662fc8",
+        "name": "CUSTOM MEDIA CONTROL FOR SONY BRAVIA TV",
+        "style": {
+            "label": true
+        },
+        "nodes": [
+            "3de7eccf.517924",
+            "bedbd29d.1378e8",
+            "98115d99.6636f",
+            "f0d955d9.de898",
+            "8c90aced.172628",
+            "7b205042.3d48d",
+            "850f44dc.810fd",
+            "dd4ba76d.34d6c",
+            "e8e6fdf1.ebcc1",
+            "d105c64b.fa1f38",
+            "112e05a6.006942",
+            "d28b6f9f.0f0bb8",
+            "ad65c18b.2dddf",
+            "cd608a8.48daff8",
+            "a9490e53.1d4918",
+            "1aaca277.a880f6",
+            "5a5779cd.a1033",
+            "355e5394.cb63cc",
+            "c4ac9c63.45665",
+            "1e6ac265.df237e",
+            "6320cb22.6684a4",
+            "741dc295.f32924",
+            "8012cadf.444e58",
+            "bfb2034e.ce226",
+            "4e319810.7956a",
+            "45ad9a48.1a9e2c",
+            "ddb8d131.28b8d8",
+            "b4eeb1a3.233b1",
+            "b1efd900.8e40e",
+            "866f5d8.542ed2",
+            "6de983ab.eed98c",
+            "c7b94e21.ae767",
+            "d1f5ba35.b67c68",
+            "f6bd613b.d0726",
+            "e7b10f99.8726f",
+            "219aa98c.0925ce",
+            "ca31bef0.7350d",
+            "bc5f912b.5841e",
+            "363094a1.a6150c",
+            "a0f9b20f.a1f2e",
+            "4906a052.1ca4e",
+            "6e4cfbf9.421914",
+            "cdf1b746.9de908",
+            "d069c9d1.959ef8",
+            "a6fac37.bb5d54",
+            "c5cc1e0c.5d97b",
+            "177d1a93.f506c5",
+            "24097489.11107c",
+            "599b9eec.43129",
+            "bc8a193b.afa6d8",
+            "73160d41.0a51b4",
+            "f23d718d.2cfc8",
+            "ba9eaf41.0aff8",
+            "bea1345b.a41968",
+            "335164d4.aa58cc",
+            "cacd8c35.6345",
+            "611c6b5.18f2494",
+            "d5bec40f.d098d8",
+            "83e4b98c.8eac28",
+            "5e95c17e.4a7c",
+            "f2d7e2b4.45ac5"
+        ],
+        "x": 1623,
+        "y": 799,
+        "w": 1003,
+        "h": 1242
+    },
+    {
+        "id": "3de7eccf.517924",
+        "type": "http in",
+        "z": "eb3e4041.662fc8",
+        "g": "bdca02cc.e9661",
+        "name": "GET /tvfavorites",
+        "url": "/tvfavorites",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 1740,
+        "y": 2000,
+        "wires": [
+            [
+                "bedbd29d.1378e8"
+            ]
+        ]
+    },
+    {
+        "id": "bedbd29d.1378e8",
+        "type": "function",
+        "z": "eb3e4041.662fc8",
+        "g": "bdca02cc.e9661",
+        "name": "get(\"tvFavorites\");",
+        "func": "var tvFavorites = global.get(\"tvFavorites\");\nmsg.payload = {\"tvfavorites\": \"false\"};\nif(tvFavorites !== undefined){\n    msg.payload = JSON.stringify(tvFavorites);\n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 1855,
+        "y": 2000,
+        "wires": [
+            [
+                "f2d7e2b4.45ac5"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "98115d99.6636f",
+        "type": "mqtt in",
+        "z": "eb3e4041.662fc8",
+        "g": "bdca02cc.e9661",
+        "name": "next",
+        "topic": "hermes/intent/ProKNX:next",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "f96ab142.d8bab8",
+        "x": 1701,
+        "y": 1500,
+        "wires": [
+            [
+                "850f44dc.810fd"
+            ]
+        ]
+    },
+    {
+        "id": "f0d955d9.de898",
+        "type": "mqtt in",
+        "z": "eb3e4041.662fc8",
+        "g": "bdca02cc.e9661",
+        "name": "previous",
+        "topic": "hermes/intent/ProKNX:previous",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "f96ab142.d8bab8",
+        "x": 1711,
+        "y": 1540,
+        "wires": [
+            [
+                "850f44dc.810fd"
+            ]
+        ]
+    },
+    {
+        "id": "8c90aced.172628",
+        "type": "mqtt in",
+        "z": "eb3e4041.662fc8",
+        "g": "bdca02cc.e9661",
+        "name": "hotword off",
+        "topic": "hermes/hotword/toggleOn",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "f96ab142.d8bab8",
+        "x": 1710,
+        "y": 969,
+        "wires": [
+            [
+                "d105c64b.fa1f38"
+            ]
+        ]
+    },
+    {
+        "id": "7b205042.3d48d",
+        "type": "mqtt in",
+        "z": "eb3e4041.662fc8",
+        "g": "bdca02cc.e9661",
+        "name": "hotword on",
+        "topic": "hermes/hotword/default/detected",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "f96ab142.d8bab8",
+        "x": 1710,
+        "y": 880,
+        "wires": [
+            [
+                "dd4ba76d.34d6c"
+            ]
+        ]
+    },
+    {
+        "id": "850f44dc.810fd",
+        "type": "function",
+        "z": "eb3e4041.662fc8",
+        "g": "bdca02cc.e9661",
+        "name": "Filter",
+        "func": "// Sample code : control of TV set\n\nfunction findObjectByKey(array, key, value) {\n\titems = [];\n\tvar cpt = 0;\n\tfor (var i = 0; i < array.length; i++) {\n\t\tif (array[i][key] === value) {\n\t\t\titems[cpt] = array[i];\n\t\t\tcpt++;\n\t\t}\n\t}\n\tif (items[0] !== undefined) {\n\t\treturn items;\n\t} else {\n\t\treturn null;\n\t}\n}\n\nvar lang = global.get(\"msgLang\");\nvar defaultSpeaker = global.get(\"defaultSpeaker\");\nif(defaultSpeaker === undefined){\n    defaultSpeaker = \"speaker\";\n}\nmsg.cmd={};\nmsg.payload = JSON.parse(msg.payload);\nvar doAllRooms = false;\nvar intent = msg.payload.intent.intentName;\nif (intent === undefined) \n    return null;\n\nvar rawRoom = findObjectByKey(msg.payload.slots, 'slotName', 'room');\nvar rawFavorite = findObjectByKey(msg.payload.slots, 'entity', 'FavoriteType');\nvar rawSpeaker = findObjectByKey(msg.payload.slots, 'entity', 'SpeakerType');\n\n//node.warn(msg.payload);\n//node.warn(\"rawRoom: \"+ JSON.stringify(rawRoom) );\nvar theRoom = msg.payload.siteId;\n\nif (rawRoom !== null) {\n\tmsg.cmd.room = [];\n\tfor (var i = 0; i < rawRoom.length; i++) {\n\t\tmsg.cmd.room[i] = rawRoom[i].value.value.toLowerCase();\n\t\t//node.warn(\"msg.cmd.room[i]: \"+msg.cmd.room[i] + \"   msg.payload.siteId: \"+msg.payload.siteId);\n\t\tif (msg.cmd.room[i] === \"here\" || msg.cmd.room[i] === \"hier\" || msg.cmd.room[i] === \"ici\") {\n\t\t\ttheRoom = msg.payload.siteId;\n\t\t} else {\n    \t\tif (msg.cmd.room[i] === \"all\" || msg.cmd.room[i] === \"everywhere\" || msg.cmd.room[i] === \"ueberall\" || msg.cmd.room[i] === \"partout\") {\n    \t\t    doAllRooms = true;\n    \t\t} else {\n    \t\t    theRoom = msg.cmd.room[i].replace(/ /g, \"_\");\n    \t\t}\n\t\t}\n\t}\n} \nmsg.payload.siteId = theRoom;\n//node.warn(\" Will use msg.payload.siteId: \"+msg.payload.siteId);\n\nif (rawFavorite !== null) {\n    //node.warn(\"rawFavorite: \"+JSON.stringify(rawFavorite));\n    msg.payload.favorite = rawFavorite[0].value.value.trim().toLowerCase();\n    node.warn(\"msg.payload.favorite: \"+msg.payload.favorite);\n}\n\n\nif (rawSpeaker !== null) {\n    //node.warn(\"rawSpeaker: \"+JSON.stringify(rawSpeaker));\n    msg.payload.speaker = rawSpeaker[0].value.value.trim().toLowerCase();\n} else {\n    msg.payload.speaker = defaultSpeaker.trim().toLowerCase();\n}\nnode.warn(\"msg.payload.speaker: \"+msg.payload.speaker);\n    \nif (msg.payload.intent.confidenceScore < 0.6){\n    return null;\n}\n\nnode.warn(\"msg.payload.speaker = \" + msg.payload.speaker);\n\nif(msg.payload.speaker !== undefined){\n    //if(msg.payload.speaker === \"tv\") {\n        //node.warn(\"intent \" + intent);\n        switch (intent) {\n            case \"ProKNX:next\": return [msg, null, null, null, null];\n            case \"ProKNX:previous\": return [null, msg, null, null, null];\n            case \"ProKNX:increaseVolume\": return [null, null, msg, null, null];\n            case \"ProKNX:decreaseVolume\": return [null, null, null, msg, null];\n            case \"ProKNX:setVolume\": flow.set(\"rawLoudness\", findObjectByKey(msg.payload.slots, 'slotName', 'loudness')); flow.set(\"rawMin\", findObjectByKey(msg.payload.slots, 'slotName', 'min'));\n                                    flow.set(\"rawMax\", findObjectByKey(msg.payload.slots, 'slotName', 'max')); return [null, null, null, null, msg];\n        }\n    //}\n}\n",
+        "outputs": 5,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 1901,
+        "y": 1580,
+        "wires": [
+            [
+                "f6bd613b.d0726",
+                "4e319810.7956a"
+            ],
+            [
+                "e7b10f99.8726f",
+                "45ad9a48.1a9e2c"
+            ],
+            [
+                "335164d4.aa58cc"
+            ],
+            [
+                "cacd8c35.6345"
+            ],
+            [
+                "d5bec40f.d098d8"
+            ]
+        ],
+        "outputLabels": [
+            "pause",
+            "play",
+            "next",
+            "previous",
+            "incvol"
+        ]
+    },
+    {
+        "id": "dd4ba76d.34d6c",
+        "type": "json",
+        "z": "eb3e4041.662fc8",
+        "g": "bdca02cc.e9661",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 1825,
+        "y": 880,
+        "wires": [
+            [
+                "e8e6fdf1.ebcc1"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "e8e6fdf1.ebcc1",
+        "type": "delay",
+        "z": "eb3e4041.662fc8",
+        "g": "bdca02cc.e9661",
+        "name": "",
+        "pauseType": "rate",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": true,
+        "x": 1885,
+        "y": 880,
+        "wires": [
+            [
+                "f23d718d.2cfc8"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "d105c64b.fa1f38",
+        "type": "json",
+        "z": "eb3e4041.662fc8",
+        "g": "bdca02cc.e9661",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 1825,
+        "y": 969,
+        "wires": [
+            [
+                "ba9eaf41.0aff8"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "112e05a6.006942",
+        "type": "debug",
+        "z": "eb3e4041.662fc8",
+        "g": "bdca02cc.e9661",
+        "name": "HANDLE PAUSE",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "x": 2299,
+        "y": 1340,
+        "wires": []
+    },
+    {
+        "id": "d28b6f9f.0f0bb8",
+        "type": "comment",
+        "z": "eb3e4041.662fc8",
+        "g": "bdca02cc.e9661",
+        "name": "Info - readme",
+        "info": "The following nodes let you implement custom media control for Sony Bravia TV,\n\nIMPORTANT: To avoid your custom code is removed on flow update it is recommended to copy paste the nodes below to a new Tab\n\nTo apply this function it to your tv, you need to change the ip address of the tv\n\nTo change, go to configurations nodes and find SONY BRAVIA TV node and double click it\nChange the host to your tv's ip address and type in the PSK and save\n",
+        "x": 1720,
+        "y": 840,
+        "wires": []
+    },
+    {
+        "id": "ad65c18b.2dddf",
+        "type": "inject",
+        "z": "eb3e4041.662fc8",
+        "g": "bdca02cc.e9661",
+        "name": "French channels (samples)",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "3",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "5",
+        "topic": "",
+        "payload": "[\"\",\"TF1\",\"France 2\",\"France 3\",\"Canal plus\",\"France 5\",\"Arte\"]",
+        "payloadType": "json",
+        "x": 1810,
+        "y": 1880,
+        "wires": [
+            [
+                "a9490e53.1d4918"
+            ]
+        ]
+    },
+    {
+        "id": "cd608a8.48daff8",
+        "type": "inject",
+        "z": "eb3e4041.662fc8",
+        "g": "bdca02cc.e9661",
+        "name": "German channels (samples)",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "3",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "5",
+        "topic": "",
+        "payload": "[\"\",\"Bayerischer Rundfunk\",\"Das Erste\",\"Rundfunk Berlin-Brandenburg\",\"tset day eff\",\"Sky Deutschland\",\"Arte\"]",
+        "payloadType": "json",
+        "x": 1820,
+        "y": 1920,
+        "wires": [
+            [
+                "1aaca277.a880f6"
+            ]
+        ]
+    },
+    {
+        "id": "a9490e53.1d4918",
+        "type": "function",
+        "z": "eb3e4041.662fc8",
+        "g": "bdca02cc.e9661",
+        "name": "lang?",
+        "func": "var lang = global.get(\"msgLang\");\nif(lang.toLowerCase().includes(\"fr\")){\n    return msg;\n}\nelse {\n    //do nothing\n}",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 2050,
+        "y": 1880,
+        "wires": [
+            [
+                "5a5779cd.a1033"
+            ]
+        ]
+    },
+    {
+        "id": "1aaca277.a880f6",
+        "type": "function",
+        "z": "eb3e4041.662fc8",
+        "g": "bdca02cc.e9661",
+        "name": "lang?",
+        "func": "var lang = global.get(\"msgLang\");\nif(lang.toLowerCase().includes(\"de\")){\n    return msg;\n}\nelse {\n    //do nothing\n}",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 2050,
+        "y": 1920,
+        "wires": [
+            [
+                "5a5779cd.a1033"
+            ]
+        ]
+    },
+    {
+        "id": "5a5779cd.a1033",
+        "type": "change",
+        "z": "eb3e4041.662fc8",
+        "g": "bdca02cc.e9661",
+        "name": "Save",
+        "rules": [
+            {
+                "t": "set",
+                "p": "tvFavorites",
+                "pt": "global",
+                "to": "payload",
+                "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "useTvFavorites",
+                "pt": "global",
+                "to": "true",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 2210,
+        "y": 1920,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "355e5394.cb63cc",
+        "type": "inject",
+        "z": "eb3e4041.662fc8",
+        "g": "bdca02cc.e9661",
+        "name": "English channels (samples)",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "3",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "5",
+        "topic": "",
+        "payload": "[\"\",\"Bee bee cee World News\",\"France 24\",\"Cee enn bee cee\",\"Sky News\"]",
+        "payloadType": "json",
+        "x": 1810,
+        "y": 1960,
+        "wires": [
+            [
+                "c4ac9c63.45665"
+            ]
+        ]
+    },
+    {
+        "id": "c4ac9c63.45665",
+        "type": "function",
+        "z": "eb3e4041.662fc8",
+        "g": "bdca02cc.e9661",
+        "name": "lang?",
+        "func": "var lang = global.get(\"msgLang\");\nif(lang.toLowerCase().includes(\"en\")){\n    return msg;\n}\nelse {\n    //do nothing\n}",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 2050,
+        "y": 1960,
+        "wires": [
+            [
+                "5a5779cd.a1033"
+            ]
+        ]
+    },
+    {
+        "id": "1e6ac265.df237e",
+        "type": "inject",
+        "z": "eb3e4041.662fc8",
+        "g": "bdca02cc.e9661",
+        "name": "tv",
+        "props": [
+            {
+                "p": "payload",
+                "v": "tv",
+                "vt": "str"
+            },
+            {
+                "p": "topic",
+                "v": "",
+                "vt": "string"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "tv",
+        "payloadType": "str",
+        "x": 1703,
+        "y": 1780,
+        "wires": [
+            [
+                "6320cb22.6684a4"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "6320cb22.6684a4",
+        "type": "change",
+        "z": "eb3e4041.662fc8",
+        "g": "bdca02cc.e9661",
+        "name": "Set defaultSpeaker (value: \"tv\" or \"speaker\")",
+        "rules": [
+            {
+                "t": "set",
+                "p": "defaultSpeaker",
+                "pt": "global",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1938,
+        "y": 1810,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "741dc295.f32924",
+        "type": "comment",
+        "z": "eb3e4041.662fc8",
+        "g": "bdca02cc.e9661",
+        "name": "Dynamic default speaker (readme)",
+        "info": "If the target speaker (tv or speaker) is not given by the user, then it is useful to set the default speaker.\nYoy can set the default speaker dynamically.\n\nUse case:\n1. The TV is on, set the default speaker is set to \"tv\"\n2. User say \"Play Sky news\" \n3. SONOS will *not* play \"Sky news\"\n4. The \"TV handler\" will receive the Play message and handle it \n\nUse case:\n1. The TV is off and the default speaker not set (i.e. speaker)\n2. User say \"Play Sky news\" \n3. SONOS will play \"Sky news\"\n4. The \"TV handler\" will receive the Play message but will not take action\n\nUse case:\n1. The TV is off and the default speaker not set (i.e. speaker)\n2. User say \"Play Sky news on the TV\" \n3. SONOS will *not* play \"Sky news\"\n4. The \"TV handler\" will receive the Play message and handle it \n\n",
+        "x": 1908,
+        "y": 1770,
+        "wires": []
+    },
+    {
+        "id": "8012cadf.444e58",
+        "type": "comment",
+        "z": "eb3e4041.662fc8",
+        "g": "bdca02cc.e9661",
+        "name": "useTvFavorites",
+        "info": "Disable injection / training of TvFavorites by setting the useTvFavorites to false.",
+        "x": 2240,
+        "y": 1880,
+        "wires": []
+    },
+    {
+        "id": "bfb2034e.ce226",
+        "type": "debug",
+        "z": "eb3e4041.662fc8",
+        "g": "bdca02cc.e9661",
+        "name": "HANDLE PLAY",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 2480,
+        "y": 1060,
+        "wires": []
+    },
+    {
+        "id": "4e319810.7956a",
+        "type": "debug",
+        "z": "eb3e4041.662fc8",
+        "g": "bdca02cc.e9661",
+        "name": "HANDLE NEXT",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 2251,
+        "y": 1460,
+        "wires": []
+    },
+    {
+        "id": "45ad9a48.1a9e2c",
+        "type": "debug",
+        "z": "eb3e4041.662fc8",
+        "g": "bdca02cc.e9661",
+        "name": "HANDLE PREV",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "x": 2291,
+        "y": 1520,
+        "wires": []
+    },
+    {
+        "id": "ddb8d131.28b8d8",
+        "type": "inject",
+        "z": "eb3e4041.662fc8",
+        "g": "bdca02cc.e9661",
+        "name": "speaker",
+        "props": [
+            {
+                "p": "payload",
+                "v": "speaker",
+                "vt": "str"
+            },
+            {
+                "p": "topic",
+                "v": "",
+                "vt": "string"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "speaker",
+        "payloadType": "str",
+        "x": 1703,
+        "y": 1820,
+        "wires": [
+            [
+                "6320cb22.6684a4"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "b4eeb1a3.233b1",
+        "type": "mqtt in",
+        "z": "eb3e4041.662fc8",
+        "g": "bdca02cc.e9661",
+        "name": "incVol",
+        "topic": "hermes/intent/ProKNX:increaseVolume",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "f96ab142.d8bab8",
+        "x": 1701,
+        "y": 1580,
+        "wires": [
+            [
+                "850f44dc.810fd"
+            ]
+        ]
+    },
+    {
+        "id": "b1efd900.8e40e",
+        "type": "mqtt in",
+        "z": "eb3e4041.662fc8",
+        "g": "bdca02cc.e9661",
+        "name": "decVol",
+        "topic": "hermes/intent/ProKNX:decreaseVolume",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "f96ab142.d8bab8",
+        "x": 1701,
+        "y": 1620,
+        "wires": [
+            [
+                "850f44dc.810fd"
+            ]
+        ]
+    },
+    {
+        "id": "866f5d8.542ed2",
+        "type": "mqtt in",
+        "z": "eb3e4041.662fc8",
+        "g": "bdca02cc.e9661",
+        "name": "setVol",
+        "topic": "hermes/intent/ProKNX:setVolume",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "f96ab142.d8bab8",
+        "x": 1701,
+        "y": 1660,
+        "wires": [
+            [
+                "850f44dc.810fd"
+            ]
+        ]
+    },
+    {
+        "id": "6de983ab.eed98c",
+        "type": "comment",
+        "z": "eb3e4041.662fc8",
+        "g": "bdca02cc.e9661",
+        "name": "TV or Speaker?",
+        "info": "The target media is available in msg.payload.speaker\nThe value of msg.payload.speaker is either \"tv\" or \"speaker\".\n\nUse the following code snippet to filter out tv commands:\nif(msg.payload.speaker === \"tv\") {\n    // tv commands only\n}\n",
+        "x": 1900,
+        "y": 1500,
+        "wires": []
+    },
+    {
+        "id": "c7b94e21.ae767",
+        "type": "comment",
+        "z": "eb3e4041.662fc8",
+        "g": "bdca02cc.e9661",
+        "name": "README",
+        "info": "Cancel pending Shazam: 20 seconds after a SONOS play command has been executed, an automatic Shazam/What's playing is issued. \nIf you wish to cancel such a pending message, send this message",
+        "x": 2220,
+        "y": 1960,
+        "wires": []
+    },
+    {
+        "id": "d1f5ba35.b67c68",
+        "type": "bravia-ircc",
+        "z": "eb3e4041.662fc8",
+        "g": "bdca02cc.e9661",
+        "tv": "80c2b592.d93008",
+        "ircc": "Pause",
+        "name": "Pause",
+        "x": 2119,
+        "y": 1340,
+        "wires": []
+    },
+    {
+        "id": "f6bd613b.d0726",
+        "type": "bravia-ircc",
+        "z": "eb3e4041.662fc8",
+        "g": "bdca02cc.e9661",
+        "tv": "80c2b592.d93008",
+        "ircc": "Next",
+        "name": "Next",
+        "x": 2100,
+        "y": 1459.3999938964844,
+        "wires": []
+    },
+    {
+        "id": "e7b10f99.8726f",
+        "type": "bravia-ircc",
+        "z": "eb3e4041.662fc8",
+        "g": "bdca02cc.e9661",
+        "tv": "80c2b592.d93008",
+        "ircc": "Prev",
+        "name": "Previous",
+        "x": 2111,
+        "y": 1520,
+        "wires": []
+    },
+    {
+        "id": "219aa98c.0925ce",
+        "type": "link out",
+        "z": "eb3e4041.662fc8",
+        "g": "bdca02cc.e9661",
+        "name": "CANCEL PENDING SHAZAM OUT",
+        "links": [
+            "794b6571.398214",
+            "74020a3e.b8d344"
+        ],
+        "x": 2260,
+        "y": 2000,
+        "wires": []
+    },
+    {
+        "id": "ca31bef0.7350d",
+        "type": "inject",
+        "z": "eb3e4041.662fc8",
+        "g": "bdca02cc.e9661",
+        "name": "Cancel pending Shazam message",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "true",
+        "payloadType": "bool",
+        "x": 2200,
+        "y": 2000,
+        "wires": [
+            [
+                "219aa98c.0925ce"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "bc5f912b.5841e",
+        "type": "mqtt in",
+        "z": "eb3e4041.662fc8",
+        "g": "bdca02cc.e9661",
+        "name": "play",
+        "topic": "hermes/intent/ProKNX:play",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "f96ab142.d8bab8",
+        "x": 1700,
+        "y": 1060,
+        "wires": [
+            [
+                "363094a1.a6150c"
+            ]
+        ]
+    },
+    {
+        "id": "363094a1.a6150c",
+        "type": "function",
+        "z": "eb3e4041.662fc8",
+        "g": "bdca02cc.e9661",
+        "name": "Play",
+        "func": "\nfunction findObjectByKey(array, key, value) {\n\titems = [];\n\tvar cpt = 0;\n\tfor (var i = 0; i < array.length; i++) {\n\t\tif (array[i][key] === value) {\n\t\t\titems[cpt] = array[i];\n\t\t\tcpt++;\n\t\t}\n\t}\n\tif (items[0] !== undefined) {\n\t\treturn items;\n\t} else {\n\t\treturn null;\n\t}\n}\n\nvar lang = global.get(\"msgLang\");\nvar defaultSpeaker = global.get(\"defaultSpeaker\");\nif(defaultSpeaker === undefined){\n    defaultSpeaker = \"speaker\";\n}\nmsg.cmd={};\nmsg.payload = JSON.parse(msg.payload);\nvar doAllRooms = false;\nvar intent = msg.payload.intent.intentName;\nif (intent === undefined) \n    return null;\n\nvar rawRoom = findObjectByKey(msg.payload.slots, 'slotName', 'room');\nvar rawFavorite = findObjectByKey(msg.payload.slots, 'entity', 'FavoriteType');\nvar rawSpeaker = findObjectByKey(msg.payload.slots, 'entity', 'SpeakerType');\n\n//node.warn(msg.payload);\n//node.warn(\"rawRoom: \"+ JSON.stringify(rawRoom) );\nvar theRoom = msg.payload.siteId;\n\nif (rawRoom !== null) {\n\tmsg.cmd.room = [];\n\tfor (var i = 0; i < rawRoom.length; i++) {\n\t\tmsg.cmd.room[i] = rawRoom[i].value.value.toLowerCase();\n\t\t//node.warn(\"msg.cmd.room[i]: \"+msg.cmd.room[i] + \"   msg.payload.siteId: \"+msg.payload.siteId);\n\t\tif (msg.cmd.room[i] === \"here\" || msg.cmd.room[i] === \"hier\" || msg.cmd.room[i] === \"ici\") {\n\t\t\ttheRoom = msg.payload.siteId;\n\t\t} else {\n    \t\tif (msg.cmd.room[i] === \"all\" || msg.cmd.room[i] === \"everywhere\" || msg.cmd.room[i] === \"ueberall\" || msg.cmd.room[i] === \"partout\") {\n    \t\t    doAllRooms = true;\n    \t\t} else {\n    \t\t    theRoom = msg.cmd.room[i].replace(/ /g, \"_\");\n    \t\t}\n\t\t}\n\t}\n} \nmsg.payload.siteId = theRoom;\n//node.warn(\" Will use msg.payload.siteId: \"+msg.payload.siteId);\n\nif (rawFavorite !== null) {\n    //node.warn(\"rawFavorite: \"+JSON.stringify(rawFavorite));\n    msg.payload.favorite = rawFavorite[0].value.value.trim().toLowerCase();\n    node.warn(\"msg.payload.favorite: \"+msg.payload.favorite);\n}\n\n\nif (rawSpeaker !== null) {\n    //node.warn(\"rawSpeaker: \"+JSON.stringify(rawSpeaker));\n    msg.payload.speaker = rawSpeaker[0].value.value.trim().toLowerCase();\n} else {\n    msg.payload.speaker = defaultSpeaker.trim().toLowerCase();\n}\nnode.warn(\"msg.payload.speaker: \"+msg.payload.speaker);\n    \nif (msg.payload.intent.confidenceScore < 0.6){\n    return null;\n}\n\nif(msg.payload.speaker !== undefined){\n    \n    flow.set(\"msgPayload\", JSON.parse(msg.payload));\n    return msg;\n    \n}",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 1860,
+        "y": 1060,
+        "wires": [
+            [
+                "599b9eec.43129"
+            ]
+        ]
+    },
+    {
+        "id": "a0f9b20f.a1f2e",
+        "type": "mqtt in",
+        "z": "eb3e4041.662fc8",
+        "g": "bdca02cc.e9661",
+        "name": "pause",
+        "topic": "hermes/intent/ProKNX:pause",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "f96ab142.d8bab8",
+        "x": 1699,
+        "y": 1280,
+        "wires": [
+            [
+                "d069c9d1.959ef8"
+            ]
+        ]
+    },
+    {
+        "id": "4906a052.1ca4e",
+        "type": "debug",
+        "z": "eb3e4041.662fc8",
+        "g": "bdca02cc.e9661",
+        "name": "HANDLE OFF",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 2309,
+        "y": 1240,
+        "wires": []
+    },
+    {
+        "id": "6e4cfbf9.421914",
+        "type": "debug",
+        "z": "eb3e4041.662fc8",
+        "g": "bdca02cc.e9661",
+        "name": "HANDLE ON",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 2510,
+        "y": 1000,
+        "wires": []
+    },
+    {
+        "id": "cdf1b746.9de908",
+        "type": "mqtt in",
+        "z": "eb3e4041.662fc8",
+        "g": "bdca02cc.e9661",
+        "name": "hermes/asr/textCaptured",
+        "topic": "hermes/asr/textCaptured",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "f96ab142.d8bab8",
+        "x": 1759,
+        "y": 1160,
+        "wires": [
+            [
+                "a6fac37.bb5d54"
+            ]
+        ]
+    },
+    {
+        "id": "d069c9d1.959ef8",
+        "type": "function",
+        "z": "eb3e4041.662fc8",
+        "g": "bdca02cc.e9661",
+        "name": "Pause",
+        "func": "function findObjectByKey(array, key, value) {\n\titems = [];\n\tvar cpt = 0;\n\tfor (var i = 0; i < array.length; i++) {\n\t\tif (array[i][key] === value) {\n\t\t\titems[cpt] = array[i];\n\t\t\tcpt++;\n\t\t}\n\t}\n\tif (items[0] !== undefined) {\n\t\treturn items;\n\t} else {\n\t\treturn null;\n\t}\n}\n\nvar lang = global.get(\"msgLang\");\nvar defaultSpeaker = global.get(\"defaultSpeaker\");\nif(defaultSpeaker === undefined){\n    defaultSpeaker = \"speaker\";\n}\nmsg.cmd={};\nmsg.payload = JSON.parse(msg.payload);\nvar doAllRooms = false;\nvar intent = msg.payload.intent.intentName;\nif (intent === undefined) \n    return null;\n\nvar rawRoom = findObjectByKey(msg.payload.slots, 'slotName', 'room');\nvar rawFavorite = findObjectByKey(msg.payload.slots, 'entity', 'FavoriteType');\nvar rawSpeaker = findObjectByKey(msg.payload.slots, 'entity', 'SpeakerType');\n\n//node.warn(msg.payload);\n//node.warn(\"rawRoom: \"+ JSON.stringify(rawRoom) );\nvar theRoom = msg.payload.siteId;\n\nif (rawRoom !== null) {\n\tmsg.cmd.room = [];\n\tfor (var i = 0; i < rawRoom.length; i++) {\n\t\tmsg.cmd.room[i] = rawRoom[i].value.value.toLowerCase();\n\t\t//node.warn(\"msg.cmd.room[i]: \"+msg.cmd.room[i] + \"   msg.payload.siteId: \"+msg.payload.siteId);\n\t\tif (msg.cmd.room[i] === \"here\" || msg.cmd.room[i] === \"hier\" || msg.cmd.room[i] === \"ici\") {\n\t\t\ttheRoom = msg.payload.siteId;\n\t\t} else {\n    \t\tif (msg.cmd.room[i] === \"all\" || msg.cmd.room[i] === \"everywhere\" || msg.cmd.room[i] === \"ueberall\" || msg.cmd.room[i] === \"partout\") {\n    \t\t    doAllRooms = true;\n    \t\t} else {\n    \t\t    theRoom = msg.cmd.room[i].replace(/ /g, \"_\");\n    \t\t}\n\t\t}\n\t}\n} \nmsg.payload.siteId = theRoom;\n//node.warn(\" Will use msg.payload.siteId: \"+msg.payload.siteId);\n\nif (rawFavorite !== null) {\n    //node.warn(\"rawFavorite: \"+JSON.stringify(rawFavorite));\n    msg.payload.favorite = rawFavorite[0].value.value.trim().toLowerCase();\n    node.warn(\"msg.payload.favorite: \"+msg.payload.favorite);\n}\n\n\nif (rawSpeaker !== null) {\n    //node.warn(\"rawSpeaker: \"+JSON.stringify(rawSpeaker));\n    msg.payload.speaker = rawSpeaker[0].value.value.trim().toLowerCase();\n} else {\n    msg.payload.speaker = defaultSpeaker.trim().toLowerCase();\n}\nnode.warn(\"msg.payload.speaker: \"+msg.payload.speaker);\n    \n/*if (msg.payload.intent.confidenceScore < 0.6){\n    return null;\n}*/\n\nnode.warn(\"msg.payload.speaker = \" + msg.payload.speaker);\n\nvar message = flow.get(\"message\");\n\nif(msg.payload.speaker !== undefined){\n    \n    if(message === \"off\"){\n        return [msg, null];\n    }else{\n        return [null, msg];\n    }\n\n}\n",
+        "outputs": 2,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 1839,
+        "y": 1280,
+        "wires": [
+            [
+                "611c6b5.18f2494",
+                "112e05a6.006942"
+            ],
+            [
+                "d1f5ba35.b67c68"
+            ]
+        ]
+    },
+    {
+        "id": "a6fac37.bb5d54",
+        "type": "function",
+        "z": "eb3e4041.662fc8",
+        "g": "bdca02cc.e9661",
+        "name": "Filter",
+        "func": "msg.payload = JSON.parse(msg.payload);\nmsg.cmd = {};\nmsg.cmd.lang = global.get(\"msgLang\");\n\nif(msg.cmd.lang === \"de\"){\n    \n    if(msg.payload.text.includes(\"einschalten\") || msg.payload.text.includes(\"anschalten\")){\n        \n        flow.set(\"message\", \"on\");\n        \n    }if(msg.payload.text.includes(\"ausschalten\") || msg.payload.text.includes(\"halte\") || msg.payload.text.includes(\"aus\")){\n            \n            flow.set(\"message\", \"off\");\n    }\n        \n    \n} else if(msg.cmd.lang === \"fr\"){\n    \n    if(msg.payload.text.includes(\"allumer\") || msg.payload.text.includes(\"allume\")){\n        \n        flow.set(\"message\", \"on\");\n        \n    }if(msg.payload.text.includes(\"éteindre\") || msg.payload.text.includes(\"arrêter\") || msg.payload.text.includes(\"éteigner\") || msg.payload.text.includes(\"éteint\") || msg.payload.text.includes(\"arrête\")){\n            \n            flow.set(\"message\", \"off\");\n            \n    }\n    \n}else{\n    \n    if(msg.payload.text.includes(\"on\")){\n        \n        flow.set(\"message\", \"on\");\n        \n    }if(msg.payload.text.includes(\"off\")){\n            \n            flow.set(\"message\", \"off\");\n            \n    }\n    \n}\n\n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 1939,
+        "y": 1160,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "c5cc1e0c.5d97b",
+        "type": "bravia-api",
+        "z": "eb3e4041.662fc8",
+        "g": "bdca02cc.e9661",
+        "tv": "80c2b592.d93008",
+        "method": "audio:1.2:setAudioVolume",
+        "payload": "{\"target\":\"speaker\", \"volume\":\"+2\"}",
+        "name": "Volume up",
+        "x": 2321,
+        "y": 1580,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "177d1a93.f506c5",
+        "type": "bravia-api",
+        "z": "eb3e4041.662fc8",
+        "g": "bdca02cc.e9661",
+        "tv": "80c2b592.d93008",
+        "method": "audio:1.2:setAudioVolume",
+        "payload": "{\"target\":\"speaker\", \"volume\":\"-2\"}",
+        "name": "Volume down",
+        "x": 2331,
+        "y": 1640,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "24097489.11107c",
+        "type": "bravia-api",
+        "z": "eb3e4041.662fc8",
+        "g": "bdca02cc.e9661",
+        "tv": "80c2b592.d93008",
+        "method": "system:1.0:setPowerStatus",
+        "payload": "{\"status\":true}",
+        "name": "Power on",
+        "x": 2340,
+        "y": 1000,
+        "wires": [
+            [
+                "6e4cfbf9.421914"
+            ]
+        ]
+    },
+    {
+        "id": "599b9eec.43129",
+        "type": "bravia-api",
+        "z": "eb3e4041.662fc8",
+        "g": "bdca02cc.e9661",
+        "tv": "80c2b592.d93008",
+        "method": "system:1.0:getPowerStatus",
+        "payload": "",
+        "name": "TV status",
+        "x": 2000,
+        "y": 1060,
+        "wires": [
+            [
+                "bc8a193b.afa6d8"
+            ]
+        ]
+    },
+    {
+        "id": "bc8a193b.afa6d8",
+        "type": "switch",
+        "z": "eb3e4041.662fc8",
+        "g": "bdca02cc.e9661",
+        "name": "Is TV On?",
+        "property": "payload.status",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "standby",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "active",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 2160,
+        "y": 1060,
+        "wires": [
+            [
+                "24097489.11107c"
+            ],
+            [
+                "bfb2034e.ce226",
+                "73160d41.0a51b4"
+            ]
+        ]
+    },
+    {
+        "id": "73160d41.0a51b4",
+        "type": "bravia-ircc",
+        "z": "eb3e4041.662fc8",
+        "g": "bdca02cc.e9661",
+        "tv": "80c2b592.d93008",
+        "ircc": "Confirm",
+        "name": "Play",
+        "x": 2450,
+        "y": 1100,
+        "wires": []
+    },
+    {
+        "id": "f23d718d.2cfc8",
+        "type": "bravia-api",
+        "z": "eb3e4041.662fc8",
+        "g": "bdca02cc.e9661",
+        "tv": "80c2b592.d93008",
+        "method": "audio:1.0:setAudioMute",
+        "payload": "{\"status\":true}",
+        "name": "Mute",
+        "x": 2010,
+        "y": 880,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "ba9eaf41.0aff8",
+        "type": "bravia-api",
+        "z": "eb3e4041.662fc8",
+        "g": "bdca02cc.e9661",
+        "tv": "80c2b592.d93008",
+        "method": "audio:1.0:setAudioMute",
+        "payload": "{\"status\":false}",
+        "name": "Unmute",
+        "x": 2000,
+        "y": 970,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "bea1345b.a41968",
+        "type": "bravia-api",
+        "z": "eb3e4041.662fc8",
+        "g": "bdca02cc.e9661",
+        "tv": "80c2b592.d93008",
+        "method": "audio:1.2:setAudioVolume",
+        "payload": "",
+        "name": "Set volume",
+        "x": 2521,
+        "y": 1700,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "335164d4.aa58cc",
+        "type": "bravia-api",
+        "z": "eb3e4041.662fc8",
+        "g": "bdca02cc.e9661",
+        "tv": "80c2b592.d93008",
+        "method": "audio:1.0:setAudioMute",
+        "payload": "{\"status\":false}",
+        "name": "Unmute",
+        "x": 2111,
+        "y": 1580,
+        "wires": [
+            [
+                "c5cc1e0c.5d97b"
+            ]
+        ]
+    },
+    {
+        "id": "cacd8c35.6345",
+        "type": "bravia-api",
+        "z": "eb3e4041.662fc8",
+        "g": "bdca02cc.e9661",
+        "tv": "80c2b592.d93008",
+        "method": "audio:1.0:setAudioMute",
+        "payload": "{\"status\":false}",
+        "name": "Unmute",
+        "x": 2111,
+        "y": 1640,
+        "wires": [
+            [
+                "177d1a93.f506c5"
+            ]
+        ]
+    },
+    {
+        "id": "611c6b5.18f2494",
+        "type": "bravia-api",
+        "z": "eb3e4041.662fc8",
+        "g": "bdca02cc.e9661",
+        "tv": "80c2b592.d93008",
+        "method": "system:1.0:setPowerStatus",
+        "payload": "{\"status\":false}",
+        "name": "Power off",
+        "x": 2129,
+        "y": 1240,
+        "wires": [
+            [
+                "4906a052.1ca4e"
+            ]
+        ]
+    },
+    {
+        "id": "d5bec40f.d098d8",
+        "type": "bravia-api",
+        "z": "eb3e4041.662fc8",
+        "g": "bdca02cc.e9661",
+        "tv": "80c2b592.d93008",
+        "method": "audio:1.0:setAudioMute",
+        "payload": "{\"status\":false}",
+        "name": "Unmute",
+        "x": 2031,
+        "y": 1700,
+        "wires": [
+            [
+                "5e95c17e.4a7c"
+            ]
+        ]
+    },
+    {
+        "id": "83e4b98c.8eac28",
+        "type": "function",
+        "z": "eb3e4041.662fc8",
+        "g": "bdca02cc.e9661",
+        "name": "Set volume",
+        "func": "const minLoudness = msg.payload[0].minVolume;\nconst maxLoudness = msg.payload[0].maxVolume;\nvar rawLoudness = flow.get(\"rawLoudness\");\nvar rawMin = flow.get(\"rawMin\");\nvar rawMax = flow.get(\"rawMax\");\nvar loudness = 1;\nvar nbrLoudness = '1';\n\n\nif(rawLoudness!==null){\n    loudness = rawLoudness[0].value.value;\n    nbrLoudness = Number(loudness);\n    if(loudness === undefined || rawLoudness[0].value.kind !== 'Number' || isNaN(nbrLoudness) === true){\n        node.warn(\"Skipping invalid volume\");\n        return;\n    }\n}\nif(rawMax!==null){\n    loudness = maxLoudness;\n}\nif(rawMin!==null){\n    loudness = minLoudness;\n}\nif(nbrLoudness>Number(maxLoudness)){\n    loudness = maxLoudness;\n}\n\nif(nbrLoudness<Number(minLoudness)){\n    loudness = minLoudness;    \n}\n\nloudness = String(loudness);\n\nmsg.payload = {\"target\":\"speaker\",\"volume\":loudness};\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 2341,
+        "y": 1700,
+        "wires": [
+            [
+                "bea1345b.a41968"
+            ]
+        ]
+    },
+    {
+        "id": "5e95c17e.4a7c",
+        "type": "bravia-api",
+        "z": "eb3e4041.662fc8",
+        "g": "bdca02cc.e9661",
+        "tv": "80c2b592.d93008",
+        "method": "audio:1.0:getVolumeInformation",
+        "payload": "",
+        "name": "Volume info",
+        "x": 2181,
+        "y": 1700,
+        "wires": [
+            [
+                "83e4b98c.8eac28"
+            ]
+        ]
+    },
+    {
+        "id": "f2d7e2b4.45ac5",
+        "type": "http response",
+        "z": "eb3e4041.662fc8",
+        "g": "bdca02cc.e9661",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 1915,
+        "y": 2000,
+        "wires": [],
+        "l": false
+    },
+    {
+        "id": "f96ab142.d8bab8",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "localhost",
+        "port": "1883",
+        "clientid": "",
+        "usetls": false,
+        "compatmode": true,
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": ""
+    },
+    {
+        "id": "80c2b592.d93008",
+        "type": "bravia-tv",
+        "name": "SONY BRAVIA TV",
+        "host": "x.x.x.x",
+        "port": "80",
+        "psk": "xxxx",
+        "timeout": "5000"
+    }
+]
