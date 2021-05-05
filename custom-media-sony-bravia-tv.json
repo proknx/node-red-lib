@@ -1469,7 +1469,7 @@
         "once": true,
         "onceDelay": "1",
         "topic": "",
-        "payload": "Bathroom",
+        "payload": "Living room",
         "payloadType": "str",
         "x": 300,
         "y": 165,
