@@ -1,0 +1,332 @@
+[
+    {
+        "id": "8f3bf2fb.17bf2",
+        "type": "tab",
+        "label": "VOICE USAGE STATISTICS",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "124def03.1dabc1",
+        "type": "group",
+        "z": "8f3bf2fb.17bf2",
+        "name": "'LISTEN' AND SEE HOW IT WORKS",
+        "style": {
+            "label": true
+        },
+        "nodes": [
+            "d4677e7e.f6e0c",
+            "e3a9d24b.22965",
+            "b04cb30f.53bd1",
+            "197dca5.e390936",
+            "76e00d8e.ff9584",
+            "6371866b.082608",
+            "3054627a.0a66ce",
+            "21c0e004.d95a5",
+            "56eebdcc.409ec4",
+            "49c7f1b2.c7c5e",
+            "fe4c2ce6.94952",
+            "68ed151c.4adadc",
+            "4677cf0b.cabaa",
+            "12dbbab9.0b5525",
+            "5e7948dd.606998"
+        ],
+        "x": 114,
+        "y": 39,
+        "w": 382,
+        "h": 502
+    },
+    {
+        "id": "d4677e7e.f6e0c",
+        "type": "mqtt in",
+        "z": "8f3bf2fb.17bf2",
+        "g": "124def03.1dabc1",
+        "name": "All intents",
+        "topic": "hermes/intent/+",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "f96ab142.d8bab8",
+        "x": 200,
+        "y": 400,
+        "wires": [
+            [
+                "b04cb30f.53bd1"
+            ]
+        ]
+    },
+    {
+        "id": "e3a9d24b.22965",
+        "type": "debug",
+        "z": "8f3bf2fb.17bf2",
+        "g": "124def03.1dabc1",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 435,
+        "y": 500,
+        "wires": [],
+        "l": false
+    },
+    {
+        "id": "b04cb30f.53bd1",
+        "type": "json",
+        "z": "8f3bf2fb.17bf2",
+        "g": "124def03.1dabc1",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 315,
+        "y": 400,
+        "wires": [
+            [
+                "76e00d8e.ff9584"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "197dca5.e390936",
+        "type": "comment",
+        "z": "8f3bf2fb.17bf2",
+        "g": "124def03.1dabc1",
+        "name": "Listen to all mqtt msgs - WARNING!",
+        "info": " * Activate this logging by connecting the nodes\n * Say the command that you wish to emulate.\n * IMPORTANT Disconnect when you're ready (or you disk might be full..)",
+        "x": 280,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "76e00d8e.ff9584",
+        "type": "function",
+        "z": "8f3bf2fb.17bf2",
+        "g": "124def03.1dabc1",
+        "name": "",
+        "func": "var msgStat = {\n        voiceCommands: [], intent: []\n};\n\nif(msg.payload.input === undefined){\n    return null;\n}\n\nvar executed = false;\n\nif(msg.payload.intent.confidenceScore > 0.6){\n    executed = true;\n}\n\nmsgStat.voiceCommands.push({\"value\": msg.payload.input,\n                            \"countPerString\": msg.payload.asrTokens[0].length,\n                            \"siteId\": msg.payload.siteId,\n                            \"intentDetected\": msg.payload.intent.intentName,\n                            \"executed\": executed,\n                            \"counter\": 1 \n});\n\nif(executed == true){\n    msgStat.intent.push({\"intentName\": msg.payload.intent.intentName,\n                         \"siteId\": msg.payload.siteId,\n                         \"counter\" : 1\n        \n    });\n}\n\n\nfor(var i=0; i<msg.payload.asrTokens[0].length; i++){\n   if(msg.payload.asrTokens[0][i].value === \"unknownword\"){\n       msgStat.unknownword = 1;\n   }\n}\n\n\nflow.set(\"msgStat\", msgStat);\n\nmsg.payload = msgStat;\n\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 375,
+        "y": 400,
+        "wires": [
+            [
+                "3054627a.0a66ce"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "6371866b.082608",
+        "type": "file",
+        "z": "8f3bf2fb.17bf2",
+        "g": "124def03.1dabc1",
+        "name": "Statistics",
+        "filename": "statistics",
+        "appendNewline": true,
+        "createDir": false,
+        "overwriteFile": "true",
+        "encoding": "none",
+        "x": 375,
+        "y": 500,
+        "wires": [
+            [
+                "e3a9d24b.22965"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "3054627a.0a66ce",
+        "type": "file in",
+        "z": "8f3bf2fb.17bf2",
+        "g": "124def03.1dabc1",
+        "name": "Statistics",
+        "filename": "statistics",
+        "format": "utf8",
+        "chunk": false,
+        "sendError": false,
+        "encoding": "none",
+        "x": 195,
+        "y": 500,
+        "wires": [
+            [
+                "21c0e004.d95a5"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "21c0e004.d95a5",
+        "type": "json",
+        "z": "8f3bf2fb.17bf2",
+        "g": "124def03.1dabc1",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 255,
+        "y": 500,
+        "wires": [
+            [
+                "56eebdcc.409ec4"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "56eebdcc.409ec4",
+        "type": "function",
+        "z": "8f3bf2fb.17bf2",
+        "g": "124def03.1dabc1",
+        "name": "",
+        "func": "if(msg.payload === undefined){\n    var msgStat = {\n        voiceCommands: [], intent: []\n};}\nelse{\n    var msgStat = msg.payload;\n}\n\nmsg.payload = flow.get(\"msgStat\");\n\n\nfor(var i=0; i<msgStat.voiceCommands.length; i++){\n    \n    if(msgStat.voiceCommands[i].value === msg.payload.voiceCommands[0].value && msgStat.voiceCommands[i].siteId === msg.payload.voiceCommands[0].siteId){\n        var alreadyExist = i;\n    }\n    \n}\n\nfor(var i=0; i<msgStat.intent.length; i++){\n    \n    if(msgStat.intent[i].intentName === msg.payload.intent[0].intentName && msgStat.intent[i].siteId === msg.payload.intent[0].siteId){\n        var alreadyExist1 = i;\n    }\n}\n\n\nif(alreadyExist != undefined){\n    msgStat.voiceCommands[alreadyExist].counter = msgStat.voiceCommands[alreadyExist].counter+1;\n}else{\n    msgStat.voiceCommands.push({\"value\": msg.payload.voiceCommands[0].value,\n                            \"countPerString\": msg.payload.voiceCommands[0].countPerString,\n                            \"siteId\": msg.payload.voiceCommands[0].siteId,\n                            \"executed\" : msg.payload.voiceCommands[0].executed,\n                            \"intentDetected\": msg.payload.voiceCommands[0].intentDetected,\n                            \"counter\": msg.payload.voiceCommands[0].counter\n    });\n}\n\nif(alreadyExist1 != undefined){\n    msgStat.intent[alreadyExist1].counter = msgStat.intent[alreadyExist1].counter+1;\n}else{\n    msgStat.intent.push({\"intentName\": msg.payload.intent[0].intentName,\n                        \"siteId\": msg.payload.intent[0].siteId,\n                        \"counter\": msg.payload.intent[0].counter\n    \n    });\n}\n\n\nif(msg.payload.unknownword !== undefined){\n    msgStat.unknownword = msgStat.unknownword+1;\n}\n\n\nmsg.payload = msgStat;\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 315,
+        "y": 500,
+        "wires": [
+            [
+                "6371866b.082608"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "49c7f1b2.c7c5e",
+        "type": "file",
+        "z": "8f3bf2fb.17bf2",
+        "g": "124def03.1dabc1",
+        "name": "Statistics",
+        "filename": "statistics",
+        "appendNewline": true,
+        "createDir": false,
+        "overwriteFile": "true",
+        "encoding": "none",
+        "x": 320,
+        "y": 125,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "fe4c2ce6.94952",
+        "type": "comment",
+        "z": "8f3bf2fb.17bf2",
+        "g": "124def03.1dabc1",
+        "name": "Inject manually to clean the current file",
+        "info": "",
+        "x": 290,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "68ed151c.4adadc",
+        "type": "exec",
+        "z": "8f3bf2fb.17bf2",
+        "g": "124def03.1dabc1",
+        "command": "sudo sh -c 'echo \"/opt/node-red/statistics { \\n size 100k\\n daily\\n dateext\\n missingok\\n rotate\\n 7\\n compress\\n copytruncate\\n notifempty\\n}\" > /etc/logrotate.d/logrotate-statistics'",
+        "addpay": false,
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "oldrc": false,
+        "name": "logrotate",
+        "x": 275,
+        "y": 240,
+        "wires": [
+            [],
+            [],
+            []
+        ],
+        "l": false
+    },
+    {
+        "id": "4677cf0b.cabaa",
+        "type": "inject",
+        "z": "8f3bf2fb.17bf2",
+        "g": "124def03.1dabc1",
+        "name": "",
+        "props": [],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 195,
+        "y": 240,
+        "wires": [
+            [
+                "68ed151c.4adadc"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "12dbbab9.0b5525",
+        "type": "inject",
+        "z": "8f3bf2fb.17bf2",
+        "g": "124def03.1dabc1",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": "3",
+        "topic": "",
+        "payload": "{\"voiceCommands\":[],\"intent\":[], \"unknownword\":0}",
+        "payloadType": "json",
+        "x": 195,
+        "y": 125,
+        "wires": [
+            [
+                "49c7f1b2.c7c5e"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "5e7948dd.606998",
+        "type": "comment",
+        "z": "8f3bf2fb.17bf2",
+        "g": "124def03.1dabc1",
+        "name": "Inject to compress file in an interval time",
+        "info": "",
+        "x": 290,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "f96ab142.d8bab8",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "localhost",
+        "port": "1883",
+        "clientid": "",
+        "usetls": false,
+        "compatmode": true,
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": ""
+    }
+]
