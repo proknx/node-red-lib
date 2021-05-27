@@ -1,126 +1,128 @@
 [
     {
-        "id": "411bf1b5.ed387",
+        "id": "3ff699d2.ba1696",
         "type": "tab",
         "label": "SONY BRAVIA TV",
         "disabled": false,
         "info": ""
     },
     {
-        "id": "7d2c9805.210088",
+        "id": "c953472.cc5afb8",
         "type": "group",
-        "z": "411bf1b5.ed387",
+        "z": "3ff699d2.ba1696",
         "name": "CUSTOM MEDIA CONTROL FOR SONY BRAVIA TV",
         "style": {
             "label": true
         },
         "nodes": [
-            "1df526be.25c9f9",
-            "af49979f.70e8f8",
-            "7674098a.1b4fa8",
-            "f870ee42.a1c8b",
-            "7df47de8.63c5a4",
-            "9fd0119.e9a3bf",
-            "98b855d9.c96de8",
-            "e86504f2.57cc58",
-            "ba2d5d96.263c7",
-            "3177ecc7.4dc164",
-            "49fadd85.f65804",
-            "3d9a268a.f0bd0a",
-            "fcfc4b11.3c17f8",
-            "c065a002.46f48",
-            "ead93dac.96b84",
-            "30e83835.7879b8",
-            "953f749e.86f8a8",
-            "26894507.962d7a",
-            "b3734238.575",
-            "c20bc3cc.9b59f",
-            "5d2c4c59.4cbdf4",
-            "eb770827.d06dd8",
-            "579ef833.869b48",
-            "25678333.f6f2fc",
-            "ce225f79.e817b",
-            "aa846483.d91648",
-            "37a9be51.d917d2",
-            "7626dfe8.df034",
-            "8dee3799.34ffb8",
-            "58d41d46.e03dc4",
-            "936c688d.18e548",
-            "6f7319b.974c1e8",
-            "993aca19.aa78b8",
-            "431f85ba.61446c",
-            "9a1f9280.db40b",
-            "3fc32fce.46e57",
-            "39b08539.9f249a",
-            "8b7a371a.87c378",
-            "fbed8092.52ea6",
-            "bcc0b598.f1b408",
-            "e5007d44.75d76",
-            "f6a94488.96f338",
-            "cca7274f.f71098",
-            "8e4fb368.f54b8",
-            "e2abc940.a44c98",
-            "4d769c43.d829a4",
-            "d3f142f8.848ec",
-            "cdd19aa6.de4538",
-            "1b73040.2e174fc",
-            "dfc8ac27.7cf86",
-            "7cabe546.2b80bc",
-            "775ce1a9.0895e",
-            "7c4230ef.ee219",
-            "c3d2ef91.d4a39",
-            "9c797648.377408",
-            "7bfa5c49.27da74",
-            "998cbafc.863998",
-            "be863d4.32008c",
-            "f9d20cd7.73678",
-            "901976c4.b6a848",
-            "2859a883.fd72f8",
-            "15c2758a.1e7bba",
-            "1b390bf0.da0bf4",
-            "45abe297.5b8b2c",
-            "c91f8b2f.517a88",
-            "a96e7c4c.0b38b",
-            "970e8bef.678aa8",
-            "46128af1.9eb1f4",
-            "e7f8366d.e0c798",
-            "d52435a.640bcc8",
-            "c1b86056.6308",
-            "b1ae94fa.d7f4c8",
-            "cc52cd78.bbb11",
-            "c8ed3d6a.59c7",
-            "15f1ec6e.61b094",
-            "aab32aaa.209d38",
-            "22f17c84.4566d4",
-            "33064a13.3504c6",
-            "f37ecde8.70037",
-            "e0a90441.c31e68",
-            "663b1cec.737e04",
-            "914e5a00.3ec058",
-            "cf1d995e.159e18",
-            "e246ac5f.43b3c",
-            "161795dd.dac40a",
-            "e5c74c4f.6c9e5",
-            "3dd63619.93fbaa",
-            "8e0fdeac.af821",
-            "94e6b44e.e923a8",
-            "1a135002.da5c1",
-            "b71427.014c0bd8",
-            "283fd647.78495a",
-            "67fd85b3.ec6e4c",
-            "32270859.e39b88",
-            "89a37844.e9a7e8"
+            "cc872597.6f34a8",
+            "133fc7a7.482d28",
+            "a59764f4.ba3ac8",
+            "be460012.1faa7",
+            "4ec230aa.d7f0e",
+            "19c615d3.6af45a",
+            "b6ed37c4.1b8538",
+            "2ea11d03.e63032",
+            "5fc32f8f.becf9",
+            "271fc4ad.d47d3c",
+            "eb3ff927.db1cc8",
+            "c78bac17.9063b",
+            "c0b579d8.41bf88",
+            "3225ec6b.044e24",
+            "d28cac40.65f4b",
+            "19640df4.811762",
+            "8088a897.4050f8",
+            "8d7bc5ca.01e9c8",
+            "a56a9d6a.6f741",
+            "3a14e224.d1485e",
+            "cd9192a6.11b32",
+            "1d6269d6.b162d6",
+            "652fdd6c.536ce4",
+            "b156bf92.85176",
+            "c96b1c3a.5abe8",
+            "96e7ee3.9e5441",
+            "938d0ea7.7c8be",
+            "6d01f5f0.588ffc",
+            "5047bb5e.4636d4",
+            "fccd5183.1935b",
+            "1c7cc162.d07ebf",
+            "2b29eb98.04ec64",
+            "8334af69.4007c",
+            "8ab36445.d235b8",
+            "6476fadc.7df324",
+            "dac7ce68.29874",
+            "47b5b7f2.c20298",
+            "f51376d0.cd7048",
+            "875a786c.7265c8",
+            "78c36ec.827669",
+            "70b113e1.5d88fc",
+            "1ef782d4.76412d",
+            "160dd2f1.80dbed",
+            "21dfd053.29284",
+            "9092034e.efa21",
+            "8d9d727a.14565",
+            "791516c8.bbbd98",
+            "c825d679.936b48",
+            "5ad3c5d8.6be7cc",
+            "61ab07e7.590f38",
+            "5427dadf.69e2b4",
+            "373a9e06.357932",
+            "692c2c14.f98664",
+            "4f471823.53c328",
+            "b485c5b.3bae338",
+            "3bc50d00.590ff4",
+            "dd3fc3db.87d6a",
+            "ea457e19.953f6",
+            "efa211b1.c1cdd",
+            "7d54c2f1.ea0a5c",
+            "48a932d.f3877cc",
+            "ef5a952d.1a9598",
+            "988024e7.082e38",
+            "b5422185.7c14e",
+            "43c000dc.c066e",
+            "992060df.ab554",
+            "e7f7daa.3062728",
+            "7ce145d7.ff44cc",
+            "8f15c1fb.886be",
+            "4087eb67.a5a534",
+            "66743754.667fe8",
+            "116ef070.290f8",
+            "7c54ae2.b7a755",
+            "b770a743.febc88",
+            "e94234b4.05c088",
+            "e9a3d96f.392798",
+            "5acad99a.eecc18",
+            "4686c67.80d8938",
+            "a38b97fa.ae8f08",
+            "f837ff73.f6394",
+            "eefa953f.dc3438",
+            "ed85831.1b99e8",
+            "6bba9f17.c4897",
+            "56005e67.6f577",
+            "d439b3d3.329f2",
+            "d0f2cd7.cc1dc3",
+            "40ab2c00.bc1a94",
+            "28058acc.1b50b6",
+            "ae44b78e.260108",
+            "8d5df216.abbac",
+            "c5a589cd.b41668",
+            "e995a8d.b370d58",
+            "f4d4327f.dc351",
+            "e0d0e835.5b2ac8",
+            "6d26826.a69e37c",
+            "a43de525.2e9ca8",
+            "e5e33181.c4e84"
         ],
         "x": 149,
         "y": 34,
-        "w": 841,
+        "w": 1027,
         "h": 1767
     },
     {
-        "id": "1df526be.25c9f9",
+        "id": "cc872597.6f34a8",
         "type": "http in",
-        "z": "411bf1b5.ed387",
-        "g": "7d2c9805.210088",
+        "z": "3ff699d2.ba1696",
+        "g": "c953472.cc5afb8",
         "name": "GET /tvfavorites",
         "url": "/tvfavorites",
         "method": "get",
@@ -130,15 +132,15 @@
         "y": 1760,
         "wires": [
             [
-                "af49979f.70e8f8"
+                "133fc7a7.482d28"
             ]
         ]
     },
     {
-        "id": "af49979f.70e8f8",
+        "id": "133fc7a7.482d28",
         "type": "function",
-        "z": "411bf1b5.ed387",
-        "g": "7d2c9805.210088",
+        "z": "3ff699d2.ba1696",
+        "g": "c953472.cc5afb8",
         "name": "get(\"tvFavorites\");",
         "func": "var tvFavorites = global.get(\"tvFavorites\");\nmsg.payload = {\"tvfavorites\": \"false\"};\nif(tvFavorites !== undefined){\n    msg.payload = JSON.stringify(tvFavorites);\n}\nreturn msg;",
         "outputs": 1,
@@ -149,88 +151,88 @@
         "y": 1760,
         "wires": [
             [
-                "e2abc940.a44c98"
+                "9092034e.efa21"
             ]
         ],
         "l": false
     },
     {
-        "id": "7674098a.1b4fa8",
+        "id": "a59764f4.ba3ac8",
         "type": "mqtt in",
-        "z": "411bf1b5.ed387",
-        "g": "7d2c9805.210088",
+        "z": "3ff699d2.ba1696",
+        "g": "c953472.cc5afb8",
         "name": "next",
         "topic": "hermes/intent/ProKNX:next",
         "qos": "2",
         "datatype": "auto",
-        "broker": "3e78409e.2eaa2",
+        "broker": "b8fcf82.0729e08",
         "x": 266,
         "y": 1500,
         "wires": [
             [
-                "98b855d9.c96de8"
+                "b6ed37c4.1b8538"
             ]
         ]
     },
     {
-        "id": "f870ee42.a1c8b",
+        "id": "be460012.1faa7",
         "type": "mqtt in",
-        "z": "411bf1b5.ed387",
-        "g": "7d2c9805.210088",
+        "z": "3ff699d2.ba1696",
+        "g": "c953472.cc5afb8",
         "name": "previous",
         "topic": "hermes/intent/ProKNX:previous",
         "qos": "2",
         "datatype": "auto",
-        "broker": "3e78409e.2eaa2",
+        "broker": "b8fcf82.0729e08",
         "x": 276,
         "y": 1540,
         "wires": [
             [
-                "98b855d9.c96de8"
+                "b6ed37c4.1b8538"
             ]
         ]
     },
     {
-        "id": "7df47de8.63c5a4",
+        "id": "4ec230aa.d7f0e",
         "type": "mqtt in",
-        "z": "411bf1b5.ed387",
-        "g": "7d2c9805.210088",
+        "z": "3ff699d2.ba1696",
+        "g": "c953472.cc5afb8",
         "name": "hotword off",
         "topic": "hermes/hotword/toggleOn",
         "qos": "2",
         "datatype": "auto",
-        "broker": "3e78409e.2eaa2",
+        "broker": "b8fcf82.0729e08",
         "x": 250,
         "y": 490,
         "wires": [
             [
-                "3177ecc7.4dc164"
+                "271fc4ad.d47d3c"
             ]
         ]
     },
     {
-        "id": "9fd0119.e9a3bf",
+        "id": "19c615d3.6af45a",
         "type": "mqtt in",
-        "z": "411bf1b5.ed387",
-        "g": "7d2c9805.210088",
+        "z": "3ff699d2.ba1696",
+        "g": "c953472.cc5afb8",
         "name": "hotword on",
         "topic": "hermes/hotword/default/detected",
         "qos": "2",
         "datatype": "auto",
-        "broker": "3e78409e.2eaa2",
+        "broker": "b8fcf82.0729e08",
         "x": 250,
         "y": 441,
         "wires": [
             [
-                "e86504f2.57cc58"
+                "2ea11d03.e63032"
             ]
         ]
     },
     {
-        "id": "98b855d9.c96de8",
+        "id": "b6ed37c4.1b8538",
         "type": "function",
-        "z": "411bf1b5.ed387",
-        "g": "7d2c9805.210088",
+        "z": "3ff699d2.ba1696",
+        "g": "c953472.cc5afb8",
         "name": "Filter",
         "func": "// Sample code : control of TV set\n\nfunction findObjectByKey(array, key, value) {\n\titems = [];\n\tvar cpt = 0;\n\tfor (var i = 0; i < array.length; i++) {\n\t\tif (array[i][key] === value) {\n\t\t\titems[cpt] = array[i];\n\t\t\tcpt++;\n\t\t}\n\t}\n\tif (items[0] !== undefined) {\n\t\treturn items;\n\t} else {\n\t\treturn null;\n\t}\n}\n\nvar lang = global.get(\"msgLang\");\nvar defaultSpeaker = global.get(\"defaultSpeaker\");\nvar tvFavorites = global.get(\"tvFavorites\");\nvar siteIdTv = global.get(\"siteIdTv\");\nif(defaultSpeaker === undefined){\n    defaultSpeaker = \"speaker\";\n}\nmsg.cmd={};\nmsg.payload = JSON.parse(msg.payload);\nmsg.cmd.siteId = msg.payload.siteId.replace(/_\\d+$/, \"\").trim();\nvar doAllRooms = false;\nvar intent = msg.payload.intent.intentName;\nif (intent === undefined) \n    return null;\n\nif(msg.payload.input.toLowerCase().includes(\"snips\") === true){\n    //node.warn(\"send to snips: includes 'snips'\");\n    return null;   \n}\n\nvar rawRoom = findObjectByKey(msg.payload.slots, 'slotName', 'room');\nvar rawFavorite = findObjectByKey(msg.payload.slots, 'entity', 'FavoriteType');\nvar rawSpeaker = findObjectByKey(msg.payload.slots, 'entity', 'SpeakerType');\n\n//node.warn(msg.payload);\n//node.warn(\"rawRoom: \"+ JSON.stringify(rawRoom) );\nvar theRoom = msg.payload.siteId;\n\nif (rawRoom !== null) {\n\tmsg.cmd.room = [];\n\tfor (var i = 0; i < rawRoom.length; i++) {\n\t\tmsg.cmd.room[i] = rawRoom[i].value.value.toLowerCase();\n\t\t//node.warn(\"msg.cmd.room[i]: \"+msg.cmd.room[i] + \"   msg.payload.siteId: \"+msg.payload.siteId);\n\t\tif (msg.cmd.room[i] === \"here\" || msg.cmd.room[i] === \"hier\" || msg.cmd.room[i] === \"ici\") {\n\t\t\ttheRoom = msg.payload.siteId;\n\t\t} else {\n    \t\tif (msg.cmd.room[i] === \"all\" || msg.cmd.room[i] === \"everywhere\" || msg.cmd.room[i] === \"ueberall\" || msg.cmd.room[i] === \"partout\") {\n    \t\t    doAllRooms = true;\n    \t\t} else {\n    \t\t    theRoom = msg.cmd.room[i].replace(/ /g, \"_\");\n    \t\t}\n\t\t}\n\t}\n}\n\nif (rawSpeaker !== null) {\n    //node.warn(\"rawSpeaker: \"+JSON.stringify(rawSpeaker));\n    msg.payload.speaker = rawSpeaker[0].value.value.trim().toLowerCase();\n} else {\n    msg.payload.speaker = defaultSpeaker.trim().toLowerCase();\n}\n\nmsg.payload.siteId = theRoom;\n\nif(msg.payload.siteId.toLowerCase().replace(/_\\d+$/,\"\").replace(/_/g,\"\") !== siteIdTv.toLowerCase().replace(/_\\d+$/,\"\").replace(/ /g,\"\")){\n    return null;\n}\n\nif (rawFavorite !== null) {\n    //node.warn(\"rawFavorite: \"+JSON.stringify(rawFavorite));\n    msg.payload.favorite = rawFavorite[0].value.value.trim().toLowerCase();\n    node.warn(\"msg.payload.favorite: \"+msg.payload.favorite);\n}\n\n\n//node.warn(\"msg.payload.speaker: \"+msg.payload.speaker);\n    \nif (msg.payload.intent.confidenceScore < 0.6){\n    return null;\n}\n\n//node.warn(\"msg.payload.speaker = \" + msg.payload.speaker);\n\nif(msg.payload.speaker !== undefined){\n    if(msg.payload.speaker === \"tv\") {\n        \n        global.set(\"defaultSpeaker\", \"tv\");\n        //node.warn(\"intent \" + intent);\n        switch (intent) {\n            case \"ProKNX:next\": return [msg, null, null, null, null];\n            case \"ProKNX:previous\": return [null, msg, null, null, null];\n        }\n        \n        if (msg.payload.asrTokens[0].length <= 1){\n            return null;\n        }else{\n            switch(intent){\n            case \"ProKNX:increaseVolume\": return [null, null, msg, null, null];\n            case \"ProKNX:decreaseVolume\": return [null, null, null, msg, null];\n            case \"ProKNX:setVolume\": flow.set(\"rawLoudness\", findObjectByKey(msg.payload.slots, 'slotName', 'loudness')); flow.set(\"rawMin\", findObjectByKey(msg.payload.slots, 'slotName', 'min'));\n                                    flow.set(\"rawMax\", findObjectByKey(msg.payload.slots, 'slotName', 'max')); return [null, null, null, null, msg];\n            }\n        }\n    }\n}",
         "outputs": 5,
@@ -240,16 +242,20 @@
         "x": 414,
         "y": 1585,
         "wires": [
-            [],
-            [],
             [
-                "fbed8092.52ea6"
+                "c5a589cd.b41668"
             ],
             [
-                "bcc0b598.f1b408"
+                "6d26826.a69e37c"
             ],
             [
-                "f6a94488.96f338"
+                "875a786c.7265c8"
+            ],
+            [
+                "78c36ec.827669"
+            ],
+            [
+                "1ef782d4.76412d"
             ]
         ],
         "outputLabels": [
@@ -261,10 +267,10 @@
         ]
     },
     {
-        "id": "e86504f2.57cc58",
+        "id": "2ea11d03.e63032",
         "type": "json",
-        "z": "411bf1b5.ed387",
-        "g": "7d2c9805.210088",
+        "z": "3ff699d2.ba1696",
+        "g": "c953472.cc5afb8",
         "name": "",
         "property": "payload",
         "action": "",
@@ -273,16 +279,16 @@
         "y": 441,
         "wires": [
             [
-                "ba2d5d96.263c7"
+                "5fc32f8f.becf9"
             ]
         ],
         "l": false
     },
     {
-        "id": "ba2d5d96.263c7",
+        "id": "5fc32f8f.becf9",
         "type": "delay",
-        "z": "411bf1b5.ed387",
-        "g": "7d2c9805.210088",
+        "z": "3ff699d2.ba1696",
+        "g": "c953472.cc5afb8",
         "name": "",
         "pauseType": "rate",
         "timeout": "5",
@@ -298,16 +304,16 @@
         "y": 441,
         "wires": [
             [
-                "46128af1.9eb1f4"
+                "7ce145d7.ff44cc"
             ]
         ],
         "l": false
     },
     {
-        "id": "3177ecc7.4dc164",
+        "id": "271fc4ad.d47d3c",
         "type": "json",
-        "z": "411bf1b5.ed387",
-        "g": "7d2c9805.210088",
+        "z": "3ff699d2.ba1696",
+        "g": "c953472.cc5afb8",
         "name": "",
         "property": "payload",
         "action": "",
@@ -316,16 +322,16 @@
         "y": 490,
         "wires": [
             [
-                "e7f8366d.e0c798"
+                "8f15c1fb.886be"
             ]
         ],
         "l": false
     },
     {
-        "id": "49fadd85.f65804",
+        "id": "eb3ff927.db1cc8",
         "type": "comment",
-        "z": "411bf1b5.ed387",
-        "g": "7d2c9805.210088",
+        "z": "3ff699d2.ba1696",
+        "g": "c953472.cc5afb8",
         "name": "Info - readme",
         "info": "The following nodes let you implement custom media control for Sony Bravia TV,\n\nIMPORTANT: To avoid your custom code is removed on flow update it is recommended to copy paste the nodes below to a new Tab\n\nTo apply this function it to your tv, you need to change the ip address of the tv\n\nTo change, go to configurations nodes and find SONY BRAVIA TV node and double click it\nChange the host to your tv's ip address and type in the PSK and save\n",
         "x": 245,
@@ -333,10 +339,10 @@
         "wires": []
     },
     {
-        "id": "3d9a268a.f0bd0a",
+        "id": "c78bac17.9063b",
         "type": "inject",
-        "z": "411bf1b5.ed387",
-        "g": "7d2c9805.210088",
+        "z": "3ff699d2.ba1696",
+        "g": "c953472.cc5afb8",
         "name": "French favorites (samples)",
         "props": [
             {
@@ -358,15 +364,15 @@
         "y": 250,
         "wires": [
             [
-                "c065a002.46f48"
+                "3225ec6b.044e24"
             ]
         ]
     },
     {
-        "id": "fcfc4b11.3c17f8",
+        "id": "c0b579d8.41bf88",
         "type": "inject",
-        "z": "411bf1b5.ed387",
-        "g": "7d2c9805.210088",
+        "z": "3ff699d2.ba1696",
+        "g": "c953472.cc5afb8",
         "name": "German favorites (samples)",
         "props": [
             {
@@ -388,15 +394,15 @@
         "y": 290,
         "wires": [
             [
-                "ead93dac.96b84"
+                "d28cac40.65f4b"
             ]
         ]
     },
     {
-        "id": "c065a002.46f48",
+        "id": "3225ec6b.044e24",
         "type": "function",
-        "z": "411bf1b5.ed387",
-        "g": "7d2c9805.210088",
+        "z": "3ff699d2.ba1696",
+        "g": "c953472.cc5afb8",
         "name": "lang?",
         "func": "var lang = global.get(\"msgLang\");\nif(lang.toLowerCase().includes(\"fr\")){\n    return msg;\n}\nelse {\n    //do nothing\n}",
         "outputs": 1,
@@ -407,15 +413,15 @@
         "y": 250,
         "wires": [
             [
-                "30e83835.7879b8"
+                "19640df4.811762"
             ]
         ]
     },
     {
-        "id": "ead93dac.96b84",
+        "id": "d28cac40.65f4b",
         "type": "function",
-        "z": "411bf1b5.ed387",
-        "g": "7d2c9805.210088",
+        "z": "3ff699d2.ba1696",
+        "g": "c953472.cc5afb8",
         "name": "lang?",
         "func": "var lang = global.get(\"msgLang\");\nif(lang.toLowerCase().includes(\"de\")){\n    return msg;\n}\nelse {\n    //do nothing\n}",
         "outputs": 1,
@@ -426,15 +432,15 @@
         "y": 290,
         "wires": [
             [
-                "30e83835.7879b8"
+                "19640df4.811762"
             ]
         ]
     },
     {
-        "id": "30e83835.7879b8",
+        "id": "19640df4.811762",
         "type": "change",
-        "z": "411bf1b5.ed387",
-        "g": "7d2c9805.210088",
+        "z": "3ff699d2.ba1696",
+        "g": "c953472.cc5afb8",
         "name": "Save",
         "rules": [
             {
@@ -464,10 +470,10 @@
         ]
     },
     {
-        "id": "953f749e.86f8a8",
+        "id": "8088a897.4050f8",
         "type": "inject",
-        "z": "411bf1b5.ed387",
-        "g": "7d2c9805.210088",
+        "z": "3ff699d2.ba1696",
+        "g": "c953472.cc5afb8",
         "name": "English favorites (samples)",
         "props": [
             {
@@ -489,15 +495,15 @@
         "y": 330,
         "wires": [
             [
-                "26894507.962d7a"
+                "8d7bc5ca.01e9c8"
             ]
         ]
     },
     {
-        "id": "26894507.962d7a",
+        "id": "8d7bc5ca.01e9c8",
         "type": "function",
-        "z": "411bf1b5.ed387",
-        "g": "7d2c9805.210088",
+        "z": "3ff699d2.ba1696",
+        "g": "c953472.cc5afb8",
         "name": "lang?",
         "func": "var lang = global.get(\"msgLang\");\nif(lang.toLowerCase().includes(\"en\")){\n    return msg;\n}\nelse {\n    //do nothing\n}",
         "outputs": 1,
@@ -506,111 +512,111 @@
         "y": 330,
         "wires": [
             [
-                "30e83835.7879b8"
+                "19640df4.811762"
             ]
         ]
     },
     {
-        "id": "b3734238.575",
+        "id": "a56a9d6a.6f741",
         "type": "mqtt in",
-        "z": "411bf1b5.ed387",
-        "g": "7d2c9805.210088",
+        "z": "3ff699d2.ba1696",
+        "g": "c953472.cc5afb8",
         "name": "incVol",
         "topic": "hermes/intent/ProKNX:increaseVolume",
         "qos": "2",
         "datatype": "auto",
-        "broker": "3e78409e.2eaa2",
+        "broker": "b8fcf82.0729e08",
         "x": 265,
         "y": 1585,
         "wires": [
             [
-                "98b855d9.c96de8"
+                "b6ed37c4.1b8538"
             ]
         ]
     },
     {
-        "id": "c20bc3cc.9b59f",
+        "id": "3a14e224.d1485e",
         "type": "mqtt in",
-        "z": "411bf1b5.ed387",
-        "g": "7d2c9805.210088",
+        "z": "3ff699d2.ba1696",
+        "g": "c953472.cc5afb8",
         "name": "decVol",
         "topic": "hermes/intent/ProKNX:decreaseVolume",
         "qos": "2",
         "datatype": "auto",
-        "broker": "3e78409e.2eaa2",
+        "broker": "b8fcf82.0729e08",
         "x": 265,
         "y": 1625,
         "wires": [
             [
-                "98b855d9.c96de8"
+                "b6ed37c4.1b8538"
             ]
         ]
     },
     {
-        "id": "5d2c4c59.4cbdf4",
+        "id": "cd9192a6.11b32",
         "type": "mqtt in",
-        "z": "411bf1b5.ed387",
-        "g": "7d2c9805.210088",
+        "z": "3ff699d2.ba1696",
+        "g": "c953472.cc5afb8",
         "name": "setVol",
         "topic": "hermes/intent/ProKNX:setVolume",
         "qos": "2",
         "datatype": "auto",
-        "broker": "3e78409e.2eaa2",
+        "broker": "b8fcf82.0729e08",
         "x": 265,
         "y": 1665,
         "wires": [
             [
-                "98b855d9.c96de8"
+                "b6ed37c4.1b8538"
             ]
         ]
     },
     {
-        "id": "eb770827.d06dd8",
+        "id": "1d6269d6.b162d6",
         "type": "bravia-ircc",
-        "z": "411bf1b5.ed387",
-        "g": "7d2c9805.210088",
+        "z": "3ff699d2.ba1696",
+        "g": "c953472.cc5afb8",
         "tv": "204aae5a.40fb72",
         "ircc": "Next",
         "name": "Next",
         "x": 710,
-        "y": 1380,
+        "y": 1420,
         "wires": []
     },
     {
-        "id": "579ef833.869b48",
+        "id": "652fdd6c.536ce4",
         "type": "bravia-ircc",
-        "z": "411bf1b5.ed387",
-        "g": "7d2c9805.210088",
+        "z": "3ff699d2.ba1696",
+        "g": "c953472.cc5afb8",
         "tv": "204aae5a.40fb72",
         "ircc": "Prev",
         "name": "Previous",
         "x": 720,
-        "y": 1460,
+        "y": 1500,
         "wires": []
     },
     {
-        "id": "25678333.f6f2fc",
+        "id": "b156bf92.85176",
         "type": "mqtt in",
-        "z": "411bf1b5.ed387",
-        "g": "7d2c9805.210088",
+        "z": "3ff699d2.ba1696",
+        "g": "c953472.cc5afb8",
         "name": "play",
         "topic": "hermes/intent/ProKNX:play",
         "qos": "2",
         "datatype": "auto",
-        "broker": "3e78409e.2eaa2",
+        "broker": "b8fcf82.0729e08",
         "x": 239,
         "y": 640,
         "wires": [
             [
-                "ce225f79.e817b"
+                "c96b1c3a.5abe8"
             ]
         ]
     },
     {
-        "id": "ce225f79.e817b",
+        "id": "c96b1c3a.5abe8",
         "type": "function",
-        "z": "411bf1b5.ed387",
-        "g": "7d2c9805.210088",
+        "z": "3ff699d2.ba1696",
+        "g": "c953472.cc5afb8",
         "name": "Play",
         "func": "\nfunction findObjectByKey(array, key, value) {\n\titems = [];\n\tvar cpt = 0;\n\tfor (var i = 0; i < array.length; i++) {\n\t\tif (array[i][key] === value) {\n\t\t\titems[cpt] = array[i];\n\t\t\tcpt++;\n\t\t}\n\t}\n\tif (items[0] !== undefined) {\n\t\treturn items;\n\t} else {\n\t\treturn null;\n\t}\n}\n\nvar lang = global.get(\"msgLang\");\nvar defaultSpeaker = global.get(\"defaultSpeaker\");\nvar tvFavorites = global.get(\"tvFavorites\");\nvar siteIdTv = global.get(\"siteIdTv\");\nif(defaultSpeaker === undefined){\n    defaultSpeaker = \"speaker\";\n}\nmsg.cmd={};\nmsg.payload = JSON.parse(msg.payload);\nmsg.cmd.siteId = msg.payload.siteId.replace(/_\\d+$/, \"\").trim();\nvar doAllRooms = false;\nvar intent = msg.payload.intent.intentName;\nif (intent === undefined) \n    return null;\n\nvar rawRoom = findObjectByKey(msg.payload.slots, 'slotName', 'room');\nvar rawFavorite = findObjectByKey(msg.payload.slots, 'entity', 'FavoriteType');\nvar rawSpeaker = findObjectByKey(msg.payload.slots, 'entity', 'SpeakerType');\n\n//node.warn(msg.payload);\n//node.warn(\"rawRoom: \"+ JSON.stringify(rawRoom) );\nvar theRoom = msg.payload.siteId;\n\nif (rawRoom !== null) {\n\tmsg.cmd.room = [];\n\tfor (var i = 0; i < rawRoom.length; i++) {\n\t\tmsg.cmd.room[i] = rawRoom[i].value.value.toLowerCase();\n\t\t//node.warn(\"msg.cmd.room[i]: \"+msg.cmd.room[i] + \"   msg.payload.siteId: \"+msg.payload.siteId);\n\t\tif (msg.cmd.room[i] === \"here\" || msg.cmd.room[i] === \"hier\" || msg.cmd.room[i] === \"ici\") {\n\t\t\ttheRoom = msg.payload.siteId;\n\t\t} else {\n    \t\tif (msg.cmd.room[i] === \"all\" || msg.cmd.room[i] === \"everywhere\" || msg.cmd.room[i] === \"ueberall\" || msg.cmd.room[i] === \"partout\") {\n    \t\t    doAllRooms = true;\n    \t\t} else {\n    \t\t    theRoom = msg.cmd.room[i].replace(/ /g, \"_\");\n    \t\t}\n\t\t}\n\t}\n}\n\nif (rawSpeaker !== null) {\n    //node.warn(\"rawSpeaker: \"+JSON.stringify(rawSpeaker));\n    msg.payload.speaker = rawSpeaker[0].value.value.trim().toLowerCase();\n} else {\n    msg.payload.speaker = defaultSpeaker.trim().toLowerCase();\n}\n\nmsg.payload.siteId = theRoom;\n\nif(msg.payload.siteId.toLowerCase().replace(/_\\d+$/,\"\").replace(/_/g,\"\") !== siteIdTv.toLowerCase().replace(/_\\d+$/,\"\").replace(/ /g,\"\")){\n    return null;\n}\n\n//node.warn(\" Will use msg.payload.siteId: \"+msg.payload.siteId);\n//global.set(\"siteIdTv\", msg.payload.siteId);\n\nif (rawFavorite !== null) {\n    //node.warn(\"rawFavorite: \"+JSON.stringify(rawFavorite));\n    msg.payload.favorite = rawFavorite[0].value.value.trim().toLowerCase();\n\n    global.set(\"msg.payload.favorite\", msg.payload.favorite);\n    \n    var found = tvFavorites.find(\n            function(str) { return str.toLowerCase() == msg.payload.favorite.toLowerCase(); }\n        );\n        \n    \n    if (found !== undefined) {\n        \n        global.set(\"defaultSpeaker\", \"tv\");\n        return [null, msg];\n        \n    }\n}\n\n//var msgFavorite = msg;\nvar sonosPlaylists = global.get(\"sonosPlaylists\");\nvar sonosFavorites = global.get(\"sonosFavorites\");  \n\nif(msg.payload.favorite !== undefined){\n\n    var searchItem = msg.payload.favorite;\n    //node.warn(\"searchItem : \"+searchItem);\n    \n    var found1 = sonosPlaylists.find(\n        function(str) { return str.toLowerCase() == searchItem.toLowerCase(); }\n        );\n    \n    var found2 = sonosFavorites.find(\n            function(str) { return str.toLowerCase() == searchItem.toLowerCase(); }\n        );\n    \n    if(found1 !== undefined || found2 !== undefined){\n        return null;\n    }\n}\n\n//node.warn(\"msg.payload.speaker: \"+msg.payload.speaker);\n    \nif (msg.payload.intent.confidenceScore < 0.6 || msg.payload.asrTokens!== undefined && msg.payload.asrTokens[0].length <= 1){\n    return null;\n}\n\nif(msg.payload.speaker === \"tv\"){\n    \n    global.set(\"defaultSpeaker\", \"tv\");\n    return [msg, null];\n    \n}\n",
         "outputs": 2,
@@ -621,56 +627,56 @@
         "y": 640,
         "wires": [
             [
-                "c3d2ef91.d4a39",
-                "993aca19.aa78b8"
+                "4f471823.53c328",
+                "8334af69.4007c"
             ],
             [
-                "c3d2ef91.d4a39",
-                "c91f8b2f.517a88"
+                "4f471823.53c328",
+                "43c000dc.c066e"
             ]
         ]
     },
     {
-        "id": "aa846483.d91648",
+        "id": "96e7ee3.9e5441",
         "type": "mqtt in",
-        "z": "411bf1b5.ed387",
-        "g": "7d2c9805.210088",
+        "z": "3ff699d2.ba1696",
+        "g": "c953472.cc5afb8",
         "name": "pause",
         "topic": "hermes/intent/ProKNX:pause",
         "qos": "2",
         "datatype": "auto",
-        "broker": "3e78409e.2eaa2",
+        "broker": "b8fcf82.0729e08",
         "x": 239,
         "y": 1223,
         "wires": [
             [
-                "7626dfe8.df034"
+                "6d01f5f0.588ffc"
             ]
         ]
     },
     {
-        "id": "37a9be51.d917d2",
+        "id": "938d0ea7.7c8be",
         "type": "mqtt in",
-        "z": "411bf1b5.ed387",
-        "g": "7d2c9805.210088",
+        "z": "3ff699d2.ba1696",
+        "g": "c953472.cc5afb8",
         "name": "hermes/asr/textCaptured",
         "topic": "hermes/asr/textCaptured",
         "qos": "2",
         "datatype": "auto",
-        "broker": "3e78409e.2eaa2",
+        "broker": "b8fcf82.0729e08",
         "x": 299,
         "y": 1140,
         "wires": [
             [
-                "8dee3799.34ffb8"
+                "5047bb5e.4636d4"
             ]
         ]
     },
     {
-        "id": "7626dfe8.df034",
+        "id": "6d01f5f0.588ffc",
         "type": "function",
-        "z": "411bf1b5.ed387",
-        "g": "7d2c9805.210088",
+        "z": "3ff699d2.ba1696",
+        "g": "c953472.cc5afb8",
         "name": "Pause",
         "func": "\nfunction findObjectByKey(array, key, value) {\n\titems = [];\n\tvar cpt = 0;\n\tfor (var i = 0; i < array.length; i++) {\n\t\tif (array[i][key] === value) {\n\t\t\titems[cpt] = array[i];\n\t\t\tcpt++;\n\t\t}\n\t}\n\tif (items[0] !== undefined) {\n\t\treturn items;\n\t} else {\n\t\treturn null;\n\t}\n}\n\nvar lang = global.get(\"msgLang\");\nvar defaultSpeaker = global.get(\"defaultSpeaker\");\nvar tvFavorites = global.get(\"tvFavorites\");\nvar siteIdTv = global.get(\"siteIdTv\");\nif(defaultSpeaker === undefined){\n    defaultSpeaker = \"speaker\";\n}\nmsg.cmd={};\nmsg.payload = JSON.parse(msg.payload);\nmsg.cmd.siteId = msg.payload.siteId.replace(/_\\d+$/, \"\").trim();\nvar doAllRooms = false;\nvar intent = msg.payload.intent.intentName;\nif (intent === undefined) \n    return null;\n\nvar rawRoom = findObjectByKey(msg.payload.slots, 'slotName', 'room');\nvar rawFavorite = findObjectByKey(msg.payload.slots, 'entity', 'FavoriteType');\nvar rawSpeaker = findObjectByKey(msg.payload.slots, 'entity', 'SpeakerType');\n\n//node.warn(msg.payload);\n//node.warn(\"rawRoom: \"+ JSON.stringify(rawRoom) );\nvar theRoom = msg.payload.siteId;\n\nif (rawRoom !== null) {\n\tmsg.cmd.room = [];\n\tfor (var i = 0; i < rawRoom.length; i++) {\n\t\tmsg.cmd.room[i] = rawRoom[i].value.value.toLowerCase();\n\t\t//node.warn(\"msg.cmd.room[i]: \"+msg.cmd.room[i] + \"   msg.payload.siteId: \"+msg.payload.siteId);\n\t\tif (msg.cmd.room[i] === \"here\" || msg.cmd.room[i] === \"hier\" || msg.cmd.room[i] === \"ici\") {\n\t\t\ttheRoom = msg.payload.siteId;\n\t\t} else {\n    \t\tif (msg.cmd.room[i] === \"all\" || msg.cmd.room[i] === \"everywhere\" || msg.cmd.room[i] === \"ueberall\" || msg.cmd.room[i] === \"partout\") {\n    \t\t    doAllRooms = true;\n    \t\t} else {\n    \t\t    theRoom = msg.cmd.room[i].replace(/ /g, \"_\");\n    \t\t}\n\t\t}\n\t}\n}\n\nif (rawSpeaker !== null) {\n    //node.warn(\"rawSpeaker: \"+JSON.stringify(rawSpeaker));\n    msg.payload.speaker = rawSpeaker[0].value.value.trim().toLowerCase();\n} else {\n    msg.payload.speaker = defaultSpeaker.trim().toLowerCase();\n}\n\nmsg.payload.siteId = theRoom;\n\nif(msg.payload.siteId.toLowerCase().replace(/_\\d+$/,\"\").replace(/_/g,\"\") !== siteIdTv.toLowerCase().replace(/_\\d+$/,\"\").replace(/ /g,\"\")){\n    return null;\n}\n\n//node.warn(\" Will use msg.payload.siteId: \"+msg.payload.siteId);\n//global.set(\"siteIdTv\", msg.payload.siteId);\n\nif (rawFavorite !== null) {\n    //node.warn(\"rawFavorite: \"+JSON.stringify(rawFavorite));\n    msg.payload.favorite = rawFavorite[0].value.value.trim().toLowerCase();\n}\n\n//var msgFavorite = msg;\nvar sonosPlaylists = global.get(\"sonosPlaylists\");\nvar sonosFavorites = global.get(\"sonosFavorites\");  \n\nif(msg.payload.favorite !== undefined){\n\n    var searchItem = msg.payload.favorite;\n    //node.warn(\"searchItem : \"+searchItem);\n    \n    var found1 = sonosPlaylists.find(\n        function(str) { return str.toLowerCase() == searchItem.toLowerCase(); }\n        );\n    \n    var found2 = sonosFavorites.find(\n            function(str) { return str.toLowerCase() == searchItem.toLowerCase(); }\n        );\n    \n    if(found1 !== undefined || found2 !== undefined){\n        return null;\n    }\n}\n\n//node.warn(\"msg.payload.speaker: \"+msg.payload.speaker);\n    \nif (msg.payload.intent.confidenceScore < 0.6 || msg.payload.asrTokens!== undefined && msg.payload.asrTokens[0].length <= 1){\n    return null;\n}\n\nvar messageTv = flow.get(\"messageTv\");\n\nif(msg.payload.speaker === \"tv\" ){\n    \n    global.set(\"defaultSpeaker\", \"tv\");\n    \n    if(messageTv === \"off\"){\n        return [null, msg];\n    }else{\n        return [msg, null];\n    }\n\n}\n",
         "outputs": 2,
@@ -681,20 +687,20 @@
         "y": 1223,
         "wires": [
             [
-                "e5007d44.75d76"
+                "70b113e1.5d88fc"
             ],
             [
-                "15f1ec6e.61b094"
+                "e94234b4.05c088"
             ]
         ]
     },
     {
-        "id": "8dee3799.34ffb8",
+        "id": "5047bb5e.4636d4",
         "type": "function",
-        "z": "411bf1b5.ed387",
-        "g": "7d2c9805.210088",
+        "z": "3ff699d2.ba1696",
+        "g": "c953472.cc5afb8",
         "name": "Filter",
-        "func": "msg.payload = JSON.parse(msg.payload);\nmsg.cmd = {};\nmsg.cmd.lang = global.get(\"msgLang\");\n\nif(msg.cmd.lang === \"de\"){\n    \n    if(msg.payload.text.includes(\"pause\")){\n            \n            flow.set(\"messageTv\", \"off\");\n    }else{\n        flow.set(\"messageTv\", \"on\");\n    }\n        \n    \n} else if(msg.cmd.lang === \"fr\"){\n    \n    if(msg.payload.text.includes(\"pause\")){\n            \n            flow.set(\"messageTv\", \"off\");\n            \n    }else{\n        flow.set(\"messageTv\", \"on\");\n    }\n    \n}else{\n    \n    if(msg.payload.text.includes(\"pause\")){\n            \n        flow.set(\"messageTv\", \"off\");\n            \n    }else{\n        flow.set(\"messageTv\", \"on\");\n    }\n    \n}\n\n\n",
+        "func": "msg.payload = JSON.parse(msg.payload);\nmsg.cmd = {};\nmsg.cmd.lang = global.get(\"msgLang\");\n\nif(msg.cmd.lang === \"de\"){\n    \n    if(msg.payload.text.includes(\"pause\")){\n            \n        flow.set(\"messageTv\", \"off\");\n    }else{\n        flow.set(\"messageTv\", \"on\");\n    }\n    \n    if(msg.payload.text.includes(\"kanal\")){\n        \n        flow.set(\"setScreen\", \"channel\");\n    }else{\n        flow.set(\"setScreen\", \"media\");\n    }\n    \n    \n        \n    \n} else if(msg.cmd.lang === \"fr\"){\n    \n    if(msg.payload.text.includes(\"pause\")){\n            \n            flow.set(\"messageTv\", \"off\");\n            \n    }else{\n        flow.set(\"messageTv\", \"on\");\n    }\n    \n    if(msg.payload.text.includes(\"canal\")){\n        \n        flow.set(\"setScreen\", \"channel\");\n    }else{\n        flow.set(\"setScreen\", \"media\");\n    }\n    \n}else{\n    \n    if(msg.payload.text.includes(\"pause\")){\n            \n        flow.set(\"messageTv\", \"off\");\n            \n    }else{\n        flow.set(\"messageTv\", \"on\");\n    }\n    \n    if(msg.payload.text.includes(\"channel\")){\n        \n        flow.set(\"setScreen\", \"channel\");\n    }else{\n        flow.set(\"setScreen\", \"media\");\n    }\n}\n\n\n",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -706,10 +712,10 @@
         ]
     },
     {
-        "id": "58d41d46.e03dc4",
+        "id": "fccd5183.1935b",
         "type": "bravia-api",
-        "z": "411bf1b5.ed387",
-        "g": "7d2c9805.210088",
+        "z": "3ff699d2.ba1696",
+        "g": "c953472.cc5afb8",
         "tv": "204aae5a.40fb72",
         "method": "audio:1.2:setAudioVolume",
         "payload": "{\"target\":\"speaker\", \"volume\":\"+6\"}",
@@ -721,10 +727,10 @@
         ]
     },
     {
-        "id": "936c688d.18e548",
+        "id": "1c7cc162.d07ebf",
         "type": "bravia-api",
-        "z": "411bf1b5.ed387",
-        "g": "7d2c9805.210088",
+        "z": "3ff699d2.ba1696",
+        "g": "c953472.cc5afb8",
         "tv": "204aae5a.40fb72",
         "method": "audio:1.2:setAudioVolume",
         "payload": "{\"target\":\"speaker\", \"volume\":\"-6\"}",
@@ -736,10 +742,10 @@
         ]
     },
     {
-        "id": "6f7319b.974c1e8",
+        "id": "2b29eb98.04ec64",
         "type": "bravia-api",
-        "z": "411bf1b5.ed387",
-        "g": "7d2c9805.210088",
+        "z": "3ff699d2.ba1696",
+        "g": "c953472.cc5afb8",
         "tv": "204aae5a.40fb72",
         "method": "system:1.0:setPowerStatus",
         "payload": "{\"status\":true}",
@@ -751,10 +757,10 @@
         ]
     },
     {
-        "id": "993aca19.aa78b8",
+        "id": "8334af69.4007c",
         "type": "bravia-api",
-        "z": "411bf1b5.ed387",
-        "g": "7d2c9805.210088",
+        "z": "3ff699d2.ba1696",
+        "g": "c953472.cc5afb8",
         "tv": "204aae5a.40fb72",
         "method": "system:1.0:getPowerStatus",
         "payload": "",
@@ -763,16 +769,16 @@
         "y": 600,
         "wires": [
             [
-                "431f85ba.61446c"
+                "8ab36445.d235b8"
             ]
         ],
         "l": false
     },
     {
-        "id": "431f85ba.61446c",
+        "id": "8ab36445.d235b8",
         "type": "switch",
-        "z": "411bf1b5.ed387",
-        "g": "7d2c9805.210088",
+        "z": "3ff699d2.ba1696",
+        "g": "c953472.cc5afb8",
         "name": "Is TV On?",
         "property": "payload.status",
         "propertyType": "msg",
@@ -795,19 +801,19 @@
         "y": 600,
         "wires": [
             [
-                "6f7319b.974c1e8"
+                "2b29eb98.04ec64"
             ],
             [
-                "9a1f9280.db40b"
+                "6476fadc.7df324"
             ]
         ],
         "l": false
     },
     {
-        "id": "9a1f9280.db40b",
+        "id": "6476fadc.7df324",
         "type": "bravia-ircc",
-        "z": "411bf1b5.ed387",
-        "g": "7d2c9805.210088",
+        "z": "3ff699d2.ba1696",
+        "g": "c953472.cc5afb8",
         "tv": "204aae5a.40fb72",
         "ircc": "Confirm",
         "name": "Play",
@@ -816,10 +822,10 @@
         "wires": []
     },
     {
-        "id": "3fc32fce.46e57",
+        "id": "dac7ce68.29874",
         "type": "bravia-api",
-        "z": "411bf1b5.ed387",
-        "g": "7d2c9805.210088",
+        "z": "3ff699d2.ba1696",
+        "g": "c953472.cc5afb8",
         "tv": "204aae5a.40fb72",
         "method": "audio:1.0:setAudioMute",
         "payload": "{\"status\":true}",
@@ -831,10 +837,10 @@
         ]
     },
     {
-        "id": "39b08539.9f249a",
+        "id": "47b5b7f2.c20298",
         "type": "bravia-api",
-        "z": "411bf1b5.ed387",
-        "g": "7d2c9805.210088",
+        "z": "3ff699d2.ba1696",
+        "g": "c953472.cc5afb8",
         "tv": "204aae5a.40fb72",
         "method": "audio:1.0:setAudioMute",
         "payload": "{\"status\":false}",
@@ -846,10 +852,10 @@
         ]
     },
     {
-        "id": "8b7a371a.87c378",
+        "id": "f51376d0.cd7048",
         "type": "bravia-api",
-        "z": "411bf1b5.ed387",
-        "g": "7d2c9805.210088",
+        "z": "3ff699d2.ba1696",
+        "g": "c953472.cc5afb8",
         "tv": "204aae5a.40fb72",
         "method": "audio:1.2:setAudioVolume",
         "payload": "",
@@ -861,10 +867,10 @@
         ]
     },
     {
-        "id": "fbed8092.52ea6",
+        "id": "875a786c.7265c8",
         "type": "bravia-api",
-        "z": "411bf1b5.ed387",
-        "g": "7d2c9805.210088",
+        "z": "3ff699d2.ba1696",
+        "g": "c953472.cc5afb8",
         "tv": "204aae5a.40fb72",
         "method": "audio:1.0:setAudioMute",
         "payload": "{\"status\":false}",
@@ -873,15 +879,15 @@
         "y": 1565.6000061035156,
         "wires": [
             [
-                "58d41d46.e03dc4"
+                "fccd5183.1935b"
             ]
         ]
     },
     {
-        "id": "bcc0b598.f1b408",
+        "id": "78c36ec.827669",
         "type": "bravia-api",
-        "z": "411bf1b5.ed387",
-        "g": "7d2c9805.210088",
+        "z": "3ff699d2.ba1696",
+        "g": "c953472.cc5afb8",
         "tv": "204aae5a.40fb72",
         "method": "audio:1.0:setAudioMute",
         "payload": "{\"status\":false}",
@@ -890,15 +896,15 @@
         "y": 1625,
         "wires": [
             [
-                "936c688d.18e548"
+                "1c7cc162.d07ebf"
             ]
         ]
     },
     {
-        "id": "e5007d44.75d76",
+        "id": "70b113e1.5d88fc",
         "type": "bravia-api",
-        "z": "411bf1b5.ed387",
-        "g": "7d2c9805.210088",
+        "z": "3ff699d2.ba1696",
+        "g": "c953472.cc5afb8",
         "tv": "204aae5a.40fb72",
         "method": "system:1.0:setPowerStatus",
         "payload": "{\"status\":false}",
@@ -910,10 +916,10 @@
         ]
     },
     {
-        "id": "f6a94488.96f338",
+        "id": "1ef782d4.76412d",
         "type": "bravia-api",
-        "z": "411bf1b5.ed387",
-        "g": "7d2c9805.210088",
+        "z": "3ff699d2.ba1696",
+        "g": "c953472.cc5afb8",
         "tv": "204aae5a.40fb72",
         "method": "audio:1.0:setAudioMute",
         "payload": "{\"status\":false}",
@@ -922,15 +928,15 @@
         "y": 1685,
         "wires": [
             [
-                "8e4fb368.f54b8"
+                "21dfd053.29284"
             ]
         ]
     },
     {
-        "id": "cca7274f.f71098",
+        "id": "160dd2f1.80dbed",
         "type": "function",
-        "z": "411bf1b5.ed387",
-        "g": "7d2c9805.210088",
+        "z": "3ff699d2.ba1696",
+        "g": "c953472.cc5afb8",
         "name": "Set volume",
         "func": "const minLoudness = msg.payload[0].minVolume;\nconst maxLoudness = msg.payload[0].maxVolume;\nvar rawLoudness = flow.get(\"rawLoudness\");\nvar rawMin = flow.get(\"rawMin\");\nvar rawMax = flow.get(\"rawMax\");\nvar loudness = 1;\nvar nbrLoudness = '1';\n\n\nif(rawLoudness!==null){\n    loudness = rawLoudness[0].value.value;\n    nbrLoudness = Number(loudness);\n    if(loudness === undefined || rawLoudness[0].value.kind !== 'Number' || isNaN(nbrLoudness) === true){\n        node.warn(\"Skipping invalid volume\");\n        return;\n    }\n}\nif(rawMax!==null){\n    loudness = maxLoudness;\n}\nif(rawMin!==null){\n    loudness = minLoudness;\n}\nif(nbrLoudness>Number(maxLoudness)){\n    loudness = maxLoudness;\n}\n\nif(nbrLoudness<Number(minLoudness)){\n    loudness = minLoudness;    \n}\n\nloudness = String(loudness);\n\nmsg.payload = {\"target\":\"speaker\",\"volume\":loudness};\n\nreturn msg;",
         "outputs": 1,
@@ -941,15 +947,15 @@
         "y": 1685,
         "wires": [
             [
-                "8b7a371a.87c378"
+                "f51376d0.cd7048"
             ]
         ]
     },
     {
-        "id": "8e4fb368.f54b8",
+        "id": "21dfd053.29284",
         "type": "bravia-api",
-        "z": "411bf1b5.ed387",
-        "g": "7d2c9805.210088",
+        "z": "3ff699d2.ba1696",
+        "g": "c953472.cc5afb8",
         "tv": "204aae5a.40fb72",
         "method": "audio:1.0:getVolumeInformation",
         "payload": "",
@@ -958,15 +964,15 @@
         "y": 1685,
         "wires": [
             [
-                "cca7274f.f71098"
+                "160dd2f1.80dbed"
             ]
         ]
     },
     {
-        "id": "e2abc940.a44c98",
+        "id": "9092034e.efa21",
         "type": "http response",
-        "z": "411bf1b5.ed387",
-        "g": "7d2c9805.210088",
+        "z": "3ff699d2.ba1696",
+        "g": "c953472.cc5afb8",
         "name": "",
         "statusCode": "",
         "headers": {},
@@ -976,10 +982,10 @@
         "l": false
     },
     {
-        "id": "4d769c43.d829a4",
+        "id": "8d9d727a.14565",
         "type": "function",
-        "z": "411bf1b5.ed387",
-        "g": "7d2c9805.210088",
+        "z": "3ff699d2.ba1696",
+        "g": "c953472.cc5afb8",
         "name": "ChannelTvFavorites",
         "func": "function findObjectByKey(array, key, value) {\n\titems = [];\n\tvar cpt = 0;\n\tfor (var i = 0; i < array.length; i++) {\n\t\tif (array[i][key] === value) {\n\t\t\titems[cpt] = array[i];\n\t\t\tcpt++;\n\t\t}\n\t}\n\tif (items[0] !== undefined) {\n\t\treturn items;\n\t} else {\n\t\treturn null;\n\t}\n}\n\nvar lang = global.get(\"msgLang\");\nvar defaultSpeaker = global.get(\"defaultSpeaker\");\nif(defaultSpeaker === undefined){\n    defaultSpeaker = \"speaker\";\n}\nmsg.cmd={};\nmsg.payload = JSON.parse(msg.payload);\nvar doAllRooms = false;\nvar intent = msg.payload.intent.intentName;\nif (intent === undefined) \n    return null;\n\nvar rawRoom = findObjectByKey(msg.payload.slots, 'slotName', 'room');\nvar rawFavorite = findObjectByKey(msg.payload.slots, 'entity', 'FavoriteType');\nvar rawSpeaker = findObjectByKey(msg.payload.slots, 'entity', 'SpeakerType');\n\n//node.warn(msg.payload);\n//node.warn(\"rawRoom: \"+ JSON.stringify(rawRoom) );\nvar theRoom = msg.payload.siteId;\n\nif (rawRoom !== null) {\n\tmsg.cmd.room = [];\n\tfor (var i = 0; i < rawRoom.length; i++) {\n\t\tmsg.cmd.room[i] = rawRoom[i].value.value.toLowerCase();\n\t\t//node.warn(\"msg.cmd.room[i]: \"+msg.cmd.room[i] + \"   msg.payload.siteId: \"+msg.payload.siteId);\n\t\tif (msg.cmd.room[i] === \"here\" || msg.cmd.room[i] === \"hier\" || msg.cmd.room[i] === \"ici\") {\n\t\t\ttheRoom = msg.payload.siteId;\n\t\t} else {\n    \t\tif (msg.cmd.room[i] === \"all\" || msg.cmd.room[i] === \"everywhere\" || msg.cmd.room[i] === \"ueberall\" || msg.cmd.room[i] === \"partout\") {\n    \t\t    doAllRooms = true;\n    \t\t} else {\n    \t\t    theRoom = msg.cmd.room[i].replace(/ /g, \"_\");\n    \t\t}\n\t\t}\n\t}\n} \nmsg.payload.siteId = theRoom;\n//node.warn(\" Will use msg.payload.siteId: \"+msg.payload.siteId);\n//global.set(\"siteIdTv\", msg.payload.siteId);\n\nif (rawFavorite !== null) {\n    //node.warn(\"rawFavorite: \"+JSON.stringify(rawFavorite));\n    msg.payload.favorite = rawFavorite[0].value.value.trim().toLowerCase();\n    //node.warn(\"msg.payload.favorite: \"+msg.payload.favorite);\n}\n\n\nif (rawSpeaker !== null) {\n    //node.warn(\"rawSpeaker: \"+JSON.stringify(rawSpeaker));\n    msg.payload.speaker = rawSpeaker[0].value.value.trim().toLowerCase();\n} else {\n    msg.payload.speaker = defaultSpeaker;\n}\n\n//node.warn(\"msg.payload.speaker: \"+msg.payload.speaker);\n\n\nvar msgFav = msg.payload.favorite;\nvar tvFavorites = global.get(\"tvFavorites\");\nvar out = [];\n\nif(msg.payload.favorite === undefined){\n    return ;\n    \n} else {\n\n    for(var i = 0; i<tvFavorites.length; i++){\n        if(msgFav.toLowerCase() == tvFavorites[i].toLowerCase()){\n            out.push([msg]);\n        }else{\n            out.push([]);\n        }\n    }\n    return out;\n}\n\n",
         "outputs": 9,
@@ -990,39 +996,39 @@
         "y": 900,
         "wires": [
             [
-                "cf1d995e.159e18"
+                "6bba9f17.c4897"
             ],
             [
-                "e246ac5f.43b3c"
+                "56005e67.6f577"
             ],
             [
-                "161795dd.dac40a"
+                "d439b3d3.329f2"
             ],
             [
-                "1b73040.2e174fc"
+                "5ad3c5d8.6be7cc"
             ],
             [
-                "e5c74c4f.6c9e5"
+                "d0f2cd7.cc1dc3"
             ],
             [
-                "3dd63619.93fbaa"
+                "40ab2c00.bc1a94"
             ],
             [
-                "8e0fdeac.af821"
+                "28058acc.1b50b6"
             ],
             [
-                "94e6b44e.e923a8"
+                "ae44b78e.260108"
             ],
             [
-                "1a135002.da5c1"
+                "8d5df216.abbac"
             ]
         ]
     },
     {
-        "id": "d3f142f8.848ec",
+        "id": "791516c8.bbbd98",
         "type": "bravia-ircc",
-        "z": "411bf1b5.ed387",
-        "g": "7d2c9805.210088",
+        "z": "3ff699d2.ba1696",
+        "g": "c953472.cc5afb8",
         "tv": "204aae5a.40fb72",
         "ircc": "Num1",
         "name": "Num 1",
@@ -1031,10 +1037,10 @@
         "wires": []
     },
     {
-        "id": "cdd19aa6.de4538",
+        "id": "c825d679.936b48",
         "type": "bravia-ircc",
-        "z": "411bf1b5.ed387",
-        "g": "7d2c9805.210088",
+        "z": "3ff699d2.ba1696",
+        "g": "c953472.cc5afb8",
         "tv": "204aae5a.40fb72",
         "ircc": "Num2",
         "name": "Num 2",
@@ -1043,10 +1049,10 @@
         "wires": []
     },
     {
-        "id": "1b73040.2e174fc",
+        "id": "5ad3c5d8.6be7cc",
         "type": "bravia-ircc",
-        "z": "411bf1b5.ed387",
-        "g": "7d2c9805.210088",
+        "z": "3ff699d2.ba1696",
+        "g": "c953472.cc5afb8",
         "tv": "204aae5a.40fb72",
         "ircc": "Num4",
         "name": "Num 4",
@@ -1055,10 +1061,10 @@
         "wires": []
     },
     {
-        "id": "dfc8ac27.7cf86",
+        "id": "61ab07e7.590f38",
         "type": "bravia-ircc",
-        "z": "411bf1b5.ed387",
-        "g": "7d2c9805.210088",
+        "z": "3ff699d2.ba1696",
+        "g": "c953472.cc5afb8",
         "tv": "204aae5a.40fb72",
         "ircc": "Num3",
         "name": "Num 3",
@@ -1067,10 +1073,10 @@
         "wires": []
     },
     {
-        "id": "7cabe546.2b80bc",
+        "id": "5427dadf.69e2b4",
         "type": "bravia-api",
-        "z": "411bf1b5.ed387",
-        "g": "7d2c9805.210088",
+        "z": "3ff699d2.ba1696",
+        "g": "c953472.cc5afb8",
         "tv": "204aae5a.40fb72",
         "method": "appControl:1.0:getApplicationList",
         "payload": "",
@@ -1079,15 +1085,15 @@
         "y": 1020,
         "wires": [
             [
-                "7c4230ef.ee219"
+                "692c2c14.f98664"
             ]
         ]
     },
     {
-        "id": "775ce1a9.0895e",
+        "id": "373a9e06.357932",
         "type": "inject",
-        "z": "411bf1b5.ed387",
-        "g": "7d2c9805.210088",
+        "z": "3ff699d2.ba1696",
+        "g": "c953472.cc5afb8",
         "name": "",
         "props": [
             {
@@ -1109,17 +1115,17 @@
         "y": 1040,
         "wires": [
             [
-                "7cabe546.2b80bc",
-                "7bfa5c49.27da74"
+                "5427dadf.69e2b4",
+                "3bc50d00.590ff4"
             ]
         ],
         "l": false
     },
     {
-        "id": "7c4230ef.ee219",
+        "id": "692c2c14.f98664",
         "type": "file",
-        "z": "411bf1b5.ed387",
-        "g": "7d2c9805.210088",
+        "z": "3ff699d2.ba1696",
+        "g": "c953472.cc5afb8",
         "name": "AppList",
         "filename": "AppList",
         "appendNewline": false,
@@ -1133,10 +1139,10 @@
         ]
     },
     {
-        "id": "c3d2ef91.d4a39",
+        "id": "4f471823.53c328",
         "type": "json",
-        "z": "411bf1b5.ed387",
-        "g": "7d2c9805.210088",
+        "z": "3ff699d2.ba1696",
+        "g": "c953472.cc5afb8",
         "name": "",
         "property": "payload",
         "action": "",
@@ -1145,16 +1151,16 @@
         "y": 540,
         "wires": [
             [
-                "9c797648.377408"
+                "b485c5b.3bae338"
             ]
         ],
         "l": false
     },
     {
-        "id": "9c797648.377408",
+        "id": "b485c5b.3bae338",
         "type": "file",
-        "z": "411bf1b5.ed387",
-        "g": "7d2c9805.210088",
+        "z": "3ff699d2.ba1696",
+        "g": "c953472.cc5afb8",
         "name": "tvPlay",
         "filename": "tvPlay",
         "appendNewline": true,
@@ -1168,10 +1174,10 @@
         ]
     },
     {
-        "id": "7bfa5c49.27da74",
+        "id": "3bc50d00.590ff4",
         "type": "bravia-api",
-        "z": "411bf1b5.ed387",
-        "g": "7d2c9805.210088",
+        "z": "3ff699d2.ba1696",
+        "g": "c953472.cc5afb8",
         "tv": "204aae5a.40fb72",
         "method": "system:1.0:getRemoteControllerInfo",
         "payload": "",
@@ -1180,15 +1186,15 @@
         "y": 1060,
         "wires": [
             [
-                "998cbafc.863998"
+                "dd3fc3db.87d6a"
             ]
         ]
     },
     {
-        "id": "998cbafc.863998",
+        "id": "dd3fc3db.87d6a",
         "type": "file",
-        "z": "411bf1b5.ed387",
-        "g": "7d2c9805.210088",
+        "z": "3ff699d2.ba1696",
+        "g": "c953472.cc5afb8",
         "name": "RemoteInfo",
         "filename": "RemoteInfo",
         "appendNewline": false,
@@ -1202,10 +1208,10 @@
         ]
     },
     {
-        "id": "be863d4.32008c",
+        "id": "ea457e19.953f6",
         "type": "function",
-        "z": "411bf1b5.ed387",
-        "g": "7d2c9805.210088",
+        "z": "3ff699d2.ba1696",
+        "g": "c953472.cc5afb8",
         "name": "AppTvFavorites",
         "func": "function findObjectByKey(array, key, value) {\n\titems = [];\n\tvar cpt = 0;\n\tfor (var i = 0; i < array.length; i++) {\n\t\tif (array[i][key].toLowerCase() === value.toLowerCase()) {\n\t\t\titems[cpt] = array[i];\n\t\t\tcpt++;\n\t\t}\n\t}\n\tif (items[0] !== undefined) {\n\t\treturn items;\n\t} else {\n\t\treturn null;\n\t}\n}\n\nmsg.cmd={};\nmsg.payload = JSON.parse(msg.payload);\nvar find = global.get(\"msg.payload.favorite\");\n\nif(find === \"disney plus\"){\n    find = \"Disney+\";\n}\n\nvar app = findObjectByKey(msg.payload, 'title', find);\n\n//node.warn(app);\n\nif(app === null){\n    \n    return [null, msg];\n    \n}else {\n    msg.payload = \"{\\\"uri\\\":\\\"\" + app[0].uri + \"\\\"}\";\n    return [msg, null];\n}",
         "outputs": 2,
@@ -1216,18 +1222,18 @@
         "y": 820,
         "wires": [
             [
-                "901976c4.b6a848"
+                "7d54c2f1.ea0a5c"
             ],
             [
-                "1b390bf0.da0bf4"
+                "988024e7.082e38"
             ]
         ]
     },
     {
-        "id": "f9d20cd7.73678",
+        "id": "efa211b1.c1cdd",
         "type": "file in",
-        "z": "411bf1b5.ed387",
-        "g": "7d2c9805.210088",
+        "z": "3ff699d2.ba1696",
+        "g": "c953472.cc5afb8",
         "name": "AppList",
         "filename": "AppList",
         "format": "utf8",
@@ -1238,16 +1244,16 @@
         "y": 820,
         "wires": [
             [
-                "be863d4.32008c"
+                "ea457e19.953f6"
             ]
         ],
         "l": false
     },
     {
-        "id": "901976c4.b6a848",
+        "id": "7d54c2f1.ea0a5c",
         "type": "bravia-api",
-        "z": "411bf1b5.ed387",
-        "g": "7d2c9805.210088",
+        "z": "3ff699d2.ba1696",
+        "g": "c953472.cc5afb8",
         "tv": "204aae5a.40fb72",
         "method": "appControl:1.0:setActiveApp",
         "payload": "",
@@ -1259,10 +1265,10 @@
         ]
     },
     {
-        "id": "2859a883.fd72f8",
+        "id": "48a932d.f3877cc",
         "type": "file in",
-        "z": "411bf1b5.ed387",
-        "g": "7d2c9805.210088",
+        "z": "3ff699d2.ba1696",
+        "g": "c953472.cc5afb8",
         "name": "tvPlay",
         "filename": "tvPlay",
         "format": "utf8",
@@ -1273,16 +1279,16 @@
         "y": 900,
         "wires": [
             [
-                "4d769c43.d829a4"
+                "8d9d727a.14565"
             ]
         ],
         "l": false
     },
     {
-        "id": "15c2758a.1e7bba",
+        "id": "ef5a952d.1a9598",
         "type": "bravia-api",
-        "z": "411bf1b5.ed387",
-        "g": "7d2c9805.210088",
+        "z": "3ff699d2.ba1696",
+        "g": "c953472.cc5afb8",
         "tv": "204aae5a.40fb72",
         "method": "system:1.0:setPowerStatus",
         "payload": "{\"status\":true}",
@@ -1291,16 +1297,16 @@
         "y": 640,
         "wires": [
             [
-                "f9d20cd7.73678"
+                "efa211b1.c1cdd"
             ]
         ],
         "l": false
     },
     {
-        "id": "1b390bf0.da0bf4",
+        "id": "988024e7.082e38",
         "type": "bravia-api",
-        "z": "411bf1b5.ed387",
-        "g": "7d2c9805.210088",
+        "z": "3ff699d2.ba1696",
+        "g": "c953472.cc5afb8",
         "tv": "204aae5a.40fb72",
         "method": "appControl:1.0:terminateApps",
         "payload": "",
@@ -1309,15 +1315,15 @@
         "y": 900,
         "wires": [
             [
-                "2859a883.fd72f8"
+                "48a932d.f3877cc"
             ]
         ]
     },
     {
-        "id": "45abe297.5b8b2c",
+        "id": "b5422185.7c14e",
         "type": "switch",
-        "z": "411bf1b5.ed387",
-        "g": "7d2c9805.210088",
+        "z": "3ff699d2.ba1696",
+        "g": "c953472.cc5afb8",
         "name": "Is TV On?",
         "property": "payload.status",
         "propertyType": "msg",
@@ -1340,19 +1346,19 @@
         "y": 660,
         "wires": [
             [
-                "15c2758a.1e7bba"
+                "ef5a952d.1a9598"
             ],
             [
-                "f9d20cd7.73678"
+                "efa211b1.c1cdd"
             ]
         ],
         "l": false
     },
     {
-        "id": "c91f8b2f.517a88",
+        "id": "43c000dc.c066e",
         "type": "bravia-api",
-        "z": "411bf1b5.ed387",
-        "g": "7d2c9805.210088",
+        "z": "3ff699d2.ba1696",
+        "g": "c953472.cc5afb8",
         "tv": "204aae5a.40fb72",
         "method": "system:1.0:getPowerStatus",
         "payload": "",
@@ -1361,16 +1367,16 @@
         "y": 660,
         "wires": [
             [
-                "45abe297.5b8b2c"
+                "b5422185.7c14e"
             ]
         ],
         "l": false
     },
     {
-        "id": "a96e7c4c.0b38b",
+        "id": "992060df.ab554",
         "type": "function",
-        "z": "411bf1b5.ed387",
-        "g": "7d2c9805.210088",
+        "z": "3ff699d2.ba1696",
+        "g": "c953472.cc5afb8",
         "name": "",
         "func": "//set siteIdTv\n\nvar siteIdTv = msg.payload;\n\nString.prototype.sansAccent = function() {\n    var accent = [\n        /[\\300-\\306]/g, /[\\340-\\346]/g, // A, a\n        /[\\310-\\313]/g, /[\\350-\\353]/g, // E, e\n        /[\\314-\\317]/g, /[\\354-\\357]/g, // I, i\n        /[\\322-\\330]/g, /[\\362-\\370]/g, // O, o\n        /[\\331-\\334]/g, /[\\371-\\374]/g, // U, u\n        /[\\321]/g, /[\\361]/g, // N, n\n        /[\\307]/g, /[\\347]/g, // C, c\n    ];\n    var noaccent = ['A','a','E','e','I','i','O','o','U','u','N','n','C','c'];\n         \n    var str = this;\n    for(var i = 0; i < accent.length; i++){\n        str = str.replace(\"ä\", \"ae\");\n        str = str.replace(\"ü\", \"ue\");\n        str = str.replace(\"ö\", \"oe\");        \n        str = str.replace(accent[i], noaccent[i]);\n    }\n    return str;\n};\n\n\nglobal.set(\"siteIdTv\", siteIdTv.sansAccent()); \n",
         "outputs": 1,
@@ -1385,10 +1391,10 @@
         "l": false
     },
     {
-        "id": "970e8bef.678aa8",
+        "id": "e7f7daa.3062728",
         "type": "inject",
-        "z": "411bf1b5.ed387",
-        "g": "7d2c9805.210088",
+        "z": "3ff699d2.ba1696",
+        "g": "c953472.cc5afb8",
         "name": "Set the TV room here !",
         "props": [
             {
@@ -1406,15 +1412,15 @@
         "y": 165,
         "wires": [
             [
-                "a96e7c4c.0b38b"
+                "992060df.ab554"
             ]
         ]
     },
     {
-        "id": "46128af1.9eb1f4",
+        "id": "7ce145d7.ff44cc",
         "type": "function",
-        "z": "411bf1b5.ed387",
-        "g": "7d2c9805.210088",
+        "z": "3ff699d2.ba1696",
+        "g": "c953472.cc5afb8",
         "name": "GET /siteIdTv ",
         "func": "var siteIdTv = global.get(\"siteIdTv\");\n\nif(msg.payload.siteId.toLowerCase().replace(/_\\d+$/,\"\").replace(/_/g,\"\") !== siteIdTv.toLowerCase().replace(/_\\d+$/,\"\").replace(/ /g,\"\")){\n    return null;\n}else{\n    return msg;\n}\n\n",
         "outputs": 1,
@@ -1425,16 +1431,16 @@
         "y": 441,
         "wires": [
             [
-                "b1ae94fa.d7f4c8"
+                "116ef070.290f8"
             ]
         ],
         "l": false
     },
     {
-        "id": "e7f8366d.e0c798",
+        "id": "8f15c1fb.886be",
         "type": "function",
-        "z": "411bf1b5.ed387",
-        "g": "7d2c9805.210088",
+        "z": "3ff699d2.ba1696",
+        "g": "c953472.cc5afb8",
         "name": "GET /siteIdTv ",
         "func": "var siteIdTv = global.get(\"siteIdTv\");\n\nif(msg.payload.siteId.toLowerCase().replace(/_\\d+$/,\"\").replace(/_/g,\"\") !== siteIdTv.toLowerCase().replace(/_\\d+$/,\"\").replace(/ /g,\"\")){\n    return null;\n}else{\n    return msg;\n}\n",
         "outputs": 1,
@@ -1445,16 +1451,16 @@
         "y": 490,
         "wires": [
             [
-                "cc52cd78.bbb11"
+                "7c54ae2.b7a755"
             ]
         ],
         "l": false
     },
     {
-        "id": "d52435a.640bcc8",
+        "id": "4087eb67.a5a534",
         "type": "comment",
-        "z": "411bf1b5.ed387",
-        "g": "7d2c9805.210088",
+        "z": "3ff699d2.ba1696",
+        "g": "c953472.cc5afb8",
         "name": "IMPORTANT Manually set the siteIdTv  IMPORTANT ",
         "info": "It is strongly recommended to set a valid siteId for the TV (siteIdTv), the place where you place your TV. (eg: bedroom, office, living room)\n\nThe siteIdTv's must be an existing room from your installation see PRATGLAD or Aragon application. (e.g PRATGLAD's user interface -> Configure -> no. 3 -> Settings -> Rooms)",
         "x": 380,
@@ -1462,10 +1468,10 @@
         "wires": []
     },
     {
-        "id": "c1b86056.6308",
+        "id": "66743754.667fe8",
         "type": "switch",
-        "z": "411bf1b5.ed387",
-        "g": "7d2c9805.210088",
+        "z": "3ff699d2.ba1696",
+        "g": "c953472.cc5afb8",
         "name": "Is TV On?",
         "property": "payload.status",
         "propertyType": "msg",
@@ -1489,16 +1495,16 @@
         "wires": [
             [],
             [
-                "3fc32fce.46e57"
+                "dac7ce68.29874"
             ]
         ],
         "l": false
     },
     {
-        "id": "b1ae94fa.d7f4c8",
+        "id": "116ef070.290f8",
         "type": "bravia-api",
-        "z": "411bf1b5.ed387",
-        "g": "7d2c9805.210088",
+        "z": "3ff699d2.ba1696",
+        "g": "c953472.cc5afb8",
         "tv": "204aae5a.40fb72",
         "method": "system:1.0:getPowerStatus",
         "payload": "",
@@ -1507,16 +1513,16 @@
         "y": 441,
         "wires": [
             [
-                "c1b86056.6308"
+                "66743754.667fe8"
             ]
         ],
         "l": false
     },
     {
-        "id": "cc52cd78.bbb11",
+        "id": "7c54ae2.b7a755",
         "type": "bravia-api",
-        "z": "411bf1b5.ed387",
-        "g": "7d2c9805.210088",
+        "z": "3ff699d2.ba1696",
+        "g": "c953472.cc5afb8",
         "tv": "204aae5a.40fb72",
         "method": "system:1.0:getPowerStatus",
         "payload": "",
@@ -1525,16 +1531,16 @@
         "y": 490,
         "wires": [
             [
-                "c8ed3d6a.59c7"
+                "b770a743.febc88"
             ]
         ],
         "l": false
     },
     {
-        "id": "c8ed3d6a.59c7",
+        "id": "b770a743.febc88",
         "type": "switch",
-        "z": "411bf1b5.ed387",
-        "g": "7d2c9805.210088",
+        "z": "3ff699d2.ba1696",
+        "g": "c953472.cc5afb8",
         "name": "Is TV On?",
         "property": "payload.status",
         "propertyType": "msg",
@@ -1558,16 +1564,16 @@
         "wires": [
             [],
             [
-                "39b08539.9f249a"
+                "47b5b7f2.c20298"
             ]
         ],
         "l": false
     },
     {
-        "id": "15f1ec6e.61b094",
+        "id": "e94234b4.05c088",
         "type": "bravia-ircc",
-        "z": "411bf1b5.ed387",
-        "g": "7d2c9805.210088",
+        "z": "3ff699d2.ba1696",
+        "g": "c953472.cc5afb8",
         "tv": "204aae5a.40fb72",
         "ircc": "Pause",
         "name": "Pause",
@@ -1576,10 +1582,10 @@
         "wires": []
     },
     {
-        "id": "aab32aaa.209d38",
+        "id": "e9a3d96f.392798",
         "type": "comment",
-        "z": "411bf1b5.ed387",
-        "g": "7d2c9805.210088",
+        "z": "3ff699d2.ba1696",
+        "g": "c953472.cc5afb8",
         "name": "IMPORTANT Define the TV Favorites here IMPORTANT ",
         "info": "",
         "x": 385,
@@ -1587,9 +1593,9 @@
         "wires": []
     },
     {
-        "id": "e0f256bf.80ad88",
+        "id": "fa0e57f5.e56668",
         "type": "debug",
-        "z": "411bf1b5.ed387",
+        "z": "3ff699d2.ba1696",
         "name": "",
         "active": false,
         "tosidebar": true,
@@ -1605,9 +1611,9 @@
         "l": false
     },
     {
-        "id": "83b73794.6925f8",
+        "id": "6de00efd.2d33",
         "type": "catch",
-        "z": "411bf1b5.ed387",
+        "z": "3ff699d2.ba1696",
         "name": "",
         "scope": [
             "47a2cbc8.397b54",
@@ -1644,15 +1650,15 @@
         "y": 165,
         "wires": [
             [
-                "e0f256bf.80ad88"
+                "fa0e57f5.e56668"
             ]
         ]
     },
     {
-        "id": "22f17c84.4566d4",
+        "id": "5acad99a.eecc18",
         "type": "comment",
-        "z": "411bf1b5.ed387",
-        "g": "7d2c9805.210088",
+        "z": "3ff699d2.ba1696",
+        "g": "c953472.cc5afb8",
         "name": "DEBUG Sony Bravia",
         "info": "",
         "x": 755,
@@ -1660,10 +1666,10 @@
         "wires": []
     },
     {
-        "id": "33064a13.3504c6",
+        "id": "4686c67.80d8938",
         "type": "bravia-ircc",
-        "z": "411bf1b5.ed387",
-        "g": "7d2c9805.210088",
+        "z": "3ff699d2.ba1696",
+        "g": "c953472.cc5afb8",
         "tv": "204aae5a.40fb72",
         "ircc": "Num5",
         "name": "Num 5",
@@ -1672,10 +1678,10 @@
         "wires": []
     },
     {
-        "id": "f37ecde8.70037",
+        "id": "a38b97fa.ae8f08",
         "type": "bravia-ircc",
-        "z": "411bf1b5.ed387",
-        "g": "7d2c9805.210088",
+        "z": "3ff699d2.ba1696",
+        "g": "c953472.cc5afb8",
         "tv": "204aae5a.40fb72",
         "ircc": "Num6",
         "name": "Num 6",
@@ -1684,10 +1690,10 @@
         "wires": []
     },
     {
-        "id": "e0a90441.c31e68",
+        "id": "f837ff73.f6394",
         "type": "bravia-ircc",
-        "z": "411bf1b5.ed387",
-        "g": "7d2c9805.210088",
+        "z": "3ff699d2.ba1696",
+        "g": "c953472.cc5afb8",
         "tv": "204aae5a.40fb72",
         "ircc": "Num7",
         "name": "Num 7",
@@ -1696,10 +1702,10 @@
         "wires": []
     },
     {
-        "id": "663b1cec.737e04",
+        "id": "eefa953f.dc3438",
         "type": "bravia-ircc",
-        "z": "411bf1b5.ed387",
-        "g": "7d2c9805.210088",
+        "z": "3ff699d2.ba1696",
+        "g": "c953472.cc5afb8",
         "tv": "204aae5a.40fb72",
         "ircc": "Num8",
         "name": "Num 8",
@@ -1708,10 +1714,10 @@
         "wires": []
     },
     {
-        "id": "914e5a00.3ec058",
+        "id": "ed85831.1b99e8",
         "type": "bravia-ircc",
-        "z": "411bf1b5.ed387",
-        "g": "7d2c9805.210088",
+        "z": "3ff699d2.ba1696",
+        "g": "c953472.cc5afb8",
         "tv": "204aae5a.40fb72",
         "ircc": "Num9",
         "name": "Num 9",
@@ -1720,10 +1726,10 @@
         "wires": []
     },
     {
-        "id": "cf1d995e.159e18",
+        "id": "6bba9f17.c4897",
         "type": "delay",
-        "z": "411bf1b5.ed387",
-        "g": "7d2c9805.210088",
+        "z": "3ff699d2.ba1696",
+        "g": "c953472.cc5afb8",
         "name": "",
         "pauseType": "delay",
         "timeout": "1",
@@ -1739,16 +1745,17 @@
         "y": 760,
         "wires": [
             [
-                "d3f142f8.848ec"
+                "791516c8.bbbd98",
+                "e5e33181.c4e84"
             ]
         ],
         "l": false
     },
     {
-        "id": "e246ac5f.43b3c",
+        "id": "56005e67.6f577",
         "type": "delay",
-        "z": "411bf1b5.ed387",
-        "g": "7d2c9805.210088",
+        "z": "3ff699d2.ba1696",
+        "g": "c953472.cc5afb8",
         "name": "",
         "pauseType": "delay",
         "timeout": "1",
@@ -1764,16 +1771,17 @@
         "y": 800,
         "wires": [
             [
-                "cdd19aa6.de4538"
+                "c825d679.936b48",
+                "e5e33181.c4e84"
             ]
         ],
         "l": false
     },
     {
-        "id": "161795dd.dac40a",
+        "id": "d439b3d3.329f2",
         "type": "delay",
-        "z": "411bf1b5.ed387",
-        "g": "7d2c9805.210088",
+        "z": "3ff699d2.ba1696",
+        "g": "c953472.cc5afb8",
         "name": "",
         "pauseType": "delay",
         "timeout": "1",
@@ -1789,15 +1797,16 @@
         "y": 840,
         "wires": [
             [
-                "dfc8ac27.7cf86"
+                "61ab07e7.590f38",
+                "e5e33181.c4e84"
             ]
         ],
         "l": false
     },
     {
-        "id": "d4798a40.7d1a48",
+        "id": "b25a3a61.14d3b8",
         "type": "delay",
-        "z": "411bf1b5.ed387",
+        "z": "3ff699d2.ba1696",
         "name": "",
         "pauseType": "delay",
         "timeout": "1",
@@ -1812,15 +1821,17 @@
         "x": 795,
         "y": 880,
         "wires": [
-            []
+            [
+                "e5e33181.c4e84"
+            ]
         ],
         "l": false
     },
     {
-        "id": "e5c74c4f.6c9e5",
+        "id": "d0f2cd7.cc1dc3",
         "type": "delay",
-        "z": "411bf1b5.ed387",
-        "g": "7d2c9805.210088",
+        "z": "3ff699d2.ba1696",
+        "g": "c953472.cc5afb8",
         "name": "",
         "pauseType": "delay",
         "timeout": "1",
@@ -1836,16 +1847,17 @@
         "y": 920,
         "wires": [
             [
-                "33064a13.3504c6"
+                "4686c67.80d8938",
+                "e5e33181.c4e84"
             ]
         ],
         "l": false
     },
     {
-        "id": "3dd63619.93fbaa",
+        "id": "40ab2c00.bc1a94",
         "type": "delay",
-        "z": "411bf1b5.ed387",
-        "g": "7d2c9805.210088",
+        "z": "3ff699d2.ba1696",
+        "g": "c953472.cc5afb8",
         "name": "",
         "pauseType": "delay",
         "timeout": "1",
@@ -1861,16 +1873,17 @@
         "y": 960,
         "wires": [
             [
-                "f37ecde8.70037"
+                "a38b97fa.ae8f08",
+                "e5e33181.c4e84"
             ]
         ],
         "l": false
     },
     {
-        "id": "8e0fdeac.af821",
+        "id": "28058acc.1b50b6",
         "type": "delay",
-        "z": "411bf1b5.ed387",
-        "g": "7d2c9805.210088",
+        "z": "3ff699d2.ba1696",
+        "g": "c953472.cc5afb8",
         "name": "",
         "pauseType": "delay",
         "timeout": "1",
@@ -1886,16 +1899,17 @@
         "y": 1000,
         "wires": [
             [
-                "e0a90441.c31e68"
+                "f837ff73.f6394",
+                "e5e33181.c4e84"
             ]
         ],
         "l": false
     },
     {
-        "id": "94e6b44e.e923a8",
+        "id": "ae44b78e.260108",
         "type": "delay",
-        "z": "411bf1b5.ed387",
-        "g": "7d2c9805.210088",
+        "z": "3ff699d2.ba1696",
+        "g": "c953472.cc5afb8",
         "name": "",
         "pauseType": "delay",
         "timeout": "1",
@@ -1911,16 +1925,17 @@
         "y": 1040,
         "wires": [
             [
-                "663b1cec.737e04"
+                "eefa953f.dc3438",
+                "e5e33181.c4e84"
             ]
         ],
         "l": false
     },
     {
-        "id": "1a135002.da5c1",
+        "id": "8d5df216.abbac",
         "type": "delay",
-        "z": "411bf1b5.ed387",
-        "g": "7d2c9805.210088",
+        "z": "3ff699d2.ba1696",
+        "g": "c953472.cc5afb8",
         "name": "",
         "pauseType": "delay",
         "timeout": "1",
@@ -1936,18 +1951,19 @@
         "y": 1080,
         "wires": [
             [
-                "914e5a00.3ec058"
+                "ed85831.1b99e8",
+                "e5e33181.c4e84"
             ]
         ],
         "l": false
     },
     {
-        "id": "b71427.014c0bd8",
+        "id": "c5a589cd.b41668",
         "type": "function",
-        "z": "411bf1b5.ed387",
-        "g": "7d2c9805.210088",
+        "z": "3ff699d2.ba1696",
+        "g": "c953472.cc5afb8",
         "name": "Filter",
-        "func": "// to filter which type of media ; channel or video?\n\nreturn msg;",
+        "func": "// to filter which type of media ; channel or video?\n\nvar setScreen = flow.get(\"setScreen\");\n\n    if(setScreen === \"channel\"){\n        return [msg, null];\n    }else{\n        return [null, msg];\n    }",
         "outputs": 2,
         "noerr": 0,
         "initialize": "",
@@ -1956,42 +1972,42 @@
         "y": 1400,
         "wires": [
             [
-                "eb770827.d06dd8"
+                "e995a8d.b370d58"
             ],
             [
-                "283fd647.78495a"
+                "1d6269d6.b162d6"
             ]
         ]
     },
     {
-        "id": "283fd647.78495a",
+        "id": "e995a8d.b370d58",
         "type": "bravia-ircc",
-        "z": "411bf1b5.ed387",
-        "g": "7d2c9805.210088",
+        "z": "3ff699d2.ba1696",
+        "g": "c953472.cc5afb8",
         "tv": "204aae5a.40fb72",
         "ircc": "ChannelUp",
         "name": "Channel Up",
         "x": 730,
-        "y": 1420,
+        "y": 1380,
         "wires": []
     },
     {
-        "id": "67fd85b3.ec6e4c",
+        "id": "f4d4327f.dc351",
         "type": "bravia-ircc",
-        "z": "411bf1b5.ed387",
-        "g": "7d2c9805.210088",
+        "z": "3ff699d2.ba1696",
+        "g": "c953472.cc5afb8",
         "tv": "204aae5a.40fb72",
         "ircc": "ChannelDown",
         "name": "Channel Down",
         "x": 740,
-        "y": 1500,
+        "y": 1460,
         "wires": []
     },
     {
-        "id": "32270859.e39b88",
+        "id": "e0d0e835.5b2ac8",
         "type": "comment",
-        "z": "411bf1b5.ed387",
-        "g": "7d2c9805.210088",
+        "z": "3ff699d2.ba1696",
+        "g": "c953472.cc5afb8",
         "name": "Under development",
         "info": "These features will allow the Snips voice assistant to control your smart Sony TV to change channel or to skip video (Youtube e.g.)",
         "x": 650,
@@ -1999,12 +2015,12 @@
         "wires": []
     },
     {
-        "id": "89a37844.e9a7e8",
+        "id": "6d26826.a69e37c",
         "type": "function",
-        "z": "411bf1b5.ed387",
-        "g": "7d2c9805.210088",
+        "z": "3ff699d2.ba1696",
+        "g": "c953472.cc5afb8",
         "name": "Filter",
-        "func": "// to filter which type of media ; channel or video?\n\nreturn msg;",
+        "func": "// to filter which type of media ; channel or video?\n\nvar setScreen = flow.get(\"setScreen\");\n\n    if(setScreen === \"channel\"){\n        return [msg, null];\n    }else{\n        return [null, msg];\n    }",
         "outputs": 2,
         "noerr": 0,
         "initialize": "",
@@ -2013,17 +2029,54 @@
         "y": 1480,
         "wires": [
             [
-                "579ef833.869b48"
+                "f4d4327f.dc351"
             ],
             [
-                "67fd85b3.ec6e4c"
+                "652fdd6c.536ce4"
             ]
         ]
     },
     {
-        "id": "3e78409e.2eaa2",
+        "id": "a43de525.2e9ca8",
+        "type": "bravia-ircc",
+        "z": "3ff699d2.ba1696",
+        "g": "c953472.cc5afb8",
+        "tv": "204aae5a.40fb72",
+        "ircc": "Confirm",
+        "name": "Confirm",
+        "x": 1090,
+        "y": 885,
+        "wires": []
+    },
+    {
+        "id": "e5e33181.c4e84",
+        "type": "delay",
+        "z": "3ff699d2.ba1696",
+        "g": "c953472.cc5afb8",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "1",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "x": 990,
+        "y": 885,
+        "wires": [
+            [
+                "a43de525.2e9ca8"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "b8fcf82.0729e08",
         "type": "mqtt-broker",
-        "z": "411bf1b5.ed387",
+        "z": "3ff699d2.ba1696",
         "name": "-",
         "broker": "localhost",
         "port": "1883",
