@@ -108,7 +108,6 @@
             "c5a589cd.b41668",
             "e995a8d.b370d58",
             "f4d4327f.dc351",
-            "e0d0e835.5b2ac8",
             "6d26826.a69e37c",
             "a43de525.2e9ca8",
             "e5e33181.c4e84"
@@ -116,7 +115,7 @@
         "x": 149,
         "y": 34,
         "w": 1027,
-        "h": 1767
+        "h": 1697
     },
     {
         "id": "cc872597.6f34a8",
@@ -128,8 +127,8 @@
         "method": "get",
         "upload": false,
         "swaggerDoc": "",
-        "x": 300,
-        "y": 1760,
+        "x": 280,
+        "y": 1690,
         "wires": [
             [
                 "133fc7a7.482d28"
@@ -147,8 +146,8 @@
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 435,
-        "y": 1760,
+        "x": 415,
+        "y": 1690,
         "wires": [
             [
                 "9092034e.efa21"
@@ -166,8 +165,8 @@
         "qos": "2",
         "datatype": "auto",
         "broker": "b8fcf82.0729e08",
-        "x": 266,
-        "y": 1500,
+        "x": 246,
+        "y": 1430,
         "wires": [
             [
                 "b6ed37c4.1b8538"
@@ -184,8 +183,8 @@
         "qos": "2",
         "datatype": "auto",
         "broker": "b8fcf82.0729e08",
-        "x": 276,
-        "y": 1540,
+        "x": 256,
+        "y": 1470,
         "wires": [
             [
                 "b6ed37c4.1b8538"
@@ -239,8 +238,8 @@
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 414,
-        "y": 1585,
+        "x": 394,
+        "y": 1515,
         "wires": [
             [
                 "c5a589cd.b41668"
@@ -526,8 +525,8 @@
         "qos": "2",
         "datatype": "auto",
         "broker": "b8fcf82.0729e08",
-        "x": 265,
-        "y": 1585,
+        "x": 245,
+        "y": 1515,
         "wires": [
             [
                 "b6ed37c4.1b8538"
@@ -544,8 +543,8 @@
         "qos": "2",
         "datatype": "auto",
         "broker": "b8fcf82.0729e08",
-        "x": 265,
-        "y": 1625,
+        "x": 245,
+        "y": 1555,
         "wires": [
             [
                 "b6ed37c4.1b8538"
@@ -562,8 +561,8 @@
         "qos": "2",
         "datatype": "auto",
         "broker": "b8fcf82.0729e08",
-        "x": 265,
-        "y": 1665,
+        "x": 245,
+        "y": 1595,
         "wires": [
             [
                 "b6ed37c4.1b8538"
@@ -578,8 +577,8 @@
         "tv": "204aae5a.40fb72",
         "ircc": "Next",
         "name": "Next",
-        "x": 710,
-        "y": 1420,
+        "x": 690,
+        "y": 1350,
         "wires": []
     },
     {
@@ -590,8 +589,8 @@
         "tv": "204aae5a.40fb72",
         "ircc": "Prev",
         "name": "Previous",
-        "x": 720,
-        "y": 1500,
+        "x": 700,
+        "y": 1430,
         "wires": []
     },
     {
@@ -700,7 +699,7 @@
         "z": "3ff699d2.ba1696",
         "g": "c953472.cc5afb8",
         "name": "Filter",
-        "func": "msg.payload = JSON.parse(msg.payload);\nmsg.cmd = {};\nmsg.cmd.lang = global.get(\"msgLang\");\n\nif(msg.cmd.lang === \"de\"){\n    \n    if(msg.payload.text.includes(\"pause\")){\n            \n        flow.set(\"messageTv\", \"off\");\n    }else{\n        flow.set(\"messageTv\", \"on\");\n    }\n    \n    if(msg.payload.text.includes(\"kanal\")){\n        \n        flow.set(\"setScreen\", \"channel\");\n    }else{\n        flow.set(\"setScreen\", \"media\");\n    }\n    \n    \n        \n    \n} else if(msg.cmd.lang === \"fr\"){\n    \n    if(msg.payload.text.includes(\"pause\")){\n            \n            flow.set(\"messageTv\", \"off\");\n            \n    }else{\n        flow.set(\"messageTv\", \"on\");\n    }\n    \n    if(msg.payload.text.includes(\"canal\")){\n        \n        flow.set(\"setScreen\", \"channel\");\n    }else{\n        flow.set(\"setScreen\", \"media\");\n    }\n    \n}else{\n    \n    if(msg.payload.text.includes(\"pause\")){\n            \n        flow.set(\"messageTv\", \"off\");\n            \n    }else{\n        flow.set(\"messageTv\", \"on\");\n    }\n    \n    if(msg.payload.text.includes(\"channel\")){\n        \n        flow.set(\"setScreen\", \"channel\");\n    }else{\n        flow.set(\"setScreen\", \"media\");\n    }\n}\n\n\n",
+        "func": "msg.payload = JSON.parse(msg.payload);\nmsg.cmd = {};\nmsg.cmd.lang = global.get(\"msgLang\");\n\nif(msg.cmd.lang === \"de\"){\n    \n    if(msg.payload.text.includes(\"pause\")){\n            \n        flow.set(\"messageTv\", \"off\");\n    }else{\n        flow.set(\"messageTv\", \"on\");\n    }\n    \n    if(msg.payload.text.includes(\"kanal\")){\n        \n        flow.set(\"setScreen\", \"channel\");\n        global.set(\"defaultSpeaker\", \"tv\");\n    }else{\n        flow.set(\"setScreen\", \"media\");\n    }\n    \n    \n        \n    \n} else if(msg.cmd.lang === \"fr\"){\n    \n    if(msg.payload.text.includes(\"pause\")){\n            \n            flow.set(\"messageTv\", \"off\");\n            \n    }else{\n        flow.set(\"messageTv\", \"on\");\n    }\n    \n    if(msg.payload.text.includes(\"canal\")){\n        \n        flow.set(\"setScreen\", \"channel\");\n        global.set(\"defaultSpeaker\", \"tv\");\n    }else{\n        flow.set(\"setScreen\", \"media\");\n    }\n    \n}else{\n    \n    if(msg.payload.text.includes(\"pause\")){\n            \n        flow.set(\"messageTv\", \"off\");\n            \n    }else{\n        flow.set(\"messageTv\", \"on\");\n    }\n    \n    if(msg.payload.text.includes(\"channel\")){\n        \n        flow.set(\"setScreen\", \"channel\");\n        global.set(\"defaultSpeaker\", \"tv\");\n    }else{\n        flow.set(\"setScreen\", \"media\");\n    }\n}\n\n\n",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -720,8 +719,8 @@
         "method": "audio:1.2:setAudioVolume",
         "payload": "{\"target\":\"speaker\", \"volume\":\"+6\"}",
         "name": "Volume up",
-        "x": 745,
-        "y": 1565,
+        "x": 725,
+        "y": 1495,
         "wires": [
             []
         ]
@@ -735,8 +734,8 @@
         "method": "audio:1.2:setAudioVolume",
         "payload": "{\"target\":\"speaker\", \"volume\":\"-6\"}",
         "name": "Volume down",
-        "x": 735,
-        "y": 1625,
+        "x": 715,
+        "y": 1555,
         "wires": [
             []
         ]
@@ -860,8 +859,8 @@
         "method": "audio:1.2:setAudioVolume",
         "payload": "",
         "name": "Set volume",
-        "x": 894,
-        "y": 1685,
+        "x": 874,
+        "y": 1615,
         "wires": [
             []
         ]
@@ -875,8 +874,8 @@
         "method": "audio:1.0:setAudioMute",
         "payload": "{\"status\":false}",
         "name": "Unmute",
-        "x": 565,
-        "y": 1565.6000061035156,
+        "x": 545,
+        "y": 1495.6000061035156,
         "wires": [
             [
                 "fccd5183.1935b"
@@ -892,8 +891,8 @@
         "method": "audio:1.0:setAudioMute",
         "payload": "{\"status\":false}",
         "name": "Unmute",
-        "x": 564,
-        "y": 1625,
+        "x": 544,
+        "y": 1555,
         "wires": [
             [
                 "1c7cc162.d07ebf"
@@ -924,8 +923,8 @@
         "method": "audio:1.0:setAudioMute",
         "payload": "{\"status\":false}",
         "name": "Unmute",
-        "x": 424,
-        "y": 1685,
+        "x": 404,
+        "y": 1615,
         "wires": [
             [
                 "21dfd053.29284"
@@ -943,8 +942,8 @@
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 734,
-        "y": 1685,
+        "x": 714,
+        "y": 1615,
         "wires": [
             [
                 "f51376d0.cd7048"
@@ -960,8 +959,8 @@
         "method": "audio:1.0:getVolumeInformation",
         "payload": "",
         "name": "Volume info",
-        "x": 574,
-        "y": 1685,
+        "x": 554,
+        "y": 1615,
         "wires": [
             [
                 "160dd2f1.80dbed"
@@ -976,8 +975,8 @@
         "name": "",
         "statusCode": "",
         "headers": {},
-        "x": 495,
-        "y": 1760,
+        "x": 475,
+        "y": 1690,
         "wires": [],
         "l": false
     },
@@ -1968,8 +1967,8 @@
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 570,
-        "y": 1400,
+        "x": 550,
+        "y": 1330,
         "wires": [
             [
                 "e995a8d.b370d58"
@@ -1987,8 +1986,8 @@
         "tv": "204aae5a.40fb72",
         "ircc": "ChannelUp",
         "name": "Channel Up",
-        "x": 730,
-        "y": 1380,
+        "x": 710,
+        "y": 1310,
         "wires": []
     },
     {
@@ -1999,19 +1998,8 @@
         "tv": "204aae5a.40fb72",
         "ircc": "ChannelDown",
         "name": "Channel Down",
-        "x": 740,
-        "y": 1460,
-        "wires": []
-    },
-    {
-        "id": "e0d0e835.5b2ac8",
-        "type": "comment",
-        "z": "3ff699d2.ba1696",
-        "g": "c953472.cc5afb8",
-        "name": "Under development",
-        "info": "These features will allow the Snips voice assistant to control your smart Sony TV to change channel or to skip video (Youtube e.g.)",
-        "x": 650,
-        "y": 1333,
+        "x": 720,
+        "y": 1390,
         "wires": []
     },
     {
@@ -2025,8 +2013,8 @@
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 570,
-        "y": 1480,
+        "x": 550,
+        "y": 1410,
         "wires": [
             [
                 "f4d4327f.dc351"
