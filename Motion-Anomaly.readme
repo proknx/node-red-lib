@@ -1,0 +1,13 @@
+These flows detect the events from motion and door sensors and send it to motion_anomaly.
+
+The motion_anomaly will then evaluates the events by sending true or false as a result. False indicate no motion anomaly while true indicates there is. The output will then use to "trigger the alarm" by sending notifications to the person.
+
+For the user to be notified of the output given, push bullet and mail nodes are used. The nodes need to be installed :
+-> node-red-node-email
+-> node-red-node-pushbullet
+
+Mail Set Up :
+1. Write down your email adresse at To and Userid.
+2. Write down the password of your email.
+3. Leave the others by default
+4. Go to google setting->security->less secure app access->on.
