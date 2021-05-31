@@ -2,7 +2,7 @@
     {
         "id": "9912ebf0.d31d98",
         "type": "tab",
-        "label": "MOTION-ANOMALY",
+        "label": "SHELLY MOTION-ANOMALY",
         "disabled": false,
         "info": ""
     },
@@ -15,42 +15,60 @@
             "label": true
         },
         "nodes": [
-            "8917f648.d16478",
             "1437cb5b.78bf85",
             "aa06a450.447a6",
             "436e24.3c7821dc",
             "7eb8a14e.f17878",
-            "468aa261.c8ee2c",
             "8f85d505.5e8a2",
             "f89004a6.d75d98",
-            "9f563559.930aa",
             "4131c677.7cc378",
             "f759c2f9.92fe08",
             "96dc7ee1.c72178",
             "3cb041a.aee3d3e",
-            "341bff0.a8c5682",
             "f891f86a.dd3188",
-            "e9b39f7.77e496",
             "71c43afb.23109c",
             "4b714be7.8ee88c",
-            "52df2312.b758fc",
             "a6450ec0.94678",
-            "44cc5004.ca59d8",
             "46501012.d5f7a",
             "3cc2d420.66eca4",
             "9dbc46e.c8a6eb8",
-            "b6e8d3a6.4215b8",
             "3e9ee410.08b9fc",
             "1b2b3d17.2eea03",
             "ef5602ed.bcb3c8",
             "6002d4ba.b54bf4",
             "b19a0760.30442",
-            "29df3d4c.f046e2"
+            "29df3d4c.f046e2",
+            "aa59cdb0.22552",
+            "f0ea0aa4.ee7d6",
+            "8877dd15.104c",
+            "141024fd.2f984b",
+            "2106b62b.2ae94a",
+            "490a62f8.b270ac",
+            "4c792b7d.5d9e34"
         ],
-        "x": -6,
-        "y": 59,
-        "w": 1152,
+        "x": 14,
+        "y": 79,
+        "w": 1092,
         "h": 521
+    },
+    {
+        "id": "5dd55bb8.47309c",
+        "type": "group",
+        "z": "9912ebf0.d31d98",
+        "name": "SHELLY - Debugging",
+        "style": {
+            "label": true
+        },
+        "nodes": [
+            "78082009.a37ae",
+            "464255c4.19455c",
+            "95bd7b8.118a408",
+            "b8052dfb.95528"
+        ],
+        "x": 454,
+        "y": 619,
+        "w": 312,
+        "h": 162
     },
     {
         "id": "75274208.8c0934",
@@ -64,397 +82,15 @@
             "62312e15.231cf",
             "e3c96b97.fb93",
             "75d34062.2d707",
-            "c47defbe.d1a9e8",
             "7e888a3c.0407ac",
             "979c6095.c4cdd",
             "f2adf906.6401a",
-            "b57c5b02.0e0358",
-            "6ceaeb5.9922094"
-        ],
-        "x": 734,
-        "y": 799,
-        "w": 612,
-        "h": 182
-    },
-    {
-        "id": "80b47a5b.fe20e8",
-        "type": "group",
-        "z": "9912ebf0.d31d98",
-        "name": "KNX - Sensors",
-        "style": {
-            "label": true
-        },
-        "nodes": [
-            "764522d3.3a5454",
-            "23c60866.5e9a58",
-            "e35d3e2a.ecee78",
-            "7d730bc2.79b44c",
-            "c63de876.8fe91",
-            "52ac5be2.c2ba1c",
-            "601e937c.bef07c",
-            "fd2aee7b.659778",
-            "f9373fb4.d99cb",
-            "646d5f3b.83718",
-            "b6211612.ce4a38",
-            "1249787d.52dbf8",
-            "8d69a4d7.6d611",
-            "26195e3e.749b12",
-            "de99f3fc.822448",
-            "f994bde9.8c0bb8"
+            "b57c5b02.0e0358"
         ],
         "x": 14,
-        "y": 739,
-        "w": 692,
-        "h": 382
-    },
-    {
-        "id": "62312e15.231cf",
-        "type": "comment",
-        "z": "9912ebf0.d31d98",
-        "g": "75274208.8c0934",
-        "name": "Shelly deviceInfo ",
-        "info": "Listen to deviceInfo from Shelly, example low battery level",
-        "x": 840,
-        "y": 840,
-        "wires": []
-    },
-    {
-        "id": "e3c96b97.fb93",
-        "type": "mqtt in",
-        "z": "9912ebf0.d31d98",
-        "g": "75274208.8c0934",
-        "name": "Motion",
-        "topic": "shellies/+/status",
-        "qos": "2",
-        "datatype": "auto",
-        "broker": "50a4494.81119b8",
-        "x": 810,
-        "y": 880,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "75d34062.2d707",
-        "type": "mqtt in",
-        "z": "9912ebf0.d31d98",
-        "g": "75274208.8c0934",
-        "name": "Sensor",
-        "topic": "shellies/+/sensor/battery",
-        "qos": "2",
-        "datatype": "auto",
-        "broker": "50a4494.81119b8",
-        "x": 810,
-        "y": 940,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "c47defbe.d1a9e8",
-        "type": "debug",
-        "z": "9912ebf0.d31d98",
-        "g": "75274208.8c0934",
-        "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 1230,
-        "y": 880,
-        "wires": []
-    },
-    {
-        "id": "7e888a3c.0407ac",
-        "type": "function",
-        "z": "9912ebf0.d31d98",
-        "g": "75274208.8c0934",
-        "name": "report",
-        "func": "var reports = global.get(\"reports\", reports);\nif(reports === undefined || reports === null ){\n    reports = \"\";\n}\nif(reports.length>200){\n    reports = \"\";\n}\nvar lang = global.get(\"msgLang\");\nif(msg.payload.bat<50){\n    var newReport = \"\";\n    if (lang === \"de\") {\n        newReport = \"Der Batteriestand des \" + msg.topic.split(\"/\")[1].split(\"-\")[1].slice(7,12) + \" ist \" + msg.payload.bat + \" Prozent. \";\n    } else if (lang === \"fr\") {\n        newReport = \"Le niveau de batterie du \" + msg.topic.split(\"/\")[1].split(\"-\")[1].slice(7,12) + \" est du \" + msg.payload.bat + \" pour cent. \";\n    } else {\n        newReport = msg.topic.split(\"/\")[1].split(\"-\")[1].slice(7,12) + \" battery level is \" + msg.payload.bat + \" percent. \";\n    }\n    if(!reports.includes(newReport)){\n        reports += newReport;\n    }\n    global.set(\"reports\", reports);\n    msg.payload = reports; \n    return [msg];\n} else {\n    msg.payload = msg.topic.split(\"/\")[1].split(\"-\")[1].slice(7,12) + \": battery level is: \" + msg.payload.bat; \n    return [msg];\n}\n\n\n",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "x": 1070,
-        "y": 880,
-        "wires": [
-            [
-                "c47defbe.d1a9e8"
-            ]
-        ]
-    },
-    {
-        "id": "979c6095.c4cdd",
-        "type": "json",
-        "z": "9912ebf0.d31d98",
-        "g": "75274208.8c0934",
-        "name": "",
-        "property": "payload",
-        "action": "",
-        "pretty": false,
-        "x": 930,
-        "y": 880,
-        "wires": [
-            [
-                "7e888a3c.0407ac"
-            ]
-        ]
-    },
-    {
-        "id": "6ceaeb5.9922094",
-        "type": "debug",
-        "z": "9912ebf0.d31d98",
-        "g": "75274208.8c0934",
-        "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 1230,
-        "y": 940,
-        "wires": []
-    },
-    {
-        "id": "b57c5b02.0e0358",
-        "type": "function",
-        "z": "9912ebf0.d31d98",
-        "g": "75274208.8c0934",
-        "name": "report",
-        "func": "var reports = global.get(\"reports\", reports);\nif(reports === undefined || reports === null ){\n    reports = \"\";\n}\nif(reports.length>200){\n    reports = \"\";\n}\nvar lang = global.get(\"msgLang\");\nif(msg.payload<50){\n    var newReport = \"\";\n    if (lang === \"de\") {\n        newReport = \"Der Batteriestand des \" + msg.topic.split(\"/\")[1].split(\"-\")[1].slice(7,12) + \" ist \" + msg.payload + \" Prozent. \";\n    } else if (lang === \"fr\") {\n        newReport = \"Le niveau de batterie du \" + msg.topic.split(\"/\")[1].split(\"-\")[1].slice(7,12) + \" est du \" + msg.payload + \" pour cent. \";\n    } else {\n        newReport = msg.topic.split(\"/\")[1].split(\"-\")[1].slice(7,12) + \" battery level is \" + msg.payload + \" percent. \";\n    }\n    if(!reports.includes(newReport)){\n        reports += newReport;\n    }\n    global.set(\"reports\", reports);\n    msg.payload = reports; \n    return [msg];\n} else {\n    msg.payload = msg.topic.split(\"/\")[1].split(\"-\")[1].slice(7,12) + \": battery level is: \" + msg.payload; \n    return [msg];\n}\n\n\n",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "x": 1070,
-        "y": 940,
-        "wires": [
-            [
-                "6ceaeb5.9922094"
-            ]
-        ]
-    },
-    {
-        "id": "f2adf906.6401a",
-        "type": "json",
-        "z": "9912ebf0.d31d98",
-        "g": "75274208.8c0934",
-        "name": "",
-        "property": "payload",
-        "action": "",
-        "pretty": false,
-        "x": 930,
-        "y": 940,
-        "wires": [
-            [
-                "b57c5b02.0e0358"
-            ]
-        ]
-    },
-    {
-        "id": "764522d3.3a5454",
-        "type": "knxUltimate",
-        "z": "9912ebf0.d31d98",
-        "g": "80b47a5b.fe20e8",
-        "server": "f6f79a0c.4815e8",
-        "topic": "13/2/2",
-        "outputtopic": "",
-        "dpt": "1.006",
-        "initialread": false,
-        "notifyreadrequest": false,
-        "notifyresponse": false,
-        "notifywrite": true,
-        "notifyreadrequestalsorespondtobus": false,
-        "notifyreadrequestalsorespondtobusdefaultvalueifnotinitialized": "0",
-        "listenallga": false,
-        "name": "Conf room",
-        "outputtype": "write",
-        "outputRBE": true,
-        "inputRBE": false,
-        "formatmultiplyvalue": 1,
-        "formatnegativevalue": "leave",
-        "formatdecimalsvalue": 999,
-        "x": 120,
-        "y": 940,
-        "wires": [
-            [
-                "23c60866.5e9a58"
-            ]
-        ]
-    },
-    {
-        "id": "b6211612.ce4a38",
-        "type": "knxUltimate",
-        "z": "9912ebf0.d31d98",
-        "g": "80b47a5b.fe20e8",
-        "server": "f6f79a0c.4815e8",
-        "topic": "13/4/2",
-        "outputtopic": "",
-        "dpt": "1.006",
-        "initialread": false,
-        "notifyreadrequest": false,
-        "notifyresponse": false,
-        "notifywrite": true,
-        "notifyreadrequestalsorespondtobus": false,
-        "notifyreadrequestalsorespondtobusdefaultvalueifnotinitialized": "0",
-        "listenallga": false,
-        "name": "Door contact",
-        "outputtype": "write",
-        "outputRBE": true,
-        "inputRBE": false,
-        "formatmultiplyvalue": 1,
-        "formatnegativevalue": "leave",
-        "formatdecimalsvalue": 999,
-        "x": 130,
-        "y": 1080,
-        "wires": [
-            [
-                "7d730bc2.79b44c",
-                "26195e3e.749b12",
-                "aa59cdb0.22552"
-            ]
-        ]
-    },
-    {
-        "id": "e35d3e2a.ecee78",
-        "type": "debug",
-        "z": "9912ebf0.d31d98",
-        "g": "80b47a5b.fe20e8",
-        "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 235,
-        "y": 840,
-        "wires": [],
-        "l": false
-    },
-    {
-        "id": "7d730bc2.79b44c",
-        "type": "debug",
-        "z": "9912ebf0.d31d98",
-        "g": "80b47a5b.fe20e8",
-        "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 275,
-        "y": 1020,
-        "wires": [],
-        "l": false
-    },
-    {
-        "id": "23c60866.5e9a58",
-        "type": "function",
-        "z": "9912ebf0.d31d98",
-        "g": "80b47a5b.fe20e8",
-        "name": "",
-        "func": "if (msg.payload !== undefined || msg.payload.length>0){\n   // msg.payload = JSON.parse(msg.payload);\n    if (msg.payload == true){\n        var language = global.get(\"msgLang\");\n        var siteId = global.get(\"msgServerSiteId\").replace(/_\\d+$/, \"\").trim();\n        var msgText = {payload:[]};\n        //motion detected\n        //node.warn(\"Motion sensor \" + msg.devicename.split(\" \")[0] +\" state is \" + msg.payload);\n        sensorname= msg.devicename.split(\" \")[0];\n        //global.set(\"sensorname\", sensorname); \n        var payload = {type:\"motion\", isOccupied:true};\n        msg.payload = JSON.stringify(payload);\n        msg.topic= \"motion_anomaly/sensor/\"+ sensorname;\n        msg.return = true;\n        \n        if (language === \"de\") {\n         msgText.payload = {\n          text: \"Anwesenheit erkannt\",\n          siteId: siteId,\n          lang: \"de-DE\"\n            };\n        } else if (language === \"fr\") {\n         msgText.payload = {\n          text: \"Présence détectée\",\n          siteId: siteId,\n          lang: \"fr-FR\"\n            };\n        } else {\n         msgText.payload = {\n          text: \"Presence detected\",\n          siteId: siteId,\n          lang: \"en-UK\"\n            };\n        }\n        \n        return [msg, msgText];\n    }else if(msg.payload == false){\n        //no motion detected\n        //node.warn(\"Motion sensor \" + msg.devicename.split(\" \")[0] +\" state is not alive \");\n        sensorname= msg.devicename.split(\" \")[0];\n        //global.set(\"sensorname\", sensorname); \n        var payload = {type:\"motion\", isOccupied:false};\n        msg.payload = JSON.stringify(payload);\n        //msg.payload.id = msg.topic.split(\"/\")[1].split(\"-\")[1];\n        msg.topic= \"motion_anomaly/sensor/\"+ sensorname;\n        msg.return=false;\n        \n        return [msg, null];\n    }\n}",
-        "outputs": 2,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "x": 300,
-        "y": 940,
-        "wires": [
-            [
-                "1249787d.52dbf8"
-            ],
-            []
-        ]
-    },
-    {
-        "id": "c63de876.8fe91",
-        "type": "catch",
-        "z": "9912ebf0.d31d98",
-        "g": "80b47a5b.fe20e8",
-        "name": "",
-        "scope": [
-            "23c60866.5e9a58"
-        ],
-        "uncaught": false,
-        "x": 130,
-        "y": 840,
-        "wires": [
-            [
-                "e35d3e2a.ecee78"
-            ]
-        ]
-    },
-    {
-        "id": "646d5f3b.83718",
-        "type": "link out",
-        "z": "9912ebf0.d31d98",
-        "g": "80b47a5b.fe20e8",
-        "name": "",
-        "links": [
-            "3bd57099.afbdb8"
-        ],
-        "x": 555,
-        "y": 940,
-        "wires": []
-    },
-    {
-        "id": "f9373fb4.d99cb",
-        "type": "delay",
-        "z": "9912ebf0.d31d98",
-        "g": "80b47a5b.fe20e8",
-        "name": "",
-        "pauseType": "rate",
-        "timeout": "5",
-        "timeoutUnits": "seconds",
-        "rate": "1",
-        "nbRateUnits": "5",
-        "rateUnits": "minute",
-        "randomFirst": "1",
-        "randomLast": "5",
-        "randomUnits": "seconds",
-        "drop": true,
-        "x": 495,
-        "y": 940,
-        "wires": [
-            []
-        ],
-        "l": false
-    },
-    {
-        "id": "8917f648.d16478",
-        "type": "catch",
-        "z": "9912ebf0.d31d98",
-        "g": "16f01b3.1422a65",
-        "name": "",
-        "scope": [
-            "aa06a450.447a6",
-            "8f85d505.5e8a2",
-            "f759c2f9.92fe08",
-            "96dc7ee1.c72178",
-            "4131c677.7cc378"
-        ],
-        "uncaught": false,
-        "x": 710,
-        "y": 120,
-        "wires": [
-            [
-                "468aa261.c8ee2c"
-            ]
-        ]
+        "y": 619,
+        "w": 412,
+        "h": 182
     },
     {
         "id": "1437cb5b.78bf85",
@@ -466,8 +102,8 @@
         "qos": "",
         "retain": "",
         "broker": "50a4494.81119b8",
-        "x": 530,
-        "y": 120,
+        "x": 510,
+        "y": 140,
         "wires": []
     },
     {
@@ -481,11 +117,10 @@
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 260,
-        "y": 139,
+        "x": 280,
+        "y": 159,
         "wires": [
             [
-                "9f563559.930aa",
                 "1437cb5b.78bf85"
             ],
             []
@@ -501,12 +136,13 @@
         "qos": "2",
         "datatype": "auto",
         "broker": "50a4494.81119b8",
-        "x": 110,
-        "y": 139,
+        "x": 130,
+        "y": 159,
         "wires": [
             [
                 "9dbc46e.c8a6eb8",
-                "aa06a450.447a6"
+                "aa06a450.447a6",
+                "2106b62b.2ae94a"
             ]
         ]
     },
@@ -520,33 +156,16 @@
         "qos": "2",
         "datatype": "auto",
         "broker": "50a4494.81119b8",
-        "x": 110,
-        "y": 239,
+        "x": 130,
+        "y": 259,
         "wires": [
             [
                 "aa59cdb0.22552",
                 "9dbc46e.c8a6eb8",
-                "8f85d505.5e8a2"
+                "8f85d505.5e8a2",
+                "2106b62b.2ae94a"
             ]
         ]
-    },
-    {
-        "id": "468aa261.c8ee2c",
-        "type": "debug",
-        "z": "9912ebf0.d31d98",
-        "g": "16f01b3.1422a65",
-        "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 850,
-        "y": 121,
-        "wires": []
     },
     {
         "id": "8f85d505.5e8a2",
@@ -559,16 +178,13 @@
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 260,
-        "y": 240,
+        "x": 280,
+        "y": 260,
         "wires": [
             [
-                "9f563559.930aa",
                 "f89004a6.d75d98"
             ],
-            [
-                "3e9ee410.08b9fc"
-            ]
+            []
         ]
     },
     {
@@ -581,26 +197,8 @@
         "qos": "",
         "retain": "",
         "broker": "50a4494.81119b8",
-        "x": 430,
-        "y": 239,
-        "wires": []
-    },
-    {
-        "id": "9f563559.930aa",
-        "type": "debug",
-        "z": "9912ebf0.d31d98",
-        "g": "16f01b3.1422a65",
-        "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 530,
-        "y": 179,
+        "x": 450,
+        "y": 259,
         "wires": []
     },
     {
@@ -613,12 +211,11 @@
         "qos": "2",
         "datatype": "auto",
         "broker": "50a4494.81119b8",
-        "x": 100,
-        "y": 440,
+        "x": 120,
+        "y": 460,
         "wires": [
             [
                 "96dc7ee1.c72178",
-                "52df2312.b758fc",
                 "b19a0760.30442"
             ]
         ]
@@ -634,8 +231,8 @@
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 315,
-        "y": 509,
+        "x": 335,
+        "y": 529,
         "wires": [
             [
                 "96dc7ee1.c72178"
@@ -653,15 +250,15 @@
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 465,
-        "y": 439,
+        "x": 485,
+        "y": 459,
         "wires": [
             [
-                "341bff0.a8c5682",
                 "f891f86a.dd3188",
                 "9dbc46e.c8a6eb8",
                 "3cc2d420.66eca4",
-                "6002d4ba.b54bf4"
+                "6002d4ba.b54bf4",
+                "490a62f8.b270ac"
             ]
         ]
     },
@@ -683,31 +280,13 @@
         "topic": "",
         "payload": "{\"type\":\"motion\",\"isOccupied\":true}",
         "payloadType": "str",
-        "x": 145,
-        "y": 494,
+        "x": 165,
+        "y": 514,
         "wires": [
             [
                 "f759c2f9.92fe08"
             ]
         ]
-    },
-    {
-        "id": "341bff0.a8c5682",
-        "type": "debug",
-        "z": "9912ebf0.d31d98",
-        "g": "16f01b3.1422a65",
-        "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 700,
-        "y": 439,
-        "wires": []
     },
     {
         "id": "f891f86a.dd3188",
@@ -720,30 +299,11 @@
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 540,
-        "y": 514,
+        "x": 560,
+        "y": 534,
         "wires": [
-            [
-                "e9b39f7.77e496"
-            ]
+            []
         ]
-    },
-    {
-        "id": "e9b39f7.77e496",
-        "type": "debug",
-        "z": "9912ebf0.d31d98",
-        "g": "16f01b3.1422a65",
-        "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 715,
-        "y": 514,
-        "wires": []
     },
     {
         "id": "71c43afb.23109c",
@@ -752,8 +312,8 @@
         "g": "16f01b3.1422a65",
         "name": "Treatment of MA message",
         "info": "the message will be listen and treated here to determine if there's any motion anomaly",
-        "x": 130,
-        "y": 340,
+        "x": 150,
+        "y": 380,
         "wires": []
     },
     {
@@ -774,8 +334,8 @@
         "topic": "",
         "payload": "{\"type\":\"door\",\"isOccupied\":true}",
         "payloadType": "str",
-        "x": 145,
-        "y": 539,
+        "x": 165,
+        "y": 559,
         "wires": [
             [
                 "f759c2f9.92fe08"
@@ -783,50 +343,17 @@
         ]
     },
     {
-        "id": "52df2312.b758fc",
-        "type": "debug",
-        "z": "9912ebf0.d31d98",
-        "g": "16f01b3.1422a65",
-        "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 360,
-        "y": 394,
-        "wires": []
-    },
-    {
         "id": "a6450ec0.94678",
         "type": "pushbullet",
         "z": "9912ebf0.d31d98",
         "g": "16f01b3.1422a65",
-        "config": "63f70bf7.32f2c4",
+        "config": "",
         "pushtype": "note",
         "title": "Notification MA",
         "chan": "",
         "name": "",
-        "x": 900,
-        "y": 394,
-        "wires": []
-    },
-    {
-        "id": "44cc5004.ca59d8",
-        "type": "e-mail",
-        "z": "9912ebf0.d31d98",
-        "g": "16f01b3.1422a65",
-        "server": "smtp.gmail.com",
-        "port": "465",
-        "secure": true,
-        "tls": true,
-        "name": "lilostitch171299@gmail.com",
-        "dname": "mail",
-        "x": 930,
-        "y": 339,
+        "x": 880,
+        "y": 500,
         "wires": []
     },
     {
@@ -840,11 +367,11 @@
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 800,
-        "y": 339,
+        "x": 780,
+        "y": 445,
         "wires": [
             [
-                "44cc5004.ca59d8"
+                "4c792b7d.5d9e34"
             ]
         ]
     },
@@ -866,8 +393,8 @@
         "checkall": "true",
         "repair": false,
         "outputs": 1,
-        "x": 730,
-        "y": 394,
+        "x": 710,
+        "y": 500,
         "wires": [
             [
                 "a6450ec0.94678",
@@ -893,31 +420,11 @@
         "bytopic": "all",
         "topic": "topic",
         "outputs": 1,
-        "x": 390,
-        "y": 299,
+        "x": 410,
+        "y": 319,
         "wires": [
-            [
-                "b6e8d3a6.4215b8"
-            ]
+            []
         ]
-    },
-    {
-        "id": "b6e8d3a6.4215b8",
-        "type": "debug",
-        "z": "9912ebf0.d31d98",
-        "g": "16f01b3.1422a65",
-        "name": " ",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 530,
-        "y": 299,
-        "wires": []
     },
     {
         "id": "3e9ee410.08b9fc",
@@ -928,8 +435,8 @@
         "links": [
             "3bd57099.afbdb8"
         ],
-        "x": 375,
-        "y": 197,
+        "x": 395,
+        "y": 217,
         "wires": []
     },
     {
@@ -948,222 +455,44 @@
         "randomLast": "5",
         "randomUnits": "seconds",
         "drop": true,
-        "x": 295,
-        "y": 180,
+        "x": 315,
+        "y": 200,
         "wires": [
             []
         ],
         "l": false
     },
     {
-        "id": "fd2aee7b.659778",
-        "type": "mqtt out",
-        "z": "9912ebf0.d31d98",
-        "g": "80b47a5b.fe20e8",
-        "name": "MA publisher",
-        "topic": "",
-        "qos": "",
-        "retain": "",
-        "broker": "50a4494.81119b8",
-        "x": 610,
-        "y": 820,
-        "wires": []
-    },
-    {
-        "id": "601e937c.bef07c",
-        "type": "trigger",
-        "z": "9912ebf0.d31d98",
-        "g": "80b47a5b.fe20e8",
-        "name": "",
-        "op1": "",
-        "op2": "",
-        "op1type": "nul",
-        "op2type": "payl",
-        "duration": "300",
-        "extend": true,
-        "overrideDelay": false,
-        "units": "s",
-        "reset": "",
-        "bytopic": "all",
-        "topic": "topic",
-        "outputs": 1,
-        "x": 515,
-        "y": 880,
-        "wires": [
-            [
-                "52ac5be2.c2ba1c",
-                "fd2aee7b.659778"
-            ]
-        ],
-        "l": false
-    },
-    {
-        "id": "52ac5be2.c2ba1c",
-        "type": "debug",
-        "z": "9912ebf0.d31d98",
-        "g": "80b47a5b.fe20e8",
-        "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 575,
-        "y": 880,
-        "wires": [],
-        "l": false
-    },
-    {
-        "id": "1249787d.52dbf8",
-        "type": "switch",
-        "z": "9912ebf0.d31d98",
-        "g": "80b47a5b.fe20e8",
-        "name": "",
-        "property": "return",
-        "propertyType": "msg",
-        "rules": [
-            {
-                "t": "true"
-            },
-            {
-                "t": "false"
-            }
-        ],
-        "checkall": "true",
-        "repair": false,
-        "outputs": 2,
-        "x": 390,
-        "y": 840,
-        "wires": [
-            [
-                "8d69a4d7.6d611",
-                "fd2aee7b.659778"
-            ],
-            [
-                "601e937c.bef07c"
-            ]
-        ]
-    },
-    {
-        "id": "8d69a4d7.6d611",
-        "type": "debug",
-        "z": "9912ebf0.d31d98",
-        "g": "80b47a5b.fe20e8",
-        "name": "",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 530,
-        "y": 780,
-        "wires": []
-    },
-    {
-        "id": "26195e3e.749b12",
-        "type": "function",
-        "z": "9912ebf0.d31d98",
-        "g": "80b47a5b.fe20e8",
-        "name": "",
-        "func": "if (msg.payload !== undefined || msg.payload.length>0){\n    if (msg.payload == true){\n        node.warn(msg.devicename.split(\" \")[0] + \" is open\");\n        var type=\"door\";\n        var payload = {type:\"door\"};\n        msg.payload = JSON.stringify(payload);\n        msg.topic= \"motion_anomaly/sensor/\"+ msg.devicename.split(\" \")[0];\n        \n        return msg;\n    }\n}",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "x": 320,
-        "y": 1080,
-        "wires": [
-            [
-                "de99f3fc.822448",
-                "f994bde9.8c0bb8"
-            ]
-        ]
-    },
-    {
-        "id": "de99f3fc.822448",
-        "type": "debug",
-        "z": "9912ebf0.d31d98",
-        "g": "80b47a5b.fe20e8",
-        "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 490,
-        "y": 1080,
-        "wires": []
-    },
-    {
-        "id": "f994bde9.8c0bb8",
-        "type": "mqtt out",
-        "z": "9912ebf0.d31d98",
-        "g": "80b47a5b.fe20e8",
-        "name": "MA publisher",
-        "topic": "",
-        "qos": "",
-        "retain": "",
-        "broker": "50a4494.81119b8",
-        "x": 490,
-        "y": 1020,
-        "wires": []
-    },
-    {
         "id": "f0ea0aa4.ee7d6",
         "type": "file",
         "z": "9912ebf0.d31d98",
+        "g": "16f01b3.1422a65",
         "name": "",
         "filename": "/opt/node-red/logs/test.logs",
         "appendNewline": true,
         "createDir": false,
         "overwriteFile": "false",
         "encoding": "none",
-        "x": 540,
-        "y": 620,
+        "x": 840,
+        "y": 240,
         "wires": [
-            [
-                "6e20606d.1d567"
-            ]
+            []
         ]
-    },
-    {
-        "id": "6e20606d.1d567",
-        "type": "debug",
-        "z": "9912ebf0.d31d98",
-        "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 790,
-        "y": 640,
-        "wires": []
     },
     {
         "id": "aa59cdb0.22552",
         "type": "function",
         "z": "9912ebf0.d31d98",
+        "d": true,
+        "g": "16f01b3.1422a65",
         "name": "log file",
         "func": "if (msg.payload !== undefined || msg.payload.length>0){\n    \n    var d=new Date();\n    var t= d.toLocaleTimeString();\n    const monthNames = [\"January\", \"February\", \"March\", \"April\", \"May\", \"June\",\n     \"July\", \"August\", \"September\", \"October\", \"November\", \"December\"];\n    var day= d.getUTCDate() + monthNames[d.getMonth()] + d.getUTCFullYear() ;\n    \n    if (msg.payload == true){\n\n        //for the log file\n        msg.payload ={type:\"door\", device:\"KNXdoor\", state:\"open\", Time:t, Day:day};\n    \n        return [msg,msg,null];\n    }\n    \n    if (msg.payload == false){\n\n        //for the log file\n        msg.payload ={type:\"door\", device:\"KNXdoor\", state:\"close\", Time:t, Day:day};\n    \n        return [msg,null,null];\n    }\n    \n    else if (msg.payload == \"open\"){\n       //for the log file\n        msg.payload ={type:\"door\", device:\"SHELLYdoor\", state:\"open\", Time:t, Day:day};\n        return [msg,null,msg];\n   }\n   \n   else if(msg.payload == \"close\"){\n       //for the log file\n        msg.payload ={type:\"door\", device:\"SHELLYdoor\", state:\"close\", Time:t, Day:day};\n        return [msg,null,null];\n   }\n   \n}",
         "outputs": 3,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 310,
-        "y": 640,
+        "x": 630,
+        "y": 260,
         "wires": [
             [
                 "f0ea0aa4.ee7d6"
@@ -1180,36 +509,34 @@
         "id": "8877dd15.104c",
         "type": "file",
         "z": "9912ebf0.d31d98",
+        "g": "16f01b3.1422a65",
         "name": "",
         "filename": "/opt/node-red/logs/knxdoor.logs",
         "appendNewline": true,
         "createDir": false,
         "overwriteFile": "false",
         "encoding": "none",
-        "x": 550,
-        "y": 660,
+        "x": 850,
+        "y": 280,
         "wires": [
-            [
-                "6e20606d.1d567"
-            ]
+            []
         ]
     },
     {
         "id": "141024fd.2f984b",
         "type": "file",
         "z": "9912ebf0.d31d98",
+        "g": "16f01b3.1422a65",
         "name": "",
         "filename": "/opt/node-red/logs/shellydoor.logs",
         "appendNewline": true,
         "createDir": false,
         "overwriteFile": "false",
         "encoding": "none",
-        "x": 560,
-        "y": 700,
+        "x": 860,
+        "y": 320,
         "wires": [
-            [
-                "6e20606d.1d567"
-            ]
+            []
         ]
     },
     {
@@ -1223,8 +550,8 @@
         "createDir": false,
         "overwriteFile": "false",
         "encoding": "none",
-        "x": 1000,
-        "y": 280,
+        "x": 960,
+        "y": 380,
         "wires": [
             []
         ]
@@ -1233,6 +560,7 @@
         "id": "6002d4ba.b54bf4",
         "type": "function",
         "z": "9912ebf0.d31d98",
+        "d": true,
         "g": "16f01b3.1422a65",
         "name": "log file",
         "func": "if (msg.payload !== undefined || msg.payload.length>0){\n    \n    var d=new Date();\n    var t= d.toLocaleTimeString();\n    const monthNames = [\"January\", \"February\", \"March\", \"April\", \"May\", \"June\",\n     \"July\", \"August\", \"September\", \"October\", \"November\", \"December\"];\n    var day= d.getUTCDate() + monthNames[d.getMonth()] + d.getUTCFullYear() ;\n    \n    if (msg.payload == true || msg.payload == false){\n\n        //for the log file\n        msg.payload ={type:msg.payload,Time:t, Day:day};\n    \n        return msg;\n    }\n}",
@@ -1240,8 +568,8 @@
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 770,
-        "y": 280,
+        "x": 750,
+        "y": 386,
         "wires": [
             [
                 "ef5602ed.bcb3c8"
@@ -1252,6 +580,7 @@
         "id": "b19a0760.30442",
         "type": "file",
         "z": "9912ebf0.d31d98",
+        "d": true,
         "g": "16f01b3.1422a65",
         "name": "MA logs",
         "filename": "/opt/node-red/logs/MA_logs",
@@ -1259,8 +588,8 @@
         "createDir": false,
         "overwriteFile": "false",
         "encoding": "none",
-        "x": 300,
-        "y": 460,
+        "x": 320,
+        "y": 480,
         "wires": [
             []
         ]
@@ -1272,8 +601,243 @@
         "g": "16f01b3.1422a65",
         "name": "Detection of events",
         "info": "The flow below publish the input events created by shelly motion and door sensors to motion_anomaly.",
-        "x": 110,
-        "y": 100,
+        "x": 130,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "62312e15.231cf",
+        "type": "comment",
+        "z": "9912ebf0.d31d98",
+        "g": "75274208.8c0934",
+        "name": "Shelly deviceInfo ",
+        "info": "Listen to deviceInfo from Shelly, example low battery level",
+        "x": 120,
+        "y": 660,
+        "wires": []
+    },
+    {
+        "id": "e3c96b97.fb93",
+        "type": "mqtt in",
+        "z": "9912ebf0.d31d98",
+        "g": "75274208.8c0934",
+        "name": "Motion",
+        "topic": "shellies/+/status",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "50a4494.81119b8",
+        "x": 90,
+        "y": 700,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "75d34062.2d707",
+        "type": "mqtt in",
+        "z": "9912ebf0.d31d98",
+        "g": "75274208.8c0934",
+        "name": "Sensor",
+        "topic": "shellies/+/sensor/battery",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "50a4494.81119b8",
+        "x": 90,
+        "y": 760,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "7e888a3c.0407ac",
+        "type": "function",
+        "z": "9912ebf0.d31d98",
+        "g": "75274208.8c0934",
+        "name": "report",
+        "func": "var reports = global.get(\"reports\", reports);\nif(reports === undefined || reports === null ){\n    reports = \"\";\n}\nif(reports.length>200){\n    reports = \"\";\n}\nvar lang = global.get(\"msgLang\");\nif(msg.payload.bat<50){\n    var newReport = \"\";\n    if (lang === \"de\") {\n        newReport = \"Der Batteriestand des \" + msg.topic.split(\"/\")[1].split(\"-\")[1].slice(7,12) + \" ist \" + msg.payload.bat + \" Prozent. \";\n    } else if (lang === \"fr\") {\n        newReport = \"Le niveau de batterie du \" + msg.topic.split(\"/\")[1].split(\"-\")[1].slice(7,12) + \" est du \" + msg.payload.bat + \" pour cent. \";\n    } else {\n        newReport = msg.topic.split(\"/\")[1].split(\"-\")[1].slice(7,12) + \" battery level is \" + msg.payload.bat + \" percent. \";\n    }\n    if(!reports.includes(newReport)){\n        reports += newReport;\n    }\n    global.set(\"reports\", reports);\n    msg.payload = reports; \n    return [msg];\n} else {\n    msg.payload = msg.topic.split(\"/\")[1].split(\"-\")[1].slice(7,12) + \": battery level is: \" + msg.payload.bat; \n    return [msg];\n}\n\n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 350,
+        "y": 700,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "979c6095.c4cdd",
+        "type": "json",
+        "z": "9912ebf0.d31d98",
+        "g": "75274208.8c0934",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 210,
+        "y": 700,
+        "wires": [
+            [
+                "7e888a3c.0407ac"
+            ]
+        ]
+    },
+    {
+        "id": "f2adf906.6401a",
+        "type": "json",
+        "z": "9912ebf0.d31d98",
+        "g": "75274208.8c0934",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 210,
+        "y": 760,
+        "wires": [
+            [
+                "b57c5b02.0e0358"
+            ]
+        ]
+    },
+    {
+        "id": "b57c5b02.0e0358",
+        "type": "function",
+        "z": "9912ebf0.d31d98",
+        "g": "75274208.8c0934",
+        "name": "report",
+        "func": "var reports = global.get(\"reports\", reports);\nif(reports === undefined || reports === null ){\n    reports = \"\";\n}\nif(reports.length>200){\n    reports = \"\";\n}\nvar lang = global.get(\"msgLang\");\nif(msg.payload<50){\n    var newReport = \"\";\n    if (lang === \"de\") {\n        newReport = \"Der Batteriestand des \" + msg.topic.split(\"/\")[1].split(\"-\")[1].slice(7,12) + \" ist \" + msg.payload + \" Prozent. \";\n    } else if (lang === \"fr\") {\n        newReport = \"Le niveau de batterie du \" + msg.topic.split(\"/\")[1].split(\"-\")[1].slice(7,12) + \" est du \" + msg.payload + \" pour cent. \";\n    } else {\n        newReport = msg.topic.split(\"/\")[1].split(\"-\")[1].slice(7,12) + \" battery level is \" + msg.payload + \" percent. \";\n    }\n    if(!reports.includes(newReport)){\n        reports += newReport;\n    }\n    global.set(\"reports\", reports);\n    msg.payload = reports; \n    return [msg];\n} else {\n    msg.payload = msg.topic.split(\"/\")[1].split(\"-\")[1].slice(7,12) + \": battery level is: \" + msg.payload; \n    return [msg];\n}\n\n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 350,
+        "y": 760,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "464255c4.19455c",
+        "type": "catch",
+        "z": "9912ebf0.d31d98",
+        "g": "5dd55bb8.47309c",
+        "name": "",
+        "scope": [
+            "aa06a450.447a6",
+            "8f85d505.5e8a2",
+            "4131c677.7cc378",
+            "96dc7ee1.c72178",
+            "f891f86a.dd3188",
+            "9dbc46e.c8a6eb8",
+            "aa59cdb0.22552",
+            "7e888a3c.0407ac",
+            "b57c5b02.0e0358"
+        ],
+        "uncaught": false,
+        "x": 530,
+        "y": 700,
+        "wires": [
+            [
+                "95bd7b8.118a408"
+            ]
+        ]
+    },
+    {
+        "id": "95bd7b8.118a408",
+        "type": "debug",
+        "z": "9912ebf0.d31d98",
+        "g": "5dd55bb8.47309c",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 670,
+        "y": 700,
+        "wires": []
+    },
+    {
+        "id": "78082009.a37ae",
+        "type": "comment",
+        "z": "9912ebf0.d31d98",
+        "g": "5dd55bb8.47309c",
+        "name": "Shelly Debugging",
+        "info": "Activate the debug node to see the log and errors.",
+        "x": 560,
+        "y": 660,
+        "wires": []
+    },
+    {
+        "id": "b8052dfb.95528",
+        "type": "link in",
+        "z": "9912ebf0.d31d98",
+        "g": "5dd55bb8.47309c",
+        "name": "",
+        "links": [
+            "2106b62b.2ae94a",
+            "490a62f8.b270ac"
+        ],
+        "x": 495,
+        "y": 740,
+        "wires": [
+            [
+                "95bd7b8.118a408"
+            ]
+        ]
+    },
+    {
+        "id": "2106b62b.2ae94a",
+        "type": "link out",
+        "z": "9912ebf0.d31d98",
+        "g": "16f01b3.1422a65",
+        "name": "",
+        "links": [
+            "b8052dfb.95528"
+        ],
+        "x": 215,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "83ec7bbb.9901d",
+        "type": "comment",
+        "z": "9912ebf0.d31d98",
+        "name": "Version 1:31-05-2021",
+        "info": "What was changed :\n1. Regrouping of debug nodes \n2. Seperation of two tabs (Shelly and KNX)\n3. Locking the snips.toml (see troubleshoot)\n",
+        "x": 980,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "490a62f8.b270ac",
+        "type": "link out",
+        "z": "9912ebf0.d31d98",
+        "g": "16f01b3.1422a65",
+        "name": "",
+        "links": [
+            "b8052dfb.95528"
+        ],
+        "x": 655,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "4c792b7d.5d9e34",
+        "type": "e-mail",
+        "z": "9912ebf0.d31d98",
+        "g": "16f01b3.1422a65",
+        "server": "smtp.gmail.com",
+        "port": "465",
+        "secure": true,
+        "tls": true,
+        "name": "",
+        "dname": "",
+        "x": 930,
+        "y": 440,
         "wires": []
     },
     {
@@ -1301,25 +865,5 @@
         "willRetain": "false",
         "willPayload": "",
         "info": "-"
-    },
-    {
-        "id": "f6f79a0c.4815e8",
-        "type": "knxUltimate-config",
-        "host": "192.168.9.250",
-        "port": "3671",
-        "physAddr": "1.1.1",
-        "suppressACKRequest": false,
-        "csv": "",
-        "KNXEthInterface": "Auto",
-        "KNXEthInterfaceManuallyInput": "",
-        "statusDisplayLastUpdate": true,
-        "statusDisplayDeviceNameWhenALL": true,
-        "statusDisplayDataPoint": false,
-        "stopETSImportIfNoDatapoint": "stop"
-    },
-    {
-        "id": "63f70bf7.32f2c4",
-        "type": "pushbullet-config",
-        "name": "Ahda's"
     }
 ]
