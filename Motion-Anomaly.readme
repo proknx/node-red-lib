@@ -1,4 +1,4 @@
-These flows detect the events from motion and door sensors and send it to motion_anomaly.
+These flows detect the events from motion and door sensors and send it to motion_anomaly service.
 
 The motion_anomaly will then evaluates the events by sending true or false as a result. False indicate no motion anomaly while true indicates there is. The output will then use to "trigger the alarm" by sending notifications to the person.
 
