@@ -11,3 +11,19 @@ Mail Set Up :
 2. Write down the password of your email.
 3. Leave the others by default
 4. Go to google setting->security->less secure app access->on.
+
+Pushbullet Set Up :
+
+To see the debug logs :
+1. Activate the debug node at the SHELLY - Debugging flow.
+
+Optional : Log files
+The log files help to record motion_anomaly events and can be further used to debugging. In order to save the memory of the device, by default these files are disabled. 
+1. Create these files in the base unit :
+- touch /opt/node-red/logs/test.logs
+- touch /opt/node-red/logs/knxdoor.logs
+- touch /opt/node-red/logs/shellydoor.logs
+- touch /opt/node-red/logs/output
+- touch /opt/node-red/logs/MA_logs
+2. Enable the "disabled node" in the flow
+3. Save and deploy
