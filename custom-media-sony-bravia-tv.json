@@ -2246,9 +2246,9 @@
         "id": "204aae5a.40fb72",
         "type": "bravia-tv",
         "name": "SONY BRAVIA TV",
-        "host": "192.168.1.55",
+        "host": "X.X.X.X",
         "port": "80",
-        "psk": "1111",
+        "psk": "XXXX",
         "timeout": "5000"
     },
     {
