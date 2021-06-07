@@ -29,11 +29,10 @@
             "71c43afb.23109c",
             "4b714be7.8ee88c",
             "a6450ec0.94678",
+            "44cc5004.ca59d8",
             "46501012.d5f7a",
             "3cc2d420.66eca4",
-            "9dbc46e.c8a6eb8",
             "3e9ee410.08b9fc",
-            "1b2b3d17.2eea03",
             "ef5602ed.bcb3c8",
             "6002d4ba.b54bf4",
             "b19a0760.30442",
@@ -44,12 +43,13 @@
             "141024fd.2f984b",
             "2106b62b.2ae94a",
             "490a62f8.b270ac",
-            "4c792b7d.5d9e34"
+            "571f7c66.dd5aa4",
+            "1ab7c2e4.5d0f95"
         ],
         "x": 14,
-        "y": 79,
-        "w": 1092,
-        "h": 521
+        "y": 39,
+        "w": 1052,
+        "h": 522
     },
     {
         "id": "5dd55bb8.47309c",
@@ -66,7 +66,7 @@
             "b8052dfb.95528"
         ],
         "x": 454,
-        "y": 619,
+        "y": 599,
         "w": 312,
         "h": 162
     },
@@ -88,7 +88,7 @@
             "b57c5b02.0e0358"
         ],
         "x": 14,
-        "y": 619,
+        "y": 599,
         "w": 412,
         "h": 182
     },
@@ -102,8 +102,8 @@
         "qos": "",
         "retain": "",
         "broker": "50a4494.81119b8",
-        "x": 510,
-        "y": 140,
+        "x": 450,
+        "y": 100,
         "wires": []
     },
     {
@@ -112,18 +112,17 @@
         "z": "9912ebf0.d31d98",
         "g": "16f01b3.1422a65",
         "name": "",
-        "func": "var isOccupied = false;\nvar sensorname =\"\";\n\nif (msg.payload!==undefined && msg.payload.length>0){\n    msg.payload = JSON.parse(msg.payload);\n    if (msg.payload.motion==true){\n        \n        var language = global.get(\"msgLang\");\n        var siteId = global.get(\"msgServerSiteId\").replace(/_\\d+$/, \"\").trim();\n        var msgText = {payload:[]};\n        \n        //motion detected\n        node.warn(\"Motion sensor \" + msg.topic.split(\"/\")[1].split(\"-\")[1] +\" state is \" + msg.payload.motion);\n       sensorname= msg.topic.split(\"/\")[1].split(\"-\")[1];\n       global.set(\"sensorname\", sensorname); \n        var payload = {type:\"motion\", isOccupied:msg.payload.motion};\n        msg.payload = JSON.stringify(payload);\n      //  msg.payload.id = msg.topic.split(\"/\")[1].split(\"-\")[1];\n        msg.topic= \"motion_anomaly/sensor/\"+ sensorname;\n        \n        if (language === \"de\") {\n         msgText.payload = {\n          text: \"Anwesenheit erkannt\",\n          siteId: siteId,\n          lang: \"de-DE\"\n            };\n        } else if (language === \"fr\") {\n         msgText.payload = {\n          text: \"Présence détectée\",\n          siteId: siteId,\n          lang: \"fr-FR\"\n            };\n        } else {\n         msgText.payload = {\n          text: \"Presence detected\",\n          siteId: siteId,\n          lang: \"en-UK\"\n            };\n        }\n        \n        return [msg, msgText];\n    }\n    else{\n        \n        //no motion detected\n        node.warn(\"Motion sensor \" + msg.topic.split(\"/\")[1].split(\"-\")[1] +\" state is \" + msg.payload.motion);\n       sensorname= msg.topic.split(\"/\")[1].split(\"-\")[1];\n       global.set(\"sensorname\", sensorname); \n        var payload = {type:\"motion\", isOccupied:msg.payload.motion};\n        msg.payload = JSON.stringify(payload);\n      //  msg.payload.id = msg.topic.split(\"/\")[1].split(\"-\")[1];\n        msg.topic= \"motion_anomaly/sensor/\"+ sensorname;\n        \n        return [msg, null];\n    }\n    \n    \n    \n}",
-        "outputs": 2,
+        "func": "var isOccupied = false;\nvar sensorname =\"\";\n\nif (msg.payload!==undefined && msg.payload.length>0){\n    msg.payload = JSON.parse(msg.payload);\n    if (msg.payload.motion==true){\n        \n        var language = global.get(\"msgLang\");\n        var siteId = global.get(\"msgServerSiteId\").replace(/_\\d+$/, \"\").trim();\n        var msgText = {payload:[]};\n        \n        //motion detected\n        node.warn(\"Motion sensor \" + msg.topic.split(\"/\")[1].split(\"-\")[1] +\" state is \" + msg.payload.motion);\n       sensorname= msg.topic.split(\"/\")[1].split(\"-\")[1];\n       global.set(\"sensorname\", sensorname); \n        var payload = {type:\"motion\", isOccupied:true};\n        msg.payload = JSON.stringify(payload);\n      //  msg.payload.id = msg.topic.split(\"/\")[1].split(\"-\")[1];\n        msg.topic= \"motion_anomaly/sensor/\"+ sensorname;\n        \n        /*if (language === \"de\") {\n         msgText.payload = {\n          text: \"Anwesenheit erkannt\",\n          siteId: siteId,\n          lang: \"de-DE\"\n            };\n        } else if (language === \"fr\") {\n         msgText.payload = {\n          text: \"Présence détectée\",\n          siteId: siteId,\n          lang: \"fr-FR\"\n            };\n        } else {\n         msgText.payload = {\n          text: \"Presence detected\",\n          siteId: siteId,\n          lang: \"en-UK\"\n            };\n        }*/\n        \n        return msg;\n    }\n    else{\n        \n        //no motion detected\n        node.warn(\"Motion sensor \" + msg.topic.split(\"/\")[1].split(\"-\")[1] +\" state is \" + msg.payload.motion);\n       sensorname= msg.topic.split(\"/\")[1].split(\"-\")[1];\n       global.set(\"sensorname\", sensorname); \n        var payload = {type:\"motion\", isOccupied:false};\n        msg.payload = JSON.stringify(payload);\n      //  msg.payload.id = msg.topic.split(\"/\")[1].split(\"-\")[1];\n        msg.topic= \"motion_anomaly/sensor/\"+ sensorname;\n        \n        return msg;\n    }\n    \n    \n    \n}",
+        "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "x": 280,
-        "y": 159,
+        "y": 119,
         "wires": [
             [
                 "1437cb5b.78bf85"
-            ],
-            []
+            ]
         ]
     },
     {
@@ -137,10 +136,9 @@
         "datatype": "auto",
         "broker": "50a4494.81119b8",
         "x": 130,
-        "y": 159,
+        "y": 119,
         "wires": [
             [
-                "9dbc46e.c8a6eb8",
                 "aa06a450.447a6",
                 "2106b62b.2ae94a"
             ]
@@ -157,11 +155,10 @@
         "datatype": "auto",
         "broker": "50a4494.81119b8",
         "x": 130,
-        "y": 259,
+        "y": 200,
         "wires": [
             [
                 "aa59cdb0.22552",
-                "9dbc46e.c8a6eb8",
                 "8f85d505.5e8a2",
                 "2106b62b.2ae94a"
             ]
@@ -179,12 +176,14 @@
         "initialize": "",
         "finalize": "",
         "x": 280,
-        "y": 260,
+        "y": 240,
         "wires": [
             [
                 "f89004a6.d75d98"
             ],
-            []
+            [
+                "3e9ee410.08b9fc"
+            ]
         ]
     },
     {
@@ -198,7 +197,7 @@
         "retain": "",
         "broker": "50a4494.81119b8",
         "x": 450,
-        "y": 259,
+        "y": 240,
         "wires": []
     },
     {
@@ -212,11 +211,10 @@
         "datatype": "auto",
         "broker": "50a4494.81119b8",
         "x": 120,
-        "y": 460,
+        "y": 400,
         "wires": [
             [
-                "96dc7ee1.c72178",
-                "b19a0760.30442"
+                "96dc7ee1.c72178"
             ]
         ]
     },
@@ -232,7 +230,7 @@
         "initialize": "",
         "finalize": "",
         "x": 335,
-        "y": 529,
+        "y": 489,
         "wires": [
             [
                 "96dc7ee1.c72178"
@@ -245,20 +243,20 @@
         "z": "9912ebf0.d31d98",
         "g": "16f01b3.1422a65",
         "name": "MA detected?",
-        "func": "let anomalyCount = 0;\nlet strictlyViolated = false;\nmsg.payload = JSON.parse(msg.payload);\nfor (const [sensorName, sensorData] of Object.entries(\n         msg.payload.prediction.sensors)) {\n  if (sensorData.home.observedCount > sensorData.home.onePercentQuantile) {\n    continue;\n  }\n\n  strictlyViolated = strictlyViolated ||\n      sensorData.home.observedCount < sensorData.home.onePercentQuantile;\n  anomalyCount++;\n}\n\nmsg.payload =\n    (anomalyCount == Object.keys(msg.payload.prediction.sensors).length) &&\n    strictlyViolated;\n    \nreturn msg;",
+        "func": "let anomalyCount = 0;\nlet strictlyViolated = false;\nmsg.payload = JSON.parse(msg.payload);\nfor (const [sensorName, sensorData] of Object.entries(\n         msg.payload.prediction.sensors)) {\n  if (sensorData.home.observedCount > sensorData.home.onePercentQuantile) {\n    continue;\n  }\n\n  strictlyViolated = strictlyViolated ||\n      sensorData.home.observedCount < sensorData.home.onePercentQuantile;\n  anomalyCount++;\n}\n\n//var length = Object.keys(msg.payload.prediction.sensors).length;\n//node.warn(length);\n\nmsg.payload =\n    (anomalyCount == Object.keys(msg.payload.prediction.sensors).length) &&\n    strictlyViolated;\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "x": 485,
-        "y": 459,
+        "y": 419,
         "wires": [
             [
                 "f891f86a.dd3188",
-                "9dbc46e.c8a6eb8",
                 "3cc2d420.66eca4",
                 "6002d4ba.b54bf4",
-                "490a62f8.b270ac"
+                "490a62f8.b270ac",
+                "571f7c66.dd5aa4"
             ]
         ]
     },
@@ -267,7 +265,7 @@
         "type": "inject",
         "z": "9912ebf0.d31d98",
         "g": "16f01b3.1422a65",
-        "name": "Motion sensor ",
+        "name": "TEST - Motion sensor ",
         "props": [
             {
                 "p": "payload"
@@ -280,13 +278,14 @@
         "topic": "",
         "payload": "{\"type\":\"motion\",\"isOccupied\":true}",
         "payloadType": "str",
-        "x": 165,
-        "y": 514,
+        "x": 175,
+        "y": 480,
         "wires": [
             [
                 "f759c2f9.92fe08"
             ]
-        ]
+        ],
+        "l": false
     },
     {
         "id": "f891f86a.dd3188",
@@ -299,8 +298,8 @@
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 560,
-        "y": 534,
+        "x": 530,
+        "y": 500,
         "wires": [
             []
         ]
@@ -313,7 +312,7 @@
         "name": "Treatment of MA message",
         "info": "the message will be listen and treated here to determine if there's any motion anomaly",
         "x": 150,
-        "y": 380,
+        "y": 340,
         "wires": []
     },
     {
@@ -321,7 +320,7 @@
         "type": "inject",
         "z": "9912ebf0.d31d98",
         "g": "16f01b3.1422a65",
-        "name": "Door sensor",
+        "name": "TEST - Door sensor",
         "props": [
             {
                 "p": "payload"
@@ -334,26 +333,42 @@
         "topic": "",
         "payload": "{\"type\":\"door\",\"isOccupied\":true}",
         "payloadType": "str",
-        "x": 165,
-        "y": 559,
+        "x": 175,
+        "y": 520,
         "wires": [
             [
                 "f759c2f9.92fe08"
             ]
-        ]
+        ],
+        "l": false
     },
     {
         "id": "a6450ec0.94678",
         "type": "pushbullet",
         "z": "9912ebf0.d31d98",
         "g": "16f01b3.1422a65",
-        "config": "",
+        "config": "63f70bf7.32f2c4",
         "pushtype": "note",
         "title": "Notification MA",
         "chan": "",
         "name": "",
-        "x": 880,
-        "y": 500,
+        "x": 920,
+        "y": 480,
+        "wires": []
+    },
+    {
+        "id": "44cc5004.ca59d8",
+        "type": "e-mail",
+        "z": "9912ebf0.d31d98",
+        "g": "16f01b3.1422a65",
+        "server": "smtp.gmail.com",
+        "port": "465",
+        "secure": true,
+        "tls": true,
+        "name": "lilostitch171299@gmail.com",
+        "dname": "mail",
+        "x": 950,
+        "y": 425,
         "wires": []
     },
     {
@@ -367,11 +382,11 @@
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 780,
-        "y": 445,
+        "x": 820,
+        "y": 425,
         "wires": [
             [
-                "4c792b7d.5d9e34"
+                "44cc5004.ca59d8"
             ]
         ]
     },
@@ -393,8 +408,8 @@
         "checkall": "true",
         "repair": false,
         "outputs": 1,
-        "x": 710,
-        "y": 500,
+        "x": 750,
+        "y": 480,
         "wires": [
             [
                 "a6450ec0.94678",
@@ -403,69 +418,21 @@
         ]
     },
     {
-        "id": "9dbc46e.c8a6eb8",
-        "type": "trigger",
-        "z": "9912ebf0.d31d98",
-        "g": "16f01b3.1422a65",
-        "name": "Timer",
-        "op1": "",
-        "op2": "",
-        "op1type": "nul",
-        "op2type": "payl",
-        "duration": "15",
-        "extend": true,
-        "overrideDelay": false,
-        "units": "min",
-        "reset": "false",
-        "bytopic": "all",
-        "topic": "topic",
-        "outputs": 1,
-        "x": 410,
-        "y": 319,
-        "wires": [
-            []
-        ]
-    },
-    {
         "id": "3e9ee410.08b9fc",
         "type": "link out",
         "z": "9912ebf0.d31d98",
         "g": "16f01b3.1422a65",
         "name": "",
-        "links": [
-            "3bd57099.afbdb8"
-        ],
+        "links": [],
         "x": 395,
-        "y": 217,
+        "y": 300,
         "wires": []
-    },
-    {
-        "id": "1b2b3d17.2eea03",
-        "type": "delay",
-        "z": "9912ebf0.d31d98",
-        "g": "16f01b3.1422a65",
-        "name": "",
-        "pauseType": "rate",
-        "timeout": "5",
-        "timeoutUnits": "seconds",
-        "rate": "1",
-        "nbRateUnits": "5",
-        "rateUnits": "minute",
-        "randomFirst": "1",
-        "randomLast": "5",
-        "randomUnits": "seconds",
-        "drop": true,
-        "x": 315,
-        "y": 200,
-        "wires": [
-            []
-        ],
-        "l": false
     },
     {
         "id": "f0ea0aa4.ee7d6",
         "type": "file",
         "z": "9912ebf0.d31d98",
+        "d": true,
         "g": "16f01b3.1422a65",
         "name": "",
         "filename": "/opt/node-red/logs/test.logs",
@@ -474,7 +441,7 @@
         "overwriteFile": "false",
         "encoding": "none",
         "x": 840,
-        "y": 240,
+        "y": 200,
         "wires": [
             []
         ]
@@ -492,7 +459,7 @@
         "initialize": "",
         "finalize": "",
         "x": 630,
-        "y": 260,
+        "y": 200,
         "wires": [
             [
                 "f0ea0aa4.ee7d6"
@@ -509,6 +476,7 @@
         "id": "8877dd15.104c",
         "type": "file",
         "z": "9912ebf0.d31d98",
+        "d": true,
         "g": "16f01b3.1422a65",
         "name": "",
         "filename": "/opt/node-red/logs/knxdoor.logs",
@@ -517,7 +485,7 @@
         "overwriteFile": "false",
         "encoding": "none",
         "x": 850,
-        "y": 280,
+        "y": 240,
         "wires": [
             []
         ]
@@ -526,6 +494,7 @@
         "id": "141024fd.2f984b",
         "type": "file",
         "z": "9912ebf0.d31d98",
+        "d": true,
         "g": "16f01b3.1422a65",
         "name": "",
         "filename": "/opt/node-red/logs/shellydoor.logs",
@@ -534,7 +503,7 @@
         "overwriteFile": "false",
         "encoding": "none",
         "x": 860,
-        "y": 320,
+        "y": 280,
         "wires": [
             []
         ]
@@ -550,8 +519,8 @@
         "createDir": false,
         "overwriteFile": "false",
         "encoding": "none",
-        "x": 960,
-        "y": 380,
+        "x": 920,
+        "y": 360,
         "wires": [
             []
         ]
@@ -560,7 +529,6 @@
         "id": "6002d4ba.b54bf4",
         "type": "function",
         "z": "9912ebf0.d31d98",
-        "d": true,
         "g": "16f01b3.1422a65",
         "name": "log file",
         "func": "if (msg.payload !== undefined || msg.payload.length>0){\n    \n    var d=new Date();\n    var t= d.toLocaleTimeString();\n    const monthNames = [\"January\", \"February\", \"March\", \"April\", \"May\", \"June\",\n     \"July\", \"August\", \"September\", \"October\", \"November\", \"December\"];\n    var day= d.getUTCDate() + monthNames[d.getMonth()] + d.getUTCFullYear() ;\n    \n    if (msg.payload == true || msg.payload == false){\n\n        //for the log file\n        msg.payload ={type:msg.payload,Time:t, Day:day};\n    \n        return msg;\n    }\n}",
@@ -568,8 +536,8 @@
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 750,
-        "y": 386,
+        "x": 710,
+        "y": 366,
         "wires": [
             [
                 "ef5602ed.bcb3c8"
@@ -580,7 +548,6 @@
         "id": "b19a0760.30442",
         "type": "file",
         "z": "9912ebf0.d31d98",
-        "d": true,
         "g": "16f01b3.1422a65",
         "name": "MA logs",
         "filename": "/opt/node-red/logs/MA_logs",
@@ -589,7 +556,7 @@
         "overwriteFile": "false",
         "encoding": "none",
         "x": 320,
-        "y": 480,
+        "y": 440,
         "wires": [
             []
         ]
@@ -602,7 +569,7 @@
         "name": "Detection of events",
         "info": "The flow below publish the input events created by shelly motion and door sensors to motion_anomaly.",
         "x": 130,
-        "y": 120,
+        "y": 80,
         "wires": []
     },
     {
@@ -610,10 +577,10 @@
         "type": "comment",
         "z": "9912ebf0.d31d98",
         "g": "75274208.8c0934",
-        "name": "Shelly deviceInfo ",
-        "info": "Listen to deviceInfo from Shelly, example low battery level",
-        "x": 120,
-        "y": 660,
+        "name": "ReadME deviceInfo ",
+        "info": "Link the Motion and Sensor node to have spoken feedback by the voice assistant when the battery level is low.",
+        "x": 130,
+        "y": 640,
         "wires": []
     },
     {
@@ -627,7 +594,7 @@
         "datatype": "auto",
         "broker": "50a4494.81119b8",
         "x": 90,
-        "y": 700,
+        "y": 680,
         "wires": [
             []
         ]
@@ -643,7 +610,7 @@
         "datatype": "auto",
         "broker": "50a4494.81119b8",
         "x": 90,
-        "y": 760,
+        "y": 740,
         "wires": [
             []
         ]
@@ -660,7 +627,7 @@
         "initialize": "",
         "finalize": "",
         "x": 350,
-        "y": 700,
+        "y": 680,
         "wires": [
             []
         ]
@@ -675,7 +642,7 @@
         "action": "",
         "pretty": false,
         "x": 210,
-        "y": 700,
+        "y": 680,
         "wires": [
             [
                 "7e888a3c.0407ac"
@@ -692,7 +659,7 @@
         "action": "",
         "pretty": false,
         "x": 210,
-        "y": 760,
+        "y": 740,
         "wires": [
             [
                 "b57c5b02.0e0358"
@@ -711,7 +678,7 @@
         "initialize": "",
         "finalize": "",
         "x": 350,
-        "y": 760,
+        "y": 740,
         "wires": [
             []
         ]
@@ -726,16 +693,16 @@
             "aa06a450.447a6",
             "8f85d505.5e8a2",
             "4131c677.7cc378",
-            "96dc7ee1.c72178",
             "f891f86a.dd3188",
             "9dbc46e.c8a6eb8",
             "aa59cdb0.22552",
             "7e888a3c.0407ac",
-            "b57c5b02.0e0358"
+            "b57c5b02.0e0358",
+            "96dc7ee1.c72178"
         ],
         "uncaught": false,
         "x": 530,
-        "y": 700,
+        "y": 680,
         "wires": [
             [
                 "95bd7b8.118a408"
@@ -757,7 +724,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 670,
-        "y": 700,
+        "y": 680,
         "wires": []
     },
     {
@@ -768,7 +735,7 @@
         "name": "Shelly Debugging",
         "info": "Activate the debug node to see the log and errors.",
         "x": 560,
-        "y": 660,
+        "y": 640,
         "wires": []
     },
     {
@@ -782,7 +749,7 @@
             "490a62f8.b270ac"
         ],
         "x": 495,
-        "y": 740,
+        "y": 720,
         "wires": [
             [
                 "95bd7b8.118a408"
@@ -796,20 +763,21 @@
         "g": "16f01b3.1422a65",
         "name": "",
         "links": [
-            "b8052dfb.95528"
+            "b8052dfb.95528",
+            "5b3f7c0f.5349d4"
         ],
         "x": 215,
-        "y": 220,
+        "y": 160,
         "wires": []
     },
     {
         "id": "83ec7bbb.9901d",
         "type": "comment",
         "z": "9912ebf0.d31d98",
-        "name": "Version 1:31-05-2021",
-        "info": "What was changed :\n1. Regrouping of debug nodes \n2. Seperation of two tabs (Shelly and KNX)\n3. Locking the snips.toml (see troubleshoot)\n",
-        "x": 980,
-        "y": 40,
+        "name": "Version 1:07-06-2021",
+        "info": "What was changed :\n1. Adding of ReadME debugging and ReadME        deviceinfo\n2. proknx/alarm mqtt message to skyresponse",
+        "x": 1120,
+        "y": 20,
         "wires": []
     },
     {
@@ -819,25 +787,36 @@
         "g": "16f01b3.1422a65",
         "name": "",
         "links": [
-            "b8052dfb.95528"
+            "b8052dfb.95528",
+            "5b3f7c0f.5349d4"
         ],
-        "x": 655,
-        "y": 440,
+        "x": 675,
+        "y": 420,
         "wires": []
     },
     {
-        "id": "4c792b7d.5d9e34",
-        "type": "e-mail",
+        "id": "571f7c66.dd5aa4",
+        "type": "mqtt out",
         "z": "9912ebf0.d31d98",
         "g": "16f01b3.1422a65",
-        "server": "smtp.gmail.com",
-        "port": "465",
-        "secure": true,
-        "tls": true,
         "name": "",
-        "dname": "",
-        "x": 930,
-        "y": 440,
+        "topic": "proknx/alarm",
+        "qos": "",
+        "retain": "",
+        "broker": "f96ab142.d8bab8",
+        "x": 750,
+        "y": 520,
+        "wires": []
+    },
+    {
+        "id": "1ab7c2e4.5d0f95",
+        "type": "comment",
+        "z": "9912ebf0.d31d98",
+        "g": "16f01b3.1422a65",
+        "name": "<-- ReadME debugging",
+        "info": "To have a spoken feedback by the voice control when the door is open or close, the node in the left must be linked to the speaker :\n1. Double click the node on the left.\n2. Go to the FEEDBACKS.\n3. Check the SPEAKER IN (API).\n4. Click done and save node-red.",
+        "x": 520,
+        "y": 300,
         "wires": []
     },
     {
@@ -865,5 +844,31 @@
         "willRetain": "false",
         "willPayload": "",
         "info": "-"
+    },
+    {
+        "id": "63f70bf7.32f2c4",
+        "type": "pushbullet-config",
+        "name": "Ahda's"
+    },
+    {
+        "id": "f96ab142.d8bab8",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "localhost",
+        "port": "1883",
+        "clientid": "",
+        "usetls": false,
+        "compatmode": true,
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": ""
     }
 ]
