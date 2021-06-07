@@ -214,7 +214,8 @@
         "y": 400,
         "wires": [
             [
-                "96dc7ee1.c72178"
+                "96dc7ee1.c72178",
+                "b19a0760.30442"
             ]
         ]
     },
@@ -248,8 +249,8 @@
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 485,
-        "y": 419,
+        "x": 440,
+        "y": 400,
         "wires": [
             [
                 "f891f86a.dd3188",
@@ -548,6 +549,7 @@
         "id": "b19a0760.30442",
         "type": "file",
         "z": "9912ebf0.d31d98",
+        "d": true,
         "g": "16f01b3.1422a65",
         "name": "MA logs",
         "filename": "/opt/node-red/logs/MA_logs",
@@ -555,7 +557,7 @@
         "createDir": false,
         "overwriteFile": "false",
         "encoding": "none",
-        "x": 320,
+        "x": 260,
         "y": 440,
         "wires": [
             []
