@@ -3,7 +3,7 @@
         "id": "142f4304.75ecdd",
         "type": "tab",
         "label": "SONY BRAVIA TV",
-        "disabled": false,
+        "disabled": true,
         "info": ""
     },
     {
@@ -351,7 +351,7 @@
         "z": "142f4304.75ecdd",
         "g": "d4b5a35d.1a4d8",
         "name": "Info - README V2.0",
-        "info": "This is version 2.0 of custom media control for SONY BRAVIA TV\n\nIn this version, the tv favorites are generated automatically from the TV channel list. \n\n*************************************************\n\nThe following nodes let you implement custom media control for Sony Bravia TV,\n\n**IMPORTANT :** To avoid your custom code is removed on flow update it is recommended to copy paste the nodes below to a new Tab\n\nTo apply this function it to your tv, you need to change the ip address of the tv\n\nTo change, go to configurations nodes and find SONY BRAVIA TV node and double click it\nChange the host to your tv's ip address and type in the PSK and save\n\n> NOTE : It is advised to set a static IP, see the network settings of the TV.\n",
+        "info": "This is version 2.0 of custom media control for SONY BRAVIA TV\n\nIn this version, the tv favorites are generated automatically from the TV channel list. \n\n*************************************************\n\nThe following nodes let you implement custom media control for Sony Bravia TV,\n\n**IMPORTANT :** \n\n * To avoid your custom code is removed on flow update it is recommended to copy paste the nodes below to a new tab\n * \n * To avoid unexpected behavior, do not use the CUSTOM MEDIA CONTROL group flow in the HOOKS\n * \n * To apply this function it to your tv, you need to change the ip address of the tv\n * \n * To change, go to configurations nodes and find SONY BRAVIA TV node and double click it\n * Change the host to your tv's ip address and type in the PSK and save\n\n> NOTE : It is advised to set a static IP, see the network settings of the TV.\n",
         "x": 265,
         "y": 75,
         "wires": []
