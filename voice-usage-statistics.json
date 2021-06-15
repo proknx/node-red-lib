@@ -1,55 +1,56 @@
 [
     {
-        "id": "bae37de7.b0781",
+        "id": "b3ae8682.36a368",
         "type": "tab",
         "label": "STATISTICS",
         "disabled": false,
         "info": ""
     },
     {
-        "id": "26f8e60.a7db01a",
+        "id": "57f783c2.bf6c8c",
         "type": "group",
-        "z": "bae37de7.b0781",
+        "z": "b3ae8682.36a368",
         "name": "VOICE USAGE STATISTICS",
         "style": {
             "label": true
         },
         "nodes": [
-            "418e802a.41faa",
-            "bd623bfd.48c698",
-            "4d6b7163.c1fe6",
-            "d9321e52.9d279",
-            "8acfb43d.a25268",
-            "4a096434.9fc59c",
-            "148375a9.77082a",
-            "29b804ef.3abc5c",
-            "4cd2a4e4.86c3bc",
-            "841f5dc3.677f7",
-            "54542b39.df1884",
-            "f55b104a.2ac1f",
-            "100f0362.f0c24d",
-            "d8d96e35.63d11",
-            "7d0d8ab6.b3a5e4",
-            "8a49965f.aff6b8",
-            "d8d3765f.554ee8",
-            "6d9fc87e.9c6238",
-            "e362aaac.7939b8",
-            "f738daf3.94c5e8",
-            "d383838f.e07",
-            "e458caba.2e8168",
-            "94a42434.c8fea8",
-            "c09f6dce.c039f"
+            "48474358.f420fc",
+            "9d637506.0a1128",
+            "d700c604.723508",
+            "c8d4af05.a59d5",
+            "5125e69e.91da98",
+            "60feddf2.beb224",
+            "8c74673.3004898",
+            "af4f9d8f.3d148",
+            "e28c688a.2734c8",
+            "daed3b2e.82e4a8",
+            "27ed083f.f0a228",
+            "16f6e5d8.d659aa",
+            "23745e25.bbe222",
+            "98ed275b.461f98",
+            "834dc872.268bf8",
+            "c97947a5.e9d1a8",
+            "1e37498.add95b7",
+            "5d591d2c.293b84",
+            "a1054dfb.dd0ec",
+            "b19e729b.d31a2",
+            "b9726f54.193e3",
+            "3ae67464.d9f56c",
+            "54edd0e.afc113",
+            "217a683e.844298",
+            "17c8ee7d.358652"
         ],
         "x": 114,
         "y": 39,
         "w": 382,
-        "h": 662
+        "h": 702
     },
     {
-        "id": "418e802a.41faa",
+        "id": "48474358.f420fc",
         "type": "mqtt in",
-        "z": "bae37de7.b0781",
-        "g": "26f8e60.a7db01a",
+        "z": "b3ae8682.36a368",
+        "g": "57f783c2.bf6c8c",
         "name": "All intents",
         "topic": "hermes/intent/+",
         "qos": "2",
@@ -59,15 +60,15 @@
         "y": 400,
         "wires": [
             [
-                "4d6b7163.c1fe6"
+                "d700c604.723508"
             ]
         ]
     },
     {
-        "id": "bd623bfd.48c698",
+        "id": "9d637506.0a1128",
         "type": "debug",
-        "z": "bae37de7.b0781",
-        "g": "26f8e60.a7db01a",
+        "z": "b3ae8682.36a368",
+        "g": "57f783c2.bf6c8c",
         "name": "",
         "active": false,
         "tosidebar": true,
@@ -83,10 +84,10 @@
         "l": false
     },
     {
-        "id": "4d6b7163.c1fe6",
+        "id": "d700c604.723508",
         "type": "json",
-        "z": "bae37de7.b0781",
-        "g": "26f8e60.a7db01a",
+        "z": "b3ae8682.36a368",
+        "g": "57f783c2.bf6c8c",
         "name": "",
         "property": "payload",
         "action": "",
@@ -95,16 +96,16 @@
         "y": 400,
         "wires": [
             [
-                "8acfb43d.a25268"
+                "5125e69e.91da98"
             ]
         ],
         "l": false
     },
     {
-        "id": "d9321e52.9d279",
+        "id": "c8d4af05.a59d5",
         "type": "comment",
-        "z": "bae37de7.b0781",
-        "g": "26f8e60.a7db01a",
+        "z": "b3ae8682.36a368",
+        "g": "57f783c2.bf6c8c",
         "name": "Listen to all mqtt msgs - WARNING!",
         "info": " * Activate this logging by connecting the nodes\n * Say the command that you wish to emulate.\n * IMPORTANT Disconnect when you're ready (or you disk might be full..)",
         "x": 280,
@@ -112,10 +113,10 @@
         "wires": []
     },
     {
-        "id": "8acfb43d.a25268",
+        "id": "5125e69e.91da98",
         "type": "function",
-        "z": "bae37de7.b0781",
-        "g": "26f8e60.a7db01a",
+        "z": "b3ae8682.36a368",
+        "g": "57f783c2.bf6c8c",
         "name": "",
         "func": "var msgStat = {\n        voiceCommands: [], intent: []\n};\n\nif(msg.payload.input === undefined){\n    return null;\n}\n\nvar executed = false;\n\nif(msg.payload.intent.confidenceScore > 0.6){\n    executed = true;\n}\n\nmsgStat.voiceCommands.push({\"value\": msg.payload.input,\n                            \"siteId\": msg.payload.siteId,\n                            \"intentDetected\": msg.payload.intent.intentName,\n                            \"executed\": executed,\n                            \"counter\": 1 \n});\n\nif(executed == true){\n    msgStat.intent.push({\"intentName\": msg.payload.intent.intentName,\n                         \"siteId\": msg.payload.siteId,\n                         \"counter\" : 1\n        \n    });\n}else{\n    msgStat.intent.push({\"intentName\": msg.payload.intent.intentName,\n                         \"siteId\": msg.payload.siteId,\n                         \"counter\" : 0\n        \n    });\n    \n}\n\n\nfor(var i=0; i<msg.payload.asrTokens[0].length; i++){\n   if(msg.payload.asrTokens[0][i].value === \"unknownword\"){\n       msgStat.unknownword = 1;\n   }\n}\n\n\nflow.set(\"msgStat\", msgStat);\n\nmsg.payload = msgStat;\n\nreturn msg;\n",
         "outputs": 1,
@@ -126,16 +127,16 @@
         "y": 400,
         "wires": [
             [
-                "148375a9.77082a"
+                "8c74673.3004898"
             ]
         ],
         "l": false
     },
     {
-        "id": "4a096434.9fc59c",
+        "id": "60feddf2.beb224",
         "type": "file",
-        "z": "bae37de7.b0781",
-        "g": "26f8e60.a7db01a",
+        "z": "b3ae8682.36a368",
+        "g": "57f783c2.bf6c8c",
         "name": "Statistics",
         "filename": "statistics",
         "appendNewline": true,
@@ -146,16 +147,16 @@
         "y": 500,
         "wires": [
             [
-                "bd623bfd.48c698"
+                "9d637506.0a1128"
             ]
         ],
         "l": false
     },
     {
-        "id": "148375a9.77082a",
+        "id": "8c74673.3004898",
         "type": "file in",
-        "z": "bae37de7.b0781",
-        "g": "26f8e60.a7db01a",
+        "z": "b3ae8682.36a368",
+        "g": "57f783c2.bf6c8c",
         "name": "Statistics",
         "filename": "statistics",
         "format": "utf8",
@@ -166,16 +167,16 @@
         "y": 500,
         "wires": [
             [
-                "29b804ef.3abc5c"
+                "af4f9d8f.3d148"
             ]
         ],
         "l": false
     },
     {
-        "id": "29b804ef.3abc5c",
+        "id": "af4f9d8f.3d148",
         "type": "json",
-        "z": "bae37de7.b0781",
-        "g": "26f8e60.a7db01a",
+        "z": "b3ae8682.36a368",
+        "g": "57f783c2.bf6c8c",
         "name": "",
         "property": "payload",
         "action": "",
@@ -184,16 +185,16 @@
         "y": 500,
         "wires": [
             [
-                "4cd2a4e4.86c3bc"
+                "e28c688a.2734c8"
             ]
         ],
         "l": false
     },
     {
-        "id": "4cd2a4e4.86c3bc",
+        "id": "e28c688a.2734c8",
         "type": "function",
-        "z": "bae37de7.b0781",
-        "g": "26f8e60.a7db01a",
+        "z": "b3ae8682.36a368",
+        "g": "57f783c2.bf6c8c",
         "name": "",
         "func": "if(msg.payload === undefined){\n    var msgStat = {\n        voiceCommands: [], intent: []\n};}\nelse{\n    var msgStat = msg.payload;\n}\n\nmsg.payload = flow.get(\"msgStat\");\n\n\n\nfor(var i=0; i<msgStat.voiceCommands.length; i++){\n    \n    if(msgStat.voiceCommands[i].value === undefined ){\n        return null;\n    }\n    \n    if(msgStat.voiceCommands[i].value === msg.payload.voiceCommands[0].value && msgStat.voiceCommands[i].siteId === msg.payload.voiceCommands[0].siteId){\n        var alreadyExist = i;\n    }\n    \n}\n\n\nfor(var i=0; i<msgStat.intent.length; i++){\n    \n    if(msgStat.intent[i].intentName === msg.payload.intent[0].intentName && msgStat.intent[i].siteId === msg.payload.intent[0].siteId){\n        var alreadyExist1 = i;\n    }\n}\n\n\nif(alreadyExist != undefined){\n    msgStat.voiceCommands[alreadyExist].counter = msgStat.voiceCommands[alreadyExist].counter+1;\n}else{\n    msgStat.voiceCommands.push({\"value\": msg.payload.voiceCommands[0].value,\n                            \"siteId\": msg.payload.voiceCommands[0].siteId,\n                            \"executed\" : msg.payload.voiceCommands[0].executed,\n                            \"intentDetected\": msg.payload.voiceCommands[0].intentDetected,\n                            \"counter\": msg.payload.voiceCommands[0].counter\n    });\n}\n\nif(alreadyExist1 != undefined){\n    msgStat.intent[alreadyExist1].counter = msgStat.intent[alreadyExist1].counter+1;\n}else{\n    msgStat.intent.push({\"intentName\": msg.payload.intent[0].intentName,\n                        \"siteId\": msg.payload.intent[0].siteId,\n                        \"counter\": msg.payload.intent[0].counter\n    \n    });\n}\n\n\nif(msg.payload.unknownword !== undefined){\n    msgStat.unknownword = msgStat.unknownword+1;\n}\n\n\nmsg.payload = msgStat;\n\nreturn msg;",
         "outputs": 1,
@@ -204,16 +205,16 @@
         "y": 500,
         "wires": [
             [
-                "4a096434.9fc59c"
+                "60feddf2.beb224"
             ]
         ],
         "l": false
     },
     {
-        "id": "841f5dc3.677f7",
+        "id": "daed3b2e.82e4a8",
         "type": "file",
-        "z": "bae37de7.b0781",
-        "g": "26f8e60.a7db01a",
+        "z": "b3ae8682.36a368",
+        "g": "57f783c2.bf6c8c",
         "name": "Statistics",
         "filename": "statistics",
         "appendNewline": true,
@@ -227,10 +228,10 @@
         ]
     },
     {
-        "id": "54542b39.df1884",
+        "id": "27ed083f.f0a228",
         "type": "comment",
-        "z": "bae37de7.b0781",
-        "g": "26f8e60.a7db01a",
+        "z": "b3ae8682.36a368",
+        "g": "57f783c2.bf6c8c",
         "name": "Inject manually to clean the current file",
         "info": "",
         "x": 290,
@@ -238,10 +239,10 @@
         "wires": []
     },
     {
-        "id": "f55b104a.2ac1f",
+        "id": "16f6e5d8.d659aa",
         "type": "exec",
-        "z": "bae37de7.b0781",
-        "g": "26f8e60.a7db01a",
+        "z": "b3ae8682.36a368",
+        "g": "57f783c2.bf6c8c",
         "command": "sudo sh -c 'echo \"/opt/node-red/statistics { \\n size 1M\\n dateext\\n missingok\\n rotate 7\\n compress\\n copytruncate\\n notifempty\\n}\" > /etc/logrotate.d/logrotate-statistics'",
         "addpay": false,
         "append": "",
@@ -259,10 +260,10 @@
         "l": false
     },
     {
-        "id": "100f0362.f0c24d",
+        "id": "23745e25.bbe222",
         "type": "inject",
-        "z": "bae37de7.b0781",
-        "g": "26f8e60.a7db01a",
+        "z": "b3ae8682.36a368",
+        "g": "57f783c2.bf6c8c",
         "name": "",
         "props": [],
         "repeat": "",
@@ -275,16 +276,16 @@
         "y": 240,
         "wires": [
             [
-                "f55b104a.2ac1f"
+                "16f6e5d8.d659aa"
             ]
         ],
         "l": false
     },
     {
-        "id": "d8d96e35.63d11",
+        "id": "98ed275b.461f98",
         "type": "inject",
-        "z": "bae37de7.b0781",
-        "g": "26f8e60.a7db01a",
+        "z": "b3ae8682.36a368",
+        "g": "57f783c2.bf6c8c",
         "name": "",
         "props": [
             {
@@ -302,16 +303,16 @@
         "y": 125,
         "wires": [
             [
-                "841f5dc3.677f7"
+                "daed3b2e.82e4a8"
             ]
         ],
         "l": false
     },
     {
-        "id": "7d0d8ab6.b3a5e4",
+        "id": "834dc872.268bf8",
         "type": "comment",
-        "z": "bae37de7.b0781",
-        "g": "26f8e60.a7db01a",
+        "z": "b3ae8682.36a368",
+        "g": "57f783c2.bf6c8c",
         "name": "Inject to compress file in an interval time",
         "info": "",
         "x": 290,
@@ -319,10 +320,10 @@
         "wires": []
     },
     {
-        "id": "8a49965f.aff6b8",
+        "id": "c97947a5.e9d1a8",
         "type": "http in",
-        "z": "bae37de7.b0781",
-        "g": "26f8e60.a7db01a",
+        "z": "b3ae8682.36a368",
+        "g": "57f783c2.bf6c8c",
         "name": "",
         "url": "/statistics",
         "method": "get",
@@ -332,16 +333,16 @@
         "y": 600,
         "wires": [
             [
-                "d8d3765f.554ee8"
+                "1e37498.add95b7"
             ]
         ],
         "l": false
     },
     {
-        "id": "d8d3765f.554ee8",
+        "id": "1e37498.add95b7",
         "type": "file in",
-        "z": "bae37de7.b0781",
-        "g": "26f8e60.a7db01a",
+        "z": "b3ae8682.36a368",
+        "g": "57f783c2.bf6c8c",
         "name": "",
         "filename": "statistics",
         "format": "utf8",
@@ -352,16 +353,16 @@
         "y": 600,
         "wires": [
             [
-                "6d9fc87e.9c6238"
+                "5d591d2c.293b84"
             ]
         ],
         "l": false
     },
     {
-        "id": "6d9fc87e.9c6238",
+        "id": "5d591d2c.293b84",
         "type": "http response",
-        "z": "bae37de7.b0781",
-        "g": "26f8e60.a7db01a",
+        "z": "b3ae8682.36a368",
+        "g": "57f783c2.bf6c8c",
         "name": "",
         "statusCode": "",
         "headers": {},
@@ -371,10 +372,10 @@
         "l": false
     },
     {
-        "id": "e362aaac.7939b8",
+        "id": "a1054dfb.dd0ec",
         "type": "comment",
-        "z": "bae37de7.b0781",
-        "g": "26f8e60.a7db01a",
+        "z": "b3ae8682.36a368",
+        "g": "57f783c2.bf6c8c",
         "name": "Download the file here",
         "info": "Go to user interface to see/download statistics file\n\n -> http://localhost:1880/ui ",
         "x": 240,
@@ -382,10 +383,10 @@
         "wires": []
     },
     {
-        "id": "f738daf3.94c5e8",
+        "id": "b19e729b.d31a2",
         "type": "ui_template",
-        "z": "bae37de7.b0781",
-        "g": "26f8e60.a7db01a",
+        "z": "b3ae8682.36a368",
+        "g": "57f783c2.bf6c8c",
         "group": "7a9a5da0.2b6b14",
         "name": "Statistics",
         "order": 1,
@@ -404,10 +405,10 @@
         "l": false
     },
     {
-        "id": "d383838f.e07",
+        "id": "b9726f54.193e3",
         "type": "file in",
-        "z": "bae37de7.b0781",
-        "g": "26f8e60.a7db01a",
+        "z": "b3ae8682.36a368",
+        "g": "57f783c2.bf6c8c",
         "name": "",
         "filename": "statistics",
         "format": "utf8",
@@ -418,16 +419,16 @@
         "y": 660,
         "wires": [
             [
-                "e458caba.2e8168"
+                "3ae67464.d9f56c"
             ]
         ],
         "l": false
     },
     {
-        "id": "e458caba.2e8168",
+        "id": "3ae67464.d9f56c",
         "type": "json",
-        "z": "bae37de7.b0781",
-        "g": "26f8e60.a7db01a",
+        "z": "b3ae8682.36a368",
+        "g": "57f783c2.bf6c8c",
         "name": "",
         "property": "payload",
         "action": "",
@@ -436,16 +437,16 @@
         "y": 660,
         "wires": [
             [
-                "94a42434.c8fea8"
+                "54edd0e.afc113"
             ]
         ],
         "l": false
     },
     {
-        "id": "94a42434.c8fea8",
+        "id": "54edd0e.afc113",
         "type": "template",
-        "z": "bae37de7.b0781",
-        "g": "26f8e60.a7db01a",
+        "z": "b3ae8682.36a368",
+        "g": "57f783c2.bf6c8c",
         "name": "",
         "field": "payload",
         "fieldType": "msg",
@@ -457,16 +458,16 @@
         "y": 660,
         "wires": [
             [
-                "f738daf3.94c5e8"
+                "b19e729b.d31a2"
             ]
         ],
         "l": false
     },
     {
-        "id": "c09f6dce.c039f",
+        "id": "217a683e.844298",
         "type": "watch",
-        "z": "bae37de7.b0781",
-        "g": "26f8e60.a7db01a",
+        "z": "b3ae8682.36a368",
+        "g": "57f783c2.bf6c8c",
         "name": "",
         "files": "statistics",
         "recursive": "",
@@ -474,7 +475,23 @@
         "y": 660,
         "wires": [
             [
-                "d383838f.e07"
+                "b9726f54.193e3"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "17c8ee7d.358652",
+        "type": "ui_ui_control",
+        "z": "b3ae8682.36a368",
+        "g": "57f783c2.bf6c8c",
+        "name": "",
+        "events": "all",
+        "x": 155,
+        "y": 700,
+        "wires": [
+            [
+                "b9726f54.193e3"
             ]
         ],
         "l": false
