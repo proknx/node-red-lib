@@ -7,8 +7,8 @@ For the user to be notified of the output given, push bullet and mail nodes are 
 -> node-red-node-pushbullet
 
 Mail Set Up :
-1. Write down your email adresse at To and Userid.
-2. Write down the password of your email.
+1. Enter the email adresse at To and Userid.
+2. Enter the password of your email.
 3. Leave the others by default
 4. Go to google setting->security->less secure app access->on.
 
