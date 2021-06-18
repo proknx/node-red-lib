@@ -6,11 +6,11 @@ For the user to be notified of the output given, push bullet and mail nodes are 
 -> node-red-node-email
 -> node-red-node-pushbullet
 
-Mail Set Up :
+Setup gmail:
 1. Enter the email adresse at To and Userid.
 2. Enter the password of your email.
 3. Leave the others by default
-4. Go to google setting->security->less secure app access->on.
+4. Go to gmail setting->security->less secure app access->on.
 
 Pushbullet Set Up :
 1.Create a Pushbullet account at https://www.pushbullet.com
