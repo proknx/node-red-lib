@@ -88,7 +88,6 @@
             "e4272854.909ae",
             "892beb7f.e3ee58",
             "889a8082.5a1e78",
-            "3ebc5b31.d431e4",
             "f5812c7f.b14bb",
             "94306fc2.3d6bb8",
             "872f46c1.52dfa",
@@ -106,15 +105,7 @@
             "c0f5bb7a.97faa",
             "d9f6c889.e9bd7",
             "d9d0d274.c02a98",
-            "de51da5a.5a1928",
-            "3c7b3a68.0ecf46",
             "3716b3a5.63fc4c",
-            "371b673d.1f57d",
-            "1a55d46d.f99204",
-            "e8086e77.934638",
-            "93c9f426.254018",
-            "edac4237.bf99f8",
-            "70e56ac5.eae6fc",
             "37653f03.b44c6"
         ],
         "x": 14,
@@ -190,8 +181,7 @@
             [
                 "7bcc265b.1ea6a8",
                 "e94bd0ea.5e1c3",
-                "992ba02a.71185",
-                "de51da5a.5a1928"
+                "992ba02a.71185"
             ]
         ]
     },
@@ -255,14 +245,14 @@
         "type": "function",
         "z": "9cd44c5b.df0b6",
         "g": "ad90d1db.8e6dd",
-        "name": "Test MA",
-        "func": "if (msg.payload!==undefined && msg.payload.length>0){\n    msg.payload = JSON.parse(msg.payload);\n    if (msg.payload.type==\"motion\" || msg.payload.type==\"door\" ){\n        var sensorname = global.get(\"sensorname\");\n        //node.warn(\"Motion sensor \" + sensorname +\" state is \" + msg.payload.motion);\n        msg.payload= {\n                    \"training\": {\n                    },\n                        \"prediction\": {\n                             \"sensors\": {\n                                sensorname : {\n                                    \"home\": {\n                                         \"observedCount\": 30,\n                                         \"onePercentQuantile\": 10\n                                            }\n                                        }\n                                    }\n                                 }\n                    };   \n    return msg;\n    }\n}\n",
+        "name": "Simulate Motion Anomaly",
+        "func": "if (msg.payload!==undefined && msg.payload.length>0){\n    msg.payload = JSON.parse(msg.payload);\n    if (msg.payload.type==\"motion\" || msg.payload.type==\"door\" ){\n        var sensorname = global.get(\"sensorname\");\n        // To simulate Motion anomaly: set 'observedCount' to a value less than 'onePercentQuantile'\n        msg.payload= {\n            \"training\": {\n            },\n            \"prediction\": {\n                 \"sensors\": {\n                    sensorname : {\n                        \"home\": {\n                             \"observedCount\": 5,\n                             \"onePercentQuantile\": 10\n                                }\n                            }\n                        }\n                     }\n            };   \n    return msg;\n    }\n}\n",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 335,
-        "y": 569,
+        "x": 280,
+        "y": 560,
         "wires": [
             [
                 "56e61bb6.173214"
@@ -275,7 +265,7 @@
         "z": "9cd44c5b.df0b6",
         "g": "ad90d1db.8e6dd",
         "name": "MA detected?",
-        "func": "let anomalyCount = 0;\nlet strictlyViolated = false;\nmsg.payload = JSON.parse(msg.payload);\nfor (const [sensorName, sensorData] of Object.entries(\n         msg.payload.prediction.sensors)) {\n  if (sensorData.home.observedCount > sensorData.home.onePercentQuantile) {\n    continue;\n  }\n\n  strictlyViolated = strictlyViolated ||\n      sensorData.home.observedCount < sensorData.home.onePercentQuantile;\n  anomalyCount++;\n}\n\n//var length = Object.keys(msg.payload.prediction.sensors).length;\n//node.warn(length);\n\nmsg.payload =\n    (anomalyCount == Object.keys(msg.payload.prediction.sensors).length) &&\n    strictlyViolated;\n\nreturn msg;",
+        "func": "let anomalyCount = 0;\nlet strictlyViolated = false;\n//Comment the msg.payload line below to simulate motion anomaly\nmsg.payload = JSON.parse(msg.payload);\nfor (const [sensorName, sensorData] of Object.entries(\n         msg.payload.prediction.sensors)) {\n  if (sensorData.home.observedCount > sensorData.home.onePercentQuantile) {\n    continue;\n  }\n\n  strictlyViolated = strictlyViolated ||\n      sensorData.home.observedCount < sensorData.home.onePercentQuantile;\n  anomalyCount++;\n}\n\n//var length = Object.keys(msg.payload.prediction.sensors).length;\n//node.warn(length);\n\nmsg.payload =\n    (anomalyCount == Object.keys(msg.payload.prediction.sensors).length) &&\n    strictlyViolated;\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -309,9 +299,9 @@
         "once": false,
         "onceDelay": 0.1,
         "topic": "",
-        "payload": "{\"type\":\"motion\",\"isOccupied\":true}",
-        "payloadType": "str",
-        "x": 175,
+        "payload": "",
+        "payloadType": "date",
+        "x": 115,
         "y": 560,
         "wires": [
             [
@@ -348,33 +338,6 @@
         "x": 490,
         "y": 400,
         "wires": []
-    },
-    {
-        "id": "3ebc5b31.d431e4",
-        "type": "inject",
-        "z": "9cd44c5b.df0b6",
-        "g": "ad90d1db.8e6dd",
-        "name": "TEST - Door sensor",
-        "props": [
-            {
-                "p": "payload"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "{\"type\":\"door\",\"isOccupied\":true}",
-        "payloadType": "str",
-        "x": 175,
-        "y": 600,
-        "wires": [
-            [
-                "bec20813.a87c88"
-            ]
-        ],
-        "l": false
     },
     {
         "id": "f5812c7f.b14bb",
@@ -613,7 +576,7 @@
         "z": "9cd44c5b.df0b6",
         "g": "88502e0b.9ac208",
         "name": "ReadME deviceInfo ",
-        "info": "Link the Motion and Sensor node to have spoken feedback by the voice assistant when the battery level is low.",
+        "info": "Link the Motion and Sensor node to have spoken feedback by the voice assistant when the battery level is low.\nThe spoken feedback will be given when \"Hey Snips Whats up\" is said",
         "x": 130,
         "y": 740,
         "wires": []
@@ -811,8 +774,8 @@
         "type": "comment",
         "z": "9cd44c5b.df0b6",
         "g": "ad90d1db.8e6dd",
-        "name": "Version 3 :09-06-2021",
-        "info": "What was changed :\n1. Adding of ReadME debugging and ReadME        deviceinfo\n2. proknx/heartbeat mqtt message to skyresponse\n3. adding of doorevent to see the status change of door",
+        "name": "Version 4 :18-06-2021",
+        "info": "What was changed :\n1. Changes in Simulate Motion Anomaly\n2. Removal of doorevent to base unit\n3. Adding comment line to \"MA detected\" function for Simulate Motion Anomaly",
         "x": 1060,
         "y": 60,
         "wires": []
@@ -858,49 +821,6 @@
         "wires": []
     },
     {
-        "id": "de51da5a.5a1928",
-        "type": "function",
-        "z": "9cd44c5b.df0b6",
-        "g": "ad90d1db.8e6dd",
-        "name": "",
-        "func": "if (msg.payload!==undefined && msg.payload.length>0){\n   if (msg.payload == \"open\"){\n        msg.headers = {};\n        msg.method = \"GET\";\n        msg.url = \"http://192.168.9.48:1880/doorevent\" ;\n        msg.headers[\"content-type\"] = \"application/json\";\n        \n        return msg;\n   }\n  \n}",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "x": 270,
-        "y": 320,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "3c7b3a68.0ecf46",
-        "type": "inject",
-        "z": "9cd44c5b.df0b6",
-        "g": "ad90d1db.8e6dd",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "open",
-        "payloadType": "str",
-        "x": 120,
-        "y": 320,
-        "wires": [
-            [
-                "de51da5a.5a1928"
-            ]
-        ]
-    },
-    {
         "id": "3716b3a5.63fc4c",
         "type": "mqtt out",
         "z": "9cd44c5b.df0b6",
@@ -912,104 +832,6 @@
         "broker": "cacf8967.042428",
         "x": 550,
         "y": 620,
-        "wires": []
-    },
-    {
-        "id": "371b673d.1f57d",
-        "type": "http in",
-        "z": "9cd44c5b.df0b6",
-        "g": "ad90d1db.8e6dd",
-        "name": "doorevent",
-        "url": "/dooreventBase",
-        "method": "get",
-        "upload": false,
-        "swaggerDoc": "",
-        "x": 690,
-        "y": 140,
-        "wires": [
-            [
-                "e8086e77.934638",
-                "93c9f426.254018"
-            ]
-        ]
-    },
-    {
-        "id": "1a55d46d.f99204",
-        "type": "http response",
-        "z": "9cd44c5b.df0b6",
-        "g": "ad90d1db.8e6dd",
-        "name": "",
-        "statusCode": "",
-        "headers": {},
-        "x": 910,
-        "y": 140,
-        "wires": []
-    },
-    {
-        "id": "e8086e77.934638",
-        "type": "debug",
-        "z": "9cd44c5b.df0b6",
-        "g": "ad90d1db.8e6dd",
-        "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 770,
-        "y": 180,
-        "wires": []
-    },
-    {
-        "id": "93c9f426.254018",
-        "type": "function",
-        "z": "9cd44c5b.df0b6",
-        "g": "ad90d1db.8e6dd",
-        "name": "",
-        "func": "if (msg.payload !== undefined || msg.payload.length>0){\n    \n    var d=new Date();\n    var t= d.toLocaleTimeString();\n    const monthNames = [\"January\", \"February\", \"March\", \"April\", \"May\", \"June\",\n     \"July\", \"August\", \"September\", \"October\", \"November\", \"December\"];\n    var day= d.getUTCDate() + monthNames[d.getMonth()] + d.getUTCFullYear() ;\n    \n    \n\n        //for the log file\n        msg.payload ={type:msg.payload,Time:t, Day:day};\n    \n        return msg;\n    \n}",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "x": 795,
-        "y": 140,
-        "wires": [
-            [
-                "1a55d46d.f99204",
-                "edac4237.bf99f8"
-            ]
-        ],
-        "l": false
-    },
-    {
-        "id": "edac4237.bf99f8",
-        "type": "file",
-        "z": "9cd44c5b.df0b6",
-        "g": "ad90d1db.8e6dd",
-        "name": "doorevent",
-        "filename": "/opt/node-red/logs/doorevent",
-        "appendNewline": true,
-        "createDir": false,
-        "overwriteFile": "false",
-        "encoding": "none",
-        "x": 950,
-        "y": 180,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "70e56ac5.eae6fc",
-        "type": "comment",
-        "z": "9cd44c5b.df0b6",
-        "g": "ad90d1db.8e6dd",
-        "name": "Doorevent",
-        "info": "To see if opening or closing of the door is detected by shelly door sensor",
-        "x": 680,
-        "y": 100,
         "wires": []
     },
     {
