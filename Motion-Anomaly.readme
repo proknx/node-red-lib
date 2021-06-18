@@ -39,3 +39,4 @@ Test & Deploy :
 To test/simulate no motions events select the  DISABLE MOTION EVENTS button.
 To re-enable, select the ENABLE MOTION EVENTS.
 After restart, it is automatically re-enabled.
+Delete the backup door URL in Shelly Door User Interface
