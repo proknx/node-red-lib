@@ -1,5 +1,6 @@
 This flow sends alarms notification to skyresponse system. It is used with the HELPCALL feature when a person says "Help" and wil also send the 
 battery level of Shelly motion and door detectors.
+
 This flow will also treat the motion anomaly service output (true or false). If a motion anomaly is detected (true output is given by the MA service), a spoken 
 feedback will be given to the speaker to ask about the user wellbeing. If the user replied that he/she is not okay, an alarm will be sent to the designated 
 person(skyresponse or pushbullet)
@@ -7,3 +8,6 @@ person(skyresponse or pushbullet)
 The identifier, secret and product must be filled in the SET AUTHENTICATION node.
 
 The SPOKEN FEEDBACK must be connected also. Read the IMPORTANT README file. 
+
+Test Battery level :
+Click the Low Bat to post the alarm
