@@ -1,0 +1,4 @@
+This flow sends alarms notification to skyresponse system. It is used with the HELPCALL feature when a person says "Help" and wil also send the 
+battery level of Shelly motion and door detectors.
+
+The identifier, secret and product must be filled in the timestamp node (blue node).
