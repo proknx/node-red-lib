@@ -13,6 +13,13 @@ Mail Set Up :
 4. Go to google setting->security->less secure app access->on.
 
 Pushbullet Set Up :
+1.Create a Pushbullet account at https://www.pushbullet.com
+2.Go to Settings -> Account -> Access Tokens 
+3.Copy the tokens
+4.Double click the pushbullet node
+5.Add new pushbullet-config by clicking the pencil icon
+6.Assign a name to it and paste the token that you have copied
+7.Click Add -> Done 
 
 To see the debug logs :
 1. Activate the debug node at the SHELLY - Debugging flow.
@@ -27,3 +34,8 @@ The log files help to record motion_anomaly events and can be further used to de
 - touch /opt/node-red/logs/MA_logs
 2. Enable the "disabled node" in the flow
 3. Save and deploy
+
+Test & Deploy :
+To test/simulate no motions events select the  DISABLE MOTION EVENTS button.
+To re-enable, select the ENABLE MOTION EVENTS.
+After restart, it is automatically re-enabled.
