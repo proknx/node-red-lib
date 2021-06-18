@@ -1,174 +1,205 @@
 [
     {
-        "id": "7c3eb237.cd26d4",
+        "id": "9cd44c5b.df0b6",
         "type": "tab",
         "label": "SHELLY MOTION-ANOMALY",
         "disabled": false,
         "info": ""
     },
     {
-        "id": "11a2cde5.4f964a",
+        "id": "18d704c6.23ea7b",
         "type": "group",
-        "z": "7c3eb237.cd26d4",
+        "z": "9cd44c5b.df0b6",
+        "name": "SHELLY - DISABLE MOTION EVENTS",
+        "style": {
+            "label": true
+        },
+        "nodes": [
+            "44d33797.30af38",
+            "40dda5c.3795c5c",
+            "b0da63f8.b122a",
+            "3a8a46e5.6f762a",
+            "7bf8e586.40a8b4"
+        ],
+        "x": 794,
+        "y": 699,
+        "w": 372,
+        "h": 162
+    },
+    {
+        "id": "273a9911.29df9e",
+        "type": "group",
+        "z": "9cd44c5b.df0b6",
         "name": "SHELLY - Debugging",
         "style": {
             "label": true
         },
         "nodes": [
-            "17d26a92.20e11d",
-            "4fb1a715.f3ea4",
-            "d32a5a3.27684a8",
-            "b674c744.3d3e18"
+            "9e7617b4.60063",
+            "eb8d30f7.5007a",
+            "6486fb74.1e11a4",
+            "1ea18e60.764052"
         ],
         "x": 454,
-        "y": 599,
+        "y": 699,
         "w": 312,
         "h": 162
     },
     {
-        "id": "5247d5c6.43d214",
+        "id": "88502e0b.9ac208",
         "type": "group",
-        "z": "7c3eb237.cd26d4",
+        "z": "9cd44c5b.df0b6",
         "name": "SHELLY - Battery Level",
         "style": {
             "label": true
         },
         "nodes": [
-            "ab26cfb3.afea8",
-            "f620a8db.a1555",
-            "60738def.001884",
-            "a6698099.509c8",
-            "beb6147.42104e8",
-            "183236aa.4522a1",
-            "338f0360.79acb4"
+            "65db002f.056fb8",
+            "851e5ed8.cc6e4",
+            "b25cb740.ab065",
+            "a7a62c3.5d052d",
+            "a23e0598.6dd2a8",
+            "34b542de.365406",
+            "901d4615.fae61"
         ],
         "x": 14,
-        "y": 599,
+        "y": 699,
         "w": 412,
         "h": 182
     },
     {
-        "id": "5fe868c0.e772f",
+        "id": "ad90d1db.8e6dd",
         "type": "group",
-        "z": "7c3eb237.cd26d4",
+        "z": "9cd44c5b.df0b6",
         "name": "SHELLY - Motion Anomaly",
         "style": {
             "label": true
         },
         "nodes": [
-            "9148a556.c74",
-            "3bb2a72a.99fa78",
-            "56e7a4af.a1a89c",
-            "dbad5215.d62138",
-            "9bca59a9.c105a",
-            "4ed52f4a.59428",
-            "8bab59fc.42b698",
-            "9699cc2a.a4e1a8",
-            "f631b9ae.9a03a",
-            "747d4225.043a5c",
-            "4a958b03.056ef4",
-            "30442011.f8e05",
-            "661630d4.5a32e",
-            "a64f9735.2e4f88",
-            "25167f1f.5058b",
-            "bb5bab83.bb0928",
-            "9da8f693.b3f2b8",
-            "de297c53.b20008",
-            "6a41a09f.7be558",
-            "76ba557a.97190c",
-            "c969f800.d892d8",
-            "4f0f8e0.361e1f4",
-            "2a11ca0f.1f272e",
-            "61309898.3ecf08",
-            "b78ed064.5d4bc",
-            "a7135251.1d4a2",
-            "4ae3b1a0.3cbd8",
-            "b9e81b28.6ff648",
-            "6e8be0f2.8183",
-            "cec62ea6.01575"
+            "f7580fad.a2316",
+            "f8181b8f.5d5ae",
+            "1b4e3818.f1cca",
+            "9af2ef5.eae541",
+            "e94bd0ea.5e1c3",
+            "c9e4e7f1.e55c2",
+            "579c4adf.1cfb3c",
+            "bec20813.a87c88",
+            "56e61bb6.173214",
+            "e4272854.909ae",
+            "892beb7f.e3ee58",
+            "889a8082.5a1e78",
+            "3ebc5b31.d431e4",
+            "f5812c7f.b14bb",
+            "94306fc2.3d6bb8",
+            "872f46c1.52dfa",
+            "96cc83a0.a47d48",
+            "d30c946b.51d71",
+            "5bda1a53.89092c",
+            "55959a89.495eec",
+            "321e256f.c8d5b2",
+            "15dcf8e3.a60d1f",
+            "7bcc265b.1ea6a8",
+            "291b34cb.ea0bd4",
+            "e593a4b5.022e3",
+            "5540637e.63e974",
+            "992ba02a.71185",
+            "c0f5bb7a.97faa",
+            "d9f6c889.e9bd7",
+            "d9d0d274.c02a98",
+            "de51da5a.5a1928",
+            "3c7b3a68.0ecf46",
+            "3716b3a5.63fc4c",
+            "371b673d.1f57d",
+            "1a55d46d.f99204",
+            "e8086e77.934638",
+            "93c9f426.254018",
+            "edac4237.bf99f8",
+            "70e56ac5.eae6fc",
+            "37653f03.b44c6"
         ],
         "x": 14,
-        "y": 39,
-        "w": 1052,
-        "h": 522
+        "y": 19,
+        "w": 1172,
+        "h": 642
     },
     {
-        "id": "9148a556.c74",
+        "id": "f7580fad.a2316",
         "type": "mqtt out",
-        "z": "7c3eb237.cd26d4",
-        "g": "5fe868c0.e772f",
+        "z": "9cd44c5b.df0b6",
+        "g": "ad90d1db.8e6dd",
         "name": "MA publisher",
         "topic": "",
         "qos": "",
         "retain": "",
-        "broker": "f4771b0b.84561",
-        "x": 450,
-        "y": 100,
+        "broker": "3fe9553d.423c62",
+        "x": 490,
+        "y": 140,
         "wires": []
     },
     {
-        "id": "3bb2a72a.99fa78",
+        "id": "f8181b8f.5d5ae",
         "type": "function",
-        "z": "7c3eb237.cd26d4",
-        "g": "5fe868c0.e772f",
+        "z": "9cd44c5b.df0b6",
+        "g": "ad90d1db.8e6dd",
         "name": "",
-        "func": "var isOccupied = false;\nvar sensorname =\"\";\n\nif (msg.payload!==undefined && msg.payload.length>0){\n    msg.payload = JSON.parse(msg.payload);\n    if (msg.payload.motion==true){\n        \n        var language = global.get(\"msgLang\");\n        var siteId = global.get(\"msgServerSiteId\").replace(/_\\d+$/, \"\").trim();\n        var msgText = {payload:[]};\n        \n        //motion detected\n        node.warn(\"Motion sensor \" + msg.topic.split(\"/\")[1].split(\"-\")[1] +\" state is \" + msg.payload.motion);\n       sensorname= msg.topic.split(\"/\")[1].split(\"-\")[1];\n       global.set(\"sensorname\", sensorname); \n        var payload = {type:\"motion\", isOccupied:true};\n        msg.payload = JSON.stringify(payload);\n      //  msg.payload.id = msg.topic.split(\"/\")[1].split(\"-\")[1];\n        msg.topic= \"motion_anomaly/sensor/\"+ sensorname;\n        \n        /*if (language === \"de\") {\n         msgText.payload = {\n          text: \"Anwesenheit erkannt\",\n          siteId: siteId,\n          lang: \"de-DE\"\n            };\n        } else if (language === \"fr\") {\n         msgText.payload = {\n          text: \"Présence détectée\",\n          siteId: siteId,\n          lang: \"fr-FR\"\n            };\n        } else {\n         msgText.payload = {\n          text: \"Presence detected\",\n          siteId: siteId,\n          lang: \"en-UK\"\n            };\n        }*/\n        \n        return msg;\n    }\n    else{\n        \n        //no motion detected\n        node.warn(\"Motion sensor \" + msg.topic.split(\"/\")[1].split(\"-\")[1] +\" state is \" + msg.payload.motion);\n       sensorname= msg.topic.split(\"/\")[1].split(\"-\")[1];\n       global.set(\"sensorname\", sensorname); \n        var payload = {type:\"motion\", isOccupied:false};\n        msg.payload = JSON.stringify(payload);\n      //  msg.payload.id = msg.topic.split(\"/\")[1].split(\"-\")[1];\n        msg.topic= \"motion_anomaly/sensor/\"+ sensorname;\n        \n        return msg;\n    }\n    \n    \n    \n}",
+        "func": "var isOccupied = false;\nvar sensorname =\"\";\nvar noMotionEvent = global.get(\"noMotionEvent\");\n\nif(noMotionEvent!==true){\n    if (msg.payload!==undefined && msg.payload.length>0){\n        msg.payload = JSON.parse(msg.payload);\n        if (msg.payload.motion==true){\n            \n            var language = global.get(\"msgLang\");\n            var siteId = global.get(\"msgServerSiteId\").replace(/_\\d+$/, \"\").trim();\n            var msgText = {payload:[]};\n            \n            //motion detected\n            node.warn(\"Motion sensor \" + msg.topic.split(\"/\")[1].split(\"-\")[1] +\" state is \" + msg.payload.motion);\n            sensorname= msg.topic.split(\"/\")[1].split(\"-\")[1];\n            global.set(\"sensorname\", sensorname); \n            var payload = {type:\"motion\", isOccupied:true};\n            msg.payload = JSON.stringify(payload);\n            //  msg.payload.id = msg.topic.split(\"/\")[1].split(\"-\")[1];\n            msg.topic= \"motion_anomaly/sensor/\"+ sensorname;\n            \n            /*if (language === \"de\") {\n             msgText.payload = {\n              text: \"Anwesenheit erkannt\",\n              siteId: siteId,\n              lang: \"de-DE\"\n                };\n            } else if (language === \"fr\") {\n             msgText.payload = {\n              text: \"Présence détectée\",\n              siteId: siteId,\n              lang: \"fr-FR\"\n                };\n            } else {\n             msgText.payload = {\n              text: \"Presence detected\",\n              siteId: siteId,\n              lang: \"en-UK\"\n                };\n            }*/\n            \n            return msg;\n        }\n        else{\n            \n            //no motion detected\n            node.warn(\"Motion sensor \" + msg.topic.split(\"/\")[1].split(\"-\")[1] +\" state is \" + msg.payload.motion);\n            sensorname= msg.topic.split(\"/\")[1].split(\"-\")[1];\n            global.set(\"sensorname\", sensorname); \n            var payload = {type:\"motion\", isOccupied:false};\n            msg.payload = JSON.stringify(payload);\n            //  msg.payload.id = msg.topic.split(\"/\")[1].split(\"-\")[1];\n            msg.topic= \"motion_anomaly/sensor/\"+ sensorname;\n            \n            return msg;\n        }\n    }\n}else{\n        //no motion detected\n        node.warn(\"Motion sensor \" + msg.topic.split(\"/\")[1].split(\"-\")[1] +\" state is \" + msg.payload.motion);\n        sensorname= msg.topic.split(\"/\")[1].split(\"-\")[1];\n        global.set(\"sensorname\", sensorname); \n        var payload = {type:\"motion\", isOccupied:false};\n        msg.payload = JSON.stringify(payload);\n        //  msg.payload.id = msg.topic.split(\"/\")[1].split(\"-\")[1];\n        msg.topic= \"motion_anomaly/sensor/\"+ sensorname;\n        \n        return msg;\n}",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "x": 280,
-        "y": 119,
+        "y": 159,
         "wires": [
             [
-                "9148a556.c74"
+                "f7580fad.a2316"
             ]
         ]
     },
     {
-        "id": "56e7a4af.a1a89c",
+        "id": "1b4e3818.f1cca",
         "type": "mqtt in",
-        "z": "7c3eb237.cd26d4",
-        "g": "5fe868c0.e772f",
+        "z": "9cd44c5b.df0b6",
+        "g": "ad90d1db.8e6dd",
         "name": "Motion",
         "topic": "shellies/+/status",
         "qos": "2",
         "datatype": "auto",
-        "broker": "f4771b0b.84561",
+        "broker": "3fe9553d.423c62",
         "x": 130,
-        "y": 119,
+        "y": 159,
         "wires": [
             [
-                "3bb2a72a.99fa78",
-                "b78ed064.5d4bc"
+                "f8181b8f.5d5ae",
+                "992ba02a.71185"
             ]
         ]
     },
     {
-        "id": "dbad5215.d62138",
+        "id": "9af2ef5.eae541",
         "type": "mqtt in",
-        "z": "7c3eb237.cd26d4",
-        "g": "5fe868c0.e772f",
+        "z": "9cd44c5b.df0b6",
+        "g": "ad90d1db.8e6dd",
         "name": "Sensor",
         "topic": "shellies/+/sensor/state",
         "qos": "2",
         "datatype": "auto",
-        "broker": "f4771b0b.84561",
+        "broker": "3fe9553d.423c62",
         "x": 130,
-        "y": 200,
+        "y": 240,
         "wires": [
             [
-                "c969f800.d892d8",
-                "9bca59a9.c105a",
-                "b78ed064.5d4bc"
+                "7bcc265b.1ea6a8",
+                "e94bd0ea.5e1c3",
+                "992ba02a.71185",
+                "de51da5a.5a1928"
             ]
         ]
     },
     {
-        "id": "9bca59a9.c105a",
+        "id": "e94bd0ea.5e1c3",
         "type": "function",
-        "z": "7c3eb237.cd26d4",
-        "g": "5fe868c0.e772f",
+        "z": "9cd44c5b.df0b6",
+        "g": "ad90d1db.8e6dd",
         "name": "",
         "func": "var isOccupied = false;\n\nif (msg.payload!==undefined && msg.payload.length>0){\n   if (msg.payload == \"open\"){\n        //door open\n        //flow.set(\"type\",\"door\");\n        var language = global.get(\"msgLang\");\n        var siteId = global.get(\"msgServerSiteId\").replace(/_\\d+$/, \"\").trim();\n        var msgText = {payload:[]};\n        \n        if(msg.payload == \"open\"){\n            if (language === \"de\") {\n                msgText.payload = {\n                text: \"Die Tür ist offen\",\n                siteId: siteId,\n                lang: \"de-DE\"\n                };\n            } else if (language === \"fr\") {\n            msgText.payload = {\n              text: \"La porte est ouverte\",\n              siteId: siteId,\n              lang: \"fr-FR\"\n                };\n            } else {\n             msgText.payload = {\n              text: \"The door is open\",\n              siteId: siteId,\n              lang: \"en-UK\"\n                };\n            }\n        }\n        \n        var type=\"door\";\n        var payload = {type:\"door\"};\n        msg.payload = JSON.stringify(payload);\n        //msg.payload.id = msg.topic.split(\"/\")[1].split(\"-\")[1];\n        msg.topic= \"motion_anomaly/sensor/\"+ msg.topic.split(\"/\")[1].split(\"-\")[1];\n        \n        return [msg, msgText]; \n    }else if(msg.payload == \"close\"){\n        //door close\n        //flow.set(\"type\",\"door\");\n        var language = global.get(\"msgLang\");\n        var siteId = global.get(\"msgServerSiteId\").replace(/_\\d+$/, \"\").trim();\n        var msgText = {payload:[]};\n        \n        if(msg.payload == \"close\"){\n        if (language === \"de\") {\n             msgText.payload = {\n              text: \"Die Tür ist geschlossen\",\n              siteId: siteId,\n              lang: \"de-DE\"\n                };\n            } else if (language === \"fr\") {\n             msgText.payload = {\n              text: \"La porte est fermée\",\n              siteId: siteId,\n              lang: \"fr-FR\"\n                };\n            } else {\n             msgText.payload = {\n              text: \"The door is closed\",\n              siteId: siteId,\n              lang: \"en-UK\"\n                };\n            }\n        return [null,msgText];\n            \n        }\n    }\n}",
         "outputs": 2,
@@ -176,73 +207,73 @@
         "initialize": "",
         "finalize": "",
         "x": 280,
-        "y": 240,
+        "y": 280,
         "wires": [
             [
-                "4ed52f4a.59428"
+                "c9e4e7f1.e55c2"
             ],
             [
-                "bb5bab83.bb0928"
+                "d30c946b.51d71"
             ]
         ]
     },
     {
-        "id": "4ed52f4a.59428",
+        "id": "c9e4e7f1.e55c2",
         "type": "mqtt out",
-        "z": "7c3eb237.cd26d4",
-        "g": "5fe868c0.e772f",
+        "z": "9cd44c5b.df0b6",
+        "g": "ad90d1db.8e6dd",
         "name": "MA publisher",
         "topic": "",
         "qos": "",
         "retain": "",
-        "broker": "f4771b0b.84561",
+        "broker": "3fe9553d.423c62",
         "x": 450,
-        "y": 240,
+        "y": 280,
         "wires": []
     },
     {
-        "id": "8bab59fc.42b698",
+        "id": "579c4adf.1cfb3c",
         "type": "mqtt in",
-        "z": "7c3eb237.cd26d4",
-        "g": "5fe868c0.e772f",
+        "z": "9cd44c5b.df0b6",
+        "g": "ad90d1db.8e6dd",
         "name": "MA subscriber",
         "topic": "motion_anomaly/info",
         "qos": "2",
         "datatype": "auto",
-        "broker": "f4771b0b.84561",
+        "broker": "3fe9553d.423c62",
         "x": 120,
-        "y": 400,
+        "y": 480,
         "wires": [
             [
-                "f631b9ae.9a03a",
-                "6a41a09f.7be558"
+                "56e61bb6.173214",
+                "321e256f.c8d5b2"
             ]
         ]
     },
     {
-        "id": "9699cc2a.a4e1a8",
+        "id": "bec20813.a87c88",
         "type": "function",
-        "z": "7c3eb237.cd26d4",
-        "g": "5fe868c0.e772f",
+        "z": "9cd44c5b.df0b6",
+        "g": "ad90d1db.8e6dd",
         "name": "Test MA",
-        "func": "if (msg.payload!==undefined && msg.payload.length>0){\n    msg.payload = JSON.parse(msg.payload);\n    if (msg.payload.type==\"motion\" || msg.payload.type==\"door\" ){\n        var sensorname = global.get(\"sensorname\");\n        //node.warn(\"Motion sensor \" + sensorname +\" state is \" + msg.payload.motion);\n        node.warn(\"TEST MA\");\n        msg.payload= {\n                    \"training\": {\n                    },\n                        \"prediction\": {\n                             \"sensors\": {\n                                sensorname : {\n                                    \"home\": {\n                                         \"observedCount\": 5,\n                                         \"onePercentQuantile\": 10\n                                            }\n                                        }\n                                    }\n                                 }\n                    };   \n    return msg;\n    }\n}\n",
+        "func": "if (msg.payload!==undefined && msg.payload.length>0){\n    msg.payload = JSON.parse(msg.payload);\n    if (msg.payload.type==\"motion\" || msg.payload.type==\"door\" ){\n        var sensorname = global.get(\"sensorname\");\n        //node.warn(\"Motion sensor \" + sensorname +\" state is \" + msg.payload.motion);\n        msg.payload= {\n                    \"training\": {\n                    },\n                        \"prediction\": {\n                             \"sensors\": {\n                                sensorname : {\n                                    \"home\": {\n                                         \"observedCount\": 30,\n                                         \"onePercentQuantile\": 10\n                                            }\n                                        }\n                                    }\n                                 }\n                    };   \n    return msg;\n    }\n}\n",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "x": 335,
-        "y": 489,
+        "y": 569,
         "wires": [
             [
-                "f631b9ae.9a03a"
+                "56e61bb6.173214"
             ]
         ]
     },
     {
-        "id": "f631b9ae.9a03a",
+        "id": "56e61bb6.173214",
         "type": "function",
-        "z": "7c3eb237.cd26d4",
-        "g": "5fe868c0.e772f",
+        "z": "9cd44c5b.df0b6",
+        "g": "ad90d1db.8e6dd",
         "name": "MA detected?",
         "func": "let anomalyCount = 0;\nlet strictlyViolated = false;\nmsg.payload = JSON.parse(msg.payload);\nfor (const [sensorName, sensorData] of Object.entries(\n         msg.payload.prediction.sensors)) {\n  if (sensorData.home.observedCount > sensorData.home.onePercentQuantile) {\n    continue;\n  }\n\n  strictlyViolated = strictlyViolated ||\n      sensorData.home.observedCount < sensorData.home.onePercentQuantile;\n  anomalyCount++;\n}\n\n//var length = Object.keys(msg.payload.prediction.sensors).length;\n//node.warn(length);\n\nmsg.payload =\n    (anomalyCount == Object.keys(msg.payload.prediction.sensors).length) &&\n    strictlyViolated;\n\nreturn msg;",
         "outputs": 1,
@@ -250,22 +281,23 @@
         "initialize": "",
         "finalize": "",
         "x": 440,
-        "y": 400,
+        "y": 480,
         "wires": [
             [
-                "4a958b03.056ef4",
-                "25167f1f.5058b",
-                "de297c53.b20008",
-                "a7135251.1d4a2",
-                "4ae3b1a0.3cbd8"
+                "892beb7f.e3ee58",
+                "96cc83a0.a47d48",
+                "55959a89.495eec",
+                "c0f5bb7a.97faa",
+                "d9f6c889.e9bd7",
+                "3716b3a5.63fc4c"
             ]
         ]
     },
     {
-        "id": "747d4225.043a5c",
+        "id": "e4272854.909ae",
         "type": "inject",
-        "z": "7c3eb237.cd26d4",
-        "g": "5fe868c0.e772f",
+        "z": "9cd44c5b.df0b6",
+        "g": "ad90d1db.8e6dd",
         "name": "TEST - Motion sensor ",
         "props": [
             {
@@ -280,19 +312,20 @@
         "payload": "{\"type\":\"motion\",\"isOccupied\":true}",
         "payloadType": "str",
         "x": 175,
-        "y": 480,
+        "y": 560,
         "wires": [
             [
-                "9699cc2a.a4e1a8"
+                "bec20813.a87c88"
             ]
         ],
         "l": false
     },
     {
-        "id": "4a958b03.056ef4",
+        "id": "892beb7f.e3ee58",
         "type": "function",
-        "z": "7c3eb237.cd26d4",
-        "g": "5fe868c0.e772f",
+        "z": "9cd44c5b.df0b6",
+        "d": true,
+        "g": "ad90d1db.8e6dd",
         "name": "save report",
         "func": "var d = new Date();\nvar t = d.toLocaleTimeString();\nconst monthNames = [\"January\", \"February\", \"March\", \"April\", \"May\", \"June\",\n  \"July\", \"August\", \"September\", \"October\", \"November\", \"December\"];\n\nvar reports = global.get(\"reports\", reports);\nif(reports !== undefined || reports !== null ){\n    reports = \"\";\n}\nif(reports.length>200){\n    reports = \"\";\n}\nvar lang = global.get(\"msgLang\");\nif(msg.payload === true){\n        var reports = \"\";\n        //var newReport = \"\";\n        if (lang === \"de\") {\n            newReport = \"Letzte Bewegungsstörung festgestellt bei \" + t + \" das \" + d.getUTCDate() + monthNames[d.getMonth()] + d.getUTCFullYear() ;\n        } else if (lang === \"fr\") {\n            newReport = \"Dernière anomalie de mouvement détectée à \" + t + \" le \" + d.getUTCDate() + monthNames[d.getMonth()] + d.getUTCFullYear() ;\n        } else {\n            newReport = \"Last Motion anomaly detected at \" + t + \"the\" + d.getUTCDate() + monthNames[d.getMonth()] + d.getUTCFullYear() ;\n        }\n        if(!reports.includes(newReport)){\n            reports += newReport;\n        }\n        global.set(\"reports\", reports);\n        msg.payload = reports; \n        return [msg];\n   \n}",
         "outputs": 1,
@@ -300,27 +333,27 @@
         "initialize": "",
         "finalize": "",
         "x": 530,
-        "y": 500,
+        "y": 580,
         "wires": [
             []
         ]
     },
     {
-        "id": "30442011.f8e05",
+        "id": "889a8082.5a1e78",
         "type": "comment",
-        "z": "7c3eb237.cd26d4",
-        "g": "5fe868c0.e772f",
-        "name": "Treatment of MA message",
+        "z": "9cd44c5b.df0b6",
+        "g": "ad90d1db.8e6dd",
+        "name": "----------------------------------------------------Treatment of MA message------------------------------------------------------------------------",
         "info": "the message will be listen and treated here to determine if there's any motion anomaly",
-        "x": 150,
-        "y": 340,
+        "x": 490,
+        "y": 400,
         "wires": []
     },
     {
-        "id": "661630d4.5a32e",
+        "id": "3ebc5b31.d431e4",
         "type": "inject",
-        "z": "7c3eb237.cd26d4",
-        "g": "5fe868c0.e772f",
+        "z": "9cd44c5b.df0b6",
+        "g": "ad90d1db.8e6dd",
         "name": "TEST - Door sensor",
         "props": [
             {
@@ -335,19 +368,48 @@
         "payload": "{\"type\":\"door\",\"isOccupied\":true}",
         "payloadType": "str",
         "x": 175,
-        "y": 520,
+        "y": 600,
         "wires": [
             [
-                "9699cc2a.a4e1a8"
+                "bec20813.a87c88"
             ]
         ],
         "l": false
     },
     {
-        "id": "a64f9735.2e4f88",
+        "id": "f5812c7f.b14bb",
+        "type": "pushbullet",
+        "z": "9cd44c5b.df0b6",
+        "g": "ad90d1db.8e6dd",
+        "config": "",
+        "pushtype": "note",
+        "title": "Notification MA",
+        "chan": "",
+        "name": "",
+        "x": 920,
+        "y": 560,
+        "wires": []
+    },
+    {
+        "id": "94306fc2.3d6bb8",
+        "type": "e-mail",
+        "z": "9cd44c5b.df0b6",
+        "g": "ad90d1db.8e6dd",
+        "server": "smtp.gmail.com",
+        "port": "465",
+        "secure": true,
+        "tls": true,
+        "name": "",
+        "dname": "mail",
+        "x": 950,
+        "y": 505,
+        "wires": []
+    },
+    {
+        "id": "872f46c1.52dfa",
         "type": "function",
-        "z": "7c3eb237.cd26d4",
-        "g": "5fe868c0.e772f",
+        "z": "9cd44c5b.df0b6",
+        "g": "ad90d1db.8e6dd",
         "name": "",
         "func": "msg = {\n    payload : \"Motion anomaly detected at \" + Date().toString(),\n    topic : \"Motion Anomaly!\"\n};\nnode.warn(\"email in\");\nreturn msg;",
         "outputs": 1,
@@ -355,18 +417,18 @@
         "initialize": "",
         "finalize": "",
         "x": 820,
-        "y": 425,
+        "y": 505,
         "wires": [
             [
-                "cec62ea6.01575"
+                "94306fc2.3d6bb8"
             ]
         ]
     },
     {
-        "id": "25167f1f.5058b",
+        "id": "96cc83a0.a47d48",
         "type": "switch",
-        "z": "7c3eb237.cd26d4",
-        "g": "5fe868c0.e772f",
+        "z": "9cd44c5b.df0b6",
+        "g": "ad90d1db.8e6dd",
         "name": "",
         "property": "payload",
         "propertyType": "msg",
@@ -381,31 +443,31 @@
         "repair": false,
         "outputs": 1,
         "x": 750,
-        "y": 480,
+        "y": 560,
         "wires": [
             [
-                "a64f9735.2e4f88",
-                "6e8be0f2.8183"
+                "f5812c7f.b14bb",
+                "872f46c1.52dfa"
             ]
         ]
     },
     {
-        "id": "bb5bab83.bb0928",
+        "id": "d30c946b.51d71",
         "type": "link out",
-        "z": "7c3eb237.cd26d4",
-        "g": "5fe868c0.e772f",
+        "z": "9cd44c5b.df0b6",
+        "g": "ad90d1db.8e6dd",
         "name": "",
         "links": [],
         "x": 395,
-        "y": 300,
+        "y": 340,
         "wires": []
     },
     {
-        "id": "4f0f8e0.361e1f4",
+        "id": "291b34cb.ea0bd4",
         "type": "file",
-        "z": "7c3eb237.cd26d4",
+        "z": "9cd44c5b.df0b6",
         "d": true,
-        "g": "5fe868c0.e772f",
+        "g": "ad90d1db.8e6dd",
         "name": "",
         "filename": "/opt/node-red/logs/test.logs",
         "appendNewline": true,
@@ -413,17 +475,17 @@
         "overwriteFile": "false",
         "encoding": "none",
         "x": 840,
-        "y": 200,
+        "y": 240,
         "wires": [
             []
         ]
     },
     {
-        "id": "c969f800.d892d8",
+        "id": "7bcc265b.1ea6a8",
         "type": "function",
-        "z": "7c3eb237.cd26d4",
+        "z": "9cd44c5b.df0b6",
         "d": true,
-        "g": "5fe868c0.e772f",
+        "g": "ad90d1db.8e6dd",
         "name": "log file",
         "func": "if (msg.payload !== undefined || msg.payload.length>0){\n    \n    var d=new Date();\n    var t= d.toLocaleTimeString();\n    const monthNames = [\"January\", \"February\", \"March\", \"April\", \"May\", \"June\",\n     \"July\", \"August\", \"September\", \"October\", \"November\", \"December\"];\n    var day= d.getUTCDate() + monthNames[d.getMonth()] + d.getUTCFullYear() ;\n    \n    if (msg.payload == true){\n\n        //for the log file\n        msg.payload ={type:\"door\", device:\"KNXdoor\", state:\"open\", Time:t, Day:day};\n    \n        return [msg,msg,null];\n    }\n    \n    if (msg.payload == false){\n\n        //for the log file\n        msg.payload ={type:\"door\", device:\"KNXdoor\", state:\"close\", Time:t, Day:day};\n    \n        return [msg,null,null];\n    }\n    \n    else if (msg.payload == \"open\"){\n       //for the log file\n        msg.payload ={type:\"door\", device:\"SHELLYdoor\", state:\"open\", Time:t, Day:day};\n        return [msg,null,msg];\n   }\n   \n   else if(msg.payload == \"close\"){\n       //for the log file\n        msg.payload ={type:\"door\", device:\"SHELLYdoor\", state:\"close\", Time:t, Day:day};\n        return [msg,null,null];\n   }\n   \n}",
         "outputs": 3,
@@ -431,25 +493,25 @@
         "initialize": "",
         "finalize": "",
         "x": 630,
-        "y": 200,
+        "y": 240,
         "wires": [
             [
-                "4f0f8e0.361e1f4"
+                "291b34cb.ea0bd4"
             ],
             [
-                "2a11ca0f.1f272e"
+                "e593a4b5.022e3"
             ],
             [
-                "61309898.3ecf08"
+                "5540637e.63e974"
             ]
         ]
     },
     {
-        "id": "2a11ca0f.1f272e",
+        "id": "e593a4b5.022e3",
         "type": "file",
-        "z": "7c3eb237.cd26d4",
+        "z": "9cd44c5b.df0b6",
         "d": true,
-        "g": "5fe868c0.e772f",
+        "g": "ad90d1db.8e6dd",
         "name": "",
         "filename": "/opt/node-red/logs/knxdoor.logs",
         "appendNewline": true,
@@ -457,17 +519,17 @@
         "overwriteFile": "false",
         "encoding": "none",
         "x": 850,
-        "y": 240,
+        "y": 280,
         "wires": [
             []
         ]
     },
     {
-        "id": "61309898.3ecf08",
+        "id": "5540637e.63e974",
         "type": "file",
-        "z": "7c3eb237.cd26d4",
+        "z": "9cd44c5b.df0b6",
         "d": true,
-        "g": "5fe868c0.e772f",
+        "g": "ad90d1db.8e6dd",
         "name": "",
         "filename": "/opt/node-red/logs/shellydoor.logs",
         "appendNewline": true,
@@ -475,16 +537,16 @@
         "overwriteFile": "false",
         "encoding": "none",
         "x": 860,
-        "y": 280,
+        "y": 320,
         "wires": [
             []
         ]
     },
     {
-        "id": "9da8f693.b3f2b8",
+        "id": "5bda1a53.89092c",
         "type": "file",
-        "z": "7c3eb237.cd26d4",
-        "g": "5fe868c0.e772f",
+        "z": "9cd44c5b.df0b6",
+        "g": "ad90d1db.8e6dd",
         "name": "",
         "filename": "/opt/node-red/logs/output",
         "appendNewline": true,
@@ -492,16 +554,16 @@
         "overwriteFile": "false",
         "encoding": "none",
         "x": 920,
-        "y": 360,
+        "y": 440,
         "wires": [
             []
         ]
     },
     {
-        "id": "de297c53.b20008",
+        "id": "55959a89.495eec",
         "type": "function",
-        "z": "7c3eb237.cd26d4",
-        "g": "5fe868c0.e772f",
+        "z": "9cd44c5b.df0b6",
+        "g": "ad90d1db.8e6dd",
         "name": "log file",
         "func": "if (msg.payload !== undefined || msg.payload.length>0){\n    \n    var d=new Date();\n    var t= d.toLocaleTimeString();\n    const monthNames = [\"January\", \"February\", \"March\", \"April\", \"May\", \"June\",\n     \"July\", \"August\", \"September\", \"October\", \"November\", \"December\"];\n    var day= d.getUTCDate() + monthNames[d.getMonth()] + d.getUTCFullYear() ;\n    \n    if (msg.payload == true || msg.payload == false){\n\n        //for the log file\n        msg.payload ={type:msg.payload,Time:t, Day:day};\n    \n        return msg;\n    }\n}",
         "outputs": 1,
@@ -509,19 +571,19 @@
         "initialize": "",
         "finalize": "",
         "x": 710,
-        "y": 366,
+        "y": 446,
         "wires": [
             [
-                "9da8f693.b3f2b8"
+                "5bda1a53.89092c"
             ]
         ]
     },
     {
-        "id": "6a41a09f.7be558",
+        "id": "321e256f.c8d5b2",
         "type": "file",
-        "z": "7c3eb237.cd26d4",
+        "z": "9cd44c5b.df0b6",
         "d": true,
-        "g": "5fe868c0.e772f",
+        "g": "ad90d1db.8e6dd",
         "name": "MA logs",
         "filename": "/opt/node-red/logs/MA_logs",
         "appendNewline": true,
@@ -529,70 +591,70 @@
         "overwriteFile": "false",
         "encoding": "none",
         "x": 260,
-        "y": 440,
+        "y": 520,
         "wires": [
             []
         ]
     },
     {
-        "id": "76ba557a.97190c",
+        "id": "15dcf8e3.a60d1f",
         "type": "comment",
-        "z": "7c3eb237.cd26d4",
-        "g": "5fe868c0.e772f",
-        "name": "Detection of events",
+        "z": "9cd44c5b.df0b6",
+        "g": "ad90d1db.8e6dd",
+        "name": "----------------------------------------------------Detection of events------------------------------------------------------------------------",
         "info": "The flow below publish the input events created by shelly motion and door sensors to motion_anomaly.",
-        "x": 130,
-        "y": 80,
+        "x": 470,
+        "y": 60,
         "wires": []
     },
     {
-        "id": "ab26cfb3.afea8",
+        "id": "65db002f.056fb8",
         "type": "comment",
-        "z": "7c3eb237.cd26d4",
-        "g": "5247d5c6.43d214",
+        "z": "9cd44c5b.df0b6",
+        "g": "88502e0b.9ac208",
         "name": "ReadME deviceInfo ",
         "info": "Link the Motion and Sensor node to have spoken feedback by the voice assistant when the battery level is low.",
         "x": 130,
-        "y": 640,
+        "y": 740,
         "wires": []
     },
     {
-        "id": "f620a8db.a1555",
+        "id": "851e5ed8.cc6e4",
         "type": "mqtt in",
-        "z": "7c3eb237.cd26d4",
-        "g": "5247d5c6.43d214",
+        "z": "9cd44c5b.df0b6",
+        "g": "88502e0b.9ac208",
         "name": "Motion",
         "topic": "shellies/+/status",
         "qos": "2",
         "datatype": "auto",
-        "broker": "f4771b0b.84561",
+        "broker": "3fe9553d.423c62",
         "x": 90,
-        "y": 680,
+        "y": 780,
         "wires": [
             []
         ]
     },
     {
-        "id": "60738def.001884",
+        "id": "b25cb740.ab065",
         "type": "mqtt in",
-        "z": "7c3eb237.cd26d4",
-        "g": "5247d5c6.43d214",
+        "z": "9cd44c5b.df0b6",
+        "g": "88502e0b.9ac208",
         "name": "Sensor",
         "topic": "shellies/+/sensor/battery",
         "qos": "2",
         "datatype": "auto",
-        "broker": "f4771b0b.84561",
+        "broker": "3fe9553d.423c62",
         "x": 90,
-        "y": 740,
+        "y": 840,
         "wires": [
             []
         ]
     },
     {
-        "id": "a6698099.509c8",
+        "id": "a7a62c3.5d052d",
         "type": "function",
-        "z": "7c3eb237.cd26d4",
-        "g": "5247d5c6.43d214",
+        "z": "9cd44c5b.df0b6",
+        "g": "88502e0b.9ac208",
         "name": "report",
         "func": "var reports = global.get(\"reports\", reports);\nif(reports === undefined || reports === null ){\n    reports = \"\";\n}\nif(reports.length>200){\n    reports = \"\";\n}\nvar lang = global.get(\"msgLang\");\nif(msg.payload.bat<50){\n    var newReport = \"\";\n    if (lang === \"de\") {\n        newReport = \"Der Batteriestand des \" + msg.topic.split(\"/\")[1].split(\"-\")[1].slice(7,12) + \" ist \" + msg.payload.bat + \" Prozent. \";\n    } else if (lang === \"fr\") {\n        newReport = \"Le niveau de batterie du \" + msg.topic.split(\"/\")[1].split(\"-\")[1].slice(7,12) + \" est du \" + msg.payload.bat + \" pour cent. \";\n    } else {\n        newReport = msg.topic.split(\"/\")[1].split(\"-\")[1].slice(7,12) + \" battery level is \" + msg.payload.bat + \" percent. \";\n    }\n    if(!reports.includes(newReport)){\n        reports += newReport;\n    }\n    global.set(\"reports\", reports);\n    msg.payload = reports; \n    return [msg];\n} else {\n    msg.payload = msg.topic.split(\"/\")[1].split(\"-\")[1].slice(7,12) + \": battery level is: \" + msg.payload.bat; \n    return [msg];\n}\n\n\n",
         "outputs": 1,
@@ -600,50 +662,50 @@
         "initialize": "",
         "finalize": "",
         "x": 350,
-        "y": 680,
+        "y": 780,
         "wires": [
             []
         ]
     },
     {
-        "id": "beb6147.42104e8",
+        "id": "a23e0598.6dd2a8",
         "type": "json",
-        "z": "7c3eb237.cd26d4",
-        "g": "5247d5c6.43d214",
+        "z": "9cd44c5b.df0b6",
+        "g": "88502e0b.9ac208",
         "name": "",
         "property": "payload",
         "action": "",
         "pretty": false,
         "x": 210,
-        "y": 680,
+        "y": 780,
         "wires": [
             [
-                "a6698099.509c8"
+                "a7a62c3.5d052d"
             ]
         ]
     },
     {
-        "id": "183236aa.4522a1",
+        "id": "34b542de.365406",
         "type": "json",
-        "z": "7c3eb237.cd26d4",
-        "g": "5247d5c6.43d214",
+        "z": "9cd44c5b.df0b6",
+        "g": "88502e0b.9ac208",
         "name": "",
         "property": "payload",
         "action": "",
         "pretty": false,
         "x": 210,
-        "y": 740,
+        "y": 840,
         "wires": [
             [
-                "338f0360.79acb4"
+                "901d4615.fae61"
             ]
         ]
     },
     {
-        "id": "338f0360.79acb4",
+        "id": "901d4615.fae61",
         "type": "function",
-        "z": "7c3eb237.cd26d4",
-        "g": "5247d5c6.43d214",
+        "z": "9cd44c5b.df0b6",
+        "g": "88502e0b.9ac208",
         "name": "report",
         "func": "var reports = global.get(\"reports\", reports);\nif(reports === undefined || reports === null ){\n    reports = \"\";\n}\nif(reports.length>200){\n    reports = \"\";\n}\nvar lang = global.get(\"msgLang\");\nif(msg.payload<50){\n    var newReport = \"\";\n    if (lang === \"de\") {\n        newReport = \"Der Batteriestand des \" + msg.topic.split(\"/\")[1].split(\"-\")[1].slice(7,12) + \" ist \" + msg.payload + \" Prozent. \";\n    } else if (lang === \"fr\") {\n        newReport = \"Le niveau de batterie du \" + msg.topic.split(\"/\")[1].split(\"-\")[1].slice(7,12) + \" est du \" + msg.payload + \" pour cent. \";\n    } else {\n        newReport = msg.topic.split(\"/\")[1].split(\"-\")[1].slice(7,12) + \" battery level is \" + msg.payload + \" percent. \";\n    }\n    if(!reports.includes(newReport)){\n        reports += newReport;\n    }\n    global.set(\"reports\", reports);\n    msg.payload = reports; \n    return [msg];\n} else {\n    msg.payload = msg.topic.split(\"/\")[1].split(\"-\")[1].slice(7,12) + \": battery level is: \" + msg.payload; \n    return [msg];\n}\n\n\n",
         "outputs": 1,
@@ -651,42 +713,42 @@
         "initialize": "",
         "finalize": "",
         "x": 350,
-        "y": 740,
+        "y": 840,
         "wires": [
             []
         ]
     },
     {
-        "id": "4fb1a715.f3ea4",
+        "id": "eb8d30f7.5007a",
         "type": "catch",
-        "z": "7c3eb237.cd26d4",
-        "g": "11a2cde5.4f964a",
+        "z": "9cd44c5b.df0b6",
+        "g": "273a9911.29df9e",
         "name": "",
         "scope": [
-            "3bb2a72a.99fa78",
-            "9bca59a9.c105a",
-            "8bab59fc.42b698",
-            "4a958b03.056ef4",
+            "f8181b8f.5d5ae",
+            "e94bd0ea.5e1c3",
+            "579c4adf.1cfb3c",
+            "892beb7f.e3ee58",
             "9dbc46e.c8a6eb8",
-            "c969f800.d892d8",
-            "a6698099.509c8",
-            "338f0360.79acb4",
-            "f631b9ae.9a03a"
+            "7bcc265b.1ea6a8",
+            "a7a62c3.5d052d",
+            "901d4615.fae61",
+            "56e61bb6.173214"
         ],
         "uncaught": false,
         "x": 530,
-        "y": 680,
+        "y": 780,
         "wires": [
             [
-                "d32a5a3.27684a8"
+                "6486fb74.1e11a4"
             ]
         ]
     },
     {
-        "id": "d32a5a3.27684a8",
+        "id": "6486fb74.1e11a4",
         "type": "debug",
-        "z": "7c3eb237.cd26d4",
-        "g": "11a2cde5.4f964a",
+        "z": "9cd44c5b.df0b6",
+        "g": "273a9911.29df9e",
         "name": "",
         "active": false,
         "tosidebar": true,
@@ -697,134 +759,362 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 670,
-        "y": 680,
+        "y": 780,
         "wires": []
     },
     {
-        "id": "17d26a92.20e11d",
+        "id": "9e7617b4.60063",
         "type": "comment",
-        "z": "7c3eb237.cd26d4",
-        "g": "11a2cde5.4f964a",
+        "z": "9cd44c5b.df0b6",
+        "g": "273a9911.29df9e",
         "name": "Shelly Debugging",
         "info": "Activate the debug node to see the log and errors.",
         "x": 560,
-        "y": 640,
+        "y": 740,
         "wires": []
     },
     {
-        "id": "b674c744.3d3e18",
+        "id": "1ea18e60.764052",
         "type": "link in",
-        "z": "7c3eb237.cd26d4",
-        "g": "11a2cde5.4f964a",
+        "z": "9cd44c5b.df0b6",
+        "g": "273a9911.29df9e",
         "name": "",
         "links": [
-            "b78ed064.5d4bc",
-            "a7135251.1d4a2"
+            "992ba02a.71185",
+            "c0f5bb7a.97faa"
         ],
         "x": 495,
-        "y": 720,
+        "y": 820,
         "wires": [
             [
-                "d32a5a3.27684a8"
+                "6486fb74.1e11a4"
             ]
         ]
     },
     {
-        "id": "b78ed064.5d4bc",
+        "id": "992ba02a.71185",
         "type": "link out",
-        "z": "7c3eb237.cd26d4",
-        "g": "5fe868c0.e772f",
+        "z": "9cd44c5b.df0b6",
+        "g": "ad90d1db.8e6dd",
         "name": "",
         "links": [
-            "b674c744.3d3e18",
-            "5b3f7c0f.5349d4"
+            "1ea18e60.764052",
+            "5b3f7c0f.5349d4",
+            "a3c184b0.f625f8"
         ],
         "x": 215,
-        "y": 160,
+        "y": 200,
         "wires": []
     },
     {
-        "id": "af01a2be.bbacd8",
+        "id": "37653f03.b44c6",
         "type": "comment",
-        "z": "7c3eb237.cd26d4",
-        "name": "Version 1:07-06-2021",
-        "info": "What was changed :\n1. Adding of ReadME debugging and ReadME        deviceinfo\n2. proknx/alarm mqtt message to skyresponse",
-        "x": 1120,
-        "y": 20,
+        "z": "9cd44c5b.df0b6",
+        "g": "ad90d1db.8e6dd",
+        "name": "Version 3 :09-06-2021",
+        "info": "What was changed :\n1. Adding of ReadME debugging and ReadME        deviceinfo\n2. proknx/heartbeat mqtt message to skyresponse\n3. adding of doorevent to see the status change of door",
+        "x": 1060,
+        "y": 60,
         "wires": []
     },
     {
-        "id": "a7135251.1d4a2",
+        "id": "c0f5bb7a.97faa",
         "type": "link out",
-        "z": "7c3eb237.cd26d4",
-        "g": "5fe868c0.e772f",
+        "z": "9cd44c5b.df0b6",
+        "g": "ad90d1db.8e6dd",
         "name": "",
         "links": [
-            "b674c744.3d3e18",
-            "5b3f7c0f.5349d4"
+            "1ea18e60.764052",
+            "5b3f7c0f.5349d4",
+            "a3c184b0.f625f8"
         ],
         "x": 675,
-        "y": 420,
+        "y": 500,
         "wires": []
     },
     {
-        "id": "4ae3b1a0.3cbd8",
+        "id": "d9f6c889.e9bd7",
         "type": "mqtt out",
-        "z": "7c3eb237.cd26d4",
-        "g": "5fe868c0.e772f",
+        "z": "9cd44c5b.df0b6",
+        "g": "ad90d1db.8e6dd",
         "name": "",
-        "topic": "proknx/alarm",
+        "topic": "proknx/heartbeat",
         "qos": "",
         "retain": "",
-        "broker": "f96ab142.d8bab8",
-        "x": 750,
-        "y": 520,
+        "broker": "cacf8967.042428",
+        "x": 770,
+        "y": 600,
         "wires": []
     },
     {
-        "id": "b9e81b28.6ff648",
+        "id": "d9d0d274.c02a98",
         "type": "comment",
-        "z": "7c3eb237.cd26d4",
-        "g": "5fe868c0.e772f",
+        "z": "9cd44c5b.df0b6",
+        "g": "ad90d1db.8e6dd",
         "name": "<-- ReadME debugging",
         "info": "To have a spoken feedback by the voice control when the door is open or close, the node in the left must be linked to the speaker :\n1. Double click the node on the left.\n2. Go to the FEEDBACKS.\n3. Check the SPEAKER IN (API).\n4. Click done and save node-red.",
         "x": 520,
-        "y": 300,
+        "y": 340,
         "wires": []
     },
     {
-        "id": "6e8be0f2.8183",
-        "type": "pushbullet",
-        "z": "7c3eb237.cd26d4",
-        "g": "5fe868c0.e772f",
-        "config": "",
-        "pushtype": "note",
-        "title": "Motion Anomaly Detected!",
-        "chan": "",
-        "name": "Notification MA",
-        "x": 950,
-        "y": 475,
-        "wires": []
-    },
-    {
-        "id": "cec62ea6.01575",
-        "type": "e-mail",
-        "z": "7c3eb237.cd26d4",
-        "g": "5fe868c0.e772f",
-        "server": "smtp.gmail.com",
-        "port": "465",
-        "secure": true,
-        "tls": true,
+        "id": "de51da5a.5a1928",
+        "type": "function",
+        "z": "9cd44c5b.df0b6",
+        "g": "ad90d1db.8e6dd",
         "name": "",
-        "dname": "Mail in",
-        "x": 945,
-        "y": 425,
+        "func": "if (msg.payload!==undefined && msg.payload.length>0){\n   if (msg.payload == \"open\"){\n        msg.headers = {};\n        msg.method = \"GET\";\n        msg.url = \"http://192.168.9.48:1880/doorevent\" ;\n        msg.headers[\"content-type\"] = \"application/json\";\n        \n        return msg;\n   }\n  \n}",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 270,
+        "y": 320,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "3c7b3a68.0ecf46",
+        "type": "inject",
+        "z": "9cd44c5b.df0b6",
+        "g": "ad90d1db.8e6dd",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "open",
+        "payloadType": "str",
+        "x": 120,
+        "y": 320,
+        "wires": [
+            [
+                "de51da5a.5a1928"
+            ]
+        ]
+    },
+    {
+        "id": "3716b3a5.63fc4c",
+        "type": "mqtt out",
+        "z": "9cd44c5b.df0b6",
+        "g": "ad90d1db.8e6dd",
+        "name": "",
+        "topic": "proknx/alarmMA",
+        "qos": "",
+        "retain": "",
+        "broker": "cacf8967.042428",
+        "x": 550,
+        "y": 620,
         "wires": []
     },
     {
-        "id": "f4771b0b.84561",
+        "id": "371b673d.1f57d",
+        "type": "http in",
+        "z": "9cd44c5b.df0b6",
+        "g": "ad90d1db.8e6dd",
+        "name": "doorevent",
+        "url": "/dooreventBase",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 690,
+        "y": 140,
+        "wires": [
+            [
+                "e8086e77.934638",
+                "93c9f426.254018"
+            ]
+        ]
+    },
+    {
+        "id": "1a55d46d.f99204",
+        "type": "http response",
+        "z": "9cd44c5b.df0b6",
+        "g": "ad90d1db.8e6dd",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 910,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "e8086e77.934638",
+        "type": "debug",
+        "z": "9cd44c5b.df0b6",
+        "g": "ad90d1db.8e6dd",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 770,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "93c9f426.254018",
+        "type": "function",
+        "z": "9cd44c5b.df0b6",
+        "g": "ad90d1db.8e6dd",
+        "name": "",
+        "func": "if (msg.payload !== undefined || msg.payload.length>0){\n    \n    var d=new Date();\n    var t= d.toLocaleTimeString();\n    const monthNames = [\"January\", \"February\", \"March\", \"April\", \"May\", \"June\",\n     \"July\", \"August\", \"September\", \"October\", \"November\", \"December\"];\n    var day= d.getUTCDate() + monthNames[d.getMonth()] + d.getUTCFullYear() ;\n    \n    \n\n        //for the log file\n        msg.payload ={type:msg.payload,Time:t, Day:day};\n    \n        return msg;\n    \n}",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 795,
+        "y": 140,
+        "wires": [
+            [
+                "1a55d46d.f99204",
+                "edac4237.bf99f8"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "edac4237.bf99f8",
+        "type": "file",
+        "z": "9cd44c5b.df0b6",
+        "g": "ad90d1db.8e6dd",
+        "name": "doorevent",
+        "filename": "/opt/node-red/logs/doorevent",
+        "appendNewline": true,
+        "createDir": false,
+        "overwriteFile": "false",
+        "encoding": "none",
+        "x": 950,
+        "y": 180,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "70e56ac5.eae6fc",
+        "type": "comment",
+        "z": "9cd44c5b.df0b6",
+        "g": "ad90d1db.8e6dd",
+        "name": "Doorevent",
+        "info": "To see if opening or closing of the door is detected by shelly door sensor",
+        "x": 680,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "44d33797.30af38",
+        "type": "comment",
+        "z": "9cd44c5b.df0b6",
+        "g": "18d704c6.23ea7b",
+        "name": "README - DISABLE MOTION EVENTS",
+        "info": "To test/simulate no motions events select the  DISABLE MOTION EVENTS button below.\nTo re-enable, select the ENABLE MOTION EVENTS.\nAfter restart, it is automatically re-enabled.",
+        "x": 970,
+        "y": 740,
+        "wires": []
+    },
+    {
+        "id": "40dda5c.3795c5c",
+        "type": "inject",
+        "z": "9cd44c5b.df0b6",
+        "g": "18d704c6.23ea7b",
+        "name": " DISABLE MOTION EVENTS",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 855,
+        "y": 780,
+        "wires": [
+            [
+                "b0da63f8.b122a"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "b0da63f8.b122a",
+        "type": "function",
+        "z": "9cd44c5b.df0b6",
+        "g": "18d704c6.23ea7b",
+        "name": "DISABLE MOTION EVENTS",
+        "func": "var noMotionEvent=true;\nglobal.set(\"noMotionEvent\",noMotionEvent);\nnode.warn(\"noMotionEvent : \"+ noMotionEvent);",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 1020,
+        "y": 780,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "3a8a46e5.6f762a",
+        "type": "inject",
+        "z": "9cd44c5b.df0b6",
+        "g": "18d704c6.23ea7b",
+        "name": "ENABLE MOTION EVENTS",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "1",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 855,
+        "y": 820,
+        "wires": [
+            [
+                "7bf8e586.40a8b4"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "7bf8e586.40a8b4",
+        "type": "function",
+        "z": "9cd44c5b.df0b6",
+        "g": "18d704c6.23ea7b",
+        "name": " ENABLE MOTION EVENTS",
+        "func": "var noMotionEvent=false;\nglobal.set(\"noMotionEvent\",noMotionEvent);\nnode.warn(\"noMotionEvent : \"+ noMotionEvent);",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 1020,
+        "y": 820,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "3fe9553d.423c62",
         "type": "mqtt-broker",
-        "z": "7c3eb237.cd26d4",
+        "z": "9cd44c5b.df0b6",
         "name": "localhost:1883",
         "broker": "localhost",
         "port": "1883",
@@ -848,10 +1138,9 @@
         "info": "-"
     },
     {
-        "id": "f96ab142.d8bab8",
+        "id": "cacf8967.042428",
         "type": "mqtt-broker",
-        "z": "ae9a7361.29fd6",
-        "name": "-",
+        "name": "",
         "broker": "localhost",
         "port": "1883",
         "clientid": "",
@@ -867,7 +1156,6 @@
         "closePayload": "",
         "willTopic": "",
         "willQos": "0",
-        "willPayload": "",
-        "info": "-"
+        "willPayload": ""
     }
 ]
