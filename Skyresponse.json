@@ -22,11 +22,10 @@
             "86b0b5fa.c18068",
             "9c238d50.d467b",
             "295fa518.9fa262",
-            "b381dc77.b88e7",
-            "2abe7a69.6d068e"
+            "b381dc77.b88e7"
         ],
         "x": 34,
-        "y": 479,
+        "y": 579,
         "w": 872,
         "h": 202
     },
@@ -44,12 +43,13 @@
             "3b221816.ed7d7",
             "dc83d764.d2dda",
             "57bdf6a2.0a0c08",
-            "cbff9695.09bd8"
+            "cbff9695.09bd8",
+            "bfb8ff0b.c28e68"
         ],
         "x": 34,
         "y": 279,
-        "w": 462,
-        "h": 182
+        "w": 482,
+        "h": 262
     },
     {
         "id": "eb2d5509.022958",
@@ -74,8 +74,7 @@
             "f0abb957.49cfd8",
             "91a9c5b5.9e2f08",
             "25e114e0.3eb7ac",
-            "2450a1fa.3cb0be",
-            "13c96e1f.209be2"
+            "2450a1fa.3cb0be"
         ],
         "x": 34,
         "y": 19,
@@ -89,7 +88,7 @@
         "g": "eb2d5509.022958",
         "name": "ReadME Set Authentication",
         "info": "Set the Skyresponse Authentication data in the node-RED dashboard :\n\n[http:localhost:1880/ui](SET UP HERE)",
-        "x": 240,
+        "x": 180,
         "y": 60,
         "wires": []
     },
@@ -185,7 +184,7 @@
         "qos": "2",
         "datatype": "auto",
         "broker": "b7d2dbd0.c8ee4",
-        "x": 110,
+        "x": 130,
         "y": 360,
         "wires": [
             [
@@ -204,7 +203,7 @@
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 310,
+        "x": 330,
         "y": 360,
         "wires": [
             [
@@ -222,8 +221,8 @@
         "qos": "2",
         "datatype": "auto",
         "broker": "b7d2dbd0.c8ee4",
-        "x": 110,
-        "y": 420,
+        "x": 130,
+        "y": 500,
         "wires": [
             [
                 "c2c0cb3d.5edc9"
@@ -244,7 +243,7 @@
         "persist": false,
         "proxy": "",
         "authType": "",
-        "x": 330,
+        "x": 350,
         "y": 420,
         "wires": [
             [
@@ -266,7 +265,7 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 435,
+        "x": 455,
         "y": 420,
         "wires": [],
         "l": false
@@ -278,7 +277,7 @@
         "g": "aa985b94.103e48",
         "name": "ReadME (SHELLY detectors)",
         "info": "This flow will send a notification to skyresponse about the level of shelly door and mouvement sensors.",
-        "x": 180,
+        "x": 200,
         "y": 320,
         "wires": []
     },
@@ -290,7 +289,7 @@
         "name": "Alarm MA",
         "info": "",
         "x": 120,
-        "y": 520,
+        "y": 620,
         "wires": []
     },
     {
@@ -304,7 +303,7 @@
         "datatype": "auto",
         "broker": "cacf8967.042428",
         "x": 140,
-        "y": 560,
+        "y": 660,
         "wires": [
             [
                 "c6039e8b.23813"
@@ -328,7 +327,7 @@
         "repair": false,
         "outputs": 1,
         "x": 290,
-        "y": 560,
+        "y": 660,
         "wires": [
             [
                 "fdc2adf.14f215"
@@ -347,7 +346,7 @@
         "initialize": "",
         "finalize": "",
         "x": 420,
-        "y": 560,
+        "y": 660,
         "wires": [
             [
                 "86b0b5fa.c18068",
@@ -362,7 +361,7 @@
         "z": "509bf8a4.e53fb",
         "g": "a5f06726.eade08",
         "name": "",
-        "active": false,
+        "active": true,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -371,7 +370,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 470,
-        "y": 640,
+        "y": 740,
         "wires": []
     },
     {
@@ -393,7 +392,7 @@
         "payload": "true",
         "payloadType": "jsonata",
         "x": 180,
-        "y": 620,
+        "y": 720,
         "wires": [
             [
                 "c6039e8b.23813"
@@ -405,12 +404,12 @@
         "type": "link out",
         "z": "509bf8a4.e53fb",
         "g": "a5f06726.eade08",
-        "name": "SPOKEN FEEDBACK",
+        "name": "",
         "links": [
             "a1b4e119.a687c8"
         ],
         "x": 575,
-        "y": 640,
+        "y": 740,
         "wires": []
     },
     {
@@ -424,7 +423,7 @@
         "retain": "",
         "broker": "b7d2dbd0.c8ee4",
         "x": 730,
-        "y": 600,
+        "y": 700,
         "wires": []
     },
     {
@@ -592,8 +591,7 @@
         "y": 140,
         "wires": [
             [
-                "91a9c5b5.9e2f08",
-                "13c96e1f.209be2"
+                "91a9c5b5.9e2f08"
             ]
         ]
     },
@@ -603,7 +601,7 @@
         "z": "509bf8a4.e53fb",
         "g": "eb2d5509.022958",
         "name": "set global variable",
-        "func": "if(msg.payload !== null){\n    \n    msg.payload = JSON.parse(msg.payload);\n    identifier=msg.payload.identifier;\n    secret=msg.payload.secret;\n    product=msg.payload.product;\n    global.set(\"identifier\",identifier);\n    global.set(\"secret\",secret);\n    global.set(\"product\",product);\n\n    msg.headers = {};\n    msg.method = \"POST\";\n    msg.url = \"https://sandbox.skyresponse.com/api/token\" ;\n    msg.headers[\"content-type\"] = \"application/json\";\n    \n    msg.payload =  {\n        \"identifier\": identifier,\n        \"secret\": secret,\n        \"product\": product\n    \n    };\n    \nreturn msg;\n\n}\n\n",
+        "func": "if(msg.payload !== null){\n    \n    msg.payload = JSON.parse(msg.payload);\n    identifier=msg.payload.identifier;\n    secret=msg.payload.secret;\n    product=msg.payload.product;\n    global.set(\"identifier\",identifier);\n    global.set(\"secret\",secret);\n    global.set(\"product\",product);\n\n    msg.headers = {};\n    msg.method = \"POST\";\n    msg.url = \"https://sandbox.skyresponse.com/api/token\" ;\n    msg.headers[\"content-type\"] = \"application/json\";\n    \n    msg.payload =  {\n        \"identifier\": identifier,\n        \"secret\": secret,\n        \"product\": product\n    \n    };\n    \nreturn msg;\n\n}\n",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -665,32 +663,30 @@
         "l": false
     },
     {
-        "id": "13c96e1f.209be2",
-        "type": "debug",
+        "id": "bfb8ff0b.c28e68",
+        "type": "inject",
         "z": "509bf8a4.e53fb",
-        "g": "eb2d5509.022958",
-        "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 270,
-        "y": 200,
-        "wires": []
-    },
-    {
-        "id": "2abe7a69.6d068e",
-        "type": "comment",
-        "z": "509bf8a4.e53fb",
-        "g": "a5f06726.eade08",
-        "name": "<----- IMPORTANT README",
-        "info": "Connect the SPOKEN FEEDBACK link out node to the left with the FEEDBACKS OUT (API)",
-        "x": 740,
-        "y": 640,
-        "wires": []
+        "g": "aa985b94.103e48",
+        "name": "LOW BAT",
+        "props": [
+            {
+                "p": "payload.bat",
+                "v": "10",
+                "vt": "num"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 140,
+        "y": 420,
+        "wires": [
+            [
+                "c2c0cb3d.5edc9"
+            ]
+        ]
     },
     {
         "id": "b7d2dbd0.c8ee4",
