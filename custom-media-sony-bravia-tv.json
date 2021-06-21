@@ -1,93 +1,93 @@
 [
     {
-        "id": "a6fc51ae.c442f",
+        "id": "1cb4a28.1a0dade",
         "type": "tab",
         "label": "SONY BRAVIA TV",
         "disabled": false,
         "info": ""
     },
     {
-        "id": "7efb98de.791958",
+        "id": "61cd1822.e4c938",
         "type": "group",
-        "z": "a6fc51ae.c442f",
+        "z": "1cb4a28.1a0dade",
         "name": "CUSTOM MEDIA CONTROL FOR SONY BRAVIA TV",
         "style": {
             "label": true
         },
         "nodes": [
-            "a2375cd2.61c1d",
-            "2bf6e541.30c28a",
-            "66abb089.babf1",
-            "da65732e.959b3",
-            "3fb73b07.b396a4",
-            "accdc892.9316e8",
-            "194f9715.510a89",
-            "e19bf8a8.525fd8",
-            "3c66878a.28c238",
-            "92c99c9e.d650f",
-            "42b7bfd8.ef2fb",
-            "da425814.9de498",
-            "b8e62040.6e316",
-            "b955d7b9.f446a8",
-            "a4031f8d.aaaa2",
-            "43ec6abe.cec9e4",
-            "6466b307.af04ec",
-            "f7072ba1.24bc58",
-            "d376aa80.5b80a8",
-            "8976175a.8592c8",
-            "bb2a13c2.99dc6",
-            "77593e8a.92ece",
-            "328179f.b391c86",
-            "f40f6501.08dce8",
-            "49a0037d.c4748c",
-            "e6486ab7.e85ba8",
-            "cf82aac1.05a6d8",
-            "8309af56.03ee3",
-            "d81d4529.54b068",
-            "66ad827c.0bddec",
-            "56b68fd0.b578f",
-            "43887ae7.e35624",
-            "3a14665f.1b1f5a",
-            "451d8479.be2a7c",
-            "4d1dbc64.dba5e4",
-            "ec3ecdc8.91a4b",
-            "2fefe91e.69a046",
-            "f05a4c67.25b85",
-            "7d0d2545.f4d28c",
-            "8063081a.e7ec08",
-            "b7210894.e795a8",
-            "1143864c.f1f70a",
-            "8943505e.b9d81",
-            "f09facd1.4dce1",
-            "944599db.9e6d68",
-            "a810cb99.ed88e8",
-            "4aa850ee.af91",
-            "9d107eff.b419",
-            "c01bb82f.87dfc8",
-            "d039af1a.94554",
-            "31429443.8fd40c",
-            "6d57af18.ec723",
-            "b1341dda.90dd",
-            "a90bc4eb.272498",
-            "21733c73.785fa4",
-            "317e4172.dc7d6e",
-            "98c02b12.01fc08",
-            "e02d3e93.45d2d",
-            "fa96a304.fc7ef",
-            "a797737a.b22fa",
-            "54ea4c14.827b34",
-            "b4e2ae8f.8aede",
-            "a5bab08b.be89c",
-            "4754aaac.d223a4",
-            "d2baf060.d67b5",
-            "f0b8aaca.bcbcd8",
-            "7e741362.7b511c",
-            "2c82ff35.860d2",
-            "d515390f.f2e318",
-            "a80fd8a3.88b4e8",
-            "278438b6.164b38",
-            "4207139b.d7616c",
-            "e66dd03a.98656"
+            "d2563422.7be378",
+            "c75f324b.f5aa3",
+            "4f851fe.9a0d56",
+            "ee98664.b89d618",
+            "b837fa2.26b2c88",
+            "efd6b460.7c28b",
+            "b1358643.6d3b08",
+            "f1373d97.524d4",
+            "626fb6b1.e9692",
+            "6d2557b7.38d69",
+            "6195d2c1.ad13cc",
+            "d9a0d9d9.36d3d",
+            "d8866cde.5fcc78",
+            "a2688f07.50a62",
+            "c1efb036.f3233",
+            "59b4a051.79ad9",
+            "b24297e6.0b54b8",
+            "ff395ce9.35bcb",
+            "590d0e94.25d47",
+            "f2e33cb6.74442",
+            "edd6d85e.c2af98",
+            "59794619.d5c29",
+            "1c4e5e74.30250a",
+            "bef4bab6.1f266",
+            "ed026f41.b1b568",
+            "8941fc20.50138",
+            "a49bac8.372cf5",
+            "700016ae.36e9f8",
+            "c40ebb90.1652d",
+            "ac38a6ad.4d2e8",
+            "9d22b910.52a998",
+            "5be75810.589968",
+            "45ba2a26.ee521c",
+            "dee60c48.61a3d",
+            "c5263040.e3edf8",
+            "50e7b043.d2c038",
+            "ea23753b.72e698",
+            "b8ffcff8.a77598",
+            "b07f94b5.0ede8",
+            "fae8af14.95cbb",
+            "e89e9c06.00e3e",
+            "8178a21b.f0a8c8",
+            "947c9c4b.80e68",
+            "251c4daf.97b50a",
+            "a9cd649d.dadb98",
+            "db139e8e.b27d98",
+            "a18914d9.5438b",
+            "8e01ab4c.f842",
+            "7df832fc.90de54",
+            "46066e6c.9b4fa",
+            "45dede01.6e068",
+            "3596022f.1605ae",
+            "ed9a2239.b8f2c",
+            "c33b8e4f.1c1dd8",
+            "afebe1ef.8fcb38",
+            "e343fecf.132e7",
+            "3c3982fc.a4c39e",
+            "bf1cb1f3.9dad1",
+            "261eca3.2be7d36",
+            "41bb1c52.7f035c",
+            "6e0ef433.1eff74",
+            "353bcce4.b56924",
+            "b0fe31bc.85082",
+            "eb8fafc9.da6bb8",
+            "4763f3fa.08e55c",
+            "37430620.bd0ed2",
+            "e1adee96.da7948",
+            "bc4d8905.19a45",
+            "5b88a4a.034b85c",
+            "c85c8812.99ad88",
+            "1fa1dc66.ca9c5c",
+            "10111656.56e46a",
+            "a8f53a1d.74b2f"
         ],
         "x": 133,
         "y": 34,
@@ -95,9 +95,9 @@
         "h": 1422
     },
     {
-        "id": "9fb6f2af.cdd3a",
+        "id": "5f57d734.202b",
         "type": "debug",
-        "z": "a6fc51ae.c442f",
+        "z": "1cb4a28.1a0dade",
         "name": "",
         "active": true,
         "tosidebar": true,
@@ -113,141 +113,141 @@
         "l": false
     },
     {
-        "id": "5480376c.45daf8",
+        "id": "ad673043.49153",
         "type": "catch",
-        "z": "a6fc51ae.c442f",
+        "z": "1cb4a28.1a0dade",
         "name": "",
         "scope": [
-            "3fb73b07.b396a4",
-            "da425814.9de498",
-            "b8e62040.6e316",
-            "43ec6abe.cec9e4",
-            "8976175a.8592c8",
-            "77593e8a.92ece",
-            "f40f6501.08dce8",
+            "b837fa2.26b2c88",
+            "d9a0d9d9.36d3d",
+            "d8866cde.5fcc78",
+            "59b4a051.79ad9",
+            "f2e33cb6.74442",
+            "59794619.d5c29",
+            "bef4bab6.1f266",
             "833775ff.3aebd",
-            "49a0037d.c4748c",
-            "e6486ab7.e85ba8",
-            "cf82aac1.05a6d8",
-            "8309af56.03ee3",
-            "66ad827c.0bddec",
-            "56b68fd0.b578f",
-            "43887ae7.e35624",
-            "3a14665f.1b1f5a",
-            "451d8479.be2a7c",
-            "4d1dbc64.dba5e4",
-            "ec3ecdc8.91a4b",
-            "2fefe91e.69a046",
-            "f05a4c67.25b85",
-            "7d0d2545.f4d28c",
-            "8063081a.e7ec08",
-            "1143864c.f1f70a",
-            "8943505e.b9d81",
-            "944599db.9e6d68",
-            "4aa850ee.af91",
-            "9d107eff.b419",
-            "a90bc4eb.272498",
-            "21733c73.785fa4",
-            "98c02b12.01fc08",
-            "a797737a.b22fa",
-            "54ea4c14.827b34",
-            "b4e2ae8f.8aede",
-            "a5bab08b.be89c",
-            "4754aaac.d223a4",
-            "f0b8aaca.bcbcd8",
-            "7e741362.7b511c",
-            "2c82ff35.860d2",
-            "d515390f.f2e318",
+            "ed026f41.b1b568",
+            "8941fc20.50138",
+            "a49bac8.372cf5",
+            "700016ae.36e9f8",
+            "ac38a6ad.4d2e8",
+            "9d22b910.52a998",
+            "5be75810.589968",
+            "45ba2a26.ee521c",
+            "dee60c48.61a3d",
+            "c5263040.e3edf8",
+            "50e7b043.d2c038",
+            "ea23753b.72e698",
+            "b8ffcff8.a77598",
+            "b07f94b5.0ede8",
+            "fae8af14.95cbb",
+            "8178a21b.f0a8c8",
+            "947c9c4b.80e68",
+            "a9cd649d.dadb98",
+            "a18914d9.5438b",
+            "8e01ab4c.f842",
+            "c33b8e4f.1c1dd8",
+            "afebe1ef.8fcb38",
+            "3c3982fc.a4c39e",
+            "41bb1c52.7f035c",
+            "6e0ef433.1eff74",
+            "353bcce4.b56924",
+            "b0fe31bc.85082",
+            "eb8fafc9.da6bb8",
+            "37430620.bd0ed2",
+            "e1adee96.da7948",
+            "bc4d8905.19a45",
+            "5b88a4a.034b85c",
             "183ff4ca.0209f3",
-            "a80fd8a3.88b4e8",
-            "4207139b.d7616c"
+            "c85c8812.99ad88",
+            "10111656.56e46a"
         ],
         "uncaught": false,
         "x": 725,
         "y": 165,
         "wires": [
             [
-                "9fb6f2af.cdd3a"
+                "5f57d734.202b"
             ]
         ]
     },
     {
-        "id": "a2375cd2.61c1d",
+        "id": "d2563422.7be378",
         "type": "mqtt in",
-        "z": "a6fc51ae.c442f",
-        "g": "7efb98de.791958",
+        "z": "1cb4a28.1a0dade",
+        "g": "61cd1822.e4c938",
         "name": "next",
         "topic": "hermes/intent/ProKNX:next",
         "qos": "2",
         "datatype": "auto",
-        "broker": "b6fbcb21.9f8e08",
+        "broker": "989b80d3.9dc008",
         "x": 235,
         "y": 1110,
         "wires": [
             [
-                "3fb73b07.b396a4"
+                "b837fa2.26b2c88"
             ]
         ]
     },
     {
-        "id": "2bf6e541.30c28a",
+        "id": "c75f324b.f5aa3",
         "type": "mqtt in",
-        "z": "a6fc51ae.c442f",
-        "g": "7efb98de.791958",
+        "z": "1cb4a28.1a0dade",
+        "g": "61cd1822.e4c938",
         "name": "previous",
         "topic": "hermes/intent/ProKNX:previous",
         "qos": "2",
         "datatype": "auto",
-        "broker": "b6fbcb21.9f8e08",
+        "broker": "989b80d3.9dc008",
         "x": 245,
         "y": 1150,
         "wires": [
             [
-                "3fb73b07.b396a4"
+                "b837fa2.26b2c88"
             ]
         ]
     },
     {
-        "id": "66abb089.babf1",
+        "id": "4f851fe.9a0d56",
         "type": "mqtt in",
-        "z": "a6fc51ae.c442f",
-        "g": "7efb98de.791958",
+        "z": "1cb4a28.1a0dade",
+        "g": "61cd1822.e4c938",
         "name": "hotword off",
         "topic": "hermes/hotword/toggleOn",
         "qos": "2",
         "datatype": "auto",
-        "broker": "b6fbcb21.9f8e08",
+        "broker": "989b80d3.9dc008",
         "x": 250,
         "y": 490,
         "wires": [
             [
-                "e19bf8a8.525fd8"
+                "f1373d97.524d4"
             ]
         ]
     },
     {
-        "id": "da65732e.959b3",
+        "id": "ee98664.b89d618",
         "type": "mqtt in",
-        "z": "a6fc51ae.c442f",
-        "g": "7efb98de.791958",
+        "z": "1cb4a28.1a0dade",
+        "g": "61cd1822.e4c938",
         "name": "hotword on",
         "topic": "hermes/hotword/default/detected",
         "qos": "2",
         "datatype": "auto",
-        "broker": "b6fbcb21.9f8e08",
+        "broker": "989b80d3.9dc008",
         "x": 250,
         "y": 441,
         "wires": [
             [
-                "accdc892.9316e8"
+                "efd6b460.7c28b"
             ]
         ]
     },
     {
-        "id": "3fb73b07.b396a4",
+        "id": "b837fa2.26b2c88",
         "type": "function",
-        "z": "a6fc51ae.c442f",
-        "g": "7efb98de.791958",
+        "z": "1cb4a28.1a0dade",
+        "g": "61cd1822.e4c938",
         "name": "Filter",
         "func": "// Sample code : control of TV set\n\nfunction findObjectByKey(array, key, value) {\n\titems = [];\n\tvar cpt = 0;\n\tfor (var i = 0; i < array.length; i++) {\n\t\tif (array[i][key] === value) {\n\t\t\titems[cpt] = array[i];\n\t\t\tcpt++;\n\t\t}\n\t}\n\tif (items[0] !== undefined) {\n\t\treturn items;\n\t} else {\n\t\treturn null;\n\t}\n}\n\nvar lang = global.get(\"msgLang\");\nvar defaultSpeaker = global.get(\"defaultSpeaker\");\nvar tvFavorites = global.get(\"tvFavorites\");\nvar siteIdTv = global.get(\"siteIdTv\");\nif(defaultSpeaker === undefined){\n    defaultSpeaker = \"speaker\";\n}\nmsg.cmd={};\nmsg.payload = JSON.parse(msg.payload);\nmsg.cmd.siteId = msg.payload.siteId.replace(/_\\d+$/, \"\").trim();\nvar doAllRooms = false;\nvar intent = msg.payload.intent.intentName;\nif (intent === undefined) \n    return null;\n\nif(msg.payload.input.toLowerCase().includes(\"snips\") === true){\n    //node.warn(\"send to snips: includes 'snips'\");\n    return null;   \n}\n\nvar rawRoom = findObjectByKey(msg.payload.slots, 'slotName', 'room');\nvar rawFavorite = findObjectByKey(msg.payload.slots, 'entity', 'FavoriteType');\nvar rawSpeaker = findObjectByKey(msg.payload.slots, 'entity', 'SpeakerType');\n\n//node.warn(msg.payload);\n//node.warn(\"rawRoom: \"+ JSON.stringify(rawRoom) );\nvar theRoom = msg.payload.siteId;\n\nif (rawRoom !== null) {\n\tmsg.cmd.room = [];\n\tfor (var i = 0; i < rawRoom.length; i++) {\n\t\tmsg.cmd.room[i] = rawRoom[i].value.value.toLowerCase();\n\t\t//node.warn(\"msg.cmd.room[i]: \"+msg.cmd.room[i] + \"   msg.payload.siteId: \"+msg.payload.siteId);\n\t\tif (msg.cmd.room[i] === \"here\" || msg.cmd.room[i] === \"hier\" || msg.cmd.room[i] === \"ici\") {\n\t\t\ttheRoom = msg.payload.siteId;\n\t\t} else {\n    \t\tif (msg.cmd.room[i] === \"all\" || msg.cmd.room[i] === \"everywhere\" || msg.cmd.room[i] === \"ueberall\" || msg.cmd.room[i] === \"partout\") {\n    \t\t    doAllRooms = true;\n    \t\t} else {\n    \t\t    theRoom = msg.cmd.room[i].replace(/ /g, \"_\");\n    \t\t}\n\t\t}\n\t}\n}\n\nif (rawSpeaker !== null) {\n    //node.warn(\"rawSpeaker: \"+JSON.stringify(rawSpeaker));\n    msg.payload.speaker = rawSpeaker[0].value.value.trim().toLowerCase();\n} else {\n    msg.payload.speaker = defaultSpeaker.trim().toLowerCase();\n}\n\nmsg.payload.siteId = theRoom;\n\nif(msg.payload.siteId.toLowerCase().replace(/_\\d+$/,\"\").replace(/_/g,\"\") !== siteIdTv.toLowerCase().replace(/_\\d+$/,\"\").replace(/ /g,\"\")){\n    return null;\n}\n\nif (rawFavorite !== null) {\n    //node.warn(\"rawFavorite: \"+JSON.stringify(rawFavorite));\n    msg.payload.favorite = rawFavorite[0].value.value.trim().toLowerCase();\n    node.warn(\"msg.payload.favorite: \"+msg.payload.favorite);\n}\n\n\n//node.warn(\"msg.payload.speaker: \"+msg.payload.speaker);\n    \nif (msg.payload.intent.confidenceScore < 0.6){\n    return null;\n}\n\n//node.warn(\"msg.payload.speaker = \" + msg.payload.speaker);\n\nif(msg.payload.speaker !== undefined){\n    if(msg.payload.speaker === \"tv\") {\n        \n        global.set(\"defaultSpeaker\", \"tv\");\n        //node.warn(\"intent \" + intent);\n        switch (intent) {\n            case \"ProKNX:next\": return [msg, null, null, null, null];\n            case \"ProKNX:previous\": return [null, msg, null, null, null];\n        }\n        \n        if (msg.payload.asrTokens[0].length <= 1){\n            return null;\n        }else{\n            switch(intent){\n            case \"ProKNX:increaseVolume\": return [null, null, msg, null, null];\n            case \"ProKNX:decreaseVolume\": return [null, null, null, msg, null];\n            case \"ProKNX:setVolume\": flow.set(\"rawLoudness\", findObjectByKey(msg.payload.slots, 'slotName', 'loudness')); flow.set(\"rawMin\", findObjectByKey(msg.payload.slots, 'slotName', 'min'));\n                                    flow.set(\"rawMax\", findObjectByKey(msg.payload.slots, 'slotName', 'max')); return [null, null, null, null, msg];\n            }\n        }\n    }\n}",
         "outputs": 5,
@@ -258,19 +258,19 @@
         "y": 1195,
         "wires": [
             [
-                "a797737a.b22fa"
+                "41bb1c52.7f035c"
             ],
             [
-                "a5bab08b.be89c"
+                "b0fe31bc.85082"
             ],
             [
-                "451d8479.be2a7c"
+                "dee60c48.61a3d"
             ],
             [
-                "4d1dbc64.dba5e4"
+                "c5263040.e3edf8"
             ],
             [
-                "2fefe91e.69a046"
+                "ea23753b.72e698"
             ]
         ],
         "outputLabels": [
@@ -282,10 +282,10 @@
         ]
     },
     {
-        "id": "accdc892.9316e8",
+        "id": "efd6b460.7c28b",
         "type": "json",
-        "z": "a6fc51ae.c442f",
-        "g": "7efb98de.791958",
+        "z": "1cb4a28.1a0dade",
+        "g": "61cd1822.e4c938",
         "name": "",
         "property": "payload",
         "action": "",
@@ -294,16 +294,16 @@
         "y": 441,
         "wires": [
             [
-                "194f9715.510a89"
+                "b1358643.6d3b08"
             ]
         ],
         "l": false
     },
     {
-        "id": "194f9715.510a89",
+        "id": "b1358643.6d3b08",
         "type": "delay",
-        "z": "a6fc51ae.c442f",
-        "g": "7efb98de.791958",
+        "z": "1cb4a28.1a0dade",
+        "g": "61cd1822.e4c938",
         "name": "",
         "pauseType": "rate",
         "timeout": "5",
@@ -319,16 +319,16 @@
         "y": 441,
         "wires": [
             [
-                "d039af1a.94554"
+                "46066e6c.9b4fa"
             ]
         ],
         "l": false
     },
     {
-        "id": "e19bf8a8.525fd8",
+        "id": "f1373d97.524d4",
         "type": "json",
-        "z": "a6fc51ae.c442f",
-        "g": "7efb98de.791958",
+        "z": "1cb4a28.1a0dade",
+        "g": "61cd1822.e4c938",
         "name": "",
         "property": "payload",
         "action": "",
@@ -337,27 +337,27 @@
         "y": 490,
         "wires": [
             [
-                "31429443.8fd40c"
+                "45dede01.6e068"
             ]
         ],
         "l": false
     },
     {
-        "id": "3c66878a.28c238",
+        "id": "626fb6b1.e9692",
         "type": "comment",
-        "z": "a6fc51ae.c442f",
-        "g": "7efb98de.791958",
+        "z": "1cb4a28.1a0dade",
+        "g": "61cd1822.e4c938",
         "name": "Info - README V2.0",
-        "info": "This is version 2.0 of custom media control for SONY BRAVIA TV\n\nVersion: \n2021-06-20: bug fix (English) Channel number\n\n\nIn this version, the tv favorites are generated automatically from the TV channel list. \n\n*************************************************\n\nThe following nodes let you implement custom media control for Sony Bravia TV,\n\n**IMPORTANT :** \n\n * To avoid your custom code is removed on flow update it is recommended to copy paste the nodes below to a new tab\n * \n * To avoid unexpected behavior, do not use the CUSTOM MEDIA CONTROL group flow in the HOOKS\n * \n * To apply this function it to your tv, you need to change the ip address of the tv\n * \n * To change, go to configurations nodes and find SONY BRAVIA TV node and double click it\n * Change the host to your tv's ip address and type in the PSK and save\n\n> NOTE : It is advised to set a static IP, see the network settings of the TV.\n\n\n**READ MORE HERE :**\n\n[ https://pro-bravia.sony.net/develop/integrate/ircc-ip/ircc-codes/index.html](BRAVIA Professional Displays Knowledge Center)\n\n[https://developer.sony.com/develop/audio-control-api/api-references/api-overview-2](SONY BRAVIA API References)\n",
-        "x": 265,
+        "info": "This is version 2.0 of custom media control for SONY BRAVIA TV\n\nVersion: \n2021-06-20: bug fix (English) Channel number\n2021-06-21: bug not fixed: \"Play channel XX\" in SuperScenes doesn't work\n\n\nIn this version, the tv favorites are generated automatically from the TV channel list. \n\n*************************************************\n\nThe following nodes let you implement custom media control for Sony Bravia TV,\n\n**IMPORTANT :** \n\n * To avoid your custom code is removed on flow update it is recommended to copy paste the nodes below to a new tab\n * \n * To avoid unexpected behavior, do not use the CUSTOM MEDIA CONTROL group flow in the HOOKS\n * \n * To apply this function it to your tv, you need to change the ip address of the tv\n * \n * To change, go to configurations nodes and find SONY BRAVIA TV node and double click it\n * Change the host to your tv's ip address and type in the PSK and save\n\n> NOTE : It is advised to set a static IP, see the network settings of the TV.\n\n\n**READ MORE HERE :**\n\n[ https://pro-bravia.sony.net/develop/integrate/ircc-ip/ircc-codes/index.html](BRAVIA Professional Displays Knowledge Center)\n\n[https://developer.sony.com/develop/audio-control-api/api-references/api-overview-2](SONY BRAVIA API References)\n",
+        "x": 275,
         "y": 75,
         "wires": []
     },
     {
-        "id": "92c99c9e.d650f",
+        "id": "6d2557b7.38d69",
         "type": "inject",
-        "z": "a6fc51ae.c442f",
-        "g": "7efb98de.791958",
+        "z": "1cb4a28.1a0dade",
+        "g": "61cd1822.e4c938",
         "name": "French favorites (samples)",
         "props": [
             {
@@ -379,15 +379,15 @@
         "y": 250,
         "wires": [
             [
-                "da425814.9de498"
+                "d9a0d9d9.36d3d"
             ]
         ]
     },
     {
-        "id": "42b7bfd8.ef2fb",
+        "id": "6195d2c1.ad13cc",
         "type": "inject",
-        "z": "a6fc51ae.c442f",
-        "g": "7efb98de.791958",
+        "z": "1cb4a28.1a0dade",
+        "g": "61cd1822.e4c938",
         "name": "German favorites (samples)",
         "props": [
             {
@@ -409,15 +409,15 @@
         "y": 290,
         "wires": [
             [
-                "b8e62040.6e316"
+                "d8866cde.5fcc78"
             ]
         ]
     },
     {
-        "id": "da425814.9de498",
+        "id": "d9a0d9d9.36d3d",
         "type": "function",
-        "z": "a6fc51ae.c442f",
-        "g": "7efb98de.791958",
+        "z": "1cb4a28.1a0dade",
+        "g": "61cd1822.e4c938",
         "name": "lang?",
         "func": "var lang = global.get(\"msgLang\");\nif(lang.toLowerCase().includes(\"fr\")){\n\n    var channelList = global.get(\"channelList\");\n    var appList = global.get(\"appList\");\n    \n    if(channelList !== undefined){\n        msg.payload = [...msg.payload, ...channelList];\n    }\n    if(appList !== undefined){\n        msg.payload = [...msg.payload, ...appList];\n    }\n    \n    return msg;\n}\nelse {\n    //do nothing\n}",
         "outputs": 1,
@@ -428,15 +428,15 @@
         "y": 250,
         "wires": [
             [
-                "b955d7b9.f446a8"
+                "a2688f07.50a62"
             ]
         ]
     },
     {
-        "id": "b8e62040.6e316",
+        "id": "d8866cde.5fcc78",
         "type": "function",
-        "z": "a6fc51ae.c442f",
-        "g": "7efb98de.791958",
+        "z": "1cb4a28.1a0dade",
+        "g": "61cd1822.e4c938",
         "name": "lang?",
         "func": "var lang = global.get(\"msgLang\");\nif(lang.toLowerCase().includes(\"de\")){\n\n    var channelList = global.get(\"channelList\");\n    var appList = global.get(\"appList\");\n    \n    if(channelList !== undefined){\n        msg.payload = [...msg.payload, ...channelList];\n    }\n    if(appList !== undefined){\n        msg.payload = [...msg.payload, ...appList];\n    }\n    \n    return msg;\n}\nelse {\n    //do nothing\n}",
         "outputs": 1,
@@ -447,15 +447,15 @@
         "y": 290,
         "wires": [
             [
-                "b955d7b9.f446a8"
+                "a2688f07.50a62"
             ]
         ]
     },
     {
-        "id": "a4031f8d.aaaa2",
+        "id": "c1efb036.f3233",
         "type": "inject",
-        "z": "a6fc51ae.c442f",
-        "g": "7efb98de.791958",
+        "z": "1cb4a28.1a0dade",
+        "g": "61cd1822.e4c938",
         "name": "English favorites (samples)",
         "props": [
             {
@@ -477,15 +477,15 @@
         "y": 330,
         "wires": [
             [
-                "43ec6abe.cec9e4"
+                "59b4a051.79ad9"
             ]
         ]
     },
     {
-        "id": "43ec6abe.cec9e4",
+        "id": "59b4a051.79ad9",
         "type": "function",
-        "z": "a6fc51ae.c442f",
-        "g": "7efb98de.791958",
+        "z": "1cb4a28.1a0dade",
+        "g": "61cd1822.e4c938",
         "name": "lang?",
         "func": "var lang = global.get(\"msgLang\");\nif(lang.toLowerCase().includes(\"en\")){\n\n    var channelList = global.get(\"channelList\");\n    var appList = global.get(\"appList\");\n    \n    if(channelList !== undefined){\n        msg.payload = [...msg.payload, ...channelList];\n    }\n    if(appList !== undefined){\n        msg.payload = [...msg.payload, ...appList];\n    }\n    \n    return msg;\n}\nelse {\n    //do nothing\n}",
         "outputs": 1,
@@ -496,69 +496,69 @@
         "y": 330,
         "wires": [
             [
-                "b955d7b9.f446a8"
+                "a2688f07.50a62"
             ]
         ]
     },
     {
-        "id": "6466b307.af04ec",
+        "id": "b24297e6.0b54b8",
         "type": "mqtt in",
-        "z": "a6fc51ae.c442f",
-        "g": "7efb98de.791958",
+        "z": "1cb4a28.1a0dade",
+        "g": "61cd1822.e4c938",
         "name": "incVol",
         "topic": "hermes/intent/ProKNX:increaseVolume",
         "qos": "2",
         "datatype": "auto",
-        "broker": "b6fbcb21.9f8e08",
+        "broker": "989b80d3.9dc008",
         "x": 234,
         "y": 1195,
         "wires": [
             [
-                "3fb73b07.b396a4"
+                "b837fa2.26b2c88"
             ]
         ]
     },
     {
-        "id": "f7072ba1.24bc58",
+        "id": "ff395ce9.35bcb",
         "type": "mqtt in",
-        "z": "a6fc51ae.c442f",
-        "g": "7efb98de.791958",
+        "z": "1cb4a28.1a0dade",
+        "g": "61cd1822.e4c938",
         "name": "decVol",
         "topic": "hermes/intent/ProKNX:decreaseVolume",
         "qos": "2",
         "datatype": "auto",
-        "broker": "b6fbcb21.9f8e08",
+        "broker": "989b80d3.9dc008",
         "x": 234,
         "y": 1235,
         "wires": [
             [
-                "3fb73b07.b396a4"
+                "b837fa2.26b2c88"
             ]
         ]
     },
     {
-        "id": "d376aa80.5b80a8",
+        "id": "590d0e94.25d47",
         "type": "mqtt in",
-        "z": "a6fc51ae.c442f",
-        "g": "7efb98de.791958",
+        "z": "1cb4a28.1a0dade",
+        "g": "61cd1822.e4c938",
         "name": "setVol",
         "topic": "hermes/intent/ProKNX:setVolume",
         "qos": "2",
         "datatype": "auto",
-        "broker": "b6fbcb21.9f8e08",
+        "broker": "989b80d3.9dc008",
         "x": 234,
         "y": 1275,
         "wires": [
             [
-                "3fb73b07.b396a4"
+                "b837fa2.26b2c88"
             ]
         ]
     },
     {
-        "id": "8976175a.8592c8",
+        "id": "f2e33cb6.74442",
         "type": "bravia-ircc",
-        "z": "a6fc51ae.c442f",
-        "g": "7efb98de.791958",
+        "z": "1cb4a28.1a0dade",
+        "g": "61cd1822.e4c938",
         "tv": "204aae5a.40fb72",
         "ircc": "Prev",
         "name": "Previous",
@@ -567,28 +567,28 @@
         "wires": []
     },
     {
-        "id": "bb2a13c2.99dc6",
+        "id": "edd6d85e.c2af98",
         "type": "mqtt in",
-        "z": "a6fc51ae.c442f",
-        "g": "7efb98de.791958",
+        "z": "1cb4a28.1a0dade",
+        "g": "61cd1822.e4c938",
         "name": "play",
         "topic": "hermes/intent/ProKNX:play",
         "qos": "2",
         "datatype": "auto",
-        "broker": "b6fbcb21.9f8e08",
+        "broker": "989b80d3.9dc008",
         "x": 239,
         "y": 640,
         "wires": [
             [
-                "77593e8a.92ece"
+                "59794619.d5c29"
             ]
         ]
     },
     {
-        "id": "77593e8a.92ece",
+        "id": "59794619.d5c29",
         "type": "function",
-        "z": "a6fc51ae.c442f",
-        "g": "7efb98de.791958",
+        "z": "1cb4a28.1a0dade",
+        "g": "61cd1822.e4c938",
         "name": "Play",
         "func": "//NOMINIFY\n// License: 562c0ffe-df98-4348-87b7-e60e3c37c534\n\n(function() {\n\nvar FuzzySet = function(arr, useLevenshtein, gramSizeLower, gramSizeUpper) {\n    var fuzzyset = {\n\n    };\n\n    // default options\n    arr = arr || [];\n    fuzzyset.gramSizeLower = gramSizeLower || 2;\n    fuzzyset.gramSizeUpper = gramSizeUpper || 3;\n    fuzzyset.useLevenshtein = (typeof useLevenshtein !== 'boolean') ? true : useLevenshtein;\n\n    // define all the object functions and attributes\n    fuzzyset.exactSet = {};\n    fuzzyset.matchDict = {};\n    fuzzyset.items = {};\n\n    // helper functions\n    var levenshtein = function(str1, str2) {\n        var current = [], prev, value;\n\n        for (var i = 0; i <= str2.length; i++)\n            for (var j = 0; j <= str1.length; j++) {\n            if (i && j)\n                if (str1.charAt(j - 1) === str2.charAt(i - 1))\n                value = prev;\n                else\n                value = Math.min(current[j], current[j - 1], prev) + 1;\n            else\n                value = i + j;\n\n            prev = current[j];\n            current[j] = value;\n            }\n\n        return current.pop();\n    };\n\n    // return an edit distance from 0 to 1\n    var _distance = function(str1, str2) {\n        if (str1 === null && str2 === null) throw 'Trying to compare two null values';\n        if (str1 === null || str2 === null) return 0;\n        str1 = String(str1); str2 = String(str2);\n\n        var distance = levenshtein(str1, str2);\n        if (str1.length > str2.length) {\n            return 1 - distance / str1.length;\n        } else {\n            return 1 - distance / str2.length;\n        }\n    };\n    var _nonWordRe = /[^a-zA-Z0-9\\u00C0-\\u00FF, ]+/g;\n\n    var _iterateGrams = function(value, gramSize) {\n        gramSize = gramSize || 2;\n        var simplified = '-' + value.toLowerCase().replace(_nonWordRe, '') + '-',\n            lenDiff = gramSize - simplified.length,\n            results = [];\n        if (lenDiff > 0) {\n            for (var i = 0; i < lenDiff; ++i) {\n                simplified += '-';\n            }\n        }\n        for (var i = 0; i < simplified.length - gramSize + 1; ++i) {\n            results.push(simplified.slice(i, i + gramSize));\n        }\n        return results;\n    };\n\n    var _gramCounter = function(value, gramSize) {\n        // return an object where key=gram, value=number of occurrences\n        gramSize = gramSize || 2;\n        var result = {},\n            grams = _iterateGrams(value, gramSize),\n            i = 0;\n        for (i; i < grams.length; ++i) {\n            if (grams[i] in result) {\n                result[grams[i]] += 1;\n            } else {\n                result[grams[i]] = 1;\n            }\n        }\n        return result;\n    };\n\n    // the main functions\n    fuzzyset.get = function(value, defaultValue, minMatchScore) {\n        // check for value in set, returning defaultValue or null if none found\n        if (minMatchScore === undefined) {\n            minMatchScore = .33\n        }\n        var result = this._get(value, minMatchScore);\n        if (!result && typeof defaultValue !== 'undefined') {\n            return defaultValue;\n        }\n        return result;\n    };\n\n    fuzzyset._get = function(value, minMatchScore) {\n        var results = [];\n        // start with high gram size and if there are no results, go to lower gram sizes\n        for (var gramSize = this.gramSizeUpper; gramSize >= this.gramSizeLower; --gramSize) {\n            results = this.__get(value, gramSize, minMatchScore);\n            if (results && results.length > 0) {\n                return results;\n            }\n        }\n        return null;\n    };\n\n    fuzzyset.__get = function(value, gramSize, minMatchScore) {\n        var normalizedValue = this._normalizeStr(value),\n            matches = {},\n            gramCounts = _gramCounter(normalizedValue, gramSize),\n            items = this.items[gramSize],\n            sumOfSquareGramCounts = 0,\n            gram,\n            gramCount,\n            i,\n            index,\n            otherGramCount;\n\n        for (gram in gramCounts) {\n            gramCount = gramCounts[gram];\n            sumOfSquareGramCounts += Math.pow(gramCount, 2);\n            if (gram in this.matchDict) {\n                for (i = 0; i < this.matchDict[gram].length; ++i) {\n                    index = this.matchDict[gram][i][0];\n                    otherGramCount = this.matchDict[gram][i][1];\n                    if (index in matches) {\n                        matches[index] += gramCount * otherGramCount;\n                    } else {\n                        matches[index] = gramCount * otherGramCount;\n                    }\n                }\n            }\n        }\n\n        function isEmptyObject(obj) {\n            for(var prop in obj) {\n                if(obj.hasOwnProperty(prop))\n                    return false;\n            }\n            return true;\n        }\n\n        if (isEmptyObject(matches)) {\n            return null;\n        }\n\n        var vectorNormal = Math.sqrt(sumOfSquareGramCounts),\n            results = [],\n            matchScore;\n        // build a results list of [score, str]\n        for (var matchIndex in matches) {\n            matchScore = matches[matchIndex];\n            results.push([matchScore / (vectorNormal * items[matchIndex][0]), items[matchIndex][1]]);\n        }\n        var sortDescending = function(a, b) {\n            if (a[0] < b[0]) {\n                return 1;\n            } else if (a[0] > b[0]) {\n                return -1;\n            } else {\n                return 0;\n            }\n        };\n        results.sort(sortDescending);\n        if (this.useLevenshtein) {\n            var newResults = [],\n                endIndex = Math.min(50, results.length);\n            // truncate somewhat arbitrarily to 50\n            for (var i = 0; i < endIndex; ++i) {\n                newResults.push([_distance(results[i][1], normalizedValue), results[i][1]]);\n            }\n            results = newResults;\n            results.sort(sortDescending);\n        }\n        newResults = [];\n        results.forEach(function(scoreWordPair) {\n            if (scoreWordPair[0] >= minMatchScore) {\n                newResults.push([scoreWordPair[0], this.exactSet[scoreWordPair[1]]]);\n            }\n        }.bind(this))\n        return newResults;\n    };\n\n    fuzzyset.add = function(value) {\n        var normalizedValue = this._normalizeStr(value);\n        if (normalizedValue in this.exactSet) {\n            return false;\n        }\n\n        var i = this.gramSizeLower;\n        for (i; i < this.gramSizeUpper + 1; ++i) {\n            this._add(value, i);\n        }\n    };\n\n    fuzzyset._add = function(value, gramSize) {\n        var normalizedValue = this._normalizeStr(value),\n            items = this.items[gramSize] || [],\n            index = items.length;\n\n        items.push(0);\n        var gramCounts = _gramCounter(normalizedValue, gramSize),\n            sumOfSquareGramCounts = 0,\n            gram, gramCount;\n        for (gram in gramCounts) {\n            gramCount = gramCounts[gram];\n            sumOfSquareGramCounts += Math.pow(gramCount, 2);\n            if (gram in this.matchDict) {\n                this.matchDict[gram].push([index, gramCount]);\n            } else {\n                this.matchDict[gram] = [[index, gramCount]];\n            }\n        }\n        var vectorNormal = Math.sqrt(sumOfSquareGramCounts);\n        items[index] = [vectorNormal, normalizedValue];\n        this.items[gramSize] = items;\n        this.exactSet[normalizedValue] = value;\n    };\n\n    fuzzyset._normalizeStr = function(str) {\n        if (Object.prototype.toString.call(str) !== '[object String]') throw 'Must use a string as argument to FuzzySet functions';\n        return str.toLowerCase();\n    };\n\n    // return length of items in set\n    fuzzyset.length = function() {\n        var count = 0,\n            prop;\n        for (prop in this.exactSet) {\n            if (this.exactSet.hasOwnProperty(prop)) {\n                count += 1;\n            }\n        }\n        return count;\n    };\n\n    // return is set is empty\n    fuzzyset.isEmpty = function() {\n        for (var prop in this.exactSet) {\n            if (this.exactSet.hasOwnProperty(prop)) {\n                return false;\n            }\n        }\n        return true;\n    };\n\n    // return list of values loaded into set\n    fuzzyset.values = function() {\n        var values = [],\n            prop;\n        for (prop in this.exactSet) {\n            if (this.exactSet.hasOwnProperty(prop)) {\n                values.push(this.exactSet[prop]);\n            }\n        }\n        return values;\n    };\n\n\n    // initialization\n    var i = fuzzyset.gramSizeLower;\n    for (i; i < fuzzyset.gramSizeUpper + 1; ++i) {\n        fuzzyset.items[i] = [];\n    }\n    // add all the items to the set\n    for (i = 0; i < arr.length; ++i) {\n        fuzzyset.add(arr[i]);\n    }\n\n    return fuzzyset;\n};\n\nvar root = this;\n// Export the fuzzyset object for **CommonJS**, with backwards-compatibility\n// for the old `require()` API. If we're not in CommonJS, add `_` to the\n// global object.\nif (typeof module !== 'undefined' && module.exports) {\n    module.exports = FuzzySet;\n    if(root)\n    {\n        root.FuzzySet = FuzzySet;\n    }\n} else {\n    root.FuzzySet = FuzzySet;\n}\n\n})();\n\n\nString.prototype.replaceWithDigits = function(){\n    \n    if(lang == \"de\"){\n        \n        var number = [\"Neunundneunzig\", \"Neunundachtzig\", \"Neunundsiebzig\", \"Neunundsechzig\", \"Neunundfünfzig\", \"Neunundvierzig\", \"Neununddreiβig\", \"Neunundzwanzig\", \"Neunzehn\",\n            \"Achtundneunzig\", \"Achtundachtzig\", \"Achtundsiebzig\", \"Achtundsechzig\", \"Achtundfünfzig\", \"Achtundvierzig\", \"Achtunddreiβig\", \"Achtundzwanzig\", \"Achtzehn\",\n            \"Siebenundneunzig\", \"Siebenundachtzig\", \"Siebenundsiebzig\", \"Siebenundsechzig\", \"Siebenundfünfzig\", \"Siebenundvierzig\", \"Siebenunddreiβig\", \"Siebenundzwanzig\", \"Siebzehn\",\n            \"Sechsundneunzig\", \"Sechsundachtzig\", \"Sechsundsiebzig\", \"Sechsundsechzig\", \"Sechsundfünfzig\", \"Sechsundvierzig\", \"Sechsunddreiβig\", \"Sechsundzwanzig\", \"Sechzehn\",\n            \"Fünfundneunzig\", \"Fünfundachtzig\", \"Fünfundsiebzig\", \"Fünfundsechzig\", \"Fünfundfünfzig\", \"Fünfundvierzig\", \"Fünfunddreiβig\", \"Fünfundzwanzig\", \"Fünfzehn\",\n            \"Vierundneunzig\", \"Vierundachtzig\", \"Vierundsiebzig\", \"Vierundsechzig\", \"Vierundfünfzig\", \"Vierundvierzig\", \"Vierunddreiβig\", \"Vierundzwanzig\", \"Vierzehn\",\n            \"Dreiundneunzig\", \"Dreiundachtzig\", \"Dreiundsiebzig\", \"Dreiundsechzig\", \"Dreiundfünfzig\", \"Dreiundvierzig\", \"Dreiunddreiβig\", \"Dreiundzwanzig\", \"Dreizehn\",\n            \"Zweiundneunzig\", \"Zweiundachtzig\", \"Zweiundsiebzig\", \"Zweiundsechzig\", \"Zweiundfünfzig\", \"Zweiundvierzig\", \"Zweiunddreiβig\", \"Zweiundzwanzig\", \"Zwölf\",\n            \"Einundneunzig\", \"Einundachtzig\",  \"Einundachtzig\", \"Einundsiebzig\", \"Einundsechzig\", \"Einundsechzig\", \"Einundfünfzig\", \"Einundfünfzig\", \"Einundvierzig\", \"Einundvierzig\", \"Einunddreiβig\", \"Einunddreiβig\", \"Einundzwanzig\", \"Einundzwanzig\", \"Elf\",\n            \"Einhundert\", \"Neunzig\", \"Achtzig\", \"Siebzig\", \"Sechzig\", \"Fünfzig\", \"Vierzig\", \"Dreiβig\", \"Zwanzig\", \"Zehn\", \n\t\t\t\"Neun\", \"Acht\", \"Sieben\", \"Sechs\", \"Fünf\", \"Vier\", \"Drei\", \"Zwei\", \"Eins\", \"Eins\"\n        ];\n\n    } else if (lang == \"fr\") {\n\n        var number = [\"Quatre-vingt-dix-neuf\", \"Quatre-vingt-neuf\", \"Soixante-dix-neuf \", \"Soixante-neuf\", \"Cinquante-neuf\", \"Quarante-neuf\", \" Trente-neuf \", \" Vingt-neuf \", \"Dix-neuf\",\n            \"Quatre-vingt-dix-huit\", \"Quatre-vingt-huit\", \"Soixante-dix-huit\", \" Soixante-huit\", \"Cinquante-huit\", \"Quarante-huit\", \"Trente-huit\", \"Vingt-huit\", \"Dix-huit\",\n            \"Quatre-vingt-dix-sept\", \"Quatre-vingt-sept\", \"Soixante-dix-sept\", \"Soixante-sept\", \"Cinquante-sept\", \"Quarante-sept\", \"Trente-sept\", \"Vingt-sept\", \"Dix-sept\",\n            \"Quatre-vingt-seize\", \"Quatre-vingt-six\", \"Soixante-six\", \"Soixante-six\", \"Cinquante-six\", \"Quarante-six\", \"Trente-six\", \"Vingt-six\", \"Seize\",\n            \"Quatre-vingt-quinze\", \"Quatre-vingt-cinq\", \"Soixante-quinze\", \"Soixante-cinq\", \"Cinquante-cinq\", \"Quarante-cinq\", \"Trente-cinq\", \"Vingt-cinq\", \"Quinze\",\n            \"Quatre-vingt-quatorze\", \"Quatre-vingt-quatre\", \"Soixante-quatorze\", \"Soixante-quatre\", \"Cinquante-quatre\", \"Quarante-quatre\", \"Trente-quatre\", \"Vingt-quatre\", \"Quatorze\",\n            \"Quatre-vingt-treize\", \"Quatre-vingt-trois\", \"Soixante-treize\", \"Soixante-trois\", \"Cinquante-trois\", \"Quarante-trois\", \"Trente-trois\", \"Vingt-trois\", \"Treize\",\n            \"Quatre-vingt-douze\", \"Quatre-vingt-deux\", \"Soixante-douze\", \"Soixante-deux\", \"Cinquante-deux\", \"Quarante-deux\", \"Trente-deux\", \"Vingt-deux\", \"Douze\",\n            \"Quatre-vingt-onze\", \"Quatre-vingt-un\", \"Quatre-vingt-une\", \"Soixante et onze\", \"Soixante et un\", \"Soixante et une\", \"Cinquante et un\",\"Cinquante et une\", \"Quarante et un\", \"Quarante et une\", \"Trente et un\", \"Trente et une\", \"Vingt et un\", \"Vingt et une\", \"Onze\",\n            \"Cent\", \"Quatre-vingt-dix\", \"Quatre-vingt\", \"Soixante-dix\", \"Soixante\", \"Cinquante\", \"Quarante\", \"Trente\", \"Vingt\", \"Dix\",\n            \"Neuf\", \"Huit\", \"Sept\", \"Six\", \"Cinq\", \"Quatre\", \"Trois\", \"Deux\", \"Un\", \"Une\"\n        ];\n\n    } else {\n\n        var number = [\"Ninety-nine\", \"Eighty-nine\", \"Seventy-nine\", \"Sixty-nine\", \"Fifty-nine\", \"Forty-nine\", \"Thirty-nine\", \"Twenty-nine\", \"Nineteen\",\n            \"Ninety-eight\", \"Eighty-eight\", \"Seventy-eight\", \"Sixty-eight\", \"Fifty-eight\", \"Forty-eight\", \"Thirty-eight\", \"Twenty-eight\", \"Eighteen\",\n            \"Ninety-seven\", \"Eighty-seven\", \"Seventy-seven\", \"Sixty-seven\", \"Fifty-seven\", \"Forty-seven\", \"Thirty-seven\", \"Twenty-seven\", \"Seventeen\",\n            \"Ninety-six\", \"Eighty-six\", \"Seventy-six\", \"Sixty-six\", \"Fifty-six\", \"Forty-six\", \"Thirty-six\", \"Twenty-six\", \"Sixteen\",\n            \"Ninety-five\", \"Eighty-five\", \"Seventy-five\", \"Sixty-five\", \"Fifty-five\", \"Forty-five\", \"Thirty-five\", \"Twenty-five\", \"Fifteen\",\n            \"Ninety-four\", \"Eighty-four\", \"Seventy-four\", \"Sixty-four\", \"Fifty-four\", \"Forty-four\", \"Thirty-four\", \"Twenty-four\", \"Fourteen\",\n            \"Ninety-three\", \"Eighty-three\", \"Seventy-three\", \"Sixty-three\", \"Fifty-three\", \"Forty-three\", \"Thirty-three\", \"Twenty-three\", \"Thirteen\",\n            \"Ninety-two\", \"Eighty-two\", \"Seventy-two\", \"Sixty-two\", \"Fifty-two\", \"Forty-two\", \"Thirty-two\", \"Twenty-two\", \"Twelve\",\n            \"Ninety-one\", \"Eighty-one\", \"Eighty-one\", \"Seventy-one\", \"Sixty-one\", \"Fifty-one\", \"Fifty-one\", \"Forty-one\", \"Forty-one\", \"Thirty-one\", \"Thirty-one\", \"Twenty-one\", \"Twenty-one\", \"Eleven\",\n            \"One Hundred\", \"Ninety\", \"Eighty\", \"Seventy\", \"Sixty\", \"Fifty\", \"Forty\", \"Thirty\", \"Twenty\", \"Ten\",\n            \"Nine\", \"Eight\", \"Seven\", \"Six\", \"Five\", \"Four\", \"Three\", \"Two\", \"One\", \"One\"\n        ];\n\n    }\n\n    var digit = [\"99\", \"89\", \"79\", \"69\", \"59\", \"49\", \"39\", \"29\", \"19\",\n        \"98\", \"88\", \"78\", \"68\", \"58\", \"48\", \"38\", \"28\", \"18\",\n        \"97\", \"87\", \"77\", \"67\", \"57\", \"47\", \"37\", \"27\", \"17\",\n        \"96\", \"86\", \"76\", \"66\", \"56\", \"46\", \"36\", \"26\", \"16\",\n        \"95\", \"85\", \"75\", \"65\", \"55\", \"45\", \"35\", \"25\", \"15\",\n        \"94\", \"84\", \"74\", \"64\", \"54\", \"44\", \"34\", \"24\", \"14\",\n        \"93\", \"83\", \"73\", \"63\", \"53\", \"43\", \"33\", \"23\", \"13\",\n        \"92\", \"82\", \"72\", \"62\", \"52\", \"42\", \"32\", \"22\", \"12\",\n        \"91\", \"81\", \"81\", \"71\", \"61\", \"61\", \"51\", \"51\", \"41\", \"41\", \"31\", \"31\", \"21\", \"21\", \"11\",\n        \"100\", \"90\", \"80\", \"70\", \"60\", \"50\", \"40\", \"30\", \"20\", \"10\",\n        \"9\", \"8\", \"7\", \"6\", \"5\", \"4\", \"3\", \"2\", \"1\", \"1\"\n    ];\n    \n    var str = this;\n    for(var i = 0; i < number.length; i++){\n        str = str.replace(\"-\", \" \").replace(number[i].toLowerCase().replace(\"-\", \" \").trim(), digit[i]);\n    }\n     \n    return str;\n}\n\n\nfunction findObjectByKey(array, key, value) {\n\titems = [];\n\tvar cpt = 0;\n\tfor (var i = 0; i < array.length; i++) {\n\t\tif (array[i][key] === value) {\n\t\t\titems[cpt] = array[i];\n\t\t\tcpt++;\n\t\t}\n\t}\n\tif (items[0] !== undefined) {\n\t\treturn items;\n\t} else {\n\t\treturn null;\n\t}\n}\n\nvar lang = global.get(\"msgLang\");\nvar defaultSpeaker = global.get(\"defaultSpeaker\");\nvar tvFavorites = global.get(\"tvFavorites\");\nvar channelList = global.get(\"channelList\");\nvar setScreen = flow.get(\"setScreen\");\nvar siteIdTv = global.get(\"siteIdTv\");\nif(defaultSpeaker === undefined){\n    defaultSpeaker = \"speaker\";\n}\nmsg.cmd={};\nmsg.payload = JSON.parse(msg.payload);\nmsg.cmd.siteId = msg.payload.siteId.replace(/_\\d+$/, \"\").trim();\nvar doAllRooms = false;\nvar intent = msg.payload.intent.intentName;\nif (intent === undefined) \n    return null;\n\nvar rawRoom = findObjectByKey(msg.payload.slots, 'slotName', 'room');\nvar rawFavorite = findObjectByKey(msg.payload.slots, 'entity', 'FavoriteType');\nvar rawSpeaker = findObjectByKey(msg.payload.slots, 'entity', 'SpeakerType');\n\n//node.warn(msg.payload);\n//node.warn(\"rawRoom: \"+ JSON.stringify(rawRoom) );\nvar theRoom = msg.payload.siteId;\n\nif (rawRoom !== null) {\n\tmsg.cmd.room = [];\n\tfor (var i = 0; i < rawRoom.length; i++) {\n\t\tmsg.cmd.room[i] = rawRoom[i].value.value.toLowerCase();\n\t\t//node.warn(\"msg.cmd.room[i]: \"+msg.cmd.room[i] + \"   msg.payload.siteId: \"+msg.payload.siteId);\n\t\tif (msg.cmd.room[i] === \"here\" || msg.cmd.room[i] === \"hier\" || msg.cmd.room[i] === \"ici\") {\n\t\t\ttheRoom = msg.payload.siteId;\n\t\t} else {\n    \t\tif (msg.cmd.room[i] === \"all\" || msg.cmd.room[i] === \"everywhere\" || msg.cmd.room[i] === \"ueberall\" || msg.cmd.room[i] === \"partout\") {\n    \t\t    doAllRooms = true;\n    \t\t} else {\n    \t\t    theRoom = msg.cmd.room[i].replace(/ /g, \"_\");\n    \t\t}\n\t\t}\n\t}\n}\n\nif (rawSpeaker !== null) {\n    //node.warn(\"rawSpeaker: \"+JSON.stringify(rawSpeaker));\n    msg.payload.speaker = rawSpeaker[0].value.value.trim().toLowerCase();\n} else {\n    msg.payload.speaker = defaultSpeaker.trim().toLowerCase();\n}\n\nmsg.payload.siteId = theRoom;\n\nif(msg.payload.siteId.toLowerCase().replace(/_\\d+$/,\"\").replace(/_/g,\"\") !== siteIdTv.toLowerCase().replace(/_\\d+$/,\"\").replace(/ /g,\"\")){\n    return null;\n}\n\nif(msg.payload.input.toLowerCase().includes(\"channel\") || msg.payload.input.toLowerCase().includes(\"canal\") \n|| msg.payload.input.toLowerCase().includes(\"kanal\") || msg.payload.input.toLowerCase().includes(\"chaîne\")){\n    \n    var channel = \"\";\n\n    for(var i=2; i<msg.payload.asrTokens[0].length; i++){\n        channel = channel + \" \" + msg.payload.asrTokens[0][i].value;\n    }\n    \n    flow.set(\"channelNumber\", channel);\n    flow.set(\"setScreen\", \"channel\");\n    global.set(\"defaultSpeaker\", \"tv\");\n    \n}else{\n    \n    flow.set(\"setScreen\", \"media\");\n    flow.set(\"channelNumber\", \"\");\n}\n\n//node.warn(\" Will use msg.payload.siteId: \"+msg.payload.siteId);\n//global.set(\"siteIdTv\", msg.payload.siteId);\n\nif (rawFavorite !== null) {\n    //node.warn(\"rawFavorite: \"+JSON.stringify(rawFavorite));\n    msg.payload.favorite = rawFavorite[0].value.value.trim().toLowerCase();\n\n    global.set(\"msg.payload.favorite\", msg.payload.favorite);\n    \n    var channel = channelList.find(\n            function(str) { return str.toLowerCase() == msg.payload.favorite.toLowerCase(); }\n        );\n    \n    if (channel !== undefined) {\n        \n        flow.set(\"setScreen\", \"channel\");\n        \n    }\n    \n    var found = tvFavorites.find(\n            function(str) { return str.toLowerCase() == msg.payload.favorite.toLowerCase(); }\n        );\n        \n    \n    if (found !== undefined) {\n        \n        global.set(\"defaultSpeaker\", \"tv\");\n        flow.set(\"tvPlay\", JSON.stringify(msg.payload));\n        return [null, msg];\n        \n    }\n}else{\n    \n    global.set(\"defaultSpeaker\", \"tv\");\n    if(setScreen === \"channel\"){\n        flow.set(\"tvPlay\", JSON.stringify(msg.payload));\n        return [null, msg];\n    }\n}\n\n//var msgFavorite = msg;\nvar sonosPlaylists = global.get(\"sonosPlaylists\");\nvar sonosFavorites = global.get(\"sonosFavorites\");  \n\nif(msg.payload.favorite !== undefined){\n\n    var searchItem = msg.payload.favorite;\n    //node.warn(\"searchItem : \"+searchItem);\n    \n    var found1 = sonosPlaylists.find(\n        function(str) { return str.toLowerCase() == searchItem.toLowerCase(); }\n        );\n    \n    var found2 = sonosFavorites.find(\n            function(str) { return str.toLowerCase() == searchItem.toLowerCase(); }\n        );\n    \n    if(found1 !== undefined || found2 !== undefined){\n        return null;\n    }\n}\n\n//node.warn(\"msg.payload.speaker: \"+msg.payload.speaker);\n\n  \nif (msg.payload.intent.confidenceScore < 0.2 || msg.payload.asrTokens!== undefined && msg.payload.asrTokens[0].length <= 1){\n    return null;\n}\n\nif(msg.payload.speaker === \"tv\"){\n    \n    var searchItem = msg.payload.input.toLowerCase()\n                    .replace(msg.payload.siteId, \"\")\n                    .replace(\"unknownword\", \"\")\n                    .replace(\"watch\", \"\")\n                    .replace(\"play\", \"\")\n                    .replace(\"open\", \"\")\n                    .replace(\"tv\", \"\")\n                    .replace(\"tee vee\", \"\")\n                    .replace(\"spielen\", \"\")\n                    .replace(\"öffnen\", \"\")\n                    .replace(\"fernseher\", \"\")\n                    .replace(\"regarder\", \"\")\n                    .replace(\"jouer\", \"\")\n                    .replace(\"joue\", \"\")\n                    .replace(\"mets\", \"\")\n                    .replace(\"met\", \"\")\n                    .replace(\"plus\", \"+\")\n                    .replaceWithDigits().trim();\n                    \n    if(searchItem.length>0){\n        \n        node.warn(\"searchItem : \" + searchItem);\n        \n        var fuzzyMatchItem = \"\";\n        \n        var a = FuzzySet(tvFavorites, false);\n        var scoreArr = a.get(searchItem);\n        node.warn(\"scoreArr: \"+scoreArr);\n        if(scoreArr !== null && scoreArr[0][0]>0.1){\n            fuzzyMatchItem = scoreArr[0][1];\n            msg.payload.favorite = fuzzyMatchItem;\n            node.warn(\"fuzzyMatchItem : \" + fuzzyMatchItem);\n            \n            var channel = channelList.find(\n                    function(str) { return str.toLowerCase() == fuzzyMatchItem.toLowerCase(); }\n                );\n            \n            if (channel !== undefined) {\n                flow.set(\"setScreen\", \"channel\");\n            }\n            \n            var found = tvFavorites.find(\n                function(str) { return str.toLowerCase() == fuzzyMatchItem.toLowerCase(); }\n            );\n            \n            node.warn(\"found is not undefined\");\n            global.set(\"msg.payload.favorite\", fuzzyMatchItem);\n            global.set(\"defaultSpeaker\", \"tv\");\n            flow.set(\"tvPlay\", JSON.stringify(msg.payload));\n            \n            return [null, msg];\n            \n        }\n    }\n    \n    global.set(\"defaultSpeaker\", \"tv\");\n    flow.set(\"tvPlay\", JSON.stringify(msg.payload));\n    return [msg, null];\n    \n}",
         "outputs": 2,
@@ -599,36 +599,36 @@
         "y": 640,
         "wires": [
             [
-                "8309af56.03ee3"
+                "700016ae.36e9f8"
             ],
             [
-                "4aa850ee.af91"
+                "a18914d9.5438b"
             ]
         ]
     },
     {
-        "id": "328179f.b391c86",
+        "id": "1c4e5e74.30250a",
         "type": "mqtt in",
-        "z": "a6fc51ae.c442f",
-        "g": "7efb98de.791958",
+        "z": "1cb4a28.1a0dade",
+        "g": "61cd1822.e4c938",
         "name": "pause",
         "topic": "hermes/intent/ProKNX:pause",
         "qos": "2",
         "datatype": "auto",
-        "broker": "b6fbcb21.9f8e08",
+        "broker": "989b80d3.9dc008",
         "x": 240,
         "y": 910,
         "wires": [
             [
-                "f40f6501.08dce8"
+                "bef4bab6.1f266"
             ]
         ]
     },
     {
-        "id": "f40f6501.08dce8",
+        "id": "bef4bab6.1f266",
         "type": "function",
-        "z": "a6fc51ae.c442f",
-        "g": "7efb98de.791958",
+        "z": "1cb4a28.1a0dade",
+        "g": "61cd1822.e4c938",
         "name": "Pause",
         "func": "\nfunction findObjectByKey(array, key, value) {\n\titems = [];\n\tvar cpt = 0;\n\tfor (var i = 0; i < array.length; i++) {\n\t\tif (array[i][key] === value) {\n\t\t\titems[cpt] = array[i];\n\t\t\tcpt++;\n\t\t}\n\t}\n\tif (items[0] !== undefined) {\n\t\treturn items;\n\t} else {\n\t\treturn null;\n\t}\n}\n\nvar lang = global.get(\"msgLang\");\nvar defaultSpeaker = global.get(\"defaultSpeaker\");\nvar tvFavorites = global.get(\"tvFavorites\");\nvar siteIdTv = global.get(\"siteIdTv\");\nif(defaultSpeaker === undefined){\n    defaultSpeaker = \"speaker\";\n}\nmsg.cmd={};\nmsg.payload = JSON.parse(msg.payload);\nmsg.cmd.siteId = msg.payload.siteId.replace(/_\\d+$/, \"\").trim();\nvar doAllRooms = false;\nvar intent = msg.payload.intent.intentName;\nif (intent === undefined) \n    return null;\n\nvar rawRoom = findObjectByKey(msg.payload.slots, 'slotName', 'room');\nvar rawFavorite = findObjectByKey(msg.payload.slots, 'entity', 'FavoriteType');\nvar rawSpeaker = findObjectByKey(msg.payload.slots, 'entity', 'SpeakerType');\n\n//node.warn(msg.payload);\n//node.warn(\"rawRoom: \"+ JSON.stringify(rawRoom) );\nvar theRoom = msg.payload.siteId;\n\nif (rawRoom !== null) {\n\tmsg.cmd.room = [];\n\tfor (var i = 0; i < rawRoom.length; i++) {\n\t\tmsg.cmd.room[i] = rawRoom[i].value.value.toLowerCase();\n\t\t//node.warn(\"msg.cmd.room[i]: \"+msg.cmd.room[i] + \"   msg.payload.siteId: \"+msg.payload.siteId);\n\t\tif (msg.cmd.room[i] === \"here\" || msg.cmd.room[i] === \"hier\" || msg.cmd.room[i] === \"ici\") {\n\t\t\ttheRoom = msg.payload.siteId;\n\t\t} else {\n    \t\tif (msg.cmd.room[i] === \"all\" || msg.cmd.room[i] === \"everywhere\" || msg.cmd.room[i] === \"ueberall\" || msg.cmd.room[i] === \"partout\") {\n    \t\t    doAllRooms = true;\n    \t\t} else {\n    \t\t    theRoom = msg.cmd.room[i].replace(/ /g, \"_\");\n    \t\t}\n\t\t}\n\t}\n}\n\nif (rawSpeaker !== null) {\n    //node.warn(\"rawSpeaker: \"+JSON.stringify(rawSpeaker));\n    msg.payload.speaker = rawSpeaker[0].value.value.trim().toLowerCase();\n} else {\n    msg.payload.speaker = defaultSpeaker.trim().toLowerCase();\n}\n\nmsg.payload.siteId = theRoom;\n\nif(msg.payload.siteId.toLowerCase().replace(/_\\d+$/,\"\").replace(/_/g,\"\") !== siteIdTv.toLowerCase().replace(/_\\d+$/,\"\").replace(/ /g,\"\")){\n    return null;\n}\n\n//node.warn(\" Will use msg.payload.siteId: \"+msg.payload.siteId);\n//global.set(\"siteIdTv\", msg.payload.siteId);\n\nif (rawFavorite !== null) {\n    //node.warn(\"rawFavorite: \"+JSON.stringify(rawFavorite));\n    msg.payload.favorite = rawFavorite[0].value.value.trim().toLowerCase();\n}\n\n//var msgFavorite = msg;\nvar sonosPlaylists = global.get(\"sonosPlaylists\");\nvar sonosFavorites = global.get(\"sonosFavorites\");  \n\nif(msg.payload.favorite !== undefined){\n\n    var searchItem = msg.payload.favorite;\n    //node.warn(\"searchItem : \"+searchItem);\n    \n    var found1 = sonosPlaylists.find(\n        function(str) { return str.toLowerCase() == searchItem.toLowerCase(); }\n        );\n    \n    var found2 = sonosFavorites.find(\n            function(str) { return str.toLowerCase() == searchItem.toLowerCase(); }\n        );\n    \n    if(found1 !== undefined || found2 !== undefined){\n        return null;\n    }\n}\n\n//node.warn(\"msg.payload.speaker: \"+msg.payload.speaker);\n    \nif (msg.payload.intent.confidenceScore < 0.6 || msg.payload.asrTokens!== undefined && msg.payload.asrTokens[0].length <= 1){\n    return null;\n}\n\nif(msg.payload.input.toLowerCase().includes(\"pause\") || msg.payload.input.toLowerCase().includes(\"pausiere\")){\n    \n    global.set(\"defaultSpeaker\", \"tv\");\n    return [null, msg];\n}\n\nif(msg.payload.speaker === \"tv\" ){\n    \n    global.set(\"defaultSpeaker\", \"tv\");\n    return [msg, null];\n\n}\n",
         "outputs": 2,
@@ -639,18 +639,18 @@
         "y": 910,
         "wires": [
             [
-                "ec3ecdc8.91a4b"
+                "50e7b043.d2c038"
             ],
             [
-                "98c02b12.01fc08"
+                "3c3982fc.a4c39e"
             ]
         ]
     },
     {
-        "id": "49a0037d.c4748c",
+        "id": "ed026f41.b1b568",
         "type": "bravia-api",
-        "z": "a6fc51ae.c442f",
-        "g": "7efb98de.791958",
+        "z": "1cb4a28.1a0dade",
+        "g": "61cd1822.e4c938",
         "tv": "204aae5a.40fb72",
         "method": "audio:1.2:setAudioVolume",
         "payload": "{\"target\":\"speaker\", \"volume\":\"+6\"}",
@@ -662,10 +662,10 @@
         ]
     },
     {
-        "id": "e6486ab7.e85ba8",
+        "id": "8941fc20.50138",
         "type": "bravia-api",
-        "z": "a6fc51ae.c442f",
-        "g": "7efb98de.791958",
+        "z": "1cb4a28.1a0dade",
+        "g": "61cd1822.e4c938",
         "tv": "204aae5a.40fb72",
         "method": "audio:1.2:setAudioVolume",
         "payload": "{\"target\":\"speaker\", \"volume\":\"-6\"}",
@@ -677,10 +677,10 @@
         ]
     },
     {
-        "id": "cf82aac1.05a6d8",
+        "id": "a49bac8.372cf5",
         "type": "bravia-api",
-        "z": "a6fc51ae.c442f",
-        "g": "7efb98de.791958",
+        "z": "1cb4a28.1a0dade",
+        "g": "61cd1822.e4c938",
         "tv": "204aae5a.40fb72",
         "method": "system:1.0:setPowerStatus",
         "payload": "{\"status\":true}",
@@ -692,10 +692,10 @@
         ]
     },
     {
-        "id": "8309af56.03ee3",
+        "id": "700016ae.36e9f8",
         "type": "bravia-api",
-        "z": "a6fc51ae.c442f",
-        "g": "7efb98de.791958",
+        "z": "1cb4a28.1a0dade",
+        "g": "61cd1822.e4c938",
         "tv": "204aae5a.40fb72",
         "method": "system:1.0:getPowerStatus",
         "payload": "",
@@ -704,16 +704,16 @@
         "y": 580,
         "wires": [
             [
-                "d81d4529.54b068"
+                "c40ebb90.1652d"
             ]
         ],
         "l": false
     },
     {
-        "id": "d81d4529.54b068",
+        "id": "c40ebb90.1652d",
         "type": "switch",
-        "z": "a6fc51ae.c442f",
-        "g": "7efb98de.791958",
+        "z": "1cb4a28.1a0dade",
+        "g": "61cd1822.e4c938",
         "name": "Is TV On?",
         "property": "payload.status",
         "propertyType": "msg",
@@ -736,19 +736,19 @@
         "y": 580,
         "wires": [
             [
-                "cf82aac1.05a6d8"
+                "a49bac8.372cf5"
             ],
             [
-                "66ad827c.0bddec"
+                "ac38a6ad.4d2e8"
             ]
         ],
         "l": false
     },
     {
-        "id": "66ad827c.0bddec",
+        "id": "ac38a6ad.4d2e8",
         "type": "bravia-ircc",
-        "z": "a6fc51ae.c442f",
-        "g": "7efb98de.791958",
+        "z": "1cb4a28.1a0dade",
+        "g": "61cd1822.e4c938",
         "tv": "204aae5a.40fb72",
         "ircc": "Confirm",
         "name": "Play",
@@ -757,10 +757,10 @@
         "wires": []
     },
     {
-        "id": "56b68fd0.b578f",
+        "id": "9d22b910.52a998",
         "type": "bravia-api",
-        "z": "a6fc51ae.c442f",
-        "g": "7efb98de.791958",
+        "z": "1cb4a28.1a0dade",
+        "g": "61cd1822.e4c938",
         "tv": "204aae5a.40fb72",
         "method": "audio:1.0:setAudioMute",
         "payload": "{\"status\":true}",
@@ -772,10 +772,10 @@
         ]
     },
     {
-        "id": "43887ae7.e35624",
+        "id": "5be75810.589968",
         "type": "bravia-api",
-        "z": "a6fc51ae.c442f",
-        "g": "7efb98de.791958",
+        "z": "1cb4a28.1a0dade",
+        "g": "61cd1822.e4c938",
         "tv": "204aae5a.40fb72",
         "method": "audio:1.0:setAudioMute",
         "payload": "{\"status\":false}",
@@ -787,10 +787,10 @@
         ]
     },
     {
-        "id": "3a14665f.1b1f5a",
+        "id": "45ba2a26.ee521c",
         "type": "bravia-api",
-        "z": "a6fc51ae.c442f",
-        "g": "7efb98de.791958",
+        "z": "1cb4a28.1a0dade",
+        "g": "61cd1822.e4c938",
         "tv": "204aae5a.40fb72",
         "method": "audio:1.2:setAudioVolume",
         "payload": "",
@@ -802,10 +802,10 @@
         ]
     },
     {
-        "id": "451d8479.be2a7c",
+        "id": "dee60c48.61a3d",
         "type": "bravia-api",
-        "z": "a6fc51ae.c442f",
-        "g": "7efb98de.791958",
+        "z": "1cb4a28.1a0dade",
+        "g": "61cd1822.e4c938",
         "tv": "204aae5a.40fb72",
         "method": "audio:1.0:setAudioMute",
         "payload": "{\"status\":false}",
@@ -814,15 +814,15 @@
         "y": 1175.6000061035156,
         "wires": [
             [
-                "49a0037d.c4748c"
+                "ed026f41.b1b568"
             ]
         ]
     },
     {
-        "id": "4d1dbc64.dba5e4",
+        "id": "c5263040.e3edf8",
         "type": "bravia-api",
-        "z": "a6fc51ae.c442f",
-        "g": "7efb98de.791958",
+        "z": "1cb4a28.1a0dade",
+        "g": "61cd1822.e4c938",
         "tv": "204aae5a.40fb72",
         "method": "audio:1.0:setAudioMute",
         "payload": "{\"status\":false}",
@@ -831,15 +831,15 @@
         "y": 1235,
         "wires": [
             [
-                "e6486ab7.e85ba8"
+                "8941fc20.50138"
             ]
         ]
     },
     {
-        "id": "ec3ecdc8.91a4b",
+        "id": "50e7b043.d2c038",
         "type": "bravia-api",
-        "z": "a6fc51ae.c442f",
-        "g": "7efb98de.791958",
+        "z": "1cb4a28.1a0dade",
+        "g": "61cd1822.e4c938",
         "tv": "204aae5a.40fb72",
         "method": "system:1.0:setPowerStatus",
         "payload": "{\"status\":false}",
@@ -851,10 +851,10 @@
         ]
     },
     {
-        "id": "2fefe91e.69a046",
+        "id": "ea23753b.72e698",
         "type": "bravia-api",
-        "z": "a6fc51ae.c442f",
-        "g": "7efb98de.791958",
+        "z": "1cb4a28.1a0dade",
+        "g": "61cd1822.e4c938",
         "tv": "204aae5a.40fb72",
         "method": "audio:1.0:setAudioMute",
         "payload": "{\"status\":false}",
@@ -863,15 +863,15 @@
         "y": 1295,
         "wires": [
             [
-                "7d0d2545.f4d28c"
+                "b07f94b5.0ede8"
             ]
         ]
     },
     {
-        "id": "f05a4c67.25b85",
+        "id": "b8ffcff8.a77598",
         "type": "function",
-        "z": "a6fc51ae.c442f",
-        "g": "7efb98de.791958",
+        "z": "1cb4a28.1a0dade",
+        "g": "61cd1822.e4c938",
         "name": "Set volume",
         "func": "const minLoudness = msg.payload[0].minVolume;\nconst maxLoudness = msg.payload[0].maxVolume;\nvar rawLoudness = flow.get(\"rawLoudness\");\nvar rawMin = flow.get(\"rawMin\");\nvar rawMax = flow.get(\"rawMax\");\nvar loudness = 1;\nvar nbrLoudness = '1';\n\n\nif(rawLoudness!==null){\n    loudness = rawLoudness[0].value.value;\n    nbrLoudness = Number(loudness);\n    if(loudness === undefined || rawLoudness[0].value.kind !== 'Number' || isNaN(nbrLoudness) === true){\n        node.warn(\"Skipping invalid volume\");\n        return;\n    }\n}\nif(rawMax!==null){\n    loudness = maxLoudness;\n}\nif(rawMin!==null){\n    loudness = minLoudness;\n}\nif(nbrLoudness>Number(maxLoudness)){\n    loudness = maxLoudness;\n}\n\nif(nbrLoudness<Number(minLoudness)){\n    loudness = minLoudness;    \n}\n\nloudness = String(loudness);\n\nmsg.payload = {\"target\":\"speaker\",\"volume\":loudness};\n\nreturn msg;",
         "outputs": 1,
@@ -882,15 +882,15 @@
         "y": 1295,
         "wires": [
             [
-                "3a14665f.1b1f5a"
+                "45ba2a26.ee521c"
             ]
         ]
     },
     {
-        "id": "7d0d2545.f4d28c",
+        "id": "b07f94b5.0ede8",
         "type": "bravia-api",
-        "z": "a6fc51ae.c442f",
-        "g": "7efb98de.791958",
+        "z": "1cb4a28.1a0dade",
+        "g": "61cd1822.e4c938",
         "tv": "204aae5a.40fb72",
         "method": "audio:1.0:getVolumeInformation",
         "payload": "",
@@ -899,15 +899,15 @@
         "y": 1295,
         "wires": [
             [
-                "f05a4c67.25b85"
+                "b8ffcff8.a77598"
             ]
         ]
     },
     {
-        "id": "8063081a.e7ec08",
+        "id": "fae8af14.95cbb",
         "type": "bravia-api",
-        "z": "a6fc51ae.c442f",
-        "g": "7efb98de.791958",
+        "z": "1cb4a28.1a0dade",
+        "g": "61cd1822.e4c938",
         "tv": "204aae5a.40fb72",
         "method": "appControl:1.0:getApplicationList",
         "payload": "",
@@ -916,15 +916,15 @@
         "y": 1375,
         "wires": [
             [
-                "2c82ff35.860d2"
+                "bc4d8905.19a45"
             ]
         ]
     },
     {
-        "id": "b7210894.e795a8",
+        "id": "e89e9c06.00e3e",
         "type": "inject",
-        "z": "a6fc51ae.c442f",
-        "g": "7efb98de.791958",
+        "z": "1cb4a28.1a0dade",
+        "g": "61cd1822.e4c938",
         "name": "",
         "props": [
             {
@@ -946,17 +946,17 @@
         "y": 1395,
         "wires": [
             [
-                "8063081a.e7ec08",
-                "4754aaac.d223a4"
+                "fae8af14.95cbb",
+                "eb8fafc9.da6bb8"
             ]
         ],
         "l": false
     },
     {
-        "id": "1143864c.f1f70a",
+        "id": "8178a21b.f0a8c8",
         "type": "function",
-        "z": "a6fc51ae.c442f",
-        "g": "7efb98de.791958",
+        "z": "1cb4a28.1a0dade",
+        "g": "61cd1822.e4c938",
         "name": "TvList",
         "func": "function findObjectByKey(array, key, value) {\n\titems = [];\n\tvar cpt = 0;\n\tfor (var i = 0; i < array.length; i++) {\n\t\tif (array[i][key].toLowerCase() === value.toLowerCase()) {\n\t\t\titems[cpt] = array[i];\n\t\t\tcpt++;\n\t\t}\n\t}\n\tif (items[0] !== undefined) {\n\t\treturn items;\n\t} else {\n\t\treturn null;\n\t}\n}\n\nvar setScreen = flow.get(\"setScreen\");\nvar appListURI = global.get(\"appListURI\");\nvar channelListURI = global.get(\"channelListURI\");\n//msg.payload = JSON.parse(msg.payload);\nvar find = global.get(\"msg.payload.favorite\");\n\nvar found1 = findObjectByKey(appListURI, \"title\", find);\nvar found2 = findObjectByKey(channelListURI, \"title\", find);\n\nif(found1 !== null){\n    msg.payload = \"{\\\"uri\\\":\\\"\" + found1[0].uri + \"\\\"}\";\n    return [msg, null, null];\n    \n}\n\nif(found2 !== null){\n    \n    msg.payload = \"{\\\"uri\\\":\\\"\" + found2[0].uri + \"\\\"}\";\n    return [null, msg, null];\n}\n\nif(found1 === null && found2 === null){\n    return [null, null, msg];\n    \n}\n",
         "outputs": 3,
@@ -967,21 +967,21 @@
         "y": 770,
         "wires": [
             [
-                "8943505e.b9d81"
+                "947c9c4b.80e68"
             ],
             [
-                "4207139b.d7616c"
+                "10111656.56e46a"
             ],
             [
-                "944599db.9e6d68"
+                "a9cd649d.dadb98"
             ]
         ]
     },
     {
-        "id": "8943505e.b9d81",
+        "id": "947c9c4b.80e68",
         "type": "bravia-api",
-        "z": "a6fc51ae.c442f",
-        "g": "7efb98de.791958",
+        "z": "1cb4a28.1a0dade",
+        "g": "61cd1822.e4c938",
         "tv": "204aae5a.40fb72",
         "method": "appControl:1.0:setActiveApp",
         "payload": "",
@@ -993,10 +993,10 @@
         ]
     },
     {
-        "id": "f09facd1.4dce1",
+        "id": "251c4daf.97b50a",
         "type": "bravia-api",
-        "z": "a6fc51ae.c442f",
-        "g": "7efb98de.791958",
+        "z": "1cb4a28.1a0dade",
+        "g": "61cd1822.e4c938",
         "tv": "204aae5a.40fb72",
         "method": "system:1.0:setPowerStatus",
         "payload": "{\"status\":true}",
@@ -1005,16 +1005,16 @@
         "y": 660,
         "wires": [
             [
-                "d2baf060.d67b5"
+                "4763f3fa.08e55c"
             ]
         ],
         "l": false
     },
     {
-        "id": "944599db.9e6d68",
+        "id": "a9cd649d.dadb98",
         "type": "bravia-api",
-        "z": "a6fc51ae.c442f",
-        "g": "7efb98de.791958",
+        "z": "1cb4a28.1a0dade",
+        "g": "61cd1822.e4c938",
         "tv": "204aae5a.40fb72",
         "method": "appControl:1.0:terminateApps",
         "payload": "",
@@ -1023,15 +1023,15 @@
         "y": 810,
         "wires": [
             [
-                "e66dd03a.98656"
+                "a8f53a1d.74b2f"
             ]
         ]
     },
     {
-        "id": "a810cb99.ed88e8",
+        "id": "db139e8e.b27d98",
         "type": "switch",
-        "z": "a6fc51ae.c442f",
-        "g": "7efb98de.791958",
+        "z": "1cb4a28.1a0dade",
+        "g": "61cd1822.e4c938",
         "name": "Is TV On?",
         "property": "payload.status",
         "propertyType": "msg",
@@ -1054,19 +1054,19 @@
         "y": 670,
         "wires": [
             [
-                "f09facd1.4dce1"
+                "251c4daf.97b50a"
             ],
             [
-                "1143864c.f1f70a"
+                "8178a21b.f0a8c8"
             ]
         ],
         "l": false
     },
     {
-        "id": "4aa850ee.af91",
+        "id": "a18914d9.5438b",
         "type": "bravia-api",
-        "z": "a6fc51ae.c442f",
-        "g": "7efb98de.791958",
+        "z": "1cb4a28.1a0dade",
+        "g": "61cd1822.e4c938",
         "tv": "204aae5a.40fb72",
         "method": "system:1.0:getPowerStatus",
         "payload": "",
@@ -1075,16 +1075,16 @@
         "y": 670,
         "wires": [
             [
-                "a810cb99.ed88e8"
+                "db139e8e.b27d98"
             ]
         ],
         "l": false
     },
     {
-        "id": "9d107eff.b419",
+        "id": "8e01ab4c.f842",
         "type": "function",
-        "z": "a6fc51ae.c442f",
-        "g": "7efb98de.791958",
+        "z": "1cb4a28.1a0dade",
+        "g": "61cd1822.e4c938",
         "name": "",
         "func": "//set siteIdTv\n\nvar siteIdTv = msg.payload;\n\nString.prototype.sansAccent = function() {\n    var accent = [\n        /[\\300-\\306]/g, /[\\340-\\346]/g, // A, a\n        /[\\310-\\313]/g, /[\\350-\\353]/g, // E, e\n        /[\\314-\\317]/g, /[\\354-\\357]/g, // I, i\n        /[\\322-\\330]/g, /[\\362-\\370]/g, // O, o\n        /[\\331-\\334]/g, /[\\371-\\374]/g, // U, u\n        /[\\321]/g, /[\\361]/g, // N, n\n        /[\\307]/g, /[\\347]/g, // C, c\n    ];\n    var noaccent = ['A','a','E','e','I','i','O','o','U','u','N','n','C','c'];\n         \n    var str = this;\n    for(var i = 0; i < accent.length; i++){\n        str = str.replace(\"ä\", \"ae\");\n        str = str.replace(\"ü\", \"ue\");\n        str = str.replace(\"ö\", \"oe\");        \n        str = str.replace(accent[i], noaccent[i]);\n    }\n    return str;\n};\n\n\nglobal.set(\"siteIdTv\", siteIdTv.sansAccent()); \n",
         "outputs": 1,
@@ -1099,10 +1099,10 @@
         "l": false
     },
     {
-        "id": "c01bb82f.87dfc8",
+        "id": "7df832fc.90de54",
         "type": "inject",
-        "z": "a6fc51ae.c442f",
-        "g": "7efb98de.791958",
+        "z": "1cb4a28.1a0dade",
+        "g": "61cd1822.e4c938",
         "name": "Set the TV room here !",
         "props": [
             {
@@ -1120,15 +1120,15 @@
         "y": 165,
         "wires": [
             [
-                "9d107eff.b419"
+                "8e01ab4c.f842"
             ]
         ]
     },
     {
-        "id": "d039af1a.94554",
+        "id": "46066e6c.9b4fa",
         "type": "function",
-        "z": "a6fc51ae.c442f",
-        "g": "7efb98de.791958",
+        "z": "1cb4a28.1a0dade",
+        "g": "61cd1822.e4c938",
         "name": "GET /siteIdTv ",
         "func": "var siteIdTv = global.get(\"siteIdTv\");\n\nif(msg.payload.siteId.toLowerCase().replace(/_\\d+$/,\"\").replace(/_/g,\"\") !== siteIdTv.toLowerCase().replace(/_\\d+$/,\"\").replace(/ /g,\"\")){\n    return null;\n}else{\n    return msg;\n}\n\n",
         "outputs": 1,
@@ -1139,16 +1139,16 @@
         "y": 441,
         "wires": [
             [
-                "a90bc4eb.272498"
+                "c33b8e4f.1c1dd8"
             ]
         ],
         "l": false
     },
     {
-        "id": "31429443.8fd40c",
+        "id": "45dede01.6e068",
         "type": "function",
-        "z": "a6fc51ae.c442f",
-        "g": "7efb98de.791958",
+        "z": "1cb4a28.1a0dade",
+        "g": "61cd1822.e4c938",
         "name": "GET /siteIdTv ",
         "func": "var siteIdTv = global.get(\"siteIdTv\");\n\nif(msg.payload.siteId.toLowerCase().replace(/_\\d+$/,\"\").replace(/_/g,\"\") !== siteIdTv.toLowerCase().replace(/_\\d+$/,\"\").replace(/ /g,\"\")){\n    return null;\n}else{\n    return msg;\n}\n",
         "outputs": 1,
@@ -1159,16 +1159,16 @@
         "y": 490,
         "wires": [
             [
-                "21733c73.785fa4"
+                "afebe1ef.8fcb38"
             ]
         ],
         "l": false
     },
     {
-        "id": "6d57af18.ec723",
+        "id": "3596022f.1605ae",
         "type": "comment",
-        "z": "a6fc51ae.c442f",
-        "g": "7efb98de.791958",
+        "z": "1cb4a28.1a0dade",
+        "g": "61cd1822.e4c938",
         "name": "IMPORTANT Manually set the siteIdTv  IMPORTANT ",
         "info": "It is strongly recommended to set a valid siteId for the TV (siteIdTv), the place where you place your TV. (eg: bedroom, office, living room)\n\nThe siteIdTv's must be an existing room from your installation see PRATGLAD or Aragon application. (e.g PRATGLAD's user interface -> Configure -> no. 3 -> Settings -> Rooms)",
         "x": 376,
@@ -1176,10 +1176,10 @@
         "wires": []
     },
     {
-        "id": "b1341dda.90dd",
+        "id": "ed9a2239.b8f2c",
         "type": "switch",
-        "z": "a6fc51ae.c442f",
-        "g": "7efb98de.791958",
+        "z": "1cb4a28.1a0dade",
+        "g": "61cd1822.e4c938",
         "name": "Is TV On?",
         "property": "payload.status",
         "propertyType": "msg",
@@ -1203,16 +1203,16 @@
         "wires": [
             [],
             [
-                "56b68fd0.b578f"
+                "9d22b910.52a998"
             ]
         ],
         "l": false
     },
     {
-        "id": "a90bc4eb.272498",
+        "id": "c33b8e4f.1c1dd8",
         "type": "bravia-api",
-        "z": "a6fc51ae.c442f",
-        "g": "7efb98de.791958",
+        "z": "1cb4a28.1a0dade",
+        "g": "61cd1822.e4c938",
         "tv": "204aae5a.40fb72",
         "method": "system:1.0:getPowerStatus",
         "payload": "",
@@ -1221,16 +1221,16 @@
         "y": 441,
         "wires": [
             [
-                "b1341dda.90dd"
+                "ed9a2239.b8f2c"
             ]
         ],
         "l": false
     },
     {
-        "id": "21733c73.785fa4",
+        "id": "afebe1ef.8fcb38",
         "type": "bravia-api",
-        "z": "a6fc51ae.c442f",
-        "g": "7efb98de.791958",
+        "z": "1cb4a28.1a0dade",
+        "g": "61cd1822.e4c938",
         "tv": "204aae5a.40fb72",
         "method": "system:1.0:getPowerStatus",
         "payload": "",
@@ -1239,16 +1239,16 @@
         "y": 490,
         "wires": [
             [
-                "317e4172.dc7d6e"
+                "e343fecf.132e7"
             ]
         ],
         "l": false
     },
     {
-        "id": "317e4172.dc7d6e",
+        "id": "e343fecf.132e7",
         "type": "switch",
-        "z": "a6fc51ae.c442f",
-        "g": "7efb98de.791958",
+        "z": "1cb4a28.1a0dade",
+        "g": "61cd1822.e4c938",
         "name": "Is TV On?",
         "property": "payload.status",
         "propertyType": "msg",
@@ -1272,16 +1272,16 @@
         "wires": [
             [],
             [
-                "43887ae7.e35624"
+                "5be75810.589968"
             ]
         ],
         "l": false
     },
     {
-        "id": "98c02b12.01fc08",
+        "id": "3c3982fc.a4c39e",
         "type": "bravia-ircc",
-        "z": "a6fc51ae.c442f",
-        "g": "7efb98de.791958",
+        "z": "1cb4a28.1a0dade",
+        "g": "61cd1822.e4c938",
         "tv": "204aae5a.40fb72",
         "ircc": "Pause",
         "name": "Pause",
@@ -1290,10 +1290,10 @@
         "wires": []
     },
     {
-        "id": "e02d3e93.45d2d",
+        "id": "bf1cb1f3.9dad1",
         "type": "comment",
-        "z": "a6fc51ae.c442f",
-        "g": "7efb98de.791958",
+        "z": "1cb4a28.1a0dade",
+        "g": "61cd1822.e4c938",
         "name": "Define additional TV Favorites here (OPTIONAL)",
         "info": "",
         "x": 365,
@@ -1301,10 +1301,10 @@
         "wires": []
     },
     {
-        "id": "fa96a304.fc7ef",
+        "id": "261eca3.2be7d36",
         "type": "comment",
-        "z": "a6fc51ae.c442f",
-        "g": "7efb98de.791958",
+        "z": "1cb4a28.1a0dade",
+        "g": "61cd1822.e4c938",
         "name": "DEBUG Sony Bravia",
         "info": "",
         "x": 755,
@@ -1312,10 +1312,10 @@
         "wires": []
     },
     {
-        "id": "a797737a.b22fa",
+        "id": "41bb1c52.7f035c",
         "type": "function",
-        "z": "a6fc51ae.c442f",
-        "g": "7efb98de.791958",
+        "z": "1cb4a28.1a0dade",
+        "g": "61cd1822.e4c938",
         "name": "Filter",
         "func": "// to filter which type of media ; channel or video?\n\nif(msg.payload.input.toLowerCase().includes(\"channel\") || msg.payload.input.toLowerCase().includes(\"canal\") \n|| msg.payload.input.toLowerCase().includes(\"kanal\") || msg.payload.input.toLowerCase().includes(\"chaîne\")){\n    \n    node.warn(\"next channel\");\n    return [msg, null];\n    \n} else{\n    \n    node.warn(\"next video\");\n    return [null, msg];\n}\n\n\n",
         "outputs": 2,
@@ -1326,18 +1326,18 @@
         "y": 1010,
         "wires": [
             [
-                "54ea4c14.827b34"
+                "6e0ef433.1eff74"
             ],
             [
-                "f0b8aaca.bcbcd8"
+                "37430620.bd0ed2"
             ]
         ]
     },
     {
-        "id": "54ea4c14.827b34",
+        "id": "6e0ef433.1eff74",
         "type": "bravia-ircc",
-        "z": "a6fc51ae.c442f",
-        "g": "7efb98de.791958",
+        "z": "1cb4a28.1a0dade",
+        "g": "61cd1822.e4c938",
         "tv": "204aae5a.40fb72",
         "ircc": "ChannelUp",
         "name": "Channel Up",
@@ -1346,10 +1346,10 @@
         "wires": []
     },
     {
-        "id": "b4e2ae8f.8aede",
+        "id": "353bcce4.b56924",
         "type": "bravia-ircc",
-        "z": "a6fc51ae.c442f",
-        "g": "7efb98de.791958",
+        "z": "1cb4a28.1a0dade",
+        "g": "61cd1822.e4c938",
         "tv": "204aae5a.40fb72",
         "ircc": "ChannelDown",
         "name": "Channel Down",
@@ -1358,10 +1358,10 @@
         "wires": []
     },
     {
-        "id": "a5bab08b.be89c",
+        "id": "b0fe31bc.85082",
         "type": "function",
-        "z": "a6fc51ae.c442f",
-        "g": "7efb98de.791958",
+        "z": "1cb4a28.1a0dade",
+        "g": "61cd1822.e4c938",
         "name": "Filter",
         "func": "// to filter which type of media ; channel or video?\n\nif(msg.payload.input.toLowerCase().includes(\"channel\") || msg.payload.input.toLowerCase().includes(\"canal\") \n|| msg.payload.input.toLowerCase().includes(\"kanal\") || msg.payload.input.toLowerCase().includes(\"chaîne\")){\n\n    return [msg, null];\n    \n} else{\n\n    return [null, msg];\n}",
         "outputs": 2,
@@ -1372,18 +1372,18 @@
         "y": 1090,
         "wires": [
             [
-                "b4e2ae8f.8aede"
+                "353bcce4.b56924"
             ],
             [
-                "8976175a.8592c8"
+                "f2e33cb6.74442"
             ]
         ]
     },
     {
-        "id": "4754aaac.d223a4",
+        "id": "eb8fafc9.da6bb8",
         "type": "bravia-api",
-        "z": "a6fc51ae.c442f",
-        "g": "7efb98de.791958",
+        "z": "1cb4a28.1a0dade",
+        "g": "61cd1822.e4c938",
         "tv": "204aae5a.40fb72",
         "method": "avContent:1.0:getContentList",
         "payload": "{\"source\":\"tv:dvbt\", \"stIdx\":0, \"cnt\":100, \"type\":\"string\"}",
@@ -1392,15 +1392,15 @@
         "y": 1415,
         "wires": [
             [
-                "7e741362.7b511c"
+                "e1adee96.da7948"
             ]
         ]
     },
     {
-        "id": "d2baf060.d67b5",
+        "id": "4763f3fa.08e55c",
         "type": "delay",
-        "z": "a6fc51ae.c442f",
-        "g": "7efb98de.791958",
+        "z": "1cb4a28.1a0dade",
+        "g": "61cd1822.e4c938",
         "name": "",
         "pauseType": "delay",
         "timeout": "5",
@@ -1416,16 +1416,16 @@
         "y": 660,
         "wires": [
             [
-                "1143864c.f1f70a"
+                "8178a21b.f0a8c8"
             ]
         ],
         "l": false
     },
     {
-        "id": "f0b8aaca.bcbcd8",
+        "id": "37430620.bd0ed2",
         "type": "bravia-ircc",
-        "z": "a6fc51ae.c442f",
-        "g": "7efb98de.791958",
+        "z": "1cb4a28.1a0dade",
+        "g": "61cd1822.e4c938",
         "tv": "204aae5a.40fb72",
         "ircc": "Next",
         "name": "Next",
@@ -1434,10 +1434,10 @@
         "wires": []
     },
     {
-        "id": "7e741362.7b511c",
+        "id": "e1adee96.da7948",
         "type": "function",
-        "z": "a6fc51ae.c442f",
-        "g": "7efb98de.791958",
+        "z": "1cb4a28.1a0dade",
+        "g": "61cd1822.e4c938",
         "name": "Filter",
         "func": "var lang = global.get(\"msgLang\");\n\nString.prototype.replaceDigitsWithNumbers = function(){\n    \n    if(lang == \"de\"){\n        \n        var number = [\"Neunundneunzig\",\"Neunundachtzig\",\"Neunundsiebzig\",\"Neunundsechzig\",\"Neunundfünfzig\",\"Neunundvierzig\",\"Neununddreiβig\",\"Neunundzwanzig\",\"Neunzehn\",\n            \"Achtundneunzig\",\"Achtundachtzig\",\"Achtundsiebzig\",\"Achtundsechzig\",\"Achtundfünfzig\",\"Achtundvierzig\",\"Achtunddreiβig\",\"Achtundzwanzig\",\"Achtzehn\",\n            \"Siebenundneunzig\",\"Siebenundachtzig\",\"Siebenundsiebzig\",\"Siebenundsechzig\",\"Siebenundfünfzig\",\"Siebenundvierzig\",\"Siebenunddreiβig\",\"Siebenundzwanzig\",\"Siebzehn\",\n            \"Sechsundneunzig\",\"Sechsundachtzig\",\"Sechsundsiebzig\",\"Sechsundsechzig\",\"Sechsundfünfzig\",\"Sechsundvierzig\",\"Sechsunddreiβig\",\"Sechsundzwanzig\",\"Sechzehn\",\n            \"Fünfundneunzig\",\"Fünfundachtzig\",\"Fünfundsiebzig\",\"Fünfundsechzig\",\"Fünfundfünfzig\",\"Fünfundvierzig\",\"Fünfunddreiβig\",\"Fünfundzwanzig\",\"Fünfzehn\",\n            \"Vierundneunzig\",\"Vierundachtzig\",\"Vierundsiebzig\",\"Vierundsechzig\",\"Vierundfünfzig\",\"Vierundvierzig\",\"Vierunddreiβig\",\"Vierundzwanzig\",\"Vierzehn\",\n            \"Dreiundneunzig\",\"Dreiundachtzig\",\"Dreiundsiebzig\",\"Dreiundsechzig\",\"Dreiundfünfzig\",\"Dreiundvierzig\",\"Dreiunddreiβig\",\"Dreiundzwanzig\",\"Dreizehn\",\n            \"Zweiundneunzig\",\"Zweiundachtzig\",\"Zweiundsiebzig\",\"Zweiundsechzig\",\"Zweiundfünfzig\",\"Zweiundvierzig\",\"Zweiunddreiβig\",\"Zweiundzwanzig\",\"Zwölf\",\n            \"Einundneunzig\",\"Einundachtzig\",\"Einundsiebzig\",\"Einundsechzig\",\"Einundfünfzig\",\"Einundvierzig\",\"Einunddreiβig\",\"Einundzwanzig\",\"Elf\",\n            \"Einhundert\",\"Neunzig\",\"Achtzig\",\"Siebzig\",\"Sechzig\",\"Fünfzig\",\"Vierzig\",\"Dreiβig\",\"Zwanzig\",\"Zehn\",\"Neun\",\"Acht\",\"Sieben\",\"Sechs\",\"Fünf\",\"Vier\",\"Drei\",\"Zwei\",\"Eins\"\n        ];\n\n        \n    }else if(lang == \"fr\"){\n        \n        var number = [\"Quatre-vingt-dix-neuf\",\"Quatre-vingt-neuf\",\"Soixante-dix-neuf \",\"Soixante-neuf\",\"Cinquante-neuf\",\"Quarante-neuf\",\" Trente-neuf \",\" Vingt-neuf \",\"Dix-neuf\",\n            \"Quatre-vingt-dix-huit\",\"Quatre-vingt-huit\", \"Soixante-dix-huit\",\" Soixante-huit\",\"Cinquante-huit\",\"Quarante-huit\",\"Trente-huit\",\"Vingt-huit\",\"Dix-huit\",\n            \"Quatre-vingt-dix-sept\",\"Quatre-vingt-sept\",\"Soixante-dix-sept\",\"Soixante-sept\",\"Cinquante-sept\",\"Quarante-sept\",\"Trente-sept\",\"Vingt-sept\",\"Dix-sept\",\n            \"Quatre-vingt-seize\",\"Quatre-vingt-six\",\"Soixante-six\",\"Soixante-six\",\"Cinquante-six\",\"Quarante-six\",\"Trente-six\",\"Vingt-six\",\"Seize\",\n            \"Quatre-vingt-quinze\",\"Quatre-vingt-cinq\",\"Soixante-quinze\",\"Soixante-cinq\",\"Cinquante-cinq\",\"Quarante-cinq\",\"Trente-cinq\",\"Vingt-cinq\",\"Quinze\",\n            \"Quatre-vingt-quatorze\",\"Quatre-vingt-quatre\",\"Soixante-quatorze\",\"Soixante-quatre\",\"Cinquante-quatre\",\"Quarante-quatre\",\"Trente-quatre\",\"Vingt-quatre\",\"Quatorze\",\n            \"Quatre-vingt-treize\",\"Quatre-vingt-trois\",\"Soixante-treize\",\"Soixante-trois\",\"Cinquante-trois\",\"Quarante-trois\",\"Trente-trois\",\"Vingt-trois\",\"Treize\",\n            \"Quatre-vingt-douze\",\"Quatre-vingt-deux\",\"Soixante-douze\",\"Soixante-deux\",\"Cinquante-deux\",\"Quarante-deux\",\"Trente-deux\",\"Vingt-deux\",\"Douze\",\n            \"Quatre-vingt-onze\",\"Quatre-vingt-un\",\"Soixante et onze\",\"Soixante et un\",\"Cinquante et un\",\"Quarante et un\",\"Trente et un\",\"Vingt et un\",\"Onze\",\n            \"Cent\",\"Quatre-vingt-dix\",\"Quatre-vingt\",\"Soixante-dix\",\"Soixante\",\"Cinquante\",\"Quarante\",\"Trente\",\"Vingt\",\"Dix\",\n            \"Neuf\",\"Huit\",\"Sept\",\"Six\",\"Cinq\",\"Quatre\",\"Trois\",\"Deux\",\"Un\"\n        ];\n        \n    }else{\n        \n        var number = [\"Ninety-nine\",\"Eighty-nine\",\"Seventy-nine\",\"Sixty-nine\",\"Fifty-nine\",\"Forty-nine\",\"Thirty-nine\",\"Twenty-nine\",\"Nineteen\",\n            \"Ninety-eight\",\"Eighty-eight\",\"Seventy-eight\",\"Sixty-eight\",\"Fifty-eight\",\"Forty-eight\",\"Thirty-eight\",\"Twenty-eight\",\"Eighteen\",\n            \"Ninety-seven\",\"Eighty-seven\",\"Seventy-seven\",\"Sixty-seven\",\"Fifty-seven\",\"Forty-seven\",\"Thirty-seven\",\"Twenty-seven\",\"Seventeen\",\n            \"Ninety-six\",\"Eighty-six\",\"Seventy-six\",\"Sixty-six\",\"Fifty-six\",\"Forty-six\",\"Thirty-six\",\"Twenty-six\",\"Sixteen\",\n            \"Ninety-five\",\"Eighty-five\",\"Seventy-five\",\"Sixty-five\",\"Fifty-five\",\"Forty-five\",\"Thirty-five\",\"Twenty-five\",\"Fifteen\",\n            \"Ninety-four\",\"Eighty-four\",\"Seventy-four\",\"Sixty-four\",\"Fifty-four\",\"Forty-four\",\"Thirty-four\",\"Twenty-four\",\"Fourteen\",\n            \"Ninety-three\",\"Eighty-three\",\"Seventy-three\",\"Sixty-three\",\"Fifty-three\",\"Forty-three\",\"Thirty-three\",\"Twenty-three\",\"Thirteen\",\n            \"Ninety-two\",\"Eighty-two\",\"Seventy-two\",\"Sixty-two\",\"Fifty-two\",\"Forty-two\",\"Thirty-two\",\"Twenty-two\",\"Twelve\",\n            \"Ninety-one\",\"Eighty-one\",\"Seventy-one\",\"Sixty-one\",\"Fifty-one\",\"Forty-one\",\"Thirty-one\",\"Twenty-one\",\"Eleven\",\n            \"One Hundred\",\"Ninety\",\"Eighty\",\"Seventy\",\"Sixty\",\"Fifty\",\"Forty\",\"Thirty\",\"Twenty\",\"Ten\",\n            \"Nine\",\"Eight\",\"Seven\",\"Six\",\"Five\",\"Four\",\"Three\",\"Two\",\"One\"\n        ];\n        \n    }\n    \n    var digit = [\"99\",\"89\",\"79\",\"69\",\"59\",\"49\",\"39\",\"29\",\"19\",\n        \"98\",\"88\",\"78\",\"68\",\"58\",\"48\",\"38\",\"28\",\"18\",\n        \"97\",\"87\",\"77\",\"67\",\"57\",\"47\",\"37\",\"27\",\"17\",\n        \"96\",\"86\",\"76\",\"66\",\"56\",\"46\",\"36\",\"26\",\"16\",\n        \"95\",\"85\",\"75\",\"65\",\"55\",\"45\",\"35\",\"25\",\"15\",\n        \"94\",\"84\",\"74\",\"64\",\"54\",\"44\",\"34\",\"24\",\"14\",\n        \"93\",\"83\",\"73\",\"63\",\"53\",\"43\",\"33\",\"23\",\"13\",\n        \"92\",\"82\",\"72\",\"62\",\"52\",\"42\",\"32\",\"22\",\"12\",\n        \"91\",\"81\",\"71\",\"61\",\"51\",\"41\",\"31\",\"21\",\"11\",\n        \"100\",\"90\",\"80\",\"70\",\"60\",\"50\",\"40\",\"30\",\"20\",\"10\",\n        \"9\",\"8\",\"7\",\"6\",\"5\",\"4\",\"3\",\"2\",\"1\"\n    ];\n    \n    var str = this;\n    for(var i = 0; i < digit.length; i++){\n        str = str.replace(digit[i], \" \"+number[i]+\" \");\n    }\n     \n    return str;\n}\n\nvar channelList = [];\nvar globalList = [];\n\n// get title and uri\n\nfor(var i=0; i<msg.payload.length; i++){\n    channelList.push({\"title\" : msg.payload[i].title, \"uri\" : msg.payload[i].uri});\n    globalList.push(msg.payload[i].title);\n    \n    if(msg.payload[i].title !== msg.payload[i].title.replaceDigitsWithNumbers()){\n        //append into new array\n        channelList.push({\"title\" : msg.payload[i].title.replaceDigitsWithNumbers(), \"uri\" : msg.payload[i].uri});\n        globalList.push(msg.payload[i].title.replaceDigitsWithNumbers());\n    }\n}\n\nglobal.set(\"channelList\", globalList);\nglobal.set(\"channelListURI\", channelList);\n\nmsg.payload = channelList;\n\nreturn msg;\n",
         "outputs": 1,
@@ -1452,10 +1452,10 @@
         "l": false
     },
     {
-        "id": "2c82ff35.860d2",
+        "id": "bc4d8905.19a45",
         "type": "function",
-        "z": "a6fc51ae.c442f",
-        "g": "7efb98de.791958",
+        "z": "1cb4a28.1a0dade",
+        "g": "61cd1822.e4c938",
         "name": "Filter",
         "func": "var lang = global.get(\"msgLang\");\n\nString.prototype.replaceDigitsWithNumbers = function(){\n    \n    if(lang == \"de\"){\n        \n        var number = [\"Neunundneunzig\",\"Neunundachtzig\",\"Neunundsiebzig\",\"Neunundsechzig\",\"Neunundfünfzig\",\"Neunundvierzig\",\"Neununddreiβig\",\"Neunundzwanzig\",\"Neunzehn\",\n            \"Achtundneunzig\",\"Achtundachtzig\",\"Achtundsiebzig\",\"Achtundsechzig\",\"Achtundfünfzig\",\"Achtundvierzig\",\"Achtunddreiβig\",\"Achtundzwanzig\",\"Achtzehn\",\n            \"Siebenundneunzig\",\"Siebenundachtzig\",\"Siebenundsiebzig\",\"Siebenundsechzig\",\"Siebenundfünfzig\",\"Siebenundvierzig\",\"Siebenunddreiβig\",\"Siebenundzwanzig\",\"Siebzehn\",\n            \"Sechsundneunzig\",\"Sechsundachtzig\",\"Sechsundsiebzig\",\"Sechsundsechzig\",\"Sechsundfünfzig\",\"Sechsundvierzig\",\"Sechsunddreiβig\",\"Sechsundzwanzig\",\"Sechzehn\",\n            \"Fünfundneunzig\",\"Fünfundachtzig\",\"Fünfundsiebzig\",\"Fünfundsechzig\",\"Fünfundfünfzig\",\"Fünfundvierzig\",\"Fünfunddreiβig\",\"Fünfundzwanzig\",\"Fünfzehn\",\n            \"Vierundneunzig\",\"Vierundachtzig\",\"Vierundsiebzig\",\"Vierundsechzig\",\"Vierundfünfzig\",\"Vierundvierzig\",\"Vierunddreiβig\",\"Vierundzwanzig\",\"Vierzehn\",\n            \"Dreiundneunzig\",\"Dreiundachtzig\",\"Dreiundsiebzig\",\"Dreiundsechzig\",\"Dreiundfünfzig\",\"Dreiundvierzig\",\"Dreiunddreiβig\",\"Dreiundzwanzig\",\"Dreizehn\",\n            \"Zweiundneunzig\",\"Zweiundachtzig\",\"Zweiundsiebzig\",\"Zweiundsechzig\",\"Zweiundfünfzig\",\"Zweiundvierzig\",\"Zweiunddreiβig\",\"Zweiundzwanzig\",\"Zwölf\",\n            \"Einundneunzig\",\"Einundachtzig\",\"Einundsiebzig\",\"Einundsechzig\",\"Einundfünfzig\",\"Einundvierzig\",\"Einunddreiβig\",\"Einundzwanzig\",\"Elf\",\n            \"Einhundert\",\"Neunzig\",\"Achtzig\",\"Siebzig\",\"Sechzig\",\"Fünfzig\",\"Vierzig\",\"Dreiβig\",\"Zwanzig\",\"Zehn\",\"Neun\",\"Acht\",\"Sieben\",\"Sechs\",\"Fünf\",\"Vier\",\"Drei\",\"Zwei\",\"Eins\"\n        ];\n\n        \n    }else if(lang == \"fr\"){\n        \n        var number = [\"Quatre-vingt-dix-neuf\",\"Quatre-vingt-neuf\",\"Soixante-dix-neuf \",\"Soixante-neuf\",\"Cinquante-neuf\",\"Quarante-neuf\",\" Trente-neuf \",\" Vingt-neuf \",\"Dix-neuf\",\n            \"Quatre-vingt-dix-huit\",\"Quatre-vingt-huit\", \"Soixante-dix-huit\",\" Soixante-huit\",\"Cinquante-huit\",\"Quarante-huit\",\"Trente-huit\",\"Vingt-huit\",\"Dix-huit\",\n            \"Quatre-vingt-dix-sept\",\"Quatre-vingt-sept\",\"Soixante-dix-sept\",\"Soixante-sept\",\"Cinquante-sept\",\"Quarante-sept\",\"Trente-sept\",\"Vingt-sept\",\"Dix-sept\",\n            \"Quatre-vingt-seize\",\"Quatre-vingt-six\",\"Soixante-six\",\"Soixante-six\",\"Cinquante-six\",\"Quarante-six\",\"Trente-six\",\"Vingt-six\",\"Seize\",\n            \"Quatre-vingt-quinze\",\"Quatre-vingt-cinq\",\"Soixante-quinze\",\"Soixante-cinq\",\"Cinquante-cinq\",\"Quarante-cinq\",\"Trente-cinq\",\"Vingt-cinq\",\"Quinze\",\n            \"Quatre-vingt-quatorze\",\"Quatre-vingt-quatre\",\"Soixante-quatorze\",\"Soixante-quatre\",\"Cinquante-quatre\",\"Quarante-quatre\",\"Trente-quatre\",\"Vingt-quatre\",\"Quatorze\",\n            \"Quatre-vingt-treize\",\"Quatre-vingt-trois\",\"Soixante-treize\",\"Soixante-trois\",\"Cinquante-trois\",\"Quarante-trois\",\"Trente-trois\",\"Vingt-trois\",\"Treize\",\n            \"Quatre-vingt-douze\",\"Quatre-vingt-deux\",\"Soixante-douze\",\"Soixante-deux\",\"Cinquante-deux\",\"Quarante-deux\",\"Trente-deux\",\"Vingt-deux\",\"Douze\",\n            \"Quatre-vingt-onze\",\"Quatre-vingt-un\",\"Soixante et onze\",\"Soixante et un\",\"Cinquante et un\",\"Quarante et un\",\"Trente et un\",\"Vingt et un\",\"Onze\",\n            \"Cent\",\"Quatre-vingt-dix\",\"Quatre-vingt\",\"Soixante-dix\",\"Soixante\",\"Cinquante\",\"Quarante\",\"Trente\",\"Vingt\",\"Dix\",\n            \"Neuf\",\"Huit\",\"Sept\",\"Six\",\"Cinq\",\"Quatre\",\"Trois\",\"Deux\",\"Un\"\n        ];\n        \n    }else{\n        \n        var number = [\"Ninety-nine\",\"Eighty-nine\",\"Seventy-nine\",\"Sixty-nine\",\"Fifty-nine\",\"Forty-nine\",\"Thirty-nine\",\"Twenty-nine\",\"Nineteen\",\n            \"Ninety-eight\",\"Eighty-eight\",\"Seventy-eight\",\"Sixty-eight\",\"Fifty-eight\",\"Forty-eight\",\"Thirty-eight\",\"Twenty-eight\",\"Eighteen\",\n            \"Ninety-seven\",\"Eighty-seven\",\"Seventy-seven\",\"Sixty-seven\",\"Fifty-seven\",\"Forty-seven\",\"Thirty-seven\",\"Twenty-seven\",\"Seventeen\",\n            \"Ninety-six\",\"Eighty-six\",\"Seventy-six\",\"Sixty-six\",\"Fifty-six\",\"Forty-six\",\"Thirty-six\",\"Twenty-six\",\"Sixteen\",\n            \"Ninety-five\",\"Eighty-five\",\"Seventy-five\",\"Sixty-five\",\"Fifty-five\",\"Forty-five\",\"Thirty-five\",\"Twenty-five\",\"Fifteen\",\n            \"Ninety-four\",\"Eighty-four\",\"Seventy-four\",\"Sixty-four\",\"Fifty-four\",\"Forty-four\",\"Thirty-four\",\"Twenty-four\",\"Fourteen\",\n            \"Ninety-three\",\"Eighty-three\",\"Seventy-three\",\"Sixty-three\",\"Fifty-three\",\"Forty-three\",\"Thirty-three\",\"Twenty-three\",\"Thirteen\",\n            \"Ninety-two\",\"Eighty-two\",\"Seventy-two\",\"Sixty-two\",\"Fifty-two\",\"Forty-two\",\"Thirty-two\",\"Twenty-two\",\"Twelve\",\n            \"Ninety-one\",\"Eighty-one\",\"Seventy-one\",\"Sixty-one\",\"Fifty-one\",\"Forty-one\",\"Thirty-one\",\"Twenty-one\",\"Eleven\",\n            \"One Hundred\",\"Ninety\",\"Eighty\",\"Seventy\",\"Sixty\",\"Fifty\",\"Forty\",\"Thirty\",\"Twenty\",\"Ten\",\n            \"Nine\",\"Eight\",\"Seven\",\"Six\",\"Five\",\"Four\",\"Three\",\"Two\",\"One\"\n        ];\n        \n    }\n    \n    var digit = [\"99\",\"89\",\"79\",\"69\",\"59\",\"49\",\"39\",\"29\",\"19\",\n        \"98\",\"88\",\"78\",\"68\",\"58\",\"48\",\"38\",\"28\",\"18\",\n        \"97\",\"87\",\"77\",\"67\",\"57\",\"47\",\"37\",\"27\",\"17\",\n        \"96\",\"86\",\"76\",\"66\",\"56\",\"46\",\"36\",\"26\",\"16\",\n        \"95\",\"85\",\"75\",\"65\",\"55\",\"45\",\"35\",\"25\",\"15\",\n        \"94\",\"84\",\"74\",\"64\",\"54\",\"44\",\"34\",\"24\",\"14\",\n        \"93\",\"83\",\"73\",\"63\",\"53\",\"43\",\"33\",\"23\",\"13\",\n        \"92\",\"82\",\"72\",\"62\",\"52\",\"42\",\"32\",\"22\",\"12\",\n        \"91\",\"81\",\"71\",\"61\",\"51\",\"41\",\"31\",\"21\",\"11\",\n        \"100\",\"90\",\"80\",\"70\",\"60\",\"50\",\"40\",\"30\",\"20\",\"10\",\n        \"9\",\"8\",\"7\",\"6\",\"5\",\"4\",\"3\",\"2\",\"1\"\n    ];\n    \n    var str = this;\n    for(var i = 0; i < digit.length; i++){\n        str = str.replace(digit[i], \" \"+number[i]+\" \");\n    }\n     \n    return str;\n}\n\nvar appList = [];\nvar globalList = [];\n\n// get title and uri\n\nfor(var i=0; i<msg.payload.length; i++){\n    appList.push({\"title\" : msg.payload[i].title, \"uri\" : msg.payload[i].uri});\n    globalList.push(msg.payload[i].title);\n    \n    if(msg.payload[i].title !== msg.payload[i].title.replaceDigitsWithNumbers()){\n        //append into new array\n        appList.push({\"title\" : msg.payload[i].title.replaceDigitsWithNumbers(), \"uri\" : msg.payload[i].uri});\n        globalList.push(msg.payload[i].title.replaceDigitsWithNumbers());\n    }\n}\n\nglobal.set(\"appList\", globalList);\nglobal.set(\"appListURI\", appList);\n\nmsg.payload = appList;\n\nreturn msg;",
         "outputs": 1,
@@ -1470,10 +1470,10 @@
         "l": false
     },
     {
-        "id": "d515390f.f2e318",
+        "id": "5b88a4a.034b85c",
         "type": "function",
-        "z": "a6fc51ae.c442f",
-        "g": "7efb98de.791958",
+        "z": "1cb4a28.1a0dade",
+        "g": "61cd1822.e4c938",
         "name": "Filter for channel",
         "func": "function findObjectByKey(array, key, value) {\n\titems = [];\n\tvar cpt = 0;\n\tfor (var i = 0; i < array.length; i++) {\n\t\tif (array[i][key] === value) {\n\t\t\titems[cpt] = array[i];\n\t\t\tcpt++;\n\t\t}\n\t}\n\tif (items[0] !== undefined) {\n\t\treturn items;\n\t} else {\n\t\treturn null;\n\t}\n}\n\nfunction isNumeric(str) {\n  if (typeof str != \"string\") return false  \n  return !isNaN(str) && \n         !isNaN(parseFloat(str))\n}\n\nvar find = flow.get(\"channelNumber\");\nvar remoteTV = global.get(\"remoteTV\");\nvar lang = global.get(\"msgLang\");\n\nString.prototype.replaceWithDigits = function(){\n    \n    if(lang == \"de\"){\n        \n        var number = [\"Neunundneunzig\", \"Neunundachtzig\", \"Neunundsiebzig\", \"Neunundsechzig\", \"Neunundfünfzig\", \"Neunundvierzig\", \"Neununddreiβig\", \"Neunundzwanzig\", \"Neunzehn\",\n            \"Achtundneunzig\", \"Achtundachtzig\", \"Achtundsiebzig\", \"Achtundsechzig\", \"Achtundfünfzig\", \"Achtundvierzig\", \"Achtunddreiβig\", \"Achtundzwanzig\", \"Achtzehn\",\n            \"Siebenundneunzig\", \"Siebenundachtzig\", \"Siebenundsiebzig\", \"Siebenundsechzig\", \"Siebenundfünfzig\", \"Siebenundvierzig\", \"Siebenunddreiβig\", \"Siebenundzwanzig\", \"Siebzehn\",\n            \"Sechsundneunzig\", \"Sechsundachtzig\", \"Sechsundsiebzig\", \"Sechsundsechzig\", \"Sechsundfünfzig\", \"Sechsundvierzig\", \"Sechsunddreiβig\", \"Sechsundzwanzig\", \"Sechzehn\",\n            \"Fünfundneunzig\", \"Fünfundachtzig\", \"Fünfundsiebzig\", \"Fünfundsechzig\", \"Fünfundfünfzig\", \"Fünfundvierzig\", \"Fünfunddreiβig\", \"Fünfundzwanzig\", \"Fünfzehn\",\n            \"Vierundneunzig\", \"Vierundachtzig\", \"Vierundsiebzig\", \"Vierundsechzig\", \"Vierundfünfzig\", \"Vierundvierzig\", \"Vierunddreiβig\", \"Vierundzwanzig\", \"Vierzehn\",\n            \"Dreiundneunzig\", \"Dreiundachtzig\", \"Dreiundsiebzig\", \"Dreiundsechzig\", \"Dreiundfünfzig\", \"Dreiundvierzig\", \"Dreiunddreiβig\", \"Dreiundzwanzig\", \"Dreizehn\",\n            \"Zweiundneunzig\", \"Zweiundachtzig\", \"Zweiundsiebzig\", \"Zweiundsechzig\", \"Zweiundfünfzig\", \"Zweiundvierzig\", \"Zweiunddreiβig\", \"Zweiundzwanzig\", \"Zwölf\",\n            \"Einundneunzig\", \"Einundachtzig\",  \"Einundachtzig\", \"Einundsiebzig\", \"Einundsechzig\", \"Einundsechzig\", \"Einundfünfzig\", \"Einundfünfzig\", \"Einundvierzig\", \"Einundvierzig\", \"Einunddreiβig\", \"Einunddreiβig\", \"Einundzwanzig\", \"Einundzwanzig\", \"Elf\",\n            \"Einhundert\", \"Neunzig\", \"Achtzig\", \"Siebzig\", \"Sechzig\", \"Fünfzig\", \"Vierzig\", \"Dreiβig\", \"Zwanzig\", \"Zehn\", \n\t\t\t\"Neun\", \"Acht\", \"Sieben\", \"Sechs\", \"Fünf\", \"Vier\", \"Drei\", \"Zwei\", \"Eins\", \"Eins\"\n        ];\n\n    } else if (lang == \"fr\") {\n\n        var number = [\"Quatre-vingt-dix-neuf\", \"Quatre-vingt-neuf\", \"Soixante-dix-neuf \", \"Soixante-neuf\", \"Cinquante-neuf\", \"Quarante-neuf\", \" Trente-neuf \", \" Vingt-neuf \", \"Dix-neuf\",\n            \"Quatre-vingt-dix-huit\", \"Quatre-vingt-huit\", \"Soixante-dix-huit\", \" Soixante-huit\", \"Cinquante-huit\", \"Quarante-huit\", \"Trente-huit\", \"Vingt-huit\", \"Dix-huit\",\n            \"Quatre-vingt-dix-sept\", \"Quatre-vingt-sept\", \"Soixante-dix-sept\", \"Soixante-sept\", \"Cinquante-sept\", \"Quarante-sept\", \"Trente-sept\", \"Vingt-sept\", \"Dix-sept\",\n            \"Quatre-vingt-seize\", \"Quatre-vingt-six\", \"Soixante-six\", \"Soixante-six\", \"Cinquante-six\", \"Quarante-six\", \"Trente-six\", \"Vingt-six\", \"Seize\",\n            \"Quatre-vingt-quinze\", \"Quatre-vingt-cinq\", \"Soixante-quinze\", \"Soixante-cinq\", \"Cinquante-cinq\", \"Quarante-cinq\", \"Trente-cinq\", \"Vingt-cinq\", \"Quinze\",\n            \"Quatre-vingt-quatorze\", \"Quatre-vingt-quatre\", \"Soixante-quatorze\", \"Soixante-quatre\", \"Cinquante-quatre\", \"Quarante-quatre\", \"Trente-quatre\", \"Vingt-quatre\", \"Quatorze\",\n            \"Quatre-vingt-treize\", \"Quatre-vingt-trois\", \"Soixante-treize\", \"Soixante-trois\", \"Cinquante-trois\", \"Quarante-trois\", \"Trente-trois\", \"Vingt-trois\", \"Treize\",\n            \"Quatre-vingt-douze\", \"Quatre-vingt-deux\", \"Soixante-douze\", \"Soixante-deux\", \"Cinquante-deux\", \"Quarante-deux\", \"Trente-deux\", \"Vingt-deux\", \"Douze\",\n            \"Quatre-vingt-onze\", \"Quatre-vingt-un\", \"Quatre-vingt-une\", \"Soixante et onze\", \"Soixante et un\", \"Soixante et une\", \"Cinquante et un\",\"Cinquante et une\", \"Quarante et un\", \"Quarante et une\", \"Trente et un\", \"Trente et une\", \"Vingt et un\", \"Vingt et une\", \"Onze\",\n            \"Cent\", \"Quatre-vingt-dix\", \"Quatre-vingt\", \"Soixante-dix\", \"Soixante\", \"Cinquante\", \"Quarante\", \"Trente\", \"Vingt\", \"Dix\",\n            \"Neuf\", \"Huit\", \"Sept\", \"Six\", \"Cinq\", \"Quatre\", \"Trois\", \"Deux\", \"Un\", \"Une\"\n        ];\n\n    } else {\n\n        var number = [\"Ninety-nine\", \"Eighty-nine\", \"Seventy-nine\", \"Sixty-nine\", \"Fifty-nine\", \"Forty-nine\", \"Thirty-nine\", \"Twenty-nine\", \"Nineteen\",\n            \"Ninety-eight\", \"Eighty-eight\", \"Seventy-eight\", \"Sixty-eight\", \"Fifty-eight\", \"Forty-eight\", \"Thirty-eight\", \"Twenty-eight\", \"Eighteen\",\n            \"Ninety-seven\", \"Eighty-seven\", \"Seventy-seven\", \"Sixty-seven\", \"Fifty-seven\", \"Forty-seven\", \"Thirty-seven\", \"Twenty-seven\", \"Seventeen\",\n            \"Ninety-six\", \"Eighty-six\", \"Seventy-six\", \"Sixty-six\", \"Fifty-six\", \"Forty-six\", \"Thirty-six\", \"Twenty-six\", \"Sixteen\",\n            \"Ninety-five\", \"Eighty-five\", \"Seventy-five\", \"Sixty-five\", \"Fifty-five\", \"Forty-five\", \"Thirty-five\", \"Twenty-five\", \"Fifteen\",\n            \"Ninety-four\", \"Eighty-four\", \"Seventy-four\", \"Sixty-four\", \"Fifty-four\", \"Forty-four\", \"Thirty-four\", \"Twenty-four\", \"Fourteen\",\n            \"Ninety-three\", \"Eighty-three\", \"Seventy-three\", \"Sixty-three\", \"Fifty-three\", \"Forty-three\", \"Thirty-three\", \"Twenty-three\", \"Thirteen\",\n            \"Ninety-two\", \"Eighty-two\", \"Seventy-two\", \"Sixty-two\", \"Fifty-two\", \"Forty-two\", \"Thirty-two\", \"Twenty-two\", \"Twelve\",\n            \"Ninety-one\", \"Eighty-one\", \"Eighty-one\", \"Seventy-one\", \"Sixty-one\", \"Fifty-one\", \"Fifty-one\", \"Forty-one\", \"Forty-one\", \"Thirty-one\", \"Thirty-one\", \"Twenty-one\", \"Twenty-one\", \"Eleven\",\n            \"One Hundred\", \"Ninety\", \"Eighty\", \"Seventy\", \"Sixty\", \"Fifty\", \"Forty\", \"Thirty\", \"Twenty\", \"Ten\",\n            \"Nine\", \"Eight\", \"Seven\", \"Six\", \"Five\", \"Four\", \"Three\", \"Two\", \"One\", \"One\"\n        ];\n\n    }\n\n    var digit = [\"99\", \"89\", \"79\", \"69\", \"59\", \"49\", \"39\", \"29\", \"19\",\n        \"98\", \"88\", \"78\", \"68\", \"58\", \"48\", \"38\", \"28\", \"18\",\n        \"97\", \"87\", \"77\", \"67\", \"57\", \"47\", \"37\", \"27\", \"17\",\n        \"96\", \"86\", \"76\", \"66\", \"56\", \"46\", \"36\", \"26\", \"16\",\n        \"95\", \"85\", \"75\", \"65\", \"55\", \"45\", \"35\", \"25\", \"15\",\n        \"94\", \"84\", \"74\", \"64\", \"54\", \"44\", \"34\", \"24\", \"14\",\n        \"93\", \"83\", \"73\", \"63\", \"53\", \"43\", \"33\", \"23\", \"13\",\n        \"92\", \"82\", \"72\", \"62\", \"52\", \"42\", \"32\", \"22\", \"12\",\n        \"91\", \"81\", \"81\", \"71\", \"61\", \"61\", \"51\", \"51\", \"41\", \"41\", \"31\", \"31\", \"21\", \"21\", \"11\",\n        \"100\", \"90\", \"80\", \"70\", \"60\", \"50\", \"40\", \"30\", \"20\", \"10\",\n        \"9\", \"8\", \"7\", \"6\", \"5\", \"4\", \"3\", \"2\", \"1\", \"1\"\n    ];\n    \n    var str = this;\n    for(var i = 0; i < number.length; i++){\n        str = str.replace(\"-\", \" \").replace(number[i].toLowerCase().replace(\"-\", \" \").trim(), digit[i+1]);\n    }\n     \n    return str;\n}\n\nvar channelNumber = find.replaceWithDigits();\nchannelNumber = channelNumber.replace(/\\D/g,\"\");\nnode.warn(\"channelNumber : \" + channelNumber);\n\n\nif(isNumeric(channelNumber) === false){\n    \n    if(parseInt(channelNumber) === NaN){\n        var num = parseInt(channelNumber);\n        channelNumber = num.toString();\n        node.warn(\"channelNumber is not numeric, channelNumber : \" + channelNumber);\n    }else{\n        return null;\n    }\n}\n\n\nfor(var k=0; k<channelNumber.length; k++){\n    //var button = findObjectByKey(remoteTV, \"name\", channelNumber[k]);\n    //node.send(msg = {payload: button[0].value});\n    node.send(msg = {payload: \"Num\"+channelNumber[k]});\n}\n\n\nif(channelNumber.length != 0){\n    //var button = findObjectByKey(remoteTV, \"name\", \"confirm\");\n    //node.send(msg = {payload: button[0].value});\n    node.send(msg = {payload: \"Confirm\"});\n\n}\n\n\n\n",
         "outputs": 1,
@@ -1484,15 +1484,15 @@
         "y": 810,
         "wires": [
             [
-                "278438b6.164b38"
+                "1fa1dc66.ca9c5c"
             ]
         ]
     },
     {
-        "id": "a80fd8a3.88b4e8",
+        "id": "c85c8812.99ad88",
         "type": "bravia-ircc",
-        "z": "a6fc51ae.c442f",
-        "g": "7efb98de.791958",
+        "z": "1cb4a28.1a0dade",
+        "g": "61cd1822.e4c938",
         "tv": "204aae5a.40fb72",
         "ircc": "",
         "name": "Button",
@@ -1501,10 +1501,10 @@
         "wires": []
     },
     {
-        "id": "278438b6.164b38",
+        "id": "1fa1dc66.ca9c5c",
         "type": "delay",
-        "z": "a6fc51ae.c442f",
-        "g": "7efb98de.791958",
+        "z": "1cb4a28.1a0dade",
+        "g": "61cd1822.e4c938",
         "name": "",
         "pauseType": "rate",
         "timeout": "1",
@@ -1520,16 +1520,16 @@
         "y": 810,
         "wires": [
             [
-                "a80fd8a3.88b4e8"
+                "c85c8812.99ad88"
             ]
         ],
         "l": false
     },
     {
-        "id": "4207139b.d7616c",
+        "id": "10111656.56e46a",
         "type": "bravia-api",
-        "z": "a6fc51ae.c442f",
-        "g": "7efb98de.791958",
+        "z": "1cb4a28.1a0dade",
+        "g": "61cd1822.e4c938",
         "tv": "204aae5a.40fb72",
         "method": "avContent:1.0:setPlayContent",
         "payload": "",
@@ -1541,10 +1541,10 @@
         ]
     },
     {
-        "id": "b955d7b9.f446a8",
+        "id": "a2688f07.50a62",
         "type": "change",
-        "z": "a6fc51ae.c442f",
-        "g": "7efb98de.791958",
+        "z": "1cb4a28.1a0dade",
+        "g": "61cd1822.e4c938",
         "name": "Save",
         "rules": [
             {
@@ -1574,10 +1574,10 @@
         ]
     },
     {
-        "id": "e66dd03a.98656",
+        "id": "a8f53a1d.74b2f",
         "type": "delay",
-        "z": "a6fc51ae.c442f",
-        "g": "7efb98de.791958",
+        "z": "1cb4a28.1a0dade",
+        "g": "61cd1822.e4c938",
         "name": "",
         "pauseType": "delay",
         "timeout": "1",
@@ -1593,15 +1593,15 @@
         "y": 810,
         "wires": [
             [
-                "d515390f.f2e318"
+                "5b88a4a.034b85c"
             ]
         ],
         "l": false
     },
     {
-        "id": "b6fbcb21.9f8e08",
+        "id": "989b80d3.9dc008",
         "type": "mqtt-broker",
-        "z": "a6fc51ae.c442f",
+        "z": "1cb4a28.1a0dade",
         "name": "-",
         "broker": "localhost",
         "port": "1883",
