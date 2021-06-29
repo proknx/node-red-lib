@@ -19,15 +19,14 @@
             "cd7c3dd4.03c8b8",
             "c6039e8b.23813",
             "fdc2adf.14f215",
-            "86b0b5fa.c18068",
             "9c238d50.d467b",
             "295fa518.9fa262",
             "b381dc77.b88e7"
         ],
-        "x": 34,
-        "y": 579,
-        "w": 872,
-        "h": 202
+        "x": 24,
+        "y": 594,
+        "w": 742,
+        "h": 182
     },
     {
         "id": "aa985b94.103e48",
@@ -44,12 +43,13 @@
             "dc83d764.d2dda",
             "57bdf6a2.0a0c08",
             "cbff9695.09bd8",
-            "bfb8ff0b.c28e68"
+            "bfb8ff0b.c28e68",
+            "99a968d6.4fc9d8"
         ],
-        "x": 34,
-        "y": 279,
-        "w": 482,
-        "h": 262
+        "x": 24,
+        "y": 334,
+        "w": 842,
+        "h": 237
     },
     {
         "id": "eb2d5509.022958",
@@ -76,9 +76,9 @@
             "25e114e0.3eb7ac",
             "2450a1fa.3cb0be"
         ],
-        "x": 34,
-        "y": 19,
-        "w": 852,
+        "x": 24,
+        "y": 79,
+        "w": 862,
         "h": 242
     },
     {
@@ -89,7 +89,7 @@
         "name": "ReadME Set Authentication",
         "info": "Set the Skyresponse Authentication data in the node-RED dashboard :\n\n[http:localhost:1880/ui](SET UP HERE)",
         "x": 180,
-        "y": 60,
+        "y": 120,
         "wires": []
     },
     {
@@ -104,7 +104,7 @@
         "initialize": "",
         "finalize": "",
         "x": 380,
-        "y": 100,
+        "y": 160,
         "wires": [
             [
                 "33896888.439af8",
@@ -130,7 +130,7 @@
         "proxy": "",
         "authType": "",
         "x": 610,
-        "y": 60,
+        "y": 120,
         "wires": [
             [
                 "787f201a.0843",
@@ -153,7 +153,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 735,
-        "y": 60,
+        "y": 120,
         "wires": [],
         "l": false
     },
@@ -169,7 +169,7 @@
         "initialize": "",
         "finalize": "",
         "x": 790,
-        "y": 100,
+        "y": 160,
         "wires": [
             []
         ]
@@ -184,8 +184,8 @@
         "qos": "2",
         "datatype": "auto",
         "broker": "b7d2dbd0.c8ee4",
-        "x": 130,
-        "y": 360,
+        "x": 120,
+        "y": 415,
         "wires": [
             [
                 "c2c0cb3d.5edc9"
@@ -198,16 +198,16 @@
         "z": "509bf8a4.e53fb",
         "g": "aa985b94.103e48",
         "name": "POST Battery lev",
-        "func": "if(msg.payload.bat<20){\n    \n    var product = global.get(\"product\");\n    var secret = global.get(\"secret\");\n    var identifier = global.get(\"identifier\");\n\n    msg.headers = {};\n    msg.method = \"POST\";\n    msg.url = \"https://sandbox.skyresponse.com/api/alarms\" ;\n    msg.headers[\"content-type\"] = \"application/json\";\n\n    msg.payload = {\n    \n    \"authentication\": {\n        \"identifier\": identifier,\n        \"secret\": secret,\n        \"product\": product\n    },\n    \"classifications\": [\n        10956\n    ],\n    \"textMessage\": \"Battery level low\",\n    \"measurements\": [\n    {\n      \"name\": \"Shelly Motion detector battery is low\",\n      \"value\": msg.payload.bat\n    }]\n    \n    };\n\n    return msg;\n\n    \n}else if (msg.payload<20){\n    \n     var product = global.get(\"product\");\n    var secret = global.get(\"secret\");\n    var identifier = global.get(\"identifier\");\n\n    msg.headers = {};\n    msg.method = \"POST\";\n    msg.url = \"https://sandbox.skyresponse.com/api/alarms\" ;\n    msg.headers[\"content-type\"] = \"application/json\";\n\n    msg.payload = {\n    \n    \"authentication\": {\n        \"identifier\": identifier,\n        \"secret\": secret,\n        \"product\": product\n    },\n    \"classifications\": [\n        10956\n    ],\n    \"textMessage\": \"Battery level low\",\n    \"measurements\": [\n    {\n      \"name\": \"Shelly door sensor battery is low\",\n      \"value\": msg.payload\n    }]\n    \n    };\n\n    return msg;\n\n}",
+        "func": "if(msg.payload.bat<20){\n    \n    var product = global.get(\"product\");\n    var secret = global.get(\"secret\");\n    var identifier = global.get(\"identifier\");\n\n    msg.headers = {};\n    msg.method = \"POST\";\n    msg.url = \"https://sandbox.skyresponse.com/api/alarms\" ;\n    msg.headers[\"content-type\"] = \"application/json\";\n\n    msg.payload = {\n    \n    \"authentication\": {\n        \"identifier\": identifier,\n        \"secret\": secret,\n        \"product\": product\n    },\n    \"classifications\": [\n        10956\n    ],\n    \"textMessage\": \"Battery level low\",\n    \"measurements\": [\n    {\n      \"name\": \"Motion detector bat. < 20%\",\n      \"value\": msg.payload.bat\n    }]\n    \n    };\n\n    return msg;\n\n    \n}else if (msg.payload<20){\n    \n     var product = global.get(\"product\");\n    var secret = global.get(\"secret\");\n    var identifier = global.get(\"identifier\");\n\n    msg.headers = {};\n    msg.method = \"POST\";\n    msg.url = \"https://sandbox.skyresponse.com/api/alarms\" ;\n    msg.headers[\"content-type\"] = \"application/json\";\n\n    msg.payload = {\n    \n    \"authentication\": {\n        \"identifier\": identifier,\n        \"secret\": secret,\n        \"product\": product\n    },\n    \"classifications\": [\n        10956\n    ],\n    \"textMessage\": \"Door Battery < 20\",\n    \"measurements\": [\n    {\n      \"name\": \"Door sensor bat. < 20%\",\n      \"value\": msg.payload\n    }]\n    \n    };\n\n    return msg;\n\n}",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 330,
-        "y": 360,
+        "x": 320,
+        "y": 475,
         "wires": [
             [
-                "dc83d764.d2dda"
+                "99a968d6.4fc9d8"
             ]
         ]
     },
@@ -221,8 +221,8 @@
         "qos": "2",
         "datatype": "auto",
         "broker": "b7d2dbd0.c8ee4",
-        "x": 130,
-        "y": 500,
+        "x": 120,
+        "y": 530,
         "wires": [
             [
                 "c2c0cb3d.5edc9"
@@ -243,8 +243,8 @@
         "persist": false,
         "proxy": "",
         "authType": "",
-        "x": 350,
-        "y": 420,
+        "x": 700,
+        "y": 475,
         "wires": [
             [
                 "57bdf6a2.0a0c08"
@@ -257,7 +257,7 @@
         "z": "509bf8a4.e53fb",
         "g": "aa985b94.103e48",
         "name": "",
-        "active": false,
+        "active": true,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -265,8 +265,8 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 455,
-        "y": 420,
+        "x": 805,
+        "y": 475,
         "wires": [],
         "l": false
     },
@@ -275,10 +275,10 @@
         "type": "comment",
         "z": "509bf8a4.e53fb",
         "g": "aa985b94.103e48",
-        "name": "ReadME (SHELLY detectors)",
-        "info": "This flow will send a notification to skyresponse about the level of shelly door and mouvement sensors.",
-        "x": 200,
-        "y": 320,
+        "name": "README (SHELLY battery levels)",
+        "info": "This flow will send a notification to skyresponse if the battery level of is low.\n**NOTE 1**: that this notification is rate limited to 1 msg / hour, intermediate messages will be descarded.\n\n**NOTE 2**: The battery level is set to 20%, change it in the function node below",
+        "x": 210,
+        "y": 375,
         "wires": []
     },
     {
@@ -289,7 +289,7 @@
         "name": "Alarm MA",
         "info": "",
         "x": 120,
-        "y": 620,
+        "y": 635,
         "wires": []
     },
     {
@@ -303,7 +303,7 @@
         "datatype": "auto",
         "broker": "cacf8967.042428",
         "x": 140,
-        "y": 660,
+        "y": 675,
         "wires": [
             [
                 "c6039e8b.23813"
@@ -326,8 +326,8 @@
         "checkall": "true",
         "repair": false,
         "outputs": 1,
-        "x": 290,
-        "y": 660,
+        "x": 310,
+        "y": 675,
         "wires": [
             [
                 "fdc2adf.14f215"
@@ -345,33 +345,14 @@
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 420,
-        "y": 660,
+        "x": 460,
+        "y": 675,
         "wires": [
             [
-                "86b0b5fa.c18068",
                 "295fa518.9fa262",
                 "b381dc77.b88e7"
             ]
         ]
-    },
-    {
-        "id": "86b0b5fa.c18068",
-        "type": "debug",
-        "z": "509bf8a4.e53fb",
-        "g": "a5f06726.eade08",
-        "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 470,
-        "y": 740,
-        "wires": []
     },
     {
         "id": "9c238d50.d467b",
@@ -392,7 +373,7 @@
         "payload": "true",
         "payloadType": "jsonata",
         "x": 180,
-        "y": 720,
+        "y": 735,
         "wires": [
             [
                 "c6039e8b.23813"
@@ -408,8 +389,8 @@
         "links": [
             "a1b4e119.a687c8"
         ],
-        "x": 575,
-        "y": 740,
+        "x": 595,
+        "y": 735,
         "wires": []
     },
     {
@@ -417,13 +398,13 @@
         "type": "mqtt out",
         "z": "509bf8a4.e53fb",
         "g": "a5f06726.eade08",
-        "name": "",
+        "name": "startSession",
         "topic": "hermes/dialogueManager/startSession",
         "qos": "",
         "retain": "",
         "broker": "b7d2dbd0.c8ee4",
-        "x": 730,
-        "y": 700,
+        "x": 660,
+        "y": 675,
         "wires": []
     },
     {
@@ -470,7 +451,7 @@
         "cancel": "cancel",
         "topic": "",
         "x": 150,
-        "y": 100,
+        "y": 160,
         "wires": [
             [
                 "5ee49f74.33d848"
@@ -491,7 +472,7 @@
         "format": "{{msg.payload.identifier}}",
         "layout": "row-left",
         "x": 600,
-        "y": 100,
+        "y": 160,
         "wires": []
     },
     {
@@ -508,7 +489,7 @@
         "format": "{{msg.payload.secret}}",
         "layout": "row-left",
         "x": 590,
-        "y": 140,
+        "y": 200,
         "wires": []
     },
     {
@@ -525,7 +506,7 @@
         "format": "{{msg.payload.product}}",
         "layout": "row-left",
         "x": 600,
-        "y": 180,
+        "y": 240,
         "wires": []
     },
     {
@@ -540,7 +521,7 @@
         "overwriteFile": "true",
         "encoding": "none",
         "x": 620,
-        "y": 220,
+        "y": 280,
         "wires": [
             []
         ]
@@ -568,7 +549,7 @@
         "payload": "",
         "payloadType": "date",
         "x": 95,
-        "y": 140,
+        "y": 200,
         "wires": [
             [
                 "f0abb957.49cfd8"
@@ -588,7 +569,7 @@
         "sendError": false,
         "encoding": "none",
         "x": 220,
-        "y": 140,
+        "y": 200,
         "wires": [
             [
                 "91a9c5b5.9e2f08"
@@ -607,7 +588,7 @@
         "initialize": "",
         "finalize": "",
         "x": 355,
-        "y": 140,
+        "y": 200,
         "wires": [
             [
                 "8a64a5c3.5c6d68",
@@ -638,7 +619,7 @@
         "payloadType": "json",
         "topic": "",
         "x": 430,
-        "y": 220,
+        "y": 280,
         "wires": [
             [
                 "e860ecff.197db"
@@ -654,7 +635,7 @@
         "files": "skyResponse",
         "recursive": "",
         "x": 95,
-        "y": 180,
+        "y": 240,
         "wires": [
             [
                 "f0abb957.49cfd8"
@@ -680,13 +661,47 @@
         "once": false,
         "onceDelay": 0.1,
         "topic": "",
-        "x": 140,
-        "y": 420,
+        "x": 130,
+        "y": 475,
         "wires": [
             [
                 "c2c0cb3d.5edc9"
             ]
         ]
+    },
+    {
+        "id": "99a968d6.4fc9d8",
+        "type": "delay",
+        "z": "509bf8a4.e53fb",
+        "g": "aa985b94.103e48",
+        "name": "",
+        "pauseType": "rate",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "hour",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": true,
+        "x": 530,
+        "y": 475,
+        "wires": [
+            [
+                "dc83d764.d2dda"
+            ]
+        ]
+    },
+    {
+        "id": "ac0f808c.565f5",
+        "type": "comment",
+        "z": "509bf8a4.e53fb",
+        "name": "Version info",
+        "info": "2021--06-29: \n1. Rate limit battery alarms to 1/h\n",
+        "x": 95,
+        "y": 45,
+        "wires": []
     },
     {
         "id": "b7d2dbd0.c8ee4",
