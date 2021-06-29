@@ -698,7 +698,7 @@
         "type": "comment",
         "z": "509bf8a4.e53fb",
         "name": "Version info",
-        "info": "2021--06-29: \n1. Rate limit battery alarms to 1/h\n",
+        "info": "2021-06-29: \n1. Rate limit battery alarms to 1/h\n",
         "x": 95,
         "y": 45,
         "wires": []
