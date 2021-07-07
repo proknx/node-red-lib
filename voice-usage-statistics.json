@@ -1,75 +1,78 @@
 [
     {
-        "id": "5a7f2254.428ff4",
+        "id": "3b56a5f0.bcff3a",
         "type": "tab",
         "label": "STATISTICS",
         "disabled": false,
         "info": ""
     },
     {
-        "id": "82fa28aa.81c3d",
+        "id": "a7a24e32.50b5a",
         "type": "group",
-        "z": "5a7f2254.428ff4",
+        "z": "3b56a5f0.bcff3a",
         "name": "VOICE USAGE STATISTICS",
         "style": {
             "label": true
         },
         "nodes": [
-            "fdba6cea.dcdc48",
-            "31323edc.4a67c2",
-            "60ccfb88.4050d4",
-            "4a9244f.10e313c",
-            "d7fe0a4c.fced08",
-            "fc66240e.a9df2",
-            "fbce6dea.3ed838",
-            "f87e15c3.37217",
-            "2a3a7f8f.47deb",
-            "114229d1.91758e",
-            "2d4f2f8.451465",
-            "b2172a2.82495d8",
-            "82405c60.ffcf2",
-            "2a4aad9b.45cb72",
-            "19ea81a7.b90146",
-            "133f7afd.5ca04d",
-            "2df75530.f694c2",
-            "9d41ade0.e3ce78",
-            "4be662a.7cc979c",
-            "774aa5ae.da473c",
-            "70ffd6e3.e772b",
-            "4659f6e7.50cff",
-            "e73a963c.ab5588",
-            "740b09cf.6eadf8",
-            "6f4717ae.08e2f8",
-            "e90b6d75.52ee98"
+            "704ed56f.d49ed4",
+            "cee29dee.994f88",
+            "c6a28cf7.118688",
+            "b1875e2e.cc368",
+            "4e6a1d8d.74ee24",
+            "a4d323f7.58f5c",
+            "9dc7701b.21eef8",
+            "ff993fa5.373c28",
+            "56d649e1.75a8e",
+            "8406fb88.6b5838",
+            "1c0bc99f.064e66",
+            "4e9e488f.0548c8",
+            "c3756a7a.4e5fe",
+            "af369de7.93071",
+            "2e724757.61f9b",
+            "54f913f9.943ccc",
+            "62b80250.a48fac",
+            "f8b6fe7.a8ff48",
+            "835d91ee.a45b3",
+            "a2dbce0e.de89a",
+            "135c7e25.207c9a",
+            "945d1b61.8a8a88",
+            "b1da8868.989248",
+            "cd643354.88572",
+            "510222b7.b86a34",
+            "38932c47.52cd94",
+            "c966d204.19fc78",
+            "65bee18e.c1745",
+            "c462c3a4.db4a2"
         ],
-        "x": 114,
+        "x": 84,
         "y": 29,
-        "w": 382,
-        "h": 742
+        "w": 392,
+        "h": 772
     },
     {
-        "id": "fdba6cea.dcdc48",
+        "id": "704ed56f.d49ed4",
         "type": "mqtt in",
-        "z": "5a7f2254.428ff4",
-        "g": "82fa28aa.81c3d",
+        "z": "3b56a5f0.bcff3a",
+        "g": "a7a24e32.50b5a",
         "name": "All intents",
         "topic": "hermes/intent/+",
         "qos": "2",
         "datatype": "auto",
-        "broker": "f96ab142.d8bab8",
-        "x": 200,
-        "y": 430,
+        "broker": "2b118792.0bb408",
+        "x": 180,
+        "y": 480,
         "wires": [
             [
-                "60ccfb88.4050d4"
+                "c6a28cf7.118688"
             ]
         ]
     },
     {
-        "id": "31323edc.4a67c2",
+        "id": "cee29dee.994f88",
         "type": "debug",
-        "z": "5a7f2254.428ff4",
-        "g": "82fa28aa.81c3d",
+        "z": "3b56a5f0.bcff3a",
+        "g": "a7a24e32.50b5a",
         "name": "",
         "active": false,
         "tosidebar": true,
@@ -79,143 +82,143 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 435,
-        "y": 530,
+        "x": 415,
+        "y": 550,
         "wires": [],
         "l": false
     },
     {
-        "id": "60ccfb88.4050d4",
+        "id": "c6a28cf7.118688",
         "type": "json",
-        "z": "5a7f2254.428ff4",
-        "g": "82fa28aa.81c3d",
+        "z": "3b56a5f0.bcff3a",
+        "g": "a7a24e32.50b5a",
         "name": "",
         "property": "payload",
         "action": "",
         "pretty": false,
-        "x": 315,
-        "y": 430,
+        "x": 295,
+        "y": 480,
         "wires": [
             [
-                "d7fe0a4c.fced08"
+                "4e6a1d8d.74ee24"
             ]
         ],
         "l": false
     },
     {
-        "id": "4a9244f.10e313c",
+        "id": "b1875e2e.cc368",
         "type": "comment",
-        "z": "5a7f2254.428ff4",
-        "g": "82fa28aa.81c3d",
-        "name": "Listen to all mqtt msgs - WARNING!",
-        "info": " * Activate this logging by connecting the nodes\n * Say the command that you wish to emulate.\n * IMPORTANT Disconnect when you're ready (or you disk might be full..)",
-        "x": 280,
-        "y": 370,
+        "z": "3b56a5f0.bcff3a",
+        "g": "a7a24e32.50b5a",
+        "name": "Listen to all mqtt msgs ",
+        "info": "",
+        "x": 230,
+        "y": 440,
         "wires": []
     },
     {
-        "id": "d7fe0a4c.fced08",
+        "id": "4e6a1d8d.74ee24",
         "type": "function",
-        "z": "5a7f2254.428ff4",
-        "g": "82fa28aa.81c3d",
+        "z": "3b56a5f0.bcff3a",
+        "g": "a7a24e32.50b5a",
         "name": "",
         "func": "var msgStat = {\n        voiceCommands: [], intent: []\n};\n\nif(msg.payload.input === undefined){\n    return null;\n}\n\nvar executed = false;\n\nif(msg.payload.intent.confidenceScore > 0.6){\n    executed = true;\n}\n\nmsgStat.voiceCommands.push({\"value\": msg.payload.input,\n                            \"siteId\": msg.payload.siteId,\n                            \"intentDetected\": msg.payload.intent.intentName,\n                            \"executed\": executed,\n                            \"counter\": 1 \n});\n\nif(executed == true){\n    msgStat.intent.push({\"intentName\": msg.payload.intent.intentName,\n                         \"siteId\": msg.payload.siteId,\n                         \"counter\" : 1\n        \n    });\n}else{\n    msgStat.intent.push({\"intentName\": msg.payload.intent.intentName,\n                         \"siteId\": msg.payload.siteId,\n                         \"counter\" : 0\n        \n    });\n    \n}\n\nif(msg.payload.asrTokens!==undefined) {\n    for(var i=0; i<msg.payload.asrTokens[0].length; i++){\n       if(msg.payload.asrTokens[0][i].value === \"unknownword\"){\n           msgStat.unknownword = 1;\n       }\n    }\n}\n\nflow.set(\"msgStat\", msgStat);\n\nmsg.payload = msgStat;\n\nreturn msg;\n",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 375,
-        "y": 430,
+        "x": 355,
+        "y": 480,
         "wires": [
             [
-                "fbce6dea.3ed838"
+                "9dc7701b.21eef8"
             ]
         ],
         "l": false
     },
     {
-        "id": "fc66240e.a9df2",
+        "id": "a4d323f7.58f5c",
         "type": "file",
-        "z": "5a7f2254.428ff4",
-        "g": "82fa28aa.81c3d",
+        "z": "3b56a5f0.bcff3a",
+        "g": "a7a24e32.50b5a",
         "name": "Statistics",
         "filename": "statistics",
         "appendNewline": true,
         "createDir": false,
         "overwriteFile": "true",
         "encoding": "none",
-        "x": 375,
-        "y": 530,
+        "x": 355,
+        "y": 550,
         "wires": [
             [
-                "31323edc.4a67c2"
+                "cee29dee.994f88"
             ]
         ],
         "l": false
     },
     {
-        "id": "fbce6dea.3ed838",
+        "id": "9dc7701b.21eef8",
         "type": "file in",
-        "z": "5a7f2254.428ff4",
-        "g": "82fa28aa.81c3d",
+        "z": "3b56a5f0.bcff3a",
+        "g": "a7a24e32.50b5a",
         "name": "Statistics",
         "filename": "statistics",
         "format": "utf8",
         "chunk": false,
         "sendError": false,
         "encoding": "none",
-        "x": 195,
-        "y": 530,
+        "x": 175,
+        "y": 550,
         "wires": [
             [
-                "f87e15c3.37217"
+                "ff993fa5.373c28"
             ]
         ],
         "l": false
     },
     {
-        "id": "f87e15c3.37217",
+        "id": "ff993fa5.373c28",
         "type": "json",
-        "z": "5a7f2254.428ff4",
-        "g": "82fa28aa.81c3d",
+        "z": "3b56a5f0.bcff3a",
+        "g": "a7a24e32.50b5a",
         "name": "",
         "property": "payload",
         "action": "",
         "pretty": false,
-        "x": 255,
-        "y": 530,
+        "x": 235,
+        "y": 550,
         "wires": [
             [
-                "2a3a7f8f.47deb"
+                "56d649e1.75a8e"
             ]
         ],
         "l": false
     },
     {
-        "id": "2a3a7f8f.47deb",
+        "id": "56d649e1.75a8e",
         "type": "function",
-        "z": "5a7f2254.428ff4",
-        "g": "82fa28aa.81c3d",
+        "z": "3b56a5f0.bcff3a",
+        "g": "a7a24e32.50b5a",
         "name": "",
         "func": "if(msg.payload === undefined){\n    var msgStat = {\n        voiceCommands: [], intent: []\n};}\nelse{\n    var msgStat = msg.payload;\n}\n\nmsg.payload = flow.get(\"msgStat\");\n\n\n\nfor(var i=0; i<msgStat.voiceCommands.length; i++){\n    \n    if(msgStat.voiceCommands[i].value === undefined ){\n        return null;\n    }\n    \n    if(msgStat.voiceCommands[i].value === msg.payload.voiceCommands[0].value && msgStat.voiceCommands[i].siteId === msg.payload.voiceCommands[0].siteId){\n        var alreadyExist = i;\n    }\n    \n}\n\n\nfor(var i=0; i<msgStat.intent.length; i++){\n    \n    if(msgStat.intent[i].intentName === msg.payload.intent[0].intentName && msgStat.intent[i].siteId === msg.payload.intent[0].siteId){\n        var alreadyExist1 = i;\n    }\n}\n\n\nif(alreadyExist != undefined){\n    msgStat.voiceCommands[alreadyExist].counter = msgStat.voiceCommands[alreadyExist].counter+1;\n}else{\n    msgStat.voiceCommands.push({\"value\": msg.payload.voiceCommands[0].value,\n                            \"siteId\": msg.payload.voiceCommands[0].siteId,\n                            \"executed\" : msg.payload.voiceCommands[0].executed,\n                            \"intentDetected\": msg.payload.voiceCommands[0].intentDetected,\n                            \"counter\": msg.payload.voiceCommands[0].counter\n    });\n}\n\nif(alreadyExist1 != undefined){\n    msgStat.intent[alreadyExist1].counter = msgStat.intent[alreadyExist1].counter+1;\n}else{\n    msgStat.intent.push({\"intentName\": msg.payload.intent[0].intentName,\n                        \"siteId\": msg.payload.intent[0].siteId,\n                        \"counter\": msg.payload.intent[0].counter\n    \n    });\n}\n\n\nif(msg.payload.unknownword !== undefined){\n    msgStat.unknownword = msgStat.unknownword+1;\n}\n\n\nmsg.payload = msgStat;\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 315,
-        "y": 530,
+        "x": 295,
+        "y": 550,
         "wires": [
             [
-                "fc66240e.a9df2"
+                "a4d323f7.58f5c"
             ]
         ],
         "l": false
     },
     {
-        "id": "114229d1.91758e",
+        "id": "8406fb88.6b5838",
         "type": "file",
-        "z": "5a7f2254.428ff4",
-        "g": "82fa28aa.81c3d",
+        "z": "3b56a5f0.bcff3a",
+        "g": "a7a24e32.50b5a",
         "name": "Statistics",
         "filename": "statistics",
         "appendNewline": true,
@@ -229,21 +232,21 @@
         ]
     },
     {
-        "id": "2d4f2f8.451465",
+        "id": "1c0bc99f.064e66",
         "type": "comment",
-        "z": "5a7f2254.428ff4",
-        "g": "82fa28aa.81c3d",
+        "z": "3b56a5f0.bcff3a",
+        "g": "a7a24e32.50b5a",
         "name": "Inject manually to clean the current file",
         "info": "",
-        "x": 290,
-        "y": 110,
+        "x": 280,
+        "y": 120,
         "wires": []
     },
     {
-        "id": "b2172a2.82495d8",
+        "id": "4e9e488f.0548c8",
         "type": "exec",
-        "z": "5a7f2254.428ff4",
-        "g": "82fa28aa.81c3d",
+        "z": "3b56a5f0.bcff3a",
+        "g": "a7a24e32.50b5a",
         "command": "sudo sh -c 'echo \"/opt/node-red/statistics { \\n size 1M\\n dateext\\n missingok\\n rotate 7\\n compress\\n copytruncate\\n notifempty\\n}\" > /etc/logrotate.d/logrotate-statistics'",
         "addpay": false,
         "append": "",
@@ -252,7 +255,7 @@
         "oldrc": false,
         "name": "logrotate",
         "x": 275,
-        "y": 270,
+        "y": 370,
         "wires": [
             [],
             [],
@@ -261,10 +264,10 @@
         "l": false
     },
     {
-        "id": "82405c60.ffcf2",
+        "id": "c3756a7a.4e5fe",
         "type": "inject",
-        "z": "5a7f2254.428ff4",
-        "g": "82fa28aa.81c3d",
+        "z": "3b56a5f0.bcff3a",
+        "g": "a7a24e32.50b5a",
         "name": "",
         "props": [],
         "repeat": "",
@@ -274,19 +277,19 @@
         "topic": "",
         "payloadType": "str",
         "x": 195,
-        "y": 270,
+        "y": 370,
         "wires": [
             [
-                "b2172a2.82495d8"
+                "4e9e488f.0548c8"
             ]
         ],
         "l": false
     },
     {
-        "id": "2a4aad9b.45cb72",
+        "id": "af369de7.93071",
         "type": "inject",
-        "z": "5a7f2254.428ff4",
-        "g": "82fa28aa.81c3d",
+        "z": "3b56a5f0.bcff3a",
+        "g": "a7a24e32.50b5a",
         "name": "",
         "props": [
             {
@@ -304,91 +307,91 @@
         "y": 155,
         "wires": [
             [
-                "114229d1.91758e"
+                "8406fb88.6b5838"
             ]
         ],
         "l": false
     },
     {
-        "id": "19ea81a7.b90146",
+        "id": "2e724757.61f9b",
         "type": "comment",
-        "z": "5a7f2254.428ff4",
-        "g": "82fa28aa.81c3d",
-        "name": "Inject to compress file in an interval time",
-        "info": "",
-        "x": 290,
-        "y": 210,
+        "z": "3b56a5f0.bcff3a",
+        "g": "a7a24e32.50b5a",
+        "name": "README - compress the file",
+        "info": "Inject to compress file in an interval time\nNote that this is maybe not what you want ! The file will will no longer be presented in the user interface.\nNOT RECOMMENDED UNLESS YOU UNDERSTAND WHAT YOUR DOING.",
+        "x": 250,
+        "y": 320,
         "wires": []
     },
     {
-        "id": "133f7afd.5ca04d",
+        "id": "54f913f9.943ccc",
         "type": "http in",
-        "z": "5a7f2254.428ff4",
-        "g": "82fa28aa.81c3d",
+        "z": "3b56a5f0.bcff3a",
+        "g": "a7a24e32.50b5a",
         "name": "",
         "url": "/statistics",
         "method": "get",
         "upload": false,
         "swaggerDoc": "",
-        "x": 155,
-        "y": 630,
+        "x": 135,
+        "y": 660,
         "wires": [
             [
-                "2df75530.f694c2"
+                "62b80250.a48fac"
             ]
         ],
         "l": false
     },
     {
-        "id": "2df75530.f694c2",
+        "id": "62b80250.a48fac",
         "type": "file in",
-        "z": "5a7f2254.428ff4",
-        "g": "82fa28aa.81c3d",
-        "name": "",
+        "z": "3b56a5f0.bcff3a",
+        "g": "a7a24e32.50b5a",
+        "name": "in-download",
         "filename": "statistics",
         "format": "utf8",
         "chunk": false,
         "sendError": false,
         "encoding": "none",
-        "x": 235,
-        "y": 630,
+        "x": 215,
+        "y": 660,
         "wires": [
             [
-                "9d41ade0.e3ce78"
+                "f8b6fe7.a8ff48"
             ]
         ],
         "l": false
     },
     {
-        "id": "9d41ade0.e3ce78",
+        "id": "f8b6fe7.a8ff48",
         "type": "http response",
-        "z": "5a7f2254.428ff4",
-        "g": "82fa28aa.81c3d",
+        "z": "3b56a5f0.bcff3a",
+        "g": "a7a24e32.50b5a",
         "name": "",
         "statusCode": "",
         "headers": {},
-        "x": 315,
-        "y": 630,
+        "x": 295,
+        "y": 660,
         "wires": [],
         "l": false
     },
     {
-        "id": "4be662a.7cc979c",
+        "id": "835d91ee.a45b3",
         "type": "comment",
-        "z": "5a7f2254.428ff4",
-        "g": "82fa28aa.81c3d",
+        "z": "3b56a5f0.bcff3a",
+        "g": "a7a24e32.50b5a",
         "name": "Download the file here",
         "info": "Go to user interface to see/download statistics file\n\n -> http://localhost:1880/ui ",
-        "x": 240,
-        "y": 590,
+        "x": 220,
+        "y": 620,
         "wires": []
     },
     {
-        "id": "774aa5ae.da473c",
+        "id": "a2dbce0e.de89a",
         "type": "ui_template",
-        "z": "5a7f2254.428ff4",
-        "g": "82fa28aa.81c3d",
-        "group": "44ba823.57bdc7c",
+        "z": "3b56a5f0.bcff3a",
+        "g": "a7a24e32.50b5a",
+        "group": "f78aec18.baff9",
         "name": "Statistics",
         "order": 1,
         "width": "0",
@@ -398,56 +401,56 @@
         "fwdInMessages": true,
         "resendOnRefresh": true,
         "templateScope": "local",
-        "x": 455,
-        "y": 690,
+        "x": 435,
+        "y": 720,
         "wires": [
             []
         ],
         "l": false
     },
     {
-        "id": "70ffd6e3.e772b",
+        "id": "135c7e25.207c9a",
         "type": "file in",
-        "z": "5a7f2254.428ff4",
-        "g": "82fa28aa.81c3d",
-        "name": "",
+        "z": "3b56a5f0.bcff3a",
+        "g": "a7a24e32.50b5a",
+        "name": "in-watch",
         "filename": "statistics",
         "format": "utf8",
         "chunk": false,
         "sendError": false,
         "encoding": "none",
-        "x": 235,
-        "y": 690,
+        "x": 215,
+        "y": 720,
         "wires": [
             [
-                "4659f6e7.50cff"
+                "945d1b61.8a8a88"
             ]
         ],
         "l": false
     },
     {
-        "id": "4659f6e7.50cff",
+        "id": "945d1b61.8a8a88",
         "type": "json",
-        "z": "5a7f2254.428ff4",
-        "g": "82fa28aa.81c3d",
+        "z": "3b56a5f0.bcff3a",
+        "g": "a7a24e32.50b5a",
         "name": "",
         "property": "payload",
         "action": "",
         "pretty": false,
-        "x": 315,
-        "y": 690,
+        "x": 295,
+        "y": 720,
         "wires": [
             [
-                "e73a963c.ab5588"
+                "b1da8868.989248"
             ]
         ],
         "l": false
     },
     {
-        "id": "e73a963c.ab5588",
+        "id": "b1da8868.989248",
         "type": "template",
-        "z": "5a7f2254.428ff4",
-        "g": "82fa28aa.81c3d",
+        "z": "3b56a5f0.bcff3a",
+        "g": "a7a24e32.50b5a",
         "name": "",
         "field": "payload",
         "fieldType": "msg",
@@ -455,63 +458,137 @@
         "syntax": "mustache",
         "template": "<!DOCTYPE html>\n<html>\n    <head></head>\n    <body>\n        <p><strong>Voice Commands</strong>\n        <table>\n        <tr><th>Value</th><th>Site Id</th><th>Executed</th><th>Intent detected</th><th>Counter</th></tr>\n            <tr>{{#payload.voiceCommands}}\n            <tr><td>{{value}}</td><td>{{siteId}}</td><td>{{executed}}</td><td>{{intentDetected}}</td><td>{{counter}}</td></tr>\n            {{/payload.voiceCommands}}\n        </tr>\n        </table>\n        </p>\n        <br>\n        <p><strong>Intent</strong>\n        <table>\n            <tr><th>Intent Name</th><th>Site Id</th><th>Counter</th></tr>\n            <tr>{{#payload.intent}}\n            <tr><td>{{intentName}}</td><td>{{siteId}}</td><td>{{counter}}</td></tr>\n            {{/payload.intent}}\n        </tr>\n        </table>\n        </p>\n        <br>\n        <p><strong>Unknownword</strong> : {{payload.unknownword}}</p>\n        <br>\n    </body>\n</html>\n",
         "output": "str",
-        "x": 375,
-        "y": 690,
+        "x": 355,
+        "y": 720,
         "wires": [
             [
-                "774aa5ae.da473c"
+                "a2dbce0e.de89a"
             ]
         ],
         "l": false
     },
     {
-        "id": "740b09cf.6eadf8",
+        "id": "cd643354.88572",
         "type": "watch",
-        "z": "5a7f2254.428ff4",
-        "g": "82fa28aa.81c3d",
+        "z": "3b56a5f0.bcff3a",
+        "g": "a7a24e32.50b5a",
         "name": "",
         "files": "statistics",
         "recursive": "",
-        "x": 155,
-        "y": 690,
+        "x": 135,
+        "y": 720,
         "wires": [
             [
-                "70ffd6e3.e772b"
+                "135c7e25.207c9a"
             ]
         ],
         "l": false
     },
     {
-        "id": "6f4717ae.08e2f8",
+        "id": "510222b7.b86a34",
         "type": "ui_ui_control",
-        "z": "5a7f2254.428ff4",
-        "g": "82fa28aa.81c3d",
+        "z": "3b56a5f0.bcff3a",
+        "g": "a7a24e32.50b5a",
         "name": "",
         "events": "all",
-        "x": 155,
-        "y": 730,
+        "x": 135,
+        "y": 760,
         "wires": [
             [
-                "70ffd6e3.e772b"
+                "135c7e25.207c9a"
             ]
         ],
         "l": false
     },
     {
-        "id": "e90b6d75.52ee98",
+        "id": "38932c47.52cd94",
         "type": "comment",
-        "z": "5a7f2254.428ff4",
-        "g": "82fa28aa.81c3d",
+        "z": "3b56a5f0.bcff3a",
+        "g": "a7a24e32.50b5a",
         "name": "Version info",
-        "info": "2021-06-21: Bug fix SuperScenes exception when asrTokens not defined",
+        "info": "2021-06-21: Bug fix SuperScenes exception when asrTokens not defined\n2021-07-07: create the statistics file if it doesn't exist, re-create it if it is corrupt. Warning text in compress flow",
         "x": 370,
         "y": 70,
         "wires": []
     },
     {
-        "id": "f96ab142.d8bab8",
+        "id": "c966d204.19fc78",
+        "type": "catch",
+        "z": "3b56a5f0.bcff3a",
+        "g": "a7a24e32.50b5a",
+        "name": "",
+        "scope": [
+            "c6a28cf7.118688",
+            "4e6a1d8d.74ee24",
+            "a4d323f7.58f5c",
+            "9dc7701b.21eef8",
+            "ff993fa5.373c28",
+            "56d649e1.75a8e",
+            "8406fb88.6b5838",
+            "4e9e488f.0548c8",
+            "54f913f9.943ccc",
+            "62b80250.a48fac",
+            "f8b6fe7.a8ff48",
+            "a2dbce0e.de89a",
+            "135c7e25.207c9a",
+            "945d1b61.8a8a88",
+            "b1da8868.989248",
+            "cd643354.88572",
+            "510222b7.b86a34"
+        ],
+        "uncaught": false,
+        "x": 180,
+        "y": 240,
+        "wires": [
+            [
+                "65bee18e.c1745",
+                "c462c3a4.db4a2"
+            ]
+        ]
+    },
+    {
+        "id": "65bee18e.c1745",
+        "type": "debug",
+        "z": "3b56a5f0.bcff3a",
+        "g": "a7a24e32.50b5a",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 295,
+        "y": 240,
+        "wires": [],
+        "l": false
+    },
+    {
+        "id": "c462c3a4.db4a2",
+        "type": "function",
+        "z": "3b56a5f0.bcff3a",
+        "g": "a7a24e32.50b5a",
+        "name": "Check if the file doesn't exist",
+        "func": "if(msg.error.message.indexOf(\"ENOENT: no such file\")!== -1){\n    msg.payload = {\"voiceCommands\":[],\"intent\":[], \"unknownword\":0};\n    node.warn(\"looks like the statistics file doesn't exist, will create it\");\n    return msg;\n}\nif(msg.error.message.indexOf(\"Unexpected token\")!== -1){\n    msg.payload = {\"voiceCommands\":[],\"intent\":[], \"unknownword\":0};\n    node.warn(\"looks like the statistics file is corrupt, will re-create it\");\n    return msg;\n}\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 235,
+        "y": 200,
+        "wires": [
+            [
+                "8406fb88.6b5838"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "2b118792.0bb408",
         "type": "mqtt-broker",
-        "z": "56cd8929.21ed68",
+        "z": "509bf8a4.e53fb",
         "name": "-",
         "broker": "localhost",
         "port": "1883",
@@ -532,17 +609,17 @@
         "info": "-"
     },
     {
-        "id": "44ba823.57bdc7c",
+        "id": "f78aec18.baff9",
         "type": "ui_group",
         "name": "Voice Usage Statistics",
-        "tab": "75655a26.a89e3c",
+        "tab": "927524aa.91d278",
         "order": 1,
         "disp": true,
         "width": "17",
         "collapse": false
     },
     {
-        "id": "75655a26.a89e3c",
+        "id": "927524aa.91d278",
         "type": "ui_tab",
         "name": "STATISTICS",
         "icon": "dashboard",
