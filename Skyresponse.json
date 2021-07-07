@@ -87,7 +87,7 @@
         "z": "509bf8a4.e53fb",
         "g": "eb2d5509.022958",
         "name": "ReadME Set Authentication",
-        "info": "Set the Skyresponse Authentication data in the node-RED dashboard :\n\n[http:localhost:1880/ui](SET UP HERE)",
+        "info": "Set the Skyresponse Authentication data in the node-RED dashboard :\n<a href=\"/ui\" target=\"_blank\">SET UP HERE</a>\n\n",
         "x": 180,
         "y": 120,
         "wires": []
@@ -698,7 +698,7 @@
         "type": "comment",
         "z": "509bf8a4.e53fb",
         "name": "Version info",
-        "info": "2021-06-29: \n1. Rate limit battery alarms to 1/h\n",
+        "info": "2021-07-07: modified link in comment\n2021-06-29: Rate limit battery alarms to 1/h\n",
         "x": 95,
         "y": 45,
         "wires": []
