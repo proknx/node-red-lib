@@ -21,11 +21,12 @@
             "fdc2adf.14f215",
             "9c238d50.d467b",
             "295fa518.9fa262",
-            "b381dc77.b88e7"
+            "b381dc77.b88e7",
+            "9e2e6eca.5eb0c"
         ],
         "x": 24,
-        "y": 594,
-        "w": 742,
+        "y": 589,
+        "w": 792,
         "h": 182
     },
     {
@@ -286,10 +287,10 @@
         "type": "comment",
         "z": "509bf8a4.e53fb",
         "g": "a5f06726.eade08",
-        "name": "Alarm MA",
+        "name": "Handle Alarm from Motion Anomaly (external device)",
         "info": "",
-        "x": 120,
-        "y": 635,
+        "x": 260,
+        "y": 630,
         "wires": []
     },
     {
@@ -303,7 +304,7 @@
         "datatype": "auto",
         "broker": "cacf8967.042428",
         "x": 140,
-        "y": 675,
+        "y": 670,
         "wires": [
             [
                 "c6039e8b.23813"
@@ -327,7 +328,7 @@
         "repair": false,
         "outputs": 1,
         "x": 310,
-        "y": 675,
+        "y": 670,
         "wires": [
             [
                 "fdc2adf.14f215"
@@ -339,18 +340,19 @@
         "type": "function",
         "z": "509bf8a4.e53fb",
         "g": "a5f06726.eade08",
-        "name": "",
-        "func": "/*var sessionId = msg.payload.sessionId;\nvar customData = JSON.stringify(msg.payload);\nvar language = global.get(\"msgLang\");\nvar siteId = global.get(\"msgServerSiteId\").replace(/_\\d+$/, \"\").trim();\nvar msgText = {payload:[]};\n\nif(msg.payload === true){\n    if (language === \"de\"){\n        msgText.payload = {\n            \"sessionId\": sessionId,\n            \"customData\": customData,\n            \"type\": \"action\",\n            \"text\": \"Geht es dir gut?\",\n            \"intentFilter\": [\"ProKNX:confirmAction\",\"ProKNX:cancelAction\"],\n            \"slots\": true,\n            \"canBeEnqueued\": false\n        };\n    } else if (language === \"fr\") {\n        msgText.payload = {\n            \"sessionId\": sessionId,\n            \"customData\": customData,\n            \"type\": \"action\",\n            \"text\": \"Vous allez bien?\",\n            \"intentFilter\": [\"ProKNX:confirmAction\",\"ProKNX:cancelAction\"],\n            \"slots\": true,\n            \"canBeEnqueued\": false\n        };\n    } else {\n        msgText.payload = {\n            \"sessionId\": sessionId,\n            \"customData\": customData,\n            \"type\": \"action\",\n            \"text\": \"Are you okay?\",\n            \"intentFilter\": [\"ProKNX:confirmAction\",\"ProKNX:cancelAction\"],\n            \"slots\": true,\n            \"canBeEnqueued\": false\n        };\n    }\n    \n    msg.payload = msgText.payload;\n    return msg;\n}*/\n\nvar language = global.get(\"msgLang\");\nvar text = null;\nif(msg.payload.text !== undefined){\n    text = msg.payload.text;\n}\n\n// Speak on: 1) payload siteId 2) Base 3) default\nvar siteId = 'default';\nvar msgServerSiteId = global.get(\"msgServerSiteId\");\nif(msg.payload.siteId !== undefined){\n    siteId = msg.payload.siteId;\n} else if(msgServerSiteId !== undefined){\n    siteId = msgServerSiteId;\n}\n\ncustomData = \"{\\\"intent\\\":{\\\"intentName\\\":\\\"ProKNX:helpCall\\\",\\\"confidenceScore\\\":1}}\";\nif (language === \"de\") {\n    if(text===null){\n        text = \"Wichtige Mitteilung! Sie sind schon lange nicht mehr umgezogen, soll ich um Hilfe rufen??\";\n    }    \n\tmsg.payload = {\n    \t\"siteId\": siteId ,\n    \t\"customData\": customData,\n    \t\"init\" : {\"type\":\"action\", \"text\": text, \"canBeEnqueued\": false,\"intentFilter\": [\"ProKNX:confirmAction\",\"ProKNX:cancelAction\"]}\n\t};\n} else if (language === \"fr\") {\n    if(text===null){\n        text = \"Message important! Vous n'avez pas bougé depuis longtemps, dois-je appeler à l'aide ?\";\n    }    \n    msg.payload = {\n    \t\"siteId\": siteId,\n    \t\"customData\": customData,\n    \t\"init\" : {\"type\":\"action\", \"text\": text, \"canBeEnqueued\": false,\"intentFilter\": [\"ProKNX:confirmAction\",\"ProKNX:cancelAction\"]}\n\t};\n} else {\n    if(text===null){\n        text = \"Important message! You have not moved for a long time, should I call for help?\";\n    }\n\tmsg.payload = {\n\t\t\"siteId\": siteId,\n    \t\"customData\": customData,\n    \t\"init\" : {\"type\":\"action\", \"text\": text, \"canBeEnqueued\": false,\"intentFilter\": [\"ProKNX:confirmAction\",\"ProKNX:cancelAction\"]}\n\t};\n}\nflow.set(\"waitingForReply\", true);\nreturn msg;\n    \n\n    \n \n\n",
+        "name": "Ask if user is OK",
+        "func": "var language = global.get(\"msgLang\");\nvar text = null;\nif(msg.payload.text !== undefined){\n    text = msg.payload.text;\n}\n\n// Speak on: 1) payload siteId 2) Base 3) default\nvar siteId = 'default';\nvar msgServerSiteId = global.get(\"msgServerSiteId\");\nif(msg.payload.siteId !== undefined){\n    siteId = msg.payload.siteId;\n} else if(msgServerSiteId !== undefined){\n    siteId = msgServerSiteId;\n}\n\ncustomData = \"{\\\"intent\\\":{\\\"intentName\\\":\\\"ProKNX:helpCall\\\",\\\"confidenceScore\\\":1}}\";\nif (language === \"de\") {\n    if(text===null){\n        text = \"Wichtige Mitteilung! Sie sind schon lange nicht mehr umgezogen, soll ich um Hilfe rufen??\";\n    }    \n\tmsg.payload = {\n    \t\"siteId\": siteId ,\n    \t\"customData\": customData,\n    \t\"init\" : {\"type\":\"action\", \"text\": text, \"canBeEnqueued\": false,\"intentFilter\": [\"ProKNX:confirmAction\",\"ProKNX:cancelAction\"]}\n\t};\n} else if (language === \"fr\") {\n    if(text===null){\n        text = \"Message important! Vous n'avez pas bougé depuis longtemps, dois-je appeler à l'aide ?\";\n    }    \n    msg.payload = {\n    \t\"siteId\": siteId,\n    \t\"customData\": customData,\n    \t\"init\" : {\"type\":\"action\", \"text\": text, \"canBeEnqueued\": false,\"intentFilter\": [\"ProKNX:confirmAction\",\"ProKNX:cancelAction\"]}\n\t};\n} else {\n    if(text===null){\n        text = \"Important message! You have not moved for a long time, should I call for help?\";\n    }\n\tmsg.payload = {\n\t\t\"siteId\": siteId,\n    \t\"customData\": customData,\n    \t\"init\" : {\"type\":\"action\", \"text\": text, \"canBeEnqueued\": false,\"intentFilter\": [\"ProKNX:confirmAction\",\"ProKNX:cancelAction\"]}\n\t};\n}\nflow.set(\"waitingForReply\", true);\nreturn msg;\n    \n\n    \n \n\n",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 460,
-        "y": 675,
+        "x": 490,
+        "y": 670,
         "wires": [
             [
                 "295fa518.9fa262",
-                "b381dc77.b88e7"
+                "b381dc77.b88e7",
+                "9e2e6eca.5eb0c"
             ]
         ]
     },
@@ -359,7 +361,7 @@
         "type": "inject",
         "z": "509bf8a4.e53fb",
         "g": "a5f06726.eade08",
-        "name": "",
+        "name": "Simulate",
         "props": [
             {
                 "p": "payload"
@@ -372,8 +374,8 @@
         "topic": "",
         "payload": "true",
         "payloadType": "jsonata",
-        "x": 180,
-        "y": 735,
+        "x": 190,
+        "y": 720,
         "wires": [
             [
                 "c6039e8b.23813"
@@ -385,12 +387,12 @@
         "type": "link out",
         "z": "509bf8a4.e53fb",
         "g": "a5f06726.eade08",
-        "name": "",
+        "name": "SPEAK OUT",
         "links": [
             "a1b4e119.a687c8"
         ],
-        "x": 595,
-        "y": 735,
+        "x": 625,
+        "y": 730,
         "wires": []
     },
     {
@@ -403,8 +405,8 @@
         "qos": "",
         "retain": "",
         "broker": "b7d2dbd0.c8ee4",
-        "x": 660,
-        "y": 675,
+        "x": 710,
+        "y": 670,
         "wires": []
     },
     {
@@ -701,6 +703,24 @@
         "info": "2021-07-07: modified link in comment\n2021-06-29: Rate limit battery alarms to 1/h\n",
         "x": 95,
         "y": 45,
+        "wires": []
+    },
+    {
+        "id": "9e2e6eca.5eb0c",
+        "type": "debug",
+        "z": "509bf8a4.e53fb",
+        "g": "a5f06726.eade08",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 680,
+        "y": 630,
         "wires": []
     },
     {
