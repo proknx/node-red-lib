@@ -7,7 +7,7 @@ person(skyresponse or pushbullet)
 
 The identifier, secret and product must be filled in the SET AUTHENTICATION node.
 
-The SPOKEN FEEDBACK must be connected also. Read the IMPORTANT README file. 
+Read the IMPORTANT README file. 
 
 Test Battery level :
 Click the Low Bat to post the alarm
