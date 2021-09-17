@@ -1,0 +1,1057 @@
+[
+    {
+        "id": "23febed964a35d6f",
+        "type": "tab",
+        "label": "Help call with Pushbullet App",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "047a7abbd5440ce6",
+        "type": "group",
+        "z": "23febed964a35d6f",
+        "name": "Help Call - Pushbullet",
+        "style": {
+            "label": true,
+            "stroke": "#3f93cf",
+            "color": "#3f93cf"
+        },
+        "nodes": [
+            "114c80428d5a3e1d",
+            "9d07c805ce654930",
+            "86dd1d696cb1843b",
+            "0f25e662aba6cbd8",
+            "55e424cb49f74db2",
+            "676581a047ae4cc0"
+        ],
+        "x": 48,
+        "y": 13,
+        "w": 1874,
+        "h": 774
+    },
+    {
+        "id": "0f25e662aba6cbd8",
+        "type": "group",
+        "z": "23febed964a35d6f",
+        "g": "047a7abbd5440ce6",
+        "name": "Requested Emergency",
+        "style": {
+            "stroke": "#ff3f3f",
+            "label": true,
+            "color": "#ff3f3f"
+        },
+        "nodes": [
+            "003d7638dd11518b",
+            "2a4583e9f8c84190",
+            "8a5e08d46d28b690",
+            "372debd186eb83d1",
+            "8c9efa0259c0b594",
+            "716e063558fca146",
+            "7ca3bd842ca06948",
+            "9cecc6741e96605e",
+            "73e51271309f901b",
+            "eb1a26f226b28e20",
+            "21d89e87e785fe7a",
+            "2f1c9685b147254f",
+            "2a4583e9f8c84190",
+            "8c9efa0259c0b594",
+            "5437d410.9c6e2c",
+            "1ee3bab2.8a0ac5"
+        ],
+        "x": 74,
+        "y": 179,
+        "w": 1452,
+        "h": 242
+    },
+    {
+        "id": "55e424cb49f74db2",
+        "type": "group",
+        "z": "23febed964a35d6f",
+        "g": "047a7abbd5440ce6",
+        "name": "Message from Helper(s)",
+        "style": {
+            "stroke": "#92d04f",
+            "label": true,
+            "color": "#92d04f"
+        },
+        "nodes": [
+            "b87e3b5d7a874b29",
+            "c7cfe00f16306bb7",
+            "331cf9e2d8478494",
+            "ec13cbdf9d0bdcc5",
+            "6840e63af845803e",
+            "849afa087aef618a",
+            "dbfa608d79108113",
+            "851e95806148064b",
+            "41c88a3b70fded3b",
+            "c2a2a25179287ca2",
+            "d2da39847b54cc54",
+            "06b1176d3522958c",
+            "c701ae1d561f9e3e",
+            "bfd3d637a8aef191",
+            "16a2c342b824b174",
+            "e74f69bee04146b5",
+            "19f5fbf96fd4bbd3",
+            "7e53f87a38cafd3c",
+            "4d98b71e930e031c",
+            "44cba955d8bf5163",
+            "c10bff04ac059385",
+            "164e914598758aa5",
+            "19f5fbf96fd4bbd3",
+            "06b1176d3522958c",
+            "4e117599.b5bf8c"
+        ],
+        "x": 74,
+        "y": 439,
+        "w": 1822,
+        "h": 322
+    },
+    {
+        "id": "676581a047ae4cc0",
+        "type": "group",
+        "z": "23febed964a35d6f",
+        "g": "047a7abbd5440ce6",
+        "name": "Pushbullet message settings",
+        "style": {
+            "label": true,
+            "stroke": "#3f93cf",
+            "color": "#3f93cf"
+        },
+        "nodes": [
+            "c9494d824284c465",
+            "e8290d081837cfe7",
+            "2977cdb7.14d4a2",
+            "1c4b4c3b.0b1444",
+            "7de5234a.d92abc"
+        ],
+        "x": 434,
+        "y": 39,
+        "w": 432,
+        "h": 122
+    },
+    {
+        "id": "b87e3b5d7a874b29",
+        "type": "comment",
+        "z": "23febed964a35d6f",
+        "g": "55e424cb49f74db2",
+        "name": "Push message from contact(s)",
+        "info": "",
+        "x": 880,
+        "y": 480,
+        "wires": []
+    },
+    {
+        "id": "c7cfe00f16306bb7",
+        "type": "switch",
+        "z": "23febed964a35d6f",
+        "g": "55e424cb49f74db2",
+        "name": "Limit length",
+        "property": "parts.index",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "0",
+                "vt": "num"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 950,
+        "y": 520,
+        "wires": [
+            [
+                "ec13cbdf9d0bdcc5"
+            ]
+        ]
+    },
+    {
+        "id": "331cf9e2d8478494",
+        "type": "split",
+        "z": "23febed964a35d6f",
+        "g": "55e424cb49f74db2",
+        "name": "",
+        "splt": "100",
+        "spltType": "len",
+        "arraySplt": 1,
+        "arraySpltType": "len",
+        "stream": false,
+        "addname": "",
+        "x": 835,
+        "y": 520,
+        "wires": [
+            [
+                "c7cfe00f16306bb7"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "ec13cbdf9d0bdcc5",
+        "type": "switch",
+        "z": "23febed964a35d6f",
+        "g": "55e424cb49f74db2",
+        "name": "Only notif",
+        "property": "pushtype",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "note",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 1100,
+        "y": 520,
+        "wires": [
+            [
+                "6840e63af845803e"
+            ]
+        ]
+    },
+    {
+        "id": "003d7638dd11518b",
+        "type": "link in",
+        "z": "23febed964a35d6f",
+        "g": "0f25e662aba6cbd8",
+        "name": "Pushbullet IN",
+        "links": [
+            "2fbc2080.0653a"
+        ],
+        "x": 115,
+        "y": 240,
+        "wires": [
+            [
+                "8a5e08d46d28b690"
+            ]
+        ]
+    },
+    {
+        "id": "114c80428d5a3e1d",
+        "type": "link out",
+        "z": "23febed964a35d6f",
+        "g": "047a7abbd5440ce6",
+        "name": "",
+        "links": [
+            "3bd57099.afbdb8"
+        ],
+        "x": 1675,
+        "y": 219,
+        "wires": []
+    },
+    {
+        "id": "6840e63af845803e",
+        "type": "function",
+        "z": "23febed964a35d6f",
+        "g": "55e424cb49f74db2",
+        "name": "msg FR Compteurs",
+        "func": "var txt = msg.payload;\n\nlet serverSiteId = global.get(\"msgServerSiteId\");\n\nlet assistantLang;\n\nlet lang = global.get(\"msgLang\");\n\nswitch(lang){\n    case \"en\":\n        assistantLang = \"en-EN\";\n        break;\n    case \"fr\":\n        assistantLang = \"fr-FR\";\n        break;\n    case \"de\":\n        assistantLang = \"de-DE\";\n        break;\n    \n    default:\n        assistantLang = \"en-EN\";\n}\n\nmsg.payload = {\n    text: \" \" + txt,\n    siteId: serverSiteId,\n    lang: assistantLang\n};\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 1290,
+        "y": 520,
+        "wires": [
+            [
+                "114c80428d5a3e1d",
+                "41c88a3b70fded3b"
+            ]
+        ]
+    },
+    {
+        "id": "9d07c805ce654930",
+        "type": "comment",
+        "z": "23febed964a35d6f",
+        "g": "047a7abbd5440ce6",
+        "name": "Connection to speaker",
+        "info": "Connect this node to \"SPEAKER IN (API)\" of the main flow",
+        "x": 1680,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "849afa087aef618a",
+        "type": "inject",
+        "z": "23febed964a35d6f",
+        "g": "55e424cb49f74db2",
+        "name": "Debug - Speaker",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "pushtype",
+                "v": "note",
+                "vt": "str"
+            },
+            {
+                "p": "parts.index",
+                "v": "0",
+                "vt": "num"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "J'arrive dans dix minutes",
+        "payloadType": "str",
+        "x": 280,
+        "y": 520,
+        "wires": [
+            [
+                "851e95806148064b"
+            ]
+        ]
+    },
+    {
+        "id": "dbfa608d79108113",
+        "type": "switch",
+        "z": "23febed964a35d6f",
+        "g": "55e424cb49f74db2",
+        "name": "",
+        "property": "topic",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "null"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 775,
+        "y": 520,
+        "wires": [
+            [
+                "331cf9e2d8478494"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "851e95806148064b",
+        "type": "switch",
+        "z": "23febed964a35d6f",
+        "g": "55e424cb49f74db2",
+        "name": "Emergency status?",
+        "property": "Emergency_status",
+        "propertyType": "flow",
+        "rules": [
+            {
+                "t": "true"
+            },
+            {
+                "t": "false"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 510,
+        "y": 560,
+        "wires": [
+            [
+                "dbfa608d79108113",
+                "4d98b71e930e031c"
+            ],
+            [
+                "c10bff04ac059385"
+            ]
+        ]
+    },
+    {
+        "id": "8a5e08d46d28b690",
+        "type": "function",
+        "z": "23febed964a35d6f",
+        "g": "0f25e662aba6cbd8",
+        "name": "Emergency - True",
+        "func": "// Set emergency status to true when user asks for help\nflow.set(\"Emergency_status\", true);\n\nlet emergencyStatus = flow.get(\"Emergency_status\");\n\n// Start recall timer\nflow.set(\"recall_delay\", true);\n\n// Emergency situation - Start\nif(emergencyStatus){\n    return msg;\n}\n\n\n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 250,
+        "y": 240,
+        "wires": [
+            [
+                "7ca3bd842ca06948"
+            ]
+        ]
+    },
+    {
+        "id": "41c88a3b70fded3b",
+        "type": "delay",
+        "z": "23febed964a35d6f",
+        "g": "55e424cb49f74db2",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "1",
+        "timeoutUnits": "hours",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "x": 1520,
+        "y": 520,
+        "wires": [
+            [
+                "c2a2a25179287ca2"
+            ]
+        ]
+    },
+    {
+        "id": "c2a2a25179287ca2",
+        "type": "function",
+        "z": "23febed964a35d6f",
+        "g": "55e424cb49f74db2",
+        "name": "Emergency - False",
+        "func": "// After one hour we consider that the emergency has been handled\nflow.set(\"Emergency_status\", false);\nflow.set(\"recall_delay\", false);\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 1710,
+        "y": 520,
+        "wires": [
+            [
+                "d2da39847b54cc54"
+            ]
+        ]
+    },
+    {
+        "id": "d2da39847b54cc54",
+        "type": "debug",
+        "z": "23febed964a35d6f",
+        "g": "55e424cb49f74db2",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1835,
+        "y": 520,
+        "wires": [],
+        "l": false
+    },
+    {
+        "id": "c701ae1d561f9e3e",
+        "type": "comment",
+        "z": "23febed964a35d6f",
+        "g": "55e424cb49f74db2",
+        "name": "No Emergency in progress",
+        "info": "",
+        "x": 870,
+        "y": 680,
+        "wires": []
+    },
+    {
+        "id": "372debd186eb83d1",
+        "type": "comment",
+        "z": "23febed964a35d6f",
+        "g": "0f25e662aba6cbd8",
+        "name": "Waiting for contact(s) reply",
+        "info": "",
+        "x": 690,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "bfd3d637a8aef191",
+        "type": "comment",
+        "z": "23febed964a35d6f",
+        "g": "55e424cb49f74db2",
+        "name": "Recall notification",
+        "info": "",
+        "x": 840,
+        "y": 580,
+        "wires": []
+    },
+    {
+        "id": "16a2c342b824b174",
+        "type": "function",
+        "z": "23febed964a35d6f",
+        "g": "55e424cb49f74db2",
+        "name": "RecallDelay - Update (False)",
+        "func": "// Update response delay when contact(s) send notification\nflow.set(\"recall_delay\", false);\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 940,
+        "y": 620,
+        "wires": [
+            [
+                "e74f69bee04146b5"
+            ]
+        ]
+    },
+    {
+        "id": "e74f69bee04146b5",
+        "type": "debug",
+        "z": "23febed964a35d6f",
+        "g": "55e424cb49f74db2",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1095,
+        "y": 620,
+        "wires": [],
+        "l": false
+    },
+    {
+        "id": "716e063558fca146",
+        "type": "delay",
+        "z": "23febed964a35d6f",
+        "g": "0f25e662aba6cbd8",
+        "name": "Trigger delay",
+        "pauseType": "delay",
+        "timeout": "1",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "x": 1030,
+        "y": 380,
+        "wires": [
+            [
+                "9cecc6741e96605e",
+                "2f1c9685b147254f"
+            ]
+        ]
+    },
+    {
+        "id": "7e53f87a38cafd3c",
+        "type": "delay",
+        "z": "23febed964a35d6f",
+        "g": "55e424cb49f74db2",
+        "name": "",
+        "pauseType": "rate",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "5",
+        "rateUnits": "minute",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": true,
+        "x": 1160,
+        "y": 720,
+        "wires": [
+            [
+                "164e914598758aa5"
+            ]
+        ]
+    },
+    {
+        "id": "4d98b71e930e031c",
+        "type": "switch",
+        "z": "23febed964a35d6f",
+        "g": "55e424cb49f74db2",
+        "name": "",
+        "property": "topic",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "null"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 775,
+        "y": 620,
+        "wires": [
+            [
+                "16a2c342b824b174"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "7ca3bd842ca06948",
+        "type": "delay",
+        "z": "23febed964a35d6f",
+        "g": "0f25e662aba6cbd8",
+        "name": "",
+        "pauseType": "rate",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "30",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": true,
+        "x": 440,
+        "y": 240,
+        "wires": [
+            [
+                "9cecc6741e96605e",
+                "21d89e87e785fe7a"
+            ]
+        ]
+    },
+    {
+        "id": "9cecc6741e96605e",
+        "type": "trigger",
+        "z": "23febed964a35d6f",
+        "g": "0f25e662aba6cbd8",
+        "name": "Recall timer (1 minute)",
+        "op1": "",
+        "op2": "true",
+        "op1type": "nul",
+        "op2type": "bool",
+        "duration": "1",
+        "extend": false,
+        "overrideDelay": false,
+        "units": "min",
+        "reset": "",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 1,
+        "x": 680,
+        "y": 340,
+        "wires": [
+            [
+                "73e51271309f901b"
+            ]
+        ]
+    },
+    {
+        "id": "73e51271309f901b",
+        "type": "switch",
+        "z": "23febed964a35d6f",
+        "g": "0f25e662aba6cbd8",
+        "name": "Recall - Status",
+        "property": "recall_delay",
+        "propertyType": "flow",
+        "rules": [
+            {
+                "t": "true"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 660,
+        "y": 380,
+        "wires": [
+            [
+                "eb1a26f226b28e20"
+            ]
+        ]
+    },
+    {
+        "id": "eb1a26f226b28e20",
+        "type": "switch",
+        "z": "23febed964a35d6f",
+        "g": "0f25e662aba6cbd8",
+        "name": "Emergency - Status",
+        "property": "Emergency_status",
+        "propertyType": "flow",
+        "rules": [
+            {
+                "t": "true"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 850,
+        "y": 380,
+        "wires": [
+            [
+                "716e063558fca146"
+            ]
+        ]
+    },
+    {
+        "id": "44cba955d8bf5163",
+        "type": "switch",
+        "z": "23febed964a35d6f",
+        "g": "55e424cb49f74db2",
+        "name": "Filter ID",
+        "property": "data.source_device_iden",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "nnull"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 1000,
+        "y": 720,
+        "wires": [
+            [
+                "7e53f87a38cafd3c"
+            ]
+        ]
+    },
+    {
+        "id": "c10bff04ac059385",
+        "type": "switch",
+        "z": "23febed964a35d6f",
+        "g": "55e424cb49f74db2",
+        "name": "Filter msg type",
+        "property": "pushtype",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "note",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 840,
+        "y": 720,
+        "wires": [
+            [
+                "44cba955d8bf5163"
+            ]
+        ]
+    },
+    {
+        "id": "86dd1d696cb1843b",
+        "type": "comment",
+        "z": "23febed964a35d6f",
+        "g": "047a7abbd5440ce6",
+        "name": "Current version 09-14-2",
+        "info": "******Help call with Pushbullet application******\n\nPushbullet is a free application with which you can easily send or receive notifications on your devices. This application is available for Android, Google, Firefox or Windows.\n\nThis flow set up the help call feature available on the ARAGON of the person who has to be supervised. It will send emergency notifications on your Pushbullet application when an emergency has been requested.\n\nNode-Red library link:\n\nhttps://proknx.com/nodered/help-call-with-pushbullet-app/\n\n- deisgned by ProKNX",
+        "x": 200,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "c9494d824284c465",
+        "type": "inject",
+        "z": "23febed964a35d6f",
+        "g": "676581a047ae4cc0",
+        "name": "Name of the person",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "1",
+        "topic": "",
+        "payload": "John",
+        "payloadType": "str",
+        "x": 580,
+        "y": 80,
+        "wires": [
+            [
+                "2977cdb7.14d4a2"
+            ]
+        ]
+    },
+    {
+        "id": "e8290d081837cfe7",
+        "type": "change",
+        "z": "23febed964a35d6f",
+        "g": "676581a047ae4cc0",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "name",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 715,
+        "y": 120,
+        "wires": [
+            []
+        ],
+        "l": false
+    },
+    {
+        "id": "21d89e87e785fe7a",
+        "type": "function",
+        "z": "23febed964a35d6f",
+        "g": "0f25e662aba6cbd8",
+        "name": "Set notification and voice message",
+        "func": "/* Role:\n** - Set a default message to be sent on the Pushbullet application\n** according to the language\n** - Set the corresponding confirmation message that will be \n** transcribed vocally for the person in distress\n*/\nlet lang = global.get(\"msgLang\");\n\nlet name = flow.get(\"name\").replace(\"\\n\", \"\");\n\nmsg.speaker = {};\n\nswitch(msg.payload.text){\n    // Same message will be sent/transcribed in both cases\n    // Confirmed help request\n    case \"HANDLE CONFIRMED\":\n    case \"HANDLE CONFIRMED WITH LOW PROBABILITY\":\n        \n    // Help request with no reply\n    case \"HANDLE NO REPLY\":\n        \n        switch(lang){\n            case \"en\":\n                //Title\n                msg.topic = \"Emergency in progress!\";\n                // Notification\n                if(name !== undefined){\n                    // Name of the person indicated\n                    msg.payload = name + \" needs your help as soon as possible! Send a confirmation message that will be transcribed vocally for the person. (i.e. \\\"Don't worry, I'll be right there very soon\\\")\";\n                }\n                else{\n                    // No name has been indicated\n                    msg.payload = \"An emergency situation is in progress! Send a confirmation message that will be transcribed vocally for the person. (i.e. \\\"Don't worry, I'll be right there very soon\\\")\";\n                }\n                \n                // To speakers\n                msg.speaker.text = \"The call for help has been sent\";\n                break;\n            \n            case \"fr\":\n                //Title\n                msg.topic = \"Situation d'urgence en cours !\";\n                // Notification\n                if(name !== undefined){\n                    // Name of the person indicated\n                    msg.payload = name + \" a besoin de votre aide au plus vite ! Envoyez un message de confirmation qui sera retranscrit vocalement pour la personne. (Exemple : \\\"Ne t'inquiètes pas, j'arrive tout de suite\\\")\";\n                }\n                else{\n                    // No name has been indicated\n                    msg.payload = \"Une situation d'urgence est en cours ! Envoyez un message de confirmation qui sera retranscrit vocalement pour la personne. (Exemple : \\\"Ne t'inquiètes pas, j'arrive tout de suite\\\")\";\n                }\n                // To speakers\n                msg.speaker.text = \"L'appel à l'aide a été envoyé\";\n                break;\n            \n            case \"de\":\n                //Title\n                msg.topic = \"Achtung, Notfall!\";\n                // Notification\n                if(name !== undefined){\n                    // Name of the person indicated\n                    msg.payload = name + \" braucht so schnell wie möglich Deine Hilfe! Sende eine Bestätigung, die anschließend \" + name +\" vom System vorgelesen wird. (Beispiel: \\\"Mach dir keine Sorgen, ich bin gleich da\\\")\";\n                }\n                else{\n                    // No name has been indicated\n                    msg.payload = \"Eine Notsituation ist im Gange! Senden Sie eine Bestätigungsnachricht, die für die Person mündlich transkribiert wird. (Beispiel: \\\"Mach dir keine Sorgen, ich bin gleich da\\\")\";\n                }\n                // To speakers\n                msg.speaker.text = \"Der Hilferuf wurde gesendet\";\n                break;\n                \n            default:\n                //Title\n                msg.topic = \"Emergency in progress!\";\n                // Notification\n                if(name !== undefined){\n                    // Name of the person indicated\n                    msg.payload = name + \" needs your help as soon as possible! Send a confirmation message that will be transcribed vocally for the person. (i.e. \\\"Don't worry, I'll be right there very soon\\\")\";\n                }\n                else{\n                    // No name has been indicated\n                    msg.payload = \"An emergency situation is in progress! Send a confirmation message that will be transcribed vocally for the person. (i.e. \\\"Don't worry, I'll be right there very soon\\\")\";\n                }\n                // To speakers\n                msg.speaker.text = \"The call for help has been sent\";\n        }\n        \n    break;\n    \n    // Help request cancelled\n    case \"HANDLE CANCELLED\":\n    case \"HANDLE CANCELLED WITH LOW PROBABILITY\":\n        \n        // Emergency status to false\n        flow.set(\"Emergency_status\", false);\n        \n        // Recall status to false\n        flow.set(\"recall_delay\", false);\n        \n        // Nothing is sent to the speakers\n        msg.speaker.text = \"\";\n        \n        switch(lang){\n            case \"en\":\n                //Title\n                msg.topic = \"False alarm\";\n                // False alarm notification\n                msg.payload = \"A call for help has been cancelled. It is recommended to contact the person anyway.\";\n                break;\n            \n            case \"fr\":\n                //Title\n                msg.topic = \"Fausse alerte\";\n                // False alarm notification\n                msg.payload = \"Un appel à l'aide a été annulé. Il est recommandé de contacter tout de même la personne.\";\n                break;\n            \n            case \"de\":\n                //Title\n                msg.topic = \"Falscher Alarm\";\n                // False alarm notification\n                msg.payload = \"Der Hilferuf wurde abgebrochen. Es wird empfohlen, die Person trotzdem zu kontaktiere.\";\n                break;\n                \n            default:\n                msg.payload = \"A call for help has been cancelled. It is recommended to contact the person anyway.\";\n        }\n        \n        break;\n        \n    default:\n        msg.topic = null;\n        msg.payload = null;\n}\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 720,
+        "y": 240,
+        "wires": [
+            [
+                "2a4583e9f8c84190",
+                "5437d410.9c6e2c"
+            ]
+        ]
+    },
+    {
+        "id": "2f1c9685b147254f",
+        "type": "function",
+        "z": "23febed964a35d6f",
+        "g": "0f25e662aba6cbd8",
+        "name": "Send recall",
+        "func": "/* Role:\n** - Set the recall message according to the language\n*/\nlet lang = global.get(\"msgLang\");\n\n\nswitch(lang){\n    case \"en\":\n        // Title\n        msg.topic = \"Recall: Emergency in progress!\";\n        // Message \n        msg.payload = \"An emergency situation is in progress. Please reassure the person by sending a message.\";\n        break;\n    \n    case \"fr\":\n        // Title\n        msg.topic = \"Rappel : situation d'urgence en cours !\";\n        // Message \n        msg.payload = \"Une situation d'urgence est en cours. Veuillez rassurer la personne en envoyant un message s'il vous plaît.\";\n        break;\n    \n    case \"de\":\n        // Title\n        msg.topic = \"Achtung, Notfall!\";\n        // Message \n        msg.payload = \"Bitte sende dem Hilfesuchenden eine Nachricht, um ihn zu beruhigen.\";\n        break;\n        \n    default:\n        msg.payload = \"An emergency situation is in progress. Please reassure the person by sending a message.\";\n}\n        \n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 1210,
+        "y": 380,
+        "wires": [
+            [
+                "8c9efa0259c0b594"
+            ]
+        ]
+    },
+    {
+        "id": "164e914598758aa5",
+        "type": "function",
+        "z": "23febed964a35d6f",
+        "g": "55e424cb49f74db2",
+        "name": "Send emergency status",
+        "func": "/* Role:\n** - Set the emergency status according to the language\n*/\nlet lang = global.get(\"msgLang\");\n\nswitch(lang){\n    case \"en\":\n        // Title\n        msg.topic = \"Emergency situation: Current status\";\n        // Message\n        msg.payload = \"No recent emergency situations have been reported.\";\n        break;\n    \n    case \"fr\":\n        // Title\n        msg.topic = \"Situation d'urgence - Etat actuel\";\n        // Message\n        msg.payload = \"Aucune situation d'urgence récente n'a été recensée.\";\n        break;\n    \n    case \"de\":\n        // Title\n        msg.topic = \"Notsituation: Aktueller Stand\";\n        // Message\n        msg.payload = \"In jüngster Zeit wurden keine Notfallsituationen gemeldet.\";\n        break;\n        \n    default:\n        // Title\n        msg.topic = \"Emergency situation: Current status\";\n        // Message\n        msg.payload = \"No recent emergency situations have been reported.\";\n}\n        \n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 1370,
+        "y": 720,
+        "wires": [
+            [
+                "06b1176d3522958c"
+            ]
+        ]
+    },
+    {
+        "id": "2a4583e9f8c84190",
+        "type": "pushbullet",
+        "z": "23febed964a35d6f",
+        "g": "0f25e662aba6cbd8",
+        "config": "bc0a9c9c.8b99d",
+        "pushtype": "note",
+        "title": "",
+        "chan": "",
+        "name": "Help Call Proknx",
+        "x": 1010,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "06b1176d3522958c",
+        "type": "pushbullet",
+        "z": "23febed964a35d6f",
+        "g": "55e424cb49f74db2",
+        "config": "bc0a9c9c.8b99d",
+        "pushtype": "note",
+        "title": "Situation d'urgence - Etat actuel",
+        "chan": "",
+        "name": "Help Call Proknx",
+        "x": 1590,
+        "y": 720,
+        "wires": []
+    },
+    {
+        "id": "8c9efa0259c0b594",
+        "type": "pushbullet",
+        "z": "23febed964a35d6f",
+        "g": "0f25e662aba6cbd8",
+        "config": "bc0a9c9c.8b99d",
+        "pushtype": "note",
+        "title": "",
+        "chan": "",
+        "name": "Help Call Proknx",
+        "x": 1410,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "19f5fbf96fd4bbd3",
+        "type": "pushbullet in",
+        "z": "23febed964a35d6f",
+        "g": "55e424cb49f74db2",
+        "config": "bc0a9c9c.8b99d",
+        "name": "Emergency reply from contact(s)",
+        "x": 230,
+        "y": 560,
+        "wires": [
+            [
+                "851e95806148064b"
+            ]
+        ]
+    },
+    {
+        "id": "2977cdb7.14d4a2",
+        "type": "file",
+        "z": "23febed964a35d6f",
+        "g": "676581a047ae4cc0",
+        "name": "Save name",
+        "filename": "namePushbullet.txt",
+        "appendNewline": true,
+        "createDir": false,
+        "overwriteFile": "true",
+        "encoding": "none",
+        "x": 770,
+        "y": 80,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "1c4b4c3b.0b1444",
+        "type": "inject",
+        "z": "23febed964a35d6f",
+        "g": "676581a047ae4cc0",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "5",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 495,
+        "y": 120,
+        "wires": [
+            [
+                "7de5234a.d92abc"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "7de5234a.d92abc",
+        "type": "file in",
+        "z": "23febed964a35d6f",
+        "g": "676581a047ae4cc0",
+        "name": "Get name",
+        "filename": "namePushbullet.txt",
+        "format": "utf8",
+        "chunk": false,
+        "sendError": false,
+        "encoding": "none",
+        "x": 610,
+        "y": 120,
+        "wires": [
+            [
+                "e8290d081837cfe7"
+            ]
+        ]
+    },
+    {
+        "id": "5437d410.9c6e2c",
+        "type": "function",
+        "z": "23febed964a35d6f",
+        "g": "0f25e662aba6cbd8",
+        "name": "",
+        "func": "var txt = msg.speaker.text;\n\nlet serverSiteId = global.get(\"msgServerSiteId\");\n\nlet assistantLang;\n\nlet lang = global.get(\"msgLang\");\n\nswitch(lang){\n    case \"en\":\n        assistantLang = \"en-EN\";\n        break;\n    case \"fr\":\n        assistantLang = \"fr-FR\";\n        break;\n    case \"de\":\n        assistantLang = \"de-DE\";\n        break;\n    \n    default:\n        assistantLang = \"en-EN\";\n}\n\nmsg.payload = {\n    text: txt,\n    siteId: serverSiteId,\n    lang: assistantLang\n};\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 935,
+        "y": 220,
+        "wires": [
+            [
+                "114c80428d5a3e1d"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "4e117599.b5bf8c",
+        "type": "inject",
+        "z": "23febed964a35d6f",
+        "g": "55e424cb49f74db2",
+        "name": "Debug",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 1555,
+        "y": 560,
+        "wires": [
+            [
+                "c2a2a25179287ca2"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "1ee3bab2.8a0ac5",
+        "type": "comment",
+        "z": "23febed964a35d6f",
+        "g": "0f25e662aba6cbd8",
+        "name": "Readme",
+        "info": "Connect this \"Pushbullet IN\" link node to the \"SPEAKER OUT\" link node of the AUTO SNIPS V9.0 (see \"HELP CALL\" group).",
+        "x": 160,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "bc0a9c9c.8b99d",
+        "type": "pushbullet-config",
+        "name": "Pushbullet Config"
+    }
+]
