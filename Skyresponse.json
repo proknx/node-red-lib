@@ -24,9 +24,9 @@
             "b381dc77.b88e7",
             "9e2e6eca.5eb0c"
         ],
-        "x": 24,
+        "x": 34,
         "y": 589,
-        "w": 792,
+        "w": 772,
         "h": 182
     },
     {
@@ -77,9 +77,9 @@
             "25e114e0.3eb7ac",
             "2450a1fa.3cb0be"
         ],
-        "x": 24,
+        "x": 34,
         "y": 79,
-        "w": 862,
+        "w": 852,
         "h": 242
     },
     {
@@ -424,14 +424,14 @@
             {
                 "label": "Identifier",
                 "value": "identifier",
-                "type": "number",
+                "type": "text",
                 "required": true,
                 "rows": null
             },
             {
                 "label": "Secret",
                 "value": "secret",
-                "type": "number",
+                "type": "text",
                 "required": true,
                 "rows": null
             },
@@ -700,7 +700,7 @@
         "type": "comment",
         "z": "509bf8a4.e53fb",
         "name": "Version info",
-        "info": "2021-07-07: modified link in comment\n2021-06-29: Rate limit battery alarms to 1/h\n",
+        "info": "2021-09-22: In the form, changed Secret and Identifier to String (instead of Number). Number is limited ~16 digits and removes leading 0\n2021-07-07: modified link in comment\n2021-06-29: Rate limit battery alarms to 1/h\n",
         "x": 95,
         "y": 45,
         "wires": []
