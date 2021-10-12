@@ -1,80 +1,15 @@
 [
     {
-        "id": "7d53bde.1a645c4",
+        "id": "93dfeda6.87345",
         "type": "tab",
         "label": "Custom Device - Philips Hue",
         "disabled": false,
         "info": ""
     },
     {
-        "id": "25715a84.05775e",
+        "id": "7e7e4e7b.883f5",
         "type": "group",
-        "z": "7d53bde.1a645c4",
-        "name": "PHILIPS CUSTOM DEVICES",
-        "style": {
-            "label": true,
-            "stroke": "#9363b7",
-            "color": "#9363b7"
-        },
-        "nodes": [
-            "1f335362.e9257d",
-            "7eb95aaa.6dba74",
-            "b4467726.63b568",
-            "7efe6e6b.285b3",
-            "365a79da.de1db6",
-            "12849e4f.909eea",
-            "c69aaa5b.15f8d",
-            "f8635843.e1e43",
-            "4430e5.d0cb7f1c",
-            "ebea1fbc.3254f",
-            "4c16ee1d.310468",
-            "7d681a96.a346d4",
-            "22671f9a.f68b9",
-            "11089430.a672d4",
-            "30f4001.247cc",
-            "d8e5b152.76a5d8",
-            "d62bb2bc.099e48",
-            "85a13f96.18bd98",
-            "9083f92b.24a25",
-            "5cdfb22d.a1ebfc",
-            "5e73eadc.eb4274",
-            "42faadb0.713724",
-            "b29b657d.ec1ff",
-            "98be9591.1f4bf8",
-            "23ef38cb.e75da",
-            "d113b0ae.ce8e2",
-            "527c6575.c348bc",
-            "d5e299ef.d66b6",
-            "f7e92348.be03",
-            "97d173e4.5285f",
-            "8708158.c0ca3e8",
-            "850cae64.8a0408",
-            "cf312ef5.2f4df",
-            "7a55485f.dcc59",
-            "43fda4f8.d02b3c",
-            "1f1b1f9a.05a43",
-            "5833a09d.97daf",
-            "72620b5c.7368f4",
-            "faf2b870.5abfb",
-            "cb6ad983.5d0d2",
-            "c8ce08c.e9e2d78",
-            "85e806dc.9236a8",
-            "3c32f142.95428e",
-            "4316f2cd.86c3cc",
-            "672dcd9b.b46b9c",
-            "ff17d3c2.1fa47",
-            "ccf65620.e26fb8",
-            "8a9685d8.e367f8"
-        ],
-        "x": 814,
-        "y": 479,
-        "w": 742,
-        "h": 682
-    },
-    {
-        "id": "2addc59d.da626a",
-        "type": "group",
-        "z": "7d53bde.1a645c4",
+        "z": "93dfeda6.87345",
         "name": "UI Dashboard",
         "style": {
             "label": true,
@@ -82,77 +17,77 @@
             "color": "#3f93cf"
         },
         "nodes": [
-            "6c965645.ca7318",
-            "b0dde4e7.08e92",
-            "60dbc035.28ec4",
-            "3a6babce.4633bc",
-            "c59bea3a.183cc",
-            "1183db3d.b5b3c5",
-            "65fc0b4c.6d5c6c",
-            "b5b06634.d6a27",
-            "9c663cfc.cc0e7",
-            "180d275.6673dd9",
-            "e25c9e2c.53bb8",
-            "1d516a3a.716b56",
-            "64df1bec.7e813c",
-            "6379e7c0.8ce3b",
-            "86293f1.2b085c",
-            "c81af2ef.2ffe8",
-            "b9399fe9.3d727",
-            "699e8797.5daf48",
-            "a9fe7943.5c4ec",
-            "d2790902.f1e5a8",
-            "ca1dcace.6400a",
-            "77a4d85e.bdba5",
-            "1387df5d.be85f1",
-            "8abdf964.f6f59",
-            "e2ba9bf2.90454",
-            "699b738.a8d7d8c",
-            "1aaec6ab.6cf279",
-            "b0aca39f.3bd26",
-            "e2fca6d9.ce46",
-            "e799d037.2a7e6",
-            "530f0f84.a282c",
-            "90880671.1f9c8",
-            "7f5e8353.b50664",
-            "b8b8f4de.ca0cb8",
-            "c74db45.17968c8",
-            "c2b5c34c.101d78",
-            "94f3dffa.02c6a8",
-            "fc42d0bf.d007a8",
-            "6a6cba77.197d44",
-            "c898c6a.9a48738",
-            "5af2a5ae.04d0b4",
-            "62c5ccf1.8925c4",
-            "bb756f68.5f42c8",
-            "cdd495d8.15cae8",
-            "6014d20e.8b417c",
-            "64bbcbc2.b3356c",
-            "fa4418af.714f08",
-            "b54ff977.3d4958",
-            "d01ae85e.72d318",
-            "574b3102.553c6",
-            "1487738c.ca7cfc",
-            "313dd1e7.6586de",
-            "d5a4589b.b210d8",
-            "7664029e.5b629c",
-            "52e583c8.4fae2c",
-            "acf5fed5.d85b7",
-            "3d376ff1.e0f108",
-            "fcd5defb.fd20a8",
-            "b69e033b.70df8",
-            "3f1400bb.9c51e",
-            "ec2c1055.2bbcf",
-            "4669897d.3be5d",
-            "45557099.59e7f8",
-            "765590ed.61608",
-            "728ecc2.5114834",
-            "977cab2.605c8d8",
-            "f5b98d9c.21304",
-            "f84db62e.21f9b8",
-            "e505b5d7.556a8",
-            "38fa18d5.ab71e8",
-            "d038e1be.fe8b5"
+            "54f89a12.6f68e4",
+            "a5f11ba8.f140a8",
+            "4a717777.a6ab48",
+            "c19b605c.755b4",
+            "91947035.6ab14",
+            "d572fd0b.26178",
+            "e488c940.f843a8",
+            "9c14355c.401f68",
+            "ae2525ad.c5a688",
+            "3b11e013.06c1c",
+            "738c35cd.fde98c",
+            "ef23474f.8e4a38",
+            "466923b6.45d58c",
+            "b78cae3d.d5b03",
+            "66718ed5.788d8",
+            "ab1312d4.833ef",
+            "80f3689b.a23098",
+            "d97de4d.e1cbc18",
+            "693331c9.46502",
+            "2c8db891.263cf8",
+            "e2a55b4e.553c28",
+            "9d0a46a6.a87a58",
+            "469f5e73.1a597",
+            "432fa332.327ccc",
+            "ad1e4351.b05b7",
+            "74336134.91b96",
+            "3ddd53ca.a25cec",
+            "64d5d65b.12aad8",
+            "d9634d00.fe64c",
+            "6dd965a1.7166bc",
+            "59d263db.76500c",
+            "960c7b44.78c1d8",
+            "5552d335.c405ec",
+            "d7246a29.1e2358",
+            "83207e03.29eba",
+            "58901619.cfc008",
+            "e4ac9c7e.5486b",
+            "8ce52662.26ff18",
+            "c9c60743.554ca8",
+            "676e5845.334928",
+            "bd8834b.d53d7c8",
+            "6e3eb805.a26be8",
+            "f07a292b.47c6e8",
+            "f0a062dd.d8d97",
+            "318fb263.7a63ce",
+            "fa248a76.1c5018",
+            "ab8070c0.aada",
+            "1566188a.702f67",
+            "a7cc1c32.ac89f",
+            "96c94e49.2f5dc",
+            "4ae5ecf8.766664",
+            "e7726a76.d5db28",
+            "29dc8109.6cc66e",
+            "77ace372.8d31bc",
+            "3862b8cc.ed8868",
+            "694be44d.a1e44c",
+            "2e6526ff.6a40ba",
+            "259a04c6.4431cc",
+            "8c0c2310.59fd6",
+            "cae11ec7.23faa",
+            "d8bab73c.d698a8",
+            "c41ca3d.2893e6",
+            "3019cb6f.a4df64",
+            "80feeddd.1b674",
+            "2282804d.5fa7b",
+            "21c6a308.53789c",
+            "949dd39b.2335e",
+            "ab99ff70.a516a",
+            "ff0d95e8.b5c0b8",
+            "ec842552.3a9ce8",
+            "1aa49f1c.ece421"
         ],
         "x": 14,
         "y": 479,
@@ -160,9 +95,75 @@
         "h": 1102
     },
     {
-        "id": "489facd2.bdc3dc",
+        "id": "83df3251.a9c15",
         "type": "group",
-        "z": "7d53bde.1a645c4",
+        "z": "93dfeda6.87345",
+        "name": "PHILIPS CUSTOM DEVICES",
+        "style": {
+            "label": true,
+            "stroke": "#9363b7",
+            "color": "#9363b7"
+        },
+        "nodes": [
+            "d054a147.1e165",
+            "d431c2b9.54d41",
+            "17edd027.f975e",
+            "5fee6739.043a28",
+            "5eb6b82e.0b9f88",
+            "39b15c72.995654",
+            "12c160ec.7aad0f",
+            "1b37b861.73eac8",
+            "5efed0ae.b11ae",
+            "2e3a82d8.b9574e",
+            "4571fa6c.25aef4",
+            "fad28ca.bd1e57",
+            "1a7d94a2.28493b",
+            "8243632f.a567f",
+            "24994d7a.2b5442",
+            "16a27b61.d96a25",
+            "79d81098.4ca71",
+            "2399b29a.a443de",
+            "8931e1a7.57ab2",
+            "9fcd286b.2a8f18",
+            "3c2d4256.66d43e",
+            "18a48d77.70c8d3",
+            "45dee2c3.68a05c",
+            "79b6d24a.1f6fcc",
+            "18b5b04a.a2882",
+            "e0288de.f5b227",
+            "d017d58d.71b4a8",
+            "65befb1.975fc04",
+            "23e511ec.2e9cce",
+            "6315308d.f4a2d",
+            "6b487a58.05ae24",
+            "b8145d60.da12b",
+            "c91e8034.bc7e8",
+            "614c1021.2c9f7",
+            "bf9fb42f.db4058",
+            "fe8eea40.bbb328",
+            "f0c049d.2be87b8",
+            "58f1a572.757e0c",
+            "2bd208cf.b19e58",
+            "cbc4ea65.b983a8",
+            "d0868a42.37b228",
+            "c679da8.ce91728",
+            "69064f6c.6567a",
+            "4ea97a58.428ae4",
+            "946c9b67.f30e98",
+            "7958a547.c0f9bc",
+            "25422191.c7903e",
+            "a775d59a.672e28",
+            "3b606eff.04cbc2"
+        ],
+        "x": 814,
+        "y": 479,
+        "w": 742,
+        "h": 682
+    },
+    {
+        "id": "87787cf6.2b83a",
+        "type": "group",
+        "z": "93dfeda6.87345",
         "name": "Authentification",
         "style": {
             "label": true,
@@ -170,78 +171,78 @@
             "color": "#3f93cf"
         },
         "nodes": [
-            "3550eee.fb8c192",
-            "77d13800.12f378",
-            "ec810ff1.dcd948",
-            "759ecff0.9431d8",
-            "7024b55f.c79df4",
-            "e314a576.72637",
-            "23670bde.89242c",
-            "7bdce417.edae3c",
-            "696003a4.f9ea14",
-            "107b52b9.2e3ea5",
-            "b5a2cf95.37b08",
-            "cb10032d.16796",
-            "62759ad1.5ac124",
-            "fdc350b4.a52bc",
-            "33dc59af.80968e",
-            "6fe489a3.632278",
-            "851dec95.3f8418",
-            "377b469e.7cac52",
-            "e7ca5bff.147c1",
-            "80e1114c.7bd108",
-            "980e4d7f.d30598",
-            "44e00380.81abfc",
-            "67df965c.8ddf88",
-            "6246b834.cf9178",
-            "aa9e5d03.ca803",
-            "6424de4b.816198",
-            "dad095bf.c61918",
-            "3e17c612.61572a",
-            "b71af0ab.534aa8",
-            "c646d486.fff028",
-            "a0b2b2e2.824a4",
-            "2af73916.8b1e26",
-            "87d6cbae.e00dd",
-            "ee518937.bf5918",
-            "492786b2.6d4618",
-            "3c39b2e0.6dad0e",
-            "eae08d34.2d70b",
-            "90a0d5d.3f50928",
-            "ae5e431a.80fa48",
-            "64510ac9.1a9484",
-            "35735c1.7978ea4",
-            "8b095d36.774c88",
-            "a98977c7.ef93b8",
-            "35f6b3c5.c51bec",
-            "c1be106f.0537e8",
-            "a7afeb6c.927cc",
-            "9ff63c97.019008",
-            "41080d37.accf7c",
-            "d347de67.782df",
-            "2ff79ae2.ee1eb6",
-            "a694c23e.7e6ed",
-            "c72f0a62.f3eb08",
-            "7ef3cb53.e9e574",
-            "82c79764.355558",
-            "5040563b.e4e4",
-            "a0b37854.67b8a",
-            "fe9a5bd6.933b58",
-            "328854ee.8db714",
-            "20f7ed46.03e2aa",
-            "7702bd78.2116a4",
-            "baa48c70.37b5f8",
-            "d762ae7e.2dded8",
-            "4fb7da56.f3993c",
-            "b476f12a.d70458",
-            "8cfe403.61bcd4",
-            "d92c28c8.c9f3c8",
-            "fe5b0311.9c8418",
-            "c0859a6e.cc8b",
-            "e1d31b8.dd81de8",
-            "5d66352a.0b904c",
-            "e6316ee2.08de",
-            "d5c74c02.c4ab7"
+            "be3cb2d5.d10ea",
+            "ccfc46fd.35d1b8",
+            "8d6b19ff.ca3de8",
+            "bda215f8.ad3208",
+            "99f73b52.e266f8",
+            "9a96377d.eb8178",
+            "f19e81e6.0d7a3",
+            "2d359c8d.4d09b4",
+            "99eede8a.f16c9",
+            "d2c1a2cc.62b36",
+            "bf0f43e8.8124d",
+            "78e0242a.e5075c",
+            "1d1e38d.7bfd5c7",
+            "3b365c84.d41914",
+            "6b6bb4a3.acc1ec",
+            "c0220321.3f646",
+            "6137324c.f74a7c",
+            "7770759b.08506c",
+            "64b458e6.8173b8",
+            "7519bace.4622d4",
+            "93136f05.e9f85",
+            "9f01eaf2.779648",
+            "8c6c4101.71197",
+            "b5fd7d4d.6bc0d",
+            "46b738ff.057968",
+            "3ab65d94.be0cc2",
+            "8352f1ff.24024",
+            "e5356160.2b1ff",
+            "dc35fbdd.def438",
+            "89089abb.425e58",
+            "6f8daef1.78a81",
+            "4275d02d.94d3d",
+            "bc8e0030.56568",
+            "1923136.2f1b8ed",
+            "83030a76.4cf288",
+            "558c6fd1.ca744",
+            "bbe0ed2c.75293",
+            "27842a50.841f66",
+            "6009d4b2.b29b8c",
+            "e77a20c4.a635",
+            "1df89796.183668",
+            "58e3b0ea.ad121",
+            "9a8da7bf.92b708",
+            "5317cb23.a062f4",
+            "44b4bf1b.18b9f",
+            "1809c2d.464703d",
+            "9b9aadbd.c1bd7",
+            "a64d8879.099bf8",
+            "af8c9325.07c3b",
+            "6e29f4d0.63acbc",
+            "ec75b25b.b4f54",
+            "5a26cfb1.9b699",
+            "a95f77a.830d588",
+            "ea8d9374.927a3",
+            "843d7ac8.c6a068",
+            "2d3b045d.d1126c",
+            "92c2733c.ece1b",
+            "9348fc59.d060c",
+            "eeb077de.874038",
+            "e1ee4738.4bf6a8",
+            "f25fe9fa.115d28",
+            "dce72bc7.e949e8",
+            "92d5ddb5.cb2de",
+            "6e4a6041.8317b",
+            "651d9733.9f8b88",
+            "65bc35ff.f337ec",
+            "3db4a34e.cce78c",
+            "78233440.defabc",
+            "c119906e.b188d",
+            "ab6b22e2.0115d",
+            "135cfa61.37e1d6",
+            "b2846de2.2e112"
         ],
         "x": 14,
         "y": 19,
@@ -249,10 +250,10 @@
         "h": 442
     },
     {
-        "id": "cb6ad983.5d0d2",
+        "id": "cbc4ea65.b983a8",
         "type": "change",
-        "z": "7d53bde.1a645c4",
-        "g": "25715a84.05775e",
+        "z": "93dfeda6.87345",
+        "g": "83df3251.a9c15",
         "name": "Save",
         "rules": [
             {
@@ -275,10 +276,10 @@
         ]
     },
     {
-        "id": "faf2b870.5abfb",
+        "id": "2bd208cf.b19e58",
         "type": "inject",
-        "z": "7d53bde.1a645c4",
-        "g": "25715a84.05775e",
+        "z": "93dfeda6.87345",
+        "g": "83df3251.a9c15",
         "name": "Define manually custom devices",
         "props": [
             {
@@ -296,16 +297,16 @@
         "y": 600,
         "wires": [
             [
-                "cb6ad983.5d0d2",
-                "3c32f142.95428e"
+                "cbc4ea65.b983a8",
+                "69064f6c.6567a"
             ]
         ]
     },
     {
-        "id": "72620b5c.7368f4",
+        "id": "58f1a572.757e0c",
         "type": "comment",
-        "z": "7d53bde.1a645c4",
-        "g": "25715a84.05775e",
+        "z": "93dfeda6.87345",
+        "g": "83df3251.a9c15",
         "name": "↓ Custom devices - define your Philips devices here ↓",
         "info": "Template for manual custom device definition (here for lights): see inject node below",
         "x": 1040,
@@ -313,28 +314,28 @@
         "wires": []
     },
     {
-        "id": "1f335362.e9257d",
+        "id": "d054a147.1e165",
         "type": "mqtt in",
-        "z": "7d53bde.1a645c4",
-        "g": "25715a84.05775e",
+        "z": "93dfeda6.87345",
+        "g": "83df3251.a9c15",
         "name": "",
         "topic": "proknx/custom/cmd",
         "qos": "2",
         "datatype": "auto",
-        "broker": "f96ab142.d8bab8",
+        "broker": "4587b3e4.643b2c",
         "x": 930,
         "y": 1120,
         "wires": [
             [
-                "7eb95aaa.6dba74"
+                "d431c2b9.54d41"
             ]
         ]
     },
     {
-        "id": "7eb95aaa.6dba74",
+        "id": "d431c2b9.54d41",
         "type": "json",
-        "z": "7d53bde.1a645c4",
-        "g": "25715a84.05775e",
+        "z": "93dfeda6.87345",
+        "g": "83df3251.a9c15",
         "name": "",
         "property": "payload",
         "action": "",
@@ -343,16 +344,16 @@
         "y": 1040,
         "wires": [
             [
-                "f8635843.e1e43"
+                "1b37b861.73eac8"
             ]
         ],
         "l": false
     },
     {
-        "id": "b4467726.63b568",
+        "id": "17edd027.f975e",
         "type": "http request",
-        "z": "7d53bde.1a645c4",
-        "g": "25715a84.05775e",
+        "z": "93dfeda6.87345",
+        "g": "83df3251.a9c15",
         "name": "http",
         "method": "GET",
         "ret": "txt",
@@ -366,15 +367,15 @@
         "y": 1075,
         "wires": [
             [
-                "7efe6e6b.285b3"
+                "5fee6739.043a28"
             ]
         ]
     },
     {
-        "id": "7efe6e6b.285b3",
+        "id": "5fee6739.043a28",
         "type": "debug",
-        "z": "7d53bde.1a645c4",
-        "g": "25715a84.05775e",
+        "z": "93dfeda6.87345",
+        "g": "83df3251.a9c15",
         "name": "",
         "active": false,
         "tosidebar": true,
@@ -390,10 +391,10 @@
         "l": false
     },
     {
-        "id": "365a79da.de1db6",
+        "id": "5eb6b82e.0b9f88",
         "type": "function",
-        "z": "7d53bde.1a645c4",
-        "g": "25715a84.05775e",
+        "z": "93dfeda6.87345",
+        "g": "83df3251.a9c15",
         "name": "Prepare request",
         "func": "msg.device=[];\nif (msg.cmd.type === \"lights\") {\n    if (msg.cmd.value !== undefined) {\n        for (var i = 0; i < msg.items.length; i++) {\n            if (msg.items[i].type === \"dimmers\" && msg.cmd.cmd !== \"off\") {\n               var val = msg.cmd.value/100 * msg.items[i].setBrightness.valueMax;\n               msg.device[i] = msg.items[i].setBrightness;\n               \n               //-------- Modified code ---------//\n               if(msg.items[i].currentState.parser === \"philips\"){\n                   msg.device[i].body.bri = Math.floor(val);\n               }\n               else{\n                   msg.device[i].value = val;\n               }\n               //-------------------------------//\n               \n            }else if (msg.cmd.value > 0) {\n                msg.device[i] = msg.items[i].setOn;\n            }else {\n                msg.device[i] = msg.items[i].setOff;\n            }\n        }\n    }else if (msg.cmd.cmd === \"on\") {\n        for (var i = 0; i < msg.items.length; i++) {\n            msg.device[i] = msg.items[i].setOn;\t                      \n        }\n    }else if (msg.cmd.cmd === \"off\") {\n        for (var i = 0; i < msg.items.length; i++) {\n            msg.device[i] = msg.items[i].setOff;\n        }\n    }\n}else if (msg.cmd.type === \"aux\") {\n    if (msg.cmd.cmd === \"on\" || msg.cmd.cmd === \"set\") {\n        if (msg.cmd.value !== undefined) {\n          for (var i = 0; i < msg.items.length; i++) {\n            if (msg.items[i].setBrightness !== undefined) {\n                var val = msg.cmd.value;\n                val = precisionRound(val, 1);\n                msg.device[i] = msg.items[i].setBrightness;\n                msg.device[i].value = val;\n            } \n            else if (msg.cmd.value > 0) {\n               msg.device[i] = msg.items[i].setOn;\n            }\n            else {\n               msg.device[i] = msg.items[i].setOff;\n            }\t\t\t\t         \n        }\n        }else {\n            for (var i = 0; i < msg.items.length; i++) {\n                msg.device[i] = msg.items[i].setOn;\n            }\n        }\n    }else if (msg.cmd.cmd === \"off\") {\n        for (var i = 0; i < msg.items.length; i++) {\n            if (msg.items[i].setOff !== undefined) {\n                msg.device[i] = msg.items[i].setOff;\n            }\n        }\n    }\n}\n//-------- Added code --------//\nelse if (msg.cmd.type === \"scenes\") {\n    if (msg.cmd.cmd === \"on\"){\n        for (let i = 0; i < msg.items.length; i++) {\n            if (msg.items[i].setOn !== undefined) {\n                msg.device[i] = msg.items[i].setOn;\n            }\n        }\n    }\n}\n//----------------------------//\n \nflow.set(\"msgDevice\",msg.device) ; //contain command info of the device\nflow.set(\"msgItems\",msg.items); // contain list of devices concerned\nflow.set(\"msgCmd\", msg.cmd);\nmsg.payload = msg.device;\n  \nreturn msg; ",
         "outputs": 1,
@@ -404,16 +405,16 @@
         "y": 1080,
         "wires": [
             [
-                "c69aaa5b.15f8d"
+                "12c160ec.7aad0f"
             ]
         ],
         "l": false
     },
     {
-        "id": "12849e4f.909eea",
+        "id": "39b15c72.995654",
         "type": "switch",
-        "z": "7d53bde.1a645c4",
-        "g": "25715a84.05775e",
+        "z": "93dfeda6.87345",
+        "g": "83df3251.a9c15",
         "name": "Cmd ?",
         "property": "cmd.cmd",
         "propertyType": "msg",
@@ -451,27 +452,27 @@
         "y": 1040,
         "wires": [
             [
-                "22671f9a.f68b9"
+                "1a7d94a2.28493b"
             ],
             [
-                "22671f9a.f68b9"
+                "1a7d94a2.28493b"
             ],
             [
-                "365a79da.de1db6"
+                "5eb6b82e.0b9f88"
             ],
             [
-                "365a79da.de1db6"
+                "5eb6b82e.0b9f88"
             ],
             [
-                "365a79da.de1db6"
+                "5eb6b82e.0b9f88"
             ]
         ]
     },
     {
-        "id": "c69aaa5b.15f8d",
+        "id": "12c160ec.7aad0f",
         "type": "split",
-        "z": "7d53bde.1a645c4",
-        "g": "25715a84.05775e",
+        "z": "93dfeda6.87345",
+        "g": "83df3251.a9c15",
         "name": "",
         "splt": "\\n",
         "spltType": "str",
@@ -483,16 +484,16 @@
         "y": 1100,
         "wires": [
             [
-                "7a55485f.dcc59"
+                "614c1021.2c9f7"
             ]
         ],
         "l": false
     },
     {
-        "id": "f8635843.e1e43",
+        "id": "1b37b861.73eac8",
         "type": "change",
-        "z": "7d53bde.1a645c4",
-        "g": "25715a84.05775e",
+        "z": "93dfeda6.87345",
+        "g": "83df3251.a9c15",
         "name": "move data from payload",
         "rules": [
             {
@@ -519,16 +520,16 @@
         "y": 1040,
         "wires": [
             [
-                "12849e4f.909eea"
+                "39b15c72.995654"
             ]
         ],
         "l": false
     },
     {
-        "id": "4430e5.d0cb7f1c",
+        "id": "5efed0ae.b11ae",
         "type": "change",
-        "z": "7d53bde.1a645c4",
-        "g": "25715a84.05775e",
+        "z": "93dfeda6.87345",
+        "g": "83df3251.a9c15",
         "name": "Replace value and set url",
         "rules": [
             {
@@ -557,34 +558,34 @@
         "y": 1075,
         "wires": [
             [
-                "b4467726.63b568"
+                "17edd027.f975e"
             ]
         ],
         "l": false
     },
     {
-        "id": "ebea1fbc.3254f",
+        "id": "2e3a82d8.b9574e",
         "type": "mqtt in",
-        "z": "7d53bde.1a645c4",
-        "g": "25715a84.05775e",
+        "z": "93dfeda6.87345",
+        "g": "83df3251.a9c15",
         "name": "",
         "topic": "proknx/custom/query",
         "qos": "2",
         "datatype": "auto",
-        "broker": "f96ab142.d8bab8",
+        "broker": "4587b3e4.643b2c",
         "x": 930,
         "y": 950,
         "wires": [
             [
-                "4c16ee1d.310468"
+                "4571fa6c.25aef4"
             ]
         ]
     },
     {
-        "id": "4c16ee1d.310468",
+        "id": "4571fa6c.25aef4",
         "type": "json",
-        "z": "7d53bde.1a645c4",
-        "g": "25715a84.05775e",
+        "z": "93dfeda6.87345",
+        "g": "83df3251.a9c15",
         "name": "",
         "property": "payload",
         "action": "",
@@ -593,16 +594,16 @@
         "y": 950,
         "wires": [
             [
-                "7d681a96.a346d4"
+                "fad28ca.bd1e57"
             ]
         ],
         "l": false
     },
     {
-        "id": "7d681a96.a346d4",
+        "id": "fad28ca.bd1e57",
         "type": "change",
-        "z": "7d53bde.1a645c4",
-        "g": "25715a84.05775e",
+        "z": "93dfeda6.87345",
+        "g": "83df3251.a9c15",
         "name": "move data from payload",
         "rules": [
             {
@@ -629,16 +630,16 @@
         "y": 950,
         "wires": [
             [
-                "11089430.a672d4"
+                "8243632f.a567f"
             ]
         ],
         "l": false
     },
     {
-        "id": "22671f9a.f68b9",
+        "id": "1a7d94a2.28493b",
         "type": "function",
-        "z": "7d53bde.1a645c4",
-        "g": "25715a84.05775e",
+        "z": "93dfeda6.87345",
+        "g": "83df3251.a9c15",
         "name": "GET Current",
         "func": "msg.device = [];\n\nif (msg.cmd.type === \"aux\" || msg.cmd.type === \"lights\" || msg.cmd.type === \"dimmers\" ) {\n    var cptok=0;\n    var cpter=0;\n    msg.itemsok=[];\n    msg.itemser=[];\n    for (var i = 0; i < msg.items.length; i++) {\n        if(msg.items[i].currentState !== undefined && msg.items[i].type !== \"lights\") {\n            msg.itemsok[cptok]=msg.items[i];\n            cptok++;\n        } else {\n            msg.itemser[cpter]=msg.items[i];\n            cpter++;\n        }\n    }\n    if (msg.itemsok[0] !== undefined) {\n        msg.items = msg.itemsok;\n        for (var i = 0; i < msg.itemsok.length; i++) {\n\t\t\tmsg.device[i] = msg.itemsok[i].currentState;\n        }\n        msg.payload = msg.device;\n        delete msg.device;\n        flow.set(\"msgDevice\", msg.device);\n        flow.set(\"msgItems\", msg.items);\n        flow.set(\"msgCmd\", msg.cmd);\n        return [msg, null];\n    }\n\n    if (msg.itemser.length > 0 && msg.itemsok.length === 0) {\n        if (msg.itemser.length > 1) {\n            if (msg.cmd.lang === \"de\") {\n                text1 = msg.itemser[0].name;\n                text2 = \" und \";\n                text3 = msg.itemser.length-1;\n                text4 = \" andere Geräte verstehen diesen Befehl nicht\";\n                texttabl = [text1, text2, text3, text4];\n                var text = \"\".concat(...texttabl);            \n                msg.error = {\n                    text: text,\n                    siteId: msg.cmd.siteId,\n                    lang: \"de-DE\"\n                };\n            } else if (msg.cmd.lang === \"fr\") {\n                text1 = msg.itemser[0].name;\n                text2 = \" et \";\n                text3 = msg.itemser.length-1;\n                text4 = \" autres appareils ne supportent pas cette commande\";\n                texttabl = [text1, text2, text3, text4];\n                var text = \"\".concat(...texttabl);            \n                msg.error = {\n                    text: text,\n                    siteId: msg.cmd.siteId,\n                    lang: \"fr-FR\"\n                };\n            } else {\n                text1 = msg.itemser[0].name;\n                text2 = \" and \";\n                text3 = msg.itemser.length-1;\n                text4 = \" other devices do not support this command\";\n                texttabl = [text1, text2, text3, text4];\n                var text = \"\".concat(...texttabl);            \n                msg.error = {\n                    text: text,\n                    siteId: msg.cmd.siteId,\n                    lang: \"en-EN\"\n                };\n            }\n        } else {\n            if (msg.cmd.lang === \"de\") {\n                text1 = msg.itemser[0].name;\n                text2 = \" versteht diesen Befehl nicht\";\n                texttabl = [text1, text2];\n                var text = \"\".concat(...texttabl);\n                msg.error = {\n                    text: text,\n                    siteId: msg.cmd.siteId,\n                    lang: \"de-DE\"\n                };\n            } else if (msg.cmd.lang === \"fr\") {\n                text1 = msg.itemser[0].name;\n                text2 = \" ne supporte pas cette commande\";\n                texttabl = [text1, text2];\n                var text = \"\".concat(...texttabl);\n                msg.error = {\n                    text: text,\n                    siteId: msg.cmd.siteId,\n                    lang: \"fr-FR\"\n                };\n            } else {\n                text1 = msg.itemser[0].name;\n                text2 = \" does not support this command\";\n                texttabl = [text1, text2];\n                var text = \"\".concat(...texttabl);\n                msg.error = {\n                    text: text,\n                    siteId: msg.cmd.siteId,\n                    lang: \"en-EN\"\n                };\n            }\n        }\n    }\n    flow.set(\"msgError\", msg.error);\n    flow.set(\"msgCmd\", msg.cmd);\n    return [null, msg];\n}",
         "outputs": "2",
@@ -649,19 +650,19 @@
         "y": 1020,
         "wires": [
             [
-                "97d173e4.5285f"
+                "6315308d.f4a2d"
             ],
             [
-                "30f4001.247cc"
+                "24994d7a.2b5442"
             ]
         ],
         "l": false
     },
     {
-        "id": "11089430.a672d4",
+        "id": "8243632f.a567f",
         "type": "function",
-        "z": "7d53bde.1a645c4",
-        "g": "25715a84.05775e",
+        "z": "93dfeda6.87345",
+        "g": "83df3251.a9c15",
         "name": "GET_Current",
         "func": "\nmsg.device = [];\ndeviceList = msg.deviceList;\n\nif ( msg.cmd.type === \"aux\" || msg.cmd.type === \"lights\" || msg.cmd.type === \"dimmers\" || msg.cmd.type === \"sensor\") {\n    var cptok=0;\n    var cpter=0;\n    msg.itemsok=[];\n    msg.itemser=[];\n    for (var i = 0; i < msg.items.length; i++) {\n        if(msg.items[i].currentState !== undefined) {\n            msg.itemsok[cptok]=msg.items[i];\n            cptok++;\n        } else {\n            msg.itemser[cpter]=msg.items[i];\n            cpter++;\n        }\n    }\n    if (msg.itemsok[0] !== undefined) {\n        msg.items = msg.itemsok;\n        for (var i = 0; i < msg.itemsok.length; i++) {\n\t\t    msg.device[i] = msg.itemsok[i].currentState;   \n        }\n        msg.payload = msg.device;\n \t    flow.set(\"msgDevice\", msg.device);\n        flow.set(\"msgItems\", msg.items);\n        flow.set(\"msgCmd\", msg.cmd);\n\t    delete msg.device;\n        return [msg, null];\n    }\n\n    if (msg.itemser.length > 0 && msg.itemsok.length === 0) {\n        if (msg.itemser.length > 1) {\n            if (msg.cmd.lang === \"de\") {\n                text1 = msg.itemser[0].name;\n                text2 = \" und \";\n                text3 = msg.itemser.length-1;\n                text4 = \" andere GerÃ¤te verstehen diesen Befehl nicht\";\n                texttabl = [text1, text2, text3, text4];\n                var text = \"\".concat(...texttabl);            \n                msg.error = {\n                    text: text,\n                    siteId: msg.cmd.siteId,\n                    lang: \"de-DE\"\n                };\n            } else if (msg.cmd.lang === \"fr\") {\n                text1 = msg.itemser[0].name;\n                text2 = \" et \";\n                text3 = msg.itemser.length-1;\n                text4 = \" autres appareils ne supportent pas cette commande\";\n                texttabl = [text1, text2, text3, text4];\n                var text = \"\".concat(...texttabl);            \n                msg.error = {\n                    text: text,\n                    siteId: msg.cmd.siteId,\n                    lang: \"fr-FR\"\n                };\n            } else {\n                text1 = msg.itemser[0].name;\n                text2 = \" and \";\n                text3 = msg.itemser.length-1;\n                text4 = \" other devices do not support this command\";\n                texttabl = [text1, text2, text3, text4];\n                var text = \"\".concat(...texttabl);            \n                msg.error = {\n                    text: text,\n                    siteId: msg.cmd.siteId,\n                    lang: \"en-EN\"\n                };\n            }\n        } else {\n            if (msg.cmd.lang === \"de\") {\n                text1 = msg.itemser[0].name;\n                text2 = \" versteht diesen Befehl nicht\";\n                texttabl = [text1, text2];\n                var text = \"\".concat(...texttabl);\n                msg.error = {\n                    text: text,\n                    siteId: msg.cmd.siteId,\n                    lang: \"de-DE\"\n                };\n            } else if (msg.cmd.lang === \"fr\") {\n                text1 = msg.itemser[0].name;\n                text2 = \" ne supporte pas cette commande\";\n                texttabl = [text1, text2];\n                var text = \"\".concat(...texttabl);\n                msg.error = {\n                    text: text,\n                    siteId: msg.cmd.siteId,\n                    lang: \"fr-FR\"\n                };\n            } else {\n                text1 = msg.itemser[0].name;\n                text2 = \" does not support this command\";\n                texttabl = [text1, text2];\n                var text = \"\".concat(...texttabl);\n                msg.error = {\n                    text: text,\n                    siteId: msg.cmd.siteId,\n                    lang: \"en-EN\"\n                };\n            }\n        }\n    }\n    flow.set(\"msgError\", msg.error);\n    flow.set(\"msgCmd\", msg.cmd);\n\n    return [null, msg];\n}",
         "outputs": "2",
@@ -672,19 +673,19 @@
         "y": 950,
         "wires": [
             [
-                "d62bb2bc.099e48"
+                "79d81098.4ca71"
             ],
             [
-                "d8e5b152.76a5d8"
+                "16a27b61.d96a25"
             ]
         ],
         "l": false
     },
     {
-        "id": "30f4001.247cc",
+        "id": "24994d7a.2b5442",
         "type": "link out",
-        "z": "7d53bde.1a645c4",
-        "g": "25715a84.05775e",
+        "z": "93dfeda6.87345",
+        "g": "83df3251.a9c15",
         "name": "ERROR TO FEEDBACK",
         "links": [
             "521b53e0.33f214"
@@ -694,10 +695,10 @@
         "wires": []
     },
     {
-        "id": "d8e5b152.76a5d8",
+        "id": "16a27b61.d96a25",
         "type": "link out",
-        "z": "7d53bde.1a645c4",
-        "g": "25715a84.05775e",
+        "z": "93dfeda6.87345",
+        "g": "83df3251.a9c15",
         "name": "ERROR TO FEEDBACK",
         "links": [
             "521b53e0.33f214"
@@ -707,10 +708,10 @@
         "wires": []
     },
     {
-        "id": "d62bb2bc.099e48",
+        "id": "79d81098.4ca71",
         "type": "function",
-        "z": "7d53bde.1a645c4",
-        "g": "25715a84.05775e",
+        "z": "93dfeda6.87345",
+        "g": "83df3251.a9c15",
         "name": "Query",
         "func": "msg.device = msg.payload;\nmsg.payload.device = [];\nfor(var i = 0; i < msg.device.length ; i++){\n    msg.payload.device[i] = msg.device[i];\n}\nreturn msg;",
         "outputs": 1,
@@ -721,16 +722,16 @@
         "y": 900,
         "wires": [
             [
-                "85a13f96.18bd98"
+                "2399b29a.a443de"
             ]
         ],
         "l": false
     },
     {
-        "id": "85a13f96.18bd98",
+        "id": "2399b29a.a443de",
         "type": "split",
-        "z": "7d53bde.1a645c4",
-        "g": "25715a84.05775e",
+        "z": "93dfeda6.87345",
+        "g": "83df3251.a9c15",
         "name": "split",
         "splt": "\\n",
         "spltType": "str",
@@ -742,16 +743,16 @@
         "y": 900,
         "wires": [
             [
-                "8a9685d8.e367f8"
+                "a775d59a.672e28"
             ]
         ],
         "l": false
     },
     {
-        "id": "9083f92b.24a25",
+        "id": "8931e1a7.57ab2",
         "type": "http request",
-        "z": "7d53bde.1a645c4",
-        "g": "25715a84.05775e",
+        "z": "93dfeda6.87345",
+        "g": "83df3251.a9c15",
         "name": "http",
         "method": "GET",
         "ret": "txt",
@@ -765,15 +766,15 @@
         "y": 900,
         "wires": [
             [
-                "b29b657d.ec1ff"
+                "45dee2c3.68a05c"
             ]
         ]
     },
     {
-        "id": "5cdfb22d.a1ebfc",
+        "id": "9fcd286b.2a8f18",
         "type": "change",
-        "z": "7d53bde.1a645c4",
-        "g": "25715a84.05775e",
+        "z": "93dfeda6.87345",
+        "g": "83df3251.a9c15",
         "name": "Replace value and set url",
         "rules": [
             {
@@ -793,16 +794,16 @@
         "y": 900,
         "wires": [
             [
-                "9083f92b.24a25"
+                "8931e1a7.57ab2"
             ]
         ],
         "l": false
     },
     {
-        "id": "5e73eadc.eb4274",
+        "id": "3c2d4256.66d43e",
         "type": "function",
-        "z": "7d53bde.1a645c4",
-        "g": "25715a84.05775e",
+        "z": "93dfeda6.87345",
+        "g": "83df3251.a9c15",
         "name": "Parser Philips",
         "func": "msg.states = [];\nif(msg.payload.length >= 1){\n   for(var i=0; i < msg.payload.length ; ++i){\n        \n        if(msg.payload.state.on && msg.payload.state.bri !== undefined){\n            // Light (dimmer) is on\n            msg.states[i]={\n                \"Data\" : [{\n                    \"Value\" : msg.payload.state.bri\n                }]\n            };\n        }\n        else{\n            // Light is off\n            msg.states[i]={\n                \"Data\" : [{\n                    \"Value\" : msg.payload.state.on\n                }]\n            };\n        }\n        if(msg.states[i].Data[0].Value !== undefined){\n            msg.states[i].Result=true;\n        }else{\n            msg.states[i].Result=false;\n        }\n    } \n}\nelse{\n    if(msg.payload.state.on && msg.payload.state.bri !== undefined){\n        // Light (dimmer) is on\n        msg.states[0]={\n            \"Data\" : [{\n                \"Value\" : msg.payload.state.bri\n            }]\n        };\n    }\n    else{\n        // Light is off\n        msg.states[0]={\n            \"Data\" : [{\n                \"Value\" : msg.payload.state.on\n            }]\n        };\n    }\n    \n    if(msg.states[0].Data[0].Value !== undefined){\n        msg.states[0].Result=true;\n    }else{\n        msg.states[0].Result=false;\n    }\n}\n\n \nmsg.payload=msg.states;\ndelete msg.states;\nif(msg.cmd.cmd !== undefined){\n    msg.command = true;\n}else{\n    msg.command = false;\n}\nreturn msg;",
         "outputs": 1,
@@ -813,15 +814,15 @@
         "y": 830,
         "wires": [
             [
-                "98be9591.1f4bf8"
+                "79b6d24a.1f6fcc"
             ]
         ]
     },
     {
-        "id": "42faadb0.713724",
+        "id": "18a48d77.70c8d3",
         "type": "debug",
-        "z": "7d53bde.1a645c4",
-        "g": "25715a84.05775e",
+        "z": "93dfeda6.87345",
+        "g": "83df3251.a9c15",
         "name": "",
         "active": false,
         "tosidebar": true,
@@ -837,10 +838,10 @@
         "l": false
     },
     {
-        "id": "b29b657d.ec1ff",
+        "id": "45dee2c3.68a05c",
         "type": "switch",
-        "z": "7d53bde.1a645c4",
-        "g": "25715a84.05775e",
+        "z": "93dfeda6.87345",
+        "g": "83df3251.a9c15",
         "name": "",
         "property": "statusCode",
         "propertyType": "msg",
@@ -861,19 +862,19 @@
         "y": 900,
         "wires": [
             [
-                "527c6575.c348bc"
+                "d017d58d.71b4a8"
             ],
             [
-                "42faadb0.713724"
+                "18a48d77.70c8d3"
             ]
         ],
         "l": false
     },
     {
-        "id": "98be9591.1f4bf8",
+        "id": "79b6d24a.1f6fcc",
         "type": "switch",
-        "z": "7d53bde.1a645c4",
-        "g": "25715a84.05775e",
+        "z": "93dfeda6.87345",
+        "g": "83df3251.a9c15",
         "name": "command or query?",
         "property": "command",
         "propertyType": "msg",
@@ -892,10 +893,10 @@
         "y": 830,
         "wires": [
             [
-                "23ef38cb.e75da"
+                "18b5b04a.a2882"
             ],
             [
-                "d113b0ae.ce8e2"
+                "e0288de.f5b227"
             ]
         ],
         "outputLabels": [
@@ -905,10 +906,10 @@
         "l": false
     },
     {
-        "id": "23ef38cb.e75da",
+        "id": "18b5b04a.a2882",
         "type": "link out",
-        "z": "7d53bde.1a645c4",
-        "g": "25715a84.05775e",
+        "z": "93dfeda6.87345",
+        "g": "83df3251.a9c15",
         "name": "FEEDBACK",
         "links": [
             "a1b4e119.a687c8"
@@ -918,23 +919,23 @@
         "wires": []
     },
     {
-        "id": "d113b0ae.ce8e2",
+        "id": "e0288de.f5b227",
         "type": "link out",
-        "z": "7d53bde.1a645c4",
-        "g": "25715a84.05775e",
+        "z": "93dfeda6.87345",
+        "g": "83df3251.a9c15",
         "name": "CONTINUE COMMAND OUT",
         "links": [
-            "f7e92348.be03"
+            "23e511ec.2e9cce"
         ],
         "x": 1115,
         "y": 840,
         "wires": []
     },
     {
-        "id": "527c6575.c348bc",
+        "id": "d017d58d.71b4a8",
         "type": "json",
-        "z": "7d53bde.1a645c4",
-        "g": "25715a84.05775e",
+        "z": "93dfeda6.87345",
+        "g": "83df3251.a9c15",
         "name": "",
         "property": "payload",
         "action": "",
@@ -943,16 +944,16 @@
         "y": 890,
         "wires": [
             [
-                "5e73eadc.eb4274"
+                "3c2d4256.66d43e"
             ]
         ],
         "l": false
     },
     {
-        "id": "d5e299ef.d66b6",
+        "id": "65befb1.975fc04",
         "type": "function",
-        "z": "7d53bde.1a645c4",
-        "g": "25715a84.05775e",
+        "z": "93dfeda6.87345",
+        "g": "83df3251.a9c15",
         "name": "Prepare request",
         "func": "function precisionRound(number, precision) {\n   var factor = Math.pow(10, precision);\n   return Math.round(number * factor) / factor;\n}\ndelete msg.type;\ndelete msg.headers;\ndelete msg.certificate;\nmsg.device = [];\nmsg.current = msg.payload;\nmsg.newVal = [];\nif (msg.cmd.type === \"lights\" && msg.cmd.cmd === \"increase\") {\n   cptok = 0;\n   for (var i = 0; i < msg.items.length; i++) {\n      if (msg.items[i].type === \"dimmers\") {\n         if (msg.cmd.value !== undefined) {\n            var val = msg.cmd.value / 100 * msg.items[i].setBrightness.valueMax;\n            val = precisionRound(val, 0);\n            var newVal = parseInt(msg.current[i].Data[0].Value) + val;\n            if (newVal > msg.items[i].setBrightness.valueMax) {\n               newVal = msg.items[i].setBrightness.valueMax;\n            }\n            newVal = precisionRound(newVal, 0);\n            msg.device[cptok] = msg.items[i].setBrightness;\n            msg.device[cptok].body.bri = newVal;\n            // msg.device[cptok].value = newVal;\n            cptok++;\n         } else {\n            var newVal = parseInt(msg.current[i].Data[0].Value) + (0.2 * msg.items[i].setBrightness.valueMax);\n            if (newVal > msg.items[i].setBrightness.valueMax) {\n               newVal = msg.items[i].setBrightness.valueMax;\n            }\n            newVal = precisionRound(newVal, 0);\n            msg.device[cptok] = msg.items[i].setBrightness;\n            msg.device[cptok].body.bri = newVal;\n            // msg.device[cptok].value = newVal;\n            cptok++;\n         }\n      }\n   }\n} else if (msg.cmd.type === \"lights\" && msg.cmd.cmd === \"decrease\") {\n   cptok = 0;\n   for (var i = 0; i < msg.items.length; i++) {\n      if (msg.items[i].type === \"dimmers\") {\n         if (msg.cmd.value !== undefined) {\n            var val = msg.cmd.value / 100 * msg.items[i].setBrightness.valueMax;\n            val = precisionRound(val, 0);\n            var newVal = parseInt(msg.current[i].Data[0].Value) - val;\n            if (newVal < msg.items[i].setBrightness.valueMin) {\n               newVal = msg.items[i].setBrightness.valueMin;\n            }\n            newVal = precisionRound(newVal, 0);\n            msg.device[cptok] = msg.items[i].setBrightness;\n            msg.device[cptok].body.bri = newVal;\n            // msg.device[cptok].value = newVal;\n            cptok++;\n         } else {\n            var newVal = parseInt(msg.current[i].Data[0].Value) - (0.2 * msg.items[i].setBrightness.valueMax);\n            if (newVal < msg.items[i].setBrightness.valueMin) {\n               newVal = msg.items[i].setBrightness.valueMin;\n            }\n            newVal = precisionRound(newVal, 0);\n            msg.device[cptok] = msg.items[i].setBrightness;\n            msg.device[cptok].body.bri = newVal;\n            // msg.device[cptok].value = newVal;\n            cptok++;\n         }\n      }\n   }\n}\n\nmsg.payload = msg.device;\ndelete msg.url;\n\nreturn msg;\n",
         "outputs": 1,
@@ -963,63 +964,63 @@
         "y": 1120,
         "wires": [
             [
-                "c69aaa5b.15f8d"
+                "12c160ec.7aad0f"
             ]
         ],
         "l": false
     },
     {
-        "id": "f7e92348.be03",
+        "id": "23e511ec.2e9cce",
         "type": "link in",
-        "z": "7d53bde.1a645c4",
-        "g": "25715a84.05775e",
+        "z": "93dfeda6.87345",
+        "g": "83df3251.a9c15",
         "name": "CONTINUE COMMAND IN",
         "links": [
-            "d113b0ae.ce8e2"
+            "e0288de.f5b227"
         ],
         "x": 1085,
         "y": 1120,
         "wires": [
             [
-                "d5e299ef.d66b6"
+                "65befb1.975fc04"
             ]
         ]
     },
     {
-        "id": "97d173e4.5285f",
+        "id": "6315308d.f4a2d",
         "type": "link out",
-        "z": "7d53bde.1a645c4",
-        "g": "25715a84.05775e",
+        "z": "93dfeda6.87345",
+        "g": "83df3251.a9c15",
         "name": "CONTINUE QUERY OUT",
         "links": [
-            "8708158.c0ca3e8"
+            "6b487a58.05ae24"
         ],
         "x": 1185,
         "y": 1000,
         "wires": []
     },
     {
-        "id": "8708158.c0ca3e8",
+        "id": "6b487a58.05ae24",
         "type": "link in",
-        "z": "7d53bde.1a645c4",
-        "g": "25715a84.05775e",
+        "z": "93dfeda6.87345",
+        "g": "83df3251.a9c15",
         "name": "CONTINUE QUERY IN",
         "links": [
-            "97d173e4.5285f"
+            "6315308d.f4a2d"
         ],
         "x": 855,
         "y": 880,
         "wires": [
             [
-                "d62bb2bc.099e48"
+                "79d81098.4ca71"
             ]
         ]
     },
     {
-        "id": "850cae64.8a0408",
+        "id": "b8145d60.da12b",
         "type": "comment",
-        "z": "7d53bde.1a645c4",
-        "g": "25715a84.05775e",
+        "z": "93dfeda6.87345",
+        "g": "83df3251.a9c15",
         "name": "Readme Parser!",
         "info": "The parser for each device is defined in the device definition (see below).\nWhen you add a device from a different vendor, you must also modify the parser code below to handle the response.\n\n\"currentState\": {\n    \"name\": \"CurrentBrightness\",\n    \"url\": \"http://192.168.1.200/status\",\n    **\"parser\": \"shelly\",**\n    \"valueMin\": 0,\n    \"valueMax\": 100\n}",
         "x": 940,
@@ -1027,10 +1028,10 @@
         "wires": []
     },
     {
-        "id": "cf312ef5.2f4df",
+        "id": "c91e8034.bc7e8",
         "type": "comment",
-        "z": "7d53bde.1a645c4",
-        "g": "25715a84.05775e",
+        "z": "93dfeda6.87345",
+        "g": "83df3251.a9c15",
         "name": "INFO / README",
         "info": "- This group, CUSTOM DEVICES, enables voice control of custom devices, i.e. apart from the devices of the main Gateway you can add-on here.\n- \n- Any device that can be controlled via HTTP can be  integrataded here.\n- \n- This sample demonstrates how to declare (publish) your custom devices, in this case Philips lamp.",
         "x": 920,
@@ -1038,10 +1039,10 @@
         "wires": []
     },
     {
-        "id": "7a55485f.dcc59",
+        "id": "614c1021.2c9f7",
         "type": "switch",
-        "z": "7d53bde.1a645c4",
-        "g": "25715a84.05775e",
+        "z": "93dfeda6.87345",
+        "g": "83df3251.a9c15",
         "name": "Specific body request?",
         "property": "payload.body",
         "propertyType": "msg",
@@ -1064,19 +1065,19 @@
         "y": 1100,
         "wires": [
             [
-                "4430e5.d0cb7f1c"
+                "5efed0ae.b11ae"
             ],
             [
-                "5833a09d.97daf"
+                "f0c049d.2be87b8"
             ]
         ],
         "l": false
     },
     {
-        "id": "43fda4f8.d02b3c",
+        "id": "bf9fb42f.db4058",
         "type": "http request",
-        "z": "7d53bde.1a645c4",
-        "g": "25715a84.05775e",
+        "z": "93dfeda6.87345",
+        "g": "83df3251.a9c15",
         "name": "http [PUT]",
         "method": "PUT",
         "ret": "txt",
@@ -1090,15 +1091,15 @@
         "y": 1115,
         "wires": [
             [
-                "1f1b1f9a.05a43"
+                "fe8eea40.bbb328"
             ]
         ]
     },
     {
-        "id": "1f1b1f9a.05a43",
+        "id": "fe8eea40.bbb328",
         "type": "debug",
-        "z": "7d53bde.1a645c4",
-        "g": "25715a84.05775e",
+        "z": "93dfeda6.87345",
+        "g": "83df3251.a9c15",
         "name": "",
         "active": false,
         "tosidebar": true,
@@ -1114,10 +1115,10 @@
         "l": false
     },
     {
-        "id": "5833a09d.97daf",
+        "id": "f0c049d.2be87b8",
         "type": "change",
-        "z": "7d53bde.1a645c4",
-        "g": "25715a84.05775e",
+        "z": "93dfeda6.87345",
+        "g": "83df3251.a9c15",
         "name": "Add specific body to http request",
         "rules": [
             {
@@ -1144,18 +1145,18 @@
         "y": 1115,
         "wires": [
             [
-                "43fda4f8.d02b3c"
+                "bf9fb42f.db4058"
             ]
         ],
         "l": false
     },
     {
-        "id": "c8ce08c.e9e2d78",
+        "id": "d0868a42.37b228",
         "type": "function",
-        "z": "7d53bde.1a645c4",
-        "g": "25715a84.05775e",
+        "z": "93dfeda6.87345",
+        "g": "83df3251.a9c15",
         "name": "Automatic CustomDeviceList for Philips Hue",
-        "func": "// Get devices that are defined in Philips Hue bridge\n// And set them into the right format\nlet devices = [];\n\n// Bridge Ip address\nconst ipAddress = flow.get(\"bridgeIpAddress\");\n// node.error(\"IP address: \" + ipAddress);\n\n// Username\nlet username = flow.get(\"bridgeApiKey\");\n\n// Groups (zone)\nlet groups = msg.payload.groups;\n// node.warn(groups);\n\n//-------------------- Lights --------------------//\nlet lights = msg.payload.lights;\n\nif(lights !== undefined){\n    for(const obj in lights){\n        \n        // Template for lights\n        let light = \n            {\n                \"custom\": true,\n                \"name\": \"\",\n                \"zone\": \"\",\n                \"object\": \"\",\n                \"type\": \"dimmers\",\n                \"setOn\": {\n                    \"name\": \"On\",\n                    \"url\": \"\",\n                    \"body\": {\n                        \"on\": true\n                    }\n                },\n                \"setOff\": {\n                    \"name\": \"Off\",\n                    \"url\": \"\",\n                    \"body\": {\n                        \"on\": false\n                    }\n                },\n                \"setBrightness\": {\n                  \"name\": \"Brightness\",\n                  \"url\" : \"\",\n                  \"valueMin\":1,\n                  \"valueMax\":254,\n                  \"body\": {\n                      \"on\": true,\n                      \"bri\": 127\n                  }\n                },\n                \"currentState\": {\n                    \"name\": \"CurrentBrightness\",\n                    \"url\": \"\",\n                    \"parser\": \"philips\",\n                    \"id\": 0,\n                    \"bri\": 0,\n                    \"valueMin\": 1,\n                    \"valueMax\": 254\n                }\n            }\n        \n        // Light id for url\n        let lightID = obj;\n        \n        // Zone\n        for(const grp in groups){\n            if(groups[grp].lights.length !== 0){\n                // At least one light is part of the group\n                for(let i=0; i < groups[grp].lights.length; ++i){\n                    if(groups[grp].lights[i] === lightID){\n                        // Get zone\n                        light.zone = groups[grp].name;\n                    }\n                }\n            }\n            else{\n                // No light is part of the group\n                light.zone = \"Default\";\n            }\n        }\n        // Object (light name)\n        light.object = lights[obj].name;\n    \n        // Name\n        light.name = light.zone+\" \"+light.object;\n        \n        //***** Change functionType if it is a smart plug ****//\n        if(lights[obj].name === \"plug\"){\n            light.type = \"lights\";\n            light.currentState.name = \"CurrentState\";\n        }\n        \n        // On\n        light.setOn.url= \"http://\"+ipAddress+\"/api/\"+username+\"/lights/\"+lightID+\"/state\";\n        // Off\n        light.setOff.url= \"http://\"+ipAddress+\"/api/\"+username+\"/lights/\"+lightID+\"/state\";\n        // Brightness\n        light.setBrightness.url= \"http://\"+ipAddress+\"/api/\"+username+\"/lights/\"+lightID+\"/state\";\n        // State\n        light.currentState.url= \"http://\"+ipAddress+\"/api/\"+username+\"/lights/\"+lightID;\n        light.currentState.id= parseInt(lightID, 10);\n        if(lights[obj].state.bri !== undefined){\n            // Current brightness\n            light.currentState.bri= lights[obj].state.bri;\n        }\n        \n        // Add light to msgDeviceList\n        devices.push(light);\n        \n        \n        // node.warn(light);\n        // node.warn(devices);\n    }\n}\n\n//-------------------- Sensors --------------------//\nlet sensors = msg.payload.sensors;\n\nif(sensors !== undefined){\n    for(const obj in sensors){\n        \n        // Template for sensors\n        let sensor = \n            {\n                \"custom\": true,\n                \"name\": \"\",\n                \"type\": \"sensor\",\n                \"zone\": \"\",\n                \"object\": \"\",\n                \"currentState\": [\n                    {\n                        \"name\": \"CurrentValue\",\n                        \"url\": \"\",\n                        \"parser\": \"philips\",\n                        \"id\": 0\n                    }\n                ]\n            }\n        \n        // sensor id for url\n        let sensorID = obj;\n        \n        // Zone\n        for(const grp in groups){\n            if(groups[grp].sensors.length !== 0){\n                // At least one sensor is part of the group\n                for(let i=0; i < groups[grp].sensors.length; ++i){\n                    if(groups[grp].sensors[i] === sensorID){\n                        // Get zone\n                        sensor.zone = groups[grp].name;\n                    }\n                }\n            }\n            else{\n                // No sensor is part of the group\n                sensor.zone = \"Default\";\n            }\n        }\n        // Sensor name\n        sensor.name = sensors[obj].name;\n        \n        // State\n        sensor.currentState.url= \"http://\"+ipAddress+\"/api/\"+username+\"/sensors/\"+sensorID;\n        sensor.currentState.id= parseInt(sensorID,10);\n        \n        // Add sensor to msgDeviceList\n        devices.push(sensor);\n        \n        // node.warn(sensor);\n        // node.warn(devices);\n    }\n}\n\n//-------------------- Scenes --------------------//\nlet scenes = msg.payload.scenes;\n\nif(scenes !== undefined){\n    for(const obj in scenes){\n        \n        // Template for scene\n        let scene = \n            {\n                \"custom\": true,\n                \"name\": \"\",\n                \"type\": \"scenes\",\n                \"zone\": \"\",\n                \"object\": \"\",\n                \"group\": \"\",\n                \"setOn\":\n                    {\n                        \"name\": \"On\",\n                        \"url\": \"\",\n                        \"body\": {\n                            \"scene\": \"\"\n                        }\n                    }\n            }\n        \n        // scene id for url\n        let sceneID = obj;\n        \n        // Group & zone\n        if(scenes[obj].hasOwnProperty(\"group\") && scenes[obj].group !== \"\" && scenes[obj].group !== undefined){\n            scene.group = scenes[obj].group;\n            scene.zone = groups[parseInt(scene.group, 10)].name;\n        }\n        else{\n            // No scene is part of the group: default group & serverSiteId as zone\n            scene.group = \"0\";\n            let serverSiteId = global.get(\"msgServerSiteId\");\n            serverSiteId = serverSiteId.replace('_', ' ');\n            serverSiteId = serverSiteId.charAt(0).toUpperCase() + serverSiteId.slice(1);\n            \n            scene.zone = serverSiteId;\n        }\n        \n        // Object \n        scene.object = scenes[obj].name;\n        // Name\n        scene.name = scene.zone+\" \"+scene.object;\n        \n        // State\n        scene.setOn.url= \"http://\"+ipAddress+\"/api/\"+username+\"/groups/\"+scene.group+\"/action/\";\n        scene.setOn.body.scene = sceneID;\n        \n        // Add scene to msgDeviceList\n        devices.push(scene);\n        \n        // node.warn(scene);\n        // node.warn(devices);\n    }\n}\n\nmsg.payload = devices;\n\nreturn msg;",
+        "func": "// Get devices that are defined in Philips Hue bridge\n// And set them into the right format\nlet devices = [];\n\n// Bridge Ip address\nconst ipAddress = flow.get(\"bridgeIpAddress\");\n// node.error(\"IP address: \" + ipAddress);\n\n// Username\nlet username = flow.get(\"bridgeApiKey\");\n\n// Groups (zone)\nlet groups = msg.payload.groups;\n// node.warn(groups);\n\n//-------------------- Lights --------------------//\nlet lights = msg.payload.lights;\n\nif(lights !== undefined){\n    for(const obj in lights){\n        \n        // Template for lights\n        let light = \n            {\n                \"custom\": true,\n                \"name\": \"\",\n                \"zone\": \"\",\n                \"object\": \"\",\n                \"type\": \"dimmers\",\n                \"setOn\": {\n                    \"name\": \"On\",\n                    \"url\": \"\",\n                    \"body\": {\n                        \"on\": true\n                    }\n                },\n                \"setOff\": {\n                    \"name\": \"Off\",\n                    \"url\": \"\",\n                    \"body\": {\n                        \"on\": false\n                    }\n                },\n                \"setBrightness\": {\n                  \"name\": \"Brightness\",\n                  \"url\" : \"\",\n                  \"valueMin\":1,\n                  \"valueMax\":254,\n                  \"body\": {\n                      \"on\": true,\n                      \"bri\": 127\n                  }\n                },\n                \"currentState\": {\n                    \"name\": \"CurrentBrightness\",\n                    \"url\": \"\",\n                    \"parser\": \"philips\",\n                    \"id\": 0,\n                    \"bri\": 0,\n                    \"valueMin\": 1,\n                    \"valueMax\": 254\n                }\n            }\n        \n        // Light id for url\n        let lightID = obj;\n        \n        // Zone\n        for(const grp in groups){\n            if(groups[grp].lights.length !== 0){\n                // At least one light is part of the group\n                for(let i=0; i < groups[grp].lights.length; ++i){\n                    if(groups[grp].lights[i] === lightID){\n                        // Get zone\n                        if(groups[grp].hasOwnProperty(\"name\")){\n                            light.zone = groups[grp].name;\n                        }\n                        else{\n                            light.zone = \"Default\";\n                        }\n                    }\n                }\n            }\n            else{\n                // No light is part of the group\n                light.zone = \"Default\";\n            }\n        }\n        // Object (light name)\n        if(lights[obj].hasOwnProperty(\"name\")){\n            light.object = lights[obj].name;\n\n            //***** Change functionType if it is a smart plug ****//\n            if(lights[obj].name === \"plug\"){\n                light.type = \"lights\";\n                light.currentState.name = \"CurrentState\";\n            }\n        }\n        \n        // Name\n        light.name = light.zone+\" \"+light.object;\n        \n        // On\n        light.setOn.url= \"http://\"+ipAddress+\"/api/\"+username+\"/lights/\"+lightID+\"/state\";\n        // Off\n        light.setOff.url= \"http://\"+ipAddress+\"/api/\"+username+\"/lights/\"+lightID+\"/state\";\n        // Brightness\n        light.setBrightness.url= \"http://\"+ipAddress+\"/api/\"+username+\"/lights/\"+lightID+\"/state\";\n        // State\n        light.currentState.url= \"http://\"+ipAddress+\"/api/\"+username+\"/lights/\"+lightID;\n        light.currentState.id= parseInt(lightID, 10);\n        if(lights[obj].state.bri !== undefined){\n            // Current brightness\n            light.currentState.bri= lights[obj].state.bri;\n        }\n        \n        // Add light to msgDeviceList\n        devices.push(light);\n        \n        \n        // node.warn(light);\n        // node.warn(devices);\n    }\n}\n\n//-------------------- Sensors --------------------//\nlet sensors = msg.payload.sensors;\n\nif(sensors !== undefined){\n    for(const obj in sensors){\n        \n        // Template for sensors\n        let sensor = \n            {\n                \"custom\": true,\n                \"name\": \"\",\n                \"type\": \"sensor\",\n                \"zone\": \"\",\n                \"object\": \"\",\n                \"currentState\": [\n                    {\n                        \"name\": \"CurrentValue\",\n                        \"url\": \"\",\n                        \"parser\": \"philips\",\n                        \"id\": 0\n                    }\n                ]\n            }\n        \n        // sensor id for url\n        let sensorID = obj;\n        \n        // Zone\n        for(const grp in groups){\n            if(groups[grp].sensors.length !== 0){\n                // At least one sensor is part of the group\n                for(let i=0; i < groups[grp].sensors.length; ++i){\n                    if(groups[grp].sensors[i] === sensorID){\n                        // Get zone\n                        if(groups[grp].hasOwnProperty(\"name\")){\n                            sensor.zone = groups[grp].name;\n                        }\n                        else{\n                            sensor.zone = \"Default\";\n                        }\n                    }\n                }\n            }\n            else{\n                // No sensor is part of the group\n                sensor.zone = \"Default\";\n            }\n        }\n        // Sensor name\n        if(sensors[obj].hasOwnProperty(\"name\")){\n            sensor.name = sensors[obj].name;\n        }\n        \n        // State\n        sensor.currentState.url= \"http://\"+ipAddress+\"/api/\"+username+\"/sensors/\"+sensorID;\n        sensor.currentState.id= parseInt(sensorID,10);\n        \n        // Add sensor to msgDeviceList\n        devices.push(sensor);\n        \n        // node.warn(sensor);\n        // node.warn(devices);\n    }\n}\n\n//-------------------- Scenes --------------------//\nlet scenes = msg.payload.scenes;\n\nif(scenes !== undefined){\n    for(const obj in scenes){\n        \n        // Template for scene\n        let scene = \n            {\n                \"custom\": true,\n                \"name\": \"\",\n                \"type\": \"scenes\",\n                \"zone\": \"\",\n                \"object\": \"\",\n                \"group\": \"\",\n                \"setOn\":\n                    {\n                        \"name\": \"On\",\n                        \"url\": \"\",\n                        \"body\": {\n                            \"scene\": \"\"\n                        }\n                    }\n            }\n        \n        // scene id for url\n        let sceneID = obj;\n        \n        // Group & zone\n        if(scenes[obj].hasOwnProperty(\"group\") && scenes[obj].group !== \"\" && scenes[obj].group !== undefined){\n            scene.group = scenes[obj].group;\n            \n            if(groups[parseInt(scene.group, 10)].hasOwnProperty(\"name\")){\n                scene.zone = groups[parseInt(scene.group, 10)].name;\n            }\n            else{\n                let serverSiteId = global.get(\"msgServerSiteId\");\n                serverSiteId = serverSiteId.replace('_', ' ');\n                serverSiteId = serverSiteId.charAt(0).toUpperCase() + serverSiteId.slice(1);\n                \n                scene.zone = serverSiteId;\n            }\n        }\n        else{\n            // No scene is part of the group: default group & serverSiteId as zone\n            scene.group = \"0\";\n            let serverSiteId = global.get(\"msgServerSiteId\");\n            serverSiteId = serverSiteId.replace('_', ' ');\n            serverSiteId = serverSiteId.charAt(0).toUpperCase() + serverSiteId.slice(1);\n            \n            scene.zone = serverSiteId;\n        }\n        \n        // Object\n        if(scenes[obj].hasOwnProperty(\"name\")){\n            scene.object = scenes[obj].name;\n        }\n        \n        // Name\n        scene.name = scene.zone+\" \"+scene.object;\n        \n        // State\n        scene.setOn.url= \"http://\"+ipAddress+\"/api/\"+username+\"/groups/\"+scene.group+\"/action/\";\n        scene.setOn.body.scene = sceneID;\n        \n        // Add scene to msgDeviceList\n        devices.push(scene);\n        \n        // node.warn(scene);\n        // node.warn(devices);\n    }\n}\n\nmsg.payload = devices;\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -1164,18 +1165,18 @@
         "y": 680,
         "wires": [
             [
-                "3c32f142.95428e",
-                "cb6ad983.5d0d2",
-                "ccf65620.e26fb8"
+                "69064f6c.6567a",
+                "cbc4ea65.b983a8",
+                "25422191.c7903e"
             ]
         ],
         "l": false
     },
     {
-        "id": "85e806dc.9236a8",
+        "id": "c679da8.ce91728",
         "type": "inject",
-        "z": "7d53bde.1a645c4",
-        "g": "25715a84.05775e",
+        "z": "93dfeda6.87345",
+        "g": "83df3251.a9c15",
         "name": "Automatic customDeviceList (debug)",
         "props": [
             {
@@ -1197,15 +1198,15 @@
         "y": 680,
         "wires": [
             [
-                "ff17d3c2.1fa47"
+                "7958a547.c0f9bc"
             ]
         ]
     },
     {
-        "id": "3c32f142.95428e",
+        "id": "69064f6c.6567a",
         "type": "debug",
-        "z": "7d53bde.1a645c4",
-        "g": "25715a84.05775e",
+        "z": "93dfeda6.87345",
+        "g": "83df3251.a9c15",
         "name": "",
         "active": false,
         "tosidebar": true,
@@ -1221,10 +1222,10 @@
         "l": false
     },
     {
-        "id": "4316f2cd.86c3cc",
+        "id": "4ea97a58.428ae4",
         "type": "comment",
-        "z": "7d53bde.1a645c4",
-        "g": "25715a84.05775e",
+        "z": "93dfeda6.87345",
+        "g": "83df3251.a9c15",
         "name": "↓ Custom devices - automatically define your Philips devices ↓",
         "info": "",
         "x": 1060,
@@ -1232,28 +1233,28 @@
         "wires": []
     },
     {
-        "id": "672dcd9b.b46b9c",
+        "id": "946c9b67.f30e98",
         "type": "link in",
-        "z": "7d53bde.1a645c4",
-        "g": "25715a84.05775e",
+        "z": "93dfeda6.87345",
+        "g": "83df3251.a9c15",
         "name": "AUTO DEVICE LIST IN",
         "links": [
             "9bcfbaae.298fc8",
-            "ae5e431a.80fa48"
+            "6009d4b2.b29b8c"
         ],
         "x": 1115,
         "y": 720,
         "wires": [
             [
-                "ff17d3c2.1fa47"
+                "7958a547.c0f9bc"
             ]
         ]
     },
     {
-        "id": "ff17d3c2.1fa47",
+        "id": "7958a547.c0f9bc",
         "type": "switch",
-        "z": "7d53bde.1a645c4",
-        "g": "25715a84.05775e",
+        "z": "93dfeda6.87345",
+        "g": "83df3251.a9c15",
         "name": "Login?",
         "property": "login",
         "propertyType": "flow",
@@ -1269,29 +1270,29 @@
         "y": 680,
         "wires": [
             [
-                "c8ce08c.e9e2d78"
+                "d0868a42.37b228"
             ]
         ],
         "l": false
     },
     {
-        "id": "ccf65620.e26fb8",
+        "id": "25422191.c7903e",
         "type": "link out",
-        "z": "7d53bde.1a645c4",
-        "g": "25715a84.05775e",
+        "z": "93dfeda6.87345",
+        "g": "83df3251.a9c15",
         "name": "UI UPDATE DEVICE LIST OUT",
         "links": [
-            "6014d20e.8b417c"
+            "318fb263.7a63ce"
         ],
         "x": 1355,
         "y": 720,
         "wires": []
     },
     {
-        "id": "6c965645.ca7318",
+        "id": "54f89a12.6f68e4",
         "type": "debug",
-        "z": "7d53bde.1a645c4",
-        "g": "2addc59d.da626a",
+        "z": "93dfeda6.87345",
+        "g": "7e7e4e7b.883f5",
         "name": "",
         "active": false,
         "tosidebar": true,
@@ -1307,10 +1308,10 @@
         "l": false
     },
     {
-        "id": "b0dde4e7.08e92",
+        "id": "a5f11ba8.f140a8",
         "type": "http request",
-        "z": "7d53bde.1a645c4",
-        "g": "2addc59d.da626a",
+        "z": "93dfeda6.87345",
+        "g": "7e7e4e7b.883f5",
         "name": "Create new user (once only)",
         "method": "POST",
         "ret": "txt",
@@ -1324,17 +1325,17 @@
         "y": 660,
         "wires": [
             [
-                "3d376ff1.e0f108"
+                "2e6526ff.6a40ba"
             ]
         ],
         "l": false
     },
     {
-        "id": "60dbc035.28ec4",
+        "id": "4a717777.a6ab48",
         "type": "inject",
-        "z": "7d53bde.1a645c4",
+        "z": "93dfeda6.87345",
         "d": true,
-        "g": "2addc59d.da626a",
+        "g": "7e7e4e7b.883f5",
         "name": "Create new user (debug)",
         "props": [
             {
@@ -1360,10 +1361,10 @@
         "l": false
     },
     {
-        "id": "3a6babce.4633bc",
+        "id": "c19b605c.755b4",
         "type": "json",
-        "z": "7d53bde.1a645c4",
-        "g": "2addc59d.da626a",
+        "z": "93dfeda6.87345",
+        "g": "7e7e4e7b.883f5",
         "name": "",
         "property": "payload",
         "action": "",
@@ -1372,16 +1373,16 @@
         "y": 640,
         "wires": [
             [
-                "180d275.6673dd9"
+                "3b11e013.06c1c"
             ]
         ],
         "l": false
     },
     {
-        "id": "c59bea3a.183cc",
+        "id": "91947035.6ab14",
         "type": "change",
-        "z": "7d53bde.1a645c4",
-        "g": "2addc59d.da626a",
+        "z": "93dfeda6.87345",
+        "g": "7e7e4e7b.883f5",
         "name": "",
         "rules": [
             {
@@ -1401,16 +1402,16 @@
         "y": 660,
         "wires": [
             [
-                "1183db3d.b5b3c5"
+                "d572fd0b.26178"
             ]
         ],
         "l": false
     },
     {
-        "id": "1183db3d.b5b3c5",
+        "id": "d572fd0b.26178",
         "type": "change",
-        "z": "7d53bde.1a645c4",
-        "g": "2addc59d.da626a",
+        "z": "93dfeda6.87345",
+        "g": "7e7e4e7b.883f5",
         "name": "",
         "rules": [
             {
@@ -1432,16 +1433,16 @@
         "y": 660,
         "wires": [
             [
-                "b0dde4e7.08e92"
+                "a5f11ba8.f140a8"
             ]
         ],
         "l": false
     },
     {
-        "id": "65fc0b4c.6d5c6c",
+        "id": "e488c940.f843a8",
         "type": "comment",
-        "z": "7d53bde.1a645c4",
-        "g": "2addc59d.da626a",
+        "z": "93dfeda6.87345",
+        "g": "7e7e4e7b.883f5",
         "name": "Create authorized user for Philips Hue Bridge",
         "info": "Authorized user are allowed to control all devices that have been defined in Philips Hue Android App.",
         "x": 210,
@@ -1449,12 +1450,12 @@
         "wires": []
     },
     {
-        "id": "b5b06634.d6a27",
+        "id": "9c14355c.401f68",
         "type": "ui_button",
-        "z": "7d53bde.1a645c4",
-        "g": "2addc59d.da626a",
+        "z": "93dfeda6.87345",
+        "g": "7e7e4e7b.883f5",
         "name": "New connection",
-        "group": "5e9a38be.a92b4",
+        "group": "e4287664.fc5db8",
         "order": 3,
         "width": 3,
         "height": 1,
@@ -1471,16 +1472,16 @@
         "y": 640,
         "wires": [
             [
-                "c2b5c34c.101d78"
+                "58901619.cfc008"
             ]
         ],
         "l": false
     },
     {
-        "id": "9c663cfc.cc0e7",
+        "id": "ae2525ad.c5a688",
         "type": "ui_toast",
-        "z": "7d53bde.1a645c4",
-        "g": "2addc59d.da626a",
+        "z": "93dfeda6.87345",
+        "g": "7e7e4e7b.883f5",
         "position": "top right",
         "displayTime": "3",
         "highlight": "",
@@ -1497,10 +1498,10 @@
         "l": false
     },
     {
-        "id": "180d275.6673dd9",
+        "id": "3b11e013.06c1c",
         "type": "switch",
-        "z": "7d53bde.1a645c4",
-        "g": "2addc59d.da626a",
+        "z": "93dfeda6.87345",
+        "g": "7e7e4e7b.883f5",
         "name": "Username already created?",
         "property": "bridgeApiKey",
         "propertyType": "flow",
@@ -1523,21 +1524,21 @@
         "y": 620,
         "wires": [
             [
-                "699b738.a8d7d8c",
-                "7664029e.5b629c"
+                "74336134.91b96",
+                "77ace372.8d31bc"
             ],
             [
-                "94f3dffa.02c6a8",
-                "e505b5d7.556a8"
+                "e4ac9c7e.5486b",
+                "ff0d95e8.b5c0b8"
             ]
         ],
         "l": false
     },
     {
-        "id": "e25c9e2c.53bb8",
+        "id": "738c35cd.fde98c",
         "type": "ui_toast",
-        "z": "7d53bde.1a645c4",
-        "g": "2addc59d.da626a",
+        "z": "93dfeda6.87345",
+        "g": "7e7e4e7b.883f5",
         "position": "top right",
         "displayTime": "3",
         "highlight": "",
@@ -1554,10 +1555,10 @@
         "l": false
     },
     {
-        "id": "1d516a3a.716b56",
+        "id": "ef23474f.8e4a38",
         "type": "change",
-        "z": "7d53bde.1a645c4",
-        "g": "2addc59d.da626a",
+        "z": "93dfeda6.87345",
+        "g": "7e7e4e7b.883f5",
         "name": "",
         "rules": [
             {
@@ -1577,19 +1578,19 @@
         "y": 1420,
         "wires": [
             [
-                "6c965645.ca7318",
-                "530f0f84.a282c",
-                "313dd1e7.6586de"
+                "54f89a12.6f68e4",
+                "59d263db.76500c",
+                "e7726a76.d5db28"
             ]
         ],
         "l": false
     },
     {
-        "id": "64df1bec.7e813c",
+        "id": "466923b6.45d58c",
         "type": "ui_text",
-        "z": "7d53bde.1a645c4",
-        "g": "2addc59d.da626a",
-        "group": "5e9a38be.a92b4",
+        "z": "93dfeda6.87345",
+        "g": "7e7e4e7b.883f5",
+        "group": "e4287664.fc5db8",
         "order": 7,
         "width": 14,
         "height": 1,
@@ -1602,10 +1603,10 @@
         "wires": []
     },
     {
-        "id": "6379e7c0.8ce3b",
+        "id": "b78cae3d.d5b03",
         "type": "change",
-        "z": "7d53bde.1a645c4",
-        "g": "2addc59d.da626a",
+        "z": "93dfeda6.87345",
+        "g": "7e7e4e7b.883f5",
         "name": "",
         "rules": [
             {
@@ -1625,16 +1626,16 @@
         "y": 820,
         "wires": [
             [
-                "64df1bec.7e813c"
+                "466923b6.45d58c"
             ]
         ],
         "l": false
     },
     {
-        "id": "86293f1.2b085c",
+        "id": "66718ed5.788d8",
         "type": "change",
-        "z": "7d53bde.1a645c4",
-        "g": "2addc59d.da626a",
+        "z": "93dfeda6.87345",
+        "g": "7e7e4e7b.883f5",
         "name": "",
         "rules": [
             {
@@ -1654,16 +1655,16 @@
         "y": 860,
         "wires": [
             [
-                "64df1bec.7e813c"
+                "466923b6.45d58c"
             ]
         ],
         "l": false
     },
     {
-        "id": "c81af2ef.2ffe8",
+        "id": "ab1312d4.833ef",
         "type": "inject",
-        "z": "7d53bde.1a645c4",
-        "g": "2addc59d.da626a",
+        "z": "93dfeda6.87345",
+        "g": "7e7e4e7b.883f5",
         "name": "",
         "props": [
             {
@@ -1685,15 +1686,15 @@
         "y": 840,
         "wires": [
             [
-                "e2fca6d9.ce46"
+                "d9634d00.fe64c"
             ]
         ]
     },
     {
-        "id": "b9399fe9.3d727",
+        "id": "80f3689b.a23098",
         "type": "comment",
-        "z": "7d53bde.1a645c4",
-        "g": "2addc59d.da626a",
+        "z": "93dfeda6.87345",
+        "g": "7e7e4e7b.883f5",
         "name": "UI Dashboard",
         "info": "This user interface helps is used to set up the first connection between Philips Hue bridge and ARAGON.",
         "x": 110,
@@ -1701,11 +1702,11 @@
         "wires": []
     },
     {
-        "id": "699e8797.5daf48",
+        "id": "d97de4d.e1cbc18",
         "type": "ui_template",
-        "z": "7d53bde.1a645c4",
-        "g": "2addc59d.da626a",
-        "group": "5e9a38be.a92b4",
+        "z": "93dfeda6.87345",
+        "g": "7e7e4e7b.883f5",
+        "group": "e4287664.fc5db8",
         "name": "Header",
         "order": 1,
         "width": 14,
@@ -1719,15 +1720,15 @@
         "y": 1060,
         "wires": [
             [
-                "d2790902.f1e5a8"
+                "2c8db891.263cf8"
             ]
         ]
     },
     {
-        "id": "a9fe7943.5c4ec",
+        "id": "693331c9.46502",
         "type": "inject",
-        "z": "7d53bde.1a645c4",
-        "g": "2addc59d.da626a",
+        "z": "93dfeda6.87345",
+        "g": "7e7e4e7b.883f5",
         "name": "Paragraph",
         "props": [
             {
@@ -1749,15 +1750,15 @@
         "y": 1060,
         "wires": [
             [
-                "699e8797.5daf48"
+                "d97de4d.e1cbc18"
             ]
         ]
     },
     {
-        "id": "d2790902.f1e5a8",
+        "id": "2c8db891.263cf8",
         "type": "debug",
-        "z": "7d53bde.1a645c4",
-        "g": "2addc59d.da626a",
+        "z": "93dfeda6.87345",
+        "g": "7e7e4e7b.883f5",
         "name": "",
         "active": false,
         "tosidebar": true,
@@ -1773,12 +1774,12 @@
         "l": false
     },
     {
-        "id": "ca1dcace.6400a",
+        "id": "e2a55b4e.553c28",
         "type": "ui_button",
-        "z": "7d53bde.1a645c4",
-        "g": "2addc59d.da626a",
+        "z": "93dfeda6.87345",
+        "g": "7e7e4e7b.883f5",
         "name": "Devices",
-        "group": "28dad04f.67e66",
+        "group": "74e4e3ab.22089c",
         "order": 1,
         "width": 7,
         "height": 1,
@@ -1795,17 +1796,17 @@
         "y": 1200,
         "wires": [
             [
-                "62c5ccf1.8925c4"
+                "6e3eb805.a26be8"
             ]
         ],
         "l": false
     },
     {
-        "id": "77a4d85e.bdba5",
+        "id": "9d0a46a6.a87a58",
         "type": "ui_text",
-        "z": "7d53bde.1a645c4",
-        "g": "2addc59d.da626a",
-        "group": "5e9a38be.a92b4",
+        "z": "93dfeda6.87345",
+        "g": "7e7e4e7b.883f5",
+        "group": "e4287664.fc5db8",
         "order": 2,
         "width": "5",
         "height": 1,
@@ -1819,15 +1820,15 @@
         "l": false
     },
     {
-        "id": "1387df5d.be85f1",
+        "id": "469f5e73.1a597",
         "type": "ui_dropdown",
-        "z": "7d53bde.1a645c4",
-        "g": "2addc59d.da626a",
+        "z": "93dfeda6.87345",
+        "g": "7e7e4e7b.883f5",
         "name": "Lights_list",
         "label": "Lights",
         "tooltip": "",
         "place": "Show list",
-        "group": "28dad04f.67e66",
+        "group": "74e4e3ab.22089c",
         "order": 2,
         "width": 7,
         "height": 1,
@@ -1846,15 +1847,15 @@
         "y": 1420,
         "wires": [
             [
-                "8abdf964.f6f59"
+                "432fa332.327ccc"
             ]
         ]
     },
     {
-        "id": "8abdf964.f6f59",
+        "id": "432fa332.327ccc",
         "type": "debug",
-        "z": "7d53bde.1a645c4",
-        "g": "2addc59d.da626a",
+        "z": "93dfeda6.87345",
+        "g": "7e7e4e7b.883f5",
         "name": "",
         "active": false,
         "tosidebar": true,
@@ -1870,10 +1871,10 @@
         "l": false
     },
     {
-        "id": "e2ba9bf2.90454",
+        "id": "ad1e4351.b05b7",
         "type": "change",
-        "z": "7d53bde.1a645c4",
-        "g": "2addc59d.da626a",
+        "z": "93dfeda6.87345",
+        "g": "7e7e4e7b.883f5",
         "name": "",
         "rules": [
             {
@@ -1900,16 +1901,16 @@
         "y": 660,
         "wires": [
             [
-                "e25c9e2c.53bb8"
+                "738c35cd.fde98c"
             ]
         ],
         "l": false
     },
     {
-        "id": "699b738.a8d7d8c",
+        "id": "74336134.91b96",
         "type": "change",
-        "z": "7d53bde.1a645c4",
-        "g": "2addc59d.da626a",
+        "z": "93dfeda6.87345",
+        "g": "7e7e4e7b.883f5",
         "name": "",
         "rules": [
             {
@@ -1936,16 +1937,16 @@
         "y": 600,
         "wires": [
             [
-                "9c663cfc.cc0e7"
+                "ae2525ad.c5a688"
             ]
         ],
         "l": false
     },
     {
-        "id": "1aaec6ab.6cf279",
+        "id": "3ddd53ca.a25cec",
         "type": "debug",
-        "z": "7d53bde.1a645c4",
-        "g": "2addc59d.da626a",
+        "z": "93dfeda6.87345",
+        "g": "7e7e4e7b.883f5",
         "name": "",
         "active": false,
         "tosidebar": true,
@@ -1961,10 +1962,10 @@
         "l": false
     },
     {
-        "id": "b0aca39f.3bd26",
+        "id": "64d5d65b.12aad8",
         "type": "switch",
-        "z": "7d53bde.1a645c4",
-        "g": "2addc59d.da626a",
+        "z": "93dfeda6.87345",
+        "g": "7e7e4e7b.883f5",
         "name": "",
         "property": "login",
         "propertyType": "flow",
@@ -1980,16 +1981,16 @@
         "y": 860,
         "wires": [
             [
-                "86293f1.2b085c"
+                "66718ed5.788d8"
             ]
         ],
         "l": false
     },
     {
-        "id": "e2fca6d9.ce46",
+        "id": "d9634d00.fe64c",
         "type": "switch",
-        "z": "7d53bde.1a645c4",
-        "g": "2addc59d.da626a",
+        "z": "93dfeda6.87345",
+        "g": "7e7e4e7b.883f5",
         "name": "",
         "property": "login",
         "propertyType": "flow",
@@ -2013,22 +2014,22 @@
         "y": 840,
         "wires": [
             [
-                "6379e7c0.8ce3b"
+                "b78cae3d.d5b03"
             ],
             [
-                "6379e7c0.8ce3b"
+                "b78cae3d.d5b03"
             ],
             [
-                "b0aca39f.3bd26"
+                "64d5d65b.12aad8"
             ]
         ],
         "l": false
     },
     {
-        "id": "e799d037.2a7e6",
+        "id": "6dd965a1.7166bc",
         "type": "change",
-        "z": "7d53bde.1a645c4",
-        "g": "2addc59d.da626a",
+        "z": "93dfeda6.87345",
+        "g": "7e7e4e7b.883f5",
         "name": "Failed login",
         "rules": [
             {
@@ -2055,18 +2056,18 @@
         "y": 1180,
         "wires": [
             [
-                "cdd495d8.15cae8"
+                "f0a062dd.d8d97"
             ]
         ],
         "l": false
     },
     {
-        "id": "530f0f84.a282c",
+        "id": "59d263db.76500c",
         "type": "function",
-        "z": "7d53bde.1a645c4",
-        "g": "2addc59d.da626a",
+        "z": "93dfeda6.87345",
+        "g": "7e7e4e7b.883f5",
         "name": "Update device list",
-        "func": "let devices= flow.get(\"bridgeDevices\");\n\nvar lights_name= [];\nvar sensors_name= [];\nvar scenes_name= [];\nmsg.payload= {};\n\nfor(let id in devices){\n\n    switch(devices[id].type){\n        \n        //Get lights + room\n        case \"dimmers\":\n        case \"lights\":\n            lights_name.push(devices[id].object + \" - Room: \" + devices[id].zone);\n            break;\n        \n        //Get sensors + room\n        case \"sensor\":\n            sensors_name.push(devices[id].name + \" - Room: \" + devices[id].zone);\n            break;\n        \n        //Get scenes + room\n        case \"scenes\":\n            scenes_name.push(devices[id].object + \" - Room: \" + devices[id].zone);\n            break;\n            \n        default:\n            node.warn(\"Device not found!\");\n    }\n    \n}\n\nmsg.payload.lights = lights_name;\nmsg.payload.sensors = sensors_name;\nmsg.payload.scenes = scenes_name;\n\nreturn msg;",
+        "func": "let devices= flow.get(\"bridgeDevices\");\n\nvar lights_name= [];\nvar sensors_name= [];\nvar scenes_name= [];\nmsg.payload= {};\n\nfor(let id in devices){\n\n    switch(devices[id].type){\n        \n        //Get lights + room\n        case \"dimmers\":\n        case \"lights\":\n            if(devices[id].hasOwnProperty(\"object\") && devices[id].hasOwnProperty(\"zone\")){\n                lights_name.push(devices[id].object + \" - Room: \" + devices[id].zone);\n            }\n            break;\n        \n        //Get sensors + room\n        case \"sensor\":\n            if(devices[id].hasOwnProperty(\"name\") && devices[id].hasOwnProperty(\"zone\")){\n                sensors_name.push(devices[id].name + \" - Room: \" + devices[id].zone); \n            }\n            break;\n        \n        //Get scenes + room\n        case \"scenes\":\n            if(devices[id].hasOwnProperty(\"object\") && devices[id].hasOwnProperty(\"zone\")){\n                scenes_name.push(devices[id].object + \" - Room: \" + devices[id].zone);\n            }\n            break;\n            \n        default:\n            node.warn(\"Device not found!\");\n    }\n    \n}\n\nmsg.payload.lights = lights_name;\nmsg.payload.sensors = sensors_name;\nmsg.payload.scenes = scenes_name;\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -2075,19 +2076,19 @@
         "y": 1420,
         "wires": [
             [
-                "1aaec6ab.6cf279",
-                "1487738c.ca7cfc",
-                "45557099.59e7f8",
-                "765590ed.61608"
+                "3ddd53ca.a25cec",
+                "4ae5ecf8.766664",
+                "3019cb6f.a4df64",
+                "80feeddd.1b674"
             ]
         ],
         "l": false
     },
     {
-        "id": "90880671.1f9c8",
+        "id": "960c7b44.78c1d8",
         "type": "comment",
-        "z": "7d53bde.1a645c4",
-        "g": "2addc59d.da626a",
+        "z": "93dfeda6.87345",
+        "g": "7e7e4e7b.883f5",
         "name": "Intructions for user",
         "info": "",
         "x": 130,
@@ -2095,10 +2096,10 @@
         "wires": []
     },
     {
-        "id": "7f5e8353.b50664",
+        "id": "5552d335.c405ec",
         "type": "comment",
-        "z": "7d53bde.1a645c4",
-        "g": "2addc59d.da626a",
+        "z": "93dfeda6.87345",
+        "g": "7e7e4e7b.883f5",
         "name": "Connection status",
         "info": "",
         "x": 130,
@@ -2106,42 +2107,42 @@
         "wires": []
     },
     {
-        "id": "b8b8f4de.ca0cb8",
+        "id": "d7246a29.1e2358",
         "type": "link in",
-        "z": "7d53bde.1a645c4",
-        "g": "2addc59d.da626a",
+        "z": "93dfeda6.87345",
+        "g": "7e7e4e7b.883f5",
         "name": "SUCESSFUL LOG IN (STATUS)",
         "links": [
-            "94f3dffa.02c6a8",
-            "cb10032d.16796"
+            "e4ac9c7e.5486b",
+            "78e0242a.e5075c"
         ],
         "x": 255,
         "y": 880,
         "wires": [
             [
-                "b0aca39f.3bd26"
+                "64d5d65b.12aad8"
             ]
         ]
     },
     {
-        "id": "c74db45.17968c8",
+        "id": "83207e03.29eba",
         "type": "link out",
-        "z": "7d53bde.1a645c4",
-        "g": "2addc59d.da626a",
+        "z": "93dfeda6.87345",
+        "g": "7e7e4e7b.883f5",
         "name": "GET IP OUT",
         "links": [
-            "41080d37.accf7c",
-            "67df965c.8ddf88"
+            "a64d8879.099bf8",
+            "8c6c4101.71197"
         ],
         "x": 215,
         "y": 600,
         "wires": []
     },
     {
-        "id": "c2b5c34c.101d78",
+        "id": "58901619.cfc008",
         "type": "switch",
-        "z": "7d53bde.1a645c4",
-        "g": "2addc59d.da626a",
+        "z": "93dfeda6.87345",
+        "g": "7e7e4e7b.883f5",
         "name": "bridge IP?",
         "property": "bridgeIpAddress",
         "propertyType": "flow",
@@ -2164,32 +2165,32 @@
         "y": 640,
         "wires": [
             [
-                "c74db45.17968c8"
+                "83207e03.29eba"
             ],
             [
-                "c59bea3a.183cc"
+                "91947035.6ab14"
             ]
         ],
         "l": false
     },
     {
-        "id": "94f3dffa.02c6a8",
+        "id": "e4ac9c7e.5486b",
         "type": "link out",
-        "z": "7d53bde.1a645c4",
-        "g": "2addc59d.da626a",
+        "z": "93dfeda6.87345",
+        "g": "7e7e4e7b.883f5",
         "name": "SUCCESSFUL NEW CONNECTION",
         "links": [
-            "b8b8f4de.ca0cb8"
+            "d7246a29.1e2358"
         ],
         "x": 575,
         "y": 680,
         "wires": []
     },
     {
-        "id": "fc42d0bf.d007a8",
+        "id": "8ce52662.26ff18",
         "type": "change",
-        "z": "7d53bde.1a645c4",
-        "g": "2addc59d.da626a",
+        "z": "93dfeda6.87345",
+        "g": "7e7e4e7b.883f5",
         "name": "Logged in",
         "rules": [
             {
@@ -2216,16 +2217,16 @@
         "y": 1220,
         "wires": [
             [
-                "6a6cba77.197d44"
+                "c9c60743.554ca8"
             ]
         ],
         "l": false
     },
     {
-        "id": "6a6cba77.197d44",
+        "id": "c9c60743.554ca8",
         "type": "ui_toast",
-        "z": "7d53bde.1a645c4",
-        "g": "2addc59d.da626a",
+        "z": "93dfeda6.87345",
+        "g": "7e7e4e7b.883f5",
         "position": "top right",
         "displayTime": "4",
         "highlight": "",
@@ -2242,10 +2243,10 @@
         "l": false
     },
     {
-        "id": "c898c6a.9a48738",
+        "id": "676e5845.334928",
         "type": "change",
-        "z": "7d53bde.1a645c4",
-        "g": "2addc59d.da626a",
+        "z": "93dfeda6.87345",
+        "g": "7e7e4e7b.883f5",
         "name": "",
         "rules": [
             {
@@ -2272,16 +2273,16 @@
         "y": 1340,
         "wires": [
             [
-                "5af2a5ae.04d0b4"
+                "bd8834b.d53d7c8"
             ]
         ],
         "l": false
     },
     {
-        "id": "5af2a5ae.04d0b4",
+        "id": "bd8834b.d53d7c8",
         "type": "ui_toast",
-        "z": "7d53bde.1a645c4",
-        "g": "2addc59d.da626a",
+        "z": "93dfeda6.87345",
+        "g": "7e7e4e7b.883f5",
         "position": "top right",
         "displayTime": "3",
         "highlight": "",
@@ -2298,10 +2299,10 @@
         "l": false
     },
     {
-        "id": "62c5ccf1.8925c4",
+        "id": "6e3eb805.a26be8",
         "type": "switch",
-        "z": "7d53bde.1a645c4",
-        "g": "2addc59d.da626a",
+        "z": "93dfeda6.87345",
+        "g": "7e7e4e7b.883f5",
         "name": "login?",
         "property": "login",
         "propertyType": "flow",
@@ -2320,33 +2321,33 @@
         "y": 1200,
         "wires": [
             [
-                "e799d037.2a7e6"
+                "6dd965a1.7166bc"
             ],
             [
-                "fc42d0bf.d007a8",
-                "b54ff977.3d4958"
+                "8ce52662.26ff18",
+                "1566188a.702f67"
             ]
         ],
         "l": false
     },
     {
-        "id": "bb756f68.5f42c8",
+        "id": "f07a292b.47c6e8",
         "type": "link out",
-        "z": "7d53bde.1a645c4",
-        "g": "2addc59d.da626a",
+        "z": "93dfeda6.87345",
+        "g": "7e7e4e7b.883f5",
         "name": "UI DEVICES OUT",
         "links": [
-            "b71af0ab.534aa8"
+            "dc35fbdd.def438"
         ],
         "x": 355,
         "y": 1260,
         "wires": []
     },
     {
-        "id": "cdd495d8.15cae8",
+        "id": "f0a062dd.d8d97",
         "type": "ui_toast",
-        "z": "7d53bde.1a645c4",
-        "g": "2addc59d.da626a",
+        "z": "93dfeda6.87345",
+        "g": "7e7e4e7b.883f5",
         "position": "top right",
         "displayTime": "3",
         "highlight": "",
@@ -2363,27 +2364,27 @@
         "l": false
     },
     {
-        "id": "6014d20e.8b417c",
+        "id": "318fb263.7a63ce",
         "type": "link in",
-        "z": "7d53bde.1a645c4",
-        "g": "2addc59d.da626a",
+        "z": "93dfeda6.87345",
+        "g": "7e7e4e7b.883f5",
         "name": "UI UPDATE DEVICES LIST IN",
         "links": [
-            "ccf65620.e26fb8"
+            "25422191.c7903e"
         ],
         "x": 55,
         "y": 1420,
         "wires": [
             [
-                "1d516a3a.716b56"
+                "ef23474f.8e4a38"
             ]
         ]
     },
     {
-        "id": "64bbcbc2.b3356c",
+        "id": "fa248a76.1c5018",
         "type": "comment",
-        "z": "7d53bde.1a645c4",
-        "g": "2addc59d.da626a",
+        "z": "93dfeda6.87345",
+        "g": "7e7e4e7b.883f5",
         "name": "***********************Get Devices & Scenes (manually)***********************",
         "info": "",
         "x": 300,
@@ -2391,10 +2392,10 @@
         "wires": []
     },
     {
-        "id": "fa4418af.714f08",
+        "id": "ab8070c0.aada",
         "type": "comment",
-        "z": "7d53bde.1a645c4",
-        "g": "2addc59d.da626a",
+        "z": "93dfeda6.87345",
+        "g": "7e7e4e7b.883f5",
         "name": "Update UI",
         "info": "",
         "x": 100,
@@ -2402,10 +2403,10 @@
         "wires": []
     },
     {
-        "id": "b54ff977.3d4958",
+        "id": "1566188a.702f67",
         "type": "delay",
-        "z": "7d53bde.1a645c4",
-        "g": "2addc59d.da626a",
+        "z": "93dfeda6.87345",
+        "g": "7e7e4e7b.883f5",
         "name": "",
         "pauseType": "delay",
         "timeout": "2",
@@ -2421,21 +2422,21 @@
         "y": 1260,
         "wires": [
             [
-                "bb756f68.5f42c8"
+                "f07a292b.47c6e8"
             ]
         ],
         "l": false
     },
     {
-        "id": "d01ae85e.72d318",
+        "id": "a7cc1c32.ac89f",
         "type": "ui_dropdown",
-        "z": "7d53bde.1a645c4",
-        "g": "2addc59d.da626a",
+        "z": "93dfeda6.87345",
+        "g": "7e7e4e7b.883f5",
         "name": "Sensors_list",
         "label": "Sensors",
         "tooltip": "",
         "place": "Show list",
-        "group": "28dad04f.67e66",
+        "group": "74e4e3ab.22089c",
         "order": 4,
         "width": 7,
         "height": 1,
@@ -2454,15 +2455,15 @@
         "y": 1480,
         "wires": [
             [
-                "574b3102.553c6"
+                "96c94e49.2f5dc"
             ]
         ]
     },
     {
-        "id": "574b3102.553c6",
+        "id": "96c94e49.2f5dc",
         "type": "debug",
-        "z": "7d53bde.1a645c4",
-        "g": "2addc59d.da626a",
+        "z": "93dfeda6.87345",
+        "g": "7e7e4e7b.883f5",
         "name": "",
         "active": false,
         "tosidebar": true,
@@ -2478,10 +2479,10 @@
         "l": false
     },
     {
-        "id": "1487738c.ca7cfc",
+        "id": "4ae5ecf8.766664",
         "type": "change",
-        "z": "7d53bde.1a645c4",
-        "g": "2addc59d.da626a",
+        "z": "93dfeda6.87345",
+        "g": "7e7e4e7b.883f5",
         "name": "",
         "rules": [
             {
@@ -2501,16 +2502,16 @@
         "y": 1480,
         "wires": [
             [
-                "d01ae85e.72d318"
+                "a7cc1c32.ac89f"
             ]
         ],
         "l": false
     },
     {
-        "id": "313dd1e7.6586de",
+        "id": "e7726a76.d5db28",
         "type": "delay",
-        "z": "7d53bde.1a645c4",
-        "g": "2addc59d.da626a",
+        "z": "93dfeda6.87345",
+        "g": "7e7e4e7b.883f5",
         "name": "",
         "pauseType": "delay",
         "timeout": "2",
@@ -2526,16 +2527,16 @@
         "y": 1360,
         "wires": [
             [
-                "3f1400bb.9c51e"
+                "cae11ec7.23faa"
             ]
         ],
         "l": false
     },
     {
-        "id": "d5a4589b.b210d8",
+        "id": "29dc8109.6cc66e",
         "type": "file",
-        "z": "7d53bde.1a645c4",
-        "g": "2addc59d.da626a",
+        "z": "93dfeda6.87345",
+        "g": "7e7e4e7b.883f5",
         "name": "",
         "filename": "usernamePhilipsHue.json",
         "appendNewline": true,
@@ -2546,17 +2547,17 @@
         "y": 560,
         "wires": [
             [
-                "52e583c8.4fae2c",
-                "acf5fed5.d85b7"
+                "3862b8cc.ed8868",
+                "694be44d.a1e44c"
             ]
         ],
         "l": false
     },
     {
-        "id": "7664029e.5b629c",
+        "id": "77ace372.8d31bc",
         "type": "function",
-        "z": "7d53bde.1a645c4",
-        "g": "2addc59d.da626a",
+        "z": "93dfeda6.87345",
+        "g": "7e7e4e7b.883f5",
         "name": "Save username (file & flow variable)",
         "func": "if(msg.payload[0].success.username !== undefined){\n    \n    let usernamePhilips = msg.payload[0].success.username;\n    \n    // flow variable\n    flow.set(\"bridgeApiKey\", usernamePhilips);\n    \n    // file\n    msg.payload = {\"username\": usernamePhilips};\n}\n\nreturn msg;",
         "outputs": 1,
@@ -2567,16 +2568,16 @@
         "y": 560,
         "wires": [
             [
-                "d5a4589b.b210d8"
+                "29dc8109.6cc66e"
             ]
         ],
         "l": false
     },
     {
-        "id": "52e583c8.4fae2c",
+        "id": "3862b8cc.ed8868",
         "type": "debug",
-        "z": "7d53bde.1a645c4",
-        "g": "2addc59d.da626a",
+        "z": "93dfeda6.87345",
+        "g": "7e7e4e7b.883f5",
         "name": "",
         "active": false,
         "tosidebar": true,
@@ -2592,23 +2593,23 @@
         "l": false
     },
     {
-        "id": "acf5fed5.d85b7",
+        "id": "694be44d.a1e44c",
         "type": "link out",
-        "z": "7d53bde.1a645c4",
-        "g": "2addc59d.da626a",
+        "z": "93dfeda6.87345",
+        "g": "7e7e4e7b.883f5",
         "name": "BRIDGE CONNECTION OUT",
         "links": [
-            "62759ad1.5ac124"
+            "1d1e38d.7bfd5c7"
         ],
         "x": 695,
         "y": 560,
         "wires": []
     },
     {
-        "id": "3d376ff1.e0f108",
+        "id": "2e6526ff.6a40ba",
         "type": "switch",
-        "z": "7d53bde.1a645c4",
-        "g": "2addc59d.da626a",
+        "z": "93dfeda6.87345",
+        "g": "7e7e4e7b.883f5",
         "name": "status",
         "property": "statusCode",
         "propertyType": "msg",
@@ -2631,20 +2632,20 @@
         "y": 660,
         "wires": [
             [
-                "3a6babce.4633bc"
+                "c19b605c.755b4"
             ],
             [
-                "b69e033b.70df8",
-                "38fa18d5.ab71e8"
+                "8c0c2310.59fd6",
+                "ec842552.3a9ce8"
             ]
         ],
         "l": false
     },
     {
-        "id": "fcd5defb.fd20a8",
+        "id": "259a04c6.4431cc",
         "type": "ui_toast",
-        "z": "7d53bde.1a645c4",
-        "g": "2addc59d.da626a",
+        "z": "93dfeda6.87345",
+        "g": "7e7e4e7b.883f5",
         "position": "top right",
         "displayTime": "3",
         "highlight": "",
@@ -2661,10 +2662,10 @@
         "l": false
     },
     {
-        "id": "b69e033b.70df8",
+        "id": "8c0c2310.59fd6",
         "type": "change",
-        "z": "7d53bde.1a645c4",
-        "g": "2addc59d.da626a",
+        "z": "93dfeda6.87345",
+        "g": "7e7e4e7b.883f5",
         "name": "Error & delete IP",
         "rules": [
             {
@@ -2703,16 +2704,16 @@
         "y": 760,
         "wires": [
             [
-                "fcd5defb.fd20a8"
+                "259a04c6.4431cc"
             ]
         ],
         "l": false
     },
     {
-        "id": "3f1400bb.9c51e",
+        "id": "cae11ec7.23faa",
         "type": "switch",
-        "z": "7d53bde.1a645c4",
-        "g": "2addc59d.da626a",
+        "z": "93dfeda6.87345",
+        "g": "7e7e4e7b.883f5",
         "name": "Device found?",
         "property": "payload",
         "propertyType": "msg",
@@ -2731,19 +2732,19 @@
         "y": 1360,
         "wires": [
             [
-                "c898c6a.9a48738"
+                "676e5845.334928"
             ],
             [
-                "ec2c1055.2bbcf"
+                "d8bab73c.d698a8"
             ]
         ],
         "l": false
     },
     {
-        "id": "ec2c1055.2bbcf",
+        "id": "d8bab73c.d698a8",
         "type": "change",
-        "z": "7d53bde.1a645c4",
-        "g": "2addc59d.da626a",
+        "z": "93dfeda6.87345",
+        "g": "7e7e4e7b.883f5",
         "name": "",
         "rules": [
             {
@@ -2770,16 +2771,16 @@
         "y": 1380,
         "wires": [
             [
-                "4669897d.3be5d"
+                "c41ca3d.2893e6"
             ]
         ],
         "l": false
     },
     {
-        "id": "4669897d.3be5d",
+        "id": "c41ca3d.2893e6",
         "type": "ui_toast",
-        "z": "7d53bde.1a645c4",
-        "g": "2addc59d.da626a",
+        "z": "93dfeda6.87345",
+        "g": "7e7e4e7b.883f5",
         "position": "top right",
         "displayTime": "3",
         "highlight": "",
@@ -2796,10 +2797,10 @@
         "l": false
     },
     {
-        "id": "3550eee.fb8c192",
+        "id": "be3cb2d5.d10ea",
         "type": "http request",
-        "z": "7d53bde.1a645c4",
-        "g": "489facd2.bdc3dc",
+        "z": "93dfeda6.87345",
+        "g": "87787cf6.2b83a",
         "name": "get Bridge IP",
         "method": "GET",
         "ret": "txt",
@@ -2813,16 +2814,16 @@
         "y": 160,
         "wires": [
             [
-                "35735c1.7978ea4",
-                "8b095d36.774c88"
+                "1df89796.183668",
+                "58e3b0ea.ad121"
             ]
         ]
     },
     {
-        "id": "77d13800.12f378",
+        "id": "ccfc46fd.35d1b8",
         "type": "json",
-        "z": "7d53bde.1a645c4",
-        "g": "489facd2.bdc3dc",
+        "z": "93dfeda6.87345",
+        "g": "87787cf6.2b83a",
         "name": "",
         "property": "payload",
         "action": "",
@@ -2831,16 +2832,16 @@
         "y": 200,
         "wires": [
             [
-                "a0b37854.67b8a"
+                "2d3b045d.d1126c"
             ]
         ],
         "l": false
     },
     {
-        "id": "ec810ff1.dcd948",
+        "id": "8d6b19ff.ca3de8",
         "type": "comment",
-        "z": "7d53bde.1a645c4",
-        "g": "489facd2.bdc3dc",
+        "z": "93dfeda6.87345",
+        "g": "87787cf6.2b83a",
         "name": "Get Bridge IP address via Huemagic Node",
         "info": "Huemagic node has to be installed via \"Manage palette\" menu.",
         "x": 200,
@@ -2848,10 +2849,10 @@
         "wires": []
     },
     {
-        "id": "759ecff0.9431d8",
+        "id": "bda215f8.ad3208",
         "type": "switch",
-        "z": "7d53bde.1a645c4",
-        "g": "489facd2.bdc3dc",
+        "z": "93dfeda6.87345",
+        "g": "87787cf6.2b83a",
         "name": "empty?",
         "property": "payload",
         "propertyType": "msg",
@@ -2870,19 +2871,19 @@
         "y": 140,
         "wires": [
             [
-                "7024b55f.c79df4"
+                "99f73b52.e266f8"
             ],
             [
-                "77d13800.12f378"
+                "ccfc46fd.35d1b8"
             ]
         ],
         "l": false
     },
     {
-        "id": "7024b55f.c79df4",
+        "id": "99f73b52.e266f8",
         "type": "function",
-        "z": "7d53bde.1a645c4",
-        "g": "489facd2.bdc3dc",
+        "z": "93dfeda6.87345",
+        "g": "87787cf6.2b83a",
         "name": "error",
         "func": "msg.cmd={};\nmsg.cmd.lang = global.get(\"msgLang\");\n    if (msg.cmd.lang === \"de\") {\n        text = \"Bitte geben Sie die IP-Adresse der PHILIPS HUE Bridge auf der Benutzeroberfläche ein\";\n        msg.error = {\n            text: text,\n            siteId: msg.cmd.siteId,\n            lang: \"de-DE\",\n            forceText: true\n        };\n    } else if (msg.cmd.lang === \"fr\") {\n        text = \"Veuillez indiquer l'adresse IP du pont PHILIPS HUE sur l'interface utilisateur\";\n        msg.error = {\n            text: text,\n            siteId: msg.cmd.siteId,\n            lang: \"fr-FR\",\n            forceText: true\n        };\n    } else {\n        text = \"Please indicate the IP address of PHILIPS HUE bridge in the user interface\";\n        msg.error = {\n            text: text,\n            siteId: msg.cmd.siteId,\n            lang: \"en-EN\",\n            forceText: true\n        };\n    }\nreturn msg;",
         "outputs": 1,
@@ -2893,15 +2894,15 @@
         "y": 120,
         "wires": [
             [
-                "e314a576.72637"
+                "9a96377d.eb8178"
             ]
         ]
     },
     {
-        "id": "e314a576.72637",
+        "id": "9a96377d.eb8178",
         "type": "link out",
-        "z": "7d53bde.1a645c4",
-        "g": "489facd2.bdc3dc",
+        "z": "93dfeda6.87345",
+        "g": "87787cf6.2b83a",
         "name": "",
         "links": [
             "521b53e0.33f214"
@@ -2911,10 +2912,10 @@
         "wires": []
     },
     {
-        "id": "23670bde.89242c",
+        "id": "f19e81e6.0d7a3",
         "type": "debug",
-        "z": "7d53bde.1a645c4",
-        "g": "489facd2.bdc3dc",
+        "z": "93dfeda6.87345",
+        "g": "87787cf6.2b83a",
         "name": "",
         "active": false,
         "tosidebar": true,
@@ -2930,10 +2931,10 @@
         "l": false
     },
     {
-        "id": "7bdce417.edae3c",
+        "id": "2d359c8d.4d09b4",
         "type": "comment",
-        "z": "7d53bde.1a645c4",
-        "g": "489facd2.bdc3dc",
+        "z": "93dfeda6.87345",
+        "g": "87787cf6.2b83a",
         "name": "Authorized user?",
         "info": "",
         "x": 920,
@@ -2941,10 +2942,10 @@
         "wires": []
     },
     {
-        "id": "696003a4.f9ea14",
+        "id": "99eede8a.f16c9",
         "type": "http request",
-        "z": "7d53bde.1a645c4",
-        "g": "489facd2.bdc3dc",
+        "z": "93dfeda6.87345",
+        "g": "87787cf6.2b83a",
         "name": "",
         "method": "GET",
         "ret": "txt",
@@ -2958,17 +2959,17 @@
         "y": 120,
         "wires": [
             [
-                "6fe489a3.632278",
-                "fdc350b4.a52bc"
+                "c0220321.3f646",
+                "3b365c84.d41914"
             ]
         ],
         "l": false
     },
     {
-        "id": "107b52b9.2e3ea5",
+        "id": "d2c1a2cc.62b36",
         "type": "debug",
-        "z": "7d53bde.1a645c4",
-        "g": "489facd2.bdc3dc",
+        "z": "93dfeda6.87345",
+        "g": "87787cf6.2b83a",
         "name": "",
         "active": false,
         "tosidebar": true,
@@ -2984,10 +2985,10 @@
         "l": false
     },
     {
-        "id": "b5a2cf95.37b08",
+        "id": "bf0f43e8.8124d",
         "type": "json",
-        "z": "7d53bde.1a645c4",
-        "g": "489facd2.bdc3dc",
+        "z": "93dfeda6.87345",
+        "g": "87787cf6.2b83a",
         "name": "",
         "property": "payload",
         "action": "",
@@ -2996,50 +2997,50 @@
         "y": 140,
         "wires": [
             [
-                "377b469e.7cac52",
-                "107b52b9.2e3ea5"
+                "7770759b.08506c",
+                "d2c1a2cc.62b36"
             ]
         ],
         "l": false
     },
     {
-        "id": "cb10032d.16796",
+        "id": "78e0242a.e5075c",
         "type": "link out",
-        "z": "7d53bde.1a645c4",
-        "g": "489facd2.bdc3dc",
+        "z": "93dfeda6.87345",
+        "g": "87787cf6.2b83a",
         "name": "SUCCESSFUL LOG IN OUT",
         "links": [
             "6acb7db6.2431c4",
-            "b71af0ab.534aa8",
-            "b8b8f4de.ca0cb8"
+            "dc35fbdd.def438",
+            "d7246a29.1e2358"
         ],
         "x": 1515,
         "y": 200,
         "wires": []
     },
     {
-        "id": "62759ad1.5ac124",
+        "id": "1d1e38d.7bfd5c7",
         "type": "link in",
-        "z": "7d53bde.1a645c4",
-        "g": "489facd2.bdc3dc",
+        "z": "93dfeda6.87345",
+        "g": "87787cf6.2b83a",
         "name": "BRIDGE CONNECTION IN",
         "links": [
-            "acf5fed5.d85b7",
-            "f5b98d9c.21304"
+            "694be44d.a1e44c",
+            "949dd39b.2335e"
         ],
         "x": 855,
         "y": 160,
         "wires": [
             [
-                "6246b834.cf9178"
+                "b5fd7d4d.6bc0d"
             ]
         ]
     },
     {
-        "id": "fdc350b4.a52bc",
+        "id": "3b365c84.d41914",
         "type": "switch",
-        "z": "7d53bde.1a645c4",
-        "g": "489facd2.bdc3dc",
+        "z": "93dfeda6.87345",
+        "g": "87787cf6.2b83a",
         "name": "status",
         "property": "statusCode",
         "propertyType": "msg",
@@ -3062,19 +3063,19 @@
         "y": 120,
         "wires": [
             [
-                "851dec95.3f8418"
+                "6137324c.f74a7c"
             ],
             [
-                "b5a2cf95.37b08"
+                "bf0f43e8.8124d"
             ]
         ],
         "l": false
     },
     {
-        "id": "33dc59af.80968e",
+        "id": "6b6bb4a3.acc1ec",
         "type": "ui_toast",
-        "z": "7d53bde.1a645c4",
-        "g": "489facd2.bdc3dc",
+        "z": "93dfeda6.87345",
+        "g": "87787cf6.2b83a",
         "position": "top right",
         "displayTime": "3",
         "highlight": "",
@@ -3091,10 +3092,10 @@
         "l": false
     },
     {
-        "id": "6fe489a3.632278",
+        "id": "c0220321.3f646",
         "type": "debug",
-        "z": "7d53bde.1a645c4",
-        "g": "489facd2.bdc3dc",
+        "z": "93dfeda6.87345",
+        "g": "87787cf6.2b83a",
         "name": "",
         "active": false,
         "tosidebar": true,
@@ -3110,10 +3111,10 @@
         "l": false
     },
     {
-        "id": "851dec95.3f8418",
+        "id": "6137324c.f74a7c",
         "type": "change",
-        "z": "7d53bde.1a645c4",
-        "g": "489facd2.bdc3dc",
+        "z": "93dfeda6.87345",
+        "g": "87787cf6.2b83a",
         "name": "",
         "rules": [
             {
@@ -3147,16 +3148,16 @@
         "y": 100,
         "wires": [
             [
-                "33dc59af.80968e"
+                "6b6bb4a3.acc1ec"
             ]
         ],
         "l": false
     },
     {
-        "id": "377b469e.7cac52",
+        "id": "7770759b.08506c",
         "type": "switch",
-        "z": "7d53bde.1a645c4",
-        "g": "489facd2.bdc3dc",
+        "z": "93dfeda6.87345",
+        "g": "87787cf6.2b83a",
         "name": "Authorized user?",
         "property": "payload",
         "propertyType": "msg",
@@ -3179,20 +3180,20 @@
         "y": 140,
         "wires": [
             [
-                "e7ca5bff.147c1"
+                "64b458e6.8173b8"
             ],
             [
-                "cb10032d.16796",
-                "980e4d7f.d30598"
+                "78e0242a.e5075c",
+                "93136f05.e9f85"
             ]
         ],
         "l": false
     },
     {
-        "id": "e7ca5bff.147c1",
+        "id": "64b458e6.8173b8",
         "type": "change",
-        "z": "7d53bde.1a645c4",
-        "g": "489facd2.bdc3dc",
+        "z": "93dfeda6.87345",
+        "g": "87787cf6.2b83a",
         "name": "",
         "rules": [
             {
@@ -3226,16 +3227,16 @@
         "y": 100,
         "wires": [
             [
-                "80e1114c.7bd108"
+                "7519bace.4622d4"
             ]
         ],
         "l": false
     },
     {
-        "id": "80e1114c.7bd108",
+        "id": "7519bace.4622d4",
         "type": "ui_toast",
-        "z": "7d53bde.1a645c4",
-        "g": "489facd2.bdc3dc",
+        "z": "93dfeda6.87345",
+        "g": "87787cf6.2b83a",
         "position": "top right",
         "displayTime": "5",
         "highlight": "",
@@ -3252,10 +3253,10 @@
         "l": false
     },
     {
-        "id": "980e4d7f.d30598",
+        "id": "93136f05.e9f85",
         "type": "change",
-        "z": "7d53bde.1a645c4",
-        "g": "489facd2.bdc3dc",
+        "z": "93dfeda6.87345",
+        "g": "87787cf6.2b83a",
         "name": "",
         "rules": [
             {
@@ -3289,16 +3290,16 @@
         "y": 160,
         "wires": [
             [
-                "44e00380.81abfc"
+                "9f01eaf2.779648"
             ]
         ],
         "l": false
     },
     {
-        "id": "44e00380.81abfc",
+        "id": "9f01eaf2.779648",
         "type": "ui_toast",
-        "z": "7d53bde.1a645c4",
-        "g": "489facd2.bdc3dc",
+        "z": "93dfeda6.87345",
+        "g": "87787cf6.2b83a",
         "position": "top right",
         "displayTime": "3",
         "highlight": "",
@@ -3315,30 +3316,30 @@
         "l": false
     },
     {
-        "id": "67df965c.8ddf88",
+        "id": "8c6c4101.71197",
         "type": "link in",
-        "z": "7d53bde.1a645c4",
-        "g": "489facd2.bdc3dc",
+        "z": "93dfeda6.87345",
+        "g": "87787cf6.2b83a",
         "name": "GET IP IN",
         "links": [
-            "c74db45.17968c8",
+            "83207e03.29eba",
             "8c683cb3.2f7af",
-            "7ef3cb53.e9e574"
+            "a95f77a.830d588"
         ],
         "x": 115,
         "y": 220,
         "wires": [
             [
-                "3550eee.fb8c192",
-                "d92c28c8.c9f3c8"
+                "be3cb2d5.d10ea",
+                "65bc35ff.f337ec"
             ]
         ]
     },
     {
-        "id": "6246b834.cf9178",
+        "id": "b5fd7d4d.6bc0d",
         "type": "file in",
-        "z": "7d53bde.1a645c4",
-        "g": "489facd2.bdc3dc",
+        "z": "93dfeda6.87345",
+        "g": "87787cf6.2b83a",
         "name": "",
         "filename": "usernamePhilipsHue.json",
         "format": "utf8",
@@ -3349,16 +3350,16 @@
         "y": 140,
         "wires": [
             [
-                "6424de4b.816198"
+                "3ab65d94.be0cc2"
             ]
         ],
         "l": false
     },
     {
-        "id": "aa9e5d03.ca803",
+        "id": "46b738ff.057968",
         "type": "inject",
-        "z": "7d53bde.1a645c4",
-        "g": "489facd2.bdc3dc",
+        "z": "93dfeda6.87345",
+        "g": "87787cf6.2b83a",
         "name": "Get username & IP address from file",
         "props": [
             {
@@ -3380,17 +3381,17 @@
         "y": 120,
         "wires": [
             [
-                "6246b834.cf9178",
-                "20f7ed46.03e2aa"
+                "b5fd7d4d.6bc0d",
+                "eeb077de.874038"
             ]
         ],
         "l": false
     },
     {
-        "id": "6424de4b.816198",
+        "id": "3ab65d94.be0cc2",
         "type": "json",
-        "z": "7d53bde.1a645c4",
-        "g": "489facd2.bdc3dc",
+        "z": "93dfeda6.87345",
+        "g": "87787cf6.2b83a",
         "name": "",
         "property": "payload",
         "action": "",
@@ -3399,16 +3400,16 @@
         "y": 140,
         "wires": [
             [
-                "d762ae7e.2dded8"
+                "dce72bc7.e949e8"
             ]
         ],
         "l": false
     },
     {
-        "id": "dad095bf.c61918",
+        "id": "8352f1ff.24024",
         "type": "change",
-        "z": "7d53bde.1a645c4",
-        "g": "489facd2.bdc3dc",
+        "z": "93dfeda6.87345",
+        "g": "87787cf6.2b83a",
         "name": "Set IpAddress",
         "rules": [
             {
@@ -3428,16 +3429,16 @@
         "y": 100,
         "wires": [
             [
-                "4fb7da56.f3993c"
+                "92d5ddb5.cb2de"
             ]
         ],
         "l": false
     },
     {
-        "id": "492786b2.6d4618",
+        "id": "83030a76.4cf288",
         "type": "function",
-        "z": "7d53bde.1a645c4",
-        "g": "489facd2.bdc3dc",
+        "z": "93dfeda6.87345",
+        "g": "87787cf6.2b83a",
         "name": "error msg",
         "func": "msg.cmd={};\nmsg.cmd.lang = global.get(\"msgLang\");\nvar ourIP = global.get(\"msgServerIP\");\nvar text = \"\";\nvar text2 = \"\";\n\n// No unsolicited spoken error messages 22-07\nvar d = new Date();\nvar hour = d.getHours();\nif (hour >= 22 || hour < 7 ) {\n    node.warn(\"Skipping spoken error messages during the night: \"+hour);\n    return;\n}\n\nif (msg.cmd.lang === \"de\") {\n    text = \"...\";\n    if(ourIP.length>0){\n        text2 = \" Die adresse ist \" + ourIP;\n    }\n    msg.error = {\n        text: text,\n        siteId: msg.cmd.siteId,\n        lang: \"de-DE\",\n        forceRestart: true\n    };\n} else if (msg.cmd.lang === \"fr\") {\n    text = \"Dans votre navigateur, allez sur l'interface utilisateur, section PHILIPS Gateway et suivez les instructions données.\";\n    if(ourIP.length>0){\n        text = \"Dans votre navigateur, allez sur: \"+ ourIP + \" deux points 1880 slash ui. Suivez les instructions données dans la section PHILIPS Gateway.\";\n        text2 = \" L'adresse est \" + ourIP;\n    }\n    msg.error = {\n        text: text,\n        siteId: msg.cmd.siteId,\n        lang: \"fr-FR\",\n        forceRestart: true\n    };\n} else {\n    text = \"In your browser, navigate to the user interface and follow the given instructions in the PHILIPS Gateway tab\";\n    if(ourIP.length>0){\n        text = \"In your browser, navigate to: \"+ ourIP + \" colon 1880 slash ui. Follow the given instructions in the PHILIPS Gateway tab\";\n        text2 = \" The address is \" + ourIP;\n    }\n    msg.error = {\n        text: text,\n        siteId: msg.cmd.siteId,\n        lang: \"en-EN\",\n        forceRestart: true\n    };\n}\nvar msg2;\nif(text2.length>0){\n    msg2 = JSON.parse(JSON.stringify(msg))\n    msg2.error.text = text2;\n    msg2.error.forceRestart= true;\n}\nreturn [msg,msg2];",
         "outputs": 1,
@@ -3448,15 +3449,15 @@
         "y": 300,
         "wires": [
             [
-                "90a0d5d.3f50928"
+                "27842a50.841f66"
             ]
         ]
     },
     {
-        "id": "90a0d5d.3f50928",
+        "id": "27842a50.841f66",
         "type": "link out",
-        "z": "7d53bde.1a645c4",
-        "g": "489facd2.bdc3dc",
+        "z": "93dfeda6.87345",
+        "g": "87787cf6.2b83a",
         "name": "",
         "links": [
             "521b53e0.33f214"
@@ -3466,10 +3467,10 @@
         "wires": []
     },
     {
-        "id": "87d6cbae.e00dd",
+        "id": "bc8e0030.56568",
         "type": "switch",
-        "z": "7d53bde.1a645c4",
-        "g": "489facd2.bdc3dc",
+        "z": "93dfeda6.87345",
+        "g": "87787cf6.2b83a",
         "name": "status?",
         "property": "statusCode",
         "propertyType": "msg",
@@ -3500,43 +3501,43 @@
         "y": 340,
         "wires": [
             [
-                "492786b2.6d4618"
+                "83030a76.4cf288"
             ],
             [
-                "492786b2.6d4618"
+                "83030a76.4cf288"
             ],
             [
-                "492786b2.6d4618"
+                "83030a76.4cf288"
             ],
             [
-                "3c39b2e0.6dad0e"
+                "558c6fd1.ca744"
             ]
         ]
     },
     {
-        "id": "ee518937.bf5918",
+        "id": "1923136.2f1b8ed",
         "type": "catch",
-        "z": "7d53bde.1a645c4",
-        "g": "489facd2.bdc3dc",
+        "z": "93dfeda6.87345",
+        "g": "87787cf6.2b83a",
         "name": "",
         "scope": [
-            "87d6cbae.e00dd"
+            "bc8e0030.56568"
         ],
         "uncaught": false,
         "x": 1435,
         "y": 280,
         "wires": [
             [
-                "492786b2.6d4618"
+                "83030a76.4cf288"
             ]
         ],
         "l": false
     },
     {
-        "id": "3c39b2e0.6dad0e",
+        "id": "558c6fd1.ca744",
         "type": "switch",
-        "z": "7d53bde.1a645c4",
-        "g": "489facd2.bdc3dc",
+        "z": "93dfeda6.87345",
+        "g": "87787cf6.2b83a",
         "name": "empty",
         "property": "payload",
         "propertyType": "msg",
@@ -3555,18 +3556,18 @@
         "y": 360,
         "wires": [
             [
-                "492786b2.6d4618"
+                "83030a76.4cf288"
             ],
             [
-                "eae08d34.2d70b"
+                "bbe0ed2c.75293"
             ]
         ]
     },
     {
-        "id": "2af73916.8b1e26",
+        "id": "4275d02d.94d3d",
         "type": "http request",
-        "z": "7d53bde.1a645c4",
-        "g": "489facd2.bdc3dc",
+        "z": "93dfeda6.87345",
+        "g": "87787cf6.2b83a",
         "name": "Philips Hue devices",
         "method": "GET",
         "ret": "txt",
@@ -3580,15 +3581,15 @@
         "y": 340,
         "wires": [
             [
-                "87d6cbae.e00dd"
+                "bc8e0030.56568"
             ]
         ]
     },
     {
-        "id": "a0b2b2e2.824a4",
+        "id": "6f8daef1.78a81",
         "type": "change",
-        "z": "7d53bde.1a645c4",
-        "g": "489facd2.bdc3dc",
+        "z": "93dfeda6.87345",
+        "g": "87787cf6.2b83a",
         "name": "IP & Username",
         "rules": [
             {
@@ -3619,16 +3620,16 @@
         "y": 340,
         "wires": [
             [
-                "2af73916.8b1e26"
+                "4275d02d.94d3d"
             ]
         ],
         "l": false
     },
     {
-        "id": "eae08d34.2d70b",
+        "id": "bbe0ed2c.75293",
         "type": "json",
-        "z": "7d53bde.1a645c4",
-        "g": "489facd2.bdc3dc",
+        "z": "93dfeda6.87345",
+        "g": "87787cf6.2b83a",
         "name": "Philips Hue JSON",
         "property": "payload",
         "action": "",
@@ -3637,16 +3638,16 @@
         "y": 420,
         "wires": [
             [
-                "ae5e431a.80fa48",
-                "5040563b.e4e4"
+                "6009d4b2.b29b8c",
+                "843d7ac8.c6a068"
             ]
         ]
     },
     {
-        "id": "c646d486.fff028",
+        "id": "89089abb.425e58",
         "type": "change",
-        "z": "7d53bde.1a645c4",
-        "g": "489facd2.bdc3dc",
+        "z": "93dfeda6.87345",
+        "g": "87787cf6.2b83a",
         "name": "url",
         "rules": [
             {
@@ -3666,36 +3667,36 @@
         "y": 340,
         "wires": [
             [
-                "a0b2b2e2.824a4"
+                "6f8daef1.78a81"
             ]
         ],
         "l": false
     },
     {
-        "id": "b71af0ab.534aa8",
+        "id": "dc35fbdd.def438",
         "type": "link in",
-        "z": "7d53bde.1a645c4",
-        "g": "489facd2.bdc3dc",
+        "z": "93dfeda6.87345",
+        "g": "87787cf6.2b83a",
         "name": "GET DEVICES IN",
         "links": [
             "9bf5bad8.eb0008",
             "58cad645.1441d8",
-            "bb756f68.5f42c8",
-            "cb10032d.16796"
+            "f07a292b.47c6e8",
+            "78e0242a.e5075c"
         ],
         "x": 855,
         "y": 340,
         "wires": [
             [
-                "c646d486.fff028"
+                "89089abb.425e58"
             ]
         ]
     },
     {
-        "id": "3e17c612.61572a",
+        "id": "e5356160.2b1ff",
         "type": "comment",
-        "z": "7d53bde.1a645c4",
-        "g": "489facd2.bdc3dc",
+        "z": "93dfeda6.87345",
+        "g": "87787cf6.2b83a",
         "name": "Get Philips Hue device list",
         "info": "",
         "x": 950,
@@ -3703,23 +3704,23 @@
         "wires": []
     },
     {
-        "id": "ae5e431a.80fa48",
+        "id": "6009d4b2.b29b8c",
         "type": "link out",
-        "z": "7d53bde.1a645c4",
-        "g": "489facd2.bdc3dc",
+        "z": "93dfeda6.87345",
+        "g": "87787cf6.2b83a",
         "name": "AUTO DEVICE LIST OUT",
         "links": [
-            "672dcd9b.b46b9c"
+            "946c9b67.f30e98"
         ],
         "x": 1675,
         "y": 420,
         "wires": []
     },
     {
-        "id": "64510ac9.1a9484",
+        "id": "e77a20c4.a635",
         "type": "inject",
-        "z": "7d53bde.1a645c4",
-        "g": "489facd2.bdc3dc",
+        "z": "93dfeda6.87345",
+        "g": "87787cf6.2b83a",
         "name": "IP",
         "props": [
             {
@@ -3741,16 +3742,16 @@
         "y": 160,
         "wires": [
             [
-                "c72f0a62.f3eb08"
+                "5a26cfb1.9b699"
             ]
         ],
         "l": false
     },
     {
-        "id": "45557099.59e7f8",
+        "id": "3019cb6f.a4df64",
         "type": "change",
-        "z": "7d53bde.1a645c4",
-        "g": "2addc59d.da626a",
+        "z": "93dfeda6.87345",
+        "g": "7e7e4e7b.883f5",
         "name": "",
         "rules": [
             {
@@ -3770,16 +3771,16 @@
         "y": 1420,
         "wires": [
             [
-                "1387df5d.be85f1"
+                "469f5e73.1a597"
             ]
         ],
         "l": false
     },
     {
-        "id": "35735c1.7978ea4",
+        "id": "1df89796.183668",
         "type": "debug",
-        "z": "7d53bde.1a645c4",
-        "g": "489facd2.bdc3dc",
+        "z": "93dfeda6.87345",
+        "g": "87787cf6.2b83a",
         "name": "",
         "active": false,
         "tosidebar": true,
@@ -3795,10 +3796,10 @@
         "l": false
     },
     {
-        "id": "8b095d36.774c88",
+        "id": "58e3b0ea.ad121",
         "type": "switch",
-        "z": "7d53bde.1a645c4",
-        "g": "489facd2.bdc3dc",
+        "z": "93dfeda6.87345",
+        "g": "87787cf6.2b83a",
         "name": "Not found?",
         "property": "statusCode",
         "propertyType": "msg",
@@ -3819,19 +3820,19 @@
         "y": 160,
         "wires": [
             [
-                "759ecff0.9431d8"
+                "bda215f8.ad3208"
             ],
             [
-                "8cfe403.61bcd4"
+                "651d9733.9f8b88"
             ]
         ],
         "l": false
     },
     {
-        "id": "a98977c7.ef93b8",
+        "id": "9a8da7bf.92b708",
         "type": "change",
-        "z": "7d53bde.1a645c4",
-        "g": "489facd2.bdc3dc",
+        "z": "93dfeda6.87345",
+        "g": "87787cf6.2b83a",
         "name": "Search for IP address",
         "rules": [
             {
@@ -3858,16 +3859,16 @@
         "y": 340,
         "wires": [
             [
-                "c0859a6e.cc8b"
+                "78233440.defabc"
             ]
         ],
         "l": false
     },
     {
-        "id": "35f6b3c5.c51bec",
+        "id": "5317cb23.a062f4",
         "type": "ui_toast",
-        "z": "7d53bde.1a645c4",
-        "g": "489facd2.bdc3dc",
+        "z": "93dfeda6.87345",
+        "g": "87787cf6.2b83a",
         "position": "prompt",
         "displayTime": "10",
         "highlight": "",
@@ -3882,16 +3883,16 @@
         "y": 340,
         "wires": [
             [
-                "5d66352a.0b904c"
+                "ab6b22e2.0115d"
             ]
         ],
         "l": false
     },
     {
-        "id": "c1be106f.0537e8",
+        "id": "44b4bf1b.18b9f",
         "type": "inject",
-        "z": "7d53bde.1a645c4",
-        "g": "489facd2.bdc3dc",
+        "z": "93dfeda6.87345",
+        "g": "87787cf6.2b83a",
         "name": "Debug IP",
         "props": [
             {
@@ -3913,16 +3914,16 @@
         "y": 340,
         "wires": [
             [
-                "a0b37854.67b8a"
+                "2d3b045d.d1126c"
             ]
         ],
         "l": false
     },
     {
-        "id": "a7afeb6c.927cc",
+        "id": "1809c2d.464703d",
         "type": "switch",
-        "z": "7d53bde.1a645c4",
-        "g": "489facd2.bdc3dc",
+        "z": "93dfeda6.87345",
+        "g": "87787cf6.2b83a",
         "name": "Ip address?",
         "property": "bridgeIpAddress",
         "propertyType": "flow",
@@ -3940,16 +3941,16 @@
         "y": 340,
         "wires": [
             [
-                "b476f12a.d70458"
+                "6e4a6041.8317b"
             ]
         ],
         "l": false
     },
     {
-        "id": "9ff63c97.019008",
+        "id": "9b9aadbd.c1bd7",
         "type": "switch",
-        "z": "7d53bde.1a645c4",
-        "g": "489facd2.bdc3dc",
+        "z": "93dfeda6.87345",
+        "g": "87787cf6.2b83a",
         "name": "",
         "property": "payload",
         "propertyType": "msg",
@@ -3972,36 +3973,36 @@
         "y": 340,
         "wires": [
             [
-                "82c79764.355558"
+                "ea8d9374.927a3"
             ],
             [
-                "7ef3cb53.e9e574"
+                "a95f77a.830d588"
             ]
         ],
         "l": false
     },
     {
-        "id": "41080d37.accf7c",
+        "id": "a64d8879.099bf8",
         "type": "link in",
-        "z": "7d53bde.1a645c4",
-        "g": "489facd2.bdc3dc",
+        "z": "93dfeda6.87345",
+        "g": "87787cf6.2b83a",
         "name": "GET IP UI IN",
         "links": [
-            "c74db45.17968c8"
+            "83207e03.29eba"
         ],
         "x": 55,
         "y": 400,
         "wires": [
             [
-                "d347de67.782df"
+                "af8c9325.07c3b"
             ]
         ]
     },
     {
-        "id": "d347de67.782df",
+        "id": "af8c9325.07c3b",
         "type": "switch",
-        "z": "7d53bde.1a645c4",
-        "g": "489facd2.bdc3dc",
+        "z": "93dfeda6.87345",
+        "g": "87787cf6.2b83a",
         "name": "login==false?",
         "property": "login",
         "propertyType": "flow",
@@ -4017,16 +4018,16 @@
         "y": 400,
         "wires": [
             [
-                "2ff79ae2.ee1eb6"
+                "6e29f4d0.63acbc"
             ]
         ],
         "l": false
     },
     {
-        "id": "2ff79ae2.ee1eb6",
+        "id": "6e29f4d0.63acbc",
         "type": "delay",
-        "z": "7d53bde.1a645c4",
-        "g": "489facd2.bdc3dc",
+        "z": "93dfeda6.87345",
+        "g": "87787cf6.2b83a",
         "name": "",
         "pauseType": "delay",
         "timeout": "12",
@@ -4042,16 +4043,16 @@
         "y": 400,
         "wires": [
             [
-                "b476f12a.d70458"
+                "6e4a6041.8317b"
             ]
         ],
         "l": false
     },
     {
-        "id": "a694c23e.7e6ed",
+        "id": "ec75b25b.b4f54",
         "type": "delay",
-        "z": "7d53bde.1a645c4",
-        "g": "489facd2.bdc3dc",
+        "z": "93dfeda6.87345",
+        "g": "87787cf6.2b83a",
         "name": "",
         "pauseType": "rate",
         "timeout": "5",
@@ -4067,16 +4068,16 @@
         "y": 340,
         "wires": [
             [
-                "a98977c7.ef93b8"
+                "9a8da7bf.92b708"
             ]
         ],
         "l": false
     },
     {
-        "id": "c72f0a62.f3eb08",
+        "id": "5a26cfb1.9b699",
         "type": "change",
-        "z": "7d53bde.1a645c4",
-        "g": "489facd2.bdc3dc",
+        "z": "93dfeda6.87345",
+        "g": "87787cf6.2b83a",
         "name": "Login initially false",
         "rules": [
             {
@@ -4096,30 +4097,30 @@
         "y": 160,
         "wires": [
             [
-                "3550eee.fb8c192",
-                "d92c28c8.c9f3c8"
+                "be3cb2d5.d10ea",
+                "65bc35ff.f337ec"
             ]
         ],
         "l": false
     },
     {
-        "id": "7ef3cb53.e9e574",
+        "id": "a95f77a.830d588",
         "type": "link out",
-        "z": "7d53bde.1a645c4",
-        "g": "489facd2.bdc3dc",
+        "z": "93dfeda6.87345",
+        "g": "87787cf6.2b83a",
         "name": "GET IP OUT",
         "links": [
-            "67df965c.8ddf88"
+            "8c6c4101.71197"
         ],
         "x": 595,
         "y": 380,
         "wires": []
     },
     {
-        "id": "82c79764.355558",
+        "id": "ea8d9374.927a3",
         "type": "switch",
-        "z": "7d53bde.1a645c4",
-        "g": "489facd2.bdc3dc",
+        "z": "93dfeda6.87345",
+        "g": "87787cf6.2b83a",
         "name": "login==false?",
         "property": "login",
         "propertyType": "flow",
@@ -4135,16 +4136,16 @@
         "y": 300,
         "wires": [
             [
-                "a0b37854.67b8a"
+                "2d3b045d.d1126c"
             ]
         ],
         "l": false
     },
     {
-        "id": "5040563b.e4e4",
+        "id": "843d7ac8.c6a068",
         "type": "debug",
-        "z": "7d53bde.1a645c4",
-        "g": "489facd2.bdc3dc",
+        "z": "93dfeda6.87345",
+        "g": "87787cf6.2b83a",
         "name": "",
         "active": false,
         "tosidebar": true,
@@ -4160,10 +4161,10 @@
         "l": false
     },
     {
-        "id": "765590ed.61608",
+        "id": "80feeddd.1b674",
         "type": "change",
-        "z": "7d53bde.1a645c4",
-        "g": "2addc59d.da626a",
+        "z": "93dfeda6.87345",
+        "g": "7e7e4e7b.883f5",
         "name": "",
         "rules": [
             {
@@ -4183,21 +4184,21 @@
         "y": 1540,
         "wires": [
             [
-                "728ecc2.5114834"
+                "2282804d.5fa7b"
             ]
         ],
         "l": false
     },
     {
-        "id": "728ecc2.5114834",
+        "id": "2282804d.5fa7b",
         "type": "ui_dropdown",
-        "z": "7d53bde.1a645c4",
-        "g": "2addc59d.da626a",
+        "z": "93dfeda6.87345",
+        "g": "7e7e4e7b.883f5",
         "name": "Scenes_list",
         "label": "Scenes",
         "tooltip": "",
         "place": "Show list",
-        "group": "28dad04f.67e66",
+        "group": "74e4e3ab.22089c",
         "order": 3,
         "width": 7,
         "height": 1,
@@ -4216,15 +4217,15 @@
         "y": 1540,
         "wires": [
             [
-                "977cab2.605c8d8"
+                "21c6a308.53789c"
             ]
         ]
     },
     {
-        "id": "977cab2.605c8d8",
+        "id": "21c6a308.53789c",
         "type": "debug",
-        "z": "7d53bde.1a645c4",
-        "g": "2addc59d.da626a",
+        "z": "93dfeda6.87345",
+        "g": "7e7e4e7b.883f5",
         "name": "",
         "active": false,
         "tosidebar": true,
@@ -4240,10 +4241,10 @@
         "l": false
     },
     {
-        "id": "a0b37854.67b8a",
+        "id": "2d3b045d.d1126c",
         "type": "function",
-        "z": "7d53bde.1a645c4",
-        "g": "489facd2.bdc3dc",
+        "z": "93dfeda6.87345",
+        "g": "87787cf6.2b83a",
         "name": "Save ip address (file & flow variable)",
         "func": "// Ip address found by Huemagic node\nif(msg.payload[0].ip !== undefined){\n    \n    let bridgeIpAddress = msg.payload[0].ip;\n    \n    // flow variable\n    flow.set(\"bridgeIpAddress\", bridgeIpAddress);\n    \n    // file\n    msg.payload = {\"bridgeIpAddress\": bridgeIpAddress};\n}\n// Ip address not found by Huemagic node\nelse{\n    let bridgeIpAddress = msg.payload;\n    \n    // flow variable\n    flow.set(\"bridgeIpAddress\", bridgeIpAddress);\n    \n    // file\n    msg.payload = {\"bridgeIpAddress\": bridgeIpAddress};\n}\n\nreturn msg;",
         "outputs": 1,
@@ -4254,16 +4255,16 @@
         "y": 200,
         "wires": [
             [
-                "fe9a5bd6.933b58"
+                "92c2733c.ece1b"
             ]
         ],
         "l": false
     },
     {
-        "id": "fe9a5bd6.933b58",
+        "id": "92c2733c.ece1b",
         "type": "file",
-        "z": "7d53bde.1a645c4",
-        "g": "489facd2.bdc3dc",
+        "z": "93dfeda6.87345",
+        "g": "87787cf6.2b83a",
         "name": "",
         "filename": "bridgeIpAddressPH.json",
         "appendNewline": true,
@@ -4274,17 +4275,17 @@
         "y": 200,
         "wires": [
             [
-                "23670bde.89242c",
-                "e1d31b8.dd81de8"
+                "f19e81e6.0d7a3",
+                "c119906e.b188d"
             ]
         ],
         "l": false
     },
     {
-        "id": "328854ee.8db714",
+        "id": "9348fc59.d060c",
         "type": "comment",
-        "z": "7d53bde.1a645c4",
-        "g": "489facd2.bdc3dc",
+        "z": "93dfeda6.87345",
+        "g": "87787cf6.2b83a",
         "name": "Ask for Bridge IP address (UI)",
         "info": "",
         "x": 340,
@@ -4292,10 +4293,10 @@
         "wires": []
     },
     {
-        "id": "20f7ed46.03e2aa",
+        "id": "eeb077de.874038",
         "type": "file in",
-        "z": "7d53bde.1a645c4",
-        "g": "489facd2.bdc3dc",
+        "z": "93dfeda6.87345",
+        "g": "87787cf6.2b83a",
         "name": "",
         "filename": "bridgeIpAddressPH.json",
         "format": "utf8",
@@ -4306,16 +4307,16 @@
         "y": 100,
         "wires": [
             [
-                "7702bd78.2116a4"
+                "e1ee4738.4bf6a8"
             ]
         ],
         "l": false
     },
     {
-        "id": "7702bd78.2116a4",
+        "id": "e1ee4738.4bf6a8",
         "type": "json",
-        "z": "7d53bde.1a645c4",
-        "g": "489facd2.bdc3dc",
+        "z": "93dfeda6.87345",
+        "g": "87787cf6.2b83a",
         "name": "",
         "property": "payload",
         "action": "",
@@ -4324,16 +4325,16 @@
         "y": 100,
         "wires": [
             [
-                "dad095bf.c61918"
+                "8352f1ff.24024"
             ]
         ],
         "l": false
     },
     {
-        "id": "baa48c70.37b5f8",
+        "id": "f25fe9fa.115d28",
         "type": "function",
-        "z": "7d53bde.1a645c4",
-        "g": "489facd2.bdc3dc",
+        "z": "93dfeda6.87345",
+        "g": "87787cf6.2b83a",
         "name": "Set url",
         "func": "// Bridge info\nlet username = flow.get(\"bridgeApiKey\");\nlet bridgeIpAddress = flow.get(\"bridgeIpAddress\");\n\nif(bridgeIpAddress !== undefined && username !== undefined){\n    msg.url = \"http://\"+bridgeIpAddress+\"/api/\"+username;\n}\n\nreturn msg;",
         "outputs": 1,
@@ -4344,16 +4345,16 @@
         "y": 120,
         "wires": [
             [
-                "696003a4.f9ea14"
+                "99eede8a.f16c9"
             ]
         ],
         "l": false
     },
     {
-        "id": "f84db62e.21f9b8",
+        "id": "ab99ff70.a516a",
         "type": "inject",
-        "z": "7d53bde.1a645c4",
-        "g": "2addc59d.da626a",
+        "z": "93dfeda6.87345",
+        "g": "7e7e4e7b.883f5",
         "name": "Login?",
         "props": [
             {
@@ -4375,28 +4376,28 @@
         "y": 940,
         "wires": [
             [
-                "f5b98d9c.21304"
+                "949dd39b.2335e"
             ]
         ]
     },
     {
-        "id": "f5b98d9c.21304",
+        "id": "949dd39b.2335e",
         "type": "link out",
-        "z": "7d53bde.1a645c4",
-        "g": "2addc59d.da626a",
+        "z": "93dfeda6.87345",
+        "g": "7e7e4e7b.883f5",
         "name": "BRIDGE CONNECTION OUT",
         "links": [
-            "62759ad1.5ac124"
+            "1d1e38d.7bfd5c7"
         ],
         "x": 255,
         "y": 940,
         "wires": []
     },
     {
-        "id": "d762ae7e.2dded8",
+        "id": "dce72bc7.e949e8",
         "type": "change",
-        "z": "7d53bde.1a645c4",
-        "g": "489facd2.bdc3dc",
+        "z": "93dfeda6.87345",
+        "g": "87787cf6.2b83a",
         "name": "Set username",
         "rules": [
             {
@@ -4416,16 +4417,16 @@
         "y": 140,
         "wires": [
             [
-                "4fb7da56.f3993c"
+                "92d5ddb5.cb2de"
             ]
         ],
         "l": false
     },
     {
-        "id": "4fb7da56.f3993c",
+        "id": "92d5ddb5.cb2de",
         "type": "delay",
-        "z": "7d53bde.1a645c4",
-        "g": "489facd2.bdc3dc",
+        "z": "93dfeda6.87345",
+        "g": "87787cf6.2b83a",
         "name": "",
         "pauseType": "rate",
         "timeout": "5",
@@ -4441,16 +4442,16 @@
         "y": 120,
         "wires": [
             [
-                "baa48c70.37b5f8"
+                "f25fe9fa.115d28"
             ]
         ],
         "l": false
     },
     {
-        "id": "b476f12a.d70458",
+        "id": "6e4a6041.8317b",
         "type": "switch",
-        "z": "7d53bde.1a645c4",
-        "g": "489facd2.bdc3dc",
+        "z": "93dfeda6.87345",
+        "g": "87787cf6.2b83a",
         "name": "Login?",
         "property": "login",
         "propertyType": "flow",
@@ -4471,19 +4472,19 @@
         "y": 340,
         "wires": [
             [
-                "a694c23e.7e6ed"
+                "ec75b25b.b4f54"
             ],
             [
-                "a694c23e.7e6ed"
+                "ec75b25b.b4f54"
             ]
         ],
         "l": false
     },
     {
-        "id": "8cfe403.61bcd4",
+        "id": "651d9733.9f8b88",
         "type": "trigger",
-        "z": "7d53bde.1a645c4",
-        "g": "489facd2.bdc3dc",
+        "z": "93dfeda6.87345",
+        "g": "87787cf6.2b83a",
         "name": "",
         "op1": "",
         "op2": "",
@@ -4501,16 +4502,16 @@
         "y": 340,
         "wires": [
             [
-                "a7afeb6c.927cc"
+                "1809c2d.464703d"
             ]
         ],
         "l": false
     },
     {
-        "id": "e505b5d7.556a8",
+        "id": "ff0d95e8.b5c0b8",
         "type": "switch",
-        "z": "7d53bde.1a645c4",
-        "g": "2addc59d.da626a",
+        "z": "93dfeda6.87345",
+        "g": "7e7e4e7b.883f5",
         "name": "login?",
         "property": "login",
         "propertyType": "flow",
@@ -4529,19 +4530,19 @@
         "y": 640,
         "wires": [
             [
-                "acf5fed5.d85b7"
+                "694be44d.a1e44c"
             ],
             [
-                "e2ba9bf2.90454"
+                "ad1e4351.b05b7"
             ]
         ],
         "l": false
     },
     {
-        "id": "d92c28c8.c9f3c8",
+        "id": "65bc35ff.f337ec",
         "type": "change",
-        "z": "7d53bde.1a645c4",
-        "g": "489facd2.bdc3dc",
+        "z": "93dfeda6.87345",
+        "g": "87787cf6.2b83a",
         "name": "",
         "rules": [
             {
@@ -4568,16 +4569,16 @@
         "y": 200,
         "wires": [
             [
-                "fe5b0311.9c8418"
+                "3db4a34e.cce78c"
             ]
         ],
         "l": false
     },
     {
-        "id": "fe5b0311.9c8418",
+        "id": "3db4a34e.cce78c",
         "type": "ui_toast",
-        "z": "7d53bde.1a645c4",
-        "g": "489facd2.bdc3dc",
+        "z": "93dfeda6.87345",
+        "g": "87787cf6.2b83a",
         "position": "top right",
         "displayTime": "10",
         "highlight": "",
@@ -4594,10 +4595,10 @@
         "l": false
     },
     {
-        "id": "c0859a6e.cc8b",
+        "id": "78233440.defabc",
         "type": "template",
-        "z": "7d53bde.1a645c4",
-        "g": "489facd2.bdc3dc",
+        "z": "93dfeda6.87345",
+        "g": "87787cf6.2b83a",
         "name": "",
         "field": "payload",
         "fieldType": "msg",
@@ -4609,16 +4610,16 @@
         "y": 340,
         "wires": [
             [
-                "35f6b3c5.c51bec"
+                "5317cb23.a062f4"
             ]
         ],
         "l": false
     },
     {
-        "id": "38fa18d5.ab71e8",
+        "id": "ec842552.3a9ce8",
         "type": "file",
-        "z": "7d53bde.1a645c4",
-        "g": "2addc59d.da626a",
+        "z": "93dfeda6.87345",
+        "g": "7e7e4e7b.883f5",
         "name": "Delete IP address file",
         "filename": "bridgeIpAddressPH.json",
         "appendNewline": true,
@@ -4633,40 +4634,40 @@
         "l": false
     },
     {
-        "id": "d038e1be.fe8b5",
+        "id": "1aa49f1c.ece421",
         "type": "link in",
-        "z": "7d53bde.1a645c4",
-        "g": "2addc59d.da626a",
+        "z": "93dfeda6.87345",
+        "g": "7e7e4e7b.883f5",
         "name": "CREATE NEW USER IN",
         "links": [
-            "e1d31b8.dd81de8"
+            "c119906e.b188d"
         ],
         "x": 195,
         "y": 720,
         "wires": [
             [
-                "c59bea3a.183cc"
+                "91947035.6ab14"
             ]
         ]
     },
     {
-        "id": "e1d31b8.dd81de8",
+        "id": "c119906e.b188d",
         "type": "link out",
-        "z": "7d53bde.1a645c4",
-        "g": "489facd2.bdc3dc",
+        "z": "93dfeda6.87345",
+        "g": "87787cf6.2b83a",
         "name": "CREATE NEW USER OUT",
         "links": [
-            "d038e1be.fe8b5"
+            "1aa49f1c.ece421"
         ],
         "x": 755,
         "y": 240,
         "wires": []
     },
     {
-        "id": "5d66352a.0b904c",
+        "id": "ab6b22e2.0115d",
         "type": "change",
-        "z": "7d53bde.1a645c4",
-        "g": "489facd2.bdc3dc",
+        "z": "93dfeda6.87345",
+        "g": "87787cf6.2b83a",
         "name": "Reset notification title",
         "rules": [
             {
@@ -4686,16 +4687,16 @@
         "y": 340,
         "wires": [
             [
-                "9ff63c97.019008"
+                "9b9aadbd.c1bd7"
             ]
         ],
         "l": false
     },
     {
-        "id": "8a9685d8.e367f8",
+        "id": "a775d59a.672e28",
         "type": "function",
-        "z": "7d53bde.1a645c4",
-        "g": "25715a84.05775e",
+        "z": "93dfeda6.87345",
+        "g": "83df3251.a9c15",
         "name": "Set URL",
         "func": "// Bridge Ip address\nconst ipAddress = flow.get(\"bridgeIpAddress\");\n// Username\nlet username = flow.get(\"bridgeApiKey\");\n// Device ID\nlet deviceID = msg.payload.id;\n\nmsg.payload.url = \"http://\"+ipAddress+\"/api/\"+username+\"/lights/\"+deviceID;\n\nreturn msg;",
         "outputs": 1,
@@ -4706,36 +4707,36 @@
         "y": 900,
         "wires": [
             [
-                "5cdfb22d.a1ebfc"
+                "9fcd286b.2a8f18"
             ]
         ],
         "l": false
     },
     {
-        "id": "e6316ee2.08de",
+        "id": "135cfa61.37e1d6",
         "type": "catch",
-        "z": "7d53bde.1a645c4",
-        "g": "489facd2.bdc3dc",
+        "z": "93dfeda6.87345",
+        "g": "87787cf6.2b83a",
         "name": "",
         "scope": [
-            "6246b834.cf9178",
-            "20f7ed46.03e2aa"
+            "b5fd7d4d.6bc0d",
+            "eeb077de.874038"
         ],
         "uncaught": false,
         "x": 935,
         "y": 180,
         "wires": [
             [
-                "4fb7da56.f3993c"
+                "92d5ddb5.cb2de"
             ]
         ],
         "l": false
     },
     {
-        "id": "d5c74c02.c4ab7",
+        "id": "b2846de2.2e112",
         "type": "comment",
-        "z": "7d53bde.1a645c4",
-        "g": "489facd2.bdc3dc",
+        "z": "93dfeda6.87345",
+        "g": "87787cf6.2b83a",
         "name": "Version 10-05-2021",
         "info": "*Version 10-05-2021: \n    - Query for lights and dimmers\n\n*Version 08-19-2021 (first version):\n    - Command for lights and scenes\n    - UI Dashboard\n    - Query not implemented yet",
         "x": 130,
@@ -4743,9 +4744,28 @@
         "wires": []
     },
     {
-        "id": "f96ab142.d8bab8",
+        "id": "3b606eff.04cbc2",
+        "type": "catch",
+        "z": "93dfeda6.87345",
+        "g": "83df3251.a9c15",
+        "name": "",
+        "scope": [
+            "d0868a42.37b228"
+        ],
+        "uncaught": false,
+        "x": 1255,
+        "y": 710,
+        "wires": [
+            [
+                "cbc4ea65.b983a8"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "4587b3e4.643b2c",
         "type": "mqtt-broker",
-        "z": "6c5ba148.be5d3",
+        "z": "804ce736.c16b68",
         "name": "-",
         "broker": "localhost",
         "port": "1883",
@@ -4766,27 +4786,27 @@
         "info": "-"
     },
     {
-        "id": "5e9a38be.a92b4",
+        "id": "e4287664.fc5db8",
         "type": "ui_group",
         "name": "Main",
-        "tab": "26d5fa47.2db246",
+        "tab": "3b5f5957.ebaa66",
         "order": 1,
         "disp": false,
         "width": 14,
         "collapse": false
     },
     {
-        "id": "28dad04f.67e66",
+        "id": "74e4e3ab.22089c",
         "type": "ui_group",
         "name": "Hue_devices",
-        "tab": "26d5fa47.2db246",
+        "tab": "3b5f5957.ebaa66",
         "order": 5,
         "disp": false,
         "width": 7,
         "collapse": false
     },
     {
-        "id": "26d5fa47.2db246",
+        "id": "3b5f5957.ebaa66",
         "type": "ui_tab",
         "name": "PHILIPS HUE",
         "icon": "dashboard",
