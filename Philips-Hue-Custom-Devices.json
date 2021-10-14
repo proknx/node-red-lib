@@ -324,7 +324,7 @@
         "topic": "proknx/custom/cmd",
         "qos": "2",
         "datatype": "auto",
-        "broker": "4587b3e4.643b2c",
+        "broker": "1303831c.a0b82d",
         "x": 930,
         "y": 1120,
         "wires": [
@@ -574,7 +574,7 @@
         "topic": "proknx/custom/query",
         "qos": "2",
         "datatype": "auto",
-        "broker": "4587b3e4.643b2c",
+        "broker": "1303831c.a0b82d",
         "x": 930,
         "y": 950,
         "wires": [
@@ -4738,11 +4738,12 @@
         "type": "comment",
         "z": "93dfeda6.87345",
         "g": "87787cf6.2b83a",
-        "name": "Version 10-05-2021",
-        "info": "*Version 10-05-2021: \n    - Query for lights and dimmers\n\n*Version 08-19-2021 (first version):\n    - Command for lights and scenes\n    - UI Dashboard\n    - Query not implemented yet",
+        "name": "Version 10-14-2021",
+        "info": "*Version 10-14-2021:\n    - Get PH devices function updated\n\n*Version 10-05-2021: \n    - Query for lights and dimmers\n\n*Version 08-19-2021 (first version):\n    - Command for lights and scenes\n    - UI Dashboard\n    - Query not implemented yet",
         "x": 130,
         "y": 60,
-        "wires": []
+        "wires": [],
+        "icon": "node-red/light.svg"
     },
     {
         "id": "3b606eff.04cbc2",
@@ -4820,15 +4821,14 @@
         "l": false
     },
     {
-        "id": "4587b3e4.643b2c",
+        "id": "1303831c.a0b82d",
         "type": "mqtt-broker",
-        "z": "efc7c741.356b78",
-        "name": "-",
+        "name": "",
         "broker": "localhost",
         "port": "1883",
         "clientid": "",
         "usetls": false,
-        "compatmode": true,
+        "compatmode": false,
         "keepalive": "60",
         "cleansession": true,
         "birthTopic": "",
@@ -4839,8 +4839,7 @@
         "closePayload": "",
         "willTopic": "",
         "willQos": "0",
-        "willPayload": "",
-        "info": "-"
+        "willPayload": ""
     },
     {
         "id": "e4287664.fc5db8",
