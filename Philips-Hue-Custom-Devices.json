@@ -153,11 +153,13 @@
             "7958a547.c0f9bc",
             "25422191.c7903e",
             "a775d59a.672e28",
-            "3b606eff.04cbc2"
+            "3b606eff.04cbc2",
+            "10ab2a05.bb7156",
+            "90743255.7a853"
         ],
         "x": 814,
         "y": 479,
-        "w": 742,
+        "w": 792,
         "h": 682
     },
     {
@@ -1156,7 +1158,7 @@
         "z": "93dfeda6.87345",
         "g": "83df3251.a9c15",
         "name": "Automatic CustomDeviceList for Philips Hue",
-        "func": "// Get devices that are defined in Philips Hue bridge\n// And set them into the right format\nlet devices = [];\n\n// Bridge Ip address\nconst ipAddress = flow.get(\"bridgeIpAddress\");\n// node.error(\"IP address: \" + ipAddress);\n\n// Username\nlet username = flow.get(\"bridgeApiKey\");\n\n// Groups (zone)\nlet groups = msg.payload.groups;\n// node.warn(groups);\n\n//-------------------- Lights --------------------//\nlet lights = msg.payload.lights;\n\nif(lights !== undefined){\n    for(const obj in lights){\n        \n        // Template for lights\n        let light = \n            {\n                \"custom\": true,\n                \"name\": \"\",\n                \"zone\": \"\",\n                \"object\": \"\",\n                \"type\": \"dimmers\",\n                \"setOn\": {\n                    \"name\": \"On\",\n                    \"url\": \"\",\n                    \"body\": {\n                        \"on\": true\n                    }\n                },\n                \"setOff\": {\n                    \"name\": \"Off\",\n                    \"url\": \"\",\n                    \"body\": {\n                        \"on\": false\n                    }\n                },\n                \"setBrightness\": {\n                  \"name\": \"Brightness\",\n                  \"url\" : \"\",\n                  \"valueMin\":1,\n                  \"valueMax\":254,\n                  \"body\": {\n                      \"on\": true,\n                      \"bri\": 127\n                  }\n                },\n                \"currentState\": {\n                    \"name\": \"CurrentBrightness\",\n                    \"url\": \"\",\n                    \"parser\": \"philips\",\n                    \"id\": 0,\n                    \"bri\": 0,\n                    \"valueMin\": 1,\n                    \"valueMax\": 254\n                }\n            }\n        \n        // Light id for url\n        let lightID = obj;\n        \n        // Zone\n        for(const grp in groups){\n            if(groups[grp].lights.length !== 0){\n                // At least one light is part of the group\n                for(let i=0; i < groups[grp].lights.length; ++i){\n                    if(groups[grp].lights[i] === lightID){\n                        // Get zone\n                        if(groups[grp].hasOwnProperty(\"name\")){\n                            light.zone = groups[grp].name;\n                        }\n                        else{\n                            light.zone = \"Default\";\n                        }\n                    }\n                }\n            }\n            else{\n                // No light is part of the group\n                light.zone = \"Default\";\n            }\n        }\n        // Object (light name)\n        if(lights[obj].hasOwnProperty(\"name\")){\n            light.object = lights[obj].name;\n\n            //***** Change functionType if it is a smart plug ****//\n            if(lights[obj].name === \"plug\"){\n                light.type = \"lights\";\n                light.currentState.name = \"CurrentState\";\n            }\n        }\n        \n        // Name\n        light.name = light.zone+\" \"+light.object;\n        \n        // On\n        light.setOn.url= \"http://\"+ipAddress+\"/api/\"+username+\"/lights/\"+lightID+\"/state\";\n        // Off\n        light.setOff.url= \"http://\"+ipAddress+\"/api/\"+username+\"/lights/\"+lightID+\"/state\";\n        // Brightness\n        light.setBrightness.url= \"http://\"+ipAddress+\"/api/\"+username+\"/lights/\"+lightID+\"/state\";\n        // State\n        light.currentState.url= \"http://\"+ipAddress+\"/api/\"+username+\"/lights/\"+lightID;\n        light.currentState.id= parseInt(lightID, 10);\n        if(lights[obj].state.bri !== undefined){\n            // Current brightness\n            light.currentState.bri= lights[obj].state.bri;\n        }\n        \n        // Add light to msgDeviceList\n        devices.push(light);\n        \n        \n        // node.warn(light);\n        // node.warn(devices);\n    }\n}\n\n//-------------------- Sensors --------------------//\nlet sensors = msg.payload.sensors;\n\nif(sensors !== undefined){\n    for(const obj in sensors){\n        \n        // Template for sensors\n        let sensor = \n            {\n                \"custom\": true,\n                \"name\": \"\",\n                \"type\": \"sensor\",\n                \"zone\": \"\",\n                \"object\": \"\",\n                \"currentState\": [\n                    {\n                        \"name\": \"CurrentValue\",\n                        \"url\": \"\",\n                        \"parser\": \"philips\",\n                        \"id\": 0\n                    }\n                ]\n            }\n        \n        // sensor id for url\n        let sensorID = obj;\n        \n        // Zone\n        for(const grp in groups){\n            if(groups[grp].sensors.length !== 0){\n                // At least one sensor is part of the group\n                for(let i=0; i < groups[grp].sensors.length; ++i){\n                    if(groups[grp].sensors[i] === sensorID){\n                        // Get zone\n                        if(groups[grp].hasOwnProperty(\"name\")){\n                            sensor.zone = groups[grp].name;\n                        }\n                        else{\n                            sensor.zone = \"Default\";\n                        }\n                    }\n                }\n            }\n            else{\n                // No sensor is part of the group\n                sensor.zone = \"Default\";\n            }\n        }\n        // Sensor name\n        if(sensors[obj].hasOwnProperty(\"name\")){\n            sensor.name = sensors[obj].name;\n        }\n        \n        // State\n        sensor.currentState.url= \"http://\"+ipAddress+\"/api/\"+username+\"/sensors/\"+sensorID;\n        sensor.currentState.id= parseInt(sensorID,10);\n        \n        // Add sensor to msgDeviceList\n        devices.push(sensor);\n        \n        // node.warn(sensor);\n        // node.warn(devices);\n    }\n}\n\n//-------------------- Scenes --------------------//\nlet scenes = msg.payload.scenes;\n\nif(scenes !== undefined){\n    for(const obj in scenes){\n        \n        // Template for scene\n        let scene = \n            {\n                \"custom\": true,\n                \"name\": \"\",\n                \"type\": \"scenes\",\n                \"zone\": \"\",\n                \"object\": \"\",\n                \"group\": \"\",\n                \"setOn\":\n                    {\n                        \"name\": \"On\",\n                        \"url\": \"\",\n                        \"body\": {\n                            \"scene\": \"\"\n                        }\n                    }\n            }\n        \n        // scene id for url\n        let sceneID = obj;\n        \n        // Group & zone\n        if(scenes[obj].hasOwnProperty(\"group\") && scenes[obj].group !== \"\" && scenes[obj].group !== undefined){\n            scene.group = scenes[obj].group;\n            \n            if(groups[parseInt(scene.group, 10)].hasOwnProperty(\"name\")){\n                scene.zone = groups[parseInt(scene.group, 10)].name;\n            }\n            else{\n                let serverSiteId = global.get(\"msgServerSiteId\");\n                serverSiteId = serverSiteId.replace('_', ' ');\n                serverSiteId = serverSiteId.charAt(0).toUpperCase() + serverSiteId.slice(1);\n                \n                scene.zone = serverSiteId;\n            }\n        }\n        else{\n            // No scene is part of the group: default group & serverSiteId as zone\n            scene.group = \"0\";\n            let serverSiteId = global.get(\"msgServerSiteId\");\n            serverSiteId = serverSiteId.replace('_', ' ');\n            serverSiteId = serverSiteId.charAt(0).toUpperCase() + serverSiteId.slice(1);\n            \n            scene.zone = serverSiteId;\n        }\n        \n        // Object\n        if(scenes[obj].hasOwnProperty(\"name\")){\n            scene.object = scenes[obj].name;\n        }\n        \n        // Name\n        scene.name = scene.zone+\" \"+scene.object;\n        \n        // State\n        scene.setOn.url= \"http://\"+ipAddress+\"/api/\"+username+\"/groups/\"+scene.group+\"/action/\";\n        scene.setOn.body.scene = sceneID;\n        \n        // Add scene to msgDeviceList\n        devices.push(scene);\n        \n        // node.warn(scene);\n        // node.warn(devices);\n    }\n}\n\nmsg.payload = devices;\n\nreturn msg;",
+        "func": "// Get devices that are defined in Philips Hue bridge\n// And set them into the right format\nlet devices = [];\n\n// Bridge Ip address\nconst ipAddress = flow.get(\"bridgeIpAddress\");\n\n// Username\nlet username = flow.get(\"bridgeApiKey\");\n\n// Groups (zone)\nlet groups = msg.payload.groups;\n\n//-------------------- Lights --------------------//\nlet lights = msg.payload.lights;\n\nif(lights !== undefined){\n    for(const obj in lights){\n        try{\n            // Template for lights\n            let light = \n                {\n                    \"custom\": true,\n                    \"name\": \"\",\n                    \"zone\": \"\",\n                    \"object\": \"\",\n                    \"type\": \"dimmers\",\n                    \"setOn\": {\n                        \"name\": \"On\",\n                        \"url\": \"\",\n                        \"body\": {\n                            \"on\": true\n                        }\n                    },\n                    \"setOff\": {\n                        \"name\": \"Off\",\n                        \"url\": \"\",\n                        \"body\": {\n                            \"on\": false\n                        }\n                    },\n                    \"setBrightness\": {\n                      \"name\": \"Brightness\",\n                      \"url\" : \"\",\n                      \"valueMin\":1,\n                      \"valueMax\":254,\n                      \"body\": {\n                          \"on\": true,\n                          \"bri\": 127\n                      }\n                    },\n                    \"currentState\": {\n                        \"name\": \"CurrentBrightness\",\n                        \"url\": \"\",\n                        \"parser\": \"philips\",\n                        \"id\": 0,\n                        \"bri\": 0,\n                        \"valueMin\": 1,\n                        \"valueMax\": 254\n                    }\n                }\n            \n            // Light id for url\n            let lightID = obj;\n            \n            // Zone\n            for(const grp in groups){\n                if(groups[grp].lights.length !== 0){\n                    // At least one light is part of the group\n                    for(let i=0; i < groups[grp].lights.length; ++i){\n                        if(groups[grp].lights[i] === lightID){\n                            // Get zone\n                            if(groups[grp].hasOwnProperty(\"name\")){\n                                light.zone = groups[grp].name;\n                            }\n                            else{\n                                light.zone = \"Default\";\n                            }\n                        }\n                    }\n                }\n                else{\n                    // No light is part of the group\n                    light.zone = \"Default\";\n                }\n            }\n            // Object (light name)\n            if(lights[obj].hasOwnProperty(\"name\")){\n                light.object = lights[obj].name;\n    \n                //***** Change functionType if it is a smart plug ****//\n                if(lights[obj].type.search(\"plug\") !== -1){\n                    light.type = \"lights\";\n                    light.currentState.name = \"CurrentState\";\n                }\n            }\n            else{\n                // This case should not happen\n                light.object = \"Undefined\";\n            }\n            \n            // Name\n            light.name = light.zone+\" \"+light.object;\n            \n            // On\n            light.setOn.url= \"http://\"+ipAddress+\"/api/\"+username+\"/lights/\"+lightID+\"/state\";\n            // Off\n            light.setOff.url= \"http://\"+ipAddress+\"/api/\"+username+\"/lights/\"+lightID+\"/state\";\n            // Brightness\n            light.setBrightness.url= \"http://\"+ipAddress+\"/api/\"+username+\"/lights/\"+lightID+\"/state\";\n            // State\n            light.currentState.url= \"http://\"+ipAddress+\"/api/\"+username+\"/lights/\"+lightID;\n            light.currentState.id= parseInt(lightID, 10);\n            if(lights[obj].state.bri !== undefined){\n                // Current brightness\n                light.currentState.bri= lights[obj].state.bri;\n            }\n            \n            // Add light to msgDeviceList\n            devices.push(light);\n        }\n        catch(e){\n            node.warn(\"Light Exception=\"+e);\n        }\n    }\n}\n\n//-------------------- Sensors (Not fully tested yet) --------------------//\n// let sensors = msg.payload.sensors;\n\n// if(sensors !== undefined){\n//     for(const obj in sensors){\n//         try{\n//             // Template for sensors\n//             let sensor = \n//                 {\n//                     \"custom\": true,\n//                     \"name\": \"\",\n//                     \"type\": \"sensor\",\n//                     \"zone\": \"\",\n//                     \"object\": \"\",\n//                     \"currentState\": [\n//                         {\n//                             \"name\": \"CurrentValue\",\n//                             \"url\": \"\",\n//                             \"parser\": \"philips\",\n//                             \"id\": 0\n//                         }\n//                     ]\n//                 }\n            \n//             // sensor id for url\n//             let sensorID = obj;\n            \n//             // Zone\n//             for(const grp in groups){\n//                 if(groups[grp].sensors.length !== 0){\n//                     // At least one sensor is part of the group\n//                     for(let i=0; i < groups[grp].sensors.length; ++i){\n//                         if(groups[grp].sensors[i] === sensorID){\n//                             // Get zone\n//                             if(groups[grp].hasOwnProperty(\"name\")){\n//                                 sensor.zone = groups[grp].name;\n//                             }\n//                             else{\n//                                 sensor.zone = \"Default\";\n//                             }\n//                         }\n//                     }\n//                 }\n//                 else{\n//                     // No sensor is part of the group\n//                     sensor.zone = \"Default\";\n//                 }\n//             }\n//             // Sensor name\n//             if(sensors[obj].hasOwnProperty(\"name\")){\n//                 sensor.name = sensors[obj].name;\n//             }\n            \n//             // State\n//             sensor.currentState.url= \"http://\"+ipAddress+\"/api/\"+username+\"/sensors/\"+sensorID;\n//             sensor.currentState.id= parseInt(sensorID,10);\n            \n//             // Add sensor to msgDeviceList\n//             devices.push(sensor);\n//         }\n//         catch(e){\n//             node.warn(\"Sensor Exception=\"+e);\n//         }\n//     }\n// }\n\n//-------------------- Scenes --------------------//\nlet scenes = msg.payload.scenes;\n\nif(scenes !== undefined){\n    for(const obj in scenes){\n        try{\n            // Template for scene\n            let scene = \n                {\n                    \"custom\": true,\n                    \"name\": \"\",\n                    \"type\": \"scenes\",\n                    \"zone\": \"\",\n                    \"object\": \"\",\n                    \"group\": \"\",\n                    \"setOn\":\n                        {\n                            \"name\": \"On\",\n                            \"url\": \"\",\n                            \"body\": {\n                                \"scene\": \"\"\n                            }\n                        }\n                }\n            \n            // scene id for url\n            let sceneID = obj;\n            \n            // Group & zone\n            if(scenes[obj].hasOwnProperty(\"group\") && scenes[obj].group !== \"\" && scenes[obj].group !== undefined){\n                scene.group = scenes[obj].group;\n                \n                if(groups[parseInt(scene.group, 10)].hasOwnProperty(\"name\")){\n                    scene.zone = groups[parseInt(scene.group, 10)].name;\n                }\n                else{\n                    let serverSiteId = global.get(\"msgServerSiteId\");\n                    serverSiteId = serverSiteId.replace('_', ' ');\n                    serverSiteId = serverSiteId.charAt(0).toUpperCase() + serverSiteId.slice(1);\n                    \n                    scene.zone = serverSiteId;\n                }\n            }\n            else{\n                // No scene is part of the group: default group & serverSiteId as zone\n                scene.group = \"0\";\n                let serverSiteId = global.get(\"msgServerSiteId\");\n                serverSiteId = serverSiteId.replace('_', ' ');\n                serverSiteId = serverSiteId.charAt(0).toUpperCase() + serverSiteId.slice(1);\n                \n                scene.zone = serverSiteId;\n            }\n            \n            // Object\n            if(scenes[obj].hasOwnProperty(\"name\")){\n                scene.object = scenes[obj].name;\n            }\n            \n            // Name\n            scene.name = scene.zone+\" \"+scene.object;\n            \n            // State\n            scene.setOn.url= \"http://\"+ipAddress+\"/api/\"+username+\"/groups/\"+scene.group+\"/action/\";\n            scene.setOn.body.scene = sceneID;\n            \n            // Add scene to msgDeviceList\n            devices.push(scene);\n        }\n        catch(e){\n            node.warn(\"Scene Exception=\"+e);\n        }\n    }\n}\n\nmsg.payload = devices;\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -1207,7 +1209,7 @@
         "type": "debug",
         "z": "93dfeda6.87345",
         "g": "83df3251.a9c15",
-        "name": "",
+        "name": "Debug Philips Hue Devices",
         "active": false,
         "tosidebar": true,
         "console": false,
@@ -1216,10 +1218,9 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1355,
-        "y": 680,
-        "wires": [],
-        "l": false
+        "x": 1440,
+        "y": 640,
+        "wires": []
     },
     {
         "id": "4ea97a58.428ae4",
@@ -1284,8 +1285,8 @@
         "links": [
             "318fb263.7a63ce"
         ],
-        "x": 1355,
-        "y": 720,
+        "x": 1335,
+        "y": 680,
         "wires": []
     },
     {
@@ -2435,7 +2436,7 @@
         "name": "Sensors_list",
         "label": "Sensors",
         "tooltip": "",
-        "place": "Show list",
+        "place": "Not supported",
         "group": "74e4e3ab.22089c",
         "order": 4,
         "width": 7,
@@ -3440,7 +3441,7 @@
         "z": "93dfeda6.87345",
         "g": "87787cf6.2b83a",
         "name": "error msg",
-        "func": "msg.cmd={};\nmsg.cmd.lang = global.get(\"msgLang\");\nvar ourIP = global.get(\"msgServerIP\");\nvar text = \"\";\nvar text2 = \"\";\n\n// No unsolicited spoken error messages 22-07\nvar d = new Date();\nvar hour = d.getHours();\nif (hour >= 22 || hour < 7 ) {\n    node.warn(\"Skipping spoken error messages during the night: \"+hour);\n    return;\n}\n\nif (msg.cmd.lang === \"de\") {\n    text = \"...\";\n    if(ourIP.length>0){\n        text2 = \" Die adresse ist \" + ourIP;\n    }\n    msg.error = {\n        text: text,\n        siteId: msg.cmd.siteId,\n        lang: \"de-DE\",\n        forceRestart: true\n    };\n} else if (msg.cmd.lang === \"fr\") {\n    text = \"Dans votre navigateur, allez sur l'interface utilisateur, section PHILIPS Gateway et suivez les instructions données.\";\n    if(ourIP.length>0){\n        text = \"Dans votre navigateur, allez sur: \"+ ourIP + \" deux points 1880 slash ui. Suivez les instructions données dans la section PHILIPS Gateway.\";\n        text2 = \" L'adresse est \" + ourIP;\n    }\n    msg.error = {\n        text: text,\n        siteId: msg.cmd.siteId,\n        lang: \"fr-FR\",\n        forceRestart: true\n    };\n} else {\n    text = \"In your browser, navigate to the user interface and follow the given instructions in the PHILIPS Gateway tab\";\n    if(ourIP.length>0){\n        text = \"In your browser, navigate to: \"+ ourIP + \" colon 1880 slash ui. Follow the given instructions in the PHILIPS Gateway tab\";\n        text2 = \" The address is \" + ourIP;\n    }\n    msg.error = {\n        text: text,\n        siteId: msg.cmd.siteId,\n        lang: \"en-EN\",\n        forceRestart: true\n    };\n}\nvar msg2;\nif(text2.length>0){\n    msg2 = JSON.parse(JSON.stringify(msg))\n    msg2.error.text = text2;\n    msg2.error.forceRestart= true;\n}\nreturn [msg,msg2];",
+        "func": "msg.cmd={};\nmsg.cmd.lang = global.get(\"msgLang\");\nvar ourIP = global.get(\"msgServerIP\");\nvar text = \"\";\nvar text2 = \"\";\n\n// No unsolicited spoken error messages 22-07\nvar d = new Date();\nvar hour = d.getHours();\nif (hour >= 22 || hour < 7 ) {\n    node.warn(\"Skipping spoken error messages during the night: \"+hour);\n    return;\n}\n\nif (msg.cmd.lang === \"de\") {\n    text = \"...\";\n    if(ourIP.length>0){\n        text2 = \" Die adresse ist \" + ourIP;\n    }\n    msg.error = {\n        text: text,\n        siteId: msg.cmd.siteId,\n        lang: \"de-DE\",\n        forceRestart: true\n    };\n} else if (msg.cmd.lang === \"fr\") {\n    text = \"Dans votre navigateur, allez sur l'interface utilisateur, section PHILIPS HUE et suivez les instructions données.\";\n    if(ourIP.length>0){\n        text = \"Dans votre navigateur, allez sur: \"+ ourIP + \" deux points 1880 slash ui. Suivez les instructions données dans la section PHILIPS Gateway.\";\n        text2 = \" L'adresse est \" + ourIP;\n    }\n    msg.error = {\n        text: text,\n        siteId: msg.cmd.siteId,\n        lang: \"fr-FR\",\n        forceRestart: true\n    };\n} else {\n    text = \"In your browser, navigate to the user interface and follow the given instructions in the PHILIPS Hue tab\";\n    if(ourIP.length>0){\n        text = \"In your browser, navigate to: \"+ ourIP + \" colon 1880 slash ui. Follow the given instructions in the PHILIPS Gateway tab\";\n        text2 = \" The address is \" + ourIP;\n    }\n    msg.error = {\n        text: text,\n        siteId: msg.cmd.siteId,\n        lang: \"en-EN\",\n        forceRestart: true\n    };\n}\nvar msg2;\nif(text2.length>0){\n    msg2 = JSON.parse(JSON.stringify(msg))\n    msg2.error.text = text2;\n    msg2.error.forceRestart= true;\n}\nreturn [msg,msg2];",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -4754,10 +4755,66 @@
         ],
         "uncaught": false,
         "x": 1255,
-        "y": 710,
+        "y": 720,
         "wires": [
             [
-                "cbc4ea65.b983a8"
+                "90743255.7a853"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "10ab2a05.bb7156",
+        "type": "ui_toast",
+        "z": "93dfeda6.87345",
+        "g": "83df3251.a9c15",
+        "position": "top right",
+        "displayTime": "3",
+        "highlight": "",
+        "sendall": true,
+        "outputs": 0,
+        "ok": "OK",
+        "cancel": "",
+        "raw": false,
+        "topic": "",
+        "name": "",
+        "x": 1355,
+        "y": 720,
+        "wires": [],
+        "l": false
+    },
+    {
+        "id": "90743255.7a853",
+        "type": "change",
+        "z": "93dfeda6.87345",
+        "g": "83df3251.a9c15",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "Failure to get on or more Philips Hue Devices. Please check the lists.",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1305,
+        "y": 720,
+        "wires": [
+            [
+                "10ab2a05.bb7156"
             ]
         ],
         "l": false
@@ -4765,7 +4822,7 @@
     {
         "id": "4587b3e4.643b2c",
         "type": "mqtt-broker",
-        "z": "804ce736.c16b68",
+        "z": "efc7c741.356b78",
         "name": "-",
         "broker": "localhost",
         "port": "1883",
