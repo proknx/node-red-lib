@@ -87,12 +87,15 @@
             "ab99ff70.a516a",
             "ff0d95e8.b5c0b8",
             "ec842552.3a9ce8",
-            "1aa49f1c.ece421"
+            "1aa49f1c.ece421",
+            "c1f7875c.d7eb78",
+            "cd63ccbd.c994a",
+            "ad2aa50.a916f58"
         ],
         "x": 14,
         "y": 479,
         "w": 762,
-        "h": 1102
+        "h": 1182
     },
     {
         "id": "83df3251.a9c15",
@@ -212,7 +215,6 @@
             "bbe0ed2c.75293",
             "27842a50.841f66",
             "6009d4b2.b29b8c",
-            "e77a20c4.a635",
             "1df89796.183668",
             "58e3b0ea.ad121",
             "9a8da7bf.92b708",
@@ -224,7 +226,6 @@
             "af8c9325.07c3b",
             "6e29f4d0.63acbc",
             "ec75b25b.b4f54",
-            "5a26cfb1.9b699",
             "a95f77a.830d588",
             "ea8d9374.927a3",
             "843d7ac8.c6a068",
@@ -244,7 +245,10 @@
             "c119906e.b188d",
             "ab6b22e2.0115d",
             "135cfa61.37e1d6",
-            "b2846de2.2e112"
+            "b2846de2.2e112",
+            "59c45eb4.eafd9",
+            "efb0c0c4.9ef7c",
+            "fa170853.3d9b48"
         ],
         "x": 14,
         "y": 19,
@@ -1304,7 +1308,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 235,
-        "y": 1460,
+        "y": 1540,
         "wires": [],
         "l": false
     },
@@ -1576,7 +1580,7 @@
         "to": "",
         "reg": false,
         "x": 135,
-        "y": 1420,
+        "y": 1500,
         "wires": [
             [
                 "54f89a12.6f68e4",
@@ -1592,7 +1596,7 @@
         "z": "93dfeda6.87345",
         "g": "7e7e4e7b.883f5",
         "group": "e4287664.fc5db8",
-        "order": 7,
+        "order": 5,
         "width": 14,
         "height": 1,
         "name": "Info",
@@ -1712,7 +1716,7 @@
         "order": 1,
         "width": 14,
         "height": 7,
-        "format": "<div ng-bind-html=\"msg.payload\" \n    style= \"width: 100%;  \n        padding-top:10px; \n        padding-bottom:10px;\n        font-family: 'Trebuchet MS', Arial, Times, serif;\n    \">\n    \n</div>",
+        "format": "<div ng-bind-html=\"msg.payload\" \n    style= \"width: 100%;  \n        padding-top:10px; \n        padding-bottom:10px;\n        font-family: 'Trebuchet MS', Arial, Times, serif;\n    \">\n</div>\n\n",
         "storeOutMessages": true,
         "fwdInMessages": true,
         "resendOnRefresh": true,
@@ -1745,7 +1749,7 @@
         "once": true,
         "onceDelay": 0.1,
         "topic": "",
-        "payload": "<h1>Philips Hue</h1>   <p>          This tab is used to set up the connection between your Philips Hue Bridge and your ARAGON.<br>          Please follow the next steps whether it is the first connection:<br>        <ol>         <li>Press the link button on the Philips Hue Bridge</li>         <li>Click on \"NEW CONNECTION\" button</li>         <li>Make sure the connection is established, see \"Information\".</li>     </ol>                <br>Once your Philips Hue bridge is connected, you may be able to command your Philips Devices by using your voice. A list of the available devices is displayed on the side.     <br><br><u>Notes:</u>      <ol>         <li>If the IP address of your Philips Hue bridge cannot be found, please enter it manually.</li>         <li>Click on \"SEARCH FOR PHILIPS HUE DEVICES & SCENES\" if no device or scene appears.</li>     </ol> </p>",
+        "payload": "<h1>Philips Hue</h1>         <p>This tab is used to set up the connection between your Philips Hue Bridge and your ARAGON.          <br>Please follow the next steps whether it is the first connection:          <br>                      <ol>                         <li>Make sure the IP address of your bridge has been found (Huemagic node required), otherwise enter it manually on the popup</li>                      <li>Press the link button on the Philips Hue Bridge</li>                               <li>Click on \"NEW CONNECTION\" button</li>                               <li>Make sure the connection is established, see \"Information\".</li>                   </ol>                               <br>Once your Philips Hue bridge is connected, you may be able to command your Philips Devices by using your voice. A list of the available devices is displayed on the side.               <br><br><u>Note:</u>                    <ul>                             <li>Click on \"SEARCH FOR PHILIPS HUE DEVICES & SCENES\" if no device or scene appears.</li>                   </ul>                </p>",
         "payloadType": "str",
         "x": 130,
         "y": 1060,
@@ -1781,9 +1785,9 @@
         "g": "7e7e4e7b.883f5",
         "name": "Devices",
         "group": "74e4e3ab.22089c",
-        "order": 1,
-        "width": 7,
-        "height": 1,
+        "order": 2,
+        "width": 0,
+        "height": 0,
         "passthru": false,
         "label": "Search for Philips Hue devices & scenes",
         "tooltip": "Searchs for available devices and displays them in the list below",
@@ -1794,7 +1798,7 @@
         "payloadType": "str",
         "topic": "topic",
         "x": 115,
-        "y": 1200,
+        "y": 1280,
         "wires": [
             [
                 "6e3eb805.a26be8"
@@ -1809,7 +1813,7 @@
         "g": "7e7e4e7b.883f5",
         "group": "e4287664.fc5db8",
         "order": 2,
-        "width": "5",
+        "width": 5,
         "height": 1,
         "name": "Spacer",
         "label": "",
@@ -1830,9 +1834,9 @@
         "tooltip": "",
         "place": "Show list",
         "group": "74e4e3ab.22089c",
-        "order": 2,
-        "width": 7,
-        "height": 1,
+        "order": 3,
+        "width": 0,
+        "height": 0,
         "passthru": true,
         "multiple": false,
         "options": [
@@ -1845,7 +1849,7 @@
         "payload": "",
         "topic": "topic",
         "x": 600,
-        "y": 1420,
+        "y": 1500,
         "wires": [
             [
                 "432fa332.327ccc"
@@ -1867,7 +1871,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 705,
-        "y": 1420,
+        "y": 1500,
         "wires": [],
         "l": false
     },
@@ -1958,7 +1962,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 355,
-        "y": 1460,
+        "y": 1540,
         "wires": [],
         "l": false
     },
@@ -2054,7 +2058,7 @@
         "to": "",
         "reg": false,
         "x": 295,
-        "y": 1180,
+        "y": 1260,
         "wires": [
             [
                 "f0a062dd.d8d97"
@@ -2074,7 +2078,7 @@
         "initialize": "",
         "finalize": "",
         "x": 355,
-        "y": 1420,
+        "y": 1500,
         "wires": [
             [
                 "3ddd53ca.a25cec",
@@ -2215,7 +2219,7 @@
         "to": "",
         "reg": false,
         "x": 295,
-        "y": 1220,
+        "y": 1300,
         "wires": [
             [
                 "c9c60743.554ca8"
@@ -2239,7 +2243,7 @@
         "topic": "",
         "name": "",
         "x": 355,
-        "y": 1220,
+        "y": 1300,
         "wires": [],
         "l": false
     },
@@ -2271,7 +2275,7 @@
         "to": "",
         "reg": false,
         "x": 355,
-        "y": 1340,
+        "y": 1420,
         "wires": [
             [
                 "bd8834b.d53d7c8"
@@ -2295,7 +2299,7 @@
         "topic": "",
         "name": "",
         "x": 415,
-        "y": 1340,
+        "y": 1420,
         "wires": [],
         "l": false
     },
@@ -2319,7 +2323,7 @@
         "repair": false,
         "outputs": 2,
         "x": 215,
-        "y": 1200,
+        "y": 1280,
         "wires": [
             [
                 "6dd965a1.7166bc"
@@ -2341,7 +2345,7 @@
             "dc35fbdd.def438"
         ],
         "x": 355,
-        "y": 1260,
+        "y": 1340,
         "wires": []
     },
     {
@@ -2360,7 +2364,7 @@
         "topic": "",
         "name": "",
         "x": 355,
-        "y": 1180,
+        "y": 1260,
         "wires": [],
         "l": false
     },
@@ -2374,7 +2378,7 @@
             "25422191.c7903e"
         ],
         "x": 55,
-        "y": 1420,
+        "y": 1500,
         "wires": [
             [
                 "ef23474f.8e4a38"
@@ -2389,7 +2393,7 @@
         "name": "***********************Get Devices & Scenes (manually)***********************",
         "info": "",
         "x": 300,
-        "y": 1140,
+        "y": 1220,
         "wires": []
     },
     {
@@ -2400,7 +2404,7 @@
         "name": "Update UI",
         "info": "",
         "x": 100,
-        "y": 1380,
+        "y": 1460,
         "wires": []
     },
     {
@@ -2420,7 +2424,7 @@
         "randomUnits": "seconds",
         "drop": false,
         "x": 295,
-        "y": 1260,
+        "y": 1340,
         "wires": [
             [
                 "f07a292b.47c6e8"
@@ -2438,9 +2442,9 @@
         "tooltip": "",
         "place": "Not supported",
         "group": "74e4e3ab.22089c",
-        "order": 4,
-        "width": 7,
-        "height": 1,
+        "order": 5,
+        "width": 0,
+        "height": 0,
         "passthru": true,
         "multiple": false,
         "options": [
@@ -2453,7 +2457,7 @@
         "payload": "",
         "topic": "topic",
         "x": 610,
-        "y": 1480,
+        "y": 1560,
         "wires": [
             [
                 "96c94e49.2f5dc"
@@ -2475,7 +2479,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 715,
-        "y": 1480,
+        "y": 1560,
         "wires": [],
         "l": false
     },
@@ -2500,7 +2504,7 @@
         "to": "",
         "reg": false,
         "x": 495,
-        "y": 1480,
+        "y": 1560,
         "wires": [
             [
                 "a7cc1c32.ac89f"
@@ -2525,7 +2529,7 @@
         "randomUnits": "seconds",
         "drop": false,
         "x": 235,
-        "y": 1360,
+        "y": 1440,
         "wires": [
             [
                 "cae11ec7.23faa"
@@ -2730,7 +2734,7 @@
         "repair": false,
         "outputs": 2,
         "x": 295,
-        "y": 1360,
+        "y": 1440,
         "wires": [
             [
                 "676e5845.334928"
@@ -2769,7 +2773,7 @@
         "to": "",
         "reg": false,
         "x": 355,
-        "y": 1380,
+        "y": 1460,
         "wires": [
             [
                 "c41ca3d.2893e6"
@@ -2793,7 +2797,7 @@
         "topic": "",
         "name": "",
         "x": 415,
-        "y": 1380,
+        "y": 1460,
         "wires": [],
         "l": false
     },
@@ -2938,7 +2942,7 @@
         "g": "87787cf6.2b83a",
         "name": "Authorized user?",
         "info": "",
-        "x": 920,
+        "x": 1000,
         "y": 60,
         "wires": []
     },
@@ -3328,7 +3332,7 @@
             "a95f77a.830d588"
         ],
         "x": 115,
-        "y": 220,
+        "y": 200,
         "wires": [
             [
                 "be3cb2d5.d10ea",
@@ -3441,7 +3445,7 @@
         "z": "93dfeda6.87345",
         "g": "87787cf6.2b83a",
         "name": "error msg",
-        "func": "msg.cmd={};\nmsg.cmd.lang = global.get(\"msgLang\");\nvar ourIP = global.get(\"msgServerIP\");\nvar text = \"\";\nvar text2 = \"\";\n\n// No unsolicited spoken error messages 22-07\nvar d = new Date();\nvar hour = d.getHours();\nif (hour >= 22 || hour < 7 ) {\n    node.warn(\"Skipping spoken error messages during the night: \"+hour);\n    return;\n}\n\nif (msg.cmd.lang === \"de\") {\n    text = \"...\";\n    if(ourIP.length>0){\n        text2 = \" Die adresse ist \" + ourIP;\n    }\n    msg.error = {\n        text: text,\n        siteId: msg.cmd.siteId,\n        lang: \"de-DE\",\n        forceRestart: true\n    };\n} else if (msg.cmd.lang === \"fr\") {\n    text = \"Dans votre navigateur, allez sur l'interface utilisateur, section PHILIPS HUE et suivez les instructions données.\";\n    if(ourIP.length>0){\n        text = \"Dans votre navigateur, allez sur: \"+ ourIP + \" deux points 1880 slash ui. Suivez les instructions données dans la section PHILIPS Gateway.\";\n        text2 = \" L'adresse est \" + ourIP;\n    }\n    msg.error = {\n        text: text,\n        siteId: msg.cmd.siteId,\n        lang: \"fr-FR\",\n        forceRestart: true\n    };\n} else {\n    text = \"In your browser, navigate to the user interface and follow the given instructions in the PHILIPS Hue tab\";\n    if(ourIP.length>0){\n        text = \"In your browser, navigate to: \"+ ourIP + \" colon 1880 slash ui. Follow the given instructions in the PHILIPS Gateway tab\";\n        text2 = \" The address is \" + ourIP;\n    }\n    msg.error = {\n        text: text,\n        siteId: msg.cmd.siteId,\n        lang: \"en-EN\",\n        forceRestart: true\n    };\n}\nvar msg2;\nif(text2.length>0){\n    msg2 = JSON.parse(JSON.stringify(msg))\n    msg2.error.text = text2;\n    msg2.error.forceRestart= true;\n}\nreturn [msg,msg2];",
+        "func": "msg.cmd={};\nmsg.cmd.lang = global.get(\"msgLang\");\nvar ourIP = global.get(\"msgServerIP\");\nvar text = \"\";\nvar text2 = \"\";\n\n// No unsolicited spoken error messages 22-07\nvar d = new Date();\nvar hour = d.getHours();\nif (hour >= 22 || hour < 7 ) {\n    node.warn(\"Skipping spoken error messages during the night: \"+hour);\n    return;\n}\n\nif (msg.cmd.lang === \"de\") {\n    text = \"Gehen Sie in Ihrem Browser auf die Benutzeroberfläche von Nod Red, Abschnitt PHILIPS HUE und folgen Sie den Anweisungen.\";\n    if(ourIP.length>0){\n        text2 = \" Die adresse ist \" + ourIP;\n    }\n    msg.error = {\n        text: text,\n        siteId: msg.cmd.siteId,\n        lang: \"de-DE\",\n        forceRestart: true\n    };\n} else if (msg.cmd.lang === \"fr\") {\n    text = \"Dans votre navigateur, allez sur l'interface utilisateur Node Red, onglet PHILIPS HUE et suivez les instructions données.\";\n    if(ourIP.length>0){\n        text = \"Dans votre navigateur, allez sur: \"+ ourIP + \" deux points 1880 slash ui. Suivez les instructions données dans la section PHILIPS Gateway.\";\n        text2 = \" L'adresse est \" + ourIP;\n    }\n    msg.error = {\n        text: text,\n        siteId: msg.cmd.siteId,\n        lang: \"fr-FR\",\n        forceRestart: true\n    };\n} else {\n    text = \"In your browser, navigate to the Node Red user interface and follow the given instructions in the PHILIPS Hue tab\";\n    if(ourIP.length>0){\n        text = \"In your browser, navigate to: \"+ ourIP + \" colon 1880 slash ui. Follow the given instructions in the PHILIPS Gateway tab\";\n        text2 = \" The address is \" + ourIP;\n    }\n    msg.error = {\n        text: text,\n        siteId: msg.cmd.siteId,\n        lang: \"en-EN\",\n        forceRestart: true\n    };\n}\nvar msg2;\nif(text2.length>0){\n    msg2 = JSON.parse(JSON.stringify(msg))\n    msg2.error.text = text2;\n    msg2.error.forceRestart= true;\n}\nreturn [msg,msg2];",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -3718,37 +3722,6 @@
         "wires": []
     },
     {
-        "id": "e77a20c4.a635",
-        "type": "inject",
-        "z": "93dfeda6.87345",
-        "g": "87787cf6.2b83a",
-        "name": "IP",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": true,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 75,
-        "y": 160,
-        "wires": [
-            [
-                "5a26cfb1.9b699"
-            ]
-        ],
-        "l": false
-    },
-    {
         "id": "3019cb6f.a4df64",
         "type": "change",
         "z": "93dfeda6.87345",
@@ -3769,7 +3742,7 @@
         "to": "",
         "reg": false,
         "x": 495,
-        "y": 1420,
+        "y": 1500,
         "wires": [
             [
                 "469f5e73.1a597"
@@ -4075,36 +4048,6 @@
         "l": false
     },
     {
-        "id": "5a26cfb1.9b699",
-        "type": "change",
-        "z": "93dfeda6.87345",
-        "g": "87787cf6.2b83a",
-        "name": "Login initially false",
-        "rules": [
-            {
-                "t": "set",
-                "p": "login",
-                "pt": "flow",
-                "to": "false",
-                "tot": "bool"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 135,
-        "y": 160,
-        "wires": [
-            [
-                "be3cb2d5.d10ea",
-                "65bc35ff.f337ec"
-            ]
-        ],
-        "l": false
-    },
-    {
         "id": "a95f77a.830d588",
         "type": "link out",
         "z": "93dfeda6.87345",
@@ -4182,7 +4125,7 @@
         "to": "",
         "reg": false,
         "x": 495,
-        "y": 1540,
+        "y": 1620,
         "wires": [
             [
                 "2282804d.5fa7b"
@@ -4200,9 +4143,9 @@
         "tooltip": "",
         "place": "Show list",
         "group": "74e4e3ab.22089c",
-        "order": 3,
-        "width": 7,
-        "height": 1,
+        "order": 4,
+        "width": 0,
+        "height": 0,
         "passthru": true,
         "multiple": false,
         "options": [
@@ -4215,7 +4158,7 @@
         "payload": "",
         "topic": "topic",
         "x": 610,
-        "y": 1540,
+        "y": 1620,
         "wires": [
             [
                 "21c6a308.53789c"
@@ -4237,7 +4180,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 715,
-        "y": 1540,
+        "y": 1620,
         "wires": [],
         "l": false
     },
@@ -4605,7 +4548,7 @@
         "fieldType": "msg",
         "format": "html",
         "syntax": "mustache",
-        "template": "<div ng-bind-html=\"msg.payload\" \n    style=\"font-family: 'Trebuchet MS', Arial, Times, serif;\"\n    >\n   <p>Cannot find the IP address of your Philips bridge, please enter the IP address manually then submit it. <br>You can click on \"NEW RESEARCH\" to try finding the IP address automatically.<p> \n</div>",
+        "template": "<div ng-bind-html=\"msg.payload\" style=\"font-family: 'Trebuchet MS', Arial, Times, serif;\">\n    <p>Cannot find the IP address of your Philips bridge, please enter the IP address manually then submit it.</p>\n    <p>You can click on \"NEW RESEARCH\" to try finding the IP address automatically (Huemagic node required).</p>\n    <br>\n    <p>Philips Hue Bridge IP address:</p>\n</div>\n",
         "output": "str",
         "x": 355,
         "y": 340,
@@ -4738,8 +4681,8 @@
         "type": "comment",
         "z": "93dfeda6.87345",
         "g": "87787cf6.2b83a",
-        "name": "Version 10-14-2021",
-        "info": "*Version 10-14-2021:\n    - Get PH devices function updated\n\n*Version 10-05-2021: \n    - Query for lights and dimmers\n\n*Version 08-19-2021 (first version):\n    - Command for lights and scenes\n    - UI Dashboard\n    - Query not implemented yet",
+        "name": "Version 10-15-2021",
+        "info": "*Version 10-15-2021:\n    - UI: popup updated (to be improved)\n\n*Version 10-14-2021:\n    - Get PH devices function updated\n\n*Version 10-05-2021: \n    - Query for lights and dimmers\n\n*Version 08-19-2021 (first version):\n    - Command for lights and scenes\n    - UI Dashboard\n    - Query not implemented yet",
         "x": 130,
         "y": 60,
         "wires": [],
@@ -4816,6 +4759,142 @@
         "wires": [
             [
                 "10ab2a05.bb7156"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "c1f7875c.d7eb78",
+        "type": "comment",
+        "z": "93dfeda6.87345",
+        "g": "7e7e4e7b.883f5",
+        "name": "***********************IP address (manually)***********************",
+        "info": "",
+        "x": 260,
+        "y": 1120,
+        "wires": []
+    },
+    {
+        "id": "cd63ccbd.c994a",
+        "type": "ui_form",
+        "z": "93dfeda6.87345",
+        "d": true,
+        "g": "7e7e4e7b.883f5",
+        "name": "IP address",
+        "label": "Enter the IP address of your Philips Hue bridge here:",
+        "group": "74e4e3ab.22089c",
+        "order": 1,
+        "width": "7",
+        "height": "4",
+        "options": [
+            {
+                "label": "IP address",
+                "value": "192.168.x.x",
+                "type": "text",
+                "required": true,
+                "rows": null
+            }
+        ],
+        "formValue": {
+            "192.168.x.x": ""
+        },
+        "payload": "",
+        "submit": "submit",
+        "cancel": "cancel",
+        "topic": "",
+        "x": 170,
+        "y": 1160,
+        "wires": [
+            [
+                "ad2aa50.a916f58"
+            ]
+        ]
+    },
+    {
+        "id": "59c45eb4.eafd9",
+        "type": "link in",
+        "z": "93dfeda6.87345",
+        "d": true,
+        "g": "87787cf6.2b83a",
+        "name": "GET IP MANUALLY IN",
+        "links": [],
+        "x": 515,
+        "y": 240,
+        "wires": [
+            [
+                "2d3b045d.d1126c"
+            ]
+        ]
+    },
+    {
+        "id": "ad2aa50.a916f58",
+        "type": "link out",
+        "z": "93dfeda6.87345",
+        "d": true,
+        "g": "7e7e4e7b.883f5",
+        "name": "GET IP MANUALLY OUT",
+        "links": [],
+        "x": 295,
+        "y": 1160,
+        "wires": []
+    },
+    {
+        "id": "fa170853.3d9b48",
+        "type": "change",
+        "z": "93dfeda6.87345",
+        "g": "87787cf6.2b83a",
+        "name": "Login initially false",
+        "rules": [
+            {
+                "t": "set",
+                "p": "login",
+                "pt": "flow",
+                "to": "false",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 115,
+        "y": 160,
+        "wires": [
+            [
+                "be3cb2d5.d10ea",
+                "65bc35ff.f337ec"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "efb0c0c4.9ef7c",
+        "type": "inject",
+        "z": "93dfeda6.87345",
+        "g": "87787cf6.2b83a",
+        "name": "IP",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 75,
+        "y": 160,
+        "wires": [
+            [
+                "fa170853.3d9b48"
             ]
         ],
         "l": false
