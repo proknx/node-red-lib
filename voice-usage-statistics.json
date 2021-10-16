@@ -45,9 +45,9 @@
             "65bee18e.c1745",
             "c462c3a4.db4a2"
         ],
-        "x": 84,
+        "x": 94,
         "y": 29,
-        "w": 392,
+        "w": 382,
         "h": 772
     },
     {
@@ -200,7 +200,7 @@
         "z": "3b56a5f0.bcff3a",
         "g": "a7a24e32.50b5a",
         "name": "",
-        "func": "if(msg.payload === undefined){\n    var msgStat = {\n        voiceCommands: [], intent: []\n};}\nelse{\n    var msgStat = msg.payload;\n}\n\nmsg.payload = flow.get(\"msgStat\");\n\n\n\nfor(var i=0; i<msgStat.voiceCommands.length; i++){\n    \n    if(msgStat.voiceCommands[i].value === undefined ){\n        return null;\n    }\n    \n    if(msgStat.voiceCommands[i].value === msg.payload.voiceCommands[0].value && msgStat.voiceCommands[i].siteId === msg.payload.voiceCommands[0].siteId){\n        var alreadyExist = i;\n    }\n    \n}\n\n\nfor(var i=0; i<msgStat.intent.length; i++){\n    \n    if(msgStat.intent[i].intentName === msg.payload.intent[0].intentName && msgStat.intent[i].siteId === msg.payload.intent[0].siteId){\n        var alreadyExist1 = i;\n    }\n}\n\n\nif(alreadyExist != undefined){\n    msgStat.voiceCommands[alreadyExist].counter = msgStat.voiceCommands[alreadyExist].counter+1;\n}else{\n    msgStat.voiceCommands.push({\"value\": msg.payload.voiceCommands[0].value,\n                            \"siteId\": msg.payload.voiceCommands[0].siteId,\n                            \"executed\" : msg.payload.voiceCommands[0].executed,\n                            \"intentDetected\": msg.payload.voiceCommands[0].intentDetected,\n                            \"counter\": msg.payload.voiceCommands[0].counter\n    });\n}\n\nif(alreadyExist1 != undefined){\n    msgStat.intent[alreadyExist1].counter = msgStat.intent[alreadyExist1].counter+1;\n}else{\n    msgStat.intent.push({\"intentName\": msg.payload.intent[0].intentName,\n                        \"siteId\": msg.payload.intent[0].siteId,\n                        \"counter\": msg.payload.intent[0].counter\n    \n    });\n}\n\n\nif(msg.payload.unknownword !== undefined){\n    msgStat.unknownword = msgStat.unknownword+1;\n}\n\n\nmsg.payload = msgStat;\n\nreturn msg;",
+        "func": "let msgStat;\nif(msg.payload === undefined || Object.entries(msg.payload).length === 0 ){\n    msgStat = {\n        voiceCommands: [], intent: []\n};}\nelse{\n    msgStat = msg.payload;\n}\n\nmsg.payload = flow.get(\"msgStat\");\n\nlet alreadyExist = 0;\nfor(let i=0; i<msgStat.voiceCommands.length; i++){\n    if(msgStat.voiceCommands[i].value === undefined ){\n        return null;\n    }\n    if(msgStat.voiceCommands[i].value === msg.payload.voiceCommands[0].value && msgStat.voiceCommands[i].siteId === msg.payload.voiceCommands[0].siteId){\n        alreadyExist = i;\n    }\n}\n\nlet alreadyExist1 = 0;\nfor(let i=0; i<msgStat.intent.length; i++){\n    if(msgStat.intent[i].intentName === msg.payload.intent[0].intentName && msgStat.intent[i].siteId === msg.payload.intent[0].siteId){\n        alreadyExist1 = i;\n    }\n}\n\nif(alreadyExist !== undefined){\n    msgStat.voiceCommands[alreadyExist].counter = msgStat.voiceCommands[alreadyExist].counter+1;\n}else{\n    msgStat.voiceCommands.push({\"value\": msg.payload.voiceCommands[0].value,\n                            \"siteId\": msg.payload.voiceCommands[0].siteId,\n                            \"executed\" : msg.payload.voiceCommands[0].executed,\n                            \"intentDetected\": msg.payload.voiceCommands[0].intentDetected,\n                            \"counter\": msg.payload.voiceCommands[0].counter\n    });\n}\n\nif(alreadyExist1 !== undefined){\n    msgStat.intent[alreadyExist1].counter = msgStat.intent[alreadyExist1].counter+1;\n}else{\n    msgStat.intent.push({\"intentName\": msg.payload.intent[0].intentName,\n                        \"siteId\": msg.payload.intent[0].siteId,\n                        \"counter\": msg.payload.intent[0].counter\n    \n    });\n}\n\n\nif(msg.payload.unknownword !== undefined){\n    msgStat.unknownword = msgStat.unknownword+1;\n}\n\n\nmsg.payload = msgStat;\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -334,7 +334,7 @@
         "upload": false,
         "swaggerDoc": "",
         "x": 135,
-        "y": 660,
+        "y": 675,
         "wires": [
             [
                 "62b80250.a48fac"
@@ -354,7 +354,7 @@
         "sendError": false,
         "encoding": "none",
         "x": 215,
-        "y": 660,
+        "y": 675,
         "wires": [
             [
                 "f8b6fe7.a8ff48"
@@ -371,7 +371,7 @@
         "statusCode": "",
         "headers": {},
         "x": 295,
-        "y": 660,
+        "y": 675,
         "wires": [],
         "l": false
     },
@@ -383,7 +383,7 @@
         "name": "Download the file here",
         "info": "Go to user interface to see/download statistics file\n\n -> http://localhost:1880/ui ",
         "x": 220,
-        "y": 620,
+        "y": 635,
         "wires": []
     },
     {
@@ -506,7 +506,7 @@
         "z": "3b56a5f0.bcff3a",
         "g": "a7a24e32.50b5a",
         "name": "Version info",
-        "info": "2021-06-21: Bug fix SuperScenes exception when asrTokens not defined\n2021-07-07: create the statistics file if it doesn't exist, re-create it if it is corrupt. Warning text in compress flow",
+        "info": "2021-10-16: Fix Handle empty file\n2021-07-07: create the statistics file if it doesn't exist, re-create it if it is corrupt. Warning text in compress flow\n2021-06-21: Bug fix SuperScenes exception when asrTokens not defined\n",
         "x": 370,
         "y": 70,
         "wires": []
@@ -586,27 +586,50 @@
         "l": false
     },
     {
-        "id": "2b118792.0bb408",
-        "type": "mqtt-broker",
-        "z": "509bf8a4.e53fb",
-        "name": "-",
-        "broker": "localhost",
-        "port": "1883",
-        "clientid": "",
-        "usetls": false,
-        "compatmode": true,
-        "keepalive": "60",
-        "cleansession": true,
-        "birthTopic": "",
-        "birthQos": "0",
-        "birthPayload": "",
-        "closeTopic": "",
-        "closeQos": "0",
-        "closePayload": "",
-        "willTopic": "",
-        "willQos": "0",
-        "willPayload": "",
-        "info": "-"
+        "id": "4698b2a6.b139e4",
+        "type": "catch",
+        "z": "3b56a5f0.bcff3a",
+        "name": "",
+        "scope": [
+            "9dc7701b.21eef8"
+        ],
+        "uncaught": false,
+        "x": 175,
+        "y": 585,
+        "wires": [
+            [
+                "41e7842.5018b7c"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "41e7842.5018b7c",
+        "type": "change",
+        "z": "3b56a5f0.bcff3a",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "{}",
+                "tot": "json"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 235,
+        "y": 585,
+        "wires": [
+            [
+                "56d649e1.75a8e"
+            ]
+        ],
+        "l": false
     },
     {
         "id": "f78aec18.baff9",
