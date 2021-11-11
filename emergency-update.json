@@ -1,0 +1,314 @@
+[
+    {
+        "id": "49a4c30c.0f12f4",
+        "type": "tab",
+        "label": "Emergency fix ",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "8ee2d8f2.533a18",
+        "type": "inject",
+        "z": "49a4c30c.0f12f4",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 115,
+        "y": 85,
+        "wires": [
+            [
+                "d2c77d87.829208"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "d2c77d87.829208",
+        "type": "delay",
+        "z": "49a4c30c.0f12f4",
+        "name": "",
+        "pauseType": "rate",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "hour",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": true,
+        "x": 240,
+        "y": 85,
+        "wires": [
+            [
+                "9d5331bb.69816"
+            ]
+        ]
+    },
+    {
+        "id": "34132931.5adf9e",
+        "type": "comment",
+        "z": "49a4c30c.0f12f4",
+        "name": "Only run this flow once",
+        "info": "",
+        "x": 200,
+        "y": 45,
+        "wires": []
+    },
+    {
+        "id": "9d5331bb.69816",
+        "type": "exec",
+        "z": "49a4c30c.0f12f4",
+        "command": "rm",
+        "addpay": false,
+        "append": "-f  /opt/realknx/logs/realknx.stdout",
+        "useSpawn": "false",
+        "timer": "",
+        "oldrc": false,
+        "name": "",
+        "x": 130,
+        "y": 200,
+        "wires": [
+            [
+                "82cc2c8e.67729"
+            ],
+            [
+                "5b12a5a3.475724"
+            ],
+            [
+                "f39472bd.38195",
+                "8e508907.f6c498"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "f39472bd.38195",
+        "type": "exec",
+        "z": "49a4c30c.0f12f4",
+        "command": "apt-get",
+        "addpay": false,
+        "append": "update --fix-missing",
+        "useSpawn": "false",
+        "timer": "",
+        "oldrc": false,
+        "name": "",
+        "x": 260,
+        "y": 200,
+        "wires": [
+            [
+                "fd0725b6.944848"
+            ],
+            [
+                "b11c3795.6935e8"
+            ],
+            [
+                "997602b4.a165b",
+                "794c62e2.7b0314"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "997602b4.a165b",
+        "type": "exec",
+        "z": "49a4c30c.0f12f4",
+        "command": "apt-get ",
+        "addpay": false,
+        "append": "install --only-upgrade realknx",
+        "useSpawn": "false",
+        "timer": "",
+        "oldrc": false,
+        "name": "",
+        "x": 360,
+        "y": 195,
+        "wires": [
+            [
+                "9b156c2.688659"
+            ],
+            [
+                "9a945c46.2296b8"
+            ],
+            [
+                "f80400d8.15ce7"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "82cc2c8e.67729",
+        "type": "debug",
+        "z": "49a4c30c.0f12f4",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 190,
+        "y": 270,
+        "wires": [],
+        "l": false
+    },
+    {
+        "id": "5b12a5a3.475724",
+        "type": "debug",
+        "z": "49a4c30c.0f12f4",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 190,
+        "y": 310,
+        "wires": [],
+        "l": false
+    },
+    {
+        "id": "8e508907.f6c498",
+        "type": "debug",
+        "z": "49a4c30c.0f12f4",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 190,
+        "y": 350,
+        "wires": [],
+        "l": false
+    },
+    {
+        "id": "fd0725b6.944848",
+        "type": "debug",
+        "z": "49a4c30c.0f12f4",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 310,
+        "y": 270,
+        "wires": [],
+        "l": false
+    },
+    {
+        "id": "b11c3795.6935e8",
+        "type": "debug",
+        "z": "49a4c30c.0f12f4",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 310,
+        "y": 310,
+        "wires": [],
+        "l": false
+    },
+    {
+        "id": "794c62e2.7b0314",
+        "type": "debug",
+        "z": "49a4c30c.0f12f4",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 310,
+        "y": 350,
+        "wires": [],
+        "l": false
+    },
+    {
+        "id": "9b156c2.688659",
+        "type": "debug",
+        "z": "49a4c30c.0f12f4",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 430,
+        "y": 270,
+        "wires": [],
+        "l": false
+    },
+    {
+        "id": "9a945c46.2296b8",
+        "type": "debug",
+        "z": "49a4c30c.0f12f4",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 430,
+        "y": 310,
+        "wires": [],
+        "l": false
+    },
+    {
+        "id": "f80400d8.15ce7",
+        "type": "debug",
+        "z": "49a4c30c.0f12f4",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 430,
+        "y": 350,
+        "wires": [],
+        "l": false
+    }
+]
