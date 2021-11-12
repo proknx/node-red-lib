@@ -2,7 +2,7 @@
     {
         "id": "878344b9.655b88",
         "type": "tab",
-        "label": "Emergency fix for v.4.6",
+        "label": "Emergency update for v.4.6",
         "disabled": false,
         "info": ""
     },
@@ -316,7 +316,7 @@
         "type": "comment",
         "z": "878344b9.655b88",
         "name": "Documentation ",
-        "info": "v.2021-22-12 Updated doc\nv.2021-22-11 Added\n\nThis flow will update an existing installation to 4.6.40\n\nIf your system is older than v4.5 use the Emergency-workaround flow:\n\n[https://raw.githubusercontent.com/proknx/node-red-lib/master/emergency-workaround.json](https://raw.githubusercontent.com/proknx/node-red-lib/master/emergency-workaround.json)",
+        "info": "v.2021-22-12 Updated doc\nv.2021-22-11 Added\n\nThis flow will update an existing installation to 4.6.40\n\nIf your system is older than v4.6 (v3.3-v4.5) use the Emergency-workaround flow:\n\n[https://raw.githubusercontent.com/proknx/node-red-lib/master/emergency-workaround.json](https://raw.githubusercontent.com/proknx/node-red-lib/master/emergency-workaround.json)",
         "x": 435,
         "y": 45,
         "wires": []
