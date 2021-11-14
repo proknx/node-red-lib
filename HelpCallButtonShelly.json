@@ -1,0 +1,94 @@
+[
+    {
+        "id": "c78b681a.a7ff6",
+        "type": "tab",
+        "label": "HELP Button Shelly",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "8bff2b8c.736d58",
+        "type": "http in",
+        "z": "c78b681a.a7ff6",
+        "name": "Shelly HELP button pressed",
+        "url": "/help",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 210,
+        "y": 140,
+        "wires": [
+            [
+                "1bcf6d3a.b86b73",
+                "388498e.03f8f68"
+            ]
+        ]
+    },
+    {
+        "id": "2766a89.ab61dd8",
+        "type": "link out",
+        "z": "c78b681a.a7ff6",
+        "name": "QUERY USER OUT",
+        "links": [
+            "f6f0fac9.27b118",
+            "2d495c99.b030fc"
+        ],
+        "x": 620,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "1bcf6d3a.b86b73",
+        "type": "change",
+        "z": "c78b681a.a7ff6",
+        "name": "You need help ?",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "{\"text\":\"Avez-vous besoin d'aide, dois-je appeler à l'aide? \",\"siteId\":\"salon\"}",
+                "tot": "json"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 460,
+        "y": 140,
+        "wires": [
+            [
+                "2766a89.ab61dd8"
+            ]
+        ]
+    },
+    {
+        "id": "388498e.03f8f68",
+        "type": "debug",
+        "z": "c78b681a.a7ff6",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 420,
+        "y": 190,
+        "wires": []
+    },
+    {
+        "id": "a3800efb.2f7a68",
+        "type": "comment",
+        "z": "c78b681a.a7ff6",
+        "name": "README",
+        "info": "After setting up the Shelly Button in your Wi-Fi network, either from the application or the web interface, configure the \"BUTTON SHORT PRESS URL\" to hit http://<IP-OF-ARAGON>:1880/help\n",
+        "x": 140,
+        "y": 100,
+        "wires": []
+    }
+]
