@@ -559,7 +559,7 @@
         "type": "comment",
         "z": "49a4c30c.0f12f4",
         "name": "Documentation ",
-        "info": "v.2021-12-14 Added restore flow\nv.2021-12-12 Added\n\nThis flow will disable outgoing ping. This will prevent realKNX from the access of public IP service, which fails and prevents the system from starting.\nThis should solve the issue on all systems, but if you have realKNX 4.6 it is preferred to update the system.\nThis flow has been tested \n* Aragon WL\n\n**When/if the system has been updated to realKNX v4.6.60+**\nyou can remove the fix with the 2nd lower flow",
+        "info": "v.2021-22-14 Added restore flow\nv.2021-22-12 Added\n\nThis flow will disable outgoing ping. This will prevent realKNX from the access of public IP service, which fails and prevents the system from starting.\nThis should solve the issue on all systems, but if you have realKNX 4.6 it is preferred to update the system.\nThis flow has been tested \n* Aragon WL\n\n**When/if the system has been updated to realKNX v4.6.60+**\nyou can remove the fix with the 2nd lower flow",
         "x": 390,
         "y": 4300,
         "wires": []
