@@ -1162,7 +1162,7 @@
         "fieldType": "msg",
         "format": "text",
         "syntax": "plain",
-        "template": "\n# Check if \"DROP icmp\" line exists in iptables\n# if not it will be added to prevent outgoing ping\nmatch=$(sudo iptables -L | egrep \"(DROP.*icmp)\")\n\nif [ -z \"$match\" ]\nthen\n\techo \"There is no DROP icmp, adding it...\" >> logs/realknx.stdout\n\tsudo iptables -A OUTPUT -p icmp --icmp-type echo-request -j DROP\n\tsleep 1\nelse\n\techo \"There is a DROP icmp\" >> logs/realknx.stdout\nfi\n\nsudo ping -c1 google.com >> logs/realknx.stdout",
+        "template": "\n# Check if \"DROP icmp\" line exists in iptables\n# if not it will be added to prevent outgoing ping\nmatch=$(sudo iptables -L | egrep \"(DROP.*icmp)\")\n\nif [ -z \"$match\" ]\nthen\n\techo \"There is no DROP icmp, adding it...\" >> logs/realknx.stdout\n\tsudo iptables -A OUTPUT -p icmp --icmp-type echo-request -j DROP\n\tsleep 1\nelse\n\techo \"There is a DROP icmp\" >> logs/realknx.stdout\nfi\n\nsudo ping -c1 google.com >> logs/realknx.stdout || true",
         "output": "str",
         "x": 215,
         "y": 200,
