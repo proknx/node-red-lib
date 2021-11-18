@@ -1,0 +1,279 @@
+[
+    {
+        "id": "ebd140e2.0b5ca",
+        "type": "tab",
+        "label": "Fensterstatus",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "8641ad78.ff16d",
+        "type": "function",
+        "z": "ebd140e2.0b5ca",
+        "name": "report1",
+        "func": "const report1 = \"\" //Hier reportx ändern\nif (msg.payload === true){\n    msg.payload = {report1: msg.topic + \", \"} //Hier reportx ändern\n} else {\n    msg.payload = {report1: \"\"} //Hier reportx ändern\n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 520,
+        "y": 140,
+        "wires": [
+            [
+                "a3eef263.be037"
+            ]
+        ]
+    },
+    {
+        "id": "a3eef263.be037",
+        "type": "function",
+        "z": "ebd140e2.0b5ca",
+        "name": "report",
+        "func": "var reports = \"\"; // reset all messages\n\nif ('report1'in msg.payload)  //Hier reportx ändern\n{\n    context.report1 = msg.payload.report1;  //Hier reportx ändern\n}\nif ('report2'in msg.payload)  //Hier reportx ändern\n{\n    context.report2 = msg.payload.report2;  //Hier reportx ändern\n}\nif ('report3'in msg.payload)  //Hier reportx ändern\n{\n    context.report3 = msg.payload.report3;  //Hier reportx ändern\n}\n\nreports = context.report1 + context.report2 + context.report3;  //Hier alle context.reportx zusammenführen\n\nif (reports === \"\"){\n    reports = \"Alle Fenster sind gschlossen\";\n} else {\n    if ((reports.split(\",\").length - 1) > 1) {\n        reports = reports + \"sind geöffnet\";\n    } else {\n        reports = reports + \"ist geöffnet\";\n    }\n}\n\n\nglobal.set(\"reports\", reports);\nmsg.payload = reports; \nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 696,
+        "y": 140,
+        "wires": [
+            [
+                "b2780033.1c2b3"
+            ]
+        ]
+    },
+    {
+        "id": "4fee16e7.e1c048",
+        "type": "inject",
+        "z": "ebd140e2.0b5ca",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "Fenster im Bad",
+        "payload": "true",
+        "payloadType": "bool",
+        "x": 210,
+        "y": 140,
+        "wires": [
+            [
+                "8641ad78.ff16d"
+            ]
+        ]
+    },
+    {
+        "id": "a2ae3155.511d8",
+        "type": "inject",
+        "z": "ebd140e2.0b5ca",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "Fenster im Bad",
+        "payload": "false",
+        "payloadType": "bool",
+        "x": 210,
+        "y": 180,
+        "wires": [
+            [
+                "8641ad78.ff16d"
+            ]
+        ]
+    },
+    {
+        "id": "214006b2.b4bfca",
+        "type": "function",
+        "z": "ebd140e2.0b5ca",
+        "name": "report2",
+        "func": "const report2 = \"\" //Hier reportx ändern\nif (msg.payload === true){\n    msg.payload = {report2: msg.topic + \", \"} //Hier reportx ändern\n} else {\n    msg.payload = {report2: \"\"} //Hier reportx ändern\n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 520,
+        "y": 240,
+        "wires": [
+            [
+                "a3eef263.be037"
+            ]
+        ]
+    },
+    {
+        "id": "b2780033.1c2b3",
+        "type": "debug",
+        "z": "ebd140e2.0b5ca",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 815,
+        "y": 140,
+        "wires": [],
+        "l": false
+    },
+    {
+        "id": "35c6786a.cbc028",
+        "type": "comment",
+        "z": "ebd140e2.0b5ca",
+        "name": "Fensterstatus abfragen (ReadMe)",
+        "info": "Dieser Flow ermöglich den Fensterstatus aller Fenster in einen String zu übernehmen. Jedes Fenster bekommt einen reportx. In Abhängigkeit vom Zustand (offen = true) werden die Namen der geöffneten Fenster im Node report zusammengefasst und dann in eine globale Variable gespeichert. Der Fenstername wird in \"topic\" des ultimate Knoten eingetragen\nWenn die Abfrage erfolgt \"Gibt es Neuigkeiten\" wird dann der zusammengesetzte String gesprochen.\nDie zu ändernden Codezeilen sind entsprechend gekennzeichnet\n\n - gibt's was neues\n - was sagt mein haus?\n - was gibt's neues?\n - was gibt's?\n - neues vom haus?\n - neuigkeiten?\n - was gibt es neues?\n - gibt es was neues?\n - gibt es was neues?\n - gibt es neuigkeiten?\n - kannst du mir etwas mitteilen?\n - hast du mir was zu sagen?\n - wie gehts?\n - wie geht's?\n - wach auf bitte\n - bitte wach auf",
+        "x": 390,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "6fc1587a.3a7f38",
+        "type": "function",
+        "z": "ebd140e2.0b5ca",
+        "name": "report3",
+        "func": "const report3 = \"\" //Hier reportx ändern\nif (msg.payload === true){\n    msg.payload = {report3: msg.topic + \", \"} //Hier reportx ändern\n} else {\n    msg.payload = {report3: \"\"} //Hier reportx ändern\n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 520,
+        "y": 300,
+        "wires": [
+            [
+                "a3eef263.be037"
+            ]
+        ]
+    },
+    {
+        "id": "5f8b56c.f9164a8",
+        "type": "knxUltimate",
+        "z": "ebd140e2.0b5ca",
+        "server": "f6f79a0c.4815e8",
+        "topic": "1/1/1",
+        "outputtopic": "Fenster im Badezimmer",
+        "dpt": "1.002",
+        "initialread": true,
+        "notifyreadrequest": true,
+        "notifyresponse": true,
+        "notifywrite": true,
+        "notifyreadrequestalsorespondtobus": false,
+        "notifyreadrequestalsorespondtobusdefaultvalueifnotinitialized": "0",
+        "listenallga": false,
+        "name": "Fenster im Badezimmer",
+        "outputtype": "write",
+        "outputRBE": false,
+        "inputRBE": false,
+        "formatmultiplyvalue": 1,
+        "formatnegativevalue": "leave",
+        "formatdecimalsvalue": 999,
+        "x": 210,
+        "y": 100,
+        "wires": [
+            [
+                "8641ad78.ff16d"
+            ]
+        ]
+    },
+    {
+        "id": "8120cd9.9bf923",
+        "type": "knxUltimate",
+        "z": "ebd140e2.0b5ca",
+        "server": "f6f79a0c.4815e8",
+        "topic": "1/1/2",
+        "outputtopic": "Wohnzimmerfenster",
+        "dpt": "1.002",
+        "initialread": true,
+        "notifyreadrequest": true,
+        "notifyresponse": true,
+        "notifywrite": true,
+        "notifyreadrequestalsorespondtobus": false,
+        "notifyreadrequestalsorespondtobusdefaultvalueifnotinitialized": "0",
+        "listenallga": false,
+        "name": "Wohnzimmerfenster",
+        "outputtype": "write",
+        "outputRBE": false,
+        "inputRBE": false,
+        "formatmultiplyvalue": 1,
+        "formatnegativevalue": "leave",
+        "formatdecimalsvalue": 999,
+        "x": 200,
+        "y": 240,
+        "wires": [
+            [
+                "214006b2.b4bfca"
+            ]
+        ]
+    },
+    {
+        "id": "9384c5c4.f6f4f8",
+        "type": "knxUltimate",
+        "z": "ebd140e2.0b5ca",
+        "server": "f6f79a0c.4815e8",
+        "topic": "1/1/3",
+        "outputtopic": "Terrassentür",
+        "dpt": "1.002",
+        "initialread": true,
+        "notifyreadrequest": true,
+        "notifyresponse": true,
+        "notifywrite": true,
+        "notifyreadrequestalsorespondtobus": false,
+        "notifyreadrequestalsorespondtobusdefaultvalueifnotinitialized": "0",
+        "listenallga": false,
+        "name": "Terrassentür",
+        "outputtype": "write",
+        "outputRBE": false,
+        "inputRBE": false,
+        "formatmultiplyvalue": 1,
+        "formatnegativevalue": "leave",
+        "formatdecimalsvalue": 999,
+        "x": 180,
+        "y": 300,
+        "wires": [
+            [
+                "6fc1587a.3a7f38"
+            ]
+        ]
+    },
+    {
+        "id": "f6f79a0c.4815e8",
+        "type": "knxUltimate-config",
+        "host": "1.1.1.1",
+        "port": "3671",
+        "physAddr": "1.1.1",
+        "suppressACKRequest": false,
+        "csv": "",
+        "KNXEthInterface": "Auto",
+        "KNXEthInterfaceManuallyInput": "",
+        "statusDisplayLastUpdate": true,
+        "statusDisplayDeviceNameWhenALL": true,
+        "statusDisplayDataPoint": false,
+        "stopETSImportIfNoDatapoint": "stop",
+        "name": "KNXconfig",
+        "localEchoInTunneling": false,
+        "delaybetweentelegrams": "",
+        "delaybetweentelegramsfurtherdelayREAD": "",
+        "ignoreTelegramsWithRepeatedFlag": false,
+        "keyringFileXML": "",
+        "autoReconnect": "no"
+    }
+]
