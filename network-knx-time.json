@@ -11,12 +11,22 @@
         "type": "inject",
         "z": "c7dcfb07.753c88",
         "name": "Date",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "3600",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "",
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "repeat": "36000",
-        "crontab": "",
-        "once": true,
         "x": 190,
         "y": 120,
         "wires": [
@@ -30,32 +40,17 @@
         "type": "function",
         "z": "c7dcfb07.753c88",
         "name": "Date",
-        "func": "return { payload:{\"value\": new Date() } };",
+        "func": "return {payload:new Date().toString()};",
         "outputs": 1,
         "noerr": 0,
+        "initialize": "",
+        "finalize": "",
         "x": 370,
         "y": 120,
         "wires": [
             [
-                "96894994.baec08"
+                "5b9a794e.9b29b8"
             ]
-        ]
-    },
-    {
-        "id": "96894994.baec08",
-        "type": "knx-device",
-        "z": "c7dcfb07.753c88",
-        "controller": "",
-        "mode": "manual",
-        "groupaddresses": "",
-        "name": "Date",
-        "groupaddress": "",
-        "statusga": "",
-        "dpt": "DPT1",
-        "x": 550,
-        "y": 120,
-        "wires": [
-            []
         ]
     },
     {
@@ -73,14 +68,24 @@
         "type": "inject",
         "z": "c7dcfb07.753c88",
         "name": "Hour",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "3600",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "",
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "repeat": "36000",
-        "crontab": "",
-        "once": true,
         "x": 190,
-        "y": 160,
+        "y": 170,
         "wires": [
             [
                 "2293ceaf.177e52"
@@ -91,33 +96,90 @@
         "id": "2293ceaf.177e52",
         "type": "function",
         "z": "c7dcfb07.753c88",
-        "name": "Hour",
-        "func": "return { payload:{\"value\": new Date() } };",
+        "name": "Time",
+        "func": "return {payload:new Date().toString()};",
         "outputs": 1,
         "noerr": 0,
+        "initialize": "",
+        "finalize": "",
         "x": 370,
-        "y": 160,
+        "y": 170,
         "wires": [
             [
-                "a5cb16a1.086f68"
+                "fd121182.e6a13"
             ]
         ]
     },
     {
-        "id": "a5cb16a1.086f68",
-        "type": "knx-device",
+        "id": "5b9a794e.9b29b8",
+        "type": "knxUltimate",
         "z": "c7dcfb07.753c88",
-        "controller": "",
-        "mode": "manual",
-        "groupaddresses": "",
-        "name": "Hour",
-        "groupaddress": "",
-        "statusga": "",
-        "dpt": "DPT1",
-        "x": 550,
-        "y": 160,
+        "server": "6f5654f9.38070c",
+        "topic": "4/1/1",
+        "outputtopic": "",
+        "dpt": "11.001",
+        "initialread": false,
+        "notifyreadrequest": false,
+        "notifyresponse": false,
+        "notifywrite": true,
+        "notifyreadrequestalsorespondtobus": false,
+        "notifyreadrequestalsorespondtobusdefaultvalueifnotinitialized": "0",
+        "listenallga": false,
+        "name": "",
+        "outputtype": "write",
+        "outputRBE": true,
+        "inputRBE": false,
+        "formatmultiplyvalue": 1,
+        "formatnegativevalue": "leave",
+        "formatdecimalsvalue": 999,
+        "x": 615,
+        "y": 120,
         "wires": [
             []
         ]
+    },
+    {
+        "id": "fd121182.e6a13",
+        "type": "knxUltimate",
+        "z": "c7dcfb07.753c88",
+        "server": "6f5654f9.38070c",
+        "topic": "4/1/0",
+        "outputtopic": "",
+        "dpt": "10.001",
+        "initialread": false,
+        "notifyreadrequest": false,
+        "notifyresponse": false,
+        "notifywrite": true,
+        "notifyreadrequestalsorespondtobus": false,
+        "notifyreadrequestalsorespondtobusdefaultvalueifnotinitialized": "0",
+        "listenallga": false,
+        "name": "",
+        "outputtype": "write",
+        "outputRBE": true,
+        "inputRBE": false,
+        "formatmultiplyvalue": 1,
+        "formatnegativevalue": "leave",
+        "formatdecimalsvalue": 999,
+        "x": 615,
+        "y": 170,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "6f5654f9.38070c",
+        "type": "knxUltimate-config",
+        "host": "192.168.1.240",
+        "port": "3671",
+        "physAddr": "15.15.22",
+        "suppressACKRequest": false,
+        "csv": "",
+        "KNXEthInterface": "Auto",
+        "KNXEthInterfaceManuallyInput": "",
+        "statusDisplayLastUpdate": true,
+        "statusDisplayDeviceNameWhenALL": true,
+        "statusDisplayDataPoint": false,
+        "stopETSImportIfNoDatapoint": "stop",
+        "loglevel": "error"
     }
 ]
