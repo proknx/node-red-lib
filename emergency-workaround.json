@@ -1,45 +1,36 @@
 [
     {
-        "id": "49a4c30c.0f12f4",
+        "id": "d039a859.955df",
         "type": "tab",
         "label": "Emergency work-around v4.5 & older",
         "disabled": false,
         "info": ""
     },
     {
-        "id": "2b2bda4a.df6396",
+        "id": "2e05282e.0db478",
         "type": "inject",
-        "z": "49a4c30c.0f12f4",
+        "z": "d039a859.955df",
         "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
         "repeat": "",
         "crontab": "",
         "once": false,
         "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
         "x": 75,
         "y": 4340,
         "wires": [
             [
-                "82917e9c.48bbc"
+                "754a1af6.5ac81c"
             ]
         ],
         "l": false
     },
     {
-        "id": "82917e9c.48bbc",
+        "id": "754a1af6.5ac81c",
         "type": "delay",
-        "z": "49a4c30c.0f12f4",
+        "z": "d039a859.955df",
         "name": "",
         "pauseType": "rate",
         "timeout": "5",
@@ -55,14 +46,14 @@
         "y": 4340,
         "wires": [
             [
-                "fcb1764c.86ef38"
+                "82b81e55.786e5"
             ]
         ]
     },
     {
-        "id": "5861b5e4.5e29dc",
+        "id": "5c6d6ccb.602354",
         "type": "comment",
-        "z": "49a4c30c.0f12f4",
+        "z": "d039a859.955df",
         "name": "Only run this flow once",
         "info": "",
         "x": 160,
@@ -70,9 +61,9 @@
         "wires": []
     },
     {
-        "id": "fcb1764c.86ef38",
+        "id": "82b81e55.786e5",
         "type": "exec",
-        "z": "49a4c30c.0f12f4",
+        "z": "d039a859.955df",
         "command": "rm",
         "addpay": false,
         "append": "-f  /opt/realknx/logs/realknx.stdout",
@@ -84,22 +75,22 @@
         "y": 4455,
         "wires": [
             [
-                "1a1c38a.d24dfc7"
+                "59e301c0.955958"
             ],
             [
-                "730ac097.67aff"
+                "44f57dc6.33b5bc"
             ],
             [
-                "fc8e14b0.c07c78",
-                "c5e15d6e.ceed1"
+                "bd64e4e7.8c71e",
+                "b24b4f2.72a1db"
             ]
         ],
         "l": false
     },
     {
-        "id": "fc8e14b0.c07c78",
+        "id": "bd64e4e7.8c71e",
         "type": "exec",
-        "z": "49a4c30c.0f12f4",
+        "z": "d039a859.955df",
         "command": "iptables",
         "addpay": false,
         "append": "-A OUTPUT -p icmp --icmp-type echo-request -j DROP",
@@ -111,22 +102,22 @@
         "y": 4455,
         "wires": [
             [
-                "97087844.307578"
+                "f1b141c5.12195"
             ],
             [
-                "89c4c5b6.d1cec8"
+                "6abcd2a9.d06f34"
             ],
             [
-                "b14cb15f.4ebb2",
-                "a4c8b1ef.950a3"
+                "7d3987c2.e32b9",
+                "e28b9851.c94af8"
             ]
         ],
         "l": false
     },
     {
-        "id": "39c64274.b87b0e",
+        "id": "8d8890f0.07f618",
         "type": "exec",
-        "z": "49a4c30c.0f12f4",
+        "z": "d039a859.955df",
         "command": "reboot",
         "addpay": false,
         "append": "",
@@ -138,21 +129,21 @@
         "y": 4455,
         "wires": [
             [
-                "580554c1.c2732c"
+                "bc81b8ae.06b6a"
             ],
             [
-                "7e0f4f2f.0facb"
+                "5dda256c.883404"
             ],
             [
-                "2d5b3e17.751282"
+                "9036143.b6ad568"
             ]
         ],
         "l": false
     },
     {
-        "id": "1a1c38a.d24dfc7",
+        "id": "59e301c0.955958",
         "type": "debug",
-        "z": "49a4c30c.0f12f4",
+        "z": "d039a859.955df",
         "name": "",
         "active": true,
         "tosidebar": true,
@@ -160,17 +151,15 @@
         "tostatus": false,
         "complete": "payload",
         "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
         "x": 150,
         "y": 4525,
         "wires": [],
         "l": false
     },
     {
-        "id": "730ac097.67aff",
+        "id": "44f57dc6.33b5bc",
         "type": "debug",
-        "z": "49a4c30c.0f12f4",
+        "z": "d039a859.955df",
         "name": "",
         "active": true,
         "tosidebar": true,
@@ -178,17 +167,15 @@
         "tostatus": false,
         "complete": "payload",
         "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
         "x": 150,
         "y": 4565,
         "wires": [],
         "l": false
     },
     {
-        "id": "c5e15d6e.ceed1",
+        "id": "b24b4f2.72a1db",
         "type": "debug",
-        "z": "49a4c30c.0f12f4",
+        "z": "d039a859.955df",
         "name": "",
         "active": true,
         "tosidebar": true,
@@ -196,17 +183,15 @@
         "tostatus": false,
         "complete": "payload",
         "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
         "x": 150,
         "y": 4605,
         "wires": [],
         "l": false
     },
     {
-        "id": "97087844.307578",
+        "id": "f1b141c5.12195",
         "type": "debug",
-        "z": "49a4c30c.0f12f4",
+        "z": "d039a859.955df",
         "name": "",
         "active": true,
         "tosidebar": true,
@@ -214,17 +199,15 @@
         "tostatus": false,
         "complete": "payload",
         "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
         "x": 245,
         "y": 4525,
         "wires": [],
         "l": false
     },
     {
-        "id": "89c4c5b6.d1cec8",
+        "id": "6abcd2a9.d06f34",
         "type": "debug",
-        "z": "49a4c30c.0f12f4",
+        "z": "d039a859.955df",
         "name": "",
         "active": true,
         "tosidebar": true,
@@ -232,17 +215,15 @@
         "tostatus": false,
         "complete": "payload",
         "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
         "x": 245,
         "y": 4565,
         "wires": [],
         "l": false
     },
     {
-        "id": "b14cb15f.4ebb2",
+        "id": "7d3987c2.e32b9",
         "type": "debug",
-        "z": "49a4c30c.0f12f4",
+        "z": "d039a859.955df",
         "name": "",
         "active": true,
         "tosidebar": true,
@@ -250,17 +231,15 @@
         "tostatus": false,
         "complete": "payload",
         "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
         "x": 245,
         "y": 4605,
         "wires": [],
         "l": false
     },
     {
-        "id": "580554c1.c2732c",
+        "id": "bc81b8ae.06b6a",
         "type": "debug",
-        "z": "49a4c30c.0f12f4",
+        "z": "d039a859.955df",
         "name": "",
         "active": true,
         "tosidebar": true,
@@ -268,17 +247,15 @@
         "tostatus": false,
         "complete": "payload",
         "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
         "x": 675,
         "y": 4520,
         "wires": [],
         "l": false
     },
     {
-        "id": "7e0f4f2f.0facb",
+        "id": "5dda256c.883404",
         "type": "debug",
-        "z": "49a4c30c.0f12f4",
+        "z": "d039a859.955df",
         "name": "",
         "active": true,
         "tosidebar": true,
@@ -286,17 +263,15 @@
         "tostatus": false,
         "complete": "payload",
         "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
         "x": 675,
         "y": 4560,
         "wires": [],
         "l": false
     },
     {
-        "id": "2d5b3e17.751282",
+        "id": "9036143.b6ad568",
         "type": "debug",
-        "z": "49a4c30c.0f12f4",
+        "z": "d039a859.955df",
         "name": "",
         "active": true,
         "tosidebar": true,
@@ -304,17 +279,15 @@
         "tostatus": false,
         "complete": "payload",
         "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
         "x": 675,
         "y": 4600,
         "wires": [],
         "l": false
     },
     {
-        "id": "a4c8b1ef.950a3",
+        "id": "e28b9851.c94af8",
         "type": "exec",
-        "z": "49a4c30c.0f12f4",
+        "z": "d039a859.955df",
         "command": "echo",
         "addpay": false,
         "append": " iptables-persistent iptables-persistent/autosave_v4 boolean true | sudo debconf-set-selections",
@@ -326,22 +299,22 @@
         "y": 4455,
         "wires": [
             [
-                "f8aac4e2.797528"
+                "78d54291.50facc"
             ],
             [
-                "9c55e580.d32718"
+                "80291e19.4c13d"
             ],
             [
-                "4d071054.a2ffc",
-                "a1de643.3a97698"
+                "c1822b71.638498",
+                "64d03f58.84e148"
             ]
         ],
         "l": false
     },
     {
-        "id": "f8aac4e2.797528",
+        "id": "78d54291.50facc",
         "type": "debug",
-        "z": "49a4c30c.0f12f4",
+        "z": "d039a859.955df",
         "name": "",
         "active": true,
         "tosidebar": true,
@@ -349,17 +322,15 @@
         "tostatus": false,
         "complete": "payload",
         "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
         "x": 355,
         "y": 4525,
         "wires": [],
         "l": false
     },
     {
-        "id": "9c55e580.d32718",
+        "id": "80291e19.4c13d",
         "type": "debug",
-        "z": "49a4c30c.0f12f4",
+        "z": "d039a859.955df",
         "name": "",
         "active": true,
         "tosidebar": true,
@@ -367,17 +338,15 @@
         "tostatus": false,
         "complete": "payload",
         "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
         "x": 355,
         "y": 4565,
         "wires": [],
         "l": false
     },
     {
-        "id": "4d071054.a2ffc",
+        "id": "c1822b71.638498",
         "type": "debug",
-        "z": "49a4c30c.0f12f4",
+        "z": "d039a859.955df",
         "name": "",
         "active": true,
         "tosidebar": true,
@@ -385,17 +354,15 @@
         "tostatus": false,
         "complete": "payload",
         "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
         "x": 355,
         "y": 4605,
         "wires": [],
         "l": false
     },
     {
-        "id": "a70dd8ed.177d28",
+        "id": "3685af6b.44095",
         "type": "exec",
-        "z": "49a4c30c.0f12f4",
+        "z": "d039a859.955df",
         "command": "apt-get",
         "addpay": false,
         "append": "install -y iptables-persistent",
@@ -407,22 +374,22 @@
         "y": 4455,
         "wires": [
             [
-                "a1612497.35d0d8"
+                "dbd4e77f.6f67a"
             ],
             [
-                "34fb9e65.f9c662"
+                "3bbbb4ff.4161bc"
             ],
             [
-                "1fc43715.9dca09",
-                "39c64274.b87b0e"
+                "20a99c5a.1d8fac",
+                "8d8890f0.07f618"
             ]
         ],
         "l": false
     },
     {
-        "id": "a1612497.35d0d8",
+        "id": "dbd4e77f.6f67a",
         "type": "debug",
-        "z": "49a4c30c.0f12f4",
+        "z": "d039a859.955df",
         "name": "",
         "active": true,
         "tosidebar": true,
@@ -430,17 +397,15 @@
         "tostatus": false,
         "complete": "payload",
         "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
         "x": 565,
         "y": 4515,
         "wires": [],
         "l": false
     },
     {
-        "id": "34fb9e65.f9c662",
+        "id": "3bbbb4ff.4161bc",
         "type": "debug",
-        "z": "49a4c30c.0f12f4",
+        "z": "d039a859.955df",
         "name": "",
         "active": true,
         "tosidebar": true,
@@ -448,17 +413,15 @@
         "tostatus": false,
         "complete": "payload",
         "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
         "x": 565,
         "y": 4555,
         "wires": [],
         "l": false
     },
     {
-        "id": "1fc43715.9dca09",
+        "id": "20a99c5a.1d8fac",
         "type": "debug",
-        "z": "49a4c30c.0f12f4",
+        "z": "d039a859.955df",
         "name": "",
         "active": true,
         "tosidebar": true,
@@ -466,17 +429,15 @@
         "tostatus": false,
         "complete": "payload",
         "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
         "x": 565,
         "y": 4595,
         "wires": [],
         "l": false
     },
     {
-        "id": "a1de643.3a97698",
+        "id": "64d03f58.84e148",
         "type": "exec",
-        "z": "49a4c30c.0f12f4",
+        "z": "d039a859.955df",
         "command": "echo",
         "addpay": false,
         "append": "iptables-persistent iptables-persistent/autosave_v6 boolean true | sudo debconf-set-selections",
@@ -488,22 +449,22 @@
         "y": 4455,
         "wires": [
             [
-                "79ba94d9.4ce42c"
+                "50ab89eb.537e3"
             ],
             [
-                "997dd9d6.1ba728"
+                "9e190766.68ebf"
             ],
             [
-                "3edcc9bc.f90d16",
-                "a70dd8ed.177d28"
+                "58e48db9.b64eb4",
+                "3685af6b.44095"
             ]
         ],
         "l": false
     },
     {
-        "id": "79ba94d9.4ce42c",
+        "id": "50ab89eb.537e3",
         "type": "debug",
-        "z": "49a4c30c.0f12f4",
+        "z": "d039a859.955df",
         "name": "",
         "active": true,
         "tosidebar": true,
@@ -511,17 +472,15 @@
         "tostatus": false,
         "complete": "payload",
         "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
         "x": 445,
         "y": 4525,
         "wires": [],
         "l": false
     },
     {
-        "id": "997dd9d6.1ba728",
+        "id": "9e190766.68ebf",
         "type": "debug",
-        "z": "49a4c30c.0f12f4",
+        "z": "d039a859.955df",
         "name": "",
         "active": true,
         "tosidebar": true,
@@ -529,17 +488,15 @@
         "tostatus": false,
         "complete": "payload",
         "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
         "x": 445,
         "y": 4565,
         "wires": [],
         "l": false
     },
     {
-        "id": "3edcc9bc.f90d16",
+        "id": "58e48db9.b64eb4",
         "type": "debug",
-        "z": "49a4c30c.0f12f4",
+        "z": "d039a859.955df",
         "name": "",
         "active": true,
         "tosidebar": true,
@@ -547,17 +504,15 @@
         "tostatus": false,
         "complete": "payload",
         "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
         "x": 445,
         "y": 4605,
         "wires": [],
         "l": false
     },
     {
-        "id": "e905153.53956e8",
+        "id": "75029e18.a9cbd8",
         "type": "comment",
-        "z": "49a4c30c.0f12f4",
+        "z": "d039a859.955df",
         "name": "Documentation ",
         "info": "v.2021-22-14 Added restore flow\nv.2021-22-12 Added\n\nThis flow will disable outgoing ping. This will prevent realKNX from the access of public IP service, which fails and prevents the system from starting.\nThis should solve the issue on all systems, but if you have realKNX 4.6 it is preferred to update the system.\nThis flow has been tested \n* Aragon WL\n\n**When/if the system has been updated to realKNX v4.6.60+**\nyou can remove the fix with the 2nd lower flow",
         "x": 390,
@@ -565,9 +520,9 @@
         "wires": []
     },
     {
-        "id": "3ebc1e1e.a28182",
+        "id": "76aa2b25.3f847c",
         "type": "comment",
-        "z": "49a4c30c.0f12f4",
+        "z": "d039a859.955df",
         "name": "Note: the system will Reboot here",
         "info": "",
         "x": 670,
@@ -575,39 +530,30 @@
         "wires": []
     },
     {
-        "id": "a3544d27.4ce09",
+        "id": "f82016ee.b8f5e8",
         "type": "inject",
-        "z": "49a4c30c.0f12f4",
+        "z": "d039a859.955df",
         "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
         "repeat": "",
         "crontab": "",
         "once": false,
         "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
         "x": 75,
         "y": 4715,
         "wires": [
             [
-                "166ce917.f37cf7"
+                "db65fce6.a9add"
             ]
         ],
         "l": false
     },
     {
-        "id": "166ce917.f37cf7",
+        "id": "db65fce6.a9add",
         "type": "delay",
-        "z": "49a4c30c.0f12f4",
+        "z": "d039a859.955df",
         "name": "",
         "pauseType": "rate",
         "timeout": "5",
@@ -623,14 +569,14 @@
         "y": 4715,
         "wires": [
             [
-                "33eaa70e.70c898"
+                "5c2d057a.e05bcc"
             ]
         ]
     },
     {
-        "id": "33eaa70e.70c898",
+        "id": "5c2d057a.e05bcc",
         "type": "exec",
-        "z": "49a4c30c.0f12f4",
+        "z": "d039a859.955df",
         "command": "iptables",
         "addpay": false,
         "append": "-D OUTPUT -p icmp --icmp-type echo-request -j DROP",
@@ -642,22 +588,22 @@
         "y": 4830,
         "wires": [
             [
-                "88664304.3bfbb"
+                "f69f2be9.9cd0e"
             ],
             [
-                "c9e178f8.098458"
+                "e12e5272.0edc8"
             ],
             [
-                "f804f773.0fd3e8",
-                "ad246d0c.29218"
+                "fd5bac2c.14b578",
+                "fb3c0bc6.2b00e"
             ]
         ],
         "l": false
     },
     {
-        "id": "3a6ed040.96ab",
+        "id": "1604edff.c82b22",
         "type": "exec",
-        "z": "49a4c30c.0f12f4",
+        "z": "d039a859.955df",
         "command": "reboot",
         "addpay": false,
         "append": "",
@@ -669,21 +615,21 @@
         "y": 4830,
         "wires": [
             [
-                "acb1853a.fb7358"
+                "e41508ca.a496a8"
             ],
             [
-                "1cd19891.acafb7"
+                "a7fe4a4.c253338"
             ],
             [
-                "341ec309.c8ee5c"
+                "b269365f.7f2dc"
             ]
         ],
         "l": false
     },
     {
-        "id": "88664304.3bfbb",
+        "id": "f69f2be9.9cd0e",
         "type": "debug",
-        "z": "49a4c30c.0f12f4",
+        "z": "d039a859.955df",
         "name": "",
         "active": true,
         "tosidebar": true,
@@ -691,17 +637,15 @@
         "tostatus": false,
         "complete": "payload",
         "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
         "x": 245,
         "y": 4900,
         "wires": [],
         "l": false
     },
     {
-        "id": "c9e178f8.098458",
+        "id": "e12e5272.0edc8",
         "type": "debug",
-        "z": "49a4c30c.0f12f4",
+        "z": "d039a859.955df",
         "name": "",
         "active": true,
         "tosidebar": true,
@@ -709,17 +653,15 @@
         "tostatus": false,
         "complete": "payload",
         "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
         "x": 245,
         "y": 4940,
         "wires": [],
         "l": false
     },
     {
-        "id": "f804f773.0fd3e8",
+        "id": "fd5bac2c.14b578",
         "type": "debug",
-        "z": "49a4c30c.0f12f4",
+        "z": "d039a859.955df",
         "name": "",
         "active": true,
         "tosidebar": true,
@@ -727,17 +669,15 @@
         "tostatus": false,
         "complete": "payload",
         "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
         "x": 245,
         "y": 4980,
         "wires": [],
         "l": false
     },
     {
-        "id": "acb1853a.fb7358",
+        "id": "e41508ca.a496a8",
         "type": "debug",
-        "z": "49a4c30c.0f12f4",
+        "z": "d039a859.955df",
         "name": "",
         "active": true,
         "tosidebar": true,
@@ -745,17 +685,15 @@
         "tostatus": false,
         "complete": "payload",
         "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
         "x": 675,
         "y": 4895,
         "wires": [],
         "l": false
     },
     {
-        "id": "1cd19891.acafb7",
+        "id": "a7fe4a4.c253338",
         "type": "debug",
-        "z": "49a4c30c.0f12f4",
+        "z": "d039a859.955df",
         "name": "",
         "active": true,
         "tosidebar": true,
@@ -763,17 +701,15 @@
         "tostatus": false,
         "complete": "payload",
         "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
         "x": 675,
         "y": 4935,
         "wires": [],
         "l": false
     },
     {
-        "id": "341ec309.c8ee5c",
+        "id": "b269365f.7f2dc",
         "type": "debug",
-        "z": "49a4c30c.0f12f4",
+        "z": "d039a859.955df",
         "name": "",
         "active": true,
         "tosidebar": true,
@@ -781,17 +717,15 @@
         "tostatus": false,
         "complete": "payload",
         "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
         "x": 675,
         "y": 4975,
         "wires": [],
         "l": false
     },
     {
-        "id": "ad246d0c.29218",
+        "id": "fb3c0bc6.2b00e",
         "type": "exec",
-        "z": "49a4c30c.0f12f4",
+        "z": "d039a859.955df",
         "command": "apt-get",
         "addpay": false,
         "append": "purge -y iptables-persistent",
@@ -803,22 +737,22 @@
         "y": 4830,
         "wires": [
             [
-                "870b663c.dbfda8"
+                "2e9d0efb.4d701a"
             ],
             [
-                "4e1e94c9.14f6fc"
+                "55cb8db2.1fe3b4"
             ],
             [
-                "3ad1d1e8.4dbd3e",
-                "3a6ed040.96ab"
+                "a5921b09.6c3e3",
+                "1604edff.c82b22"
             ]
         ],
         "l": false
     },
     {
-        "id": "870b663c.dbfda8",
+        "id": "2e9d0efb.4d701a",
         "type": "debug",
-        "z": "49a4c30c.0f12f4",
+        "z": "d039a859.955df",
         "name": "",
         "active": true,
         "tosidebar": true,
@@ -826,17 +760,15 @@
         "tostatus": false,
         "complete": "payload",
         "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
         "x": 565,
         "y": 4890,
         "wires": [],
         "l": false
     },
     {
-        "id": "4e1e94c9.14f6fc",
+        "id": "55cb8db2.1fe3b4",
         "type": "debug",
-        "z": "49a4c30c.0f12f4",
+        "z": "d039a859.955df",
         "name": "",
         "active": true,
         "tosidebar": true,
@@ -844,17 +776,15 @@
         "tostatus": false,
         "complete": "payload",
         "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
         "x": 565,
         "y": 4930,
         "wires": [],
         "l": false
     },
     {
-        "id": "3ad1d1e8.4dbd3e",
+        "id": "a5921b09.6c3e3",
         "type": "debug",
-        "z": "49a4c30c.0f12f4",
+        "z": "d039a859.955df",
         "name": "",
         "active": true,
         "tosidebar": true,
@@ -862,17 +792,15 @@
         "tostatus": false,
         "complete": "payload",
         "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
         "x": 565,
         "y": 4970,
         "wires": [],
         "l": false
     },
     {
-        "id": "b4619981.a96be8",
+        "id": "8a84df44.a31d4",
         "type": "comment",
-        "z": "49a4c30c.0f12f4",
+        "z": "d039a859.955df",
         "name": "Note: the system will Reboot here",
         "info": "",
         "x": 670,
@@ -880,9 +808,9 @@
         "wires": []
     },
     {
-        "id": "40a9d99c.f30338",
+        "id": "636d09b2.be9d68",
         "type": "comment",
-        "z": "49a4c30c.0f12f4",
+        "z": "d039a859.955df",
         "name": "↓ TO RESTORE/REMOVE THE FIX ↓ Only run this flow once ",
         "info": "",
         "x": 285,
@@ -890,39 +818,30 @@
         "wires": []
     },
     {
-        "id": "b946f95e.e3ba28",
+        "id": "7442f40c.f61ecc",
         "type": "inject",
-        "z": "49a4c30c.0f12f4",
+        "z": "d039a859.955df",
         "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
         "repeat": "",
         "crontab": "",
         "once": false,
         "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
         "x": 95,
         "y": 80,
         "wires": [
             [
-                "b5561ab5.ad28c8"
+                "4c939c2f.068e44"
             ]
         ],
         "l": false
     },
     {
-        "id": "b5561ab5.ad28c8",
+        "id": "4c939c2f.068e44",
         "type": "delay",
-        "z": "49a4c30c.0f12f4",
+        "z": "d039a859.955df",
         "name": "",
         "pauseType": "rate",
         "timeout": "5",
@@ -938,14 +857,14 @@
         "y": 80,
         "wires": [
             [
-                "c8fada1.db57c28"
+                "89d84d61.a9281"
             ]
         ]
     },
     {
-        "id": "69aa2acc.0bf3d4",
+        "id": "d0e86f3e.699b18",
         "type": "comment",
-        "z": "49a4c30c.0f12f4",
+        "z": "d039a859.955df",
         "name": "Only run this flow once",
         "info": "",
         "x": 180,
@@ -953,9 +872,9 @@
         "wires": []
     },
     {
-        "id": "c8fada1.db57c28",
+        "id": "89d84d61.a9281",
         "type": "exec",
-        "z": "49a4c30c.0f12f4",
+        "z": "d039a859.955df",
         "command": "rm",
         "addpay": false,
         "append": "-f  /opt/realknx/logs/realknx.stdout",
@@ -967,22 +886,23 @@
         "y": 195,
         "wires": [
             [
-                "72f7faa7.33d0b4",
-                "468e68fa.6ca0f8"
+                "558f0f20.b1688",
+                "6018cf64.f30eb8",
+                "6136e3ee.70bcdc"
             ],
             [
-                "638ec0c.21fd84"
+                "5bb058ea.bf288"
             ],
             [
-                "11433ccc.06dcc3"
+                "7468bbdf.e336f4"
             ]
         ],
         "l": false
     },
     {
-        "id": "72f7faa7.33d0b4",
+        "id": "558f0f20.b1688",
         "type": "debug",
-        "z": "49a4c30c.0f12f4",
+        "z": "d039a859.955df",
         "name": "",
         "active": false,
         "tosidebar": true,
@@ -990,17 +910,15 @@
         "tostatus": false,
         "complete": "payload",
         "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
         "x": 170,
         "y": 265,
         "wires": [],
         "l": false
     },
     {
-        "id": "638ec0c.21fd84",
+        "id": "5bb058ea.bf288",
         "type": "debug",
-        "z": "49a4c30c.0f12f4",
+        "z": "d039a859.955df",
         "name": "",
         "active": false,
         "tosidebar": true,
@@ -1008,17 +926,15 @@
         "tostatus": false,
         "complete": "payload",
         "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
         "x": 170,
         "y": 305,
         "wires": [],
         "l": false
     },
     {
-        "id": "11433ccc.06dcc3",
+        "id": "7468bbdf.e336f4",
         "type": "debug",
-        "z": "49a4c30c.0f12f4",
+        "z": "d039a859.955df",
         "name": "",
         "active": true,
         "tosidebar": true,
@@ -1026,27 +942,25 @@
         "tostatus": false,
         "complete": "payload",
         "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
         "x": 170,
         "y": 345,
         "wires": [],
         "l": false
     },
     {
-        "id": "701f0c7.f7680f4",
+        "id": "8ec7ac28.6ee2",
         "type": "comment",
-        "z": "49a4c30c.0f12f4",
-        "name": "Documentation",
-        "info": "v.2021-11-16 (Version 2):\n    - Version 1 is at the bottom of the flow\n    - Version 2: add the prevention code directly to the start-realknx bash script. \n    The prevention code does:\n        1) Search for \"Drop icmp\" line in iptables file\n        2) Add the \"Drop icmp\" line if it is not in the iptables file\n        3) Test a ping to google.com and save the result in log file (for debug)\n    \nv.2021-22-14 Added restore flow\nv.2021-22-12 Added\n\nThis flow will disable outgoing ping. This will prevent realKNX from the access of public IP service, which fails and prevents the system from starting.\nThis should solve the issue on all systems, but if you have realKNX 4.6 it is preferred to update the system.\nThis flow has been tested \n* Aragon WL\n\n**When/if the system has been updated to realKNX v4.6.60+**\nyou can remove the fix with the 2nd lower flow",
-        "x": 410,
+        "z": "d039a859.955df",
+        "name": "Documentation v.2021-11-19 (Version 3)",
+        "info": "v.2021-11-19 (Version 3):\nBlock all ipv6 by adding the following lines to end of /etc/sysctl.conf\n - net.ipv6.conf.all.disable_ipv6 = 1\n - net.ipv6.conf.default.disable_ipv6 = 1\n - net.ipv6.conf.lo.disable_ipv6 = 1\nThe reason to block ipv6 is the ping to google.com can pass via ipv6\n\nv.2021-11-16 (Version 2):\n    - Version 1 is at the bottom of the flow\n    - Version 2: add the prevention code directly to the start-realknx bash script. \n    The prevention code does:\n        1) Search for \"Drop icmp\" line in iptables file\n        2) Add the \"Drop icmp\" line if it is not in the iptables file\n        3) Test a ping to google.com and save the result in log file (for debug)\n    \nv.2021-22-14 Added restore flow\nv.2021-22-12 Added\n\nThis flow will disable outgoing ping. This will prevent realKNX from the access of public IP service, which fails and prevents the system from starting.\nThis should solve the issue on all systems, but if you have realKNX 4.6 it is preferred to update the system.\nThis flow has been tested \n* Aragon WL\n\n**When/if the system has been updated to realKNX v4.6.60+**\nyou can remove the fix with the 2nd lower flow",
+        "x": 500,
         "y": 40,
         "wires": []
     },
     {
-        "id": "48d3ffbc.1a988",
+        "id": "9ded8d4.6ff5ef",
         "type": "exec",
-        "z": "49a4c30c.0f12f4",
+        "z": "d039a859.955df",
         "command": "reboot",
         "addpay": false,
         "append": "",
@@ -1054,25 +968,25 @@
         "timer": "",
         "oldrc": false,
         "name": "",
-        "x": 395,
-        "y": 200,
+        "x": 495,
+        "y": 240,
         "wires": [
             [
-                "490f22e3.99af9c"
+                "8d429696.176868"
             ],
             [
-                "da60f9b7.9de728"
+                "f8b7601a.f1cbc8"
             ],
             [
-                "418f03a6.7f93dc"
+                "fdf17f53.269a3"
             ]
         ],
         "l": false
     },
     {
-        "id": "490f22e3.99af9c",
+        "id": "8d429696.176868",
         "type": "debug",
-        "z": "49a4c30c.0f12f4",
+        "z": "d039a859.955df",
         "name": "",
         "active": true,
         "tosidebar": true,
@@ -1080,17 +994,15 @@
         "tostatus": false,
         "complete": "payload",
         "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 475,
-        "y": 220,
+        "x": 575,
+        "y": 240,
         "wires": [],
         "l": false
     },
     {
-        "id": "da60f9b7.9de728",
+        "id": "f8b7601a.f1cbc8",
         "type": "debug",
-        "z": "49a4c30c.0f12f4",
+        "z": "d039a859.955df",
         "name": "",
         "active": true,
         "tosidebar": true,
@@ -1098,17 +1010,15 @@
         "tostatus": false,
         "complete": "payload",
         "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 475,
-        "y": 260,
+        "x": 575,
+        "y": 280,
         "wires": [],
         "l": false
     },
     {
-        "id": "418f03a6.7f93dc",
+        "id": "fdf17f53.269a3",
         "type": "debug",
-        "z": "49a4c30c.0f12f4",
+        "z": "d039a859.955df",
         "name": "",
         "active": true,
         "tosidebar": true,
@@ -1116,27 +1026,25 @@
         "tostatus": false,
         "complete": "payload",
         "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 475,
-        "y": 300,
+        "x": 575,
+        "y": 320,
         "wires": [],
         "l": false
     },
     {
-        "id": "4af61fa2.e85a8",
+        "id": "cf3f8c48.50e0d8",
         "type": "comment",
-        "z": "49a4c30c.0f12f4",
+        "z": "d039a859.955df",
         "name": "Note: the system will Reboot here",
         "info": "",
-        "x": 510,
-        "y": 140,
+        "x": 580,
+        "y": 180,
         "wires": []
     },
     {
-        "id": "13444b76.031255",
+        "id": "c2257ab.bc8d608",
         "type": "split",
-        "z": "49a4c30c.0f12f4",
+        "z": "d039a859.955df",
         "name": "",
         "splt": "\\n",
         "spltType": "str",
@@ -1144,19 +1052,19 @@
         "arraySpltType": "len",
         "stream": false,
         "addname": "",
-        "x": 275,
-        "y": 200,
+        "x": 315,
+        "y": 180,
         "wires": [
             [
-                "3f7f6089.55a7"
+                "7fb4aae7.68f464"
             ]
         ],
         "l": false
     },
     {
-        "id": "468e68fa.6ca0f8",
+        "id": "6018cf64.f30eb8",
         "type": "template",
-        "z": "49a4c30c.0f12f4",
+        "z": "d039a859.955df",
         "name": "Prevention code",
         "field": "payload",
         "fieldType": "msg",
@@ -1164,30 +1072,111 @@
         "syntax": "plain",
         "template": "\n# Check if \"DROP icmp\" line exists in iptables\n# if not it will be added to prevent outgoing ping\nmatch=$(sudo iptables -L | egrep \"(DROP.*icmp)\")\n\nif [ -z \"$match\" ]\nthen\n\techo \"There is no DROP icmp, adding it...\" >> logs/realknx.stdout\n\tsudo iptables -A OUTPUT -p icmp --icmp-type echo-request -j DROP\n\tsleep 1\nelse\n\techo \"There is a DROP icmp\" >> logs/realknx.stdout\nfi\n\nsudo ping -c1 google.com >> logs/realknx.stdout || true",
         "output": "str",
-        "x": 215,
-        "y": 200,
+        "x": 255,
+        "y": 180,
         "wires": [
             [
-                "13444b76.031255"
+                "c2257ab.bc8d608"
             ]
         ],
         "l": false
     },
     {
-        "id": "3f7f6089.55a7",
+        "id": "7fb4aae7.68f464",
         "type": "file",
-        "z": "49a4c30c.0f12f4",
+        "z": "d039a859.955df",
         "name": "Add code to start-realknx.sh",
         "filename": "/opt/realknx/start-realknx.sh",
         "appendNewline": true,
         "createDir": false,
         "overwriteFile": "false",
         "encoding": "none",
-        "x": 335,
-        "y": 200,
+        "x": 375,
+        "y": 180,
+        "wires": [
+            []
+        ],
+        "l": false
+    },
+    {
+        "id": "6136e3ee.70bcdc",
+        "type": "template",
+        "z": "d039a859.955df",
+        "name": "Prevention code block ipv6",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "text",
+        "syntax": "plain",
+        "template": "\nnet.ipv6.conf.all.disable_ipv6 = 1\nnet.ipv6.conf.default.disable_ipv6 = 1\nnet.ipv6.conf.lo.disable_ipv6 = 1\n",
+        "output": "str",
+        "x": 255,
+        "y": 240,
         "wires": [
             [
-                "48d3ffbc.1a988"
+                "e9fc3601.7a3b08"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "7f069ba1.97474c",
+        "type": "file",
+        "z": "d039a859.955df",
+        "name": "Add code to /etc/sysctl.conf",
+        "filename": "/etc/sysctl.conf",
+        "appendNewline": true,
+        "createDir": false,
+        "overwriteFile": "false",
+        "encoding": "none",
+        "x": 375,
+        "y": 240,
+        "wires": [
+            [
+                "18e704f0.6b5e5b"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "18e704f0.6b5e5b",
+        "type": "delay",
+        "z": "d039a859.955df",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "x": 435,
+        "y": 240,
+        "wires": [
+            [
+                "9ded8d4.6ff5ef"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "e9fc3601.7a3b08",
+        "type": "split",
+        "z": "d039a859.955df",
+        "name": "",
+        "splt": "\\n",
+        "spltType": "str",
+        "arraySplt": 1,
+        "arraySpltType": "len",
+        "stream": false,
+        "addname": "",
+        "x": 315,
+        "y": 240,
+        "wires": [
+            [
+                "7f069ba1.97474c"
             ]
         ],
         "l": false
