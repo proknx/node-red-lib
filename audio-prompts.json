@@ -47,7 +47,7 @@
             "cbc0c09b.7c0038",
             "13a52c70.292124"
         ],
-        "x": 59,
+        "x": 49,
         "y": 664,
         "w": 1192,
         "h": 437
@@ -69,9 +69,9 @@
             "f2fa4b4f.f4c23",
             "405dabbc.c7d574"
         ],
-        "x": 44,
+        "x": 49,
         "y": 439,
-        "w": 467,
+        "w": 462,
         "h": 202
     },
     {
@@ -94,7 +94,7 @@
             "e893ef6.b3b7b9"
         ],
         "x": 49,
-        "y": 269,
+        "y": 264,
         "w": 463,
         "h": 157
     },
@@ -113,9 +113,9 @@
             "78a5a361.c6a344",
             "6a33b1af.447e08"
         ],
-        "x": 54,
+        "x": 49,
         "y": 119,
-        "w": 457,
+        "w": 462,
         "h": 127
     },
     {
@@ -134,9 +134,9 @@
             "b5c3f0bf.b9709",
             "981eaca4.e9eca"
         ],
-        "x": 529,
-        "y": 271.5,
-        "w": 472,
+        "x": 534,
+        "y": 266.5,
+        "w": 467,
         "h": 149.5
     },
     {
@@ -177,7 +177,7 @@
         "topic": "",
         "payload": "true",
         "payloadType": "bool",
-        "x": 140,
+        "x": 145,
         "y": 600,
         "wires": [
             [
@@ -225,7 +225,7 @@
             "aa0b60df.859968",
             "96175099.778d7"
         ],
-        "x": 85,
+        "x": 90,
         "y": 520,
         "wires": [
             [
@@ -244,7 +244,7 @@
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 270,
+        "x": 275,
         "y": 520,
         "wires": [
             [
@@ -282,7 +282,7 @@
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 240,
+        "x": 235,
         "y": 160,
         "wires": [
             [
@@ -301,7 +301,7 @@
             "2c3b6323.b96384",
             "b93dbd90.15e29"
         ],
-        "x": 390,
+        "x": 385,
         "y": 160,
         "wires": []
     },
@@ -319,7 +319,7 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 305,
+        "x": 300,
         "y": 205,
         "wires": [],
         "l": false
@@ -342,7 +342,7 @@
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 115,
+        "x": 110,
         "y": 160,
         "wires": [
             [
@@ -358,7 +358,7 @@
         "g": "6bc6d13.5dd9cb",
         "name": "ACTIVATE SONOS DEBUG MESSAGES",
         "info": "",
-        "x": 240,
+        "x": 245,
         "y": 480,
         "wires": []
     },
@@ -373,7 +373,7 @@
         "createDir": true,
         "overwriteFile": "true",
         "encoding": "none",
-        "x": 350,
+        "x": 340,
         "y": 1005,
         "wires": [
             [
@@ -392,7 +392,7 @@
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 255,
+        "x": 245,
         "y": 1005,
         "wires": [
             [
@@ -408,7 +408,7 @@
         "g": "5c6a227f.cfcb14",
         "name": "Audio file browser",
         "info": "Requires: \n * File lister node: node-red-contrib-fs\n * ui_upload: node-red-contrib-ui-upload\n\nBased on https://flows.nodered.org/flow/44bc7ad491aacb4253dd8a5f757b5407\nCredit: nygma2004 https://flows.nodered.org/user/nygma2004\n\nCredit: alkarex https://flows.nodered.org/user/alkarex\nhttps://flows.nodered.org/node/node-red-contrib-ui-upload",
-        "x": 180,
+        "x": 170,
         "y": 705,
         "wires": []
     },
@@ -434,7 +434,7 @@
         "topic": "change",
         "payload": "/home/pi/.node-red/audioprompts",
         "payloadType": "str",
-        "x": 165,
+        "x": 155,
         "y": 755,
         "wires": [
             [
@@ -461,7 +461,7 @@
         "payload": "",
         "payloadType": "str",
         "topic": "refresh",
-        "x": 155,
+        "x": 145,
         "y": 795,
         "wires": [
             [
@@ -493,7 +493,7 @@
         ],
         "payload": "",
         "topic": "",
-        "x": 935,
+        "x": 925,
         "y": 765,
         "wires": [
             [
@@ -512,7 +512,7 @@
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 735,
+        "x": 725,
         "y": 765,
         "wires": [
             [
@@ -535,7 +535,7 @@
         "fwdInMessages": true,
         "resendOnRefresh": false,
         "templateScope": "local",
-        "x": 1125,
+        "x": 1115,
         "y": 825,
         "wires": [
             []
@@ -553,7 +553,7 @@
         "syntax": "mustache",
         "template": "<table width=\"100%\">\n    <tr><th>File Name</th><th>Size</th><th>Created</th><th>Changed</th></tr>\n    {{#payload}}\n        <tr>\n            <td><a href=\"/download?filename={{name}}\" target=\"blank\">{{fname}}</a></td>\n            <td>{{stat.size}}</td>\n            <td>{{stat.created}}</td>\n            <td>{{stat.changed}}</td>\n        </tr>\n    {{/payload}}\n</table>\n",
         "output": "str",
-        "x": 965,
+        "x": 955,
         "y": 825,
         "wires": [
             [
@@ -570,7 +570,7 @@
         "func": "for (var i=0; i<msg.payload.length; i++) {\n    msg.payload[i].stat.created = msg.payload[i].stat.created.toISOString().slice(0, 19).replace('T', ' ');\n    msg.payload[i].stat.changed = msg.payload[i].stat.changed.toISOString().slice(0, 19).replace('T', ' ');\n    msg.payload[i].stat.accessed = msg.payload[i].stat.accessed.toISOString().slice(0, 19).replace('T', ' ');\n    msg.payload[i].stat.statusChanged = msg.payload[i].stat.statusChanged.toISOString().slice(0, 19).replace('T', ' ');\n    msg.payload[i].fname = msg.payload[i].name.replace(/^.*(\\\\|\\/|\\:)/, '');\n}\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 765,
+        "x": 755,
         "y": 825,
         "wires": [
             [
@@ -597,7 +597,7 @@
         "payload": "",
         "payloadType": "str",
         "topic": "",
-        "x": 145,
+        "x": 135,
         "y": 885,
         "wires": [
             [
@@ -616,7 +616,7 @@
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 790,
+        "x": 780,
         "y": 885,
         "wires": [
             [
@@ -636,7 +636,7 @@
         "createDir": false,
         "overwriteFile": "delete",
         "encoding": "none",
-        "x": 380,
+        "x": 370,
         "y": 805,
         "wires": [
             [
@@ -655,7 +655,7 @@
         "method": "get",
         "upload": false,
         "swaggerDoc": "",
-        "x": 175,
+        "x": 165,
         "y": 945,
         "wires": [
             [
@@ -671,7 +671,7 @@
         "name": "",
         "statusCode": "",
         "headers": {},
-        "x": 930,
+        "x": 920,
         "y": 945,
         "wires": []
     },
@@ -686,7 +686,7 @@
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 390,
+        "x": 380,
         "y": 945,
         "wires": [
             [
@@ -708,7 +708,7 @@
         "chunk": false,
         "sendError": false,
         "encoding": "none",
-        "x": 580,
+        "x": 570,
         "y": 945,
         "wires": [
             [
@@ -750,7 +750,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 750,
+        "x": 740,
         "y": 945,
         "wires": [
             [
@@ -773,7 +773,7 @@
         "raw": false,
         "topic": "",
         "name": "Confirmation",
-        "x": 490,
+        "x": 480,
         "y": 885,
         "wires": [
             [
@@ -808,7 +808,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 305,
+        "x": 295,
         "y": 885,
         "wires": [
             [
@@ -834,7 +834,7 @@
         "checkall": "true",
         "repair": false,
         "outputs": 1,
-        "x": 635,
+        "x": 625,
         "y": 885,
         "wires": [
             [
@@ -853,7 +853,7 @@
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 355,
+        "x": 345,
         "y": 765,
         "wires": [
             [
@@ -881,7 +881,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1145,
+        "x": 1135,
         "y": 765,
         "wires": [
             []
@@ -902,7 +902,7 @@
         "fwdInMessages": false,
         "resendOnRefresh": false,
         "templateScope": "local",
-        "x": 150,
+        "x": 140,
         "y": 1060,
         "wires": [
             []
@@ -924,7 +924,7 @@
         "depth": 0,
         "stat": true,
         "showWarnings": true,
-        "x": 560,
+        "x": 550,
         "y": 765,
         "wires": [
             [
@@ -946,7 +946,7 @@
         "height": "4",
         "chunk": 256,
         "transfer": "binary",
-        "x": 145,
+        "x": 135,
         "y": 1005,
         "wires": [
             [
@@ -961,7 +961,7 @@
         "g": "6bc6d13.5dd9cb",
         "name": "SPOKEN FEEDBACK TO SONOS SPEAKERS",
         "info": "",
-        "x": 260,
+        "x": 265,
         "y": 560,
         "wires": []
     },
@@ -981,7 +981,7 @@
         "type": "comment",
         "z": "2c76898a.ffc21e",
         "name": "2. Manage audio prompt files ",
-        "info": "The User interface for listing audio files:\n[User interface - audio prompt files](ui)",
+        "info": "The User interface for listing audio files:\n[User interface - audio prompt files](ui)\n\nDownload a [sample audio file](https://github.com/proknx/node-red-lib/blob/master/sample.mp3?raw=true)",
         "x": 185,
         "y": 85,
         "wires": []
@@ -991,7 +991,7 @@
         "type": "comment",
         "z": "2c76898a.ffc21e",
         "name": "1. README - Installation ",
-        "info": "This flow requires the following nodes to be installed from the 'Manage Palette | Install' dialog:\n * node-red-contrib-fs\n * node-red-contrib-ui-upload\n * node-red-contrib-bigtimer\n",
+        "info": "This flow demonstrates how to generate voice prompts (TTS or Audio) either by event or by time.\n\nThis flow requires the following nodes to be installed from the 'Manage Palette | Install' dialog:\n * node-red-contrib-fs\n * node-red-contrib-ui-upload\n * node-red-contrib-bigtimer\n",
         "x": 165,
         "y": 45,
         "wires": []
@@ -1076,7 +1076,7 @@
         "proxy": "",
         "authType": "",
         "x": 290,
-        "y": 310,
+        "y": 305,
         "wires": [
             [
                 "e893ef6.b3b7b9"
@@ -1095,7 +1095,7 @@
         "initialize": "",
         "finalize": "",
         "x": 160,
-        "y": 310,
+        "y": 305,
         "wires": [
             [
                 "9cfac6a1.3b5d7",
@@ -1119,7 +1119,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 210,
-        "y": 385,
+        "y": 380,
         "wires": [],
         "l": false
     },
@@ -1142,7 +1142,7 @@
         "payload": "",
         "payloadType": "date",
         "x": 110,
-        "y": 310,
+        "y": 305,
         "wires": [
             [
                 "f55ae46d.e3fd6"
@@ -1158,7 +1158,7 @@
         "name": "README",
         "info": "Send a pre-recorded audio file to one or all SONOS speakers, see details in the function node.\nAdd your event source of choice (e.g MQTT/KNX/HTTP)\n\nKNX example: \nhttps://proknx.com/nodered/prompt-the-window-is-open/\n",
         "x": 320,
-        "y": 385,
+        "y": 380,
         "wires": []
     },
     {
@@ -1173,7 +1173,7 @@
         "timer": "",
         "oldrc": false,
         "name": "Create symbolic link to clips directory",
-        "x": 485,
+        "x": 475,
         "y": 1005,
         "wires": [
             [
@@ -1199,7 +1199,7 @@
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 435,
+        "x": 425,
         "y": 1005,
         "wires": [
             [
@@ -1222,7 +1222,7 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 560,
+        "x": 550,
         "y": 1010,
         "wires": [],
         "l": false
@@ -1239,7 +1239,7 @@
         "timer": "",
         "oldrc": false,
         "name": "Delete broken symbolic links",
-        "x": 515,
+        "x": 505,
         "y": 810,
         "wires": [
             [
@@ -1268,7 +1268,7 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 575,
+        "x": 565,
         "y": 810,
         "wires": [],
         "l": false
@@ -1288,7 +1288,7 @@
         "proxy": "",
         "authType": "",
         "x": 290,
-        "y": 350,
+        "y": 345,
         "wires": [
             [
                 "e893ef6.b3b7b9"
@@ -1307,7 +1307,7 @@
         "initialize": "",
         "finalize": "",
         "x": 160,
-        "y": 350,
+        "y": 345,
         "wires": [
             [
                 "14fa9bea.3e43ac",
@@ -1335,7 +1335,7 @@
         "payload": "",
         "payloadType": "date",
         "x": 110,
-        "y": 350,
+        "y": 345,
         "wires": [
             [
                 "f6a690be.92a6c"
@@ -1493,7 +1493,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 415,
-        "y": 330,
+        "y": 325,
         "wires": [],
         "l": false
     },
@@ -1511,8 +1511,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 725,
-        "y": 380,
+        "x": 730,
+        "y": 375,
         "wires": [],
         "l": false
     },
@@ -1523,8 +1523,8 @@
         "g": "e3b1b819.0747a",
         "name": "README",
         "info": "Send a pre-recorded audio file to all SONOS speaker, see details in the function node.\nAdd your event source of choice (e.g MQTT/KNX/HTTP)\nExample: https://proknx.com/nodered/prompt-the-window-is-open/\n",
-        "x": 830,
-        "y": 380,
+        "x": 835,
+        "y": 375,
         "wires": []
     },
     {
@@ -1541,8 +1541,8 @@
         "persist": false,
         "proxy": "",
         "authType": "",
-        "x": 860,
-        "y": 320,
+        "x": 865,
+        "y": 315,
         "wires": [
             [
                 "b5c3f0bf.b9709"
@@ -1560,8 +1560,8 @@
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 740,
-        "y": 320,
+        "x": 745,
+        "y": 315,
         "wires": [
             [
                 "d8a2945.d464768"
@@ -1584,7 +1584,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 940,
-        "y": 380,
+        "y": 375,
         "wires": [],
         "l": false
     },
@@ -1713,8 +1713,8 @@
         "atstart": true,
         "odd": false,
         "even": false,
-        "x": 625,
-        "y": 320,
+        "x": 630,
+        "y": 315,
         "wires": [
             [
                 "f89f4815.7f37f8",
@@ -1723,6 +1723,16 @@
             [],
             []
         ]
+    },
+    {
+        "id": "39a58589.92938a",
+        "type": "comment",
+        "z": "2c76898a.ffc21e",
+        "name": "History",
+        "info": "2021-11-23: first version",
+        "x": 450,
+        "y": 45,
+        "wires": []
     },
     {
         "id": "e7dd4e27.6d1248",
