@@ -1,0 +1,1746 @@
+[
+    {
+        "id": "2c76898a.ffc21e",
+        "type": "tab",
+        "label": "AUDIO PROMPTS",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "5c6a227f.cfcb14",
+        "type": "group",
+        "z": "2c76898a.ffc21e",
+        "name": "AUDIO FILES MANAGEMENT (BROWSER & UPLOAD)",
+        "style": {
+            "label": true
+        },
+        "nodes": [
+            "c9f0160d.acaa18",
+            "af84ab14.4486c",
+            "dbb63a65.cc73a",
+            "d68c7aee.2770e",
+            "35ba17d1.a2f4f8",
+            "d693bba2.71f6a8",
+            "a8970f36.91d1c8",
+            "a1306d1e.028cd8",
+            "9e50ca55.4a75",
+            "af2bd90b.537d8",
+            "3bdee8bd.0022f8",
+            "663b28f.81a7358",
+            "2bbafdd7.202c82",
+            "ac3aa96f.9e2ce",
+            "6c0b4779.ea6178",
+            "f7a1870d.bbd9e8",
+            "cfe386f2.4e22f8",
+            "506667da.f21e88",
+            "236eb7ca.a8c2c",
+            "c194a2a8.6ffd08",
+            "c2bf1981.df15e",
+            "91cf3832.de3c18",
+            "b18d8693.96a4d",
+            "7ced932b.d52094",
+            "766187b9.22e74",
+            "5016c913.ad4bf",
+            "ccca8aa1.3ea4a8",
+            "587eac72.7ce2a4",
+            "dd5ee3aa.aaae78",
+            "cbc0c09b.7c0038",
+            "13a52c70.292124"
+        ],
+        "x": 59,
+        "y": 664,
+        "w": 1192,
+        "h": 437
+    },
+    {
+        "id": "6bc6d13.5dd9cb",
+        "type": "group",
+        "z": "2c76898a.ffc21e",
+        "name": "EXTRA",
+        "style": {
+            "label": true
+        },
+        "nodes": [
+            "bc2d76b3.dc452",
+            "a7eb1219.e7e7b",
+            "50ffb2ac.c3a594",
+            "7708d11a.4c39f",
+            "e1319804.4eb9",
+            "f2fa4b4f.f4c23",
+            "405dabbc.c7d574"
+        ],
+        "x": 44,
+        "y": 439,
+        "w": 467,
+        "h": 202
+    },
+    {
+        "id": "ad47fb2e.463308",
+        "type": "group",
+        "z": "2c76898a.ffc21e",
+        "name": "PLAY SOMETHING - EVENT DRIVEN - PRE-RECORDED AUDIO",
+        "style": {
+            "label": true
+        },
+        "nodes": [
+            "f55ae46d.e3fd6",
+            "9cfac6a1.3b5d7",
+            "301d5a53.42012e",
+            "e600a124.fd4058",
+            "8c9427a2.35d7c",
+            "14fa9bea.3e43ac",
+            "f6a690be.92a6c",
+            "54c31036.14a8e",
+            "e893ef6.b3b7b9"
+        ],
+        "x": 49,
+        "y": 269,
+        "w": 463,
+        "h": 157
+    },
+    {
+        "id": "c483feab.a7d8d",
+        "type": "group",
+        "z": "2c76898a.ffc21e",
+        "name": "SAY SOMETHING - EVENT DRIVEN - TEXT-TO-SPEECH",
+        "style": {
+            "label": true
+        },
+        "nodes": [
+            "1dbd7a67.6b4b0e",
+            "3a3c5b3f.1ff624",
+            "d30b6963.76e788",
+            "78a5a361.c6a344",
+            "6a33b1af.447e08"
+        ],
+        "x": 54,
+        "y": 119,
+        "w": 457,
+        "h": 127
+    },
+    {
+        "id": "e3b1b819.0747a",
+        "type": "group",
+        "z": "2c76898a.ffc21e",
+        "name": "PLAY SOMETHING - TIME DRIVEN - PRE-RECORDED AUDIO",
+        "style": {
+            "label": true
+        },
+        "nodes": [
+            "a5d262c7.bb4898",
+            "1871ea17.4812a6",
+            "d8a2945.d464768",
+            "f89f4815.7f37f8",
+            "b5c3f0bf.b9709",
+            "981eaca4.e9eca"
+        ],
+        "x": 529,
+        "y": 271.5,
+        "w": 472,
+        "h": 149.5
+    },
+    {
+        "id": "ebc9d23a.84f0e8",
+        "type": "group",
+        "z": "2c76898a.ffc21e",
+        "name": "SAY SOMETHING - TIME DRIVEN - TEXT-TO-SPEECH",
+        "style": {
+            "label": true
+        },
+        "nodes": [
+            "9253a8b8.4c13b8",
+            "66edf3ce.19a434",
+            "acbf0c32.1eb0b8",
+            "227c0b16.29a744",
+            "8003350b.eb04d"
+        ],
+        "x": 534,
+        "y": 119,
+        "w": 467,
+        "h": 127
+    },
+    {
+        "id": "bc2d76b3.dc452",
+        "type": "inject",
+        "z": "2c76898a.ffc21e",
+        "g": "6bc6d13.5dd9cb",
+        "name": "init",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "5",
+        "topic": "",
+        "payload": "true",
+        "payloadType": "bool",
+        "x": 140,
+        "y": 600,
+        "wires": [
+            [
+                "a7eb1219.e7e7b"
+            ]
+        ]
+    },
+    {
+        "id": "a7eb1219.e7e7b",
+        "type": "change",
+        "z": "2c76898a.ffc21e",
+        "g": "6bc6d13.5dd9cb",
+        "name": "sonosmirror=true",
+        "rules": [
+            {
+                "t": "set",
+                "p": "sonosmirror",
+                "pt": "global",
+                "to": "true",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 395,
+        "y": 600,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "50ffb2ac.c3a594",
+        "type": "link in",
+        "z": "2c76898a.ffc21e",
+        "g": "6bc6d13.5dd9cb",
+        "name": "DEBUG SONOS IN",
+        "links": [
+            "b05b9913.1766d8",
+            "45372c71.5b28ec",
+            "1edf36a8.481cf1",
+            "734d9229.1d57f4",
+            "aa0b60df.859968",
+            "96175099.778d7"
+        ],
+        "x": 85,
+        "y": 520,
+        "wires": [
+            [
+                "7708d11a.4c39f"
+            ]
+        ]
+    },
+    {
+        "id": "7708d11a.4c39f",
+        "type": "function",
+        "z": "2c76898a.ffc21e",
+        "g": "6bc6d13.5dd9cb",
+        "name": "Prepare",
+        "func": "var newMsg = {};\nif(msg.error !== undefined){\n    newMsg.payload = msg.error;\n} else {\n    newMsg = msg\n}\nreturn newMsg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 270,
+        "y": 520,
+        "wires": [
+            [
+                "e1319804.4eb9"
+            ]
+        ]
+    },
+    {
+        "id": "e1319804.4eb9",
+        "type": "debug",
+        "z": "2c76898a.ffc21e",
+        "g": "6bc6d13.5dd9cb",
+        "name": "ACTIVATE DEBUG SONOS",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 450,
+        "y": 520,
+        "wires": [],
+        "l": false
+    },
+    {
+        "id": "1dbd7a67.6b4b0e",
+        "type": "function",
+        "z": "2c76898a.ffc21e",
+        "g": "c483feab.a7d8d",
+        "name": "Say something",
+        "func": "msg.payload = {\n    text: \"This prompt will be spoken in the Living room\",\n    siteId: \"living_room\",\n    lang: \"en-UK\"\n};\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 240,
+        "y": 160,
+        "wires": [
+            [
+                "3a3c5b3f.1ff624",
+                "d30b6963.76e788"
+            ]
+        ]
+    },
+    {
+        "id": "3a3c5b3f.1ff624",
+        "type": "link out",
+        "z": "2c76898a.ffc21e",
+        "g": "c483feab.a7d8d",
+        "name": "",
+        "links": [
+            "2c3b6323.b96384",
+            "b93dbd90.15e29"
+        ],
+        "x": 390,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "d30b6963.76e788",
+        "type": "debug",
+        "z": "2c76898a.ffc21e",
+        "g": "c483feab.a7d8d",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 305,
+        "y": 205,
+        "wires": [],
+        "l": false
+    },
+    {
+        "id": "78a5a361.c6a344",
+        "type": "inject",
+        "z": "2c76898a.ffc21e",
+        "g": "c483feab.a7d8d",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 115,
+        "y": 160,
+        "wires": [
+            [
+                "1dbd7a67.6b4b0e"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "f2fa4b4f.f4c23",
+        "type": "comment",
+        "z": "2c76898a.ffc21e",
+        "g": "6bc6d13.5dd9cb",
+        "name": "ACTIVATE SONOS DEBUG MESSAGES",
+        "info": "",
+        "x": 240,
+        "y": 480,
+        "wires": []
+    },
+    {
+        "id": "c9f0160d.acaa18",
+        "type": "file",
+        "z": "2c76898a.ffc21e",
+        "g": "5c6a227f.cfcb14",
+        "name": "",
+        "filename": "",
+        "appendNewline": true,
+        "createDir": true,
+        "overwriteFile": "true",
+        "encoding": "none",
+        "x": 350,
+        "y": 1005,
+        "wires": [
+            [
+                "587eac72.7ce2a4"
+            ]
+        ]
+    },
+    {
+        "id": "af84ab14.4486c",
+        "type": "function",
+        "z": "2c76898a.ffc21e",
+        "g": "5c6a227f.cfcb14",
+        "name": "",
+        "func": "msg.filename = \"/home/pi/.node-red/audioprompts/\"+msg.file.name\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 255,
+        "y": 1005,
+        "wires": [
+            [
+                "c9f0160d.acaa18"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "dbb63a65.cc73a",
+        "type": "comment",
+        "z": "2c76898a.ffc21e",
+        "g": "5c6a227f.cfcb14",
+        "name": "Audio file browser",
+        "info": "Requires: \n * File lister node: node-red-contrib-fs\n * ui_upload: node-red-contrib-ui-upload\n\nBased on https://flows.nodered.org/flow/44bc7ad491aacb4253dd8a5f757b5407\nCredit: nygma2004 https://flows.nodered.org/user/nygma2004\n\nCredit: alkarex https://flows.nodered.org/user/alkarex\nhttps://flows.nodered.org/node/node-red-contrib-ui-upload",
+        "x": 180,
+        "y": 705,
+        "wires": []
+    },
+    {
+        "id": "d68c7aee.2770e",
+        "type": "inject",
+        "z": "2c76898a.ffc21e",
+        "g": "5c6a227f.cfcb14",
+        "name": "Init",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "3",
+        "topic": "change",
+        "payload": "/home/pi/.node-red/audioprompts",
+        "payloadType": "str",
+        "x": 165,
+        "y": 755,
+        "wires": [
+            [
+                "91cf3832.de3c18"
+            ]
+        ]
+    },
+    {
+        "id": "35ba17d1.a2f4f8",
+        "type": "ui_button",
+        "z": "2c76898a.ffc21e",
+        "g": "5c6a227f.cfcb14",
+        "name": "",
+        "group": "e7dd4e27.6d1248",
+        "order": 3,
+        "width": "2",
+        "height": "1",
+        "passthru": false,
+        "label": "Refresh",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "icon": "refresh",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "refresh",
+        "x": 155,
+        "y": 795,
+        "wires": [
+            [
+                "91cf3832.de3c18"
+            ]
+        ]
+    },
+    {
+        "id": "d693bba2.71f6a8",
+        "type": "ui_dropdown",
+        "z": "2c76898a.ffc21e",
+        "g": "5c6a227f.cfcb14",
+        "name": "File Selector",
+        "label": "",
+        "tooltip": "",
+        "place": "Select a file",
+        "group": "e7dd4e27.6d1248",
+        "order": 4,
+        "width": "5",
+        "height": "1",
+        "passthru": false,
+        "multiple": false,
+        "options": [
+            {
+                "label": "",
+                "value": "",
+                "type": "str"
+            }
+        ],
+        "payload": "",
+        "topic": "",
+        "x": 935,
+        "y": 765,
+        "wires": [
+            [
+                "b18d8693.96a4d"
+            ]
+        ]
+    },
+    {
+        "id": "a8970f36.91d1c8",
+        "type": "function",
+        "z": "2c76898a.ffc21e",
+        "g": "5c6a227f.cfcb14",
+        "name": "Format data",
+        "func": "// format the data for the dropdown\nmsg.options = [];\nfor (var i=0; i<msg.payload.length; i++) {\n    // This is a file\n    obj = {};\n    obj [msg.payload[i].name.replace(/^.*(\\\\|\\/|\\:)/, '')]=msg.payload[i].name;\n    msg.options.push(obj);\n}\nmsg.payload={};\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 735,
+        "y": 765,
+        "wires": [
+            [
+                "d693bba2.71f6a8"
+            ]
+        ]
+    },
+    {
+        "id": "a1306d1e.028cd8",
+        "type": "ui_template",
+        "z": "2c76898a.ffc21e",
+        "g": "5c6a227f.cfcb14",
+        "group": "e7dd4e27.6d1248",
+        "name": "File list",
+        "order": 6,
+        "width": "0",
+        "height": "0",
+        "format": "<div ng-bind-html=\"msg.payload\" height=\"400\" style=\"height: 400px;\"><br/>\n</div>\n\n",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": false,
+        "templateScope": "local",
+        "x": 1125,
+        "y": 825,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "9e50ca55.4a75",
+        "type": "template",
+        "z": "2c76898a.ffc21e",
+        "g": "5c6a227f.cfcb14",
+        "name": "",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "<table width=\"100%\">\n    <tr><th>File Name</th><th>Size</th><th>Created</th><th>Changed</th></tr>\n    {{#payload}}\n        <tr>\n            <td><a href=\"/download?filename={{name}}\" target=\"blank\">{{fname}}</a></td>\n            <td>{{stat.size}}</td>\n            <td>{{stat.created}}</td>\n            <td>{{stat.changed}}</td>\n        </tr>\n    {{/payload}}\n</table>\n",
+        "output": "str",
+        "x": 965,
+        "y": 825,
+        "wires": [
+            [
+                "a1306d1e.028cd8"
+            ]
+        ]
+    },
+    {
+        "id": "af2bd90b.537d8",
+        "type": "function",
+        "z": "2c76898a.ffc21e",
+        "g": "5c6a227f.cfcb14",
+        "name": "Convert timestamps",
+        "func": "for (var i=0; i<msg.payload.length; i++) {\n    msg.payload[i].stat.created = msg.payload[i].stat.created.toISOString().slice(0, 19).replace('T', ' ');\n    msg.payload[i].stat.changed = msg.payload[i].stat.changed.toISOString().slice(0, 19).replace('T', ' ');\n    msg.payload[i].stat.accessed = msg.payload[i].stat.accessed.toISOString().slice(0, 19).replace('T', ' ');\n    msg.payload[i].stat.statusChanged = msg.payload[i].stat.statusChanged.toISOString().slice(0, 19).replace('T', ' ');\n    msg.payload[i].fname = msg.payload[i].name.replace(/^.*(\\\\|\\/|\\:)/, '');\n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 765,
+        "y": 825,
+        "wires": [
+            [
+                "9e50ca55.4a75"
+            ]
+        ]
+    },
+    {
+        "id": "3bdee8bd.0022f8",
+        "type": "ui_button",
+        "z": "2c76898a.ffc21e",
+        "g": "5c6a227f.cfcb14",
+        "name": "",
+        "group": "e7dd4e27.6d1248",
+        "order": 5,
+        "width": "2",
+        "height": "1",
+        "passthru": false,
+        "label": "Delete",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "icon": "delete",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "",
+        "x": 145,
+        "y": 885,
+        "wires": [
+            [
+                "c194a2a8.6ffd08"
+            ]
+        ]
+    },
+    {
+        "id": "663b28f.81a7358",
+        "type": "function",
+        "z": "2c76898a.ffc21e",
+        "g": "5c6a227f.cfcb14",
+        "name": "Get filename",
+        "func": "// Get the filename from the flow context\nlet filename = flow.get(\"fileselected\");\n\n// check, if the filename is undefined that means it does not exist yet, nothing is selected yet\n// return: do not output anything\nif (filename===undefined) {\n    return;\n}\n\n// return the filename to the file-in node to delete\nmsg.filename = \"/home/pi/.node-red/audioprompts/\"+filename;\n\nif (msg.filename.replace(/^.*(\\\\|\\/|\\:)/, '')[0]!==\".\") {\n    // Only do this if this is a file, we don't delete folders\n    // and delete the context/selection as we are deleting the file as well\n    flow.set(\"fileselected\");\n    let msg2 = {\"payload\":filename};\n    return [msg,msg2];\n}",
+        "outputs": 2,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 790,
+        "y": 885,
+        "wires": [
+            [
+                "2bbafdd7.202c82"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "2bbafdd7.202c82",
+        "type": "file",
+        "z": "2c76898a.ffc21e",
+        "g": "5c6a227f.cfcb14",
+        "name": "Delete file",
+        "filename": "",
+        "appendNewline": true,
+        "createDir": false,
+        "overwriteFile": "delete",
+        "encoding": "none",
+        "x": 380,
+        "y": 805,
+        "wires": [
+            [
+                "766187b9.22e74",
+                "cbc0c09b.7c0038"
+            ]
+        ]
+    },
+    {
+        "id": "ac3aa96f.9e2ce",
+        "type": "http in",
+        "z": "2c76898a.ffc21e",
+        "g": "5c6a227f.cfcb14",
+        "name": "",
+        "url": "/download",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 175,
+        "y": 945,
+        "wires": [
+            [
+                "f7a1870d.bbd9e8"
+            ]
+        ]
+    },
+    {
+        "id": "6c0b4779.ea6178",
+        "type": "http response",
+        "z": "2c76898a.ffc21e",
+        "g": "5c6a227f.cfcb14",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 930,
+        "y": 945,
+        "wires": []
+    },
+    {
+        "id": "f7a1870d.bbd9e8",
+        "type": "function",
+        "z": "2c76898a.ffc21e",
+        "g": "5c6a227f.cfcb14",
+        "name": "Get the file name",
+        "func": "msg.filename = \"/home/pi/.node-red/audioprompts/\"+msg.req.query.filename;\nmsg.contentdisposition = \"attachment; filename=\\\"\" + msg.req.query.filename.replace(/^.*(\\\\|\\/|\\:)/, '') + \"\\\"\";\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 390,
+        "y": 945,
+        "wires": [
+            [
+                "cfe386f2.4e22f8"
+            ]
+        ],
+        "outputLabels": [
+            "Folder selected"
+        ]
+    },
+    {
+        "id": "cfe386f2.4e22f8",
+        "type": "file in",
+        "z": "2c76898a.ffc21e",
+        "g": "5c6a227f.cfcb14",
+        "name": "",
+        "filename": "",
+        "format": "",
+        "chunk": false,
+        "sendError": false,
+        "encoding": "none",
+        "x": 580,
+        "y": 945,
+        "wires": [
+            [
+                "506667da.f21e88"
+            ]
+        ]
+    },
+    {
+        "id": "506667da.f21e88",
+        "type": "change",
+        "z": "2c76898a.ffc21e",
+        "g": "5c6a227f.cfcb14",
+        "name": "Set Headers",
+        "rules": [
+            {
+                "t": "set",
+                "p": "headers",
+                "pt": "msg",
+                "to": "{}",
+                "tot": "json"
+            },
+            {
+                "t": "set",
+                "p": "headers.content-type",
+                "pt": "msg",
+                "to": "text/csv",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "headers.Content-Disposition",
+                "pt": "msg",
+                "to": "contentdisposition",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 750,
+        "y": 945,
+        "wires": [
+            [
+                "6c0b4779.ea6178"
+            ]
+        ]
+    },
+    {
+        "id": "236eb7ca.a8c2c",
+        "type": "ui_toast",
+        "z": "2c76898a.ffc21e",
+        "g": "5c6a227f.cfcb14",
+        "position": "dialog",
+        "displayTime": "3",
+        "highlight": "",
+        "sendall": false,
+        "outputs": 1,
+        "ok": "Yes",
+        "cancel": "No",
+        "raw": false,
+        "topic": "",
+        "name": "Confirmation",
+        "x": 490,
+        "y": 885,
+        "wires": [
+            [
+                "c2bf1981.df15e"
+            ]
+        ]
+    },
+    {
+        "id": "c194a2a8.6ffd08",
+        "type": "change",
+        "z": "2c76898a.ffc21e",
+        "g": "5c6a227f.cfcb14",
+        "name": "Set message",
+        "rules": [
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "Delete confirmation",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "Are you sure you want to delete this file?",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 305,
+        "y": 885,
+        "wires": [
+            [
+                "236eb7ca.a8c2c"
+            ]
+        ]
+    },
+    {
+        "id": "c2bf1981.df15e",
+        "type": "switch",
+        "z": "2c76898a.ffc21e",
+        "g": "5c6a227f.cfcb14",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "Yes",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 635,
+        "y": 885,
+        "wires": [
+            [
+                "663b28f.81a7358"
+            ]
+        ]
+    },
+    {
+        "id": "91cf3832.de3c18",
+        "type": "function",
+        "z": "2c76898a.ffc21e",
+        "g": "5c6a227f.cfcb14",
+        "name": "Folder handling",
+        "func": "\nlet folder = context.get(\"folder\");\nif (folder===undefined) {\n    folder=\"/\";\n    context.set(\"folder\", folder);\n}\n\nlet hidden = context.get(\"hidden\");\nif (hidden===undefined) {\n    hidden=false;\n    context.set(\"hidden\", hidden);\n}\n\nif (msg.topic===\"up\") {\n    var the_arr = folder.split('/');\n    the_arr.pop();\n    folder=the_arr.join('/'); \n    context.set(\"folder\", folder);\n}\nif (msg.topic===\"change\") {\n    folder=msg.payload;    \n    context.set(\"folder\", folder);\n}\nif (msg.topic===\"hidden\") {\n    hidden=msg.payload;    \n    context.set(\"hidden\", hidden);\n}\n\nmsg.payload = {\"start\":folder, \"hidden\": hidden};\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 355,
+        "y": 765,
+        "wires": [
+            [
+                "766187b9.22e74"
+            ]
+        ]
+    },
+    {
+        "id": "b18d8693.96a4d",
+        "type": "change",
+        "z": "2c76898a.ffc21e",
+        "g": "5c6a227f.cfcb14",
+        "name": "Save selection",
+        "rules": [
+            {
+                "t": "set",
+                "p": "fileselected",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1145,
+        "y": 765,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "7ced932b.d52094",
+        "type": "ui_template",
+        "z": "2c76898a.ffc21e",
+        "g": "5c6a227f.cfcb14",
+        "group": "e7dd4e27.6d1248",
+        "name": "Info",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "format": "<div>\n    <hr>\n    <b>List of uploaded Audio files for prompts.</b>\n</div>",
+        "storeOutMessages": false,
+        "fwdInMessages": false,
+        "resendOnRefresh": false,
+        "templateScope": "local",
+        "x": 150,
+        "y": 1060,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "766187b9.22e74",
+        "type": "fs-file-lister",
+        "z": "2c76898a.ffc21e",
+        "g": "5c6a227f.cfcb14",
+        "name": "Files",
+        "start": "/home/pi/.node-red/audioprompts",
+        "pattern": "*.mp3",
+        "folders": "*",
+        "hidden": false,
+        "lstype": "files",
+        "path": false,
+        "single": true,
+        "depth": 0,
+        "stat": true,
+        "showWarnings": true,
+        "x": 560,
+        "y": 765,
+        "wires": [
+            [
+                "a8970f36.91d1c8",
+                "af2bd90b.537d8"
+            ]
+        ]
+    },
+    {
+        "id": "5016c913.ad4bf",
+        "type": "ui_upload",
+        "z": "2c76898a.ffc21e",
+        "g": "5c6a227f.cfcb14",
+        "group": "e7dd4e27.6d1248",
+        "title": "Upload an audio file (mp3)",
+        "name": "Upload",
+        "order": 1,
+        "width": "6",
+        "height": "4",
+        "chunk": 256,
+        "transfer": "binary",
+        "x": 145,
+        "y": 1005,
+        "wires": [
+            [
+                "af84ab14.4486c"
+            ]
+        ]
+    },
+    {
+        "id": "405dabbc.c7d574",
+        "type": "comment",
+        "z": "2c76898a.ffc21e",
+        "g": "6bc6d13.5dd9cb",
+        "name": "SPOKEN FEEDBACK TO SONOS SPEAKERS",
+        "info": "",
+        "x": 260,
+        "y": 560,
+        "wires": []
+    },
+    {
+        "id": "6a33b1af.447e08",
+        "type": "comment",
+        "z": "2c76898a.ffc21e",
+        "g": "c483feab.a7d8d",
+        "name": "README",
+        "info": "Send a synthesized text to a speaker, see details in the function node.\nAdd your event source of choice (e.g MQTT/KNX/HTTP)\nExample: https://proknx.com/nodered/prompt-the-window-is-open/\n",
+        "x": 425,
+        "y": 205,
+        "wires": []
+    },
+    {
+        "id": "aa40b86.ebcd9c8",
+        "type": "comment",
+        "z": "2c76898a.ffc21e",
+        "name": "2. Manage audio prompt files ",
+        "info": "The User interface for listing audio files:\n[User interface - audio prompt files](ui)",
+        "x": 185,
+        "y": 85,
+        "wires": []
+    },
+    {
+        "id": "db756ce7.78ffe8",
+        "type": "comment",
+        "z": "2c76898a.ffc21e",
+        "name": "1. README - Installation ",
+        "info": "This flow requires the following nodes to be installed from the 'Manage Palette | Install' dialog:\n * node-red-contrib-fs\n * node-red-contrib-ui-upload\n * node-red-contrib-bigtimer\n",
+        "x": 165,
+        "y": 45,
+        "wires": []
+    },
+    {
+        "id": "9253a8b8.4c13b8",
+        "type": "function",
+        "z": "2c76898a.ffc21e",
+        "g": "ebc9d23a.84f0e8",
+        "name": "Say something",
+        "func": "if (msg.state==\"on\"){\n    msg.payload = {\n        text: \"This is a time driven prompt that will be spoken in the Living room\",\n        siteId: \"living_room\",\n        lang: \"en-UK\"\n    };\n    return msg;\n}",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 805,
+        "y": 200,
+        "wires": [
+            [
+                "66edf3ce.19a434",
+                "acbf0c32.1eb0b8"
+            ]
+        ]
+    },
+    {
+        "id": "66edf3ce.19a434",
+        "type": "link out",
+        "z": "2c76898a.ffc21e",
+        "g": "ebc9d23a.84f0e8",
+        "name": "",
+        "links": [
+            "45eceaaa.bf86a4",
+            "b93dbd90.15e29",
+            "2c3b6323.b96384"
+        ],
+        "x": 960,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "acbf0c32.1eb0b8",
+        "type": "debug",
+        "z": "2c76898a.ffc21e",
+        "g": "ebc9d23a.84f0e8",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 935,
+        "y": 205,
+        "wires": [],
+        "l": false
+    },
+    {
+        "id": "227c0b16.29a744",
+        "type": "comment",
+        "z": "2c76898a.ffc21e",
+        "g": "ebc9d23a.84f0e8",
+        "name": "README",
+        "info": "Send a synthesized text to a speaker, see details in the function node.\n",
+        "x": 795,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "8c9427a2.35d7c",
+        "type": "http request",
+        "z": "2c76898a.ffc21e",
+        "g": "ad47fb2e.463308",
+        "name": "Play one speaker",
+        "method": "GET",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "http://localhost:5005/{{{payload.siteId}}}/clip/{{{payload.path}}}/{{{payload.volume}}}",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "authType": "",
+        "x": 290,
+        "y": 310,
+        "wires": [
+            [
+                "e893ef6.b3b7b9"
+            ]
+        ]
+    },
+    {
+        "id": "f55ae46d.e3fd6",
+        "type": "function",
+        "z": "2c76898a.ffc21e",
+        "g": "ad47fb2e.463308",
+        "name": "Prepare",
+        "func": "msg.payload = {\n    path: \"sample.mp3\",\n    siteId: \"Living room\",\n    volume: 50\n};\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 160,
+        "y": 310,
+        "wires": [
+            [
+                "9cfac6a1.3b5d7",
+                "8c9427a2.35d7c"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "9cfac6a1.3b5d7",
+        "type": "debug",
+        "z": "2c76898a.ffc21e",
+        "g": "ad47fb2e.463308",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 210,
+        "y": 385,
+        "wires": [],
+        "l": false
+    },
+    {
+        "id": "301d5a53.42012e",
+        "type": "inject",
+        "z": "2c76898a.ffc21e",
+        "g": "ad47fb2e.463308",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 110,
+        "y": 310,
+        "wires": [
+            [
+                "f55ae46d.e3fd6"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "e600a124.fd4058",
+        "type": "comment",
+        "z": "2c76898a.ffc21e",
+        "g": "ad47fb2e.463308",
+        "name": "README",
+        "info": "Send a pre-recorded audio file to one or all SONOS speakers, see details in the function node.\nAdd your event source of choice (e.g MQTT/KNX/HTTP)\n\nKNX example: \nhttps://proknx.com/nodered/prompt-the-window-is-open/\n",
+        "x": 320,
+        "y": 385,
+        "wires": []
+    },
+    {
+        "id": "ccca8aa1.3ea4a8",
+        "type": "exec",
+        "z": "2c76898a.ffc21e",
+        "g": "5c6a227f.cfcb14",
+        "command": "",
+        "addpay": true,
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "oldrc": false,
+        "name": "Create symbolic link to clips directory",
+        "x": 485,
+        "y": 1005,
+        "wires": [
+            [
+                "dd5ee3aa.aaae78"
+            ],
+            [
+                "dd5ee3aa.aaae78"
+            ],
+            [
+                "dd5ee3aa.aaae78"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "587eac72.7ce2a4",
+        "type": "function",
+        "z": "2c76898a.ffc21e",
+        "g": "5c6a227f.cfcb14",
+        "name": "",
+        "func": "if(msg.complete===true){\n    msg.payload = \"ln -s \" + msg.filename + \" /opt/node-sonos-http-api/static/clips/\"+msg.file.name\n    return msg;\n}",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 435,
+        "y": 1005,
+        "wires": [
+            [
+                "ccca8aa1.3ea4a8"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "dd5ee3aa.aaae78",
+        "type": "debug",
+        "z": "2c76898a.ffc21e",
+        "g": "5c6a227f.cfcb14",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 560,
+        "y": 1010,
+        "wires": [],
+        "l": false
+    },
+    {
+        "id": "cbc0c09b.7c0038",
+        "type": "exec",
+        "z": "2c76898a.ffc21e",
+        "g": "5c6a227f.cfcb14",
+        "command": " find ",
+        "addpay": false,
+        "append": "/opt/realknx/snips/tts -xtype l -delete",
+        "useSpawn": "false",
+        "timer": "",
+        "oldrc": false,
+        "name": "Delete broken symbolic links",
+        "x": 515,
+        "y": 810,
+        "wires": [
+            [
+                "13a52c70.292124"
+            ],
+            [
+                "13a52c70.292124"
+            ],
+            [
+                "13a52c70.292124"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "13a52c70.292124",
+        "type": "debug",
+        "z": "2c76898a.ffc21e",
+        "g": "5c6a227f.cfcb14",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 575,
+        "y": 810,
+        "wires": [],
+        "l": false
+    },
+    {
+        "id": "14fa9bea.3e43ac",
+        "type": "http request",
+        "z": "2c76898a.ffc21e",
+        "g": "ad47fb2e.463308",
+        "name": "Play all speakers",
+        "method": "GET",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "http://localhost:5005/clipall/{{{payload.path}}}/{{{payload.volume}}}",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "authType": "",
+        "x": 290,
+        "y": 350,
+        "wires": [
+            [
+                "e893ef6.b3b7b9"
+            ]
+        ]
+    },
+    {
+        "id": "f6a690be.92a6c",
+        "type": "function",
+        "z": "2c76898a.ffc21e",
+        "g": "ad47fb2e.463308",
+        "name": "Prepare",
+        "func": "msg.payload = {\n    path: \"sample.mp3\",\n    volume: 50\n};\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 160,
+        "y": 350,
+        "wires": [
+            [
+                "14fa9bea.3e43ac",
+                "9cfac6a1.3b5d7"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "54c31036.14a8e",
+        "type": "inject",
+        "z": "2c76898a.ffc21e",
+        "g": "ad47fb2e.463308",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 110,
+        "y": 350,
+        "wires": [
+            [
+                "f6a690be.92a6c"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "8003350b.eb04d",
+        "type": "bigtimer",
+        "z": "2c76898a.ffc21e",
+        "g": "ebc9d23a.84f0e8",
+        "outtopic": "",
+        "outpayload1": "",
+        "outpayload2": "",
+        "name": "Big Timer",
+        "comment": "",
+        "lat": 0,
+        "lon": 0,
+        "starttime": "750",
+        "endtime": "0",
+        "starttime2": 0,
+        "endtime2": 0,
+        "startoff": 0,
+        "endoff": 0,
+        "startoff2": 0,
+        "endoff2": 0,
+        "offs": 0,
+        "outtext1": "",
+        "outtext2": "",
+        "timeout": 1440,
+        "sun": true,
+        "mon": true,
+        "tue": true,
+        "wed": true,
+        "thu": true,
+        "fri": true,
+        "sat": true,
+        "jan": true,
+        "feb": true,
+        "mar": true,
+        "apr": true,
+        "may": true,
+        "jun": true,
+        "jul": true,
+        "aug": true,
+        "sep": true,
+        "oct": true,
+        "nov": true,
+        "dec": true,
+        "day1": 0,
+        "month1": 0,
+        "day2": 0,
+        "month2": 0,
+        "day3": 0,
+        "month3": 0,
+        "day4": 0,
+        "month4": 0,
+        "day5": 0,
+        "month5": 0,
+        "day6": 0,
+        "month6": 0,
+        "day7": 0,
+        "month7": 0,
+        "day8": 0,
+        "month8": 0,
+        "day9": 0,
+        "month9": 0,
+        "day10": 0,
+        "month10": 0,
+        "day11": 0,
+        "month11": 0,
+        "day12": 0,
+        "month12": 0,
+        "d1": 0,
+        "w1": 0,
+        "d2": 0,
+        "w2": 0,
+        "d3": 0,
+        "w3": 0,
+        "d4": 0,
+        "w4": 0,
+        "d5": 0,
+        "w5": 0,
+        "d6": 0,
+        "w6": 0,
+        "xday1": 0,
+        "xmonth1": 0,
+        "xday2": 0,
+        "xmonth2": 0,
+        "xday3": 0,
+        "xmonth3": 0,
+        "xday4": 0,
+        "xmonth4": 0,
+        "xday5": 0,
+        "xmonth5": 0,
+        "xday6": 0,
+        "xmonth6": 0,
+        "xday7": 0,
+        "xmonth7": 0,
+        "xday8": 0,
+        "xmonth8": 0,
+        "xday9": 0,
+        "xmonth9": 0,
+        "xday10": 0,
+        "xmonth10": 0,
+        "xday11": 0,
+        "xmonth11": 0,
+        "xday12": 0,
+        "xmonth12": 0,
+        "xd1": 0,
+        "xw1": 0,
+        "xd2": 0,
+        "xw2": 0,
+        "xd3": 0,
+        "xw3": 0,
+        "xd4": 0,
+        "xw4": 0,
+        "xd5": 0,
+        "xw5": 0,
+        "xd6": 0,
+        "xw6": 0,
+        "suspend": false,
+        "random": false,
+        "randon1": false,
+        "randoff1": false,
+        "randon2": false,
+        "randoff2": false,
+        "repeat": true,
+        "atstart": true,
+        "odd": false,
+        "even": false,
+        "x": 630,
+        "y": 175,
+        "wires": [
+            [
+                "9253a8b8.4c13b8"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "e893ef6.b3b7b9",
+        "type": "debug",
+        "z": "2c76898a.ffc21e",
+        "g": "ad47fb2e.463308",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 415,
+        "y": 330,
+        "wires": [],
+        "l": false
+    },
+    {
+        "id": "a5d262c7.bb4898",
+        "type": "debug",
+        "z": "2c76898a.ffc21e",
+        "g": "e3b1b819.0747a",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 725,
+        "y": 380,
+        "wires": [],
+        "l": false
+    },
+    {
+        "id": "1871ea17.4812a6",
+        "type": "comment",
+        "z": "2c76898a.ffc21e",
+        "g": "e3b1b819.0747a",
+        "name": "README",
+        "info": "Send a pre-recorded audio file to all SONOS speaker, see details in the function node.\nAdd your event source of choice (e.g MQTT/KNX/HTTP)\nExample: https://proknx.com/nodered/prompt-the-window-is-open/\n",
+        "x": 830,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "d8a2945.d464768",
+        "type": "http request",
+        "z": "2c76898a.ffc21e",
+        "g": "e3b1b819.0747a",
+        "name": "Play all speakers",
+        "method": "GET",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "http://localhost:5005/clipall/{{{payload.path}}}/{{{payload.volume}}}",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "authType": "",
+        "x": 860,
+        "y": 320,
+        "wires": [
+            [
+                "b5c3f0bf.b9709"
+            ]
+        ]
+    },
+    {
+        "id": "f89f4815.7f37f8",
+        "type": "function",
+        "z": "2c76898a.ffc21e",
+        "g": "e3b1b819.0747a",
+        "name": "Prepare",
+        "func": "if (msg.state==\"on\"){\n    msg.payload = {\n        path: \"sample.mp3\",\n        volume: 50\n    };\n    \n    return msg;\n}",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 740,
+        "y": 320,
+        "wires": [
+            [
+                "d8a2945.d464768"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "b5c3f0bf.b9709",
+        "type": "debug",
+        "z": "2c76898a.ffc21e",
+        "g": "e3b1b819.0747a",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 940,
+        "y": 380,
+        "wires": [],
+        "l": false
+    },
+    {
+        "id": "981eaca4.e9eca",
+        "type": "bigtimer",
+        "z": "2c76898a.ffc21e",
+        "g": "e3b1b819.0747a",
+        "outtopic": "",
+        "outpayload1": "",
+        "outpayload2": "",
+        "name": "Big Timer",
+        "comment": "",
+        "lat": 0,
+        "lon": 0,
+        "starttime": "810",
+        "endtime": "0",
+        "starttime2": 0,
+        "endtime2": 0,
+        "startoff": 0,
+        "endoff": 0,
+        "startoff2": 0,
+        "endoff2": 0,
+        "offs": 0,
+        "outtext1": "",
+        "outtext2": "",
+        "timeout": 1440,
+        "sun": true,
+        "mon": true,
+        "tue": true,
+        "wed": true,
+        "thu": true,
+        "fri": true,
+        "sat": true,
+        "jan": true,
+        "feb": true,
+        "mar": true,
+        "apr": true,
+        "may": true,
+        "jun": true,
+        "jul": true,
+        "aug": true,
+        "sep": true,
+        "oct": true,
+        "nov": true,
+        "dec": true,
+        "day1": 0,
+        "month1": 0,
+        "day2": 0,
+        "month2": 0,
+        "day3": 0,
+        "month3": 0,
+        "day4": 0,
+        "month4": 0,
+        "day5": 0,
+        "month5": 0,
+        "day6": 0,
+        "month6": 0,
+        "day7": 0,
+        "month7": 0,
+        "day8": 0,
+        "month8": 0,
+        "day9": 0,
+        "month9": 0,
+        "day10": 0,
+        "month10": 0,
+        "day11": 0,
+        "month11": 0,
+        "day12": 0,
+        "month12": 0,
+        "d1": 0,
+        "w1": 0,
+        "d2": 0,
+        "w2": 0,
+        "d3": 0,
+        "w3": 0,
+        "d4": 0,
+        "w4": 0,
+        "d5": 0,
+        "w5": 0,
+        "d6": 0,
+        "w6": 0,
+        "xday1": 0,
+        "xmonth1": 0,
+        "xday2": 0,
+        "xmonth2": 0,
+        "xday3": 0,
+        "xmonth3": 0,
+        "xday4": 0,
+        "xmonth4": 0,
+        "xday5": 0,
+        "xmonth5": 0,
+        "xday6": 0,
+        "xmonth6": 0,
+        "xday7": 0,
+        "xmonth7": 0,
+        "xday8": 0,
+        "xmonth8": 0,
+        "xday9": 0,
+        "xmonth9": 0,
+        "xday10": 0,
+        "xmonth10": 0,
+        "xday11": 0,
+        "xmonth11": 0,
+        "xday12": 0,
+        "xmonth12": 0,
+        "xd1": 0,
+        "xw1": 0,
+        "xd2": 0,
+        "xw2": 0,
+        "xd3": 0,
+        "xw3": 0,
+        "xd4": 0,
+        "xw4": 0,
+        "xd5": 0,
+        "xw5": 0,
+        "xd6": 0,
+        "xw6": 0,
+        "suspend": false,
+        "random": false,
+        "randon1": false,
+        "randoff1": false,
+        "randon2": false,
+        "randoff2": false,
+        "repeat": true,
+        "atstart": true,
+        "odd": false,
+        "even": false,
+        "x": 625,
+        "y": 320,
+        "wires": [
+            [
+                "f89f4815.7f37f8",
+                "a5d262c7.bb4898"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "e7dd4e27.6d1248",
+        "type": "ui_group",
+        "name": "Audio Prompts",
+        "tab": "d83f439.f5dd4c",
+        "order": 1,
+        "disp": true,
+        "width": "12",
+        "collapse": false
+    },
+    {
+        "id": "d83f439.f5dd4c",
+        "type": "ui_tab",
+        "name": "AUDIO PROMPTS",
+        "icon": "audiotrack",
+        "order": 6,
+        "disabled": false,
+        "hidden": false
+    }
+]
