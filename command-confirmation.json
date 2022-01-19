@@ -1,0 +1,193 @@
+[
+    {
+        "id": "9d0db5c1.f30b48",
+        "type": "tab",
+        "label": "CMD CONFIRM",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "8ea8be5.ea4284",
+        "type": "function",
+        "z": "9d0db5c1.f30b48",
+        "name": "Filter Intents",
+        "func": "msg.payload = JSON.parse(msg.payload);\nmsg.payload.customData = null;\nmsg.payload.siteId = flow.get(\"siteId\");\n\nif( msg.payload.siteId === undefined ){\n    msg.payload.siteId = \"default\";\n}\n\nmsg.topicorg = msg.topic;\nmsg.topic = \"hermes/intent/\" + msg.payload.intent.intentName; \n//node.warn(\"NLU direct (chat) - \" + msg.topic);\nmsg.payload = JSON.stringify(msg.payload);\nif( msg.topic.includes(\"ProKNX:superScene\") || \n    msg.topic.includes(\"ProKNX:searchInternet\") ||\n    msg.topic.includes(\"ProKNX:cancelAction\") ||\n    msg.topic.includes(\"ProKNX:confirmAction\") ||\n    msg.topic.includes(\"ProKNX:activateScenes\") ||\n    msg.topic.includes(\"ProKNX:helpCall\") ||\n    msg.topic.includes(\"ProKNX:setVolume\") ||\n    msg.topic.includes(\"ProKNX:decreaseVolume\") ||\n    msg.topic.includes(\"ProKNX:increaseVolume\") ||\n    msg.topic.includes(\"ProKNX:previous\") ||\n    msg.topic.includes(\"ProKNX:next\") ||\n    msg.topic.includes(\"ProKNX:play\") ||\n    msg.topic.includes(\"ProKNX:pause\") ||\n    msg.topic.includes(\"ProKNX:shazam\") ||\n    //msg.topic.includes(\"ProKNX:deviceStatusCheck\") ||\n    msg.topic.includes(\"ProKNX:currentDateTime\") ||\n    msg.topic.includes(\"ProKNX:wasHeard\") ||\n    msg.topic.includes(\"ProKNX:wakeUp\") ||\n    msg.topic.includes(\"ProKNX:troubleshoot\") ||\n    msg.topic.includes(\"ProKNX:systemIP\") ||\n    msg.topic.includes(\"ProKNX:sayAgain\") \n   ){\n    return null;\n} else if(msg.topic.includes(\"ProKNX:deviceStatusCheck\")){\n    return [null,msg];\n} else {\n    // skip if on-going Super Scene\n    var isSuperScene = global.get(\"isSuperScene\");\n    if(isSuperScene===undefined || isSuperScene === false){\n        return [msg, null];\n    }\n}\n",
+        "outputs": 2,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 355,
+        "y": 100,
+        "wires": [
+            [
+                "92dd9bdd.3d1388"
+            ],
+            [
+                "71a53cb3.f0e914"
+            ]
+        ],
+        "outputLabels": [
+            "Send status req. to NLU",
+            "Execute status reuqest"
+        ]
+    },
+    {
+        "id": "e40f7629.12722",
+        "type": "mqtt in",
+        "z": "9d0db5c1.f30b48",
+        "name": "",
+        "topic": "hermes/nlu/intentParsed",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "f96ab142.d8bab8",
+        "x": 145,
+        "y": 100,
+        "wires": [
+            [
+                "8ea8be5.ea4284"
+            ]
+        ]
+    },
+    {
+        "id": "92dd9bdd.3d1388",
+        "type": "delay",
+        "z": "9d0db5c1.f30b48",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "2500",
+        "timeoutUnits": "milliseconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "x": 485,
+        "y": 85,
+        "wires": [
+            [
+                "c03d6784.36f8c8"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "c03d6784.36f8c8",
+        "type": "function",
+        "z": "9d0db5c1.f30b48",
+        "name": "get state",
+        "func": "var lang = global.get(\"msgLang\");\nmsg.payload = JSON.parse(msg.payload);\nif( msg.payload.intent.intentName.toLowerCase().includes(\"status\") || \n    msg.payload.intent.intentName.toLowerCase().includes(\"scene\"))\n    return;\n\nvar keyword = \"\";\nvar slotCount = 0;\n\nfor(let i=0; i<msg.payload.slots.length; i++){\n    if( msg.payload.slots[i].entity === \"light_device\" || \n        msg.payload.slots[i].entity === \"window_device\" || \n        msg.payload.slots[i].entity === \"temperature_device\" || \n        msg.payload.slots[i].entity === \"scene_name\" || \n        msg.payload.slots[i].entity === \"house_room\" ){\n            keyword += msg.payload.slots[i].rawValue + \" \";\n            slotCount++;\n    }\n}\n\n\n//node.warn(\"msg.payload.intent.intentName: \"+msg.payload.intent.intentName);\nif(slotCount < 2){\n    if(msg.payload.intent.intentName.toLowerCase().includes(\"lights\")){\n        if(lang.toLowerCase().includes(\"en\"))\n            keyword += \" lights\";\n        else if(lang.toLowerCase().includes(\"de\"))\n            keyword += \" licht\";\n        else if(lang.toLowerCase().includes(\"fr\"))\n            keyword += \" lumiere\";\n    } \n    if(msg.payload.intent.intentName.toLowerCase().includes(\"thermostat\")){\n        keyword += \" temperature\";\n    }    \n    if(msg.payload.intent.intentName.toLowerCase().includes(\"shutter\")){\n        if(lang.toLowerCase().includes(\"en\"))\n            keyword += \" shutter\";\n        else if(lang.toLowerCase().includes(\"de\"))\n            keyword += \" rollladen\";\n        else if(lang.toLowerCase().includes(\"fr\"))\n            keyword += \" volet\";\n    }    \n}\n\nmsg = { payload: {} };\nif(lang.toLowerCase().includes(\"en\"))\n    msg.payload.input = \"What's the status of \" + keyword;\nelse if(lang.toLowerCase().includes(\"de\"))\n    msg.payload.input = \"wie ist der status des \" + keyword;\nelse if(lang.toLowerCase().includes(\"fr\"))\n    msg.payload.input = \"quel est le statut du \" + keyword;\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 590,
+        "y": 85,
+        "wires": [
+            [
+                "3e63ad74.a797ba"
+            ]
+        ]
+    },
+    {
+        "id": "3e63ad74.a797ba",
+        "type": "mqtt out",
+        "z": "9d0db5c1.f30b48",
+        "name": "hermes/nlu/query",
+        "topic": "hermes/nlu/query",
+        "qos": "",
+        "retain": "",
+        "broker": "f96ab142.d8bab8",
+        "x": 765,
+        "y": 85,
+        "wires": []
+    },
+    {
+        "id": "3b67995e.a65936",
+        "type": "comment",
+        "z": "9d0db5c1.f30b48",
+        "name": "README",
+        "info": "The purpose of this flow is to enable spoken confirmation of the state of devices after a voice command for lights, shutters and heating (LSH).\nThis flow listens to all events from the NLU. If it is a LSH command, it will wait a couple of seconds and then get the state of the device(s).",
+        "x": 100,
+        "y": 45,
+        "wires": []
+    },
+    {
+        "id": "71a53cb3.f0e914",
+        "type": "link out",
+        "z": "9d0db5c1.f30b48",
+        "name": "HERMES INTENT OUT",
+        "links": [
+            "1af66df2.44afca",
+            "95b1555a.90392"
+        ],
+        "x": 485,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "1ec095b2.c76162",
+        "type": "mqtt in",
+        "z": "9d0db5c1.f30b48",
+        "name": "",
+        "topic": "hermes/intent/+",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "f96ab142.d8bab8",
+        "x": 115,
+        "y": 155,
+        "wires": [
+            [
+                "fe2fb44.e27af48"
+            ]
+        ]
+    },
+    {
+        "id": "fe2fb44.e27af48",
+        "type": "function",
+        "z": "9d0db5c1.f30b48",
+        "name": "Save current siteId",
+        "func": "msg.payload = JSON.parse(msg.payload);\nif( msg.payload !== undefined && \n    msg.payload.siteId !== undefined &&\n    msg.payload.siteId !== \"default\"){\n        flow.set(\"siteId\",msg.payload.siteId);\n}\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 330,
+        "y": 155,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "449b0a89.b88cb4",
+        "type": "comment",
+        "z": "9d0db5c1.f30b48",
+        "name": "Version info",
+        "info": "2022-01-19: First version",
+        "x": 255,
+        "y": 45,
+        "wires": []
+    },
+    {
+        "id": "f96ab142.d8bab8",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "localhost",
+        "port": "1883",
+        "clientid": "",
+        "usetls": false,
+        "compatmode": true,
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": ""
+    }
+]
