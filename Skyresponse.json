@@ -22,12 +22,15 @@
             "9c238d50.d467b",
             "295fa518.9fa262",
             "b381dc77.b88e7",
-            "9e2e6eca.5eb0c"
+            "9e2e6eca.5eb0c",
+            "f1725485.fcd1a8",
+            "4fc730cc.ef4a9",
+            "d8aaf872.ef5278"
         ],
         "x": 34,
-        "y": 589,
-        "w": 772,
-        "h": 182
+        "y": 587,
+        "w": 822,
+        "h": 229
     },
     {
         "id": "aa985b94.103e48",
@@ -352,7 +355,8 @@
             [
                 "295fa518.9fa262",
                 "b381dc77.b88e7",
-                "9e2e6eca.5eb0c"
+                "9e2e6eca.5eb0c",
+                "f1725485.fcd1a8"
             ]
         ]
     },
@@ -374,8 +378,8 @@
         "topic": "",
         "payload": "true",
         "payloadType": "jsonata",
-        "x": 190,
-        "y": 720,
+        "x": 158,
+        "y": 730,
         "wires": [
             [
                 "c6039e8b.23813"
@@ -389,10 +393,10 @@
         "g": "a5f06726.eade08",
         "name": "SPEAK OUT",
         "links": [
-            "a1b4e119.a687c8"
+            "3bd57099.afbdb8"
         ],
-        "x": 625,
-        "y": 730,
+        "x": 630,
+        "y": 775,
         "wires": []
     },
     {
@@ -405,7 +409,7 @@
         "qos": "",
         "retain": "",
         "broker": "b7d2dbd0.c8ee4",
-        "x": 710,
+        "x": 684,
         "y": 670,
         "wires": []
     },
@@ -719,9 +723,76 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 680,
-        "y": 630,
+        "x": 665,
+        "y": 628,
         "wires": []
+    },
+    {
+        "id": "f1725485.fcd1a8",
+        "type": "delay",
+        "z": "509bf8a4.e53fb",
+        "g": "a5f06726.eade08",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "15",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "x": 675,
+        "y": 730,
+        "wires": [
+            [
+                "4fc730cc.ef4a9"
+            ]
+        ]
+    },
+    {
+        "id": "d8aaf872.ef5278",
+        "type": "link out",
+        "z": "509bf8a4.e53fb",
+        "g": "a5f06726.eade08",
+        "name": "HELP CALL TIMEOUT OUT (API)",
+        "links": [
+            "1160a0c8.2cda27",
+            "5508ddd9.e2300c"
+        ],
+        "x": 815,
+        "y": 730,
+        "wires": []
+    },
+    {
+        "id": "4fc730cc.ef4a9",
+        "type": "change",
+        "z": "509bf8a4.e53fb",
+        "g": "a5f06726.eade08",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "waitingForReply",
+                "pt": "flow",
+                "to": "false",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 770,
+        "y": 730,
+        "wires": [
+            [
+                "d8aaf872.ef5278"
+            ]
+        ],
+        "l": false
     },
     {
         "id": "b7d2dbd0.c8ee4",
