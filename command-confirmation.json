@@ -1,17 +1,17 @@
 [
     {
-        "id": "8215ba97.8e59a8",
+        "id": "55318bfc504a4cca",
         "type": "tab",
         "label": "CMD CONFIRM",
         "disabled": false,
         "info": ""
     },
     {
-        "id": "95f08a8e.18e618",
+        "id": "e188626796d3a7dc",
         "type": "function",
-        "z": "8215ba97.8e59a8",
+        "z": "55318bfc504a4cca",
         "name": "Filter Intents",
-        "func": "msg.payload = JSON.parse(msg.payload);\nmsg.payload.customData = null;\n\nif( flow.get(\"siteId\") === undefined ){\n    node.warn(\"skipping state confirmation, no siteId defined\");\n    return null;\n}\n\nmsg.topicorg = msg.topic;\nmsg.topic = \"hermes/intent/\" + msg.payload.intent.intentName; \nlet id = \"\";\nsiteIdToKNXNames = global.get(\"siteIdToKNXNames\");\nif(siteIdToKNXNames[msg.payload.id]!==undefined){\n    id = msg.payload.siteId = msg.payload.id; // the id is a siteId, i.e. it is a status check after a command\n}\n//node.warn(\"id \" + id);\n//node.warn(\"NLU direct (chat) - \" + msg.topic);\nmsg.payload = JSON.stringify(msg.payload);\nif( msg.topic.includes(\"ProKNX:superScene\") || \n    msg.topic.includes(\"ProKNX:shiftThermostats\") ||\n    msg.topic.includes(\"ProKNX:searchInternet\") ||\n    msg.topic.includes(\"ProKNX:cancelAction\") ||\n    msg.topic.includes(\"ProKNX:confirmAction\") ||\n    msg.topic.includes(\"ProKNX:activateScenes\") ||\n    msg.topic.includes(\"ProKNX:helpCall\") ||\n    msg.topic.includes(\"ProKNX:setVolume\") ||\n    msg.topic.includes(\"ProKNX:decreaseVolume\") ||\n    msg.topic.includes(\"ProKNX:increaseVolume\") ||\n    msg.topic.includes(\"ProKNX:previous\") ||\n    msg.topic.includes(\"ProKNX:next\") ||\n    msg.topic.includes(\"ProKNX:play\") ||\n    msg.topic.includes(\"ProKNX:pause\") ||\n    msg.topic.includes(\"ProKNX:shazam\") ||\n    msg.topic.includes(\"ProKNX:currentDateTime\") ||\n    msg.topic.includes(\"ProKNX:wasHeard\") ||\n    msg.topic.includes(\"ProKNX:wakeUp\") ||\n    msg.topic.includes(\"ProKNX:troubleshoot\") ||\n    msg.topic.includes(\"ProKNX:systemIP\") ||\n    msg.topic.includes(\"ProKNX:sayAgain\") ||\n    msg.topic.includes(\"ProKNX:superSceneDeparture\") ||\n    msg.topic.includes(\"ProKNX:superSceneMorning\") ||\n    msg.topic.includes(\"ProKNX:superSceneNight\") ||\n    msg.topic.includes(\"ProKNX:superSceneArrival\")\n   ){\n    return null;\n} else if(msg.topic.includes(\"ProKNX:deviceStatusCheck\")){\n    if(id !== undefined || id !== \"\"){\n        // the follow-up status check\n        //node.warn(\"ProKNX:deviceStatusCheck with id: \"+id);\n        return [null,msg];\n    }\n} else {\n    // skip if on-going Super Scene\n    var isSuperScene = global.get(\"isSuperScene\");\n    if(isSuperScene===undefined || isSuperScene === false){\n        return [msg, null];\n    }\n}\n",
+        "func": "msg.payload = JSON.parse(msg.payload);\nmsg.payload.customData = null;\n\nif( flow.get(\"siteId\") === undefined ){\n    node.warn(\"skipping state confirmation, no siteId defined\");\n    return null;\n}\n\nmsg.topicorg = msg.topic;\nmsg.topic = \"hermes/intent/\" + msg.payload.intent.intentName; \nsiteIdToKNXNames = global.get(\"siteIdToKNXNames\");\nif(siteIdToKNXNames[msg.payload.id]!==undefined){\n    var id = msg.payload.siteId = msg.payload.id; // the id is a siteId, i.e. it is a status check after a command\n}\n//node.warn(\"id \" + id);\n//node.warn(\"NLU direct (chat) - \" + msg.topic);\n\nif(msg.topic.includes(\"ProKNX:deviceStatusCheck\")){\n    if(id !== undefined){\n        //node.warn(\"ProKNX:deviceStatusCheck with id: \"+id);\n        msg.payload = JSON.stringify(msg.payload);\n        return [null,msg];\n    }\n} else {\n    if( msg.topic.toLowerCase().includes(\"lights\") ||\n        msg.topic.toLowerCase().includes(\"shutters\") ||\n        msg.topic.toLowerCase().includes(\"thermostat\")){\n            \n        // skip if on-going Super Scene\n        var isSuperScene = global.get(\"isSuperScene\");\n        if(isSuperScene===undefined || isSuperScene === false){\n            if (msg.payload.slots !== undefined){\n                if (msg.payload.slots.length > 0) {\n                    msg.payload = JSON.stringify(msg.payload);\n                    return [msg, null];\n                }\n            }\n        }\n    } else {\n        return [null, null];\n    }\n}\n",
         "outputs": 2,
         "noerr": 0,
         "initialize": "",
@@ -20,11 +20,11 @@
         "y": 100,
         "wires": [
             [
-                "7bb365a6.4cef54"
+                "129cea85778e6288"
             ],
             [
-                "904ae4ee.eebbd8",
-                "930baae5.989c98"
+                "a08d616ca1cdb79e",
+                "4d4915aa17a3c53d"
             ]
         ],
         "outputLabels": [
@@ -33,31 +33,31 @@
         ]
     },
     {
-        "id": "d589ae62.131798",
+        "id": "0ebbefd0a0423b15",
         "type": "mqtt in",
-        "z": "8215ba97.8e59a8",
+        "z": "55318bfc504a4cca",
         "name": "",
         "topic": "hermes/nlu/intentParsed",
         "qos": "2",
         "datatype": "auto",
-        "broker": "f96ab142.d8bab8",
+        "broker": "93221c155e306ade",
         "x": 145,
         "y": 100,
         "wires": [
             [
-                "b0237214.618ba",
-                "e51c0ef7.9a114"
+                "8713a7eade297ca7",
+                "7a7054215929473e"
             ]
         ]
     },
     {
-        "id": "7bb365a6.4cef54",
+        "id": "129cea85778e6288",
         "type": "delay",
-        "z": "8215ba97.8e59a8",
+        "z": "55318bfc504a4cca",
         "name": "",
         "pauseType": "delay",
-        "timeout": "2500",
-        "timeoutUnits": "milliseconds",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
         "rate": "1",
         "nbRateUnits": "1",
         "rateUnits": "second",
@@ -69,17 +69,17 @@
         "y": 85,
         "wires": [
             [
-                "74bb9e5c.485388"
+                "ef6373dba36f9101"
             ]
         ],
         "l": false
     },
     {
-        "id": "74bb9e5c.485388",
+        "id": "ef6373dba36f9101",
         "type": "function",
-        "z": "8215ba97.8e59a8",
+        "z": "55318bfc504a4cca",
         "name": "get state",
-        "func": "let lang = global.get(\"msgLang\");\nmsg.payload = JSON.parse(msg.payload);\nif( msg.payload.intent.intentName.toLowerCase().includes(\"status\") || \n    msg.payload.intent.intentName.toLowerCase().includes(\"scene\"))\n    return;\n\nlet keywordDevice = \"\";\nlet keywordRoom = \"\";\n\nfor(let i=0; i<msg.payload.slots.length; i++){\n    if( msg.payload.slots[i].entity === \"light_device\" || \n        msg.payload.slots[i].entity === \"window_device\" || \n        msg.payload.slots[i].entity === \"temperature_device\" || \n        msg.payload.slots[i].entity === \"scene_name\"){\n        keywordDevice = msg.payload.slots[i].rawValue + \" \";\n    }\n    if( msg.payload.slots[i].entity === \"house_room\" ){\n        keywordRoom = msg.payload.slots[i].rawValue + \" \";\n    }\n}\n\n//node.warn(\"msg.payload.intent.intentName: \"+msg.payload.intent.intentName);\nlet keyword = \"\";\nif(keywordRoom !== \"\"){\n    keyword = keywordRoom; \n    if(msg.payload.intent.intentName.toLowerCase().includes(\"lights\")){\n        if(lang.toLowerCase().includes(\"en\"))\n            keyword += \" lights\";\n        else if(lang.toLowerCase().includes(\"de\"))\n            keyword += \" licht\";\n        else if(lang.toLowerCase().includes(\"fr\"))\n            keyword += \" lumiere\";\n    } \n    if(msg.payload.intent.intentName.toLowerCase().includes(\"thermostat\")){\n        keyword += \" temperature\";\n    }    \n    if(msg.payload.intent.intentName.toLowerCase().includes(\"shutter\")){\n        if(lang.toLowerCase().includes(\"en\"))\n            keyword += \" shutter\";\n        else if(lang.toLowerCase().includes(\"de\"))\n            keyword += \" rollladen\";\n        else if(lang.toLowerCase().includes(\"fr\"))\n            keyword += \" volet\";\n    }    \n} else if(keywordDevice !== \"\") {\n    keyword = keywordDevice;\n} else {\n    return null;\n}\n\nmsg = { payload: {} };\nif(lang.toLowerCase().includes(\"en\"))\n    msg.payload.input = \"What's the status of \" + keyword;\nelse if(lang.toLowerCase().includes(\"de\"))\n    msg.payload.input = \"wie ist der status des \" + keyword;\nelse if(lang.toLowerCase().includes(\"fr\"))\n    msg.payload.input = \"quel est le statut du \" + keyword;\nmsg.payload.id = flow.get(\"siteId\");\nreturn msg;",
+        "func": "let lang = global.get(\"msgLang\");\nlet siteId = global.get(\"msgServerSiteId\");\nlet debugMsg = global.get(\"dbgHomeAutomation\");\nif(debugMsg===undefined){\n    debugMsg = false;\n}\n\nmsg.payload = JSON.parse(msg.payload);\nif( msg.payload.intent.intentName.toLowerCase().includes(\"status\") || \n    msg.payload.intent.intentName.toLowerCase().includes(\"scene\"))\n    return;\n\nlet keyword = \"\";\n\nlet deviceCount = 0;\nlet roomCount = 0;\nlet current_device = \"\";\nlet current_room = \"\";\nlet current_cmd = false;\n\nlet found_device = false;\nlet query_device = [];\nlet query_room = [];\nlet roomFound = 0;\nlet itemsCount = 0;\n\nString.prototype.sansAccent = function() {\n    try{    \n    \tlet accent = [/[\\300-\\306]/g, /[\\340-\\346]/g, // A, a\n    \t\t/[\\310-\\313]/g, /[\\350-\\353]/g, // E, e\n    \t\t/[\\314-\\317]/g, /[\\354-\\357]/g, // I, i\n    \t\t/[\\322-\\330]/g, /[\\362-\\370]/g, // O, o\n    \t\t/[\\331-\\334]/g, /[\\371-\\374]/g, // U, u\n    \t\t/[\\321]/g, /[\\361]/g, // N, n\n    \t\t/[\\307]/g, /[\\347]/g, // C, c\n    \t];\n    \tlet noaccent = ['A', 'a', 'E', 'e', 'I', 'i', 'O', 'o', 'U', 'u', 'N', 'n', 'C', 'c'];\n    \tlet str = this;\n    \tfor (let i = 0; i < accent.length; i++) {\n    \t\tif (lang === \"de\") {\n    \t\t\tstr = str.replace(\"ä\", \"ae\");\n    \t\t\tstr = str.replace(\"ü\", \"ue\");\n    \t\t\tstr = str.replace(\"ö\", \"oe\");\n    \t\t}\n    \t\tstr = str.replace(accent[i], noaccent[i]);\n    \t}\n    \tstr = str.replace(/ /g, \"\");\n    \tstr = str.replace(/_/g, \"\");\n    \treturn str;\n    } catch(e){\n        if(debugMsg) node.warn(\"Exception in sansAccent: \" +e);\n        return this;\n    }    \t\n};\n\nfunction findDevice() {\n    let deviceList = global.get(\"msgDeviceList\");\n    let device;\n\n    if (deviceList !== undefined) {\n        if (deviceList.length > 0) {\n            \n            for(let i=0; i<deviceList.length; i++){\n                device = deviceList[i];\n                if (device.object.toLowerCase() === current_device.toLowerCase()){\n                    query_device[itemsCount] = device.object;\n                    query_room[itemsCount] = device.zone;\n                    itemsCount++;\n                    //node.warn(\"<<Debug>> device.zone = \"+ device.zone.toLowerCase().sansAccent() + \" and current_room = \"+ current_room.toLowerCase().sansAccent());\n                    if (current_room !== undefined && \n                        device.zone.toLowerCase().sansAccent() === current_room.toLowerCase().sansAccent()) { \n                        found_device = true;\n                    }                        \n                }\n\n                if (current_room !== undefined && \n                    device.zone.toLowerCase().sansAccent() === current_room.toLowerCase().sansAccent()) { \n                    roomFound++;\n                }\n            }\n                     \n        }\n    }\n\n    return null;\n}\n\nfor(let i=0; i<msg.payload.slots.length; i++){\n    // Device\n    if (msg.payload.slots[i].entity === \"light_device\" ||\n        msg.payload.slots[i].entity === \"window_device\" ||\n        msg.payload.slots[i].entity === \"temperature_device\" ||\n        msg.payload.slots[i].entity === \"scene_name\") {\n            keyword += msg.payload.slots[i].rawValue + \" \";\n            current_device = msg.payload.slots[i].rawValue;\n            deviceCount++;\n    }\n     \n    // Room\n    if (msg.payload.slots[i].entity === \"house_room\" ||\n        msg.payload.slots[i].entity.includes(\"room\")){\n            keyword += msg.payload.slots[i].rawValue + \" \";\n            current_room = msg.payload.slots[i].rawValue;\n            roomCount++;\n    }\n\n    if (msg.payload.slots[i].entity === \"up_down\"){\n        current_cmd = true;\n    }    \n}\n\n\nif (roomCount === 0){\n    // No room has been specified -> search in deviceList    \n    findDevice();\n\n    if (query_device[0] === undefined && \n        current_device.includes(\"lights\") && current_device.includes(\"licht\") && current_device.includes(\"lumière\") &&\n        current_device.includes(\"thermostat\") &&\n        current_device.includes(\"shutter\") && current_device.includes(\"rollladen\") && current_device.includes(\"volet\") ||\n        current_cmd === true){\n        \n        if(msg.payload.intent.intentName.toLowerCase().includes(\"lights\")){\n            if(lang.toLowerCase().includes(\"en\"))\n                query_device[0] = \"lights\";\n            else if(lang.toLowerCase().includes(\"de\"))\n                query_device[0] = \"licht\";\n            else if(lang.toLowerCase().includes(\"fr\"))\n                query_device[0] = \"lumière\" ;\n        \n            itemsCount++;\n        }    \n        if(msg.payload.intent.intentName.toLowerCase().includes(\"thermostat\")){\n            query_device[0] = \"thermostat\";\n            itemsCount++;\n        }    \n        if(msg.payload.intent.intentName.toLowerCase().includes(\"shutter\")){\n            if(lang.toLowerCase().includes(\"en\"))\n                query_device[0] = \" shutter\";\n            else if(lang.toLowerCase().includes(\"de\"))\n                query_device[0] = \" rollladen\";\n            else if(lang.toLowerCase().includes(\"fr\"))\n                query_device[0] = \"volets\";\n\n            itemsCount++;\n        }\n    } else {\n        query_device[0] = current_device;\n        itemsCount++;\n    }\n\n    if (query_room[0] === undefined && current_room === \"\") {\n        if(lang.toLowerCase().includes(\"en\"))\n            query_room[0] = \"everywhere\";\n        else if(lang.toLowerCase().includes(\"de\"))\n            query_room[0] = \"überall\";\n        else if(lang.toLowerCase().includes(\"fr\"))\n            query_room[0] = \"partout\";\n    }\n\n    //node.warn(\"Items : [\" + query_device[0] + \" - \"+ query_room[0] + \"] and number of specified items = \" + itemsCount);\n\n    if (itemsCount >= 1) {\n        // At least one device has been found either in the current room or in another room\n    \n        msg = { payload: {} };\n    \n        if(lang.toLowerCase().includes(\"en\"))\n            msg.payload.input = \"What's the status of \" + query_device[0] + \" in \" + query_room[0];\n        else if(lang.toLowerCase().includes(\"de\"))\n            msg.payload.input = \"wie ist der status des \" + query_device[0] + \" in \" + query_room[0];\n        else if(lang.toLowerCase().includes(\"fr\"))\n            msg.payload.input = \"quel est le statut de \" + query_device[0] + \" dans \" + query_room[0];\n\n        msg.payload.id = flow.get(\"siteId\");\n    \n        return msg;\n\n    }\n} else {\n    // Room has been specified -> check in deviceList\n    findDevice();\n    \n    // Specified device\n    if (found_device === true && query_device[0] !== undefined) {\n        //node.warn(\"<<Debug>> Specified device - Items: [\" + query_device[0] + \" - \"+ query_room + \"] and itemsCount = \" + itemsCount);\n        \n        msg = { payload: {} };\n\n        if(lang.toLowerCase().includes(\"en\"))\n            msg.payload.input = \"What's the status of \" + keyword;\n        else if(lang.toLowerCase().includes(\"de\"))\n            msg.payload.input = \"wie ist der status des \" + keyword;\n        else if(lang.toLowerCase().includes(\"fr\"))\n            msg.payload.input = \"quel est le statut de \" + keyword;\n        \n        msg.payload.id = flow.get(\"siteId\");\n\n        return msg;\n    } \n    \n    // Unspecified device\n    if(query_device[0] === undefined){\n        \n        //node.warn(\"<<Debug>> Unspecified device - Current room: \"+ current_room + \" and currentDevice = \" + current_device);\n\n        if (current_device !== \"\" && \n            !current_device.includes(\"lights\") && !current_device.includes(\"licht\") && !current_device.includes(\"lumière\") &&\n            !current_device.includes(\"thermostat\") &&\n            !current_device.includes(\"shutter\") && !current_device.includes(\"rollladen\") && !current_device.includes(\"volet\")){\n                return null; // Device not found\n        } else {\n            if(msg.payload.intent.intentName.toLowerCase().includes(\"lights\")){\n                if(lang.toLowerCase().includes(\"en\"))\n                    keyword = current_room + \" lights\";\n                else if(lang.toLowerCase().includes(\"de\"))\n                    keyword = \" licht in \" + current_room;\n                else if(lang.toLowerCase().includes(\"fr\"))\n                    keyword = \"lumiere dans \" + current_room;\n            } \n            if(msg.payload.intent.intentName.toLowerCase().includes(\"thermostat\")){\n                keyword = current_room + \" temperature\";\n            }    \n            if(msg.payload.intent.intentName.toLowerCase().includes(\"shutter\")){\n                if(lang.toLowerCase().includes(\"en\"))\n                    keyword = current_room + \" shutter\";\n                else if(lang.toLowerCase().includes(\"de\"))\n                    keyword = \"rollladen in \" + current_room;\n                else if(lang.toLowerCase().includes(\"fr\"))\n                    keyword = \"volet dans \"+ current_room;\n            }\n            \n            msg = { payload: {} };\n    \n            if(lang.toLowerCase().includes(\"en\"))\n                msg.payload.input = \"What's the status of \" + keyword;\n            else if(lang.toLowerCase().includes(\"de\"))\n                msg.payload.input = \"wie ist der status des \" + keyword;\n            else if(lang.toLowerCase().includes(\"fr\"))\n                msg.payload.input = \"quel est le statut de \" + keyword;\n            \n            msg.payload.id = flow.get(\"siteId\");\n    \n            return msg;\n        }\n\n    } else {\n        return null;\n    }\n}",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -88,28 +88,28 @@
         "y": 85,
         "wires": [
             [
-                "2c3d4834.264ce",
-                "6f4f2c88.eaa2d4"
+                "4c110744aa66a81d",
+                "95ae38320428b941"
             ]
         ]
     },
     {
-        "id": "2c3d4834.264ce",
+        "id": "4c110744aa66a81d",
         "type": "mqtt out",
-        "z": "8215ba97.8e59a8",
+        "z": "55318bfc504a4cca",
         "name": "hermes/nlu/query",
         "topic": "hermes/nlu/query",
         "qos": "",
         "retain": "",
-        "broker": "f96ab142.d8bab8",
+        "broker": "93221c155e306ade",
         "x": 815,
         "y": 85,
         "wires": []
     },
     {
-        "id": "a81e68c5.4745d8",
+        "id": "2682836340d55815",
         "type": "comment",
-        "z": "8215ba97.8e59a8",
+        "z": "55318bfc504a4cca",
         "name": "README",
         "info": "The purpose of this flow is to enable spoken confirmation of the state of devices after a voice command for lights, shutters and heating (LSH).\nThis flow listens to all events from the NLU. If it is a LSH command, it will wait a couple of seconds and then get the state of the device(s).",
         "x": 100,
@@ -117,9 +117,9 @@
         "wires": []
     },
     {
-        "id": "904ae4ee.eebbd8",
+        "id": "a08d616ca1cdb79e",
         "type": "link out",
-        "z": "8215ba97.8e59a8",
+        "z": "55318bfc504a4cca",
         "name": "HERMES INTENT OUT",
         "links": [
             "1af66df2.44afca",
@@ -130,27 +130,27 @@
         "wires": []
     },
     {
-        "id": "868441b1.3d214",
+        "id": "bcac0457ca3af8fe",
         "type": "mqtt in",
-        "z": "8215ba97.8e59a8",
+        "z": "55318bfc504a4cca",
         "name": "",
         "topic": "hermes/intent/+",
         "qos": "2",
         "datatype": "auto",
-        "broker": "f96ab142.d8bab8",
+        "broker": "93221c155e306ade",
         "x": 115,
         "y": 155,
         "wires": [
             [
-                "ada2de72.a24368",
-                "cbdce5c9.5c6938"
+                "70c2aa24ae3cef30",
+                "46bafef3ae180df6"
             ]
         ]
     },
     {
-        "id": "ada2de72.a24368",
+        "id": "70c2aa24ae3cef30",
         "type": "function",
-        "z": "8215ba97.8e59a8",
+        "z": "55318bfc504a4cca",
         "name": "Save current siteId",
         "func": "msg.payload = JSON.parse(msg.payload);\nif( msg.payload !== undefined && \n    msg.payload.siteId !== undefined &&\n    msg.payload.siteId !== \"default\"){\n        //node.warn(\"save siteId: \"+ msg.payload.siteId);\n        flow.set(\"siteId\",msg.payload.siteId);\n        return msg;\n}\n",
         "outputs": 1,
@@ -161,28 +161,28 @@
         "y": 155,
         "wires": [
             [
-                "ea813a33.f62fe"
+                "f9ec1d12848a199a"
             ]
         ]
     },
     {
-        "id": "f02c9933.d133c8",
+        "id": "4f5b4848411d4891",
         "type": "comment",
-        "z": "8215ba97.8e59a8",
+        "z": "55318bfc504a4cca",
         "name": "Version info",
-        "info": "2022-01-20: First version\n2022-01-29: Some improvements\n",
+        "info": "2022-02-24: \"get state\" node update\n    Try to cover all possible cases:\n        - Specified room + device\n        - Specified room but unspecified device => request state of all lights in the room\n        - Specified device but unspecified room => request state of the device in the whole house\n\n2022-01-20: First version",
         "x": 255,
         "y": 45,
         "wires": []
     },
     {
-        "id": "ea813a33.f62fe",
+        "id": "f9ec1d12848a199a",
         "type": "delay",
-        "z": "8215ba97.8e59a8",
+        "z": "55318bfc504a4cca",
         "name": "Wait a bit before deleting the siteId",
         "pauseType": "delay",
-        "timeout": "5000",
-        "timeoutUnits": "milliseconds",
+        "timeout": "10",
+        "timeoutUnits": "seconds",
         "rate": "1",
         "nbRateUnits": "1",
         "rateUnits": "second",
@@ -194,15 +194,15 @@
         "y": 155,
         "wires": [
             [
-                "930baae5.989c98"
+                "4d4915aa17a3c53d"
             ]
         ],
         "l": false
     },
     {
-        "id": "930baae5.989c98",
+        "id": "4d4915aa17a3c53d",
         "type": "change",
-        "z": "8215ba97.8e59a8",
+        "z": "55318bfc504a4cca",
         "name": "Forget siteId",
         "rules": [
             {
@@ -223,9 +223,9 @@
         ]
     },
     {
-        "id": "b0237214.618ba",
+        "id": "8713a7eade297ca7",
         "type": "delay",
-        "z": "8215ba97.8e59a8",
+        "z": "55318bfc504a4cca",
         "name": "Wait here, the current siteId to be set (below) before continuing",
         "pauseType": "delay",
         "timeout": "500",
@@ -241,15 +241,15 @@
         "y": 100,
         "wires": [
             [
-                "95f08a8e.18e618"
+                "e188626796d3a7dc"
             ]
         ],
         "l": false
     },
     {
-        "id": "8cc1fef7.c3a7c",
+        "id": "6deb01aca2839822",
         "type": "debug",
-        "z": "8215ba97.8e59a8",
+        "z": "55318bfc504a4cca",
         "name": "hermes/intent/+",
         "active": false,
         "tosidebar": true,
@@ -265,11 +265,11 @@
         "l": false
     },
     {
-        "id": "f65371ba.188cd8",
+        "id": "b0a20c81acce4d0e",
         "type": "debug",
-        "z": "8215ba97.8e59a8",
+        "z": "55318bfc504a4cca",
         "name": "hermes/nlu/intentParsed",
-        "active": false,
+        "active": true,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -283,9 +283,9 @@
         "l": false
     },
     {
-        "id": "e51c0ef7.9a114",
+        "id": "7a7054215929473e",
         "type": "json",
-        "z": "8215ba97.8e59a8",
+        "z": "55318bfc504a4cca",
         "name": "",
         "property": "payload",
         "action": "",
@@ -294,15 +294,15 @@
         "y": 65,
         "wires": [
             [
-                "f65371ba.188cd8"
+                "b0a20c81acce4d0e"
             ]
         ],
         "l": false
     },
     {
-        "id": "cbdce5c9.5c6938",
+        "id": "46bafef3ae180df6",
         "type": "json",
-        "z": "8215ba97.8e59a8",
+        "z": "55318bfc504a4cca",
         "name": "",
         "property": "payload",
         "action": "",
@@ -311,15 +311,15 @@
         "y": 190,
         "wires": [
             [
-                "8cc1fef7.c3a7c"
+                "6deb01aca2839822"
             ]
         ],
         "l": false
     },
     {
-        "id": "6f4f2c88.eaa2d4",
+        "id": "95ae38320428b941",
         "type": "json",
-        "z": "8215ba97.8e59a8",
+        "z": "55318bfc504a4cca",
         "name": "",
         "property": "payload",
         "action": "",
@@ -328,17 +328,17 @@
         "y": 50,
         "wires": [
             [
-                "c10d81c9.3cbeb8"
+                "54da0f3b59a5984f"
             ]
         ],
         "l": false
     },
     {
-        "id": "c10d81c9.3cbeb8",
+        "id": "54da0f3b59a5984f",
         "type": "debug",
-        "z": "8215ba97.8e59a8",
+        "z": "55318bfc504a4cca",
         "name": "hermes/nlu/intentParsed",
-        "active": false,
+        "active": true,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -352,9 +352,9 @@
         "l": false
     },
     {
-        "id": "f96ab142.d8bab8",
+        "id": "93221c155e306ade",
         "type": "mqtt-broker",
-        "z": "f81868a7.e97f48",
+        "z": "911701ff.6731e",
         "name": "-",
         "broker": "localhost",
         "port": "1883",
